@@ -1,0 +1,22 @@
+---
+const docs = [
+  { href: "/docs/", label: "Docs home" },
+  { href: "/docs/getting-started/", label: "Getting started" },
+  { href: "/docs/terminal/", label: "Terminal" },
+  { href: "/docs/file-transfer/", label: "File transfer" },
+  { href: "/docs/port-forwarding/", label: "Port forwarding" },
+  { href: "/docs/troubleshooting/", label: "Troubleshooting" }
+];
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="doc-nav">
+  {docs.map((item) => (
+    <a
+      href={item.href}
+      class:list={{ active: currentPath === item.href }}
+    >
+      {item.label}
+    </a>
+  ))}
+</nav>

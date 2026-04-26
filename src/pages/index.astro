@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const features = [
+  ["SSH terminal", "VT100/xterm-256color terminal emulation with color, cursor keys, scrollback, copy, and Android keyboard support."],
+  ["Multi-session grid", "Run up to eight sessions at once, switch by tapping panes, and double-tap a pane for fullscreen focus."],
+  ["Private keys", "Use passwords or imported/pasted private keys, including Ed25519, RSA, ECDSA, and DSA keys supported by the app."],
+  ["SFTP transfer", "Move files between phone storage and a remote server with local and remote browser panes."],
+  ["Port forwarding", "Save local tunnel specs with a server profile or add tunnels while connected."],
+  ["Reconnect workflow", "Foreground service, wake locks, keepalives, and reconnect attempts help sessions survive mobile network changes."]
+];
+---
+
+<BaseLayout title="Mobile SSH - Android SSH client" description="Mobile SSH is a focused Android SSH client with multi-session terminals, SFTP transfer, private keys, port forwarding, and tmux-aware workflows.">
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Android SSH client</p>
+        <h1>Mobile SSH</h1>
+        <p>
+          A focused SSH client for Android with multi-session terminals, private key authentication,
+          SFTP file transfer, local port forwarding, and tmux-aware controls built for phone and tablet use.
+        </p>
+        <div class="cta-row">
+          <a class="button" href="/docs/getting-started/">Read the docs</a>
+          <a class="button secondary" href="https://play.google.com/store/apps/details?id=TODO" aria-label="Play Store link placeholder">Play Store TODO</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Built around Android SSH work</h2>
+          <p>
+            Mobile SSH keeps the common admin path short: save a server, connect, keep sessions alive,
+            move files when needed, and get back to active terminals quickly.
+          </p>
+        </div>
+        <div class="feature-grid">
+          {features.map(([title, text]) => (
+            <article class="feature-card">
+              <span class="tag">{title}</span>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner mockup-band">
+        <div>
+          <h2>One screen, several live shells</h2>
+          <p>
+            The terminal view can hold multiple active SSH sessions in a grid. Select a pane to type,
+            use the extra key row for terminal controls, pinch to adjust text size, and double-tap a pane
+            when you need fullscreen focus.
+          </p>
+          <p>
+            Session history and active-session recovery help you return to current work after app switches,
+            screen lock, or Android activity recreation.
+          </p>
+        </div>
+        <img src="/assets/multiplex-mockup.svg" alt="Mockup showing four Mobile SSH terminal panes in a grid" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner mockup-band">
+        <img src="/assets/file-transfer-mockup.svg" alt="Mockup showing Mobile SSH local and remote file transfer panes" loading="lazy" />
+        <div>
+          <h2>SFTP when the terminal is not enough</h2>
+          <p>
+            Open file transfer from a connected session to browse phone storage and remote directories.
+            Queue uploads and downloads, sort files, remember recent paths per host, and inspect remote
+            file permissions when deciding what to move.
+          </p>
+          <div class="cta-row">
+            <a class="button" href="/docs/file-transfer/">File transfer guide</a>
+            <a class="button secondary" href="/features/">All features</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>How it fits beside Termux and Termius</h2>
+          <p>
+            Mobile SSH is intentionally narrow: it is not a full Linux environment and it is not a
+            cross-platform team vault. It is a local Android SSH/SFTP tool with fast access to the
+            session controls mobile users need most.
+          </p>
+        </div>
+        <div class="split-links">
+          <a class="doc-card" href="/compare/">
+            <h3>Comparison guide</h3>
+            <p>See when to choose Mobile SSH, Termux, or Termius on Android devices.</p>
+          </a>
+          <a class="doc-card" href="/privacy/">
+            <h3>Privacy policy</h3>
+            <p>Review what connection data is stored locally and what is sent to your servers.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

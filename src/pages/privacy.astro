@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Privacy Policy | Mobile SSH" description="Privacy policy for Mobile SSH, including local storage, SSH data transmission, file transfer, logs, and Android permissions.">
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">Privacy</p>
+      <h1>Privacy Policy</h1>
+      <p>
+        Mobile SSH is designed as a local Android SSH client. It does not require a Mobile SSH
+        account and does not provide a Mobile SSH cloud sync service.
+      </p>
+    </header>
+
+    <section class="content-page">
+      <h2>Information stored on your device</h2>
+      <p>
+        If you choose to save app data, Mobile SSH stores it locally on the Android device.
+        This may include saved server profiles, usernames, ports, passwords, private keys,
+        key passphrases, port-forwarding rules, recent sessions, login attempt history,
+        file-transfer paths, file-sort preferences, tmux reattach hints, app settings, and
+        debug logs when debug recording is enabled.
+      </p>
+
+      <h2>Information sent over the network</h2>
+      <p>
+        Mobile SSH sends SSH authentication data only to servers that you configure and connect to.
+        Terminal input/output, SFTP file contents, and local port-forwarded traffic are exchanged with
+        the servers and remote endpoints you choose. Mobile SSH does not send this data to a Mobile SSH
+        analytics, advertising, telemetry, or cloud sync service.
+      </p>
+
+      <h2>File transfer and storage access</h2>
+      <p>
+        The file transfer feature browses local phone storage and remote SFTP directories so you can
+        upload and download files. On Android versions that require it, the app may ask for storage
+        access so the local file browser can read and write selected files.
+      </p>
+
+      <h2>Logs and troubleshooting</h2>
+      <p>
+        Login history and optional debug logs are stored locally for troubleshooting. Debug logs can
+        include terminal events, SSH data sizes, touch input diagnostics, resize events, and tunnel
+        lifecycle events. Review any debug archive before sharing it with support or another person.
+      </p>
+
+      <h2>Permissions</h2>
+      <ul>
+        <li><strong>Internet:</strong> required to connect to SSH servers.</li>
+        <li><strong>Wake lock and Wi-Fi lock:</strong> used to keep active SSH sessions alive while the device sleeps.</li>
+        <li><strong>Foreground service and notifications:</strong> used for active connection handling in the background.</li>
+        <li><strong>Storage access:</strong> used by file transfer and key import workflows.</li>
+      </ul>
+
+      <h2>Security responsibilities</h2>
+      <p>
+        Protect your Android device with a strong screen lock if you save credentials or private keys.
+        Only connect to servers you trust. The current implementation uses local app storage rather
+        than a separate encrypted cloud vault.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Support contact: TODO. This policy will be updated when the public support channel and Play
+        Store listing are finalized.
+      </p>
+    </section>
+  </main>
+</BaseLayout>

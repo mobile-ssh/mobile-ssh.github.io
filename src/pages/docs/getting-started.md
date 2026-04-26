@@ -1,0 +1,76 @@
+---
+layout: ../../layouts/DocLayout.astro
+title: Getting started
+description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+---
+
+# Getting started
+
+Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+
+## Requirements
+
+- Android 8.0 or newer.
+- Network access from the Android device to your SSH server.
+- SSH server hostname or IP address, port, username, and either a password or private key.
+- Storage access if you want to use SFTP file transfer with the local phone file browser.
+
+## Connect to a server
+
+1. Open Mobile SSH.
+2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
+3. Enter the host, port, username, and authentication details.
+4. Tap the server to open a terminal session.
+5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+
+The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+
+## Save servers
+
+Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+
+- Hostname or IP address.
+- SSH port.
+- Username.
+- Password or private key details.
+- Optional local port-forwarding rules.
+
+Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+
+## Save credentials
+
+The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+
+Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+
+## Use private keys
+
+Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+
+To use a private key:
+
+1. Open **Credentials** or the server edit dialog.
+2. Paste the private key text, or choose **Import from file**.
+3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
+4. Save the credential or server.
+
+Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+
+## Recent sessions
+
+The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+
+## Active sessions
+
+When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+
+## First useful settings
+
+Open **Settings** from the start screen:
+
+- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
+- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+
+## Security note
+
+Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.

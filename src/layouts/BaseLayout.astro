@@ -1,0 +1,60 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const currentPath = Astro.url.pathname;
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/features/", label: "Features" },
+  { href: "/docs/", label: "Docs" },
+  { href: "/compare/", label: "Compare" },
+  { href: "/privacy/", label: "Privacy" }
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101820" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Mobile SSH home">
+        <img src="/assets/favicon.svg" alt="" width="32" height="32" />
+        <span>Mobile SSH</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={{ active: currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href)) }}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div>
+        <strong>Mobile SSH</strong>
+        <p>Focused SSH, SFTP, and terminal workflows for Android devices.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="/docs/">Documentation</a>
+        <a href="/compare/">Comparison</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
+    </footer>
+  </body>
+</html>
