@@ -71,6 +71,10 @@ Open **Settings** from the start screen:
 - Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
 - Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
 
+## Languages
+
+Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+
 ## Security note
 
 Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.

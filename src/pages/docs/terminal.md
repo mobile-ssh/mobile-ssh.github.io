@@ -48,9 +48,15 @@ Mobile SSH has two keyboard-related settings:
 
 When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
 
-## Copy text
+Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
 
-Use the terminal selection action to copy selected text or copy all visible terminal buffer text. Copied data goes to the Android clipboard.
+## Select, copy, share
+
+Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+
+- **Copy** -- place the selected text on the Android clipboard.
+- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
+- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
 
 ## Scrolling
 
