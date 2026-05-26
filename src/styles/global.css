@@ -104,7 +104,7 @@ a:hover {
   color: #fff;
   background-image:
     linear-gradient(90deg, rgba(16, 24, 32, 0.96), rgba(16, 24, 32, 0.78), rgba(16, 24, 32, 0.28)),
-    url("/assets/hero-terminal.svg");
+    url("/assets/screenshots/tab10-03-terminal.png");
   background-size: cover;
   background-position: center;
 }
@@ -266,12 +266,52 @@ p {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
-.mockup-band img {
-  border-radius: 8px;
-  box-shadow: 0 18px 40px rgba(16, 24, 32, 0.18);
+.device-shot {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.device-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  background: var(--terminal);
+  box-shadow: 0 22px 50px rgba(16, 24, 32, 0.22), 0 0 0 1px rgba(16, 24, 32, 0.08);
+}
+
+.phone-shot {
+  max-width: 320px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.phone-shot img {
+  border-radius: 28px;
+}
+
+.tablet-shot {
+  max-width: 560px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.tablet-shot img {
+  border-radius: 14px;
+}
+
+.phone-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.phone-gallery .phone-shot {
+  max-width: 260px;
 }
 
 .split-links {
@@ -459,6 +499,10 @@ pre code {
     grid-template-columns: 1fr;
   }
 
+  .phone-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .doc-shell {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -489,6 +533,14 @@ pre code {
     max-width: calc(100vw - 2rem);
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.35rem;
+  }
+
+  .phone-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-gallery .phone-shot {
+    max-width: 280px;
   }
 
   .main-nav a {

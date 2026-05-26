@@ -11,6 +11,15 @@ const features = [
   ["Terminal selection", "Select terminal text to copy, share, or select all visible buffer output; copies go to the Android clipboard."],
   ["Mobile keyboard friendly", "Gboard suggestions and voice input work alongside the extra key row; composing text buffers cleanly until a word boundary."]
 ];
+
+const phoneShots = [
+  { src: "/assets/screenshots/phone-01-main.png", alt: "Mobile SSH start screen on a phone with Servers, Credentials, Logs, Settings, Debug, and About tiles." },
+  { src: "/assets/screenshots/phone-02-addserver.png", alt: "Add Server dialog on a phone showing host, port, credentials, private key, and port forward fields." },
+  { src: "/assets/screenshots/phone-03-terminal.png", alt: "Single-session SSH terminal on a phone with the extra key row at the bottom." },
+  { src: "/assets/screenshots/phone-multi-01-2panes.png", alt: "Two stacked SSH sessions on a phone with the active pane highlighted." },
+  { src: "/assets/screenshots/phone-05-transfer.png", alt: "SFTP file transfer screen on a phone with local My Phone and Remote Host panes." },
+  { src: "/assets/screenshots/phone-06-about.png", alt: "About dialog on a phone showing version, author, license, and website fields." }
+];
 ---
 
 <BaseLayout title="Mobile SSH - Android SSH client" description="Mobile SSH is a focused Android SSH client with multi-session terminals, SFTP transfer, private keys, port forwarding, and tmux-aware workflows.">
@@ -23,7 +32,7 @@ const features = [
           A focused SSH client for Android with multi-session terminals, private key authentication,
           SFTP file transfer, local port forwarding, and tmux-aware controls built for phone and tablet use.
         </p>
-        <p class="hero-meta" style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.78;">Available in 19 languages &middot; version 1.3</p>
+        <p class="hero-meta" style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.78;">Available in 19 languages &middot; version 1.4</p>
         <div class="cta-row">
           <a class="button" href="/docs/getting-started/">Read the docs</a>
           <span class="button secondary disabled" aria-disabled="true" role="button" style="opacity: 0.65; cursor: not-allowed;">Coming soon to Google Play</span>
@@ -65,13 +74,17 @@ const features = [
             screen lock, or Android activity recreation.
           </p>
         </div>
-        <img src="/assets/multiplex-mockup.svg" alt="Mockup showing four Mobile SSH terminal panes in a grid" loading="lazy" />
+        <div class="device-shot tablet-shot">
+          <img src="/assets/screenshots/tab10-multi-01-4panes.png" alt="Mobile SSH on a 10-inch Android tablet showing four live SSH terminal panes side by side." loading="lazy" />
+        </div>
       </div>
     </section>
 
     <section class="section alt">
       <div class="section-inner mockup-band">
-        <img src="/assets/file-transfer-mockup.svg" alt="Mockup showing Mobile SSH local and remote file transfer panes" loading="lazy" />
+        <div class="device-shot phone-shot">
+          <img src="/assets/screenshots/phone-05-transfer.png" alt="Mobile SSH file transfer screen on a phone with local and remote file panes." loading="lazy" />
+        </div>
         <div>
           <h2>SFTP when the terminal is not enough</h2>
           <p>
@@ -83,6 +96,25 @@ const features = [
             <a class="button" href="/docs/file-transfer/">File transfer guide</a>
             <a class="button secondary" href="/features/">All features</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>See it on a real device</h2>
+          <p>
+            Screenshots from Android phones — the same screens you'll use to add servers, work in
+            terminals, run multiple sessions, and move files over SFTP.
+          </p>
+        </div>
+        <div class="phone-gallery">
+          {phoneShots.map((shot) => (
+            <figure class="device-shot phone-shot">
+              <img src={shot.src} alt={shot.alt} loading="lazy" />
+            </figure>
+          ))}
         </div>
       </div>
     </section>

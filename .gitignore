@@ -4,3 +4,4 @@ dist/
 .env
 .env.*
 npm-debug.log*
+.playwright-mcp/
