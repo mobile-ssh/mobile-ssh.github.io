@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { defaultLocale } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getDict } from "../../i18n";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const t = getDict(locale);
+---
+
+<BaseLayout title={t.features.metaTitle} description={t.features.metaDescription} locale={locale} pathKey="features">
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">{t.features.eyebrow}</p>
+      <h1>{t.features.h1}</h1>
+      <p>{t.features.intro}</p>
+    </header>
+    <section class="content-page">
+      <div class="feature-grid">
+        {t.features.groups.map((group) => (
+          <article class="feature-card">
+            <span class="tag">{group.title}</span>
+            <ul>
+              {group.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div class="callout warning" style="margin-top: 2rem;">
+        {t.features.security}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

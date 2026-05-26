@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { defaultLocale, localizedHref } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getDict } from "../../i18n";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const t = getDict(locale);
+
+const galleryShots = [
+  "/assets/screenshots/phone-01-main.png",
+  "/assets/screenshots/phone-02-addserver.png",
+  "/assets/screenshots/phone-03-terminal.png",
+  "/assets/screenshots/phone-multi-01-2panes.png",
+  "/assets/screenshots/phone-05-transfer.png",
+  "/assets/screenshots/phone-06-about.png"
+];
+---
+
+<BaseLayout title={t.home.metaTitle} description={t.home.metaDescription} locale={locale} pathKey="home">
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">{t.home.eyebrow}</p>
+          <h1>{t.home.h1}</h1>
+          <p>{t.home.intro}</p>
+          <p class="hero-meta" style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.78;">{t.home.versionLine}</p>
+          <div class="cta-row">
+            <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
+            <span class="button secondary disabled" aria-disabled="true" role="button" style="opacity: 0.65; cursor: not-allowed;">{t.home.ctaPlay}</span>
+          </div>
+        </div>
+        <div class="hero-shot">
+          <img src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="280" height="628" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>{t.home.sectionAHead}</h2>
+          <p>{t.home.sectionAIntro}</p>
+        </div>
+        <div class="feature-grid">
+          {t.home.features.map((f) => (
+            <article class="feature-card">
+              <span class="tag">{f.title}</span>
+              <p>{f.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner mockup-band">
+        <div>
+          <h2>{t.home.multiHead}</h2>
+          <p>{t.home.multiP1}</p>
+          <p>{t.home.multiP2}</p>
+        </div>
+        <div class="device-shot tablet-shot">
+          <img src="/assets/screenshots/tab10-multi-01-4panes.png" alt={t.home.multiAlt} loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner mockup-band">
+        <div class="device-shot phone-shot">
+          <img src="/assets/screenshots/phone-05-transfer.png" alt={t.home.sftpAlt} loading="lazy" />
+        </div>
+        <div>
+          <h2>{t.home.sftpHead}</h2>
+          <p>{t.home.sftpBody}</p>
+          <div class="cta-row">
+            <a class="button" href={localizedHref(locale, "/docs/file-transfer/")}>{t.home.sftpCtaGuide}</a>
+            <a class="button secondary" href={localizedHref(locale, "/features/")}>{t.home.sftpCtaAll}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>{t.home.galleryHead}</h2>
+          <p>{t.home.galleryIntro}</p>
+        </div>
+        <div class="phone-gallery">
+          {galleryShots.map((src, i) => (
+            <figure class="device-shot phone-shot">
+              <img src={src} alt={t.home.galleryAlts[i]} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>{t.home.compareHead}</h2>
+          <p>{t.home.compareIntro}</p>
+        </div>
+        <div class="split-links">
+          <a class="doc-card" href={localizedHref(locale, "/compare/")}>
+            <h3>{t.home.compareGuideTitle}</h3>
+            <p>{t.home.compareGuideText}</p>
+          </a>
+          <a class="doc-card" href={localizedHref(locale, "/privacy/")}>
+            <h3>{t.home.privacyTitle}</h3>
+            <p>{t.home.privacyText}</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

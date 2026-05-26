@@ -1,16 +1,32 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import DocNav from "../components/DocNav.astro";
+import { defaultLocale, locales } from "../i18n/locales";
+import type { LocaleCode } from "../i18n/locales";
+import { getDict } from "../i18n";
 
-const { frontmatter } = Astro.props;
-const title = `${frontmatter.title} | Mobile SSH Docs`;
-const description = frontmatter.description ?? "End-user documentation for Mobile SSH.";
+const { frontmatter, locale: localeProp } = Astro.props as {
+  frontmatter: { title: string; description?: string };
+  locale?: LocaleCode;
+};
+
+function deriveLocale(): LocaleCode {
+  if (localeProp) return localeProp;
+  const seg = Astro.url.pathname.split("/").filter(Boolean)[0];
+  if (seg && locales.some((l) => l.code === seg)) return seg as LocaleCode;
+  return defaultLocale;
+}
+
+const locale = deriveLocale();
+const t = getDict(locale);
+const title = `${frontmatter.title} | ${t.meta.siteName} ${t.nav.docs}`;
+const description = frontmatter.description ?? t.docsIndex.metaDescription;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} locale={locale} pathKey="docs">
   <main class="doc-shell">
     <aside class="doc-sidebar" aria-label="Documentation navigation">
-      <DocNav />
+      <DocNav locale={locale} />
     </aside>
     <article class="doc-content">
       <slot />

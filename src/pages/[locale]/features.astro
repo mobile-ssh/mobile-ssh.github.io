@@ -1,0 +1,12 @@
+---
+import Features from "../../components/pages/Features.astro";
+import { nonDefaultLocales } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+
+export function getStaticPaths() {
+  return nonDefaultLocales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as LocaleCode;
+---
+<Features locale={locale} />

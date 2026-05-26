@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { defaultLocale } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getDict } from "../../i18n";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const t = getDict(locale);
+
+function renderMd(text: string): string {
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+}
+---
+
+<BaseLayout title={t.privacy.metaTitle} description={t.privacy.metaDescription} locale={locale} pathKey="privacy">
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">{t.privacy.eyebrow}</p>
+      <h1>{t.privacy.h1}</h1>
+      <p>{t.privacy.intro}</p>
+    </header>
+
+    <section class="content-page">
+      {t.privacy.sections.map((s) => (
+        <>
+          <h2>{s.heading}</h2>
+          <p>{s.body}</p>
+        </>
+      ))}
+
+      <h2>{t.privacy.permissionsHeading}</h2>
+      <ul>
+        {t.privacy.permissions.map((p) => (
+          <li><strong>{p.label}:</strong> {p.body}</li>
+        ))}
+      </ul>
+
+      <h2>{t.privacy.securityHeading}</h2>
+      <p>{t.privacy.securityBody}</p>
+
+      <h2>{t.privacy.contactHeading}</h2>
+      <p set:html={renderMd(t.privacy.contactBody)} />
+    </section>
+  </main>
+</BaseLayout>

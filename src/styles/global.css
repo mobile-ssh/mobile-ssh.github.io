@@ -95,6 +95,40 @@ a:hover {
   text-decoration: none;
 }
 
+.lang-switch select {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  max-width: 11rem;
+}
+
+.lang-switch select:hover {
+  border-color: var(--muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[dir="rtl"] .hero {
+  background-image:
+    linear-gradient(-90deg, rgba(16, 24, 32, 0.96), rgba(16, 24, 32, 0.78), rgba(16, 24, 32, 0.28)),
+    url("/assets/screenshots/tab10-03-terminal.png");
+}
+
 .hero {
   min-height: 72vh;
   display: flex;
@@ -119,6 +153,29 @@ a:hover {
 
 .hero-inner {
   padding: 4rem 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-shot {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-shot img {
+  display: block;
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  background: var(--terminal);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .eyebrow {
@@ -497,6 +554,19 @@ pre code {
   .mockup-band,
   .split-links {
     grid-template-columns: 1fr;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-shot {
+    order: -1;
+  }
+
+  .hero-shot img {
+    max-width: 220px;
   }
 
   .phone-gallery {

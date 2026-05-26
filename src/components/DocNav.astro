@@ -1,11 +1,17 @@
 ---
+import { defaultLocale, localizedHref } from "../i18n/locales";
+import type { LocaleCode } from "../i18n/locales";
+import { getDict } from "../i18n";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const t = getDict(locale);
 const docs = [
-  { href: "/docs/", label: "Docs home" },
-  { href: "/docs/getting-started/", label: "Getting started" },
-  { href: "/docs/terminal/", label: "Terminal" },
-  { href: "/docs/file-transfer/", label: "File transfer" },
-  { href: "/docs/port-forwarding/", label: "Port forwarding" },
-  { href: "/docs/troubleshooting/", label: "Troubleshooting" }
+  { href: localizedHref(locale, "/docs/"),                  label: t.docsNav.home },
+  { href: localizedHref(locale, "/docs/getting-started/"),  label: t.docsNav.gettingStarted },
+  { href: localizedHref(locale, "/docs/terminal/"),         label: t.docsNav.terminal },
+  { href: localizedHref(locale, "/docs/file-transfer/"),    label: t.docsNav.fileTransfer },
+  { href: localizedHref(locale, "/docs/port-forwarding/"),  label: t.docsNav.portForwarding },
+  { href: localizedHref(locale, "/docs/troubleshooting/"),  label: t.docsNav.troubleshooting }
 ];
 const currentPath = Astro.url.pathname;
 ---

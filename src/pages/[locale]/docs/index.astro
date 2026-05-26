@@ -1,0 +1,12 @@
+---
+import DocsIndex from "../../../components/pages/DocsIndex.astro";
+import { nonDefaultLocales } from "../../../i18n/locales";
+import type { LocaleCode } from "../../../i18n/locales";
+
+export function getStaticPaths() {
+  return nonDefaultLocales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as LocaleCode;
+---
+<DocsIndex locale={locale} />

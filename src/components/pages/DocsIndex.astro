@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { defaultLocale, localizedHref } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getDict } from "../../i18n";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const t = getDict(locale);
+---
+
+<BaseLayout title={t.docsIndex.metaTitle} description={t.docsIndex.metaDescription} locale={locale} pathKey="docs">
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">{t.docsIndex.eyebrow}</p>
+      <h1>{t.docsIndex.h1}</h1>
+      <p>{t.docsIndex.intro}</p>
+    </header>
+    <section class="content-page">
+      <div class="feature-grid">
+        {t.docsIndex.cards.map((card) => (
+          <a class="doc-card" href={localizedHref(locale, `/docs/${card.slug}/`)}>
+            <h2>{card.title}</h2>
+            <p>{card.text}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

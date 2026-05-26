@@ -1,24 +1,43 @@
 ---
 import "../styles/global.css";
+import { defaultLocale, locales, localeMap, localizedHref } from "../i18n/locales";
+import type { LocaleCode } from "../i18n/locales";
+import { getDict } from "../i18n";
 
 interface Props {
   title: string;
   description: string;
+  locale?: LocaleCode;
+  pathKey?: "home" | "features" | "docs" | "compare" | "privacy";
 }
 
-const { title, description } = Astro.props;
+const { title, description, locale = defaultLocale, pathKey } = Astro.props;
+const info = localeMap[locale];
+const t = getDict(locale);
 const currentPath = Astro.url.pathname;
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/features/", label: "Features" },
-  { href: "/docs/", label: "Docs" },
-  { href: "/compare/", label: "Compare" },
-  { href: "/privacy/", label: "Privacy" }
+
+const navItems: { key: NonNullable<Props["pathKey"]>; href: string; label: string }[] = [
+  { key: "home",     href: localizedHref(locale, "/"),           label: t.nav.home },
+  { key: "features", href: localizedHref(locale, "/features/"),  label: t.nav.features },
+  { key: "docs",     href: localizedHref(locale, "/docs/"),      label: t.nav.docs },
+  { key: "compare",  href: localizedHref(locale, "/compare/"),   label: t.nav.compare },
+  { key: "privacy",  href: localizedHref(locale, "/privacy/"),   label: t.nav.privacy }
 ];
+
+function localePath(targetCode: LocaleCode): string {
+  // Strip the leading locale segment (if any) from currentPath, then re-prefix.
+  const segments = currentPath.split("/").filter(Boolean);
+  if (segments.length > 0 && locales.some((l) => l.code === segments[0])) {
+    segments.shift();
+  }
+  const remainder = "/" + segments.join("/");
+  const tail = remainder === "/" ? "/" : remainder.endsWith("/") ? remainder : remainder + "/";
+  return localizedHref(targetCode, tail);
+}
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={info.htmlLang} dir={info.dir}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,37 +45,58 @@ const navItems = [
     <meta name="description" content={description} />
     <meta name="theme-color" content="#101820" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    {locales.map((l) => (
+      <link rel="alternate" hreflang={l.htmlLang} href={`https://mobile-ssh.github.io${localePath(l.code)}`} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`https://mobile-ssh.github.io${localePath(defaultLocale)}`} />
     <title>{title}</title>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="Mobile SSH home">
+      <a class="brand" href={localizedHref(locale, "/")} aria-label={`${t.meta.siteName} home`}>
         <img src="/assets/favicon.svg" alt="" width="32" height="32" />
-        <span>Mobile SSH</span>
+        <span>{t.meta.siteName}</span>
       </a>
       <nav class="main-nav" aria-label="Main navigation">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class:list={{ active: currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href)) }}
+            class:list={{ active: pathKey === item.key }}
           >
             {item.label}
           </a>
         ))}
       </nav>
+      <div class="lang-switch">
+        <label for="lang-select" class="sr-only">{t.meta.languageSwitcher}</label>
+        <select id="lang-select" aria-label={t.meta.languageSwitcher} data-current={locale}>
+          {locales.map((l) => (
+            <option value={localePath(l.code)} selected={l.code === locale}>{l.nativeName}</option>
+          ))}
+        </select>
+      </div>
     </header>
     <slot />
     <footer class="site-footer">
       <div>
-        <strong>Mobile SSH</strong>
-        <p>Focused SSH, SFTP, and terminal workflows for Android devices.</p>
+        <strong>{t.meta.siteName}</strong>
+        <p>{t.footer.tagline}</p>
       </div>
       <nav aria-label="Footer navigation">
-        <a href="/docs/">Documentation</a>
-        <a href="/compare/">Comparison</a>
-        <a href="/privacy/">Privacy</a>
-        <a href="mailto:mobile.ssh.info@gmail.com">Contact</a>
+        <a href={localizedHref(locale, "/docs/")}>{t.footer.documentation}</a>
+        <a href={localizedHref(locale, "/compare/")}>{t.footer.comparison}</a>
+        <a href={localizedHref(locale, "/privacy/")}>{t.footer.privacy}</a>
+        <a href="mailto:mobile.ssh.info@gmail.com">{t.footer.contact}</a>
       </nav>
     </footer>
+    <script>
+      const sel = document.getElementById("lang-select");
+      if (sel) {
+        sel.addEventListener("change", (e) => {
+          const target = (e.target as HTMLSelectElement).value;
+          if (target) window.location.href = target;
+        });
+      }
+    </script>
   </body>
 </html>

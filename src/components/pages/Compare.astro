@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { defaultLocale } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getDict } from "../../i18n";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const t = getDict(locale);
+
+function renderMd(text: string): string {
+  return text
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+}
+---
+
+<BaseLayout title={t.compare.metaTitle} description={t.compare.metaDescription} locale={locale} pathKey="compare">
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">{t.compare.eyebrow}</p>
+      <h1>{t.compare.h1}</h1>
+      <p>{t.compare.intro}</p>
+    </header>
+
+    <section class="content-page">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>{t.compare.columns.need}</th>
+            <th>{t.compare.columns.mobileSsh}</th>
+            <th>{t.compare.columns.termux}</th>
+            <th>{t.compare.columns.termius}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {t.compare.rows.map((row) => (
+            <tr>
+              <td>{row.need}</td>
+              <td>{row.mobileSsh}</td>
+              <td>{row.termux}</td>
+              <td>{row.termius}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div class="feature-grid" style="margin-top: 2rem;">
+        {t.compare.cards.map((card) => (
+          <article class="compare-card">
+            <h2>{card.title}</h2>
+            <p>{card.body}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="callout" style="margin-top: 2rem;" set:html={renderMd(t.compare.sources)} />
+    </section>
+  </main>
+</BaseLayout>
