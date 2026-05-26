@@ -11,6 +11,7 @@ export const ta: Dict = {
     features: "அம்சங்கள்",
     docs: "ஆவணம்",
     compare: "ஒப்பீடு",
+    about: "பற்றி",
     privacy: "தனியுரிமை"
   },
   footer: {
@@ -28,7 +29,7 @@ export const ta: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android-க்கான ஒரு மையமான SSH கிளையன்ட்: பல-அமர்வு டெர்மினல்கள், தனிப்பட்ட கீ அங்கீகாரம், SFTP கோப்பு மாற்றம், உள்ளக போர்ட் முன்னோடல் மற்றும் தொலைபேசி & டேப்லட்டிற்கு tmux-நட்பு கட்டுப்பாடுகள்.",
-    versionLine: "19 மொழிகளில் கிடைக்கிறது · பதிப்பு 1.4",
+    versionLine: "19 மொழிகளில் கிடைக்கிறது · பதிப்பு 1.5",
     ctaDocs: "ஆவணத்தை படிக்கவும்",
     ctaPlay: "விரைவில் Google Play-இல்",
     sectionAHead: "Android-இல் SSH பணிக்கு வடிவமைக்கப்பட்டது",
@@ -278,5 +279,33 @@ export const ta: Dict = {
     fileTransfer: "கோப்பு மாற்றம்",
     portForwarding: "போர்ட் முன்னோடல்",
     troubleshooting: "சிக்கல் தீர்த்தல்"
+  },
+  about: {
+    metaTitle: "பற்றி | Mobile SSH",
+    metaDescription: "Mobile SSH பற்றி: Android SSH கிளையன்டின் பதிப்பு, ஆசிரியர், உரிமம் மற்றும் திறந்த-மூல அறிவிப்புகள்.",
+    eyebrow: "பற்றி",
+    h1: "Mobile SSH பற்றி",
+    intro: "tmux, போர்ட் முன்னோடல் மற்றும் SFTP உடன் கூடிய பல-அமர்வு SSH கிளையன்ட்.",
+    appHeading: "ஆப் பற்றி",
+    versionLabel: "பதிப்பு",
+    versionValue: "1.5 (10)",
+    authorLabel: "ஆசிரியர்",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "உரிமம்",
+    licenseValue: "MIT",
+    websiteLabel: "வலைத்தளம்",
+    privacyLabel: "தனியுரிமை கொள்கை",
+    privacyLinkText: "தனியுரிமை கொள்கை",
+    noticesHeading: "திறந்த-மூல அறிவிப்புகள்",
+    noticesIntro: "Mobile SSH கீழே உள்ள திறந்த-மூல நூலகங்களின் மீது கட்டமைக்கப்பட்டுள்ளது. ஒவ்வொன்றும் அதன் உரிமத்தின் கீழ் பயன்படுத்தப்படுகிறது.",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "தொடர்பு",
+    contactBody: "ஆதரவு தொடர்பு: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   }
 };

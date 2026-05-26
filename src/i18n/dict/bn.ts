@@ -11,6 +11,7 @@ export const bn: Dict = {
     features: "বৈশিষ্ট্য",
     docs: "ডকুমেন্টেশন",
     compare: "তুলনা",
+    about: "সম্পর্কে",
     privacy: "গোপনীয়তা"
   },
   footer: {
@@ -28,7 +29,7 @@ export const bn: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android-এর জন্য একটি কেন্দ্রীভূত SSH ক্লায়েন্ট: মাল্টি-সেশন টার্মিনাল, প্রাইভেট কী প্রমাণীকরণ, SFTP ফাইল ট্রান্সফার, লোকাল পোর্ট ফরওয়ার্ডিং এবং ফোন ও ট্যাবলেটের জন্য tmux-সমর্থিত নিয়ন্ত্রণ।",
-    versionLine: "১৯টি ভাষায় উপলব্ধ · সংস্করণ ১.৪",
+    versionLine: "১৯টি ভাষায় উপলব্ধ · সংস্করণ ১.৫",
     ctaDocs: "ডকুমেন্টেশন পড়ুন",
     ctaPlay: "শীঘ্রই Google Play-তে",
     sectionAHead: "Android-এ SSH কাজের জন্য তৈরি",
@@ -278,5 +279,33 @@ export const bn: Dict = {
     fileTransfer: "ফাইল ট্রান্সফার",
     portForwarding: "পোর্ট ফরওয়ার্ডিং",
     troubleshooting: "সমস্যা সমাধান"
+  },
+  about: {
+    metaTitle: "সম্পর্কে | Mobile SSH",
+    metaDescription: "Mobile SSH সম্পর্কে: Android SSH ক্লায়েন্টের সংস্করণ, লেখক, লাইসেন্স ও ওপেন সোর্স নোটিস।",
+    eyebrow: "সম্পর্কে",
+    h1: "Mobile SSH সম্পর্কে",
+    intro: "tmux, পোর্ট ফরওয়ার্ডিং ও SFTP সমর্থনসহ মাল্টি-সেশন SSH ক্লায়েন্ট।",
+    appHeading: "অ্যাপ সম্পর্কে",
+    versionLabel: "সংস্করণ",
+    versionValue: "1.5 (10)",
+    authorLabel: "লেখক",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "লাইসেন্স",
+    licenseValue: "MIT",
+    websiteLabel: "ওয়েবসাইট",
+    privacyLabel: "গোপনীয়তা নীতি",
+    privacyLinkText: "গোপনীয়তা নীতি",
+    noticesHeading: "ওপেন সোর্স নোটিস",
+    noticesIntro: "Mobile SSH নিম্নলিখিত ওপেন-সোর্স লাইব্রেরির উপর তৈরি। প্রতিটি যথাযথ লাইসেন্সের অধীনে ব্যবহৃত।",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "যোগাযোগ",
+    contactBody: "সাপোর্ট যোগাযোগ: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)।"
   }
 };

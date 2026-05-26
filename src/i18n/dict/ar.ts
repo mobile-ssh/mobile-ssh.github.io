@@ -11,6 +11,7 @@ export const ar: Dict = {
     features: "المزايا",
     docs: "التوثيق",
     compare: "المقارنة",
+    about: "حول",
     privacy: "الخصوصية"
   },
   footer: {
@@ -28,7 +29,7 @@ export const ar: Dict = {
     h1: "Mobile SSH",
     intro:
       "عميل SSH مُركَّز لأندرويد، يتضمّن طرفيّات متعددة الجلسات، والمصادقة بالمفتاح الخاص، ونقل ملفات SFTP، وإعادة توجيه المنافذ محليًا، وعناصر تحكم مُتوافقة مع tmux مُصمَّمة للهواتف والأجهزة اللوحية.",
-    versionLine: "متوفّر بـ 19 لغة · الإصدار 1.4",
+    versionLine: "متوفّر بـ 19 لغة · الإصدار 1.5",
     ctaDocs: "اقرأ التوثيق",
     ctaPlay: "قريبًا على Google Play",
     sectionAHead: "مُصمَّم لعمل SSH على أندرويد",
@@ -278,5 +279,33 @@ export const ar: Dict = {
     fileTransfer: "نقل الملفات",
     portForwarding: "إعادة توجيه المنافذ",
     troubleshooting: "استكشاف الأخطاء"
+  },
+  about: {
+    metaTitle: "حول | Mobile SSH",
+    metaDescription: "حول Mobile SSH: الإصدار، المؤلف، الترخيص، وإشعارات المصدر المفتوح لعميل SSH على أندرويد.",
+    eyebrow: "حول",
+    h1: "حول Mobile SSH",
+    intro: "عميل SSH متعدّد الجلسات مع tmux، وإعادة توجيه المنافذ، وSFTP.",
+    appHeading: "عن التطبيق",
+    versionLabel: "الإصدار",
+    versionValue: "1.5 (10)",
+    authorLabel: "المؤلف",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "الترخيص",
+    licenseValue: "MIT",
+    websiteLabel: "الموقع",
+    privacyLabel: "سياسة الخصوصية",
+    privacyLinkText: "سياسة الخصوصية",
+    noticesHeading: "إشعارات المصدر المفتوح",
+    noticesIntro: "يستند Mobile SSH إلى المكتبات مفتوحة المصدر التالية، وتُستخدم كل منها وفق ترخيصها.",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "التواصل",
+    contactBody: "تواصل الدعم: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   }
 };

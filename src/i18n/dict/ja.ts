@@ -11,6 +11,7 @@ export const ja: Dict = {
     features: "機能",
     docs: "ドキュメント",
     compare: "比較",
+    about: "情報",
     privacy: "プライバシー"
   },
   footer: {
@@ -28,7 +29,7 @@ export const ja: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android 向けの絞り込まれた SSH クライアント。マルチセッション端末、秘密鍵認証、SFTP ファイル転送、ローカル ポートフォワード、tmux に配慮した操作をスマホとタブレットのために用意しました。",
-    versionLine: "19 言語に対応 · バージョン 1.4",
+    versionLine: "19 言語に対応 · バージョン 1.5",
     ctaDocs: "ドキュメントを読む",
     ctaPlay: "Google Play に近日公開",
     sectionAHead: "Android 上の SSH 作業を中心に設計",
@@ -278,5 +279,33 @@ export const ja: Dict = {
     fileTransfer: "ファイル転送",
     portForwarding: "ポート転送",
     troubleshooting: "トラブルシューティング"
+  },
+  about: {
+    metaTitle: "情報 | Mobile SSH",
+    metaDescription: "Mobile SSH について：Android 用 SSH クライアントのバージョン、作者、ライセンス、オープンソース表記。",
+    eyebrow: "情報",
+    h1: "Mobile SSH について",
+    intro: "tmux、ポート転送、SFTP に対応するマルチセッション SSH クライアント。",
+    appHeading: "アプリについて",
+    versionLabel: "バージョン",
+    versionValue: "1.5 (10)",
+    authorLabel: "作者",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "ライセンス",
+    licenseValue: "MIT",
+    websiteLabel: "ウェブサイト",
+    privacyLabel: "プライバシーポリシー",
+    privacyLinkText: "プライバシーポリシー",
+    noticesHeading: "オープンソース表記",
+    noticesIntro: "Mobile SSH は次のオープンソース ライブラリを使用しています。それぞれのライセンスに従って利用しています。",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "お問い合わせ",
+    contactBody: "サポート連絡先：[mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)。"
   }
 };

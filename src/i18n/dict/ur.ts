@@ -11,6 +11,7 @@ export const ur: Dict = {
     features: "خصوصیات",
     docs: "دستاویزات",
     compare: "موازنہ",
+    about: "متعلق",
     privacy: "رازداری"
   },
   footer: {
@@ -28,7 +29,7 @@ export const ur: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android کے لیے ایک مرکوز SSH کلائنٹ: ملٹی سیشن ٹرمینل، نجی کی توثیق، SFTP فائل منتقلی، مقامی پورٹ فارورڈنگ اور موبائل و ٹیبلٹ کے لیے tmux ہم آہنگ کنٹرولز۔",
-    versionLine: "19 زبانوں میں دستیاب · ورژن 1.4",
+    versionLine: "19 زبانوں میں دستیاب · ورژن 1.5",
     ctaDocs: "دستاویزات پڑھیں",
     ctaPlay: "جلد Google Play پر",
     sectionAHead: "Android پر SSH کام کے لیے بنایا گیا",
@@ -278,5 +279,33 @@ export const ur: Dict = {
     fileTransfer: "فائل منتقلی",
     portForwarding: "پورٹ فارورڈنگ",
     troubleshooting: "مسائل کا حل"
+  },
+  about: {
+    metaTitle: "متعلق | Mobile SSH",
+    metaDescription: "Mobile SSH کے متعلق: Android SSH کلائنٹ کا ورژن، مصنف، لائسنس اور اوپن سورس نوٹسز۔",
+    eyebrow: "متعلق",
+    h1: "Mobile SSH کے متعلق",
+    intro: "tmux، پورٹ فارورڈنگ اور SFTP کے ساتھ ملٹی سیشن SSH کلائنٹ۔",
+    appHeading: "ایپ کے متعلق",
+    versionLabel: "ورژن",
+    versionValue: "1.5 (10)",
+    authorLabel: "مصنف",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "لائسنس",
+    licenseValue: "MIT",
+    websiteLabel: "ویب سائٹ",
+    privacyLabel: "رازداری پالیسی",
+    privacyLinkText: "رازداری پالیسی",
+    noticesHeading: "اوپن سورس نوٹسز",
+    noticesIntro: "Mobile SSH درج ذیل اوپن سورس لائبریریوں پر بنایا گیا ہے، ہر ایک اپنے لائسنس کے تحت۔",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "رابطہ",
+    contactBody: "سپورٹ رابطہ: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)۔"
   }
 };

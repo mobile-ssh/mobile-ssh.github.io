@@ -11,6 +11,7 @@ export const en: Dict = {
     features: "Features",
     docs: "Docs",
     compare: "Compare",
+    about: "About",
     privacy: "Privacy"
   },
   footer: {
@@ -28,7 +29,7 @@ export const en: Dict = {
     h1: "Mobile SSH",
     intro:
       "A focused SSH client for Android with multi-session terminals, private key authentication, SFTP file transfer, local port forwarding, and tmux-aware controls built for phone and tablet use.",
-    versionLine: "Available in 19 languages · version 1.4",
+    versionLine: "Available in 19 languages · version 1.5",
     ctaDocs: "Read the docs",
     ctaPlay: "Coming soon to Google Play",
     sectionAHead: "Built around Android SSH work",
@@ -279,5 +280,35 @@ export const en: Dict = {
     fileTransfer: "File transfer",
     portForwarding: "Port forwarding",
     troubleshooting: "Troubleshooting"
+  },
+  about: {
+    metaTitle: "About | Mobile SSH",
+    metaDescription:
+      "About Mobile SSH: version, author, license, and open-source notices for the Android SSH client.",
+    eyebrow: "About",
+    h1: "About Mobile SSH",
+    intro: "Multi-session SSH client with tmux, port forwards, and SFTP.",
+    appHeading: "About the app",
+    versionLabel: "Version",
+    versionValue: "1.5 (10)",
+    authorLabel: "Author",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "License",
+    licenseValue: "MIT",
+    websiteLabel: "Website",
+    privacyLabel: "Privacy policy",
+    privacyLinkText: "Privacy policy",
+    noticesHeading: "Open source notices",
+    noticesIntro:
+      "Mobile SSH is built on the following open-source libraries. Each is used under its respective license.",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "Contact",
+    contactBody: "Support contact: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   }
 };

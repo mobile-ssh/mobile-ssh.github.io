@@ -11,6 +11,7 @@ export const es: Dict = {
     features: "Funciones",
     docs: "Documentación",
     compare: "Comparar",
+    about: "Acerca de",
     privacy: "Privacidad"
   },
   footer: {
@@ -28,7 +29,7 @@ export const es: Dict = {
     h1: "Mobile SSH",
     intro:
       "Un cliente SSH enfocado para Android con terminales multi-sesión, autenticación por clave privada, transferencia de archivos SFTP, reenvío local de puertos y controles compatibles con tmux pensados para teléfonos y tabletas.",
-    versionLine: "Disponible en 19 idiomas · versión 1.4",
+    versionLine: "Disponible en 19 idiomas · versión 1.5",
     ctaDocs: "Leer la documentación",
     ctaPlay: "Próximamente en Google Play",
     sectionAHead: "Diseñado para el trabajo SSH en Android",
@@ -278,5 +279,33 @@ export const es: Dict = {
     fileTransfer: "Transferencia de archivos",
     portForwarding: "Reenvío de puertos",
     troubleshooting: "Solución de problemas"
+  },
+  about: {
+    metaTitle: "Acerca de | Mobile SSH",
+    metaDescription: "Acerca de Mobile SSH: versión, autor, licencia y avisos de código abierto del cliente SSH para Android.",
+    eyebrow: "Acerca de",
+    h1: "Acerca de Mobile SSH",
+    intro: "Cliente SSH multi-sesión con tmux, reenvío de puertos y SFTP.",
+    appHeading: "Acerca de la app",
+    versionLabel: "Versión",
+    versionValue: "1.5 (10)",
+    authorLabel: "Autor",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "Licencia",
+    licenseValue: "MIT",
+    websiteLabel: "Sitio web",
+    privacyLabel: "Política de privacidad",
+    privacyLinkText: "Política de privacidad",
+    noticesHeading: "Avisos de código abierto",
+    noticesIntro: "Mobile SSH está construido sobre las siguientes bibliotecas de código abierto. Cada una se usa bajo su licencia correspondiente.",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "Contacto",
+    contactBody: "Contacto de soporte: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   }
 };

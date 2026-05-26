@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { defaultLocale, localizedHref } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getDict } from "../../i18n";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const t = getDict(locale);
+
+function renderMd(text: string): string {
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+}
+
+const websiteUrl = "https://mobile-ssh.github.io";
+---
+
+<BaseLayout title={t.about.metaTitle} description={t.about.metaDescription} locale={locale} pathKey="about">
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">{t.about.eyebrow}</p>
+      <h1>{t.about.h1}</h1>
+      <p>{t.about.intro}</p>
+    </header>
+
+    <section class="content-page">
+      <h2>{t.about.appHeading}</h2>
+      <ul>
+        <li><strong>{t.about.versionLabel}:</strong> {t.about.versionValue}</li>
+        <li><strong>{t.about.authorLabel}:</strong> {t.about.authorValue}</li>
+        <li><strong>{t.about.licenseLabel}:</strong> {t.about.licenseValue}</li>
+        <li><strong>{t.about.websiteLabel}:</strong> <a href={websiteUrl}>{websiteUrl}</a></li>
+        <li><strong>{t.about.privacyLabel}:</strong> <a href={localizedHref(locale, "/privacy/")}>{t.about.privacyLinkText}</a></li>
+      </ul>
+
+      <h2>{t.about.noticesHeading}</h2>
+      <p>{t.about.noticesIntro}</p>
+      <ul>
+        {t.about.notices.map((n) => (
+          <li>
+            {n.url
+              ? <><a href={n.url}>{n.name}</a> — {n.license}</>
+              : <>{n.name} — {n.license}</>}
+          </li>
+        ))}
+      </ul>
+
+      <h2>{t.about.contactHeading}</h2>
+      <p set:html={renderMd(t.about.contactBody)} />
+    </section>
+  </main>
+</BaseLayout>

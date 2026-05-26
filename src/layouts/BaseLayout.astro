@@ -8,7 +8,7 @@ interface Props {
   title: string;
   description: string;
   locale?: LocaleCode;
-  pathKey?: "home" | "features" | "docs" | "compare" | "privacy";
+  pathKey?: "home" | "features" | "docs" | "compare" | "about" | "privacy";
 }
 
 const { title, description, locale = defaultLocale, pathKey } = Astro.props;
@@ -21,6 +21,7 @@ const navItems: { key: NonNullable<Props["pathKey"]>; href: string; label: strin
   { key: "features", href: localizedHref(locale, "/features/"),  label: t.nav.features },
   { key: "docs",     href: localizedHref(locale, "/docs/"),      label: t.nav.docs },
   { key: "compare",  href: localizedHref(locale, "/compare/"),   label: t.nav.compare },
+  { key: "about",    href: localizedHref(locale, "/about/"),     label: t.nav.about },
   { key: "privacy",  href: localizedHref(locale, "/privacy/"),   label: t.nav.privacy }
 ];
 

@@ -11,6 +11,7 @@ export const tr: Dict = {
     features: "Özellikler",
     docs: "Belgeler",
     compare: "Karşılaştır",
+    about: "Hakkında",
     privacy: "Gizlilik"
   },
   footer: {
@@ -28,7 +29,7 @@ export const tr: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android için odaklanmış bir SSH istemcisi: çoklu oturum terminalleri, özel anahtarla kimlik doğrulama, SFTP dosya aktarımı, yerel port yönlendirme ve telefon ile tablet için tmux uyumlu kontroller.",
-    versionLine: "19 dilde mevcut · sürüm 1.4",
+    versionLine: "19 dilde mevcut · sürüm 1.5",
     ctaDocs: "Belgeleri oku",
     ctaPlay: "Yakında Google Play'de",
     sectionAHead: "Android'de SSH çalışması için tasarlandı",
@@ -278,5 +279,33 @@ export const tr: Dict = {
     fileTransfer: "Dosya aktarımı",
     portForwarding: "Port yönlendirme",
     troubleshooting: "Sorun giderme"
+  },
+  about: {
+    metaTitle: "Hakkında | Mobile SSH",
+    metaDescription: "Mobile SSH hakkında: Android SSH istemcisinin sürümü, yazarı, lisansı ve açık kaynak bildirimleri.",
+    eyebrow: "Hakkında",
+    h1: "Mobile SSH hakkında",
+    intro: "tmux, port yönlendirme ve SFTP destekli çoklu oturum SSH istemcisi.",
+    appHeading: "Uygulama hakkında",
+    versionLabel: "Sürüm",
+    versionValue: "1.5 (10)",
+    authorLabel: "Yazar",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "Lisans",
+    licenseValue: "MIT",
+    websiteLabel: "Web sitesi",
+    privacyLabel: "Gizlilik politikası",
+    privacyLinkText: "Gizlilik politikası",
+    noticesHeading: "Açık kaynak bildirimleri",
+    noticesIntro: "Mobile SSH aşağıdaki açık kaynak kütüphaneler üzerine kurulmuştur. Her biri kendi lisansı kapsamında kullanılır.",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "İletişim",
+    contactBody: "Destek iletişimi: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   }
 };

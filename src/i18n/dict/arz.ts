@@ -11,6 +11,7 @@ export const arz: Dict = {
     features: "الميزات",
     docs: "التوثيق",
     compare: "المقارنة",
+    about: "عن",
     privacy: "الخصوصية"
   },
   footer: {
@@ -28,7 +29,7 @@ export const arz: Dict = {
     h1: "Mobile SSH",
     intro:
       "برنامج SSH مركّز لأندرويد: ترمنال بكذا جلسة، تسجيل دخول بالمفتاح الخاص، نقل ملفات SFTP، تحويل بورتات محلي، وأدوات تحكم متوافقة مع tmux معمولة للموبايل والتابلت.",
-    versionLine: "متوفر بـ 19 لغة · إصدار 1.4",
+    versionLine: "متوفر بـ 19 لغة · إصدار 1.5",
     ctaDocs: "اقرأ التوثيق",
     ctaPlay: "قريبًا على Google Play",
     sectionAHead: "مصمم علشان شغل SSH على أندرويد",
@@ -278,5 +279,33 @@ export const arz: Dict = {
     fileTransfer: "نقل الملفات",
     portForwarding: "تحويل البورتات",
     troubleshooting: "حل المشاكل"
+  },
+  about: {
+    metaTitle: "عن | Mobile SSH",
+    metaDescription: "عن Mobile SSH: الإصدار والمؤلف والترخيص وإشعارات الكود المفتوح لبرنامج SSH على أندرويد.",
+    eyebrow: "عن",
+    h1: "عن Mobile SSH",
+    intro: "عميل SSH بكذا جلسة، فيه tmux وتحويل بورتات وSFTP.",
+    appHeading: "عن التطبيق",
+    versionLabel: "الإصدار",
+    versionValue: "1.5 (10)",
+    authorLabel: "المؤلف",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "الترخيص",
+    licenseValue: "MIT",
+    websiteLabel: "الموقع",
+    privacyLabel: "سياسة الخصوصية",
+    privacyLinkText: "سياسة الخصوصية",
+    noticesHeading: "إشعارات الكود المفتوح",
+    noticesIntro: "Mobile SSH متبني على المكتبات المفتوحة دي، وكل واحدة بتتستخدم حسب الترخيص بتاعها.",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "التواصل",
+    contactBody: "تواصل الدعم: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   }
 };

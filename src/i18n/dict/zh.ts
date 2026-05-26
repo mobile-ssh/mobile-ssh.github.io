@@ -11,6 +11,7 @@ export const zh: Dict = {
     features: "功能",
     docs: "文档",
     compare: "对比",
+    about: "关于",
     privacy: "隐私"
   },
   footer: {
@@ -28,7 +29,7 @@ export const zh: Dict = {
     h1: "Mobile SSH",
     intro:
       "一款专注的 Android SSH 客户端：多会话终端、私钥认证、SFTP 文件传输、本地端口转发，以及为手机和平板量身打造的 tmux 友好控制。",
-    versionLine: "支持 19 种语言 · 版本 1.4",
+    versionLine: "支持 19 种语言 · 版本 1.5",
     ctaDocs: "阅读文档",
     ctaPlay: "即将上架 Google Play",
     sectionAHead: "围绕 Android 上的 SSH 工作而设计",
@@ -278,5 +279,33 @@ export const zh: Dict = {
     fileTransfer: "文件传输",
     portForwarding: "端口转发",
     troubleshooting: "故障排查"
+  },
+  about: {
+    metaTitle: "关于 | Mobile SSH",
+    metaDescription: "关于 Mobile SSH：Android SSH 客户端的版本、作者、许可证以及开源声明。",
+    eyebrow: "关于",
+    h1: "关于 Mobile SSH",
+    intro: "支持 tmux、端口转发与 SFTP 的多会话 SSH 客户端。",
+    appHeading: "关于应用",
+    versionLabel: "版本",
+    versionValue: "1.5 (10)",
+    authorLabel: "作者",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "许可证",
+    licenseValue: "MIT",
+    websiteLabel: "网站",
+    privacyLabel: "隐私政策",
+    privacyLinkText: "隐私政策",
+    noticesHeading: "开源声明",
+    noticesIntro: "Mobile SSH 基于以下开源库构建，每一个均按其相应许可证使用。",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "联系",
+    contactBody: "支持联系方式：[mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)。"
   }
 };

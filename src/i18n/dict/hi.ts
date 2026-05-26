@@ -11,6 +11,7 @@ export const hi: Dict = {
     features: "विशेषताएँ",
     docs: "दस्तावेज़",
     compare: "तुलना",
+    about: "के बारे में",
     privacy: "गोपनीयता"
   },
   footer: {
@@ -28,7 +29,7 @@ export const hi: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android के लिए एक केंद्रित SSH क्लाइंट: मल्टी-सेशन टर्मिनल, प्राइवेट-की प्रमाणीकरण, SFTP फ़ाइल ट्रांसफ़र, स्थानीय पोर्ट फ़ॉरवर्डिंग और फ़ोन व टैबलेट के लिए tmux-समर्थित नियंत्रण।",
-    versionLine: "19 भाषाओं में उपलब्ध · संस्करण 1.4",
+    versionLine: "19 भाषाओं में उपलब्ध · संस्करण 1.5",
     ctaDocs: "दस्तावेज़ पढ़ें",
     ctaPlay: "जल्द ही Google Play पर",
     sectionAHead: "Android पर SSH कार्य के लिए बनाया गया",
@@ -278,5 +279,33 @@ export const hi: Dict = {
     fileTransfer: "फ़ाइल ट्रांसफ़र",
     portForwarding: "पोर्ट फ़ॉरवर्डिंग",
     troubleshooting: "समस्या-निवारण"
+  },
+  about: {
+    metaTitle: "के बारे में | Mobile SSH",
+    metaDescription: "Mobile SSH के बारे में: Android SSH क्लाइंट का संस्करण, लेखक, लाइसेंस और ओपन-सोर्स नोटिस।",
+    eyebrow: "के बारे में",
+    h1: "Mobile SSH के बारे में",
+    intro: "tmux, पोर्ट फ़ॉरवर्डिंग और SFTP के साथ मल्टी-सेशन SSH क्लाइंट।",
+    appHeading: "ऐप के बारे में",
+    versionLabel: "संस्करण",
+    versionValue: "1.5 (10)",
+    authorLabel: "लेखक",
+    authorValue: "Dmitry Kozlov",
+    licenseLabel: "लाइसेंस",
+    licenseValue: "MIT",
+    websiteLabel: "वेबसाइट",
+    privacyLabel: "गोपनीयता नीति",
+    privacyLinkText: "गोपनीयता नीति",
+    noticesHeading: "ओपन सोर्स नोटिस",
+    noticesIntro: "Mobile SSH निम्नलिखित ओपन-सोर्स लाइब्रेरीज़ पर बना है। प्रत्येक का उपयोग उसके संबंधित लाइसेंस के अंतर्गत होता है।",
+    notices: [
+      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+    ],
+    contactHeading: "संपर्क",
+    contactBody: "समर्थन संपर्क: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)।"
   }
 };

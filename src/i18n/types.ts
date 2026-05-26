@@ -37,6 +37,7 @@ export interface Dict {
     features: string;
     docs: string;
     compare: string;
+    about: string;
     privacy: string;
   };
   footer: {
@@ -131,5 +132,27 @@ export interface Dict {
     fileTransfer: string;
     portForwarding: string;
     troubleshooting: string;
+  };
+  about: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    h1: string;
+    intro: string;
+    appHeading: string;
+    versionLabel: string;
+    versionValue: string;
+    authorLabel: string;
+    authorValue: string;
+    licenseLabel: string;
+    licenseValue: string;
+    websiteLabel: string;
+    privacyLabel: string;
+    privacyLinkText: string;
+    noticesHeading: string;
+    noticesIntro: string;
+    notices: { name: string; license: string; url?: string }[];
+    contactHeading: string;
+    contactBody: string;
   };
 }
