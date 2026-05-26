@@ -3,9 +3,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { defaultLocale, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
+import { renderVersionLine } from "../../i18n/version";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
+const versionLine = renderVersionLine(t.home.versionLine, locale);
 
 const galleryShots = [
   "/assets/screenshots/phone-01-main.png",
@@ -25,7 +27,7 @@ const galleryShots = [
           <p class="eyebrow">{t.home.eyebrow}</p>
           <h1>{t.home.h1}</h1>
           <p>{t.home.intro}</p>
-          <p class="hero-meta" style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.78;">{t.home.versionLine}</p>
+          <p class="hero-meta" style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.78;">{versionLine}</p>
           <div class="cta-row">
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
             <span class="button secondary disabled" aria-disabled="true" role="button" style="opacity: 0.65; cursor: not-allowed;">{t.home.ctaPlay}</span>

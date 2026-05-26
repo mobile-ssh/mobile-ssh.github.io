@@ -29,7 +29,7 @@ export const id: Dict = {
     h1: "Mobile SSH",
     intro:
       "Klien SSH yang fokus untuk Android dengan terminal multi-sesi, autentikasi kunci pribadi, transfer berkas SFTP, penerusan port lokal, dan kontrol ramah tmux untuk ponsel dan tablet.",
-    versionLine: "Tersedia dalam 19 bahasa · versi 1.5",
+    versionLine: "Tersedia dalam {count} bahasa · versi {version}",
     ctaDocs: "Baca dokumentasi",
     ctaPlay: "Segera hadir di Google Play",
     sectionAHead: "Dirancang untuk pekerjaan SSH di Android",
@@ -288,7 +288,6 @@ export const id: Dict = {
     intro: "Klien SSH multi-sesi dengan tmux, penerusan port, dan SFTP.",
     appHeading: "Tentang aplikasi",
     versionLabel: "Versi",
-    versionValue: "1.5 (10)",
     authorLabel: "Penulis",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "Lisensi",

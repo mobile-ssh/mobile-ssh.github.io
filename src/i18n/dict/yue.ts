@@ -29,7 +29,7 @@ export const yue: Dict = {
     h1: "Mobile SSH",
     intro:
       "為 Android 而設嘅集中式 SSH 客戶端：多會話終端機、私鑰驗證、SFTP 檔案傳輸、本機端口轉發，仲有專為電話同平板而設嘅 tmux 友好控制。",
-    versionLine: "支援 19 種語言 · 版本 1.5",
+    versionLine: "支援 {count} 種語言 · 版本 {version}",
     ctaDocs: "睇文檔",
     ctaPlay: "即將喺 Google Play 推出",
     sectionAHead: "為 Android 上嘅 SSH 工作而設計",
@@ -288,7 +288,6 @@ export const yue: Dict = {
     intro: "支援 tmux、端口轉發同 SFTP 嘅多會話 SSH 客戶端。",
     appHeading: "關於應用程式",
     versionLabel: "版本",
-    versionValue: "1.5 (10)",
     authorLabel: "作者",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "授權",

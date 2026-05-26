@@ -29,7 +29,7 @@ export const ta: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android-க்கான ஒரு மையமான SSH கிளையன்ட்: பல-அமர்வு டெர்மினல்கள், தனிப்பட்ட கீ அங்கீகாரம், SFTP கோப்பு மாற்றம், உள்ளக போர்ட் முன்னோடல் மற்றும் தொலைபேசி & டேப்லட்டிற்கு tmux-நட்பு கட்டுப்பாடுகள்.",
-    versionLine: "19 மொழிகளில் கிடைக்கிறது · பதிப்பு 1.5",
+    versionLine: "{count} மொழிகளில் கிடைக்கிறது · பதிப்பு {version}",
     ctaDocs: "ஆவணத்தை படிக்கவும்",
     ctaPlay: "விரைவில் Google Play-இல்",
     sectionAHead: "Android-இல் SSH பணிக்கு வடிவமைக்கப்பட்டது",
@@ -288,7 +288,6 @@ export const ta: Dict = {
     intro: "tmux, போர்ட் முன்னோடல் மற்றும் SFTP உடன் கூடிய பல-அமர்வு SSH கிளையன்ட்.",
     appHeading: "ஆப் பற்றி",
     versionLabel: "பதிப்பு",
-    versionValue: "1.5 (10)",
     authorLabel: "ஆசிரியர்",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "உரிமம்",

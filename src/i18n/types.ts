@@ -141,7 +141,6 @@ export interface Dict {
     intro: string;
     appHeading: string;
     versionLabel: string;
-    versionValue: string;
     authorLabel: string;
     authorValue: string;
     licenseLabel: string;

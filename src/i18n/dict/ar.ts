@@ -29,7 +29,7 @@ export const ar: Dict = {
     h1: "Mobile SSH",
     intro:
       "عميل SSH مُركَّز لأندرويد، يتضمّن طرفيّات متعددة الجلسات، والمصادقة بالمفتاح الخاص، ونقل ملفات SFTP، وإعادة توجيه المنافذ محليًا، وعناصر تحكم مُتوافقة مع tmux مُصمَّمة للهواتف والأجهزة اللوحية.",
-    versionLine: "متوفّر بـ 19 لغة · الإصدار 1.5",
+    versionLine: "متوفّر بـ {count} لغة · الإصدار {version}",
     ctaDocs: "اقرأ التوثيق",
     ctaPlay: "قريبًا على Google Play",
     sectionAHead: "مُصمَّم لعمل SSH على أندرويد",
@@ -288,7 +288,6 @@ export const ar: Dict = {
     intro: "عميل SSH متعدّد الجلسات مع tmux، وإعادة توجيه المنافذ، وSFTP.",
     appHeading: "عن التطبيق",
     versionLabel: "الإصدار",
-    versionValue: "1.5 (10)",
     authorLabel: "المؤلف",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "الترخيص",

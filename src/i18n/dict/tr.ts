@@ -29,7 +29,7 @@ export const tr: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android için odaklanmış bir SSH istemcisi: çoklu oturum terminalleri, özel anahtarla kimlik doğrulama, SFTP dosya aktarımı, yerel port yönlendirme ve telefon ile tablet için tmux uyumlu kontroller.",
-    versionLine: "19 dilde mevcut · sürüm 1.5",
+    versionLine: "{count} dilde mevcut · sürüm {version}",
     ctaDocs: "Belgeleri oku",
     ctaPlay: "Yakında Google Play'de",
     sectionAHead: "Android'de SSH çalışması için tasarlandı",
@@ -288,7 +288,6 @@ export const tr: Dict = {
     intro: "tmux, port yönlendirme ve SFTP destekli çoklu oturum SSH istemcisi.",
     appHeading: "Uygulama hakkında",
     versionLabel: "Sürüm",
-    versionValue: "1.5 (10)",
     authorLabel: "Yazar",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "Lisans",

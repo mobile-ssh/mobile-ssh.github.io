@@ -29,7 +29,7 @@ export const ur: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android کے لیے ایک مرکوز SSH کلائنٹ: ملٹی سیشن ٹرمینل، نجی کی توثیق، SFTP فائل منتقلی، مقامی پورٹ فارورڈنگ اور موبائل و ٹیبلٹ کے لیے tmux ہم آہنگ کنٹرولز۔",
-    versionLine: "19 زبانوں میں دستیاب · ورژن 1.5",
+    versionLine: "{count} زبانوں میں دستیاب · ورژن {version}",
     ctaDocs: "دستاویزات پڑھیں",
     ctaPlay: "جلد Google Play پر",
     sectionAHead: "Android پر SSH کام کے لیے بنایا گیا",
@@ -288,7 +288,6 @@ export const ur: Dict = {
     intro: "tmux، پورٹ فارورڈنگ اور SFTP کے ساتھ ملٹی سیشن SSH کلائنٹ۔",
     appHeading: "ایپ کے متعلق",
     versionLabel: "ورژن",
-    versionValue: "1.5 (10)",
     authorLabel: "مصنف",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "لائسنس",

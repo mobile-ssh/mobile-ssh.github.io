@@ -29,7 +29,7 @@ export const pt: Dict = {
     h1: "Mobile SSH",
     intro:
       "Um cliente SSH focado para Android com terminais multi-sessão, autenticação por chave privada, transferência de arquivos SFTP, redirecionamento local de portas e controles compatíveis com tmux pensados para celular e tablet.",
-    versionLine: "Disponível em 19 idiomas · versão 1.5",
+    versionLine: "Disponível em {count} idiomas · versão {version}",
     ctaDocs: "Ler a documentação",
     ctaPlay: "Em breve no Google Play",
     sectionAHead: "Feito para trabalho SSH no Android",
@@ -288,7 +288,6 @@ export const pt: Dict = {
     intro: "Cliente SSH multi-sessão com tmux, redirecionamento de portas e SFTP.",
     appHeading: "Sobre o app",
     versionLabel: "Versão",
-    versionValue: "1.5 (10)",
     authorLabel: "Autor",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "Licença",

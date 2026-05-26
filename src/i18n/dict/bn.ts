@@ -29,7 +29,7 @@ export const bn: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android-এর জন্য একটি কেন্দ্রীভূত SSH ক্লায়েন্ট: মাল্টি-সেশন টার্মিনাল, প্রাইভেট কী প্রমাণীকরণ, SFTP ফাইল ট্রান্সফার, লোকাল পোর্ট ফরওয়ার্ডিং এবং ফোন ও ট্যাবলেটের জন্য tmux-সমর্থিত নিয়ন্ত্রণ।",
-    versionLine: "১৯টি ভাষায় উপলব্ধ · সংস্করণ ১.৫",
+    versionLine: "{count}টি ভাষায় উপলব্ধ · সংস্করণ {version}",
     ctaDocs: "ডকুমেন্টেশন পড়ুন",
     ctaPlay: "শীঘ্রই Google Play-তে",
     sectionAHead: "Android-এ SSH কাজের জন্য তৈরি",
@@ -288,7 +288,6 @@ export const bn: Dict = {
     intro: "tmux, পোর্ট ফরওয়ার্ডিং ও SFTP সমর্থনসহ মাল্টি-সেশন SSH ক্লায়েন্ট।",
     appHeading: "অ্যাপ সম্পর্কে",
     versionLabel: "সংস্করণ",
-    versionValue: "1.5 (10)",
     authorLabel: "লেখক",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "লাইসেন্স",

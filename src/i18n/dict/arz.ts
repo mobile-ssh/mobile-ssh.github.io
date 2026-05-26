@@ -29,7 +29,7 @@ export const arz: Dict = {
     h1: "Mobile SSH",
     intro:
       "برنامج SSH مركّز لأندرويد: ترمنال بكذا جلسة، تسجيل دخول بالمفتاح الخاص، نقل ملفات SFTP، تحويل بورتات محلي، وأدوات تحكم متوافقة مع tmux معمولة للموبايل والتابلت.",
-    versionLine: "متوفر بـ 19 لغة · إصدار 1.5",
+    versionLine: "متوفر بـ {count} لغة · إصدار {version}",
     ctaDocs: "اقرأ التوثيق",
     ctaPlay: "قريبًا على Google Play",
     sectionAHead: "مصمم علشان شغل SSH على أندرويد",
@@ -288,7 +288,6 @@ export const arz: Dict = {
     intro: "عميل SSH بكذا جلسة، فيه tmux وتحويل بورتات وSFTP.",
     appHeading: "عن التطبيق",
     versionLabel: "الإصدار",
-    versionValue: "1.5 (10)",
     authorLabel: "المؤلف",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "الترخيص",

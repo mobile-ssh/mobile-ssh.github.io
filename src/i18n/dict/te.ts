@@ -29,7 +29,7 @@ export const te: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android కోసం కేంద్రీకృత SSH క్లయింట్: బహుళ-సెషన్ టర్మినళ్లు, ప్రైవేట్ కీ ధృవీకరణ, SFTP ఫైల్ బదిలీ, స్థానిక పోర్ట్ ఫార్వార్డింగ్ మరియు ఫోన్ & టాబ్లెట్ కోసం tmux-అనుకూల నియంత్రణలు.",
-    versionLine: "19 భాషల్లో అందుబాటులో · వెర్షన్ 1.5",
+    versionLine: "{count} భాషల్లో అందుబాటులో · వెర్షన్ {version}",
     ctaDocs: "డాక్యుమెంటేషన్ చదవండి",
     ctaPlay: "త్వరలో Google Play లో",
     sectionAHead: "Android పై SSH పని కోసం రూపొందించబడింది",
@@ -288,7 +288,6 @@ export const te: Dict = {
     intro: "tmux, పోర్ట్ ఫార్వార్డింగ్ మరియు SFTP తో మల్టీ-సెషన్ SSH క్లయింట్.",
     appHeading: "యాప్ గురించి",
     versionLabel: "వెర్షన్",
-    versionValue: "1.5 (10)",
     authorLabel: "రచయిత",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "లైసెన్స్",

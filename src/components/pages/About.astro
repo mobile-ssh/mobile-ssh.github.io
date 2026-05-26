@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { defaultLocale, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
+import { versionDisplay } from "../../i18n/version";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
@@ -25,7 +26,7 @@ const websiteUrl = "https://mobile-ssh.github.io";
     <section class="content-page">
       <h2>{t.about.appHeading}</h2>
       <ul>
-        <li><strong>{t.about.versionLabel}:</strong> {t.about.versionValue}</li>
+        <li><strong>{t.about.versionLabel}:</strong> {versionDisplay}</li>
         <li><strong>{t.about.authorLabel}:</strong> {t.about.authorValue}</li>
         <li><strong>{t.about.licenseLabel}:</strong> {t.about.licenseValue}</li>
         <li><strong>{t.about.websiteLabel}:</strong> <a href={websiteUrl}>{websiteUrl}</a></li>

@@ -29,7 +29,7 @@ export const ja: Dict = {
     h1: "Mobile SSH",
     intro:
       "Android 向けの絞り込まれた SSH クライアント。マルチセッション端末、秘密鍵認証、SFTP ファイル転送、ローカル ポートフォワード、tmux に配慮した操作をスマホとタブレットのために用意しました。",
-    versionLine: "19 言語に対応 · バージョン 1.5",
+    versionLine: "{count} 言語に対応 · バージョン {version}",
     ctaDocs: "ドキュメントを読む",
     ctaPlay: "Google Play に近日公開",
     sectionAHead: "Android 上の SSH 作業を中心に設計",
@@ -288,7 +288,6 @@ export const ja: Dict = {
     intro: "tmux、ポート転送、SFTP に対応するマルチセッション SSH クライアント。",
     appHeading: "アプリについて",
     versionLabel: "バージョン",
-    versionValue: "1.5 (10)",
     authorLabel: "作者",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "ライセンス",

@@ -29,7 +29,7 @@ export const zh: Dict = {
     h1: "Mobile SSH",
     intro:
       "一款专注的 Android SSH 客户端：多会话终端、私钥认证、SFTP 文件传输、本地端口转发，以及为手机和平板量身打造的 tmux 友好控制。",
-    versionLine: "支持 19 种语言 · 版本 1.5",
+    versionLine: "支持 {count} 种语言 · 版本 {version}",
     ctaDocs: "阅读文档",
     ctaPlay: "即将上架 Google Play",
     sectionAHead: "围绕 Android 上的 SSH 工作而设计",
@@ -288,7 +288,6 @@ export const zh: Dict = {
     intro: "支持 tmux、端口转发与 SFTP 的多会话 SSH 客户端。",
     appHeading: "关于应用",
     versionLabel: "版本",
-    versionValue: "1.5 (10)",
     authorLabel: "作者",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "许可证",
