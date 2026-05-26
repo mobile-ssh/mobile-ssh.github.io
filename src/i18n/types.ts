@@ -56,6 +56,9 @@ export interface Dict {
     versionLine: string;
     ctaDocs: string;
     ctaPlay: string;
+    advantagesHead: string;
+    advantagesIntro: string;
+    advantages: FeatureRow[];
     sectionAHead: string;
     sectionAIntro: string;
     features: FeatureRow[];

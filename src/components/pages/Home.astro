@@ -39,6 +39,23 @@ const galleryShots = [
       </div>
     </section>
 
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>{t.home.advantagesHead}</h2>
+          <p>{t.home.advantagesIntro}</p>
+        </div>
+        <div class="feature-grid">
+          {t.home.advantages.map((f) => (
+            <article class="feature-card">
+              <span class="tag">{f.title}</span>
+              <p>{f.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section class="section alt">
       <div class="section-inner">
         <div class="section-head">

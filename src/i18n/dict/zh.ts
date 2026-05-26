@@ -32,6 +32,16 @@ export const zh: Dict = {
     versionLine: "支持 {count} 种语言 · 版本 {version}",
     ctaDocs: "阅读文档",
     ctaPlay: "在 Google Play 上获取",
+    advantagesHead: "为什么选择 Mobile SSH",
+    advantagesIntro: "针对手机 SSH 客户端常见的痛点而设计。",
+    advantages: [
+      { title: "无 Pro 版本，无广告", text: "所有功能都在同一个应用里。没有把核心功能锁在 Pro 升级背后的付费墙，终端上也不会出现广告。" },
+      { title: "数据完全本地", text: "保存的服务器、凭据和密钥都存在设备上。无云端账号，也不会被关停。" },
+      { title: "保存主机，一键连接", text: "添加一次主机后即可一键重连，包含密钥、端口和已配置的隧道。" },
+      { title: "键盘上方的终端键", text: "ESC、TAB、CTRL、ALT、FN、方向键、Home、End、PgUp/PgDn 一键直达，不影响 Gboard 输入建议。" },
+      { title: "无需命令的端口转发", text: "隧道附加在服务器配置上，连接时自动建立。" },
+      { title: "锁屏和切网仍在线", text: "前台服务、唤醒锁和自动重连让会话穿过锁屏、切换应用和网络变化。" }
+    ],
     sectionAHead: "围绕 Android 上的 SSH 工作而设计",
     sectionAIntro:
       "Mobile SSH 缩短了常见的运维路径：保存服务器、连接、保持会话存活、必要时移动文件，并快速回到正在使用的终端。",

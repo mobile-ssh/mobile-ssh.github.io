@@ -32,6 +32,16 @@ export const pcm: Dict = {
     versionLine: "Dey for {count} language · version {version}",
     ctaDocs: "Read di docs",
     ctaPlay: "Get am for Google Play",
+    advantagesHead: "Why Mobile SSH",
+    advantagesIntro: "We build am wit di tins wey mobile SSH apps dey miss for mind.",
+    advantages: [
+      { title: "No Pro level, no ads", text: "All di features dey for di same app. No paywall wey go hide important work behind Pro upgrade, no ad banner for di terminal." },
+      { title: "Your data dey for your phone", text: "Saved servers, credentials and keys dey stay for di device. No cloud account; nothing wey dem fit shut down." },
+      { title: "Saved hosts, one-tap connect", text: "Add host once, then reconnect wit one tap — wit key, port, and any tunnel wey you don set." },
+      { title: "Terminal keys for top di keyboard", text: "Dedicated row wit ESC, TAB, CTRL, ALT, FN, arrows, Home, End, PgUp/PgDn — without fighting Gboard suggestion." },
+      { title: "Port forwarding without command", text: "Tunnels dey attach to di server profile and dey come up automatic when you connect." },
+      { title: "E dey survive lock and network change", text: "Foreground service, wake locks and auto-reconnect dey keep di shell alive across screen-off, app switch and network change." }
+    ],
     sectionAHead: "Make for Android SSH work",
     sectionAIntro:
       "Mobile SSH dey keep di admin road short: save server, connect, keep session dey alive, move file when you need am, and quick return to live terminal.",

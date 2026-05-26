@@ -32,6 +32,16 @@ export const id: Dict = {
     versionLine: "Tersedia dalam {count} bahasa · versi {version}",
     ctaDocs: "Baca dokumentasi",
     ctaPlay: "Dapatkan di Google Play",
+    advantagesHead: "Mengapa Mobile SSH",
+    advantagesIntro: "Dirancang untuk menjawab hal-hal yang biasa keliru pada klien SSH ponsel.",
+    advantages: [
+      { title: "Tanpa tingkatan Pro, tanpa iklan", text: "Semua fitur ada di aplikasi yang sama. Tidak ada paywall yang menyembunyikan alur kerja penting di balik upgrade Pro, tidak ada banner iklan di terminal." },
+      { title: "Data Anda tetap lokal", text: "Server, kredensial, dan kunci yang disimpan ada di perangkat. Tidak ada akun cloud; tidak ada yang bisa dihentikan." },
+      { title: "Host tersimpan, terhubung dengan satu tap", text: "Tambahkan host sekali dan hubungkan kembali dengan satu tap — termasuk kunci, port, dan tunnel yang sudah dikonfigurasi." },
+      { title: "Tombol terminal di atas keyboard", text: "Baris khusus berisi ESC, TAB, CTRL, ALT, FN, panah, Home, End, PgUp/PgDn — tanpa mengganggu saran Gboard." },
+      { title: "Penerusan port tanpa perintah", text: "Tunnel melekat pada profil server dan otomatis aktif saat tersambung." },
+      { title: "Bertahan saat layar terkunci dan roaming", text: "Layanan foreground, wake lock, dan koneksi ulang otomatis menjaga sesi tetap hidup meski layar mati, ganti aplikasi, atau ganti jaringan." }
+    ],
     sectionAHead: "Dirancang untuk pekerjaan SSH di Android",
     sectionAIntro:
       "Mobile SSH memendekkan jalur administrasi umum: simpan server, sambungkan, jaga sesi tetap hidup, pindahkan berkas saat diperlukan, dan kembali cepat ke terminal aktif.",

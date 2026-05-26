@@ -32,6 +32,16 @@ export const de: Dict = {
     versionLine: "Verfügbar in {count} Sprachen · Version {version}",
     ctaDocs: "Dokumentation lesen",
     ctaPlay: "Jetzt bei Google Play",
+    advantagesHead: "Warum Mobile SSH",
+    advantagesIntro: "Gebaut um die Stellen herum, an denen mobile SSH-Clients üblicherweise scheitern.",
+    advantages: [
+      { title: "Keine Pro-Stufe, keine Werbung", text: "Alle Funktionen in derselben App. Keine Paywall, die wesentliche Workflows hinter einem Pro-Upgrade versteckt, keine Werbebanner im Terminal." },
+      { title: "Deine Daten bleiben lokal", text: "Gespeicherte Server, Zugangsdaten und Schlüssel liegen auf dem Gerät. Kein Cloud-Konto; nichts, was abgeschaltet werden könnte." },
+      { title: "Gespeicherte Hosts, ein Tippen", text: "Host einmal anlegen und mit einem Tippen wieder verbinden — inklusive Schlüssel, Port und konfigurierten Tunneln." },
+      { title: "Terminal-Tasten über der Tastatur", text: "Eigene Reihe mit ESC, TAB, CTRL, ALT, FN, Pfeilen, Home, End, PgUp/PgDn — ohne Gboard-Vorschläge zu stören." },
+      { title: "Portweiterleitung ohne Befehle", text: "Tunnel hängen am Server-Profil und gehen beim Verbinden automatisch hoch." },
+      { title: "Übersteht Sperre und Netzwechsel", text: "Foreground-Service, Wake Locks und Auto-Reconnect halten Sitzungen am Leben — bei ausgeschaltetem Bildschirm, App-Wechsel und Netzwerkwechsel." }
+    ],
     sectionAHead: "Gebaut für SSH-Arbeit auf Android",
     sectionAIntro:
       "Mobile SSH hält den üblichen Admin-Weg kurz: Server speichern, verbinden, Sitzungen am Leben halten, bei Bedarf Dateien bewegen und schnell zu aktiven Terminals zurückkehren.",

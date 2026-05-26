@@ -32,6 +32,16 @@ export const pt: Dict = {
     versionLine: "Disponível em {count} idiomas · versão {version}",
     ctaDocs: "Ler a documentação",
     ctaPlay: "Disponível no Google Play",
+    advantagesHead: "Por que Mobile SSH",
+    advantagesIntro: "Pensado a partir das falhas comuns dos clientes SSH para celular.",
+    advantages: [
+      { title: "Sem nível Pro, sem anúncios", text: "Todas as funções estão no mesmo app. Sem paywall escondendo fluxos essenciais atrás de um upgrade Pro, sem banners de anúncio no terminal." },
+      { title: "Seus dados ficam locais", text: "Servidores, credenciais e chaves salvos no dispositivo. Sem conta na nuvem; nada que possa ser descontinuado." },
+      { title: "Hosts salvos, conexão com um toque", text: "Adicione o host uma vez e reconecte com um toque — chave, porta e túneis configurados incluídos." },
+      { title: "Teclas de terminal sobre o teclado", text: "Linha dedicada com ESC, TAB, CTRL, ALT, FN, setas, Home, End, PgUp/PgDn — sem brigar com as sugestões do Gboard." },
+      { title: "Encaminhamento de portas sem comandos", text: "Os túneis ficam vinculados ao perfil do servidor e sobem automaticamente ao conectar." },
+      { title: "Sobrevive a bloqueio e mudança de rede", text: "Serviço em primeiro plano, wake locks e reconexão automática mantêm as sessões vivas mesmo com tela bloqueada, troca de app ou rede." }
+    ],
     sectionAHead: "Feito para trabalho SSH no Android",
     sectionAIntro:
       "O Mobile SSH encurta o caminho comum de administração: salve um servidor, conecte, mantenha as sessões vivas, mova arquivos quando precisar e volte rápido aos terminais ativos.",

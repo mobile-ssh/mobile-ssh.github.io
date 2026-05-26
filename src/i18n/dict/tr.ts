@@ -32,6 +32,16 @@ export const tr: Dict = {
     versionLine: "{count} dilde mevcut · sürüm {version}",
     ctaDocs: "Belgeleri oku",
     ctaPlay: "Google Play'den indirin",
+    advantagesHead: "Neden Mobile SSH",
+    advantagesIntro: "Mobil SSH istemcilerinin tipik olarak takıldığı noktalar düşünülerek tasarlandı.",
+    advantages: [
+      { title: "Pro seviyesi yok, reklam yok", text: "Tüm özellikler aynı uygulamada. Temel akışları bir Pro yükseltmesinin ardına saklayan bir paywall yok, terminalde reklam afişi yok." },
+      { title: "Verileriniz cihazınızda kalır", text: "Kaydedilen sunucular, kimlik bilgileri ve anahtarlar cihazda saklanır. Bulut hesabı yok; kapatılacak bir şey yok." },
+      { title: "Kayıtlı sunucular, tek dokunuşla bağlantı", text: "Sunucuyu bir kez ekleyin, tek dokunuşla yeniden bağlanın — anahtar, port ve yapılandırılmış tüneller dahil." },
+      { title: "Klavyenin üstünde terminal tuşları", text: "ESC, TAB, CTRL, ALT, FN, yön tuşları, Home, End, PgUp/PgDn için ayrı bir sıra — Gboard önerileriyle çakışmadan." },
+      { title: "Komut yazmadan port yönlendirme", text: "Tüneller sunucu profiline bağlıdır ve bağlandığınız anda otomatik olarak yükselir." },
+      { title: "Kilit ve ağ değişimine dayanıklı", text: "Ön plan servisi, wake lock'lar ve otomatik yeniden bağlanma; ekran kapalıyken, uygulama değişiminde ve ağ değişiminde oturumları canlı tutar." }
+    ],
     sectionAHead: "Android'de SSH çalışması için tasarlandı",
     sectionAIntro:
       "Mobile SSH yaygın yönetim yolunu kısaltır: sunucuyu kaydet, bağlan, oturumları canlı tut, gerektiğinde dosya taşı ve hızlıca aktif terminallere geri dön.",

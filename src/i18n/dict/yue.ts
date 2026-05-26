@@ -32,6 +32,16 @@ export const yue: Dict = {
     versionLine: "支援 {count} 種語言 · 版本 {version}",
     ctaDocs: "睇文檔",
     ctaPlay: "喺 Google Play 下載",
+    advantagesHead: "點解揀 Mobile SSH",
+    advantagesIntro: "針對手機 SSH 客戶端慣常出嘅問題嚟設計。",
+    advantages: [
+      { title: "冇 Pro 級數，冇廣告", text: "所有功能都喺同一個 app 入面。冇 paywall 將主要功能擺喺 Pro 升級後面，終端機上面亦冇廣告 banner。" },
+      { title: "資料全部留喺手機", text: "儲存嘅伺服器、憑證、密鑰都喺裝置上面。冇雲端帳號，唔會有人關咗佢。" },
+      { title: "儲存主機，一㩒就連", text: "主機加一次，下次㩒一下就再連 —— 連密鑰、端口同已配置嘅 tunnel 都齊。" },
+      { title: "鍵盤上面嘅終端機按鍵", text: "ESC、TAB、CTRL、ALT、FN、方向鍵、Home、End、PgUp/PgDn 專屬一行 —— 唔影響 Gboard 嘅輸入建議。" },
+      { title: "唔使打指令嘅端口轉發", text: "Tunnel 黐喺伺服器 profile 度，連線即自動開。" },
+      { title: "熄屏漫遊都頂得住", text: "前景服務、wake lock、自動重連等住 session 喺熄屏、轉 app、轉網絡之間都唔斷。" }
+    ],
     sectionAHead: "為 Android 上嘅 SSH 工作而設計",
     sectionAIntro:
       "Mobile SSH 幫你縮短常見嘅管理路徑：儲存伺服器、連線、保持會話、需要嗰陣搬檔案、然後快速返去仲開緊嘅終端機。",
