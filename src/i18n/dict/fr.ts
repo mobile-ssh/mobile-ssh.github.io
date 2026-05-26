@@ -31,7 +31,7 @@ export const fr: Dict = {
       "Un client SSH ciblé pour Android, avec terminaux multi-sessions, authentification par clé privée, transfert de fichiers SFTP, redirection de ports locale et contrôles compatibles tmux pensés pour téléphone et tablette.",
     versionLine: "Disponible en {count} langues · version {version}",
     ctaDocs: "Lire la documentation",
-    ctaPlay: "Bientôt sur Google Play",
+    ctaPlay: "Disponible sur Google Play",
     sectionAHead: "Conçu pour l'usage SSH sur Android",
     sectionAIntro:
       "Mobile SSH raccourcit le chemin d'administration habituel : enregistrer un serveur, se connecter, garder les sessions vivantes, déplacer des fichiers au besoin et revenir vite aux terminaux actifs.",

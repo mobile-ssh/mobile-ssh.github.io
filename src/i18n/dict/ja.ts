@@ -31,7 +31,7 @@ export const ja: Dict = {
       "Android 向けの絞り込まれた SSH クライアント。マルチセッション端末、秘密鍵認証、SFTP ファイル転送、ローカル ポートフォワード、tmux に配慮した操作をスマホとタブレットのために用意しました。",
     versionLine: "{count} 言語に対応 · バージョン {version}",
     ctaDocs: "ドキュメントを読む",
-    ctaPlay: "Google Play に近日公開",
+    ctaPlay: "Google Play で手に入れよう",
     sectionAHead: "Android 上の SSH 作業を中心に設計",
     sectionAIntro:
       "Mobile SSH は管理者の定番ルートを短くします。サーバーを保存し、つなぎ、セッションを維持し、必要なときにファイルを動かし、すばやくアクティブな端末に戻れます。",

@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { defaultLocale, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
-import { renderVersionLine } from "../../i18n/version";
+import { renderVersionLine, PLAY_STORE_URL } from "../../i18n/version";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
@@ -30,7 +30,7 @@ const galleryShots = [
           <p class="hero-meta" style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.78;">{versionLine}</p>
           <div class="cta-row">
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
-            <span class="button secondary disabled" aria-disabled="true" role="button" style="opacity: 0.65; cursor: not-allowed;">{t.home.ctaPlay}</span>
+            <a class="button secondary" href={PLAY_STORE_URL} rel="noopener">{t.home.ctaPlay}</a>
           </div>
         </div>
         <div class="hero-shot">

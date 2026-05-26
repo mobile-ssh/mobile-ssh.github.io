@@ -31,7 +31,7 @@ export const zh: Dict = {
       "一款专注的 Android SSH 客户端：多会话终端、私钥认证、SFTP 文件传输、本地端口转发，以及为手机和平板量身打造的 tmux 友好控制。",
     versionLine: "支持 {count} 种语言 · 版本 {version}",
     ctaDocs: "阅读文档",
-    ctaPlay: "即将上架 Google Play",
+    ctaPlay: "在 Google Play 上获取",
     sectionAHead: "围绕 Android 上的 SSH 工作而设计",
     sectionAIntro:
       "Mobile SSH 缩短了常见的运维路径：保存服务器、连接、保持会话存活、必要时移动文件，并快速回到正在使用的终端。",

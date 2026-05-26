@@ -31,7 +31,7 @@ export const pcm: Dict = {
       "Na one focused SSH client for Android: multi-session terminals, private key login, SFTP file transfer, local port forwarding, and tmux-friendly controls wey dem build for phone and tablet.",
     versionLine: "Dey for {count} language · version {version}",
     ctaDocs: "Read di docs",
-    ctaPlay: "E go soon land for Google Play",
+    ctaPlay: "Get am for Google Play",
     sectionAHead: "Make for Android SSH work",
     sectionAIntro:
       "Mobile SSH dey keep di admin road short: save server, connect, keep session dey alive, move file when you need am, and quick return to live terminal.",
