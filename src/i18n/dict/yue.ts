@@ -19,7 +19,8 @@ export const yue: Dict = {
     documentation: "文檔",
     comparison: "對比",
     privacy: "私隱",
-    contact: "聯絡"
+    contact: "聯絡",
+    feedback: "意見回饋"
   },
   home: {
     metaTitle: "Mobile SSH — Android SSH 客戶端",

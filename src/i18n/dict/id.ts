@@ -19,7 +19,8 @@ export const id: Dict = {
     documentation: "Dokumentasi",
     comparison: "Perbandingan",
     privacy: "Privasi",
-    contact: "Kontak"
+    contact: "Kontak",
+    feedback: "Umpan Balik"
   },
   home: {
     metaTitle: "Mobile SSH — Klien SSH untuk Android",

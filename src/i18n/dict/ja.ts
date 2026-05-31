@@ -19,7 +19,8 @@ export const ja: Dict = {
     documentation: "ドキュメント",
     comparison: "比較",
     privacy: "プライバシー",
-    contact: "お問い合わせ"
+    contact: "お問い合わせ",
+    feedback: "フィードバック"
   },
   home: {
     metaTitle: "Mobile SSH — Android 用 SSH クライアント",

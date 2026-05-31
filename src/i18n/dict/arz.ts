@@ -19,7 +19,8 @@ export const arz: Dict = {
     documentation: "التوثيق",
     comparison: "المقارنة",
     privacy: "الخصوصية",
-    contact: "التواصل"
+    contact: "التواصل",
+    feedback: "ملاحظات"
   },
   home: {
     metaTitle: "Mobile SSH — برنامج SSH لأندرويد",

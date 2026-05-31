@@ -19,7 +19,8 @@ export const tr: Dict = {
     documentation: "Belgeler",
     comparison: "Karşılaştırma",
     privacy: "Gizlilik",
-    contact: "İletişim"
+    contact: "İletişim",
+    feedback: "Geri Bildirim"
   },
   home: {
     metaTitle: "Mobile SSH — Android için SSH istemcisi",

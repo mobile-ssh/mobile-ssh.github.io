@@ -19,7 +19,8 @@ export const zh: Dict = {
     documentation: "文档",
     comparison: "对比",
     privacy: "隐私",
-    contact: "联系"
+    contact: "联系",
+    feedback: "反馈"
   },
   home: {
     metaTitle: "Mobile SSH — Android SSH 客户端",

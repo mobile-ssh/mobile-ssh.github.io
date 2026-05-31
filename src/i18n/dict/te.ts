@@ -19,7 +19,8 @@ export const te: Dict = {
     documentation: "డాక్యుమెంటేషన్",
     comparison: "పోలిక",
     privacy: "గోప్యత",
-    contact: "సంప్రదింపులు"
+    contact: "సంప్రదింపులు",
+    feedback: "అభిప్రాయం"
   },
   home: {
     metaTitle: "Mobile SSH — Android కోసం SSH క్లయింట్",

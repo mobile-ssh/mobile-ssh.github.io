@@ -19,7 +19,8 @@ export const bn: Dict = {
     documentation: "ডকুমেন্টেশন",
     comparison: "তুলনা",
     privacy: "গোপনীয়তা",
-    contact: "যোগাযোগ"
+    contact: "যোগাযোগ",
+    feedback: "প্রতিক্রিয়া"
   },
   home: {
     metaTitle: "Mobile SSH — Android-এর জন্য SSH ক্লায়েন্ট",

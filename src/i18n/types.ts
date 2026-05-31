@@ -46,6 +46,7 @@ export interface Dict {
     comparison: string;
     privacy: string;
     contact: string;
+    feedback: string;
   };
   home: {
     metaTitle: string;

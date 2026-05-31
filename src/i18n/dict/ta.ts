@@ -19,7 +19,8 @@ export const ta: Dict = {
     documentation: "ஆவணம்",
     comparison: "ஒப்பீடு",
     privacy: "தனியுரிமை",
-    contact: "தொடர்பு"
+    contact: "தொடர்பு",
+    feedback: "கருத்து"
   },
   home: {
     metaTitle: "Mobile SSH — Android-க்கான SSH கிளையன்ட்",

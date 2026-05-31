@@ -19,7 +19,8 @@ export const ur: Dict = {
     documentation: "دستاویزات",
     comparison: "موازنہ",
     privacy: "رازداری",
-    contact: "رابطہ"
+    contact: "رابطہ",
+    feedback: "تاثرات"
   },
   home: {
     metaTitle: "Mobile SSH — Android کے لیے SSH کلائنٹ",

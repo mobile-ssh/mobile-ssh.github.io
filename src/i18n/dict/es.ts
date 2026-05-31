@@ -19,7 +19,8 @@ export const es: Dict = {
     documentation: "Documentación",
     comparison: "Comparación",
     privacy: "Privacidad",
-    contact: "Contacto"
+    contact: "Contacto",
+    feedback: "Comentarios"
   },
   home: {
     metaTitle: "Mobile SSH — Cliente SSH para Android",
