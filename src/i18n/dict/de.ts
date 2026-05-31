@@ -251,7 +251,8 @@ export const de: Dict = {
       {
         heading: "Logs und Fehlerbehebung",
         body: "Login-Verlauf und optionale Debug-Logs werden lokal zur Fehleranalyse gespeichert. Debug-Logs können Terminal-Ereignisse, SSH-Datengrößen, Touch-Diagnose, Resize-Ereignisse und Tunnel-Lifecycle-Ereignisse enthalten. Prüfe ein Debug-Archiv, bevor du es mit Support oder Dritten teilst."
-      }
+      },
+      { heading: "Anonyme Nutzungsanalyse", body: "Um zu verstehen, wie die App genutzt wird, und sie zu verbessern, sendet Mobile SSH anonyme Nutzungsanalysen an Aptabase, einen datenschutzorientierten Analyseanbieter, der in unserem Auftrag handelt. Beschränkt ist dies auf anonyme Ereignisse (etwa App-Starts und welche Funktionen genutzt werden) zusammen mit App-Version, Android-Version, Gerätemodell und Sprache. Es wird eine zufällige Sitzungskennung verwendet, die regelmäßig zurückgesetzt wird und weder mit Ihnen noch mit Ihrem Gerät verknüpft ist. Ihre SSH-Server, Hostnamen, Benutzernamen, Passwörter, Schlüssel, Befehle oder Dateiinhalte sind niemals enthalten. Die Daten werden über eine verschlüsselte (HTTPS-)Verbindung gesendet. Die Analyse ist standardmäßig aktiviert und kann jederzeit in den Einstellungen deaktiviert werden; wenn sie deaktiviert ist, wird nichts gesendet." }
     ],
     permissionsHeading: "Berechtigungen",
     permissions: [

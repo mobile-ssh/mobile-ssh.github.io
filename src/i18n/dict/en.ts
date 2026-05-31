@@ -252,7 +252,8 @@ export const en: Dict = {
       {
         heading: "Logs and troubleshooting",
         body: "Login history and optional debug logs are stored locally for troubleshooting. Debug logs can include terminal events, SSH data sizes, touch input diagnostics, resize events, and tunnel lifecycle events. Review any debug archive before sharing it with support or another person."
-      }
+      },
+      { heading: "Anonymous usage analytics", body: "To understand how the app is used and improve it, Mobile SSH sends anonymous usage analytics to Aptabase, a privacy-focused analytics provider acting on our behalf. This is limited to anonymous events (such as app launches and which features are used) together with your app version, Android version, device model, and language. It uses a random session identifier that resets regularly and is not tied to you or your device. It never includes your SSH servers, hostnames, usernames, passwords, keys, commands, or file contents. Data is sent over an encrypted (HTTPS) connection. Analytics is on by default and can be turned off at any time in Settings; when off, nothing is sent." }
     ],
     permissionsHeading: "Permissions",
     permissions: [

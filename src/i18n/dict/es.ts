@@ -251,7 +251,8 @@ export const es: Dict = {
       {
         heading: "Registros y solución de problemas",
         body: "El historial de inicios de sesión y los registros opcionales de depuración se guardan localmente para diagnóstico. Los registros de depuración pueden incluir eventos del terminal, tamaños de datos SSH, diagnósticos de entrada táctil, eventos de redimensionamiento y eventos de ciclo de vida de túneles. Revisa cualquier archivo de depuración antes de compartirlo con soporte u otra persona."
-      }
+      },
+      { heading: "Analíticas de uso anónimas", body: "Para entender cómo se usa la app y mejorarla, Mobile SSH envía analíticas de uso anónimas a Aptabase, un proveedor de analíticas centrado en la privacidad que actúa en nuestro nombre. Se limita a eventos anónimos (como aperturas de la app y qué funciones se usan) junto con la versión de la app, la versión de Android, el modelo del dispositivo y el idioma. Usa un identificador de sesión aleatorio que se restablece con regularidad y no está vinculado a ti ni a tu dispositivo. Nunca incluye tus servidores SSH, nombres de host, usuarios, contraseñas, claves, comandos ni el contenido de archivos. Los datos se envían por una conexión cifrada (HTTPS). Las analíticas están activadas de forma predeterminada y se pueden desactivar en cualquier momento en Ajustes; cuando están desactivadas, no se envía nada." }
     ],
     permissionsHeading: "Permisos",
     permissions: [

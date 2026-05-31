@@ -251,7 +251,8 @@ export const fr: Dict = {
       {
         heading: "Journaux et dépannage",
         body: "L'historique des connexions et les journaux de débogage optionnels sont stockés localement pour le dépannage. Les journaux de débogage peuvent inclure des événements de terminal, des tailles de données SSH, des diagnostics tactiles, des événements de redimensionnement et des événements de cycle de vie des tunnels. Vérifiez toute archive de débogage avant de la partager avec le support ou un tiers."
-      }
+      },
+      { heading: "Statistiques d'usage anonymes", body: "Pour comprendre comment l'app est utilisée et l'améliorer, Mobile SSH envoie des statistiques d'usage anonymes à Aptabase, un fournisseur d'analytique respectueux de la vie privée agissant pour notre compte. Cela se limite à des événements anonymes (comme les ouvertures de l'app et les fonctions utilisées) ainsi qu'à la version de l'app, la version d'Android, le modèle de l'appareil et la langue. Un identifiant de session aléatoire, réinitialisé régulièrement, est utilisé ; il n'est lié ni à vous ni à votre appareil. Cela n'inclut jamais vos serveurs SSH, noms d'hôte, identifiants, mots de passe, clés, commandes ou contenus de fichiers. Les données sont envoyées via une connexion chiffrée (HTTPS). L'analytique est activée par défaut et peut être désactivée à tout moment dans les Réglages ; lorsqu'elle est désactivée, rien n'est envoyé." }
     ],
     permissionsHeading: "Permissions",
     permissions: [

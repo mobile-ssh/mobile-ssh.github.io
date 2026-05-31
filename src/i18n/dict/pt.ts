@@ -251,7 +251,8 @@ export const pt: Dict = {
       {
         heading: "Logs e solução de problemas",
         body: "O histórico de logins e logs opcionais de depuração ficam locais para diagnóstico. Logs de depuração podem incluir eventos de terminal, tamanhos de dados SSH, diagnósticos de toque, eventos de redimensionamento e eventos de ciclo de vida de túneis. Revise qualquer arquivo de depuração antes de compartilhar com o suporte ou outra pessoa."
-      }
+      },
+      { heading: "Análises de uso anônimas", body: "Para entender como o app é usado e melhorá-lo, o Mobile SSH envia análises de uso anônimas para a Aptabase, um provedor de análises focado em privacidade que atua em nosso nome. Isso se limita a eventos anônimos (como aberturas do app e quais recursos são usados) junto com a versão do app, a versão do Android, o modelo do dispositivo e o idioma. Usa um identificador de sessão aleatório que é redefinido regularmente e não está vinculado a você nem ao seu dispositivo. Nunca inclui seus servidores SSH, nomes de host, usuários, senhas, chaves, comandos ou conteúdo de arquivos. Os dados são enviados por uma conexão criptografada (HTTPS). As análises estão ativadas por padrão e podem ser desativadas a qualquer momento nas Configurações; quando desativadas, nada é enviado." }
     ],
     permissionsHeading: "Permissões",
     permissions: [

@@ -251,7 +251,8 @@ export const pcm: Dict = {
       {
         heading: "Log and troubleshooting",
         body: "Login history and optional debug log dey store local for troubleshooting. Debug log fit include terminal event, SSH data size, touch input diagnostic, resize event and tunnel lifecycle event. Check any debug archive before you share am with support or anybody else."
-      }
+      },
+      { heading: "Anonymous usage analytics", body: "To understand how people dey use di app and make am better, Mobile SSH dey send anonymous usage analytics go Aptabase, a privacy-focused analytics provider wey dey work for our behalf. Na only anonymous events (like app opens and which features dem use) plus your app version, Android version, device model, and language. E dey use random session ID wey dey reset regularly and no dey tie to you or your device. E no dey ever include your SSH servers, hostnames, usernames, passwords, keys, commands, or file content. Dem dey send di data through encrypted (HTTPS) connection. Analytics dey on by default and you fit off am anytime for Settings; wen e off, nothing dey go out." }
     ],
     permissionsHeading: "Permissions",
     permissions: [

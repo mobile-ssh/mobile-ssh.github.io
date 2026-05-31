@@ -251,7 +251,8 @@ export const id: Dict = {
       {
         heading: "Log dan pemecahan masalah",
         body: "Riwayat masuk dan log debug opsional disimpan lokal untuk pemecahan masalah. Log debug dapat mencakup peristiwa terminal, ukuran data SSH, diagnostik input sentuh, peristiwa resize, dan peristiwa siklus hidup tunnel. Tinjau arsip debug sebelum membagikannya ke dukungan atau pihak lain."
-      }
+      },
+      { heading: "Analitik penggunaan anonim", body: "Untuk memahami cara aplikasi digunakan dan menyempurnakannya, Mobile SSH mengirim analitik penggunaan anonim ke Aptabase, penyedia analitik yang berfokus pada privasi yang bertindak atas nama kami. Ini terbatas pada peristiwa anonim (seperti pembukaan aplikasi dan fitur yang digunakan) beserta versi aplikasi, versi Android, model perangkat, dan bahasa. Digunakan pengidentifikasi sesi acak yang disetel ulang secara berkala dan tidak terkait dengan Anda atau perangkat Anda. Ini tidak pernah mencakup server SSH, nama host, nama pengguna, kata sandi, kunci, perintah, atau isi file Anda. Data dikirim melalui koneksi terenkripsi (HTTPS). Analitik aktif secara default dan dapat dimatikan kapan saja di Setelan; saat dimatikan, tidak ada yang dikirim." }
     ],
     permissionsHeading: "Izin",
     permissions: [

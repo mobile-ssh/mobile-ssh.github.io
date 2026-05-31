@@ -251,7 +251,8 @@ export const tr: Dict = {
       {
         heading: "Günlükler ve sorun giderme",
         body: "Giriş geçmişi ve isteğe bağlı hata ayıklama günlükleri sorun giderme için yerel olarak saklanır. Hata ayıklama günlükleri terminal olaylarını, SSH veri boyutlarını, dokunma giriş tanılamalarını, yeniden boyutlandırma olaylarını ve tünel yaşam döngüsü olaylarını içerebilir. Bir hata ayıklama arşivini destek ekibi veya başka biriyle paylaşmadan önce gözden geçirin."
-      }
+      },
+      { heading: "Anonim kullanım analizi", body: "Uygulamanın nasıl kullanıldığını anlamak ve geliştirmek için Mobile SSH, bizim adımıza hareket eden gizlilik odaklı analiz sağlayıcısı Aptabase'e anonim kullanım analizleri gönderir. Bu, yalnızca anonim olaylarla (uygulama açılışları ve hangi özelliklerin kullanıldığı gibi) birlikte uygulama sürümü, Android sürümü, cihaz modeli ve dil ile sınırlıdır. Düzenli olarak sıfırlanan ve sizinle ya da cihazınızla ilişkilendirilmeyen rastgele bir oturum tanımlayıcısı kullanır. SSH sunucularınızı, ana bilgisayar adlarınızı, kullanıcı adlarınızı, parolalarınızı, anahtarlarınızı, komutlarınızı veya dosya içeriklerinizi asla içermez. Veriler şifreli (HTTPS) bir bağlantı üzerinden gönderilir. Analiz varsayılan olarak açıktır ve Ayarlar'dan istediğiniz zaman kapatılabilir; kapalıyken hiçbir şey gönderilmez." }
     ],
     permissionsHeading: "İzinler",
     permissions: [
