@@ -225,9 +225,7 @@ export const tr: Dict = {
         title: "Şu durumlarda Termius'u seç",
         body: "Şifreli kasa eşitlemesi, takım paylaşımı, anahtarlık yönetimi, parçacıklar ve birden çok cihazda tutarlı bir uygulamayla ticari, çapraz platform bir SSH çalışma alanı istiyorsan."
       }
-    ],
-    sources:
-      "Kaynaklar: Termux, [termux.dev](https://termux.dev/en/) adresinde kendini APT paketli ve OpenSSH destekli bir Android terminal emülatörü ve Linux ortamı olarak tanımlar. Termius, [Android sayfasında](https://www.termius.com/free-ssh-client-for-android) ve [kasa belgelerinde](https://termius.com/documentation/set-up-vaults) SSH, SFTP, Mosh, Telnet, Serial, klavye eklentileri, SFTP, şifreli kasalar ve anahtar yönetimini açıklar."
+    ]
   },
   privacy: {
     metaTitle: "Gizlilik Politikası | Mobile SSH",

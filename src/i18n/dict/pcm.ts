@@ -225,9 +225,7 @@ export const pcm: Dict = {
         title: "Pick Termius when",
         body: "You want commercial, cross-platform SSH workspace wit encrypted vault sync, team sharing, keychain management, snippet, and one consistent app on plenty device."
       }
-    ],
-    sources:
-      "Sources: Termux describe imsef as Android terminal emulator and Linux environment wit APT packages and OpenSSH support for [termux.dev](https://termux.dev/en/). Termius describe SSH, SFTP, Mosh, Telnet, Serial, keyboard add-on, SFTP, encrypted vault and key management for [im Android page](https://www.termius.com/free-ssh-client-for-android) and [vault documentation](https://termius.com/documentation/set-up-vaults)."
+    ]
   },
   privacy: {
     metaTitle: "Privacy Policy | Mobile SSH",

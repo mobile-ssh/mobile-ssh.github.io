@@ -225,9 +225,7 @@ export const ta: Dict = {
         title: "Termius-ஐ எப்போது தேர்ந்தெடுக்க வேண்டும்",
         body: "குறியாக்கப்பட்ட பெட்டக ஒருங்கிணைப்பு, குழு பகிர்வு, கீச்செயின் மேலாண்மை, துணுக்குகள் மற்றும் பல சாதனங்களில் சீரான ஆப் கொண்ட வணிக, குறுக்கு-தள SSH பணிக்களத்தை விரும்புகிறீர்கள்."
       }
-    ],
-    sources:
-      "ஆதாரங்கள்: Termux தன்னை [termux.dev](https://termux.dev/en/) இல் APT தொகுப்புகள் மற்றும் OpenSSH ஆதரவுடன் Android டெர்மினல் எமுலேட்டர் மற்றும் Linux சூழலாக விவரிக்கிறது. Termius தனது [Android பக்கம்](https://www.termius.com/free-ssh-client-for-android) மற்றும் [பெட்டக ஆவணம்](https://termius.com/documentation/set-up-vaults) இல் SSH, SFTP, Mosh, Telnet, Serial, கீபோர்டு துணை, SFTP, குறியாக்கப்பட்ட பெட்டகங்கள் மற்றும் கீ மேலாண்மையை விவரிக்கிறது."
+    ]
   },
   privacy: {
     metaTitle: "தனியுரிமை கொள்கை | Mobile SSH",

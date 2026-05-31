@@ -225,9 +225,7 @@ export const yue: Dict = {
         title: "幾時揀 Termius",
         body: "你想要一個商業、跨平台嘅 SSH 工作空間，有加密保險庫同步、團隊分享、key chain 管理、snippet，同埋多裝置上一致嘅 App。"
       }
-    ],
-    sources:
-      "來源：Termux 喺 [termux.dev](https://termux.dev/en/) 形容自己係帶 APT 套件同 OpenSSH 支援嘅 Android 終端機模擬器同 Linux 環境。Termius 喺其 [Android 頁面](https://www.termius.com/free-ssh-client-for-android) 同 [保險庫文檔](https://termius.com/documentation/set-up-vaults) 描述 SSH、SFTP、Mosh、Telnet、Serial、鍵盤插件、SFTP、加密保險庫同 key 管理。"
+    ]
   },
   privacy: {
     metaTitle: "私隱政策 | Mobile SSH",

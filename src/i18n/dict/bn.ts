@@ -225,9 +225,7 @@ export const bn: Dict = {
         title: "যখন Termius বেছে নেবেন",
         body: "এনক্রিপ্টেড ভল্ট সিঙ্ক, দল ভাগাভাগি, কীচেইন ব্যবস্থাপনা, স্নিপেট এবং একাধিক ডিভাইসে সমান অ্যাপসহ একটি বাণিজ্যিক, ক্রস-প্ল্যাটফর্ম SSH ওয়ার্কস্পেস চান।"
       }
-    ],
-    sources:
-      "সূত্র: Termux নিজেকে APT প্যাকেজ ও OpenSSH সমর্থিত Android টার্মিনাল এমুলেটর ও Linux পরিবেশ হিসেবে [termux.dev](https://termux.dev/en/) এ বর্ণনা করে। Termius তার [Android পেজে](https://www.termius.com/free-ssh-client-for-android) ও [ভল্ট ডকুমেন্টেশনে](https://termius.com/documentation/set-up-vaults) SSH, SFTP, Mosh, Telnet, Serial, কীবোর্ড অ্যাড-অন, SFTP, এনক্রিপ্টেড ভল্ট ও কী ব্যবস্থাপনার বর্ণনা দেয়।"
+    ]
   },
   privacy: {
     metaTitle: "গোপনীয়তা নীতি | Mobile SSH",

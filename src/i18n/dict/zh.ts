@@ -225,9 +225,7 @@ export const zh: Dict = {
         title: "何时选择 Termius",
         body: "你需要一款商业化的跨平台 SSH 工作空间，具备加密保险库同步、团队共享、密钥串管理、片段以及在多设备上一致的应用体验。"
       }
-    ],
-    sources:
-      "出处：Termux 在 [termux.dev](https://termux.dev/en/) 自称是带 APT 包与 OpenSSH 支持的 Android 终端模拟器与 Linux 环境。Termius 在其 [Android 页面](https://www.termius.com/free-ssh-client-for-android) 与 [保险库文档](https://termius.com/documentation/set-up-vaults) 中描述了 SSH、SFTP、Mosh、Telnet、Serial、键盘扩展、SFTP、加密保险库与密钥管理。"
+    ]
   },
   privacy: {
     metaTitle: "隐私政策 | Mobile SSH",

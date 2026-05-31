@@ -6,11 +6,6 @@ import { getDict } from "../../i18n";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
-
-function renderMd(text: string): string {
-  return text
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-}
 ---
 
 <BaseLayout title={t.compare.metaTitle} description={t.compare.metaDescription} locale={locale} pathKey="compare">
@@ -51,8 +46,6 @@ function renderMd(text: string): string {
           </article>
         ))}
       </div>
-
-      <div class="callout" style="margin-top: 2rem;" set:html={renderMd(t.compare.sources)} />
     </section>
   </main>
 </BaseLayout>

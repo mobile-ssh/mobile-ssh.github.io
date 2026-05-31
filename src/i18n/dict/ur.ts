@@ -225,9 +225,7 @@ export const ur: Dict = {
         title: "Termius کب منتخب کریں",
         body: "آپ انکرپٹڈ والٹ سنک، ٹیم اشتراک، کی چین انتظام، سنیپٹس اور متعدد ڈیوائسز پر یکساں ایپ والی تجارتی، کراس پلیٹ فارم SSH ورک اسپیس چاہتے ہیں۔"
       }
-    ],
-    sources:
-      "ذرائع: Termux خود کو [termux.dev](https://termux.dev/en/) پر APT پیکیج اور OpenSSH سپورٹ والا Android ٹرمینل ایمولیٹر اور Linux ماحول قرار دیتا ہے۔ Termius اپنی [Android پیج](https://www.termius.com/free-ssh-client-for-android) اور [والٹ دستاویزات](https://termius.com/documentation/set-up-vaults) پر SSH، SFTP، Mosh، Telnet، Serial، کیبورڈ ایڈ آن، SFTP، انکرپٹڈ والٹس اور کی انتظام کی وضاحت کرتا ہے۔"
+    ]
   },
   privacy: {
     metaTitle: "رازداری پالیسی | Mobile SSH",

@@ -226,9 +226,7 @@ export const en: Dict = {
         title: "Choose Termius when",
         body: "You want a commercial, cross-platform SSH workspace with encrypted vault sync, team sharing, keychain management, snippets, and a consistent app on multiple devices."
       }
-    ],
-    sources:
-      "Sources: Termux describes itself as an Android terminal emulator and Linux environment with APT packages and OpenSSH support on [termux.dev](https://termux.dev/en/). Termius describes Android SSH, SFTP, Mosh, Telnet, Serial, keyboard add-ons, SFTP, encrypted vaults, and key management on [its Android page](https://www.termius.com/free-ssh-client-for-android) and [vault documentation](https://termius.com/documentation/set-up-vaults)."
+    ]
   },
   privacy: {
     metaTitle: "Privacy Policy | Mobile SSH",

@@ -225,9 +225,7 @@ export const de: Dict = {
         title: "Wähle Termius, wenn",
         body: "Du einen kommerziellen, plattformübergreifenden SSH-Arbeitsraum mit verschlüsselten Tresoren, Team-Sharing, Schlüsselbund-Verwaltung, Snippets und einer konsistenten App auf mehreren Geräten willst."
       }
-    ],
-    sources:
-      "Quellen: Termux beschreibt sich als Android-Terminalemulator und Linux-Umgebung mit APT-Paketen und OpenSSH-Unterstützung auf [termux.dev](https://termux.dev/en/). Termius beschreibt SSH, SFTP, Mosh, Telnet, Serial, Tastaturzusätze, SFTP, verschlüsselte Tresore und Schlüsselverwaltung auf seiner [Android-Seite](https://www.termius.com/free-ssh-client-for-android) und seiner [Tresor-Dokumentation](https://termius.com/documentation/set-up-vaults)."
+    ]
   },
   privacy: {
     metaTitle: "Datenschutzerklärung | Mobile SSH",

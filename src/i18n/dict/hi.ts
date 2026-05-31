@@ -225,9 +225,7 @@ export const hi: Dict = {
         title: "Termius चुनें जब",
         body: "एन्क्रिप्टेड वॉल्ट सिंक, टीम साझाकरण, कीचेन प्रबंधन, स्निपेट और कई डिवाइसों पर एक जैसा ऐप वाली व्यावसायिक, क्रॉस-प्लेटफ़ॉर्म SSH कार्यस्थली चाहिए।"
       }
-    ],
-    sources:
-      "स्रोत: Termux स्वयं को [termux.dev](https://termux.dev/en/) पर APT पैकेज और OpenSSH समर्थन वाला Android टर्मिनल अनुकरणकर्ता और Linux पर्यावरण बताता है। Termius अपनी [Android पेज](https://www.termius.com/free-ssh-client-for-android) और [वॉल्ट दस्तावेज़](https://termius.com/documentation/set-up-vaults) पर SSH, SFTP, Mosh, Telnet, Serial, कीबोर्ड ऐडऑन, SFTP, एन्क्रिप्टेड वॉल्ट और की प्रबंधन का वर्णन करता है।"
+    ]
   },
   privacy: {
     metaTitle: "गोपनीयता नीति | Mobile SSH",

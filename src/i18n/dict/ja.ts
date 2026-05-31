@@ -225,9 +225,7 @@ export const ja: Dict = {
         title: "Termius を選ぶとき",
         body: "暗号化ボルトの同期、チーム共有、キーチェーン管理、スニペット、複数端末で一貫したアプリを備えた商用のクロスプラットフォーム SSH ワークスペースが必要な場合。"
       }
-    ],
-    sources:
-      "出典：Termux は [termux.dev](https://termux.dev/en/) で、自身を APT パッケージと OpenSSH に対応する Android の端末エミュレーター兼 Linux 環境と説明しています。Termius は [Android ページ](https://www.termius.com/free-ssh-client-for-android) と [ボルトのドキュメント](https://termius.com/documentation/set-up-vaults) で、SSH、SFTP、Mosh、Telnet、Serial、キーボード アドオン、SFTP、暗号化ボルト、鍵管理について説明しています。"
+    ]
   },
   privacy: {
     metaTitle: "プライバシーポリシー | Mobile SSH",

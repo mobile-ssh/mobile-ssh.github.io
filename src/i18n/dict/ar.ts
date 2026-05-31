@@ -225,9 +225,7 @@ export const ar: Dict = {
         title: "اختر Termius عندما",
         body: "تريد مساحة عمل SSH تجارية متعدّدة المنصّات مع مزامنة خزائن مشفّرة، ومشاركة فِرَق، وإدارة حلقات مفاتيح، ومقتطفات، وتطبيق متّسق على عدّة أجهزة."
       }
-    ],
-    sources:
-      "المصادر: يصف Termux نفسه بأنّه محاكي طرفية لأندرويد وبيئة لينكس مع حِزَم APT ودعم OpenSSH على [termux.dev](https://termux.dev/en/). يصف Termius على [صفحة أندرويد](https://www.termius.com/free-ssh-client-for-android) و[وثائق الخزائن](https://termius.com/documentation/set-up-vaults) دعمه لـ SSH وSFTP وMosh وTelnet وSerial وملحقات لوحة المفاتيح وSFTP والخزائن المشفّرة وإدارة المفاتيح."
+    ]
   },
   privacy: {
     metaTitle: "سياسة الخصوصية | Mobile SSH",

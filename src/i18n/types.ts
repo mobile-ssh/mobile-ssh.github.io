@@ -105,7 +105,6 @@ export interface Dict {
     };
     rows: CompareRow[];
     cards: CompareCard[];
-    sources: string;
   };
   privacy: {
     metaTitle: string;

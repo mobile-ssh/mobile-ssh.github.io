@@ -225,9 +225,7 @@ export const id: Dict = {
         title: "Pilih Termius bila",
         body: "Anda ingin ruang kerja SSH komersial lintas platform dengan sinkronisasi brankas terenkripsi, berbagi tim, manajemen keyring, snippet, dan aplikasi yang konsisten di beberapa perangkat."
       }
-    ],
-    sources:
-      "Sumber: Termux mendeskripsikan diri sebagai emulator terminal Android dan lingkungan Linux dengan paket APT serta dukungan OpenSSH di [termux.dev](https://termux.dev/en/). Termius mendeskripsikan SSH, SFTP, Mosh, Telnet, Serial, add-on keyboard, SFTP, brankas terenkripsi, dan manajemen kunci pada [laman Android-nya](https://www.termius.com/free-ssh-client-for-android) dan [dokumentasi brankas](https://termius.com/documentation/set-up-vaults)."
+    ]
   },
   privacy: {
     metaTitle: "Kebijakan Privasi | Mobile SSH",

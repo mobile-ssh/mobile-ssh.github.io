@@ -225,9 +225,7 @@ export const ru: Dict = {
         title: "Выберите Termius, если",
         body: "Нужно коммерческое кроссплатформенное SSH-пространство с зашифрованной облачной синхронизацией, командным доступом, управлением связками ключей, сниппетами и одинаковым приложением на нескольких устройствах."
       }
-    ],
-    sources:
-      "Источники: Termux описывает себя как Android-эмулятор терминала и Linux-окружение с пакетами APT и поддержкой OpenSSH на [termux.dev](https://termux.dev/en/). Termius описывает SSH, SFTP, Mosh, Telnet, Serial, дополнения клавиатуры, SFTP, зашифрованные хранилища и управление ключами на своей [странице Android](https://www.termius.com/free-ssh-client-for-android) и в [документации по хранилищам](https://termius.com/documentation/set-up-vaults)."
+    ]
   },
   privacy: {
     metaTitle: "Политика конфиденциальности | Mobile SSH",

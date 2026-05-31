@@ -225,9 +225,7 @@ export const te: Dict = {
         title: "Termius ఎంచుకోండి",
         body: "మీరు ఎన్‌క్రిప్టెడ్ వాల్ట్ సింక్, టీం షేరింగ్, కీచైన్ నిర్వహణ, స్నిప్పెట్‌లు మరియు అనేక పరికరాలలో స్థిరమైన యాప్‌తో వ్యాపార, క్రాస్-ప్లాట్‌ఫారమ్ SSH వర్క్‌స్పేస్ కోరుకుంటారు."
       }
-    ],
-    sources:
-      "మూలాలు: Termux తనను [termux.dev](https://termux.dev/en/) లో APT ప్యాకేజీలు మరియు OpenSSH మద్దతుతో Android టర్మినల్ ఎమ్యులేటర్ మరియు Linux వాతావరణంగా వివరిస్తుంది. Termius తన [Android పేజీ](https://www.termius.com/free-ssh-client-for-android) మరియు [వాల్ట్ డాక్యుమెంటేషన్](https://termius.com/documentation/set-up-vaults) లో SSH, SFTP, Mosh, Telnet, Serial, కీబోర్డ్ యాడ్-ఆన్‌లు, SFTP, ఎన్‌క్రిప్టెడ్ వాల్ట్‌లు మరియు కీ నిర్వహణ వివరిస్తుంది."
+    ]
   },
   privacy: {
     metaTitle: "గోప్యతా విధానం | Mobile SSH",

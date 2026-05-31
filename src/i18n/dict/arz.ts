@@ -225,9 +225,7 @@ export const arz: Dict = {
         title: "اختار Termius لو",
         body: "عايز مساحة شغل SSH تجارية متعددة الأنظمة بخزن مشفّر متزامن ومشاركة فرق وإدارة keychain وسنبات وتطبيق متّسق على كذا جهاز."
       }
-    ],
-    sources:
-      "المصادر: Termux بيوصف نفسه على [termux.dev](https://termux.dev/en/) بإنه محاكي ترمنال أندرويد وبيئة Linux بحزم APT ودعم OpenSSH. Termius بيوصف على [صفحة أندرويد بتاعته](https://www.termius.com/free-ssh-client-for-android) و[توثيق الخزن](https://termius.com/documentation/set-up-vaults) دعمه لـ SSH وSFTP وMosh وTelnet وSerial وإضافات الكيبورد وSFTP وخزن مشفّر وإدارة مفاتيح."
+    ]
   },
   privacy: {
     metaTitle: "سياسة الخصوصية | Mobile SSH",

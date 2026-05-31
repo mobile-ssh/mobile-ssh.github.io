@@ -225,9 +225,7 @@ export const pt: Dict = {
         title: "Escolha o Termius quando",
         body: "Você quer um espaço de trabalho SSH comercial e multiplataforma com cofre criptografado sincronizado, compartilhamento em equipe, gestão de chaveiros, snippets e um app consistente em vários dispositivos."
       }
-    ],
-    sources:
-      "Fontes: o Termux se descreve como um emulador de terminal Android e ambiente Linux com pacotes APT e suporte a OpenSSH em [termux.dev](https://termux.dev/en/). O Termius descreve SSH, SFTP, Mosh, Telnet, Serial, complementos de teclado, SFTP, cofres criptografados e gestão de chaves em sua [página Android](https://www.termius.com/free-ssh-client-for-android) e na [documentação de cofres](https://termius.com/documentation/set-up-vaults)."
+    ]
   },
   privacy: {
     metaTitle: "Política de Privacidade | Mobile SSH",
