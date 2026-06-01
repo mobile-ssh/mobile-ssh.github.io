@@ -124,11 +124,7 @@ const galleryShots = [
             </div>
           </div>
           <button class="carousel-arrow carousel-next" type="button" aria-label="Next screenshot">›</button>
-          <div class="carousel-dots">
-            {galleryShots.map((_, i) => (
-              <button class="carousel-dot" type="button" data-index={i} aria-label={`Go to screenshot ${i + 1}`}></button>
-            ))}
-          </div>
+          <div class="carousel-dots"></div>
         </div>
       </div>
     </section>
@@ -221,11 +217,12 @@ const galleryShots = [
 
   /* Inline screenshot carousel */
   .carousel {
+    --per-view: 3;
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     gap: 0.5rem;
-    max-width: 760px;
+    max-width: 1040px;
     margin: 0 auto;
   }
   .carousel-viewport {
@@ -238,7 +235,7 @@ const galleryShots = [
     will-change: transform;
   }
   .carousel-slide {
-    flex: 0 0 100%;
+    flex: 0 0 calc(100% / var(--per-view));
     min-width: 0;
     display: flex;
     justify-content: center;
@@ -246,7 +243,13 @@ const galleryShots = [
     padding: 0.5rem 0;
   }
   .carousel-slide .phone-shot {
-    max-width: 300px;
+    max-width: 260px;
+  }
+  @media (max-width: 900px) {
+    .carousel { --per-view: 2; }
+  }
+  @media (max-width: 600px) {
+    .carousel { --per-view: 1; }
   }
   .carousel-arrow {
     background: rgba(0, 0, 0, 0.08);
@@ -340,19 +343,41 @@ const galleryShots = [
     const root = document.getElementById("shot-carousel");
     if (!root) return;
     const track = root.querySelector(".carousel-track");
+    const dotsBox = root.querySelector(".carousel-dots");
     const slides = Array.from(root.querySelectorAll(".carousel-slide"));
-    const dots = Array.from(root.querySelectorAll(".carousel-dot"));
-    let i = 0;
+    const n = slides.length;
+    let perView = 1;
+    let i = 0; // index of the left-most visible slide
 
-    const render = () => {
-      track.style.transform = `translateX(${-i * 100}%)`;
-      dots.forEach((d, n) => d.setAttribute("aria-current", n === i ? "true" : "false"));
+    const getPerView = () =>
+      Math.max(1, parseInt(getComputedStyle(root).getPropertyValue("--per-view"), 10) || 1);
+    const maxIndex = () => Math.max(0, n - perView);
+
+    const buildDots = () => {
+      dotsBox.textContent = "";
+      for (let p = 0; p <= maxIndex(); p++) {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "carousel-dot";
+        b.setAttribute("aria-label", `Go to position ${p + 1}`);
+        b.addEventListener("click", () => go(p));
+        dotsBox.appendChild(b);
+      }
     };
-    const go = (n) => { i = (n + slides.length) % slides.length; render(); };
+    const render = () => {
+      i = Math.min(Math.max(i, 0), maxIndex());
+      track.style.transform = `translateX(${-i * (100 / perView)}%)`;
+      Array.from(dotsBox.children).forEach((d, p) =>
+        d.setAttribute("aria-current", p === i ? "true" : "false"));
+    };
+    const go = (p) => {
+      const m = maxIndex();
+      i = p < 0 ? m : p > m ? 0 : p; // wrap at the ends
+      render();
+    };
 
     root.querySelector(".carousel-prev").addEventListener("click", () => go(i - 1));
     root.querySelector(".carousel-next").addEventListener("click", () => go(i + 1));
-    dots.forEach((d, n) => d.addEventListener("click", () => go(n)));
 
     // Swipe on touch devices.
     let startX = null;
@@ -365,6 +390,18 @@ const galleryShots = [
       startX = null;
     });
 
+    const sync = () => {
+      const pv = getPerView();
+      if (pv !== perView) { perView = pv; buildDots(); }
+      render();
+    };
+    let raf;
+    window.addEventListener("resize", () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(sync);
+    });
+    perView = getPerView();
+    buildDots();
     render();
   })();
 </script>
