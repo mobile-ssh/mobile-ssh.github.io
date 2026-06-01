@@ -149,6 +149,16 @@ export const pcm: Dict = {
           "App UI translations: Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, Urdu",
           "E dey follow Android system language; no need for separate picker inside di app"
         ]
+      },
+      {
+        title: "Keys and backup",
+        items: [
+          "Generate new Ed25519, ECDSA, or RSA keys for di device, with optional passphrase",
+          "Copy, share, or save di public key wey you generate to add am to di server authorized_keys",
+          "Export saved servers and credentials to backup file",
+          "Optional passphrase dey encrypt di backup; import with merge or replace",
+          "Backup wey no get encryption dey store passwords and keys as plain text — protect or delete di file"
+        ]
       }
     ],
     security:

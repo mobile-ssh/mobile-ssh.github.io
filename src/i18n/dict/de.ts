@@ -149,6 +149,16 @@ export const de: Dict = {
           "App-Übersetzungen: Arabisch, Bengalisch, Chinesisch (vereinfacht und traditionell), Englisch, Französisch, Deutsch, Hindi, Indonesisch, Japanisch, Marathi, Nigerianisches Pidgin, Portugiesisch, Russisch, Spanisch, Tamil, Telugu, Türkisch und Urdu",
           "Folgt der Android-Systemsprache; kein gesonderter App-Sprachpicker nötig"
         ]
+      },
+      {
+        title: "Schlüssel und Sicherung",
+        items: [
+          "Erzeuge neue Ed25519-, ECDSA- oder RSA-Schlüssel auf dem Gerät, mit optionaler Passphrase",
+          "Kopiere, teile oder speichere einen erzeugten öffentlichen Schlüssel für die authorized_keys des Servers",
+          "Exportiere gespeicherte Server und Zugangsdaten in eine Sicherungsdatei",
+          "Eine optionale Passphrase verschlüsselt die Sicherung; importiere mit Zusammenführen oder Ersetzen",
+          "Eine unverschlüsselte Sicherung speichert Passwörter und Schlüssel im Klartext – schütze oder lösche die Datei"
+        ]
       }
     ],
     security:

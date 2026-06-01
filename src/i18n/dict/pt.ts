@@ -149,6 +149,16 @@ export const pt: Dict = {
           "Traduções da interface: árabe, bengali, chinês (simplificado e tradicional), inglês, francês, alemão, hindi, indonésio, japonês, marata, pidgin nigeriano, português, russo, espanhol, tâmil, telugu, turco e urdu",
           "Segue o idioma do sistema Android; sem seletor próprio na app"
         ]
+      },
+      {
+        title: "Chaves e backup",
+        items: [
+          "Gere novas chaves Ed25519, ECDSA ou RSA no dispositivo, com uma frase-senha opcional",
+          "Copie, compartilhe ou salve uma chave pública gerada para adicioná-la ao authorized_keys do servidor",
+          "Exporte servidores e credenciais salvos para um arquivo de backup",
+          "Uma frase-senha opcional criptografa o backup; importe com mesclar ou substituir",
+          "Um backup sem criptografia guarda senhas e chaves em texto puro — proteja ou exclua o arquivo"
+        ]
       }
     ],
     security:

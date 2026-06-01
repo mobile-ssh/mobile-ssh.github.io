@@ -149,6 +149,16 @@ export const tr: Dict = {
           "Uygulama arayüzü çevirileri: Arapça, Bengalce, Çince (Basitleştirilmiş ve Geleneksel), İngilizce, Fransızca, Almanca, Hintçe, Endonezce, Japonca, Marathi, Nijerya Pidgin, Portekizce, Rusça, İspanyolca, Tamilce, Telugu, Türkçe, Urduca",
           "Android sistem dilini takip eder; uygulama içi seçici gerektirmez"
         ]
+      },
+      {
+        title: "Anahtarlar ve yedekleme",
+        items: [
+          "Cihazda yeni Ed25519, ECDSA veya RSA anahtarları oluşturun, isteğe bağlı parola ile",
+          "Oluşturulan genel anahtarı kopyalayın, paylaşın veya kaydedin; sunucunun authorized_keys dosyasına ekleyin",
+          "Kayıtlı sunucuları ve kimlik bilgilerini bir yedek dosyasına aktarın",
+          "İsteğe bağlı parola yedeği şifreler; birleştir veya değiştir ile içe aktarın",
+          "Şifrelenmemiş yedek, parolaları ve anahtarları düz metin olarak saklar — dosyayı koruyun veya silin"
+        ]
       }
     ],
     security:

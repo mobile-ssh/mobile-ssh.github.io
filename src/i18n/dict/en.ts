@@ -150,6 +150,16 @@ export const en: Dict = {
           "App UI translations: Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, Urdu",
           "Follows the Android system language; no per-app picker required"
         ]
+      },
+      {
+        title: "Keys and backup",
+        items: [
+          "Generate new Ed25519, ECDSA, or RSA keys on the device, with an optional passphrase",
+          "Copy, share, or save a generated public key to add to the server's authorized_keys",
+          "Export saved servers and credentials to a backup file",
+          "Optional passphrase encrypts the backup; import with merge or replace",
+          "An unencrypted backup stores passwords and keys in plain text — protect or delete the file"
+        ]
       }
     ],
     security:

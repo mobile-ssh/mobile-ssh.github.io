@@ -149,6 +149,16 @@ export const es: Dict = {
           "Traducciones de la interfaz: árabe, bengalí, chino (simplificado y tradicional), inglés, francés, alemán, hindi, indonesio, japonés, marathi, pidgin nigeriano, portugués, ruso, español, tamil, telugu, turco y urdu",
           "Sigue el idioma del sistema Android; no requiere un selector dentro de la app"
         ]
+      },
+      {
+        title: "Claves y copia de seguridad",
+        items: [
+          "Genera nuevas claves Ed25519, ECDSA o RSA en el dispositivo, con una frase de contraseña opcional",
+          "Copia, comparte o guarda una clave pública generada para añadirla al authorized_keys del servidor",
+          "Exporta servidores y credenciales guardados a un archivo de copia de seguridad",
+          "Una frase de contraseña opcional cifra la copia; importa con fusión o reemplazo",
+          "Una copia sin cifrar guarda contraseñas y claves en texto plano: protege o elimina el archivo"
+        ]
       }
     ],
     security:

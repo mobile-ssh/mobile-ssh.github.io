@@ -149,6 +149,16 @@ export const id: Dict = {
           "Terjemahan UI aplikasi: Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Pidgin Nigeria, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, Urdu",
           "Mengikuti bahasa sistem Android; tidak perlu pemilih khusus dalam aplikasi"
         ]
+      },
+      {
+        title: "Kunci dan cadangan",
+        items: [
+          "Buat kunci Ed25519, ECDSA, atau RSA baru di perangkat, dengan frasa sandi opsional",
+          "Salin, bagikan, atau simpan kunci publik yang dibuat untuk ditambahkan ke authorized_keys server",
+          "Ekspor server dan kredensial tersimpan ke file cadangan",
+          "Frasa sandi opsional mengenkripsi cadangan; impor dengan gabung atau ganti",
+          "Cadangan tanpa enkripsi menyimpan kata sandi dan kunci dalam teks biasa — lindungi atau hapus file"
+        ]
       }
     ],
     security:

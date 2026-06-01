@@ -149,6 +149,16 @@ export const fr: Dict = {
           "Interface traduite : arabe, bengali, chinois (simplifié et traditionnel), anglais, français, allemand, hindi, indonésien, japonais, marathi, pidgin nigérian, portugais, russe, espagnol, tamoul, télougou, turc et ourdou",
           "Suit la langue système Android ; aucun sélecteur intégré requis"
         ]
+      },
+      {
+        title: "Clés et sauvegarde",
+        items: [
+          "Générez de nouvelles clés Ed25519, ECDSA ou RSA sur l'appareil, avec une phrase secrète facultative",
+          "Copiez, partagez ou enregistrez une clé publique générée pour l'ajouter au authorized_keys du serveur",
+          "Exportez les serveurs et identifiants enregistrés vers un fichier de sauvegarde",
+          "Une phrase secrète facultative chiffre la sauvegarde ; importez avec fusion ou remplacement",
+          "Une sauvegarde non chiffrée stocke mots de passe et clés en clair — protégez ou supprimez le fichier"
+        ]
       }
     ],
     security:
