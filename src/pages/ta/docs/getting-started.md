@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "தொடங்குதல்"
+description: "Mobile SSH நிறுவுதல், சேவையகத்துடன் இணைத்தல், சுயவிவரங்கள், சான்றுகள் மற்றும் அமர்வுகளைச் சேமித்தல் ஆகியவற்றின் முதல் படிகள்."
 ---
 
-# Getting started
+# தொடங்குதல்
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+Mobile SSH என்பது உங்கள் சொந்த Linux, Unix, நெட்வொர்க், IoT அல்லது டெவலப்மென்ட் சேவையகங்களுடன் இணைக்க உதவும் ஒரு Android SSH கிளையன்ட். நீங்கள் சேவையக முகவரியையும் சான்றுகளையும் வழங்குகிறீர்கள்; செயலி ஒரு ஊடாடும் SSH டெர்மினலைத் திறக்கிறது.
 
-## Requirements
+## தேவைகள்
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 அல்லது புதியது.
+- Android சாதனத்திலிருந்து உங்கள் SSH சேவையகத்திற்கு நெட்வொர்க் அணுகல்.
+- SSH சேவையகத்தின் ஹோஸ்ட்பெயர் அல்லது IP முகவரி, போர்ட், பயனர்பெயர், மற்றும் கடவுச்சொல் அல்லது தனிப்பட்ட விசை.
+- தொலைபேசியின் உள்ளக கோப்பு உலாவியுடன் SFTP கோப்பு பரிமாற்றத்தைப் பயன்படுத்த விரும்பினால் சேமிப்பக அணுகல்.
 
-## Connect to a server
+## சேவையகத்துடன் இணைத்தல்
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. Mobile SSH ஐத் திறக்கவும்.
+2. ஏற்கனவே சுயவிவரம் உருவாக்கியிருந்தால் **சேமித்த சேவையகங்கள்** ஐத் தட்டவும், அல்லது இணைப்பு செயல்பாட்டிலிருந்து சேவையகத்தைச் சேர்க்கவும்.
+3. ஹோஸ்ட், போர்ட், பயனர்பெயர் மற்றும் அங்கீகார விவரங்களை உள்ளிடவும்.
+4. டெர்மினல் அமர்வைத் திறக்க சேவையகத்தைத் தட்டவும்.
+5. இன்னும் இயங்கும் அமர்வுகளுக்குத் திரும்ப தொடக்கத் திரையில் **செயலில் உள்ள அமர்வுகள்** ஐப் பயன்படுத்தவும்.
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+இயல்புநிலை SSH போர்ட் `22`. உங்கள் சேவையகம் வேறு போர்ட்டைப் பயன்படுத்தினால், அந்த போர்ட்டை சேவையக சுயவிவரத்தில் உள்ளிடவும்.
 
-## Save servers
+## சேவையகங்களைச் சேமித்தல்
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+சேமித்த சேவையகங்கள் இணைப்பு இலக்கையும் விருப்பத் தேர்வான டன்னல் கட்டமைப்பையும் வைத்திருக்கின்றன. ஒரு சேமித்த சேவையகத்தில் இவை இருக்கலாம்:
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- ஹோஸ்ட்பெயர் அல்லது IP முகவரி.
+- SSH போர்ட்.
+- பயனர்பெயர்.
+- கடவுச்சொல் அல்லது தனிப்பட்ட விசை விவரங்கள்.
+- விருப்பத் தேர்வான உள்ளக போர்ட்-ஃபார்வர்டிங் விதிகள்.
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+நீங்கள் மீண்டும் மீண்டும் அணுகும் ஹோஸ்ட்களுக்கு சேமித்த சேவையகங்களைப் பயன்படுத்தவும். ஒரு சேமித்த சேவையகம் உங்கள் தற்போதைய செயலில் உள்ள அமர்வை விட வேறு ஹோஸ்ட்டை சுட்டிக்காட்டினால், Mobile SSH தேர்ந்தெடுத்த இலக்கிற்கு புதிய இணைப்பைத் தொடங்கும்.
 
-## Save credentials
+## சான்றுகளைச் சேமித்தல்
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+**சான்றுகள்** திரை, மீண்டும் பயன்படுத்தக்கூடிய பயனர்பெயர்/கடவுச்சொல் அல்லது பயனர்பெயர்/தனிப்பட்ட-விசை பதிவுகளைச் சேமிக்கிறது. சேமித்த சான்றுகளை சேவையக அமைப்பு உரையாடலிலிருந்து தேர்ந்தெடுக்கலாம், இதனால் ஒவ்வொரு ஹோஸ்ட்டிற்கும் அதே உள்நுழைவுத் தகவலை மீண்டும் உள்ளிட வேண்டியதில்லை.
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+சான்று பதிவுகள் Android சாதனத்தில் உள்ளூரில் சேமிக்கப்படுகின்றன. கடவுச்சொற்கள், கடவுச்சொற்றொடர்கள் அல்லது தனிப்பட்ட விசைகளைச் சேமித்தால் சாதனத்தைத் திரைப் பூட்டால் பாதுகாக்கவும்.
 
-## Use private keys
+## தனிப்பட்ட விசைகளைப் பயன்படுத்துதல்
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH ஒட்டப்பட்ட தனிப்பட்ட விசைகளையும் Android கோப்பு தேர்வி மூலம் விசை இறக்குமதியையும் ஆதரிக்கிறது. செயலி நிர்வாகம் Ed25519, RSA, ECDSA மற்றும் DSA விசைகளை ஆதரிக்கிறது.
 
-To use a private key:
+தனிப்பட்ட விசையைப் பயன்படுத்த:
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. **சான்றுகள்** அல்லது சேவையக திருத்த உரையாடலைத் திறக்கவும்.
+2. தனிப்பட்ட விசை உரையை ஒட்டவும், அல்லது **கோப்பிலிருந்து இறக்குமதி** ஐத் தேர்ந்தெடுக்கவும்.
+3. விசை குறியாக்கம் செய்யப்பட்டிருந்தால் கடவுச்சொல்/கடவுச்சொற்றொடர் புலத்தில் விசை கடவுச்சொற்றொடரை உள்ளிடவும்.
+4. சான்று அல்லது சேவையகத்தைச் சேமிக்கவும்.
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+தனிப்பட்ட விசை இறக்குமதி விசை கோப்புகளுக்கு Android இன் கோப்பு தேர்வியைப் பயன்படுத்துகிறது. கோப்பு பரிமாற்றம் ஒரு தனி உள்ளக கோப்பு உலாவியைப் பயன்படுத்துகிறது, புதிய Android பதிப்புகளில் பரந்த சேமிப்பக அணுகலைக் கோரலாம்.
 
-## Recent sessions
+## சமீபத்திய அமர்வுகள்
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+தொடக்கத் திரை சமீபத்திய அமர்வுகளைக் காட்டுகிறது. சமீபத்திய அமர்வு அதே சேவையக தொகுப்புடன் மீண்டும் இணைக்கலாம். முந்தைய அமர்வு இன்னும் செயலில் இருந்தால், Mobile SSH நகல் இணைப்பைத் தொடங்காமல் அதற்கே திரும்புகிறது.
 
-## Active sessions
+## செயலில் உள்ள அமர்வுகள்
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+அமர்வுகள் இயங்கும்போது, தொடக்கத் திரை எண்ணிக்கையுடன் **செயலில் உள்ள அமர்வுகள்** ஐக் காட்டுகிறது. டெர்மினல் கட்டத்திற்குத் திரும்ப அதைத் தட்டவும். தொடக்கத் திரைக்குத் திரும்புவது செயலில் உள்ள SSH அமர்வுகளைத் துண்டிப்பதில்லை; பலகங்களை மூடுவது அல்லது டெர்மினல் செயல்பாட்டை முடிப்பது அவற்றைத் துண்டிக்கிறது.
 
-## First useful settings
+## முதல் பயனுள்ள அமைப்புகள்
 
-Open **Settings** from the start screen:
+தொடக்கத் திரையிலிருந்து **அமைப்புகள்** ஐத் திறக்கவும்:
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- டெர்மினலைத் தட்டும்போது விசைப்பலகை தோன்ற வேண்டுமெனில் தட்டு-விசைப்பலகை ஐ இயக்கவும்.
+- விசைப்பலகை பரிந்துரைகள் Vim, less, htop அல்லது முழுத்திரை tmux போன்ற டெர்மினல் நிரல்களில் இடையூறு செய்தால் IME பரிந்துரைகளை முடக்கவும்.
 
-## Languages
+## மொழிகள்
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+Mobile SSH, Android இன் கணினி மொழியைப் பின்பற்றுகிறது. செயலி அரபு, பெங்காலி, சீனம் (எளிமைப்படுத்தப்பட்ட மற்றும் பாரம்பரிய), ஆங்கிலம், பிரஞ்சு, ஜெர்மன், இந்தி, இந்தோனேசியம், ஜப்பானியம், மராத்தி, நைஜீரிய பிட்ஜின், போர்த்துகீசியம், ரஷ்யன், ஸ்பானிஷ், தமிழ், தெலுங்கு, துருக்கியம் மற்றும் உருது மொழிபெயர்ப்புகளுடன் வருகிறது. மொழியை செயலிக்குள்ளிருந்து அல்ல, Android இன் **அமைப்புகள் → கணினி → மொழிகள்** இலிருந்து மாற்றவும்.
 
-## Security note
+## பாதுகாப்புக் குறிப்பு
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+நீங்கள் நம்பும் சேவையகங்களுடன் மட்டுமே இணைக்கவும். தற்போதைய செயலி சேமித்த இணைப்புத் தரவை உள்ளூரில் வைத்திருக்கிறது, கிளவுட் பெட்டகம் அல்லது சாதனங்களுக்கிடையேயான ஒத்திசைவை வழங்குவதில்லை. தற்போதைய நிர்வாகம் அறியப்பட்ட-ஹோஸ்ட் உறுதிப்படுத்தல் வேண்டுகோளையும் காட்டுவதில்லை, எனவே ஹோஸ்ட் அடையாளம் முக்கியமாகும்போது நம்பகமற்ற நெட்வொர்க்குகள் வழியாக இணைப்பதைத் தவிர்க்கவும்.

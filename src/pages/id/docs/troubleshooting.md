@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "Pemecahan masalah"
+description: "Panduan pemecahan masalah Mobile SSH untuk koneksi, autentikasi, keyboard, tmux, transfer berkas, dan tunnel."
 ---
 
-# Troubleshooting
+# Pemecahan masalah
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+Halaman ini membahas masalah umum Mobile SSH dan pemeriksaan pertama yang dijalankan sebelum mengubah pengaturan SSH di sisi server.
 
-## Cannot connect
+## Tidak dapat terhubung
 
-Check:
+Periksa:
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- Perangkat Android memiliki akses jaringan.
+- Nama host atau alamat IP server benar.
+- Port SSH benar, biasanya `22`.
+- Firewall, VPN, jaringan operator, atau jaringan Wi-Fi tidak memblokir port.
+- Server SSH berjalan dan menerima koneksi dari jaringan yang Anda gunakan.
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+Jika host yang sama berfungsi dari perangkat lain, bandingkan secara persis host, port, nama pengguna, kunci, dan jalur jaringan.
 
-## Authentication failed
+## Autentikasi gagal
 
-Check:
+Periksa:
 
-- Username spelling.
-- Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- Ejaan nama pengguna.
+- Kata sandi atau frasa sandi kunci.
+- Apakah server mengizinkan login kata sandi, login kunci, atau keduanya.
+- Apakah kunci privat cocok dengan kunci publik di `authorized_keys` pengguna server.
+- Apakah berkas kunci diimpor sepenuhnya, termasuk baris header dan footer.
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+Untuk kunci privat terenkripsi, masukkan frasa sandi di kolom kata sandi/frasa sandi.
 
-## Private key import failed
+## Impor kunci privat gagal
 
-Private key import uses Android's file picker. If import fails:
+Impor kunci privat menggunakan pemilih berkas Android. Jika impor gagal:
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- Pastikan berkas yang dipilih adalah kunci privat, bukan berkas publik `.pub`.
+- Buka berkas di editor teks tepercaya dan verifikasi berisi blok kunci lengkap.
+- Coba tempel kunci secara manual ke kolom kunci privat.
+- Pastikan tipe kunci didukung implementasi aplikasi: Ed25519, RSA, ECDSA, atau DSA.
 
-## Keyboard input is delayed or changed
+## Input keyboard tertunda atau berubah
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+Jika keyboard Android Anda mengubah teks sebelum mencapai shell, nonaktifkan saran keyboard di pengaturan Mobile SSH. Ini berguna untuk Vim, tmux, htop, less, shell dengan kord tombol tak lazim, dan prompt kata sandi jarak jauh.
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+Gunakan baris tombol tambahan untuk tombol terminal seperti `ESC`, `TAB`, `CTRL`, panah, `HOME`, `END`, `PGUP`, dan `PGDN`.
 
-## tmux scrolling is not what you expect
+## Gulir tmux tidak seperti yang diharapkan
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH mengubah perilaku gulir berdasarkan status terminal. Di tmux atau program layar alternatif lain, gerakan gulir dapat mengirim perintah mode salin tmux alih-alih menggulir riwayat lokal. Jika mode mouse tmux aktif, aplikasi mengirim urutan escape roda mouse.
 
-If scrolling feels wrong:
+Jika gulir terasa salah:
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- Coba aktifkan atau nonaktifkan mode mouse tmux di server jarak jauh.
+- Gunakan `PGUP` dan `PGDN` dari baris tombol tambahan.
+- Ketuk dua kali panel untuk layar penuh sebelum menggulir keluaran padat.
+- Lepas dan sambung ulang tmux jika ukuran terminal jarak jauh tampak usang.
 
-## Session dropped after screen lock
+## Sesi putus setelah layar terkunci
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH memakai keepalive, layanan latar depan, wake lock, Wi-Fi lock, dan upaya koneksi ulang untuk mengurangi pemutusan. Kebijakan baterai Android tetap dapat menghentikan kerja latar belakang.
 
-Check:
+Periksa:
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
-- Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- Nonaktifkan optimisasi baterai untuk Mobile SSH jika perangkat Anda agresif menghentikan aplikasi latar belakang.
+- Jaga Wi-Fi atau data seluler tetap stabil selama sesi panjang.
+- Buka kembali Mobile SSH dan ketuk **Sesi Aktif** setelah membuka kunci.
+- Jika server memutus sesi SSH, sambung kembali dari sesi terbaru.
 
-## File transfer cannot browse phone files
+## Transfer berkas tidak dapat menjelajahi berkas ponsel
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+Pada versi Android yang lebih baru, penjelajahan berkas lokal mungkin memerlukan akses penyimpanan. Berikan akses penyimpanan di Pengaturan Android untuk Mobile SSH, lalu buka kembali layar transfer berkas.
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+Jika berkas jarak jauh dimuat tetapi berkas lokal tidak, koneksi SSH kemungkinan baik-baik saja dan masalahnya pada akses penyimpanan lokal Android.
 
-## Upload or download failed
+## Unggah atau unduh gagal
 
-Check:
+Periksa:
 
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
+- Sesi SSH masih terhubung.
+- Direktori jarak jauh ada.
+- Pengguna jarak jauh punya izin membaca atau menulis jalur tersebut.
+- Tujuan lokal dapat ditulisi.
+- Ada cukup ruang kosong di perangkat Android.
+- Jaringan stabil untuk transfer besar.
 
-## Port forward failed
+## Penerusan port gagal
 
-Check:
+Periksa:
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- Port lokal antara `1` dan `65535`.
+- Port lokal belum dipakai.
+- String tunnel berupa `PORT` atau `LOCAL:REMOTEHOST:REMOTE`.
+- Host jarak jauh dan port jarak jauh dapat dijangkau dari server SSH.
+- Server SSH mengizinkan penerusan TCP.
 
-## Debug logs
+## Log debug
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+Layar awal menyertakan tombol **Debug**. Saat aktif, Mobile SSH merekam informasi diagnostik untuk peristiwa terminal, ukuran data SSH, input sentuh, perilaku ubah ukuran, dan siklus hidup tunnel. Hentikan perekaman untuk menyimpan arsip debug secara lokal.
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+Tinjau arsip debug sebelum membagikannya. Arsip ini ditujukan untuk pemecahan masalah dan dapat mengungkap nama server, waktu, perilaku terminal, atau detail lingkungan lain.

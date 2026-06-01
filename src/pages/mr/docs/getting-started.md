@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "सुरुवात करा"
+description: "Mobile SSH स्थापित करणे, सर्व्हरशी जोडणे आणि प्रोफाइल, क्रेडेन्शियल व सत्रे जतन करण्याचे पहिले टप्पे."
 ---
 
-# Getting started
+# सुरुवात करा
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+Mobile SSH हे तुमच्या स्वतःच्या Linux, Unix, नेटवर्क, IoT किंवा डेव्हलपमेंट सर्व्हरशी जोडण्यासाठीचे Android SSH क्लायंट आहे. तुम्ही सर्व्हरचा पत्ता आणि क्रेडेन्शियल देता; अ‍ॅप एक संवादात्मक SSH टर्मिनल उघडते.
 
-## Requirements
+## आवश्यकता
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 किंवा नवीन.
+- Android उपकरणावरून तुमच्या SSH सर्व्हरपर्यंत नेटवर्क प्रवेश.
+- SSH सर्व्हरचे होस्टनाव किंवा IP पत्ता, पोर्ट, वापरकर्तानाव, आणि पासवर्ड किंवा खाजगी की.
+- फोनच्या स्थानिक फाइल ब्राउझरसह SFTP फाइल हस्तांतरण वापरायचे असल्यास स्टोरेज प्रवेश.
 
-## Connect to a server
+## सर्व्हरशी जोडा
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. Mobile SSH उघडा.
+2. तुम्ही आधी प्रोफाइल तयार केले असल्यास **जतन केलेले सर्व्हर** टॅप करा, किंवा कनेक्शन प्रवाहातून सर्व्हर जोडा.
+3. होस्ट, पोर्ट, वापरकर्तानाव आणि प्रमाणीकरण तपशील प्रविष्ट करा.
+4. टर्मिनल सत्र उघडण्यासाठी सर्व्हरवर टॅप करा.
+5. अद्याप चालू असलेल्या सत्रांकडे परत येण्यासाठी स्टार्ट स्क्रीनवर **सक्रिय सत्रे** वापरा.
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+डिफॉल्ट SSH पोर्ट `22` आहे. तुमचा सर्व्हर दुसरा पोर्ट वापरत असल्यास तो पोर्ट सर्व्हर प्रोफाइलमध्ये प्रविष्ट करा.
 
-## Save servers
+## सर्व्हर जतन करा
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+जतन केलेले सर्व्हर कनेक्शन लक्ष्य आणि पर्यायी टनेल कॉन्फिगरेशन ठेवतात. जतन केलेल्या सर्व्हरमध्ये हे समाविष्ट असू शकते:
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- होस्टनाव किंवा IP पत्ता.
+- SSH पोर्ट.
+- वापरकर्तानाव.
+- पासवर्ड किंवा खाजगी की तपशील.
+- पर्यायी स्थानिक पोर्ट-फॉरवर्डिंग नियम.
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+वारंवार प्रवेश करता त्या होस्टसाठी जतन केलेले सर्व्हर वापरा. जतन केलेला सर्व्हर तुमच्या सध्याच्या सक्रिय सत्रापेक्षा वेगळ्या होस्टकडे निर्देश करत असल्यास, Mobile SSH निवडलेल्या लक्ष्यासाठी नवीन कनेक्शन सुरू करते.
 
-## Save credentials
+## क्रेडेन्शियल जतन करा
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+**क्रेडेन्शियल** स्क्रीन पुन्हा वापरण्यायोग्य वापरकर्तानाव/पासवर्ड किंवा वापरकर्तानाव/खाजगी-की नोंदी संग्रहित करते. जतन केलेले क्रेडेन्शियल सर्व्हर सेटअप संवादातून निवडता येतात, जेणेकरून प्रत्येक होस्टसाठी तीच लॉगिन माहिती पुन्हा प्रविष्ट करावी लागत नाही.
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+क्रेडेन्शियल नोंदी Android उपकरणावर स्थानिकरीत्या संग्रहित होतात. तुम्ही पासवर्ड, पासफ्रेज किंवा खाजगी की जतन करत असल्यास उपकरण स्क्रीन लॉकने सुरक्षित करा.
 
-## Use private keys
+## खाजगी की वापरा
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH पेस्ट केलेल्या खाजगी की आणि Android फाइल पिकरद्वारे की आयात यांना समर्थन देते. अ‍ॅप अंमलबजावणी Ed25519, RSA, ECDSA आणि DSA की समर्थित करते.
 
-To use a private key:
+खाजगी की वापरण्यासाठी:
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. **क्रेडेन्शियल** किंवा सर्व्हर संपादन संवाद उघडा.
+2. खाजगी कीचा मजकूर पेस्ट करा, किंवा **फाइलमधून आयात करा** निवडा.
+3. की कूटबद्ध असल्यास पासवर्ड/पासफ्रेज क्षेत्रात की पासफ्रेज प्रविष्ट करा.
+4. क्रेडेन्शियल किंवा सर्व्हर जतन करा.
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+खाजगी की आयात की फाइलसाठी Android चे फाइल पिकर वापरते. फाइल हस्तांतरण वेगळे स्थानिक फाइल ब्राउझर वापरते आणि नवीन Android आवृत्त्यांवर अधिक व्यापक स्टोरेज प्रवेश मागू शकते.
 
-## Recent sessions
+## अलीकडील सत्रे
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+स्टार्ट स्क्रीन अलीकडील सत्रे दाखवते. अलीकडील सत्र त्याच सर्व्हर संचाशी पुन्हा जोडू शकते. मागील सत्र अद्याप सक्रिय असल्यास, Mobile SSH डुप्लिकेट कनेक्शन सुरू करण्याऐवजी त्याकडेच परत येते.
 
-## Active sessions
+## सक्रिय सत्रे
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+सत्रे चालू असताना, स्टार्ट स्क्रीन गणनेसह **सक्रिय सत्रे** दाखवते. टर्मिनल ग्रिडकडे परत येण्यासाठी त्यावर टॅप करा. स्टार्ट स्क्रीनवर परत जाणे आवश्यक नाही की सक्रिय SSH सत्रे खंडित करेल; पॅन बंद करणे किंवा टर्मिनल क्रियाकलाप संपवणे ती खंडित करते.
 
-## First useful settings
+## पहिल्या उपयुक्त सेटिंग्ज
 
-Open **Settings** from the start screen:
+स्टार्ट स्क्रीनवरून **सेटिंग्ज** उघडा:
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- टर्मिनलवर टॅप केल्यावर कीबोर्ड दिसावा असे वाटत असल्यास टॅप-वर-कीबोर्ड सक्षम करा.
+- कीबोर्ड सूचना Vim, less, htop किंवा फुल-स्क्रीन tmux सारख्या टर्मिनल प्रोग्राममध्ये अडथळा आणत असल्यास IME सूचना अक्षम करा.
 
-## Languages
+## भाषा
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+Mobile SSH, Android च्या सिस्टम भाषेचे अनुसरण करते. अ‍ॅपमध्ये अरबी, बंगाली, चिनी (सरलीकृत आणि पारंपरिक), इंग्रजी, फ्रेंच, जर्मन, हिंदी, इंडोनेशियन, जपानी, मराठी, नायजेरियन पिजिन, पोर्तुगीज, रशियन, स्पॅनिश, तमिळ, तेलुगू, तुर्की आणि उर्दू भाषांतरे समाविष्ट आहेत. भाषा अ‍ॅपमधून नव्हे, तर Android च्या **सेटिंग्ज → सिस्टम → भाषा** मधून बदला.
 
-## Security note
+## सुरक्षा टीप
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+फक्त तुमचा विश्वास असलेल्या सर्व्हरशी जोडा. सध्याचे अ‍ॅप जतन केलेला कनेक्शन डेटा स्थानिकरीत्या ठेवते आणि क्लाउड व्हॉल्ट किंवा उपकरणांदरम्यान समक्रमण देत नाही. सध्याची अंमलबजावणी ज्ञात-होस्ट पुष्टी सूचना देखील दाखवत नाही, म्हणून होस्ट ओळख महत्त्वाची असेल तेव्हा अविश्वसनीय नेटवर्कवर जोडणे टाळा.

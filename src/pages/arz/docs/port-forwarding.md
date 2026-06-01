@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "إعادة توجيه المنافذ"
+description: "صياغة إعادة توجيه المنافذ المحلية في Mobile SSH وإدارة الأنفاق لنظام Android."
 ---
 
-# Port forwarding
+# إعادة توجيه المنافذ
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH بيدعم إعادة توجيه منافذ SSH المحلية. منفذ محلي على جهاز Android بيسمع على `127.0.0.1` وبيعيد توجيه حركة المرور عبر اتصال SSH لمضيف ومنفذ بعيدين.
 
-## Saved tunnel syntax
+## صياغة النفق المحفوظ
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+قواعد إعادة توجيه المنافذ بتتفصل بفواصل. كل إدخال بيستخدم واحدة من صيغتين:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+الصيغة المختصرة:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+ده بيربط `127.0.0.1:8080` على جهاز Android وبيعيد توجيهه لـ `localhost:8080` من منظور السيرفر.
 
-Full form:
+الصيغة الكاملة:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+ده بيربط `127.0.0.1:3000` على جهاز Android وبيعيد توجيهه عبر SSH لـ `localhost:3000` على الجانب البعيد.
 
-Multiple forwards:
+كذا توجيه:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## إضافة نفق لسيرفر محفوظ
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. افتح **السيرفرات المحفوظة**.
+2. ضيف بروفايل سيرفر أو حرّره.
+3. دخّل قواعد التوجيه في **إعادة توجيه المنافذ**.
+4. احفظ السيرفر.
+5. اتصل بالسيرفر.
 
-The app applies saved forwards after the SSH session connects.
+التطبيق بيطبّق عمليات التوجيه المحفوظة بعد ما جلسة SSH تتصل.
 
-## Manage active tunnels
+## إدارة الأنفاق النشطة
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+وإنت متصل، اختار الجلسة وافتح عرض الأنفاق من شريط أدوات الطرفية. من هناك تقدر تشوف عمليات التوجيه المحلية النشطة، أو تضيف نفق جديد، أو تشيل توجيه محلي.
 
-## Address binding
+## ربط العنوان
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH بيربط عمليات التوجيه المحلية بـ `127.0.0.1` على جهاز Android. ده مقصود: بيخلي النفق محلي على الجهاز وبيتجنّب مفاجآت الاسترجاع (loopback) عبر IPv6 بس. تطبيقات تانية على نفس جهاز Android ممكن تقدر تتصل بالمنفذ المحلي المُعاد توجيهه لو Android سمح بوصولها الشبكي.
 
-## Common examples
+## أمثلة شائعة
 
-Access a web service running on the remote server:
+الوصول لخدمة ويب شغالة على السيرفر البعيد:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+وبعدين افتح `http://127.0.0.1:8080` من متصفح على جهاز Android.
 
-Access a development server:
+الوصول لسيرفر تطوير:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+الوصول لقاعدة بيانات داخلية ممكن توصلها من سيرفر SSH:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## استكشاف أخطاء الأنفاق
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- اتأكّد إن جلسة SSH متصلة قبل ما تضيف أنفاق وقت التشغيل.
+- اتأكّد إن المنفذ المحلي مش مستخدم بالفعل.
+- اتأكّد إن المضيف والمنفذ البعيدين ممكن توصلهم من سيرفر SSH.
+- استخدم `localhost` لما خدمة الوجهة تكون على سيرفر SSH نفسه.
+- استخدم اسم DNS الداخلي للسيرفر أو الـ IP لما تعيد التوجيه لمضيف تاني ورا سيرفر SSH.

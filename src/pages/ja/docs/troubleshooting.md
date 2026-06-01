@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "トラブルシューティング"
+description: "接続、認証、キーボード、tmux、ファイル転送、トンネルに関する Mobile SSH のトラブルシューティングガイド。"
 ---
 
-# Troubleshooting
+# トラブルシューティング
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+このページでは Mobile SSH のよくある問題と、サーバー側の SSH 設定を変更する前にまず確認すべき点を説明します。
 
-## Cannot connect
+## 接続できない
 
-Check:
+確認してください：
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- Android 端末にネットワークアクセスがある。
+- サーバーのホスト名または IP アドレスが正しい。
+- SSH ポートが正しい（通常は `22`）。
+- ファイアウォール、VPN、携帯回線、または Wi-Fi ネットワークがポートをブロックしていない。
+- SSH サーバーが稼働しており、使用中のネットワークからの接続を受け付けている。
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+同じホストが別の端末で動く場合は、ホスト、ポート、ユーザー名、鍵、ネットワーク経路を正確に比較してください。
 
-## Authentication failed
+## 認証に失敗する
 
-Check:
+確認してください：
 
-- Username spelling.
-- Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- ユーザー名のつづり。
+- パスワードまたは鍵のパスフレーズ。
+- サーバーがパスワードログイン、鍵ログイン、またはその両方を許可しているか。
+- 秘密鍵がサーバーユーザーの `authorized_keys` の公開鍵と一致するか。
+- 鍵ファイルがヘッダーとフッターの行を含めて完全にインポートされたか。
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+暗号化された秘密鍵では、パスワード/パスフレーズ欄にパスフレーズを入力します。
 
-## Private key import failed
+## 秘密鍵のインポートに失敗する
 
-Private key import uses Android's file picker. If import fails:
+秘密鍵のインポートは Android のファイル選択ツールを使います。インポートに失敗する場合：
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- 選択したファイルが公開鍵 `.pub` ではなく秘密鍵であることを確認します。
+- 信頼できるテキストエディタでファイルを開き、鍵ブロック全体が含まれていることを確認します。
+- 秘密鍵欄に鍵を手動で貼り付けてみます。
+- 鍵の種類がアプリの実装で対応しているもの（Ed25519、RSA、ECDSA、DSA）であることを確認します。
 
-## Keyboard input is delayed or changed
+## キーボード入力が遅れる、または変わる
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+Android のキーボードがテキストをシェルに届く前に変える場合は、Mobile SSH の設定でキーボードの予測候補を無効にしてください。これは Vim、tmux、htop、less、特殊なキーコンビネーションを使うシェル、リモートのパスワード入力に役立ちます。
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+`ESC`、`TAB`、`CTRL`、矢印、`HOME`、`END`、`PGUP`、`PGDN` などのターミナルキーには追加キーの行を使ってください。
 
-## tmux scrolling is not what you expect
+## tmux のスクロールが想定どおりでない
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH はターミナルの状態に応じてスクロールの挙動を変えます。tmux や他の代替画面プログラムでは、スクロールのジェスチャーがローカル履歴のスクロールではなく tmux のコピーモードのコマンドを送ることがあります。tmux のマウスモードが有効な場合、アプリはマウスホイールのエスケープシーケンスを送ります。
 
-If scrolling feels wrong:
+スクロールがおかしいと感じたら：
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- リモートサーバーで tmux のマウスモードを有効・無効にしてみます。
+- 追加キーの行の `PGUP` と `PGDN` を使います。
+- 密な出力をスクロールする前に、ペインをダブルタップして全画面にします。
+- リモートのターミナルサイズが古く見える場合は、tmux をデタッチして再アタッチします。
 
-## Session dropped after screen lock
+## 画面ロック後にセッションが切れる
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH は keepalive、フォアグラウンドサービス、ウェイクロック、Wi-Fi ロック、再接続の試行を使って切断を減らします。それでも Android のバッテリーポリシーがバックグラウンド処理を止めることがあります。
 
-Check:
+確認してください：
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
-- Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- 端末がバックグラウンドアプリを積極的に止める場合は、Mobile SSH のバッテリー最適化を無効にします。
+- 長いセッションの間は Wi-Fi またはモバイルデータを安定させます。
+- ロック解除後に Mobile SSH を開き直し、**アクティブなセッション** をタップします。
+- サーバーが SSH セッションを切断した場合は、最近のセッションから再接続します。
 
-## File transfer cannot browse phone files
+## ファイル転送が端末のファイルを参照できない
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+新しい Android バージョンでは、ローカルのファイル参照にストレージアクセスが必要なことがあります。Android の設定で Mobile SSH にストレージアクセスを付与し、ファイル転送画面を開き直してください。
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+リモートのファイルは読み込めるのにローカルが読み込めない場合、SSH 接続はおそらく問題なく、原因はローカルの Android ストレージアクセスです。
 
-## Upload or download failed
+## アップロードまたはダウンロードに失敗する
 
-Check:
+確認してください：
 
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
+- SSH セッションがまだ接続されている。
+- リモートのディレクトリが存在する。
+- リモートユーザーにそのパスの読み取りまたは書き込み権限がある。
+- ローカルの保存先が書き込み可能である。
+- Android 端末に十分な空き容量がある。
+- 大きな転送に対してネットワークが安定している。
 
-## Port forward failed
+## ポートフォワードに失敗する
 
-Check:
+確認してください：
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- ローカルポートが `1` から `65535` の間である。
+- ローカルポートがすでに使われていない。
+- トンネル文字列が `PORT` または `LOCAL:REMOTEHOST:REMOTE` である。
+- リモートのホストとポートが SSH サーバーから到達できる。
+- SSH サーバーが TCP 転送を許可している。
 
-## Debug logs
+## デバッグログ
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+開始画面には **デバッグ** ボタンがあります。有効にすると、Mobile SSH はターミナルイベント、SSH データのサイズ、タッチ入力、サイズ変更の挙動、トンネルのライフサイクルの診断情報を記録します。記録を停止すると、デバッグアーカイブをローカルに保存できます。
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+デバッグアーカイブは共有する前に確認してください。トラブルシューティング用であり、サーバー名、タイミング、ターミナルの挙動、その他の環境の詳細が含まれることがあります。

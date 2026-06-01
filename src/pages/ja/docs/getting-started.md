@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "はじめに"
+description: "Mobile SSH のインストール、サーバーへの接続、プロファイル・認証情報・セッションの保存の最初の手順。"
 ---
 
-# Getting started
+# はじめに
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+Mobile SSH は、ご自身の Linux、Unix、ネットワーク、IoT、開発サーバーに接続するための Android 用 SSH クライアントです。サーバーアドレスと認証情報を入力すると、アプリが対話型の SSH ターミナルを開きます。
 
-## Requirements
+## 要件
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 以降。
+- Android 端末から SSH サーバーへのネットワークアクセス。
+- SSH サーバーのホスト名または IP アドレス、ポート、ユーザー名、そしてパスワードまたは秘密鍵。
+- 端末のローカルファイルブラウザで SFTP ファイル転送を使う場合はストレージアクセス。
 
-## Connect to a server
+## サーバーに接続する
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. Mobile SSH を開きます。
+2. すでにプロファイルを作成済みなら **保存済みサーバー** をタップします。または接続フローからサーバーを追加します。
+3. ホスト、ポート、ユーザー名、認証情報を入力します。
+4. サーバーをタップしてターミナルセッションを開きます。
+5. まだ実行中のセッションに戻るには、開始画面の **アクティブなセッション** を使います。
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+既定の SSH ポートは `22` です。サーバーが別のポートを使う場合は、サーバープロファイルにそのポートを入力します。
 
-## Save servers
+## サーバーを保存する
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+保存済みサーバーは、接続先と任意のトンネル設定を保持します。保存済みサーバーには次を含められます。
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- ホスト名または IP アドレス。
+- SSH ポート。
+- ユーザー名。
+- パスワードまたは秘密鍵の情報。
+- 任意のローカルポートフォワーディング規則。
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+繰り返しアクセスするホストには保存済みサーバーを使ってください。保存済みサーバーが現在のアクティブなセッションと異なるホストを指している場合、Mobile SSH は選択した接続先に新しい接続を開始します。
 
-## Save credentials
+## 認証情報を保存する
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+**認証情報** 画面は、再利用可能なユーザー名/パスワードまたはユーザー名/秘密鍵のレコードを保存します。保存済みの認証情報はサーバー設定ダイアログで選択でき、ホストごとに同じログイン情報を入力し直さずに済みます。
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+認証情報のレコードは Android 端末にローカル保存されます。パスワード、パスフレーズ、秘密鍵を保存する場合は、画面ロックで端末を保護してください。
 
-## Use private keys
+## 秘密鍵を使う
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH は、貼り付けた秘密鍵と、Android のファイル選択ツールによる鍵のインポートに対応します。アプリの実装は Ed25519、RSA、ECDSA、DSA の各鍵に対応します。
 
-To use a private key:
+秘密鍵を使う手順：
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. **認証情報** またはサーバー編集ダイアログを開きます。
+2. 秘密鍵のテキストを貼り付けるか、**ファイルからインポート** を選びます。
+3. 鍵が暗号化されている場合は、パスワード/パスフレーズ欄に鍵のパスフレーズを入力します。
+4. 認証情報またはサーバーを保存します。
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+秘密鍵のインポートは鍵ファイルに Android のファイル選択ツールを使います。ファイル転送は別のローカルファイルブラウザを使い、新しい Android バージョンではより広いストレージアクセスを要求する場合があります。
 
-## Recent sessions
+## 最近のセッション
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+開始画面には最近のセッションが表示されます。最近のセッションは同じサーバーの組に再接続できます。前のセッションがまだアクティブな場合、Mobile SSH は重複した接続を開始せず、そのセッションに戻ります。
 
-## Active sessions
+## アクティブなセッション
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+セッションが実行中のとき、開始画面には件数付きで **アクティブなセッション** が表示されます。タップするとターミナルのグリッドに戻ります。開始画面に戻っても、アクティブな SSH セッションが必ず切断されるわけではありません。ペインを閉じるか、ターミナルのアクティビティを終了すると切断されます。
 
-## First useful settings
+## 最初に役立つ設定
 
-Open **Settings** from the start screen:
+開始画面で **設定** を開きます。
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- ターミナルをタップしたときにキーボードを表示したい場合は、タップでキーボード表示を有効にします。
+- キーボードの予測候補が Vim、less、htop、全画面の tmux アプリなどのターミナルプログラムを妨げる場合は、IME の予測候補を無効にします。
 
-## Languages
+## 言語
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+Mobile SSH は Android のシステム言語に従います。アプリにはアラビア語、ベンガル語、中国語（簡体字・繁体字）、英語、フランス語、ドイツ語、ヒンディー語、インドネシア語、日本語、マラーティー語、ナイジェリア・ピジン、ポルトガル語、ロシア語、スペイン語、タミル語、テルグ語、トルコ語、ウルドゥー語の翻訳が含まれます。言語の変更はアプリ内ではなく、Android の **設定 → システム → 言語** で行ってください。
 
-## Security note
+## セキュリティに関する注意
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+信頼できるサーバーにのみ接続してください。現在のアプリは保存した接続データをローカルに保存し、クラウド保管庫やデバイス間同期は提供しません。現在の実装は既知ホストの確認プロンプトも表示しないため、ホストの同一性が重要な場合は信頼できないネットワーク経由の接続は避けてください。

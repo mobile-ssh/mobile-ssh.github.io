@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "文件传输"
+description: "Mobile SSH 的 SFTP 文件传输指南：本地文件、远程文件、上传、下载、排序和权限。"
 ---
 
-# File transfer
+# 文件传输
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH 包含一个与活动 SSH 连接绑定的 SFTP 文件传输屏幕。它用于从 Android 进行快速的服务器维护：上传配置、下载日志、重命名远程文件或查看权限，而无需离开应用。
 
-## Open file transfer
+## 打开文件传输
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. 连接到 SSH 服务器。
+2. 选择已连接的终端窗格。
+3. 从终端工具栏打开 **传输**，或在当前屏幕支持时长按窗格标题。
+4. 文件传输屏幕会打开，包含本地窗格和远程窗格。
 
-If there is no active SSH session, file transfer cannot open.
+如果没有活动的 SSH 会话，则无法打开文件传输。
 
-## Local and remote panes
+## 本地与远程窗格
 
-The file transfer screen has two browser panes:
+文件传输屏幕有两个浏览窗格：
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **本地窗格：** 手机存储。
+- **远程窗格：** 通过 SFTP 访问的服务器文件。
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+应用会按主机记住最近的本地和远程路径。两个窗格的排序设置也会按主机记住。
 
-## Android storage permission
+## Android 存储权限
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+在限制直接浏览文件的 Android 版本上，Mobile SSH 可能会在本地窗格浏览手机文件之前请求存储访问权限。如果你跳过或拒绝此权限，远程浏览可能仍然有效，但本地上传和下载路径可能受限。
 
-Private key import is separate from file transfer and uses the Android file picker.
+私钥导入与文件传输分开，使用 Android 文件选择器。
 
-## Upload files
+## 上传文件
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. 打开本地窗格。
+2. 导航到你要上传的文件。
+3. 选择上传。
+4. 确认远程目标。
+5. 在传输队列中查看进度和完成情况。
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+上传使用现有的 SSH/SFTP 连接。如果连接断开，请在重连后重试。
 
-## Download files
+## 下载文件
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. 打开远程窗格。
+2. 导航到你要下载的文件。
+3. 选择下载。
+4. 确认本地目标。
+5. 在传输队列中查看进度和完成情况。
 
-Large downloads should be done on a stable network when possible.
+大文件下载应尽量在稳定的网络下进行。
 
-## Remote file actions
+## 远程文件操作
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+根据所选的远程项目，Mobile SSH 可显示以下操作：
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- 下载。
+- 重命名。
+- 删除。
+- 创建文件或目录。
+- 编辑文本文件。
+- 查看文件详情。
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+远程文件详情可包含权限位、所有者、所属组和八进制权限值。在更改由其他进程或部署工具管理的服务器文件之前，请先查看这些详情。
 
-## Sorting and recent paths
+## 排序与最近路径
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+每个窗格都可按名称或日期升序或降序排序。Mobile SSH 会按主机存储所选的本地和远程排序方式以及最近路径，因此对同一服务器的重复传输会从熟悉的位置开始。
 
-## Transfer queue
+## 传输队列
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+传输会排入队列并按状态显示。日志区域将排队、失败和成功的传输分开。当底层 SFTP 操作提供原因时，失败的传输会包含原因。
 
-## Practical tips
+## 实用提示
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- 使用 SFTP 进行有针对性的文件移动；对于大型目录同步，请在服务器上使用 `rsync` 等命令行工具。
+- 除非你有备份或部署回滚路径，否则避免编辑正在运行的生产文件。
+- 如果上传后文件未出现，请刷新远程窗格或核实目标路径。
+- 如果 Android 存储访问阻止本地浏览，请在 Android 设置中授予权限，然后重新打开文件传输。

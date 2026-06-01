@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "Penerusan port"
+description: "Sintaks penerusan port lokal Mobile SSH dan pengelolaan tunnel untuk Android."
 ---
 
-# Port forwarding
+# Penerusan port
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH mendukung penerusan port SSH lokal. Sebuah port lokal di perangkat Android mendengarkan di `127.0.0.1` dan meneruskan lalu lintas melalui koneksi SSH ke host dan port jarak jauh.
 
-## Saved tunnel syntax
+## Sintaks tunnel tersimpan
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+Aturan penerusan port dipisahkan koma. Setiap entri memakai salah satu dari dua bentuk:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+Bentuk singkat:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+Ini mengikat `127.0.0.1:8080` di perangkat Android dan meneruskannya ke `localhost:8080` dari sudut pandang server.
 
-Full form:
+Bentuk penuh:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+Ini mengikat `127.0.0.1:3000` di perangkat Android dan meneruskannya melalui SSH ke `localhost:3000` di sisi jarak jauh.
 
-Multiple forwards:
+Beberapa penerusan:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## Menambah tunnel ke server tersimpan
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. Buka **Server Tersimpan**.
+2. Tambah atau edit profil server.
+3. Masukkan aturan penerusan di **Penerusan port**.
+4. Simpan server.
+5. Terhubung ke server.
 
-The app applies saved forwards after the SSH session connects.
+Aplikasi menerapkan penerusan tersimpan setelah sesi SSH terhubung.
 
-## Manage active tunnels
+## Mengelola tunnel aktif
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+Saat terhubung, pilih sesi dan buka tampilan tunnel dari bilah alat terminal. Dari sana Anda dapat memeriksa penerusan lokal aktif, menambah tunnel baru, atau menghapus penerusan lokal.
 
-## Address binding
+## Pengikatan alamat
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH mengikat penerusan lokal ke `127.0.0.1` di perangkat Android. Ini disengaja: menjaga tunnel tetap lokal di perangkat dan menghindari kejutan loopback khusus IPv6. Aplikasi lain di perangkat Android yang sama mungkin dapat terhubung ke port lokal yang diteruskan jika Android mengizinkan akses jaringannya.
 
-## Common examples
+## Contoh umum
 
-Access a web service running on the remote server:
+Mengakses layanan web yang berjalan di server jarak jauh:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+Lalu buka `http://127.0.0.1:8080` dari peramban di perangkat Android.
 
-Access a development server:
+Mengakses server pengembangan:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+Mengakses basis data internal yang dapat dijangkau dari server SSH:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## Pemecahan masalah tunnel
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- Pastikan sesi SSH terhubung sebelum menambah tunnel saat berjalan.
+- Periksa bahwa port lokal belum dipakai.
+- Periksa bahwa host dan port jarak jauh dapat dijangkau dari server SSH.
+- Gunakan `localhost` ketika layanan tujuan ada di server SSH itu sendiri.
+- Gunakan nama DNS internal server atau IP saat meneruskan ke host lain di belakang server SSH.

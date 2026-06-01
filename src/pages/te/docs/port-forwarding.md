@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "పోర్ట్ ఫార్వార్డింగ్"
+description: "Android కోసం Mobile SSH లోకల్ పోర్ట్ ఫార్వార్డింగ్ సింటాక్స్ మరియు టన్నెల్ నిర్వహణ."
 ---
 
-# Port forwarding
+# పోర్ట్ ఫార్వార్డింగ్
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH లోకల్ SSH పోర్ట్ ఫార్వార్డింగ్‌ను మద్దతిస్తుంది. Android పరికరంలోని ఒక లోకల్ పోర్ట్ `127.0.0.1` పై వింటుంది మరియు SSH కనెక్షన్ ద్వారా ట్రాఫిక్‌ను రిమోట్ హోస్ట్ మరియు పోర్ట్‌కు ఫార్వార్డ్ చేస్తుంది.
 
-## Saved tunnel syntax
+## సేవ్ చేసిన టన్నెల్ సింటాక్స్
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+పోర్ట్-ఫార్వార్డింగ్ నియమాలు కామాతో వేరు చేయబడతాయి. ప్రతి ఎంట్రీ రెండు రూపాల్లో ఒకదాన్ని ఉపయోగిస్తుంది:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+చిన్న రూపం:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+ఇది Android పరికరంలో `127.0.0.1:8080`ను బైండ్ చేసి, సర్వర్ దృష్టికోణం నుండి దాన్ని `localhost:8080`కు ఫార్వార్డ్ చేస్తుంది.
 
-Full form:
+పూర్తి రూపం:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+ఇది Android పరికరంలో `127.0.0.1:3000`ను బైండ్ చేసి, SSH ద్వారా దాన్ని రిమోట్ వైపు `localhost:3000`కు ఫార్వార్డ్ చేస్తుంది.
 
-Multiple forwards:
+బహుళ ఫార్వార్డ్‌లు:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## సేవ్ చేసిన సర్వర్‌కు టన్నెల్ జోడించడం
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. **సేవ్ చేసిన సర్వర్లు** తెరవండి.
+2. సర్వర్ ప్రొఫైల్‌ను జోడించండి లేదా సవరించండి.
+3. **పోర్ట్ ఫార్వార్డ్‌లు**లో ఫార్వార్డింగ్ నియమాలను నమోదు చేయండి.
+4. సర్వర్‌ను సేవ్ చేయండి.
+5. సర్వర్‌కు కనెక్ట్ అవ్వండి.
 
-The app applies saved forwards after the SSH session connects.
+SSH సెషన్ కనెక్ట్ అయిన తర్వాత యాప్ సేవ్ చేసిన ఫార్వార్డ్‌లను వర్తింపజేస్తుంది.
 
-## Manage active tunnels
+## క్రియాశీల టన్నెల్‌లను నిర్వహించడం
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+కనెక్ట్ అయి ఉన్నప్పుడు, సెషన్‌ను ఎంచుకొని టర్మినల్ టూల్‌బార్ నుండి టన్నెల్ వీక్షణను తెరవండి. అక్కడ నుండి మీరు క్రియాశీల లోకల్ ఫార్వార్డ్‌లను తనిఖీ చేయవచ్చు, కొత్త టన్నెల్‌ను జోడించవచ్చు, లేదా లోకల్ ఫార్వార్డ్‌ను తీసివేయవచ్చు.
 
-## Address binding
+## చిరునామా బైండింగ్
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH లోకల్ ఫార్వార్డ్‌లను Android పరికరంలో `127.0.0.1`కు బైండ్ చేస్తుంది. ఇది ఉద్దేశపూర్వకం: ఇది టన్నెల్‌ను పరికర-లోకల్‌గా ఉంచి, IPv6-మాత్రమే లూప్‌బ్యాక్ ఆశ్చర్యాలను నివారిస్తుంది. Android వారి నెట్‌వర్క్ యాక్సెస్‌ను అనుమతిస్తే, అదే Android పరికరంలోని ఇతర యాప్‌లు ఫార్వార్డ్ చేసిన లోకల్ పోర్ట్‌కు కనెక్ట్ అవ్వవచ్చు.
 
-## Common examples
+## సాధారణ ఉదాహరణలు
 
-Access a web service running on the remote server:
+రిమోట్ సర్వర్‌లో నడుస్తున్న వెబ్ సేవను యాక్సెస్ చేయడం:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+ఆపై Android పరికరంలో బ్రౌజర్ నుండి `http://127.0.0.1:8080` తెరవండి.
 
-Access a development server:
+డెవలప్‌మెంట్ సర్వర్‌ను యాక్సెస్ చేయడం:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+SSH సర్వర్ నుండి చేరుకోగల అంతర్గత డేటాబేస్‌ను యాక్సెస్ చేయడం:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## టన్నెల్ సమస్య పరిష్కారం
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- రన్‌టైమ్ టన్నెల్‌లను జోడించే ముందు SSH సెషన్ కనెక్ట్ అయిందని నిర్ధారించుకోండి.
+- లోకల్ పోర్ట్ ఇప్పటికే వాడుకలో లేదని తనిఖీ చేయండి.
+- రిమోట్ హోస్ట్ మరియు పోర్ట్ SSH సర్వర్ నుండి చేరుకోగలవని తనిఖీ చేయండి.
+- గమ్య సేవ SSH సర్వర్‌లోనే ఉన్నప్పుడు `localhost` ఉపయోగించండి.
+- SSH సర్వర్ వెనుక ఉన్న మరో హోస్ట్‌కు ఫార్వార్డ్ చేసేటప్పుడు సర్వర్ అంతర్గత DNS పేరు లేదా IP ఉపయోగించండి.

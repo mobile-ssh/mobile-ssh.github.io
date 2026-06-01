@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "Troubleshooting"
+description: "Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues."
 ---
 
 # Troubleshooting
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+Dis page dey cover common Mobile SSH issues and di first checks wey you go run before you change server-side SSH settings.
 
-## Cannot connect
+## You no fit connect
 
 Check:
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- Di Android device get network access.
+- Di server hostname or IP address correct.
+- Di SSH port correct, usually `22`.
+- Firewall, VPN, carrier network, or Wi-Fi network no dey block di port.
+- Di SSH server dey run and e dey accept connections from di network wey you dey use.
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+If di same host dey work from anoda device, compare di exact host, port, username, key, and network path.
 
-## Authentication failed
+## Authentication fail
 
 Check:
 
 - Username spelling.
 - Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- Whether di server allow password login, key login, or both.
+- Whether di private key match public key for di server user `authorized_keys`.
+- Whether di key file enter fully, including di header and footer lines.
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+For encrypted private keys, enter di passphrase for di password/passphrase field.
 
-## Private key import failed
+## Private key import fail
 
-Private key import uses Android's file picker. If import fails:
+Private key import dey use Android file picker. If import fail:
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- Confirm say di selected file na private key, no be public `.pub` file.
+- Open di file for trusted text editor and verify say e get di full key block.
+- Try paste di key by hand for di private key field.
+- Confirm say di key type na one wey di app implementation support: Ed25519, RSA, ECDSA, or DSA.
 
-## Keyboard input is delayed or changed
+## Keyboard input dey delay or dey change
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+If your Android keyboard dey change text before e reach di shell, disable keyboard suggestions for Mobile SSH settings. Dis dey useful for Vim, tmux, htop, less, shells wey dey use unusual key chords, and remote password prompts.
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+Use di extra key row for terminal keys like `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
 
-## tmux scrolling is not what you expect
+## tmux scrolling no be wetin you expect
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH dey change scroll behavior based on terminal state. For tmux or other alternate-screen programs, scroll gestures fit send tmux copy-mode commands instead of scrolling local history. If tmux mouse mode dey enabled, di app dey send mouse-wheel escape sequences.
 
-If scrolling feels wrong:
+If scrolling feel wrong:
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- Try enable or disable tmux mouse mode on di remote server.
+- Use `PGUP` and `PGDN` from di extra key row.
+- Double-tap di pane for fullscreen before you scroll dense output.
+- Detach and reattach to tmux if di remote terminal size look stale.
 
-## Session dropped after screen lock
+## Session drop after screen lock
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH dey use keepalives, foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies fit still stop background work.
 
 Check:
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
+- Disable battery optimization for Mobile SSH if your device dey aggressively stop background apps.
 - Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- Reopen Mobile SSH and tap **Active Sessions** after you unlock.
+- If di server disconnect di SSH session, reconnect from recent sessions.
 
-## File transfer cannot browse phone files
+## File transfer no fit browse phone files
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+For newer Android versions, local file browsing fit require storage access. Grant storage access for Android Settings for Mobile SSH, then reopen di file transfer screen.
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+If remote files load but local files no load, di SSH connection probably dey fine and di issue na local Android storage access.
 
-## Upload or download failed
-
-Check:
-
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
-
-## Port forward failed
+## Upload or download fail
 
 Check:
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- Di SSH session still dey connected.
+- Di remote directory dey exist.
+- Di remote user get permission to read or write di path.
+- Di local destination dey writable.
+- Enough free space dey on di Android device.
+- Di network stable for large transfers.
+
+## Port forward fail
+
+Check:
+
+- Di local port dey between `1` and `65535`.
+- Di local port no dey already used.
+- Di tunnel string na `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
+- Di remote host and remote port dey reachable from di SSH server.
+- Di SSH server dey allow TCP forwarding.
 
 ## Debug logs
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+Di start screen get one **Debug** button. Wen e dey enabled, Mobile SSH dey record diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save debug archive local.
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+Review debug archives before you share dem. Dem na for troubleshooting and dem fit reveal server names, timing, terminal behavior, or other environment details.

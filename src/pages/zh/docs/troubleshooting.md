@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "故障排查"
+description: "Mobile SSH 在连接、认证、键盘、tmux、文件传输和隧道方面的故障排查指南。"
 ---
 
-# Troubleshooting
+# 故障排查
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+本页介绍 Mobile SSH 的常见问题，以及在更改服务器端 SSH 设置之前应先进行的检查。
 
-## Cannot connect
+## 无法连接
 
-Check:
+请检查：
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- Android 设备已联网。
+- 服务器的主机名或 IP 地址正确。
+- SSH 端口正确，通常为 `22`。
+- 防火墙、VPN、运营商网络或 Wi-Fi 网络未阻止该端口。
+- SSH 服务器正在运行，并接受来自你所用网络的连接。
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+如果同一主机在另一台设备上可用，请逐一比较主机、端口、用户名、密钥和网络路径。
 
-## Authentication failed
+## 认证失败
 
-Check:
+请检查：
 
-- Username spelling.
-- Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- 用户名拼写。
+- 密码或密钥口令。
+- 服务器是否允许密码登录、密钥登录或两者。
+- 私钥是否与服务器用户 `authorized_keys` 中的公钥匹配。
+- 密钥文件是否完整导入，包括开头和结尾行。
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+对于加密的私钥，请在密码/口令字段中输入口令。
 
-## Private key import failed
+## 私钥导入失败
 
-Private key import uses Android's file picker. If import fails:
+私钥导入使用 Android 文件选择器。如果导入失败：
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- 确认所选文件是私钥，而非公钥 `.pub` 文件。
+- 在受信任的文本编辑器中打开文件，确认它包含完整的密钥块。
+- 尝试将密钥手动粘贴到私钥字段中。
+- 确认密钥类型是应用实现支持的类型之一：Ed25519、RSA、ECDSA 或 DSA。
 
-## Keyboard input is delayed or changed
+## 键盘输入延迟或被更改
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+如果你的 Android 键盘在文本到达 shell 之前更改了它，请在 Mobile SSH 设置中关闭键盘建议。这对 Vim、tmux、htop、less、使用特殊组合键的 shell 以及远程密码提示很有用。
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+使用额外按键行输入 `ESC`、`TAB`、`CTRL`、方向键、`HOME`、`END`、`PGUP` 和 `PGDN` 等终端按键。
 
-## tmux scrolling is not what you expect
+## tmux 滚动与预期不符
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH 会根据终端状态更改滚动行为。在 tmux 或其他备用屏幕程序中，滚动手势可能发送 tmux 复制模式命令，而不是滚动本地历史。如果启用了 tmux 鼠标模式，应用会发送鼠标滚轮转义序列。
 
-If scrolling feels wrong:
+如果滚动感觉不对：
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- 尝试在远程服务器上启用或关闭 tmux 鼠标模式。
+- 使用额外按键行中的 `PGUP` 和 `PGDN`。
+- 在滚动密集输出之前，双击窗格进入全屏。
+- 如果远程终端大小看起来过时，请分离并重新挂接 tmux。
 
-## Session dropped after screen lock
+## 锁屏后会话断开
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH 使用保活、前台服务、唤醒锁、Wi-Fi 锁和重连尝试来减少断连。Android 的电池策略仍可能停止后台工作。
 
-Check:
+请检查：
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
-- Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- 如果你的设备会激进地停止后台应用，请为 Mobile SSH 关闭电池优化。
+- 在长会话期间保持 Wi-Fi 或移动数据稳定。
+- 解锁后重新打开 Mobile SSH 并点按 **活动会话**。
+- 如果服务器断开了 SSH 会话，请从最近会话重新连接。
 
-## File transfer cannot browse phone files
+## 文件传输无法浏览手机文件
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+在较新的 Android 版本上，本地文件浏览可能需要存储访问权限。在 Android 设置中为 Mobile SSH 授予存储访问权限，然后重新打开文件传输屏幕。
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+如果远程文件能加载而本地文件不能，那么 SSH 连接很可能没问题，问题出在本地 Android 存储访问上。
 
-## Upload or download failed
+## 上传或下载失败
 
-Check:
+请检查：
 
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
+- SSH 会话仍处于连接状态。
+- 远程目录存在。
+- 远程用户具有读取或写入该路径的权限。
+- 本地目标可写。
+- Android 设备上有足够的可用空间。
+- 网络对大文件传输足够稳定。
 
-## Port forward failed
+## 端口转发失败
 
-Check:
+请检查：
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- 本地端口在 `1` 到 `65535` 之间。
+- 本地端口尚未被占用。
+- 隧道字符串为 `PORT` 或 `LOCAL:REMOTEHOST:REMOTE`。
+- 远程主机和远程端口可从 SSH 服务器到达。
+- SSH 服务器允许 TCP 转发。
 
-## Debug logs
+## 调试日志
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+起始屏幕包含 **调试** 按钮。启用后，Mobile SSH 会记录终端事件、SSH 数据大小、触摸输入、调整大小行为和隧道生命周期的诊断信息。停止记录可将调试归档保存到本地。
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+在分享调试归档之前请先查看。它们用于故障排查，可能会泄露服务器名称、时间、终端行为或其他环境细节。

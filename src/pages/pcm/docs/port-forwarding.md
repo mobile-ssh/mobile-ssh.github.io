@@ -1,16 +1,16 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "Port forwarding"
+description: "Mobile SSH local port forwarding syntax and tunnel management for Android."
 ---
 
 # Port forwarding
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH dey support local SSH port forwarding. One local port for di Android device dey listen on `127.0.0.1` and dey forward traffic through di SSH connection to remote host and port.
 
 ## Saved tunnel syntax
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+Port-forwarding rules na comma-separated. Each entry dey use one of two forms:
 
 ```text
 PORT
@@ -23,7 +23,7 @@ Short form:
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+Dis one dey bind `127.0.0.1:8080` on di Android device and forward am to `localhost:8080` from di server side.
 
 Full form:
 
@@ -31,7 +31,7 @@ Full form:
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+Dis one dey bind `127.0.0.1:3000` on di Android device and forward am through SSH to `localhost:3000` on di remote side.
 
 Multiple forwards:
 
@@ -39,41 +39,41 @@ Multiple forwards:
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## Add tunnel to saved server
 
 1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+2. Add or edit server profile.
+3. Enter di forwarding rules for **Port forwards**.
+4. Save di server.
+5. Connect to di server.
 
-The app applies saved forwards after the SSH session connects.
+Di app dey apply saved forwards after di SSH session connect.
 
 ## Manage active tunnels
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+While you connect, select di session and open di tunnel view from di terminal toolbar. From there you fit inspect active local forwards, add new tunnel, or remove local forward.
 
 ## Address binding
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH dey bind local forwards to `127.0.0.1` on di Android device. Dis na intentional: e dey keep di tunnel local to di device and e dey avoid IPv6-only loopback surprises. Other apps on di same Android device fit connect to di forwarded local port if Android allow dia network access.
 
 ## Common examples
 
-Access a web service running on the remote server:
+Access web service wey dey run on di remote server:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+Then open `http://127.0.0.1:8080` from browser on di Android device.
 
-Access a development server:
+Access development server:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+Access internal database wey you fit reach from di SSH server:
 
 ```text
 15432:db.internal:5432
@@ -81,8 +81,8 @@ Access an internal database reachable from the SSH server:
 
 ## Troubleshooting tunnels
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- Make sure di SSH session connect before you add runtime tunnels.
+- Check say di local port no dey already in use.
+- Check say di remote host and port dey reachable from di SSH server.
+- Use `localhost` wen di destination service dey on di SSH server itself.
+- Use di server internal DNS name or IP wen you dey forward to anoda host behind di SSH server.

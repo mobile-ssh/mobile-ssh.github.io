@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "ఫైల్ బదిలీ"
+description: "లోకల్ ఫైల్‌లు, రిమోట్ ఫైల్‌లు, అప్‌లోడ్, డౌన్‌లోడ్, క్రమబద్ధీకరణ మరియు అనుమతుల కోసం Mobile SSH SFTP ఫైల్ బదిలీ గైడ్."
 ---
 
-# File transfer
+# ఫైల్ బదిలీ
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH లో క్రియాశీల SSH కనెక్షన్‌తో అనుసంధానించబడిన ఒక SFTP ఫైల్ బదిలీ స్క్రీన్ ఉంది. ఇది Android నుండి వేగవంతమైన సర్వర్ నిర్వహణ కోసం: కాన్ఫిగ్‌ను అప్‌లోడ్ చేయండి, లాగ్‌ను డౌన్‌లోడ్ చేయండి, రిమోట్ ఫైల్ పేరు మార్చండి, లేదా యాప్‌ను వదలకుండా అనుమతులను తనిఖీ చేయండి.
 
-## Open file transfer
+## ఫైల్ బదిలీని తెరవడం
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. ఒక SSH సర్వర్‌కు కనెక్ట్ అవ్వండి.
+2. కనెక్ట్ అయిన టర్మినల్ పేన్‌ను ఎంచుకోండి.
+3. టర్మినల్ టూల్‌బార్ నుండి **బదిలీ** తెరవండి, లేదా ప్రస్తుత స్క్రీన్ మద్దతిస్తే పేన్ హెడర్‌పై ఎక్కువసేపు నొక్కండి.
+4. ఫైల్ బదిలీ స్క్రీన్ ఒక లోకల్ పేన్ మరియు ఒక రిమోట్ పేన్‌తో తెరుచుకుంటుంది.
 
-If there is no active SSH session, file transfer cannot open.
+క్రియాశీల SSH సెషన్ లేకపోతే, ఫైల్ బదిలీ తెరవదు.
 
-## Local and remote panes
+## లోకల్ మరియు రిమోట్ పేన్‌లు
 
-The file transfer screen has two browser panes:
+ఫైల్ బదిలీ స్క్రీన్‌లో రెండు బ్రౌజర్ పేన్‌లు ఉన్నాయి:
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **లోకల్ పేన్:** ఫోన్ స్టోరేజ్.
+- **రిమోట్ పేన్:** SFTP ద్వారా సర్వర్ ఫైల్‌లు.
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+యాప్ ప్రతి హోస్ట్‌కు ఇటీవలి లోకల్ మరియు రిమోట్ మార్గాలను గుర్తుంచుకుంటుంది. క్రమబద్ధీకరణ సెట్టింగ్‌లు కూడా రెండు పేన్‌లకు ప్రతి హోస్ట్‌కు గుర్తుంచుకోబడతాయి.
 
-## Android storage permission
+## Android స్టోరేజ్ అనుమతి
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+ప్రత్యక్ష ఫైల్ బ్రౌజింగ్‌ను పరిమితం చేసే Android వెర్షన్‌లలో, లోకల్ పేన్ ఫోన్ ఫైల్‌లను బ్రౌజ్ చేయడానికి ముందు Mobile SSH స్టోరేజ్ యాక్సెస్‌ను అడగవచ్చు. మీరు ఈ అనుమతిని దాటవేసినా లేదా తిరస్కరించినా, రిమోట్ బ్రౌజింగ్ ఇంకా పని చేయవచ్చు, కానీ లోకల్ అప్‌లోడ్ మరియు డౌన్‌లోడ్ మార్గాలు పరిమితం కావచ్చు.
 
-Private key import is separate from file transfer and uses the Android file picker.
+ప్రైవేట్ కీ దిగుమతి ఫైల్ బదిలీ నుండి వేరు మరియు Android ఫైల్ పికర్‌ను ఉపయోగిస్తుంది.
 
-## Upload files
+## ఫైల్‌లను అప్‌లోడ్ చేయడం
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. లోకల్ పేన్‌ను తెరవండి.
+2. మీరు అప్‌లోడ్ చేయాలనుకునే ఫైల్‌కు నావిగేట్ చేయండి.
+3. అప్‌లోడ్ ఎంచుకోండి.
+4. రిమోట్ గమ్యాన్ని నిర్ధారించండి.
+5. పురోగతి మరియు పూర్తి కోసం బదిలీ క్యూను చూడండి.
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+అప్‌లోడ్‌లు ఇప్పటికే ఉన్న SSH/SFTP కనెక్షన్‌ను ఉపయోగిస్తాయి. కనెక్షన్ తెగిపోతే, మళ్లీ కనెక్ట్ అయిన తర్వాత మళ్లీ ప్రయత్నించండి.
 
-## Download files
+## ఫైల్‌లను డౌన్‌లోడ్ చేయడం
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. రిమోట్ పేన్‌ను తెరవండి.
+2. మీరు డౌన్‌లోడ్ చేయాలనుకునే ఫైల్‌కు నావిగేట్ చేయండి.
+3. డౌన్‌లోడ్ ఎంచుకోండి.
+4. లోకల్ గమ్యాన్ని నిర్ధారించండి.
+5. పురోగతి మరియు పూర్తి కోసం బదిలీ క్యూను చూడండి.
 
-Large downloads should be done on a stable network when possible.
+పెద్ద డౌన్‌లోడ్‌లను వీలైనప్పుడు స్థిరమైన నెట్‌వర్క్‌లో చేయండి.
 
-## Remote file actions
+## రిమోట్ ఫైల్ చర్యలు
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+ఎంచుకున్న రిమోట్ అంశం ఆధారంగా, Mobile SSH ఇలాంటి చర్యలను చూపవచ్చు:
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- డౌన్‌లోడ్.
+- పేరు మార్చు.
+- తొలగించు.
+- ఫైల్ లేదా డైరెక్టరీ సృష్టించు.
+- టెక్స్ట్ ఫైల్‌ను సవరించు.
+- ఫైల్ వివరాలను చూడు.
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+రిమోట్ ఫైల్ వివరాలలో అనుమతి బిట్‌లు, యజమాని, సమూహం మరియు ఆక్టల్ అనుమతి విలువలు ఉండవచ్చు. మరో ప్రక్రియ లేదా డిప్లాయ్‌మెంట్ సాధనం నిర్వహించే సర్వర్ ఫైల్‌లను మార్చే ముందు ఈ వివరాలను ఉపయోగించండి.
 
-## Sorting and recent paths
+## క్రమబద్ధీకరణ మరియు ఇటీవలి మార్గాలు
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+ప్రతి పేన్ పేరు లేదా తేదీ ప్రకారం ఆరోహణ లేదా అవరోహణ క్రమంలో క్రమబద్ధీకరించవచ్చు. Mobile SSH ఎంచుకున్న లోకల్ మరియు రిమోట్ క్రమ మోడ్‌లను ఇటీవలి మార్గాలతో పాటు ప్రతి హోస్ట్‌కు నిల్వ చేస్తుంది, కాబట్టి అదే సర్వర్‌కు పదేపదే బదిలీలు పరిచిత స్థానాల నుండి ప్రారంభమవుతాయి.
 
-## Transfer queue
+## బదిలీ క్యూ
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+బదిలీలు క్యూలో ఉంచబడి స్థితి ప్రకారం చూపబడతాయి. లాగ్ ప్రాంతం క్యూలో ఉన్న, విఫలమైన మరియు విజయవంతమైన బదిలీలను వేరు చేస్తుంది. అంతర్లీన SFTP ఆపరేషన్ కారణాన్ని అందించినప్పుడు విఫలమైన బదిలీలలో కారణం ఉంటుంది.
 
-## Practical tips
+## ఆచరణాత్మక చిట్కాలు
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- లక్ష్యిత ఫైల్ తరలింపుల కోసం SFTP ఉపయోగించండి; పెద్ద డైరెక్టరీ సమకాలీకరణ కోసం సర్వర్‌లో `rsync` వంటి కమాండ్-లైన్ సాధనాలను ఉపయోగించండి.
+- బ్యాకప్ లేదా డిప్లాయ్‌మెంట్ రోల్‌బ్యాక్ మార్గం లేకపోతే లైవ్ ప్రొడక్షన్ ఫైల్‌లను సవరించడం మానుకోండి.
+- అప్‌లోడ్ తర్వాత ఫైల్ కనిపించకపోతే, రిమోట్ పేన్‌ను రిఫ్రెష్ చేయండి లేదా గమ్య మార్గాన్ని ధృవీకరించండి.
+- Android స్టోరేజ్ యాక్సెస్ లోకల్ బ్రౌజింగ్‌ను అడ్డుకుంటే, Android సెట్టింగ్‌ల నుండి అనుమతి ఇచ్చి, ఫైల్ బదిలీని మళ్లీ తెరవండి.

@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "சிக்கல் தீர்வு"
+description: "இணைப்பு, அங்கீகாரம், விசைப்பலகை, tmux, கோப்பு பரிமாற்றம் மற்றும் டன்னல் சிக்கல்களுக்கான Mobile SSH சிக்கல் தீர்வு வழிகாட்டி."
 ---
 
-# Troubleshooting
+# சிக்கல் தீர்வு
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+இந்தப் பக்கம் Mobile SSH இன் பொதுவான சிக்கல்களையும், சேவையக-பக்க SSH அமைப்புகளை மாற்றுவதற்கு முன் இயக்க வேண்டிய முதல் சரிபார்ப்புகளையும் உள்ளடக்கியது.
 
-## Cannot connect
+## இணைக்க முடியவில்லை
 
-Check:
+சரிபார்க்கவும்:
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- Android சாதனத்திற்கு நெட்வொர்க் அணுகல் உள்ளது.
+- சேவையகத்தின் ஹோஸ்ட்பெயர் அல்லது IP முகவரி சரியானது.
+- SSH போர்ட் சரியானது, பொதுவாக `22`.
+- ஃபயர்வால், VPN, கேரியர் நெட்வொர்க், அல்லது Wi-Fi நெட்வொர்க் போர்ட்டைத் தடுக்கவில்லை.
+- SSH சேவையகம் இயங்குகிறது மற்றும் நீங்கள் பயன்படுத்தும் நெட்வொர்க்கிலிருந்து இணைப்புகளை ஏற்கிறது.
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+அதே ஹோஸ்ட் மற்றொரு சாதனத்தில் வேலை செய்தால், சரியான ஹோஸ்ட், போர்ட், பயனர்பெயர், விசை மற்றும் நெட்வொர்க் பாதையை ஒப்பிடவும்.
 
-## Authentication failed
+## அங்கீகாரம் தோல்வி
 
-Check:
+சரிபார்க்கவும்:
 
-- Username spelling.
-- Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- பயனர்பெயர் எழுத்துப்பிழை.
+- கடவுச்சொல் அல்லது விசை கடவுச்சொற்றொடர்.
+- சேவையகம் கடவுச்சொல் உள்நுழைவு, விசை உள்நுழைவு, அல்லது இரண்டையும் அனுமதிக்கிறதா.
+- தனிப்பட்ட விசை சேவையக பயனரின் `authorized_keys` இல் உள்ள பொது விசையுடன் பொருந்துகிறதா.
+- விசை கோப்பு தலைப்பு மற்றும் அடிக்குறிப்பு வரிகளுடன் முழுமையாக இறக்குமதி செய்யப்பட்டதா.
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+குறியாக்கம் செய்யப்பட்ட தனிப்பட்ட விசைகளுக்கு, கடவுச்சொல்/கடவுச்சொற்றொடர் புலத்தில் கடவுச்சொற்றொடரை உள்ளிடவும்.
 
-## Private key import failed
+## தனிப்பட்ட விசை இறக்குமதி தோல்வி
 
-Private key import uses Android's file picker. If import fails:
+தனிப்பட்ட விசை இறக்குமதி Android கோப்பு தேர்வியைப் பயன்படுத்துகிறது. இறக்குமதி தோல்வியடைந்தால்:
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- தேர்ந்தெடுத்த கோப்பு பொது `.pub` கோப்பு அல்ல, தனிப்பட்ட விசை என்பதை உறுதிப்படுத்தவும்.
+- கோப்பை நம்பகமான உரை எடிட்டரில் திறந்து, அதில் முழு விசை தொகுதி உள்ளதா எனச் சரிபார்க்கவும்.
+- விசையை தனிப்பட்ட விசை புலத்தில் கைமுறையாக ஒட்ட முயற்சிக்கவும்.
+- விசை வகை செயலி நிர்வாகத்தால் ஆதரிக்கப்படுவதை உறுதிப்படுத்தவும்: Ed25519, RSA, ECDSA அல்லது DSA.
 
-## Keyboard input is delayed or changed
+## விசைப்பலகை உள்ளீடு தாமதமாகிறது அல்லது மாறுகிறது
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+உங்கள் Android விசைப்பலகை உரை ஷெல்லை அடைவதற்கு முன் அதை மாற்றினால், Mobile SSH அமைப்புகளில் விசைப்பலகை பரிந்துரைகளை முடக்கவும். இது Vim, tmux, htop, less, அசாதாரண விசை கார்டுகளைப் பயன்படுத்தும் ஷெல்கள் மற்றும் தொலை கடவுச்சொல் ப்ராம்ப்ட்களுக்குப் பயனுள்ளது.
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+`ESC`, `TAB`, `CTRL`, அம்புகள், `HOME`, `END`, `PGUP` மற்றும் `PGDN` போன்ற டெர்மினல் விசைகளுக்கு கூடுதல் விசை வரிசையைப் பயன்படுத்தவும்.
 
-## tmux scrolling is not what you expect
+## tmux உருளல் எதிர்பார்த்தபடி இல்லை
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH டெர்மினல் நிலையின் அடிப்படையில் உருளல் நடத்தையை மாற்றுகிறது. tmux அல்லது பிற மாற்று-திரை நிரல்களில், உருளல் சைகைகள் உள்ளக வரலாற்றை உருட்டுவதற்குப் பதிலாக tmux நகல்-பயன்முறை கட்டளைகளை அனுப்பலாம். tmux மவுஸ் பயன்முறை இயக்கப்பட்டிருந்தால், செயலி மவுஸ்-வீல் எஸ்கேப் வரிசைகளை அனுப்புகிறது.
 
-If scrolling feels wrong:
+உருளல் தவறாக உணர்ந்தால்:
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- தொலை சேவையகத்தில் tmux மவுஸ் பயன்முறையை இயக்க அல்லது முடக்க முயற்சிக்கவும்.
+- கூடுதல் விசை வரிசையிலிருந்து `PGUP` மற்றும் `PGDN` ஐப் பயன்படுத்தவும்.
+- அடர்த்தியான வெளியீட்டை உருட்டுவதற்கு முன் முழுத்திரைக்காக பலகத்தில் இருமுறை தட்டவும்.
+- தொலை டெர்மினல் அளவு பழையதாகத் தோன்றினால் tmux இலிருந்து விலகி மீண்டும் இணைக்கவும்.
 
-## Session dropped after screen lock
+## திரை பூட்டுக்குப் பிறகு அமர்வு துண்டிக்கப்பட்டது
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH துண்டிப்புகளைக் குறைக்க keepalive, ஃபோர்கிரவுண்ட் சேவை, வேக் லாக், Wi-Fi லாக் மற்றும் மீள்-இணைப்பு முயற்சிகளைப் பயன்படுத்துகிறது. Android பேட்டரி கொள்கைகள் இன்னும் பின்னணி வேலையை நிறுத்தலாம்.
 
-Check:
+சரிபார்க்கவும்:
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
-- Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- உங்கள் சாதனம் பின்னணி செயலிகளைத் தீவிரமாக நிறுத்தினால் Mobile SSH க்கான பேட்டரி உகப்பாக்கத்தை முடக்கவும்.
+- நீண்ட அமர்வுகளின்போது Wi-Fi அல்லது மொபைல் தரவை நிலையாக வைத்திருக்கவும்.
+- திறந்த பிறகு Mobile SSH ஐ மீண்டும் திறந்து **செயலில் உள்ள அமர்வுகள்** ஐத் தட்டவும்.
+- சேவையகம் SSH அமர்வைத் துண்டித்திருந்தால், சமீபத்திய அமர்வுகளிலிருந்து மீண்டும் இணைக்கவும்.
 
-## File transfer cannot browse phone files
+## கோப்பு பரிமாற்றம் தொலைபேசி கோப்புகளை உலாவ முடியவில்லை
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+புதிய Android பதிப்புகளில், உள்ளக கோப்பு உலாவலுக்கு சேமிப்பக அணுகல் தேவைப்படலாம். Mobile SSH க்கு Android அமைப்புகளில் சேமிப்பக அணுகலை வழங்கி, பின்னர் கோப்பு பரிமாற்றத் திரையை மீண்டும் திறக்கவும்.
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+தொலை கோப்புகள் ஏற்றப்பட்டு உள்ளக கோப்புகள் ஏற்றப்படாவிட்டால், SSH இணைப்பு பெரும்பாலும் நன்றாக உள்ளது மற்றும் சிக்கல் உள்ளக Android சேமிப்பக அணுகலில் உள்ளது.
 
-## Upload or download failed
+## பதிவேற்றம் அல்லது பதிவிறக்கம் தோல்வி
 
-Check:
+சரிபார்க்கவும்:
 
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
+- SSH அமர்வு இன்னும் இணைக்கப்பட்டுள்ளது.
+- தொலை அடைவு உள்ளது.
+- தொலை பயனருக்கு பாதையைப் படிக்க அல்லது எழுத அனுமதி உள்ளது.
+- உள்ளக இலக்கு எழுதக்கூடியது.
+- Android சாதனத்தில் போதுமான இலவச இடம் உள்ளது.
+- பெரிய பரிமாற்றங்களுக்கு நெட்வொர்க் நிலையானது.
 
-## Port forward failed
+## போர்ட் ஃபார்வர்ட் தோல்வி
 
-Check:
+சரிபார்க்கவும்:
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- உள்ளக போர்ட் `1` மற்றும் `65535` க்கு இடையில் உள்ளது.
+- உள்ளக போர்ட் ஏற்கனவே பயன்படுத்தப்படவில்லை.
+- டன்னல் சரம் `PORT` அல்லது `LOCAL:REMOTEHOST:REMOTE`.
+- தொலை ஹோஸ்ட் மற்றும் தொலை போர்ட் SSH சேவையகத்திலிருந்து அணுகக்கூடியவை.
+- SSH சேவையகம் TCP ஃபார்வர்டிங்கை அனுமதிக்கிறது.
 
-## Debug logs
+## பிழைத்திருத்த பதிவுகள்
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+தொடக்கத் திரையில் ஒரு **பிழைத்திருத்தம்** பொத்தான் உள்ளது. இயக்கப்பட்டால், Mobile SSH டெர்மினல் நிகழ்வுகள், SSH தரவு அளவுகள், தொடு உள்ளீடு, மறுஅளவாக்க நடத்தை மற்றும் டன்னல் வாழ்க்கைச் சுழற்சிக்கான கண்டறிதல் தகவலைப் பதிவு செய்கிறது. பிழைத்திருத்த காப்பகத்தை உள்ளூரில் சேமிக்க பதிவை நிறுத்தவும்.
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+பகிர்வதற்கு முன் பிழைத்திருத்த காப்பகங்களை மதிப்பாய்வு செய்யவும். அவை சிக்கல் தீர்வுக்கானவை மற்றும் சேவையக பெயர்கள், நேரம், டெர்மினல் நடத்தை, அல்லது பிற சூழல் விவரங்களை வெளிப்படுத்தலாம்.

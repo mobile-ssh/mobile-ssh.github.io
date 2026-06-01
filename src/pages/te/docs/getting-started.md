@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "ప్రారంభించడం"
+description: "Mobile SSH ఇన్‌స్టాల్ చేయడం, సర్వర్‌కు కనెక్ట్ అవ్వడం, ప్రొఫైల్‌లు, ఆధారాలు మరియు సెషన్‌లను సేవ్ చేయడంలో మొదటి దశలు."
 ---
 
-# Getting started
+# ప్రారంభించడం
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+Mobile SSH అనేది మీ స్వంత Linux, Unix, నెట్‌వర్క్, IoT లేదా డెవలప్‌మెంట్ సర్వర్‌లకు కనెక్ట్ అవ్వడానికి ఒక Android SSH క్లయింట్. మీరు సర్వర్ చిరునామా మరియు ఆధారాలను అందిస్తారు; యాప్ ఒక ఇంటరాక్టివ్ SSH టర్మినల్‌ను తెరుస్తుంది.
 
-## Requirements
+## అవసరాలు
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 లేదా కొత్తది.
+- Android పరికరం నుండి మీ SSH సర్వర్‌కు నెట్‌వర్క్ యాక్సెస్.
+- SSH సర్వర్ హోస్ట్‌నేమ్ లేదా IP చిరునామా, పోర్ట్, వినియోగదారు పేరు, మరియు పాస్‌వర్డ్ లేదా ప్రైవేట్ కీ.
+- ఫోన్ లోకల్ ఫైల్ బ్రౌజర్‌తో SFTP ఫైల్ బదిలీ ఉపయోగించాలనుకుంటే స్టోరేజ్ యాక్సెస్.
 
-## Connect to a server
+## సర్వర్‌కు కనెక్ట్ అవ్వడం
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. Mobile SSH తెరవండి.
+2. మీరు ఇప్పటికే ప్రొఫైల్ సృష్టించి ఉంటే **సేవ్ చేసిన సర్వర్లు** నొక్కండి, లేదా కనెక్షన్ ప్రవాహం నుండి సర్వర్ జోడించండి.
+3. హోస్ట్, పోర్ట్, వినియోగదారు పేరు మరియు ప్రామాణీకరణ వివరాలను నమోదు చేయండి.
+4. టర్మినల్ సెషన్ తెరవడానికి సర్వర్‌ను నొక్కండి.
+5. ఇంకా నడుస్తున్న సెషన్‌లకు తిరిగి రావడానికి స్టార్ట్ స్క్రీన్‌లో **క్రియాశీల సెషన్లు** ఉపయోగించండి.
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+డిఫాల్ట్ SSH పోర్ట్ `22`. మీ సర్వర్ వేరే పోర్ట్‌ను ఉపయోగిస్తే, ఆ పోర్ట్‌ను సర్వర్ ప్రొఫైల్‌లో నమోదు చేయండి.
 
-## Save servers
+## సర్వర్లను సేవ్ చేయడం
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+సేవ్ చేసిన సర్వర్లు కనెక్షన్ లక్ష్యాన్ని మరియు ఐచ్ఛిక టన్నెల్ కాన్ఫిగరేషన్‌ను ఉంచుతాయి. ఒక సేవ్ చేసిన సర్వర్‌లో ఇవి ఉండవచ్చు:
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- హోస్ట్‌నేమ్ లేదా IP చిరునామా.
+- SSH పోర్ట్.
+- వినియోగదారు పేరు.
+- పాస్‌వర్డ్ లేదా ప్రైవేట్ కీ వివరాలు.
+- ఐచ్ఛిక లోకల్ పోర్ట్-ఫార్వార్డింగ్ నియమాలు.
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+మీరు పదేపదే యాక్సెస్ చేసే హోస్ట్‌ల కోసం సేవ్ చేసిన సర్వర్లను ఉపయోగించండి. ఒక సేవ్ చేసిన సర్వర్ మీ ప్రస్తుత క్రియాశీల సెషన్ కంటే వేరే హోస్ట్‌ను సూచిస్తే, Mobile SSH ఎంచుకున్న లక్ష్యం కోసం కొత్త కనెక్షన్‌ను ప్రారంభిస్తుంది.
 
-## Save credentials
+## ఆధారాలను సేవ్ చేయడం
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+**ఆధారాలు** స్క్రీన్ పునర్వినియోగించదగిన వినియోగదారు పేరు/పాస్‌వర్డ్ లేదా వినియోగదారు పేరు/ప్రైవేట్-కీ రికార్డులను నిల్వ చేస్తుంది. సేవ్ చేసిన ఆధారాలను సర్వర్ సెటప్ డైలాగ్ నుండి ఎంచుకోవచ్చు, తద్వారా ప్రతి హోస్ట్ కోసం అదే లాగిన్ సమాచారాన్ని మళ్లీ నమోదు చేయనవసరం లేదు.
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+ఆధార రికార్డులు Android పరికరంలో స్థానికంగా నిల్వ చేయబడతాయి. మీరు పాస్‌వర్డ్‌లు, పాస్‌ఫ్రేజ్‌లు లేదా ప్రైవేట్ కీలను సేవ్ చేస్తే పరికరాన్ని స్క్రీన్ లాక్‌తో రక్షించండి.
 
-## Use private keys
+## ప్రైవేట్ కీలను ఉపయోగించడం
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH అతికించిన ప్రైవేట్ కీలను మరియు Android ఫైల్ పికర్ ద్వారా కీ దిగుమతిని మద్దతిస్తుంది. యాప్ అమలు Ed25519, RSA, ECDSA మరియు DSA కీలను మద్దతిస్తుంది.
 
-To use a private key:
+ప్రైవేట్ కీని ఉపయోగించడానికి:
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. **ఆధారాలు** లేదా సర్వర్ ఎడిట్ డైలాగ్ తెరవండి.
+2. ప్రైవేట్ కీ టెక్స్ట్‌ను అతికించండి, లేదా **ఫైల్ నుండి దిగుమతి చేయి** ఎంచుకోండి.
+3. కీ ఎన్‌క్రిప్ట్ చేయబడితే పాస్‌వర్డ్/పాస్‌ఫ్రేజ్ ఫీల్డ్‌లో కీ పాస్‌ఫ్రేజ్‌ను నమోదు చేయండి.
+4. ఆధారాన్ని లేదా సర్వర్‌ను సేవ్ చేయండి.
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+ప్రైవేట్ కీ దిగుమతి కీ ఫైల్‌ల కోసం Android ఫైల్ పికర్‌ను ఉపయోగిస్తుంది. ఫైల్ బదిలీ ఒక ప్రత్యేక లోకల్ ఫైల్ బ్రౌజర్‌ను ఉపయోగిస్తుంది మరియు కొత్త Android వెర్షన్‌లలో విస్తృత స్టోరేజ్ యాక్సెస్‌ను అభ్యర్థించవచ్చు.
 
-## Recent sessions
+## ఇటీవలి సెషన్లు
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+స్టార్ట్ స్క్రీన్ ఇటీవలి సెషన్‌లను చూపుతుంది. ఇటీవలి సెషన్ అదే సర్వర్ సెట్‌కు మళ్లీ కనెక్ట్ అవ్వవచ్చు. మునుపటి సెషన్ ఇంకా క్రియాశీలంగా ఉంటే, Mobile SSH నకిలీ కనెక్షన్‌ను ప్రారంభించకుండా దానికే తిరిగి వస్తుంది.
 
-## Active sessions
+## క్రియాశీల సెషన్లు
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+సెషన్‌లు నడుస్తున్నప్పుడు, స్టార్ట్ స్క్రీన్ గణనతో **క్రియాశీల సెషన్లు** చూపుతుంది. టర్మినల్ గ్రిడ్‌కు తిరిగి రావడానికి దాన్ని నొక్కండి. స్టార్ట్ స్క్రీన్‌కు తిరిగి వెళ్లడం తప్పనిసరిగా క్రియాశీల SSH సెషన్‌లను డిస్‌కనెక్ట్ చేయదు; పేన్‌లను మూసివేయడం లేదా టర్మినల్ కార్యకలాపాన్ని ముగించడం వాటిని డిస్‌కనెక్ట్ చేస్తుంది.
 
-## First useful settings
+## మొదటి ఉపయోగకరమైన సెట్టింగ్‌లు
 
-Open **Settings** from the start screen:
+స్టార్ట్ స్క్రీన్ నుండి **సెట్టింగ్‌లు** తెరవండి:
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- టర్మినల్‌ను నొక్కినప్పుడు కీబోర్డ్ కనిపించాలని కోరుకుంటే ట్యాప్-టు-కీబోర్డ్‌ను ప్రారంభించండి.
+- కీబోర్డ్ సూచనలు Vim, less, htop లేదా ఫుల్-స్క్రీన్ tmux వంటి టర్మినల్ ప్రోగ్రామ్‌లకు ఆటంకం కలిగిస్తే IME సూచనలను నిలిపివేయండి.
 
-## Languages
+## భాషలు
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+Mobile SSH, Android సిస్టమ్ భాషను అనుసరిస్తుంది. యాప్ అరబిక్, బెంగాలీ, చైనీస్ (సరళీకృత మరియు సంప్రదాయ), ఇంగ్లీష్, ఫ్రెంచ్, జర్మన్, హిందీ, ఇండోనేషియన్, జపనీస్, మరాఠీ, నైజీరియన్ పిడ్జిన్, పోర్చుగీస్, రష్యన్, స్పానిష్, తమిళం, తెలుగు, టర్కిష్ మరియు ఉర్దూ అనువాదాలతో వస్తుంది. భాషను యాప్ లోపలి నుండి కాకుండా, Android యొక్క **సెట్టింగ్‌లు → సిస్టమ్ → భాషలు** నుండి మార్చండి.
 
-## Security note
+## భద్రతా గమనిక
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+మీరు విశ్వసించే సర్వర్‌లకు మాత్రమే కనెక్ట్ అవ్వండి. ప్రస్తుత యాప్ సేవ్ చేసిన కనెక్షన్ డేటాను స్థానికంగా ఉంచుతుంది మరియు క్లౌడ్ వాల్ట్ లేదా పరికరాల మధ్య సమకాలీకరణను అందించదు. ప్రస్తుత అమలు తెలిసిన-హోస్ట్ నిర్ధారణ ప్రాంప్ట్‌ను కూడా చూపదు, కాబట్టి హోస్ట్ గుర్తింపు ముఖ్యమైనప్పుడు అవిశ్వసనీయ నెట్‌వర్క్‌ల ద్వారా కనెక్ట్ అవ్వడం మానుకోండి.

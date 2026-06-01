@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "শুরু করা"
+description: "Mobile SSH ইনস্টল করা, সার্ভারে সংযোগ করা এবং প্রোফাইল, ক্রেডেনশিয়াল ও সেশন সংরক্ষণের প্রথম ধাপ।"
 ---
 
-# Getting started
+# শুরু করা
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+Mobile SSH হলো একটি Android SSH ক্লায়েন্ট, যা আপনার নিজস্ব Linux, Unix, নেটওয়ার্ক, IoT বা ডেভেলপমেন্ট সার্ভারে সংযোগের জন্য। আপনি সার্ভারের ঠিকানা ও ক্রেডেনশিয়াল দেন; অ্যাপটি একটি ইন্টারঅ্যাকটিভ SSH টার্মিনাল খোলে।
 
-## Requirements
+## প্রয়োজনীয়তা
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 বা নতুন।
+- Android ডিভাইস থেকে আপনার SSH সার্ভারে নেটওয়ার্ক অ্যাক্সেস।
+- SSH সার্ভারের হোস্টনাম বা IP ঠিকানা, পোর্ট, ব্যবহারকারীর নাম, এবং পাসওয়ার্ড বা প্রাইভেট কী।
+- ফোনের লোকাল ফাইল ব্রাউজারের সাথে SFTP ফাইল ট্রান্সফার ব্যবহার করতে চাইলে স্টোরেজ অ্যাক্সেস।
 
-## Connect to a server
+## সার্ভারে সংযোগ
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. Mobile SSH খুলুন।
+2. আগে প্রোফাইল তৈরি করে থাকলে **সংরক্ষিত সার্ভার** ট্যাপ করুন, অথবা সংযোগ প্রবাহ থেকে সার্ভার যোগ করুন।
+3. হোস্ট, পোর্ট, ব্যবহারকারীর নাম এবং প্রমাণীকরণের বিবরণ লিখুন।
+4. টার্মিনাল সেশন খুলতে সার্ভারে ট্যাপ করুন।
+5. এখনও চলমান সেশনে ফিরতে স্টার্ট স্ক্রিনে **সক্রিয় সেশন** ব্যবহার করুন।
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+ডিফল্ট SSH পোর্ট হলো `22`। আপনার সার্ভার অন্য পোর্ট ব্যবহার করলে সার্ভার প্রোফাইলে সেই পোর্ট লিখুন।
 
-## Save servers
+## সার্ভার সংরক্ষণ
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+সংরক্ষিত সার্ভার সংযোগের গন্তব্য এবং ঐচ্ছিক টানেল কনফিগারেশন রাখে। একটি সংরক্ষিত সার্ভারে থাকতে পারে:
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- হোস্টনাম বা IP ঠিকানা।
+- SSH পোর্ট।
+- ব্যবহারকারীর নাম।
+- পাসওয়ার্ড বা প্রাইভেট কী-এর বিবরণ।
+- ঐচ্ছিক লোকাল পোর্ট-ফরওয়ার্ডিং নিয়ম।
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+যেসব হোস্টে বারবার যান তাদের জন্য সংরক্ষিত সার্ভার ব্যবহার করুন। কোনো সংরক্ষিত সার্ভার আপনার বর্তমান সক্রিয় সেশনের চেয়ে ভিন্ন হোস্টের দিকে নির্দেশ করলে, Mobile SSH নির্বাচিত গন্তব্যের জন্য নতুন সংযোগ শুরু করে।
 
-## Save credentials
+## ক্রেডেনশিয়াল সংরক্ষণ
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+**ক্রেডেনশিয়াল** স্ক্রিন পুনঃব্যবহারযোগ্য ব্যবহারকারীর নাম/পাসওয়ার্ড বা ব্যবহারকারীর নাম/প্রাইভেট-কী রেকর্ড সংরক্ষণ করে। সংরক্ষিত ক্রেডেনশিয়াল সার্ভার সেটআপ ডায়ালগ থেকে নির্বাচন করা যায়, যাতে প্রতিটি হোস্টের জন্য একই লগইন তথ্য বারবার লিখতে না হয়।
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+ক্রেডেনশিয়াল রেকর্ড Android ডিভাইসে স্থানীয়ভাবে সংরক্ষিত হয়। পাসওয়ার্ড, পাসফ্রেজ বা প্রাইভেট কী সংরক্ষণ করলে ডিভাইসকে স্ক্রিন লক দিয়ে রক্ষা করুন।
 
-## Use private keys
+## প্রাইভেট কী ব্যবহার
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH পেস্ট করা প্রাইভেট কী এবং Android ফাইল পিকারের মাধ্যমে কী ইমপোর্ট সমর্থন করে। অ্যাপ বাস্তবায়ন Ed25519, RSA, ECDSA এবং DSA কী সমর্থন করে।
 
-To use a private key:
+একটি প্রাইভেট কী ব্যবহার করতে:
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. **ক্রেডেনশিয়াল** বা সার্ভার সম্পাদনা ডায়ালগ খুলুন।
+2. প্রাইভেট কী-এর টেক্সট পেস্ট করুন, অথবা **ফাইল থেকে ইমপোর্ট** নির্বাচন করুন।
+3. কী এনক্রিপ্ট করা থাকলে পাসওয়ার্ড/পাসফ্রেজ ফিল্ডে কী পাসফ্রেজ লিখুন।
+4. ক্রেডেনশিয়াল বা সার্ভার সংরক্ষণ করুন।
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+প্রাইভেট কী ইমপোর্ট কী ফাইলের জন্য Android-এর ফাইল পিকার ব্যবহার করে। ফাইল ট্রান্সফার একটি পৃথক লোকাল ফাইল ব্রাউজার ব্যবহার করে এবং নতুন Android সংস্করণে আরও বিস্তৃত স্টোরেজ অ্যাক্সেস চাইতে পারে।
 
-## Recent sessions
+## সাম্প্রতিক সেশন
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+স্টার্ট স্ক্রিন সাম্প্রতিক সেশন দেখায়। একটি সাম্প্রতিক সেশন একই সার্ভার সেটে পুনরায় সংযোগ করতে পারে। আগের সেশন এখনও সক্রিয় থাকলে, Mobile SSH ডুপ্লিকেট সংযোগ শুরু না করে তাতেই ফিরে যায়।
 
-## Active sessions
+## সক্রিয় সেশন
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+সেশন চলমান থাকলে স্টার্ট স্ক্রিন গণনাসহ **সক্রিয় সেশন** দেখায়। টার্মিনাল গ্রিডে ফিরতে এটি ট্যাপ করুন। স্টার্ট স্ক্রিনে ফিরে যাওয়া অগত্যা সক্রিয় SSH সেশন বিচ্ছিন্ন করে না; প্যান বন্ধ করা বা টার্মিনাল কার্যকলাপ শেষ করা সেগুলো বিচ্ছিন্ন করে।
 
-## First useful settings
+## প্রথম দরকারি সেটিংস
 
-Open **Settings** from the start screen:
+স্টার্ট স্ক্রিন থেকে **সেটিংস** খুলুন:
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- টার্মিনালে ট্যাপ করলে কীবোর্ড দেখাতে চাইলে ট্যাপ-এ-কীবোর্ড সক্ষম করুন।
+- কীবোর্ড সাজেশন Vim, less, htop বা ফুল-স্ক্রিন tmux-এর মতো টার্মিনাল প্রোগ্রামে বাধা দিলে IME সাজেশন নিষ্ক্রিয় করুন।
 
-## Languages
+## ভাষা
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+Mobile SSH Android-এর সিস্টেম ভাষা অনুসরণ করে। অ্যাপটিতে আরবি, বাংলা, চীনা (সরলীকৃত ও ঐতিহ্যবাহী), ইংরেজি, ফরাসি, জার্মান, হিন্দি, ইন্দোনেশীয়, জাপানি, মারাঠি, নাইজেরিয়ান পিজিন, পর্তুগিজ, রুশ, স্প্যানিশ, তামিল, তেলুগু, তুর্কি এবং উর্দু-র অনুবাদ আছে। অ্যাপের ভেতর থেকে নয়, Android-এর **সেটিংস → সিস্টেম → ভাষা** থেকে ভাষা পরিবর্তন করুন।
 
-## Security note
+## নিরাপত্তা নোট
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+শুধু সেইসব সার্ভারে সংযোগ করুন যেগুলোয় আপনি বিশ্বাস করেন। বর্তমান অ্যাপ সংরক্ষিত সংযোগ ডেটা স্থানীয়ভাবে রাখে এবং ক্লাউড ভল্ট বা ক্রস-ডিভাইস সিঙ্ক দেয় না। বর্তমান বাস্তবায়ন পরিচিত-হোস্ট নিশ্চিতকরণ প্রম্পটও দেখায় না, তাই হোস্ট পরিচয় গুরুত্বপূর্ণ হলে অবিশ্বস্ত নেটওয়ার্কে সংযোগ এড়িয়ে চলুন।

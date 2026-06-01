@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "إعادة توجيه المنافذ"
+description: "صياغة إعادة توجيه المنافذ المحلية في Mobile SSH وإدارة الأنفاق لنظام Android."
 ---
 
-# Port forwarding
+# إعادة توجيه المنافذ
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+يدعم Mobile SSH إعادة توجيه منافذ SSH المحلية. يستمع منفذ محلي على جهاز Android على `127.0.0.1` ويعيد توجيه حركة المرور عبر اتصال SSH إلى مضيف ومنفذ بعيدَين.
 
-## Saved tunnel syntax
+## صياغة النفق المحفوظ
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+تُفصَل قواعد إعادة توجيه المنافذ بفواصل. يستخدم كل إدخال إحدى صيغتين:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+الصيغة المختصرة:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+هذا يربط `127.0.0.1:8080` على جهاز Android ويعيد توجيهه إلى `localhost:8080` من منظور الخادم.
 
-Full form:
+الصيغة الكاملة:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+هذا يربط `127.0.0.1:3000` على جهاز Android ويعيد توجيهه عبر SSH إلى `localhost:3000` على الجانب البعيد.
 
-Multiple forwards:
+عدة عمليات توجيه:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## إضافة نفق إلى خادم محفوظ
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. افتح **الخوادم المحفوظة**.
+2. أضِف ملف خادم أو حرّره.
+3. أدخِل قواعد التوجيه في **إعادة توجيه المنافذ**.
+4. احفظ الخادم.
+5. اتصل بالخادم.
 
-The app applies saved forwards after the SSH session connects.
+يطبّق التطبيق عمليات التوجيه المحفوظة بعد اتصال جلسة SSH.
 
-## Manage active tunnels
+## إدارة الأنفاق النشطة
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+أثناء الاتصال، حدّد الجلسة وافتح عرض الأنفاق من شريط أدوات الطرفية. من هناك يمكنك فحص عمليات التوجيه المحلية النشطة، أو إضافة نفق جديد، أو إزالة توجيه محلي.
 
-## Address binding
+## ربط العنوان
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+يربط Mobile SSH عمليات التوجيه المحلية بـ `127.0.0.1` على جهاز Android. هذا مقصود: يُبقي النفق محليًا على الجهاز ويتجنّب مفاجآت الاسترجاع (loopback) عبر IPv6 فقط. قد تتمكّن تطبيقات أخرى على جهاز Android نفسه من الاتصال بالمنفذ المحلي المُعاد توجيهه إذا سمح Android بوصولها الشبكي.
 
-## Common examples
+## أمثلة شائعة
 
-Access a web service running on the remote server:
+الوصول إلى خدمة ويب تعمل على الخادم البعيد:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+ثم افتح `http://127.0.0.1:8080` من متصفح على جهاز Android.
 
-Access a development server:
+الوصول إلى خادم تطوير:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+الوصول إلى قاعدة بيانات داخلية يمكن الوصول إليها من خادم SSH:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## استكشاف أخطاء الأنفاق
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- تأكّد من أن جلسة SSH متصلة قبل إضافة أنفاق أثناء التشغيل.
+- تحقّق من أن المنفذ المحلي غير مستخدم بالفعل.
+- تحقّق من أن المضيف والمنفذ البعيدَين قابلان للوصول من خادم SSH.
+- استخدم `localhost` عندما تكون خدمة الوجهة على خادم SSH نفسه.
+- استخدم اسم DNS الداخلي للخادم أو الـ IP عند التوجيه إلى مضيف آخر خلف خادم SSH.

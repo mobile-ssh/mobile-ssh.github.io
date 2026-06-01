@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "సమస్య పరిష్కారం"
+description: "కనెక్షన్, ప్రామాణీకరణ, కీబోర్డ్, tmux, ఫైల్ బదిలీ మరియు టన్నెల్ సమస్యల కోసం Mobile SSH సమస్య పరిష్కార గైడ్."
 ---
 
-# Troubleshooting
+# సమస్య పరిష్కారం
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+ఈ పేజీ Mobile SSH యొక్క సాధారణ సమస్యలను మరియు సర్వర్-సైడ్ SSH సెట్టింగ్‌లను మార్చే ముందు చేయవలసిన మొదటి తనిఖీలను కవర్ చేస్తుంది.
 
-## Cannot connect
+## కనెక్ట్ అవ్వలేకపోతున్నారు
 
-Check:
+తనిఖీ చేయండి:
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- Android పరికరానికి నెట్‌వర్క్ యాక్సెస్ ఉంది.
+- సర్వర్ హోస్ట్‌నేమ్ లేదా IP చిరునామా సరైనది.
+- SSH పోర్ట్ సరైనది, సాధారణంగా `22`.
+- ఫైర్‌వాల్, VPN, క్యారియర్ నెట్‌వర్క్, లేదా Wi-Fi నెట్‌వర్క్ పోర్ట్‌ను బ్లాక్ చేయడం లేదు.
+- SSH సర్వర్ నడుస్తోంది మరియు మీరు ఉపయోగిస్తున్న నెట్‌వర్క్ నుండి కనెక్షన్‌లను అంగీకరిస్తోంది.
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+అదే హోస్ట్ మరో పరికరం నుండి పని చేస్తే, ఖచ్చితమైన హోస్ట్, పోర్ట్, వినియోగదారు పేరు, కీ మరియు నెట్‌వర్క్ మార్గాన్ని పోల్చండి.
 
-## Authentication failed
+## ప్రామాణీకరణ విఫలమైంది
 
-Check:
+తనిఖీ చేయండి:
 
-- Username spelling.
-- Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- వినియోగదారు పేరు స్పెల్లింగ్.
+- పాస్‌వర్డ్ లేదా కీ పాస్‌ఫ్రేజ్.
+- సర్వర్ పాస్‌వర్డ్ లాగిన్, కీ లాగిన్, లేదా రెండింటినీ అనుమతిస్తుందా.
+- ప్రైవేట్ కీ సర్వర్ వినియోగదారు `authorized_keys`లోని పబ్లిక్ కీతో సరిపోతుందా.
+- కీ ఫైల్ హెడర్ మరియు ఫుటర్ లైన్‌లతో సహా పూర్తిగా దిగుమతి అయిందా.
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+ఎన్‌క్రిప్ట్ చేసిన ప్రైవేట్ కీల కోసం, పాస్‌వర్డ్/పాస్‌ఫ్రేజ్ ఫీల్డ్‌లో పాస్‌ఫ్రేజ్‌ను నమోదు చేయండి.
 
-## Private key import failed
+## ప్రైవేట్ కీ దిగుమతి విఫలమైంది
 
-Private key import uses Android's file picker. If import fails:
+ప్రైవేట్ కీ దిగుమతి Android ఫైల్ పికర్‌ను ఉపయోగిస్తుంది. దిగుమతి విఫలమైతే:
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- ఎంచుకున్న ఫైల్ పబ్లిక్ `.pub` ఫైల్ కాదు, ప్రైవేట్ కీ అని నిర్ధారించుకోండి.
+- ఫైల్‌ను విశ్వసనీయ టెక్స్ట్ ఎడిటర్‌లో తెరిచి, అందులో పూర్తి కీ బ్లాక్ ఉందని ధృవీకరించండి.
+- కీని ప్రైవేట్ కీ ఫీల్డ్‌లో చేతితో అతికించడానికి ప్రయత్నించండి.
+- కీ రకం యాప్ అమలు మద్దతిచ్చేదని నిర్ధారించుకోండి: Ed25519, RSA, ECDSA లేదా DSA.
 
-## Keyboard input is delayed or changed
+## కీబోర్డ్ ఇన్‌పుట్ ఆలస్యం అవుతుంది లేదా మారుతుంది
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+మీ Android కీబోర్డ్ టెక్స్ట్‌ను షెల్‌కు చేరే ముందు మారిస్తే, Mobile SSH సెట్టింగ్‌లలో కీబోర్డ్ సూచనలను నిలిపివేయండి. ఇది Vim, tmux, htop, less, అసాధారణ కీ కార్డ్‌లను ఉపయోగించే షెల్‌లు మరియు రిమోట్ పాస్‌వర్డ్ ప్రాంప్ట్‌ల కోసం ఉపయోగపడుతుంది.
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+`ESC`, `TAB`, `CTRL`, బాణాలు, `HOME`, `END`, `PGUP` మరియు `PGDN` వంటి టర్మినల్ కీల కోసం అదనపు కీ వరుసను ఉపయోగించండి.
 
-## tmux scrolling is not what you expect
+## tmux స్క్రోలింగ్ మీరు ఆశించినట్లు లేదు
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH టర్మినల్ స్థితి ఆధారంగా స్క్రోల్ ప్రవర్తనను మారుస్తుంది. tmux లేదా ఇతర ప్రత్యామ్నాయ-స్క్రీన్ ప్రోగ్రామ్‌లలో, స్క్రోల్ సంజ్ఞలు లోకల్ చరిత్రను స్క్రోల్ చేయడానికి బదులు tmux కాపీ-మోడ్ కమాండ్‌లను పంపవచ్చు. tmux మౌస్ మోడ్ ప్రారంభించబడితే, యాప్ మౌస్-వీల్ ఎస్కేప్ సీక్వెన్స్‌లను పంపుతుంది.
 
-If scrolling feels wrong:
+స్క్రోలింగ్ తప్పుగా అనిపిస్తే:
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- రిమోట్ సర్వర్‌లో tmux మౌస్ మోడ్‌ను ప్రారంభించడానికి లేదా నిలిపివేయడానికి ప్రయత్నించండి.
+- అదనపు కీ వరుస నుండి `PGUP` మరియు `PGDN` ఉపయోగించండి.
+- దట్టమైన అవుట్‌పుట్‌ను స్క్రోల్ చేసే ముందు ఫుల్‌స్క్రీన్ కోసం పేన్‌పై డబుల్-ట్యాప్ చేయండి.
+- రిమోట్ టర్మినల్ పరిమాణం పాతదిగా కనిపిస్తే tmux నుండి విడదీసి మళ్లీ అటాచ్ చేయండి.
 
-## Session dropped after screen lock
+## స్క్రీన్ లాక్ తర్వాత సెషన్ తెగిపోయింది
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH తెగిపోవడాలను తగ్గించడానికి keepalive, ఫోర్‌గ్రౌండ్ సర్వీస్, వేక్ లాక్, Wi-Fi లాక్ మరియు పునఃకనెక్షన్ ప్రయత్నాలను ఉపయోగిస్తుంది. Android బ్యాటరీ విధానాలు ఇంకా బ్యాక్‌గ్రౌండ్ పనిని ఆపవచ్చు.
 
-Check:
+తనిఖీ చేయండి:
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
-- Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- మీ పరికరం బ్యాక్‌గ్రౌండ్ యాప్‌లను దూకుడుగా ఆపితే Mobile SSH కోసం బ్యాటరీ ఆప్టిమైజేషన్‌ను నిలిపివేయండి.
+- పొడవైన సెషన్‌ల సమయంలో Wi-Fi లేదా మొబైల్ డేటాను స్థిరంగా ఉంచండి.
+- అన్‌లాక్ చేసిన తర్వాత Mobile SSH ను మళ్లీ తెరిచి **క్రియాశీల సెషన్లు** నొక్కండి.
+- సర్వర్ SSH సెషన్‌ను డిస్‌కనెక్ట్ చేస్తే, ఇటీవలి సెషన్‌ల నుండి మళ్లీ కనెక్ట్ అవ్వండి.
 
-## File transfer cannot browse phone files
+## ఫైల్ బదిలీ ఫోన్ ఫైల్‌లను బ్రౌజ్ చేయలేకపోతోంది
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+కొత్త Android వెర్షన్‌లలో, లోకల్ ఫైల్ బ్రౌజింగ్‌కు స్టోరేజ్ యాక్సెస్ అవసరం కావచ్చు. Mobile SSH కోసం Android సెట్టింగ్‌లలో స్టోరేజ్ యాక్సెస్ ఇచ్చి, ఆపై ఫైల్ బదిలీ స్క్రీన్‌ను మళ్లీ తెరవండి.
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+రిమోట్ ఫైల్‌లు లోడ్ అయి లోకల్ ఫైల్‌లు లోడ్ కాకపోతే, SSH కనెక్షన్ బహుశా బాగానే ఉంది మరియు సమస్య లోకల్ Android స్టోరేజ్ యాక్సెస్‌లో ఉంది.
 
-## Upload or download failed
+## అప్‌లోడ్ లేదా డౌన్‌లోడ్ విఫలమైంది
 
-Check:
+తనిఖీ చేయండి:
 
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
+- SSH సెషన్ ఇంకా కనెక్ట్ అయి ఉంది.
+- రిమోట్ డైరెక్టరీ ఉంది.
+- రిమోట్ వినియోగదారుకు మార్గాన్ని చదవడానికి లేదా రాయడానికి అనుమతి ఉంది.
+- లోకల్ గమ్యం రాయదగినది.
+- Android పరికరంలో తగినంత ఖాళీ స్థలం ఉంది.
+- పెద్ద బదిలీల కోసం నెట్‌వర్క్ స్థిరంగా ఉంది.
 
-## Port forward failed
+## పోర్ట్ ఫార్వార్డ్ విఫలమైంది
 
-Check:
+తనిఖీ చేయండి:
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- లోకల్ పోర్ట్ `1` మరియు `65535` మధ్య ఉంది.
+- లోకల్ పోర్ట్ ఇప్పటికే వాడుకలో లేదు.
+- టన్నెల్ స్ట్రింగ్ `PORT` లేదా `LOCAL:REMOTEHOST:REMOTE`.
+- రిమోట్ హోస్ట్ మరియు రిమోట్ పోర్ట్ SSH సర్వర్ నుండి చేరుకోగలవు.
+- SSH సర్వర్ TCP ఫార్వార్డింగ్‌ను అనుమతిస్తుంది.
 
-## Debug logs
+## డీబగ్ లాగ్‌లు
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+స్టార్ట్ స్క్రీన్‌లో ఒక **డీబగ్** బటన్ ఉంది. ప్రారంభించబడితే, Mobile SSH టర్మినల్ ఈవెంట్‌లు, SSH డేటా పరిమాణాలు, టచ్ ఇన్‌పుట్, రీసైజ్ ప్రవర్తన మరియు టన్నెల్ జీవితచక్రం కోసం నిర్ధారణ సమాచారాన్ని రికార్డ్ చేస్తుంది. డీబగ్ ఆర్కైవ్‌ను స్థానికంగా సేవ్ చేయడానికి రికార్డింగ్‌ను ఆపండి.
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+షేర్ చేసే ముందు డీబగ్ ఆర్కైవ్‌లను సమీక్షించండి. ఇవి సమస్య పరిష్కారం కోసం మరియు సర్వర్ పేర్లు, సమయం, టర్మినల్ ప్రవర్తన, లేదా ఇతర వాతావరణ వివరాలను బహిర్గతం చేయవచ్చు.

@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "সমস্যা সমাধান"
+description: "সংযোগ, প্রমাণীকরণ, কীবোর্ড, tmux, ফাইল ট্রান্সফার ও টানেল সমস্যার জন্য Mobile SSH সমস্যা সমাধান গাইড।"
 ---
 
-# Troubleshooting
+# সমস্যা সমাধান
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+এই পৃষ্ঠা Mobile SSH-এর সাধারণ সমস্যা এবং সার্ভার-সাইড SSH সেটিংস বদলানোর আগে চালানো প্রথম পরীক্ষাগুলো কভার করে।
 
-## Cannot connect
+## সংযোগ করা যাচ্ছে না
 
-Check:
+পরীক্ষা করুন:
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- Android ডিভাইসের নেটওয়ার্ক অ্যাক্সেস আছে।
+- সার্ভারের হোস্টনাম বা IP ঠিকানা সঠিক।
+- SSH পোর্ট সঠিক, সাধারণত `22`।
+- কোনো ফায়ারওয়াল, VPN, ক্যারিয়ার নেটওয়ার্ক বা Wi-Fi নেটওয়ার্ক পোর্ট ব্লক করছে না।
+- SSH সার্ভার চলছে এবং আপনার ব্যবহৃত নেটওয়ার্ক থেকে সংযোগ গ্রহণ করছে।
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+একই হোস্ট অন্য ডিভাইস থেকে কাজ করলে সঠিক হোস্ট, পোর্ট, ব্যবহারকারীর নাম, কী এবং নেটওয়ার্ক পথ তুলনা করুন।
 
-## Authentication failed
+## প্রমাণীকরণ ব্যর্থ
 
-Check:
+পরীক্ষা করুন:
 
-- Username spelling.
-- Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- ব্যবহারকারীর নামের বানান।
+- পাসওয়ার্ড বা কী পাসফ্রেজ।
+- সার্ভার পাসওয়ার্ড লগইন, কী লগইন, না উভয় অনুমতি দেয়।
+- প্রাইভেট কী সার্ভার ব্যবহারকারীর `authorized_keys`-এর কোনো পাবলিক কী-এর সাথে মেলে কিনা।
+- কী ফাইল সম্পূর্ণভাবে ইমপোর্ট হয়েছে কিনা, হেডার ও ফুটার লাইনসহ।
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+এনক্রিপ্ট করা প্রাইভেট কী-এর জন্য পাসওয়ার্ড/পাসফ্রেজ ফিল্ডে পাসফ্রেজ লিখুন।
 
-## Private key import failed
+## প্রাইভেট কী ইমপোর্ট ব্যর্থ
 
-Private key import uses Android's file picker. If import fails:
+প্রাইভেট কী ইমপোর্ট Android ফাইল পিকার ব্যবহার করে। ইমপোর্ট ব্যর্থ হলে:
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- নিশ্চিত করুন নির্বাচিত ফাইলটি একটি প্রাইভেট কী, পাবলিক `.pub` ফাইল নয়।
+- ফাইলটি বিশ্বস্ত টেক্সট এডিটরে খুলুন এবং যাচাই করুন এতে সম্পূর্ণ কী ব্লক আছে।
+- কী-টি প্রাইভেট কী ফিল্ডে হাতে পেস্ট করার চেষ্টা করুন।
+- নিশ্চিত করুন কী টাইপ অ্যাপ বাস্তবায়ন দ্বারা সমর্থিত: Ed25519, RSA, ECDSA বা DSA।
 
-## Keyboard input is delayed or changed
+## কীবোর্ড ইনপুট বিলম্বিত বা পরিবর্তিত
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+আপনার Android কীবোর্ড শেলে পৌঁছানোর আগে টেক্সট বদলালে Mobile SSH সেটিংসে কীবোর্ড সাজেশন নিষ্ক্রিয় করুন। এটি Vim, tmux, htop, less, অস্বাভাবিক কী কর্ড ব্যবহারকারী শেল এবং রিমোট পাসওয়ার্ড প্রম্পটের জন্য উপযোগী।
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+`ESC`, `TAB`, `CTRL`, তীর, `HOME`, `END`, `PGUP` এবং `PGDN`-এর মতো টার্মিনাল কী-এর জন্য অতিরিক্ত কী সারি ব্যবহার করুন।
 
-## tmux scrolling is not what you expect
+## tmux স্ক্রলিং প্রত্যাশিত নয়
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH টার্মিনাল অবস্থার উপর ভিত্তি করে স্ক্রল আচরণ বদলায়। tmux বা অন্যান্য বিকল্প-স্ক্রিন প্রোগ্রামে স্ক্রল অঙ্গভঙ্গি লোকাল ইতিহাস স্ক্রল না করে tmux কপি-মোড কমান্ড পাঠাতে পারে। tmux মাউস মোড সক্ষম থাকলে অ্যাপ মাউস-হুইল এস্কেপ সিকোয়েন্স পাঠায়।
 
-If scrolling feels wrong:
+স্ক্রলিং ভুল মনে হলে:
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- রিমোট সার্ভারে tmux মাউস মোড সক্ষম বা নিষ্ক্রিয় করার চেষ্টা করুন।
+- অতিরিক্ত কী সারির `PGUP` ও `PGDN` ব্যবহার করুন।
+- ঘন আউটপুট স্ক্রল করার আগে ফুলস্ক্রিনের জন্য প্যানে ডাবল-ট্যাপ করুন।
+- রিমোট টার্মিনালের আকার পুরোনো মনে হলে tmux থেকে ডিটাচ ও পুনরায় অ্যাটাচ করুন।
 
-## Session dropped after screen lock
+## স্ক্রিন লক হওয়ার পর সেশন বিচ্ছিন্ন
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH বিচ্ছিন্নতা কমাতে keepalive, ফোরগ্রাউন্ড সার্ভিস, ওয়েক লক, Wi-Fi লক এবং পুনঃসংযোগ চেষ্টা ব্যবহার করে। Android ব্যাটারি নীতি তবু ব্যাকগ্রাউন্ড কাজ থামাতে পারে।
 
-Check:
+পরীক্ষা করুন:
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
-- Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- আপনার ডিভাইস ব্যাকগ্রাউন্ড অ্যাপ আক্রমণাত্মকভাবে থামালে Mobile SSH-এর জন্য ব্যাটারি অপ্টিমাইজেশন নিষ্ক্রিয় করুন।
+- দীর্ঘ সেশনের সময় Wi-Fi বা মোবাইল ডেটা স্থিতিশীল রাখুন।
+- আনলক করার পর Mobile SSH আবার খুলুন এবং **সক্রিয় সেশন** ট্যাপ করুন।
+- সার্ভার SSH সেশন বিচ্ছিন্ন করলে সাম্প্রতিক সেশন থেকে পুনঃসংযোগ করুন।
 
-## File transfer cannot browse phone files
+## ফাইল ট্রান্সফার ফোন ফাইল ব্রাউজ করতে পারছে না
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+নতুন Android সংস্করণে লোকাল ফাইল ব্রাউজিংয়ের জন্য স্টোরেজ অ্যাক্সেস লাগতে পারে। Mobile SSH-এর জন্য Android সেটিংসে স্টোরেজ অ্যাক্সেস দিন, তারপর ফাইল ট্রান্সফার স্ক্রিন আবার খুলুন।
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+রিমোট ফাইল লোড হলেও লোকাল না হলে SSH সংযোগ সম্ভবত ঠিক আছে এবং সমস্যা লোকাল Android স্টোরেজ অ্যাক্সেসে।
 
-## Upload or download failed
+## আপলোড বা ডাউনলোড ব্যর্থ
 
-Check:
+পরীক্ষা করুন:
 
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
+- SSH সেশন এখনও সংযুক্ত।
+- রিমোট ডিরেক্টরি বিদ্যমান।
+- রিমোট ব্যবহারকারীর পথ পড়া বা লেখার অনুমতি আছে।
+- লোকাল গন্তব্য লেখযোগ্য।
+- Android ডিভাইসে যথেষ্ট খালি জায়গা আছে।
+- বড় ট্রান্সফারের জন্য নেটওয়ার্ক স্থিতিশীল।
 
-## Port forward failed
+## পোর্ট ফরওয়ার্ড ব্যর্থ
 
-Check:
+পরীক্ষা করুন:
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- লোকাল পোর্ট `1` থেকে `65535`-এর মধ্যে।
+- লোকাল পোর্ট ইতিমধ্যে ব্যবহৃত নয়।
+- টানেল স্ট্রিং `PORT` বা `LOCAL:REMOTEHOST:REMOTE`।
+- রিমোট হোস্ট ও রিমোট পোর্ট SSH সার্ভার থেকে পৌঁছানো যায়।
+- SSH সার্ভার TCP ফরওয়ার্ডিং অনুমতি দেয়।
 
-## Debug logs
+## ডিবাগ লগ
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+স্টার্ট স্ক্রিনে একটি **ডিবাগ** বোতাম আছে। সক্ষম থাকলে Mobile SSH টার্মিনাল ইভেন্ট, SSH ডেটার আকার, টাচ ইনপুট, রিসাইজ আচরণ এবং টানেল জীবনচক্রের জন্য ডায়াগনস্টিক তথ্য রেকর্ড করে। ডিবাগ আর্কাইভ স্থানীয়ভাবে সংরক্ষণ করতে রেকর্ডিং থামান।
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+শেয়ার করার আগে ডিবাগ আর্কাইভ পর্যালোচনা করুন। এগুলো সমস্যা সমাধানের জন্য এবং সার্ভারের নাম, সময়, টার্মিনাল আচরণ বা অন্যান্য পরিবেশ বিবরণ প্রকাশ করতে পারে।

@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "Reenvío de puertos"
+description: "Sintaxis de reenvío de puertos local de Mobile SSH y gestión de túneles para Android."
 ---
 
-# Port forwarding
+# Reenvío de puertos
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH admite el reenvío de puertos SSH local. Un puerto local en el dispositivo Android escucha en `127.0.0.1` y reenvía el tráfico a través de la conexión SSH a un host y puerto remotos.
 
-## Saved tunnel syntax
+## Sintaxis del túnel guardado
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+Las reglas de reenvío de puertos se separan por comas. Cada entrada usa una de dos formas:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+Forma corta:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+Esto vincula `127.0.0.1:8080` en el dispositivo Android y lo reenvía a `localhost:8080` desde el punto de vista del servidor.
 
-Full form:
+Forma completa:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+Esto vincula `127.0.0.1:3000` en el dispositivo Android y lo reenvía por SSH a `localhost:3000` en el lado remoto.
 
-Multiple forwards:
+Varios reenvíos:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## Agregar un túnel a un servidor guardado
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. Abre **Servidores guardados**.
+2. Agrega o edita un perfil de servidor.
+3. Introduce las reglas de reenvío en **Reenvío de puertos**.
+4. Guarda el servidor.
+5. Conéctate al servidor.
 
-The app applies saved forwards after the SSH session connects.
+La app aplica los reenvíos guardados después de que la sesión SSH se conecta.
 
-## Manage active tunnels
+## Gestionar túneles activos
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+Mientras estás conectado, selecciona la sesión y abre la vista de túneles desde la barra de herramientas de la terminal. Desde ahí puedes inspeccionar los reenvíos locales activos, agregar un túnel nuevo o quitar un reenvío local.
 
-## Address binding
+## Vinculación de dirección
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH vincula los reenvíos locales a `127.0.0.1` en el dispositivo Android. Es intencional: mantiene el túnel local al dispositivo y evita sorpresas de loopback solo IPv6. Otras apps en el mismo dispositivo Android podrían conectarse al puerto local reenviado si Android permite su acceso de red.
 
-## Common examples
+## Ejemplos comunes
 
-Access a web service running on the remote server:
+Acceder a un servicio web que se ejecuta en el servidor remoto:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+Luego abre `http://127.0.0.1:8080` desde un navegador en el dispositivo Android.
 
-Access a development server:
+Acceder a un servidor de desarrollo:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+Acceder a una base de datos interna accesible desde el servidor SSH:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## Solución de problemas de túneles
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- Asegúrate de que la sesión SSH esté conectada antes de agregar túneles en tiempo de ejecución.
+- Comprueba que el puerto local no esté ya en uso.
+- Comprueba que el host y el puerto remotos sean accesibles desde el servidor SSH.
+- Usa `localhost` cuando el servicio de destino esté en el propio servidor SSH.
+- Usa el nombre DNS interno o la IP del servidor al reenviar a otro host detrás del servidor SSH.

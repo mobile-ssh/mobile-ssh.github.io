@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "فائل منتقلی"
+description: "مقامی فائلوں، دور دراز فائلوں، اپ لوڈ، ڈاؤن لوڈ، ترتیب اور اجازتوں کے لیے Mobile SSH SFTP فائل منتقلی گائیڈ۔"
 ---
 
-# File transfer
+# فائل منتقلی
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH میں فعال SSH کنکشن سے منسلک ایک SFTP فائل منتقلی اسکرین شامل ہے۔ یہ Android سے فوری سرور دیکھ بھال کے لیے ہے: کنفیگ اپ لوڈ کریں، لاگ ڈاؤن لوڈ کریں، دور دراز فائل کا نام بدلیں، یا ایپ چھوڑے بغیر اجازتیں جانچیں۔
 
-## Open file transfer
+## فائل منتقلی کھولنا
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. ایک SSH سرور سے جُڑیں۔
+2. منسلک ٹرمینل پین منتخب کریں۔
+3. ٹرمینل ٹول بار سے **منتقلی** کھولیں، یا موجودہ اسکرین کی حمایت پر پین ہیڈر پر دیر تک دبائیں۔
+4. فائل منتقلی اسکرین ایک مقامی پین اور ایک دور دراز پین کے ساتھ کھلتی ہے۔
 
-If there is no active SSH session, file transfer cannot open.
+اگر کوئی فعال SSH سیشن نہیں تو فائل منتقلی نہیں کھل سکتی۔
 
-## Local and remote panes
+## مقامی اور دور دراز پین
 
-The file transfer screen has two browser panes:
+فائل منتقلی اسکرین میں دو براؤزر پین ہیں:
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **مقامی پین:** فون اسٹوریج۔
+- **دور دراز پین:** SFTP پر سرور فائلیں۔
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+ایپ ہر ہوسٹ کے لیے حالیہ مقامی اور دور دراز راستے یاد رکھتی ہے۔ دونوں پین کے لیے ترتیب کی ترتیبات بھی ہر ہوسٹ کے لیے یاد رکھی جاتی ہیں۔
 
-## Android storage permission
+## Android اسٹوریج اجازت
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+براہ راست فائل براؤزنگ محدود کرنے والے Android ورژنز پر، مقامی پین کے فون فائلیں براؤز کرنے سے پہلے Mobile SSH اسٹوریج رسائی مانگ سکتا ہے۔ اگر آپ یہ اجازت چھوڑتے یا مسترد کرتے ہیں تو دور دراز براؤزنگ پھر بھی کام کر سکتی ہے، لیکن مقامی اپ لوڈ اور ڈاؤن لوڈ راستے محدود ہو سکتے ہیں۔
 
-Private key import is separate from file transfer and uses the Android file picker.
+نجی کلید درآمد فائل منتقلی سے الگ ہے اور Android فائل پکر استعمال کرتی ہے۔
 
-## Upload files
+## فائلیں اپ لوڈ کرنا
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. مقامی پین کھولیں۔
+2. جس فائل کو اپ لوڈ کرنا ہے اس پر جائیں۔
+3. اپ لوڈ منتخب کریں۔
+4. دور دراز منزل کی تصدیق کریں۔
+5. پیش رفت اور تکمیل کے لیے منتقلی قطار دیکھیں۔
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+اپ لوڈ موجودہ SSH/SFTP کنکشن استعمال کرتے ہیں۔ اگر کنکشن گر جائے تو دوبارہ کنکشن کے بعد دوبارہ کوشش کریں۔
 
-## Download files
+## فائلیں ڈاؤن لوڈ کرنا
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. دور دراز پین کھولیں۔
+2. جس فائل کو ڈاؤن لوڈ کرنا ہے اس پر جائیں۔
+3. ڈاؤن لوڈ منتخب کریں۔
+4. مقامی منزل کی تصدیق کریں۔
+5. پیش رفت اور تکمیل کے لیے منتقلی قطار دیکھیں۔
 
-Large downloads should be done on a stable network when possible.
+بڑے ڈاؤن لوڈ ممکن ہو تو مستحکم نیٹ ورک پر کریں۔
 
-## Remote file actions
+## دور دراز فائل اعمال
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+منتخب دور دراز آئٹم کے لحاظ سے، Mobile SSH ایسے اعمال دکھا سکتا ہے:
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- ڈاؤن لوڈ۔
+- نام تبدیل کریں۔
+- حذف کریں۔
+- فائل یا ڈائریکٹری بنائیں۔
+- متنی فائل میں ترمیم کریں۔
+- فائل کی تفصیلات دیکھیں۔
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+دور دراز فائل کی تفصیلات میں اجازت بٹس، مالک، گروپ اور آکٹل اجازت اقدار شامل ہو سکتی ہیں۔ کسی اور عمل یا تعیناتی ٹول کے زیرِ انتظام سرور فائلیں بدلنے سے پہلے یہ تفصیلات استعمال کریں۔
 
-## Sorting and recent paths
+## ترتیب اور حالیہ راستے
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+ہر پین نام یا تاریخ کے لحاظ سے صعودی یا نزولی ترتیب دے سکتا ہے۔ Mobile SSH منتخب مقامی اور دور دراز ترتیب کے موڈز کو حالیہ راستوں کے ساتھ ہر ہوسٹ کے لیے محفوظ کرتا ہے، اس لیے اسی سرور پر بار بار منتقلیاں مانوس مقامات سے شروع ہوتی ہیں۔
 
-## Transfer queue
+## منتقلی قطار
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+منتقلیاں قطار میں رکھی جاتی ہیں اور حالت کے لحاظ سے دکھائی جاتی ہیں۔ لاگ علاقہ قطار میں موجود، ناکام اور کامیاب منتقلیوں کو الگ کرتا ہے۔ جب بنیادی SFTP عمل وجہ فراہم کرے تو ناکام منتقلیوں میں وجہ شامل ہوتی ہے۔
 
-## Practical tips
+## عملی تجاویز
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- مخصوص فائل منتقلی کے لیے SFTP استعمال کریں؛ بڑی ڈائریکٹری ہم وقت سازی کے لیے سرور پر `rsync` جیسے کمانڈ لائن ٹولز استعمال کریں۔
+- جب تک آپ کے پاس بیک اپ یا تعیناتی رول بیک راستہ نہ ہو، لائیو پروڈکشن فائلوں میں ترمیم سے گریز کریں۔
+- اگر اپ لوڈ کے بعد فائل ظاہر نہ ہو تو دور دراز پین تازہ کریں یا منزل کا راستہ تصدیق کریں۔
+- اگر Android اسٹوریج رسائی مقامی براؤزنگ روک دے تو Android ترتیبات سے اجازت دیں اور فائل منتقلی دوبارہ کھولیں۔

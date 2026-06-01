@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "連接埠轉發"
+description: "Mobile SSH 嘅本機連接埠轉發語法同 Android 通道管理。"
 ---
 
-# Port forwarding
+# 連接埠轉發
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH 支援本機 SSH 連接埠轉發。Android 裝置上嘅本機連接埠喺 `127.0.0.1` 監聽，並透過 SSH 連線將流量轉發到遠端主機同連接埠。
 
-## Saved tunnel syntax
+## 已儲存通道嘅語法
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+連接埠轉發規則以逗號分隔。每個項目用兩種形式之一：
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+簡短形式：
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+呢個會喺 Android 裝置綁定 `127.0.0.1:8080`，並由伺服器嘅角度將佢轉發到 `localhost:8080`。
 
-Full form:
+完整形式：
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+呢個會喺 Android 裝置綁定 `127.0.0.1:3000`，並透過 SSH 將佢轉發到遠端嗰邊嘅 `localhost:3000`。
 
-Multiple forwards:
+多個轉發：
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## 為已儲存伺服器新增通道
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. 開啟 **已儲存伺服器**。
+2. 新增或編輯伺服器設定檔。
+3. 喺 **連接埠轉發** 輸入轉發規則。
+4. 儲存伺服器。
+5. 連線到伺服器。
 
-The app applies saved forwards after the SSH session connects.
+應用程式會喺 SSH 工作階段連線之後套用已儲存嘅轉發。
 
-## Manage active tunnels
+## 管理使用中通道
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+連線緊嗰陣，選取工作階段並由終端機工具列開啟通道檢視。喺嗰度你可以檢視使用中嘅本機轉發、新增新通道，或者移除某個本機轉發。
 
-## Address binding
+## 位址綁定
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH 將本機轉發綁定到 Android 裝置嘅 `127.0.0.1`。呢個係刻意嘅：令通道保持喺裝置本機，並避免淨係 IPv6 回送（loopback）帶嚟嘅意外。如果 Android 允許同一裝置上其他應用程式嘅網絡存取，佢哋可能可以連到已轉發嘅本機連接埠。
 
-## Common examples
+## 常見例子
 
-Access a web service running on the remote server:
+存取喺遠端伺服器執行緊嘅 Web 服務：
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+然後喺 Android 裝置嘅瀏覽器開啟 `http://127.0.0.1:8080`。
 
-Access a development server:
+存取開發伺服器：
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+存取可以由 SSH 伺服器到達嘅內部資料庫：
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## 通道疑難排解
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- 喺執行時新增通道之前，確保 SSH 工作階段已連線。
+- 檢查本機連接埠未被佔用。
+- 檢查遠端主機同連接埠可以由 SSH 伺服器到達。
+- 當目標服務就喺 SSH 伺服器本身時，用 `localhost`。
+- 轉發到 SSH 伺服器背後嘅另一部主機時，用伺服器嘅內部 DNS 名稱或 IP。

@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "ফাইল ট্রান্সফার"
+description: "লোকাল ফাইল, রিমোট ফাইল, আপলোড, ডাউনলোড, সাজানো ও অনুমতির জন্য Mobile SSH SFTP ফাইল ট্রান্সফার গাইড।"
 ---
 
-# File transfer
+# ফাইল ট্রান্সফার
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH-তে সক্রিয় SSH সংযোগের সাথে যুক্ত একটি SFTP ফাইল ট্রান্সফার স্ক্রিন আছে। এটি Android থেকে দ্রুত সার্ভার রক্ষণাবেক্ষণের জন্য: কনফিগ আপলোড করুন, লগ ডাউনলোড করুন, রিমোট ফাইলের নাম বদলান, বা অ্যাপ না ছেড়ে অনুমতি পরীক্ষা করুন।
 
-## Open file transfer
+## ফাইল ট্রান্সফার খোলা
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. একটি SSH সার্ভারে সংযোগ করুন।
+2. সংযুক্ত টার্মিনাল প্যান নির্বাচন করুন।
+3. টার্মিনাল টুলবার থেকে **ট্রান্সফার** খুলুন, অথবা বর্তমান স্ক্রিন সমর্থন করলে প্যান হেডারে দীর্ঘক্ষণ চাপুন।
+4. একটি লোকাল প্যান ও একটি রিমোট প্যান নিয়ে ফাইল ট্রান্সফার স্ক্রিন খোলে।
 
-If there is no active SSH session, file transfer cannot open.
+সক্রিয় SSH সেশন না থাকলে ফাইল ট্রান্সফার খোলা যায় না।
 
-## Local and remote panes
+## লোকাল ও রিমোট প্যান
 
-The file transfer screen has two browser panes:
+ফাইল ট্রান্সফার স্ক্রিনে দুটি ব্রাউজার প্যান আছে:
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **লোকাল প্যান:** ফোন স্টোরেজ।
+- **রিমোট প্যান:** SFTP-এর মাধ্যমে সার্ভার ফাইল।
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+অ্যাপ প্রতি হোস্টে সাম্প্রতিক লোকাল ও রিমোট পথ মনে রাখে। উভয় প্যানের সাজানোর সেটিংসও প্রতি হোস্টে মনে রাখা হয়।
 
-## Android storage permission
+## Android স্টোরেজ অনুমতি
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+সরাসরি ফাইল ব্রাউজিং সীমিত করে এমন Android সংস্করণে, লোকাল প্যান ফোন ফাইল ব্রাউজ করার আগে Mobile SSH স্টোরেজ অ্যাক্সেস চাইতে পারে। এই অনুমতি এড়িয়ে গেলে বা প্রত্যাখ্যান করলে রিমোট ব্রাউজিং তবু কাজ করতে পারে, কিন্তু লোকাল আপলোড ও ডাউনলোড পথ সীমিত হতে পারে।
 
-Private key import is separate from file transfer and uses the Android file picker.
+প্রাইভেট কী ইমপোর্ট ফাইল ট্রান্সফার থেকে আলাদা এবং Android ফাইল পিকার ব্যবহার করে।
 
-## Upload files
+## ফাইল আপলোড
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. লোকাল প্যান খুলুন।
+2. যে ফাইল আপলোড করতে চান সেখানে যান।
+3. আপলোড নির্বাচন করুন।
+4. রিমোট গন্তব্য নিশ্চিত করুন।
+5. অগ্রগতি ও সমাপ্তির জন্য ট্রান্সফার সারি দেখুন।
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+আপলোড বিদ্যমান SSH/SFTP সংযোগ ব্যবহার করে। সংযোগ বিচ্ছিন্ন হলে পুনঃসংযোগের পর আবার চেষ্টা করুন।
 
-## Download files
+## ফাইল ডাউনলোড
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. রিমোট প্যান খুলুন।
+2. যে ফাইল ডাউনলোড করতে চান সেখানে যান।
+3. ডাউনলোড নির্বাচন করুন।
+4. লোকাল গন্তব্য নিশ্চিত করুন।
+5. অগ্রগতি ও সমাপ্তির জন্য ট্রান্সফার সারি দেখুন।
 
-Large downloads should be done on a stable network when possible.
+বড় ডাউনলোড সম্ভব হলে স্থিতিশীল নেটওয়ার্কে করুন।
 
-## Remote file actions
+## রিমোট ফাইল ক্রিয়া
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+নির্বাচিত রিমোট আইটেমের উপর নির্ভর করে Mobile SSH এমন ক্রিয়া দেখাতে পারে:
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- ডাউনলোড।
+- নাম পরিবর্তন।
+- মুছুন।
+- ফাইল বা ডিরেক্টরি তৈরি।
+- টেক্সট ফাইল সম্পাদনা।
+- ফাইলের বিবরণ দেখুন।
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+রিমোট ফাইলের বিবরণে অনুমতি বিট, মালিক, গ্রুপ এবং অক্টাল অনুমতি মান থাকতে পারে। অন্য কোনো প্রক্রিয়া বা ডিপ্লয়মেন্ট টুল দ্বারা পরিচালিত সার্ভার ফাইল বদলানোর আগে এই বিবরণ ব্যবহার করুন।
 
-## Sorting and recent paths
+## সাজানো ও সাম্প্রতিক পথ
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+প্রতিটি প্যান নাম বা তারিখ অনুসারে ঊর্ধ্ব বা অধঃক্রমে সাজাতে পারে। Mobile SSH নির্বাচিত লোকাল ও রিমোট সাজানোর মোড সাম্প্রতিক পথসহ প্রতি হোস্টে সংরক্ষণ করে, তাই একই সার্ভারে বারবার ট্রান্সফার পরিচিত স্থান থেকে শুরু হয়।
 
-## Transfer queue
+## ট্রান্সফার সারি
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+ট্রান্সফার সারিবদ্ধ হয় এবং অবস্থা অনুসারে দেখানো হয়। লগ এলাকা সারিবদ্ধ, ব্যর্থ ও সফল ট্রান্সফার আলাদা করে। অন্তর্নিহিত SFTP অপারেশন কারণ দিলে ব্যর্থ ট্রান্সফারে কারণ থাকে।
 
-## Practical tips
+## ব্যবহারিক পরামর্শ
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- নির্দিষ্ট ফাইল সরাতে SFTP ব্যবহার করুন; বড় ডিরেক্টরি সিঙ্ক্রোনাইজেশনের জন্য সার্ভারে `rsync`-এর মতো কমান্ড-লাইন টুল ব্যবহার করুন।
+- ব্যাকআপ বা ডিপ্লয়মেন্ট রোলব্যাক পথ না থাকলে লাইভ প্রোডাকশন ফাইল সম্পাদনা এড়িয়ে চলুন।
+- আপলোডের পর ফাইল না দেখালে রিমোট প্যান রিফ্রেশ করুন বা গন্তব্য পথ যাচাই করুন।
+- Android স্টোরেজ অ্যাক্সেস লোকাল ব্রাউজিং আটকালে Android সেটিংস থেকে অনুমতি দিন এবং ফাইল ট্রান্সফার আবার খুলুন।

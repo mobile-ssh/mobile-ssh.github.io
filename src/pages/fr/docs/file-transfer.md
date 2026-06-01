@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "Transfert de fichiers"
+description: "Guide de transfert de fichiers SFTP de Mobile SSH pour les fichiers locaux et distants, l'envoi, le téléchargement, le tri et les permissions."
 ---
 
-# File transfer
+# Transfert de fichiers
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH inclut un écran de transfert de fichiers SFTP lié à la connexion SSH active. Il est destiné à la maintenance rapide d'un serveur depuis Android : envoyer une configuration, télécharger un journal, renommer un fichier distant ou inspecter des permissions sans quitter l'app.
 
-## Open file transfer
+## Ouvrir le transfert de fichiers
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. Connectez-vous à un serveur SSH.
+2. Sélectionnez le volet de terminal connecté.
+3. Ouvrez **Transfert** depuis la barre d'outils du terminal, ou appuyez longuement sur l'en-tête du volet lorsque l'écran actuel le permet.
+4. L'écran de transfert de fichiers s'ouvre avec un volet local et un volet distant.
 
-If there is no active SSH session, file transfer cannot open.
+S'il n'y a pas de session SSH active, le transfert de fichiers ne peut pas s'ouvrir.
 
-## Local and remote panes
+## Volets local et distant
 
-The file transfer screen has two browser panes:
+L'écran de transfert de fichiers comporte deux volets de navigation :
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **Volet local :** le stockage du téléphone.
+- **Volet distant :** les fichiers du serveur via SFTP.
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+L'app mémorise les chemins locaux et distants récents par hôte. Les réglages de tri sont aussi mémorisés par hôte pour les deux volets.
 
-## Android storage permission
+## Permission de stockage Android
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+Sur les versions d'Android qui restreignent la navigation directe dans les fichiers, Mobile SSH peut demander un accès au stockage avant que le volet local puisse parcourir les fichiers du téléphone. Si vous ignorez ou refusez cette permission, la navigation distante peut toujours fonctionner, mais les chemins locaux d'envoi et de téléchargement peuvent être limités.
 
-Private key import is separate from file transfer and uses the Android file picker.
+L'importation de la clé privée est distincte du transfert de fichiers et utilise le sélecteur de fichiers d'Android.
 
-## Upload files
+## Envoyer des fichiers
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. Ouvrez le volet local.
+2. Naviguez jusqu'au fichier à envoyer.
+3. Choisissez l'envoi.
+4. Confirmez la destination distante.
+5. Surveillez la file de transfert pour la progression et la fin.
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+Les envois utilisent la connexion SSH/SFTP existante. Si la connexion tombe, réessayez après reconnexion.
 
-## Download files
+## Télécharger des fichiers
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. Ouvrez le volet distant.
+2. Naviguez jusqu'au fichier à télécharger.
+3. Choisissez le téléchargement.
+4. Confirmez la destination locale.
+5. Surveillez la file de transfert pour la progression et la fin.
 
-Large downloads should be done on a stable network when possible.
+Les téléchargements volumineux doivent se faire sur un réseau stable lorsque c'est possible.
 
-## Remote file actions
+## Actions sur les fichiers distants
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+Selon l'élément distant sélectionné, Mobile SSH peut afficher des actions telles que :
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- Télécharger.
+- Renommer.
+- Supprimer.
+- Créer un fichier ou un répertoire.
+- Modifier un fichier texte.
+- Voir les détails du fichier.
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+Les détails d'un fichier distant peuvent inclure les bits de permission, le propriétaire, le groupe et les valeurs de permission en octal. Utilisez ces détails avant de modifier des fichiers du serveur gérés par un autre processus ou un outil de déploiement.
 
-## Sorting and recent paths
+## Tri et chemins récents
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+Chaque volet peut trier par nom ou par date, en ordre croissant ou décroissant. Mobile SSH stocke les modes de tri local et distant sélectionnés par hôte, ainsi que les chemins récents, afin que les transferts répétés vers le même serveur commencent à des emplacements familiers.
 
-## Transfer queue
+## File de transfert
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+Les transferts sont mis en file et affichés par statut. La zone de journal sépare les transferts en file, échoués et réussis. Les transferts échoués indiquent un motif lorsque l'opération SFTP sous-jacente en fournit un.
 
-## Practical tips
+## Conseils pratiques
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- Utilisez SFTP pour des déplacements de fichiers ponctuels ; utilisez des outils en ligne de commande comme `rsync` sur le serveur pour synchroniser de grands répertoires.
+- Évitez de modifier des fichiers de production en service sans sauvegarde ni possibilité de retour arrière du déploiement.
+- Si un fichier n'apparaît pas après l'envoi, actualisez le volet distant ou vérifiez le chemin de destination.
+- Si l'accès au stockage Android bloque la navigation locale, accordez la permission dans les Réglages d'Android et rouvrez le transfert de fichiers.

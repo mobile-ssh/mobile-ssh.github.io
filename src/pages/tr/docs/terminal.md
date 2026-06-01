@@ -1,76 +1,76 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux behavior, copy actions, and keyboard settings.
+title: "Terminal"
+description: "Mobile SSH terminal denetimleri, ek tuşlar, bölmeler, kaydırma, tmux davranışı, kopyalama işlemleri ve klavye ayarları."
 ---
 
 # Terminal
 
-The Mobile SSH terminal is built for phone and tablet operation. It combines a terminal canvas, an extra key row, multi-session panes, scroll handling, and reconnection behavior.
+Mobile SSH terminali telefon ve tablet kullanımı için tasarlanmıştır. Bir terminal tuvali, ek tuş satırı, çoklu oturum bölmeleri, kaydırma işleme ve yeniden bağlanma davranışını birleştirir.
 
-## Terminal basics
+## Terminal temelleri
 
-- The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps up to 5000 lines.
-- Tap a pane to select it before typing.
-- Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- Terminal, renk desteği ve imleç tuşu işleme ile xterm tarzı davranış kullanır.
+- Geri kaydırma arabelleği en fazla 5000 satır tutar.
+- Yazmadan önce bir bölmeyi seçmek için dokunun.
+- Metin boyutunu değiştirmek için bir terminal bölmesini kıstırın. Hareket yatıştıktan sonra Mobile SSH uzak PTY'yi yeniden boyutlandırır.
+- Tam ekran moduna girmek için bir bölmeye çift dokunun. Izgaraya dönmek için Geri'yi kullanın.
 
-## Multi-session grid
+## Çoklu oturum ızgarası
 
-Mobile SSH can run up to eight SSH sessions at the same time. Each session appears as a pane in the terminal grid. The pane header shows the current target or title. Tap a pane to select it, or use **+ Add Session** to start another connection.
+Mobile SSH aynı anda sekiz SSH oturumuna kadar çalıştırabilir. Her oturum terminal ızgarasında bir bölme olarak görünür. Bölme başlığı geçerli hedefi veya başlığı gösterir. Seçmek için bir bölmeye dokunun veya başka bir bağlantı başlatmak için **+ Oturum Ekle**'yi kullanın.
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+Bir bölmeyi kapatmak o SSH oturumunu keser. Başlangıç ekranına dönmek etkin oturumları **Etkin Oturumlar** aracılığıyla kullanılabilir tutar.
 
-## Extra key row
+## Ek tuş satırı
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+Ek tuş satırı Android klavyesinin üstünde görünür ve dokunmatik klavyelerde zahmetli olan terminal tuşlarını sağlar:
 
 - `ESC`
 - `TAB`
 - `CTRL`
 - `Shift`
-- Arrow keys
+- Ok tuşları
 - `HOME`
 - `END`
 - `PGUP`
 - `PGDN`
-- Keyboard toggle
+- Klavye geçişi
 
-`CTRL` and `Shift` act as sticky modifiers for the next compatible input. For example, tap `CTRL`, then type `C` to send Ctrl-C.
+`CTRL` ve `Shift` bir sonraki uyumlu giriş için yapışkan değiştiriciler gibi davranır. Örneğin `CTRL`'ye dokunun, ardından Ctrl-C göndermek için `C` yazın.
 
-## Keyboard behavior
+## Klavye davranışı
 
-Mobile SSH has two keyboard-related settings:
+Mobile SSH'de klavyeyle ilgili iki ayar vardır:
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
-- **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
+- **Klavyeyi göstermek için terminale dokun:** etkinleştirildiğinde terminale dokunmak Android'den giriş yöntemini göstermesini ister.
+- **Klavye önerileri:** etkinleştirildiğinde uyumlu klavyeler kabuk istemlerinde öneri gösterebilir. Öneriler terminal programlarıyla çakışıyorsa devre dışı bırakın.
 
-When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
+Öneriler etkinken Mobile SSH, oluşturulan metni bir sözcük sınırına kadar arabelleğe alır; böylece klavye düzeltmesi geçerli sözcüğü uzak kabuğa gönderilmeden önce değiştirebilir. Denetim tuşları ve terminal akorları bu arabelleği atlar; böylece tmux önek komutları gibi kısayollar anında ulaşır.
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+Sesli giriş (Gboard mikrofon düğmesi) aynı oluşturma metni arabelleğinden geçer; bu nedenle dikte edilen metin karakter karakter değil, çözümlendikten sonra bir kez gönderilir.
 
-## Select, copy, share
+## Seç, kopyala, paylaş
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+Seçim moduna girmek için terminalin içine uzun basın. Seçim araç çubuğu üç işlem sunar:
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
-- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **Kopyala** — seçili metni Android panosuna koyar.
+- **Paylaş** — seçili metni Android paylaşım sayfasına (posta, notlar, mesajlaşma vb.) iletir.
+- **Tümünü seç** — seçimi görünür terminal arabelleğinin tamamına genişletir, ardından Kopyala veya Paylaş.
 
-## Scrolling
+## Kaydırma
 
-Mobile SSH routes scroll gestures based on terminal state:
+Mobile SSH kaydırma hareketlerini terminal durumuna göre yönlendirir:
 
-- In normal shell output, swiping scrolls the local scrollback buffer.
-- In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
-- In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
+- Normal kabuk çıktısında kaydırma, yerel geri kaydırma arabelleğini kaydırır.
+- Fare modlu terminal uygulamalarında kaydırma fare tekerleği kaçış dizileri gönderir.
+- Fare modu olmayan alternatif ekran uygulamalarında, birçok tmux oturumu gibi, kaydırma tmux kopya moduna girer ve satır kaydırma komutları gönderir.
 
-If you type while scrolled back, Mobile SSH returns to the live terminal view.
+Geriye kaydırılmışken yazarsanız Mobile SSH canlı terminal görünümüne döner.
 
-## tmux behavior
+## tmux davranışı
 
-Mobile SSH observes outgoing tmux attach and new-session commands such as:
+Mobile SSH giden tmux attach ve yeni oturum komutlarını gözlemler, örneğin:
 
 ```bash
 tmux attach -t work
@@ -78,14 +78,14 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+tmux'tayken bağlantı düştüğünde uygulama o sunucunun son tmux oturum adını hatırlayabilir ve yeniden bağlandıktan sonra yeniden eklemeyi deneyebilir. Açık bir oturum adı gözlemlenmediyse ama uygulama alternatif ekranlı tmux benzeri bir oturumda olduğunuzu biliyorsa genel bir `tmux attach` deneyebilir.
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+Bu davranış elden gelenin en iyisidir. Uzak tmux oturumu artık yoksa uzak kabuk kullanılabilir kalır.
 
-## Full-screen terminal programs
+## Tam ekran terminal programları
 
-For programs such as Vim, less, htop, ncurses tools, and tmux panes:
+Vim, less, htop, ncurses araçları ve tmux bölmeleri gibi programlar için:
 
-- Disable keyboard suggestions if the keyboard starts buffering input in a way the program does not expect.
-- Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
-- Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+- Klavye girişi programın beklemediği bir biçimde arabelleğe almaya başlarsa klavye önerilerini devre dışı bırakın.
+- `ESC`, oklar, `PGUP` ve `PGDN` için ek tuş satırını kullanın.
+- Metin çok küçükse kıstırarak yakınlaştırma kullanın, sonra uzak terminal boyutunun oturması için kısa süre bekleyin.

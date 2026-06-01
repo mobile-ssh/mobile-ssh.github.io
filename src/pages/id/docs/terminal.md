@@ -1,76 +1,76 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux behavior, copy actions, and keyboard settings.
+title: "Terminal"
+description: "Kontrol terminal Mobile SSH, tombol tambahan, panel, gulir, perilaku tmux, tindakan salin, dan pengaturan keyboard."
 ---
 
 # Terminal
 
-The Mobile SSH terminal is built for phone and tablet operation. It combines a terminal canvas, an extra key row, multi-session panes, scroll handling, and reconnection behavior.
+Terminal Mobile SSH dibuat untuk operasi di ponsel dan tablet. Ia menggabungkan kanvas terminal, baris tombol tambahan, panel multi-sesi, penanganan gulir, dan perilaku koneksi ulang.
 
-## Terminal basics
+## Dasar terminal
 
-- The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps up to 5000 lines.
-- Tap a pane to select it before typing.
-- Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- Terminal memakai perilaku gaya xterm dengan dukungan warna dan penanganan tombol kursor.
+- Buffer gulir balik menyimpan hingga 5000 baris.
+- Ketuk panel untuk memilihnya sebelum mengetik.
+- Cubit panel terminal untuk mengubah ukuran teks. Mobile SSH mengubah ukuran PTY jarak jauh setelah gerakan berhenti.
+- Ketuk dua kali panel untuk masuk mode layar penuh. Gunakan Kembali untuk kembali ke kisi.
 
-## Multi-session grid
+## Kisi multi-sesi
 
-Mobile SSH can run up to eight SSH sessions at the same time. Each session appears as a pane in the terminal grid. The pane header shows the current target or title. Tap a pane to select it, or use **+ Add Session** to start another connection.
+Mobile SSH dapat menjalankan hingga delapan sesi SSH sekaligus. Setiap sesi tampil sebagai panel di kisi terminal. Header panel menampilkan tujuan atau judul saat ini. Ketuk panel untuk memilihnya, atau gunakan **+ Tambah Sesi** untuk memulai koneksi lain.
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+Menutup panel memutus sesi SSH itu. Kembali ke layar awal menjaga sesi aktif tetap tersedia melalui **Sesi Aktif**.
 
-## Extra key row
+## Baris tombol tambahan
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+Baris tombol tambahan tampil di atas keyboard Android dan menyediakan tombol terminal yang sulit pada keyboard sentuh:
 
 - `ESC`
 - `TAB`
 - `CTRL`
 - `Shift`
-- Arrow keys
+- Tombol panah
 - `HOME`
 - `END`
 - `PGUP`
 - `PGDN`
-- Keyboard toggle
+- Pengalih keyboard
 
-`CTRL` and `Shift` act as sticky modifiers for the next compatible input. For example, tap `CTRL`, then type `C` to send Ctrl-C.
+`CTRL` dan `Shift` bertindak sebagai pengubah lengket untuk input berikutnya yang kompatibel. Misalnya, ketuk `CTRL`, lalu ketik `C` untuk mengirim Ctrl-C.
 
-## Keyboard behavior
+## Perilaku keyboard
 
-Mobile SSH has two keyboard-related settings:
+Mobile SSH punya dua pengaturan terkait keyboard:
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
-- **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
+- **Ketuk terminal untuk menampilkan keyboard:** saat aktif, mengetuk terminal meminta Android menampilkan metode input.
+- **Saran keyboard:** saat aktif, keyboard yang kompatibel dapat menampilkan saran di prompt shell. Nonaktifkan jika saran mengganggu program terminal.
 
-When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
+Saat saran aktif, Mobile SSH menyangga teks yang sedang disusun hingga batas kata sehingga koreksi keyboard dapat mengganti kata saat ini sebelum dikirim ke shell jarak jauh. Tombol kontrol dan kord terminal melewati buffer itu, sehingga pintasan seperti perintah prefiks tmux tetap tiba dengan cepat.
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+Input suara (tombol mikrofon Gboard) dialirkan melalui buffer teks yang sama, jadi teks dikte dikirim setelah selesai dikenali, bukan karakter demi karakter.
 
-## Select, copy, share
+## Pilih, salin, bagikan
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+Tekan lama di dalam terminal untuk masuk mode pemilihan. Bilah pemilihan menawarkan tiga tindakan:
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
-- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **Salin** — menaruh teks terpilih ke papan klip Android.
+- **Bagikan** — meneruskan teks terpilih ke lembar berbagi Android (surel, catatan, perpesanan, dll.).
+- **Pilih semua** — memperluas pemilihan ke seluruh buffer terminal yang terlihat, lalu Salin atau Bagikan.
 
-## Scrolling
+## Menggulir
 
-Mobile SSH routes scroll gestures based on terminal state:
+Mobile SSH mengarahkan gerakan gulir berdasarkan status terminal:
 
-- In normal shell output, swiping scrolls the local scrollback buffer.
-- In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
-- In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
+- Pada keluaran shell biasa, menggesek menggulir buffer gulir balik lokal.
+- Pada aplikasi terminal mode mouse, menggulir mengirim urutan escape roda mouse.
+- Pada aplikasi layar alternatif tanpa mode mouse, seperti banyak sesi tmux, menggulir masuk mode salin tmux dan mengirim perintah gulir per baris.
 
-If you type while scrolled back, Mobile SSH returns to the live terminal view.
+Jika Anda mengetik saat menggulir balik, Mobile SSH kembali ke tampilan terminal langsung.
 
-## tmux behavior
+## Perilaku tmux
 
-Mobile SSH observes outgoing tmux attach and new-session commands such as:
+Mobile SSH mengamati perintah tmux keluar untuk attach dan sesi baru, seperti:
 
 ```bash
 tmux attach -t work
@@ -78,14 +78,14 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+Saat koneksi putus ketika Anda berada di tmux, aplikasi dapat mengingat nama sesi tmux terakhir untuk server itu dan mencoba menyambung ulang setelah terhubung kembali. Jika tidak ada nama sesi eksplisit yang teramati tetapi aplikasi tahu Anda berada dalam sesi mirip tmux layar alternatif, ia dapat mencoba `tmux attach` umum.
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+Perilaku ini bersifat upaya terbaik. Jika sesi tmux jarak jauh tidak ada lagi, shell jarak jauh tetap tersedia.
 
-## Full-screen terminal programs
+## Program terminal layar penuh
 
-For programs such as Vim, less, htop, ncurses tools, and tmux panes:
+Untuk program seperti Vim, less, htop, alat ncurses, dan panel tmux:
 
-- Disable keyboard suggestions if the keyboard starts buffering input in a way the program does not expect.
-- Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
-- Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+- Nonaktifkan saran keyboard jika keyboard mulai menyangga input dengan cara yang tidak diharapkan program.
+- Gunakan baris tombol tambahan untuk `ESC`, panah, `PGUP`, dan `PGDN`.
+- Gunakan zoom cubit jika teks terlalu kecil, lalu tunggu sebentar agar ukuran terminal jarak jauh stabil.

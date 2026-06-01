@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "Sorun giderme"
+description: "Bağlantı, kimlik doğrulama, klavye, tmux, dosya aktarımı ve tünel sorunları için Mobile SSH sorun giderme kılavuzu."
 ---
 
-# Troubleshooting
+# Sorun giderme
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+Bu sayfa yaygın Mobile SSH sorunlarını ve sunucu tarafı SSH ayarlarını değiştirmeden önce yapılacak ilk denetimleri kapsar.
 
-## Cannot connect
+## Bağlanılamıyor
 
-Check:
+Denetleyin:
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- Android cihazın ağ erişimi var.
+- Sunucunun ana bilgisayar adı veya IP adresi doğru.
+- SSH bağlantı noktası doğru, genellikle `22`.
+- Bir güvenlik duvarı, VPN, operatör ağı veya Wi-Fi ağı bağlantı noktasını engellemiyor.
+- SSH sunucusu çalışıyor ve kullandığınız ağdan gelen bağlantıları kabul ediyor.
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+Aynı ana bilgisayar başka bir cihazdan çalışıyorsa tam olarak ana bilgisayarı, bağlantı noktasını, kullanıcı adını, anahtarı ve ağ yolunu karşılaştırın.
 
-## Authentication failed
+## Kimlik doğrulama başarısız
 
-Check:
+Denetleyin:
 
-- Username spelling.
-- Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- Kullanıcı adının yazımı.
+- Parola veya anahtar parola tümcesi.
+- Sunucunun parolayla, anahtarla ya da her ikisiyle oturum açmaya izin verip vermediği.
+- Özel anahtarın sunucu kullanıcısının `authorized_keys` dosyasındaki bir genel anahtarla eşleşip eşleşmediği.
+- Anahtar dosyasının başlık ve altbilgi satırları dahil tam olarak içe aktarılıp aktarılmadığı.
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+Şifreli özel anahtarlar için parola/parola tümcesi alanına parola tümcesini girin.
 
-## Private key import failed
+## Özel anahtar içe aktarma başarısız
 
-Private key import uses Android's file picker. If import fails:
+Özel anahtar içe aktarma Android dosya seçiciyi kullanır. İçe aktarma başarısız olursa:
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- Seçilen dosyanın genel bir `.pub` dosyası değil, özel anahtar olduğunu doğrulayın.
+- Dosyayı güvenilir bir metin düzenleyicide açın ve tam anahtar bloğunu içerdiğini doğrulayın.
+- Anahtarı özel anahtar alanına elle yapıştırmayı deneyin.
+- Anahtar türünün uygulama tarafından desteklendiğini doğrulayın: Ed25519, RSA, ECDSA veya DSA.
 
-## Keyboard input is delayed or changed
+## Klavye girişi gecikiyor veya değişiyor
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+Android klavyeniz metni kabuğa ulaşmadan değiştiriyorsa Mobile SSH ayarlarında klavye önerilerini devre dışı bırakın. Bu; Vim, tmux, htop, less, alışılmadık tuş akorları kullanan kabuklar ve uzak parola istemleri için yararlıdır.
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+`ESC`, `TAB`, `CTRL`, oklar, `HOME`, `END`, `PGUP` ve `PGDN` gibi terminal tuşları için ek tuş satırını kullanın.
 
-## tmux scrolling is not what you expect
+## tmux kaydırması beklediğiniz gibi değil
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH kaydırma davranışını terminal durumuna göre değiştirir. tmux veya diğer alternatif ekran programlarında kaydırma hareketleri yerel geçmişi kaydırmak yerine tmux kopya modu komutları gönderebilir. tmux fare modu etkinse uygulama fare tekerleği kaçış dizileri gönderir.
 
-If scrolling feels wrong:
+Kaydırma yanlış geliyorsa:
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- Uzak sunucuda tmux fare modunu etkinleştirmeyi veya devre dışı bırakmayı deneyin.
+- Ek tuş satırındaki `PGUP` ve `PGDN`'yi kullanın.
+- Yoğun çıktıyı kaydırmadan önce tam ekran için bölmeye çift dokunun.
+- Uzak terminal boyutu eski görünüyorsa tmux'u ayırıp yeniden ekleyin.
 
-## Session dropped after screen lock
+## Ekran kilidinden sonra oturum düştü
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH kesintileri azaltmak için keepalive, ön plan hizmeti, uyandırma kilidi, Wi-Fi kilidi ve yeniden bağlanma denemeleri kullanır. Android pil ilkeleri yine de arka plan işini durdurabilir.
 
-Check:
+Denetleyin:
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
-- Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- Cihazınız arka plan uygulamalarını agresif biçimde durduruyorsa Mobile SSH için pil iyileştirmesini devre dışı bırakın.
+- Uzun oturumlar sırasında Wi-Fi veya mobil veriyi kararlı tutun.
+- Kilidi açtıktan sonra Mobile SSH'yi yeniden açın ve **Etkin Oturumlar**'a dokunun.
+- Sunucu SSH oturumunu kestiyse son oturumlardan yeniden bağlanın.
 
-## File transfer cannot browse phone files
+## Dosya aktarımı telefon dosyalarını tarayamıyor
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+Daha yeni Android sürümlerinde yerel dosya tarama depolama erişimi gerektirebilir. Mobile SSH için Android Ayarları'nda depolama erişimi verin, ardından dosya aktarım ekranını yeniden açın.
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+Uzak dosyalar yükleniyor ama yerel dosyalar yüklenmiyorsa SSH bağlantısı büyük olasılıkla iyidir ve sorun yerel Android depolama erişimindedir.
 
-## Upload or download failed
+## Yükleme veya indirme başarısız
 
-Check:
+Denetleyin:
 
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
+- SSH oturumu hâlâ bağlı.
+- Uzak dizin var.
+- Uzak kullanıcının yolu okuma veya yazma izni var.
+- Yerel hedef yazılabilir.
+- Android cihazda yeterli boş alan var.
+- Büyük aktarımlar için ağ kararlı.
 
-## Port forward failed
+## Bağlantı noktası yönlendirme başarısız
 
-Check:
+Denetleyin:
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- Yerel bağlantı noktası `1` ile `65535` arasında.
+- Yerel bağlantı noktası zaten kullanımda değil.
+- Tünel dizesi `PORT` veya `LOCAL:REMOTEHOST:REMOTE`.
+- Uzak ana bilgisayar ve uzak bağlantı noktası SSH sunucusundan erişilebilir.
+- SSH sunucusu TCP yönlendirmeye izin veriyor.
 
-## Debug logs
+## Hata ayıklama günlükleri
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+Başlangıç ekranında bir **Hata Ayıklama** düğmesi vardır. Etkinleştirildiğinde Mobile SSH; terminal olayları, SSH veri boyutları, dokunma girişi, yeniden boyutlandırma davranışı ve tünel yaşam döngüsü için tanılama bilgileri kaydeder. Bir hata ayıklama arşivini yerel olarak kaydetmek için kaydı durdurun.
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+Hata ayıklama arşivlerini paylaşmadan önce gözden geçirin. Bunlar sorun giderme içindir ve sunucu adlarını, zamanlamaları, terminal davranışını veya diğer ortam ayrıntılarını açığa çıkarabilir.

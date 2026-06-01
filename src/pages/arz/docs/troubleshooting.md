@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "استكشاف الأخطاء"
+description: "دليل استكشاف أخطاء Mobile SSH في الاتصال والمصادقة ولوحة المفاتيح وtmux ونقل الملفات والأنفاق."
 ---
 
-# Troubleshooting
+# استكشاف الأخطاء
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+الصفحة دي بتغطّي مشاكل Mobile SSH الشائعة والفحوص الأولى اللي المفروض تعملها قبل ما تغيّر إعدادات SSH على جانب السيرفر.
 
-## Cannot connect
+## مش قادر تتصل
 
-Check:
+اتأكّد من:
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- إن جهاز Android عنده اتصال شبكة.
+- إن اسم مضيف السيرفر أو عنوان IP صح.
+- إن منفذ SSH صح، وغالبًا `22`.
+- إن مافيش جدار ناري أو VPN أو شبكة المشغّل أو شبكة Wi-Fi بتحجب المنفذ.
+- إن سيرفر SSH شغال وبيقبل الاتصالات من الشبكة اللي إنت بتستخدمها.
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+لو نفس المضيف شغال من جهاز تاني، قارن بالظبط المضيف والمنفذ واسم المستخدم والمفتاح ومسار الشبكة.
 
-## Authentication failed
+## فشل المصادقة
 
-Check:
+اتأكّد من:
 
-- Username spelling.
-- Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- كتابة اسم المستخدم.
+- كلمة السر أو عبارة مرور المفتاح.
+- إذا كان السيرفر بيسمح بتسجيل الدخول بكلمة السر أو بالمفتاح أو الاتنين.
+- إذا كان المفتاح الخاص بيطابق مفتاح عام في `authorized_keys` بتاع مستخدم السيرفر.
+- إذا كان ملف المفتاح اتستورد كامل، بما في ذلك سطرَي الترويسة والتذييل.
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+للمفاتيح الخاصة المتشفّرة، دخّل عبارة المرور في خانة كلمة السر/عبارة المرور.
 
-## Private key import failed
+## فشل استيراد المفتاح الخاص
 
-Private key import uses Android's file picker. If import fails:
+استيراد المفتاح الخاص بيستخدم منتقي ملفات Android. لو الاستيراد فشل:
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- اتأكّد إن الملف المختار مفتاح خاص، مش ملف `.pub` عام.
+- افتح الملف في محرّر نصوص موثوق واتأكّد إنه فيه كتلة المفتاح الكاملة.
+- جرّب تلصق المفتاح يدوي في خانة المفتاح الخاص.
+- اتأكّد إن نوع المفتاح من الأنواع اللي تنفيذ التطبيق بيدعمها: Ed25519 أو RSA أو ECDSA أو DSA.
 
-## Keyboard input is delayed or changed
+## إدخال لوحة المفاتيح متأخّر أو متغيّر
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+لو لوحة مفاتيح Android بتغيّر النص قبل ما يوصل للصدفة، عطّل اقتراحات لوحة المفاتيح في إعدادات Mobile SSH. ده مفيد لـ Vim وtmux وhtop وless والصدفات اللي بتستخدم توليفات مفاتيح مش معتادة وموجّهات كلمات السر البعيدة.
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+استخدم صف المفاتيح الإضافية لمفاتيح الطرفية زي `ESC` و`TAB` و`CTRL` والأسهم و`HOME` و`END` و`PGUP` و`PGDN`.
 
-## tmux scrolling is not what you expect
+## تمرير tmux مش زي ما تتوقّع
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH بيغيّر سلوك التمرير حسب حالة الطرفية. في tmux أو برامج الشاشة البديلة التانية، إيماءات التمرير ممكن تبعت أوامر وضع نسخ tmux بدل ما تمرّر السجل المحلي. لو وضع فأرة tmux مفعّل، التطبيق بيبعت تسلسلات هروب عجلة الفأرة.
 
-If scrolling feels wrong:
+لو التمرير حاسس إنه غلط:
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- جرّب تفعّل أو تعطّل وضع فأرة tmux على السيرفر البعيد.
+- استخدم `PGUP` و`PGDN` من صف المفاتيح الإضافية.
+- اضغط مرتين على الجزء لملء الشاشة قبل ما تمرّر خرج كثيف.
+- افصل وأعِد الإرفاق بـ tmux لو حجم الطرفية البعيدة باين قديم.
 
-## Session dropped after screen lock
+## الجلسة بتقطع بعد قفل الشاشة
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH بيستخدم رسائل الإبقاء على الاتصال، وخدمة في المقدّمة، وقفل التنبيه، وقفل Wi-Fi، ومحاولات إعادة الاتصال علشان يقلّل الانقطاعات. مع ذلك سياسات بطارية Android ممكن لسه توقّف الشغل في الخلفية.
 
-Check:
+اتأكّد من:
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
-- Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- عطّل تحسين البطارية لـ Mobile SSH لو جهازك بيوقّف تطبيقات الخلفية بقوة.
+- خلي Wi-Fi أو بيانات الموبايل مستقرّة أثناء الجلسات الطويلة.
+- أعِد فتح Mobile SSH واضغط **الجلسات النشطة** بعد فتح القفل.
+- لو السيرفر قطع جلسة SSH، أعِد الاتصال من الجلسات الأخيرة.
 
-## File transfer cannot browse phone files
+## نقل الملفات مش بيتصفّح ملفات الموبايل
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+في إصدارات Android الأحدث، تصفّح الملفات المحلية ممكن يحتاج وصول للتخزين. امنح الوصول للتخزين في إعدادات Android لـ Mobile SSH، وبعدين أعِد فتح شاشة نقل الملفات.
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+لو الملفات البعيدة بتتحمّل بس المحلية لأ، اتصال SSH على الأرجح تمام والمشكلة في الوصول للتخزين المحلي في Android.
 
-## Upload or download failed
+## فشل الرفع أو التنزيل
 
-Check:
+اتأكّد من:
 
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
+- إن جلسة SSH لسه متصلة.
+- إن الدليل البعيد موجود.
+- إن المستخدم البعيد عنده إذن قراءة المسار أو الكتابة فيه.
+- إن الوجهة المحلية قابلة للكتابة.
+- إن فيه مساحة فاضية كفاية على جهاز Android.
+- إن الشبكة مستقرّة لعمليات النقل الكبيرة.
 
-## Port forward failed
+## فشل إعادة توجيه المنفذ
 
-Check:
+اتأكّد من:
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- إن المنفذ المحلي بين `1` و`65535`.
+- إن المنفذ المحلي مش مستخدم بالفعل.
+- إن سلسلة النفق هي `PORT` أو `LOCAL:REMOTEHOST:REMOTE`.
+- إن المضيف البعيد والمنفذ البعيد ممكن توصلهم من سيرفر SSH.
+- إن سيرفر SSH بيسمح بإعادة توجيه TCP.
 
-## Debug logs
+## سجلات التصحيح
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+الشاشة الرئيسية فيها زر **تصحيح**. لما يكون مفعّل، Mobile SSH بيسجّل معلومات تشخيصية لأحداث الطرفية، وأحجام بيانات SSH، وإدخال اللمس، وسلوك تغيير الحجم، ودورة حياة الأنفاق. أوقف التسجيل علشان تحفظ أرشيف تصحيح محليًا.
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+راجع أرشيفات التصحيح قبل ما تشاركها. هي مخصّصة لاستكشاف الأخطاء وممكن تكشف أسماء السيرفرات، والتوقيتات، وسلوك الطرفية، أو تفاصيل بيئة تانية.

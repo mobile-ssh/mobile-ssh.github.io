@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "पोर्ट फ़ॉरवर्डिंग"
+description: "Android के लिए Mobile SSH लोकल पोर्ट फ़ॉरवर्डिंग सिंटैक्स और टनल प्रबंधन।"
 ---
 
-# Port forwarding
+# पोर्ट फ़ॉरवर्डिंग
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH लोकल SSH पोर्ट फ़ॉरवर्डिंग का समर्थन करता है। Android डिवाइस पर एक लोकल पोर्ट `127.0.0.1` पर सुनता है और SSH कनेक्शन के माध्यम से ट्रैफ़िक को रिमोट होस्ट और पोर्ट पर फ़ॉरवर्ड करता है।
 
-## Saved tunnel syntax
+## सहेजे गए टनल का सिंटैक्स
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+पोर्ट-फ़ॉरवर्डिंग नियम अल्पविराम-पृथक होते हैं। प्रत्येक प्रविष्टि दो रूपों में से एक उपयोग करती है:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+संक्षिप्त रूप:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+यह Android डिवाइस पर `127.0.0.1:8080` बाइंड करता है और सर्वर के दृष्टिकोण से इसे `localhost:8080` पर फ़ॉरवर्ड करता है।
 
-Full form:
+पूर्ण रूप:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+यह Android डिवाइस पर `127.0.0.1:3000` बाइंड करता है और SSH के माध्यम से इसे रिमोट साइड पर `localhost:3000` पर फ़ॉरवर्ड करता है।
 
-Multiple forwards:
+कई फ़ॉरवर्ड:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## सहेजे गए सर्वर में टनल जोड़ें
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. **सहेजे गए सर्वर** खोलें।
+2. सर्वर प्रोफ़ाइल जोड़ें या संपादित करें।
+3. **पोर्ट फ़ॉरवर्ड** में फ़ॉरवर्डिंग नियम दर्ज करें।
+4. सर्वर सहेजें।
+5. सर्वर से कनेक्ट करें।
 
-The app applies saved forwards after the SSH session connects.
+SSH सेशन के कनेक्ट होने के बाद ऐप सहेजे गए फ़ॉरवर्ड लागू करता है।
 
-## Manage active tunnels
+## सक्रिय टनल प्रबंधित करें
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+कनेक्ट रहते हुए, सेशन चुनें और टर्मिनल टूलबार से टनल दृश्य खोलें। वहाँ से आप सक्रिय लोकल फ़ॉरवर्ड देख सकते हैं, नया टनल जोड़ सकते हैं, या लोकल फ़ॉरवर्ड हटा सकते हैं।
 
-## Address binding
+## पता बाइंडिंग
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH लोकल फ़ॉरवर्ड को Android डिवाइस पर `127.0.0.1` से बाइंड करता है। यह जानबूझकर है: यह टनल को डिवाइस-लोकल रखता है और केवल-IPv6 लूपबैक आश्चर्यों से बचता है। यदि Android उनकी नेटवर्क पहुँच की अनुमति देता है तो उसी Android डिवाइस पर अन्य ऐप्स फ़ॉरवर्ड किए गए लोकल पोर्ट से कनेक्ट कर सकते हैं।
 
-## Common examples
+## सामान्य उदाहरण
 
-Access a web service running on the remote server:
+रिमोट सर्वर पर चल रही वेब सेवा तक पहुँचें:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+फिर Android डिवाइस पर ब्राउज़र से `http://127.0.0.1:8080` खोलें।
 
-Access a development server:
+डेवलपमेंट सर्वर तक पहुँचें:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+SSH सर्वर से पहुँच योग्य आंतरिक डेटाबेस तक पहुँचें:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## टनल समस्या निवारण
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- रनटाइम टनल जोड़ने से पहले सुनिश्चित करें कि SSH सेशन कनेक्ट है।
+- जाँचें कि लोकल पोर्ट पहले से उपयोग में नहीं है।
+- जाँचें कि रिमोट होस्ट और पोर्ट SSH सर्वर से पहुँच योग्य हैं।
+- जब गंतव्य सेवा स्वयं SSH सर्वर पर हो तो `localhost` उपयोग करें।
+- SSH सर्वर के पीछे किसी अन्य होस्ट पर फ़ॉरवर्ड करते समय सर्वर का आंतरिक DNS नाम या IP उपयोग करें।

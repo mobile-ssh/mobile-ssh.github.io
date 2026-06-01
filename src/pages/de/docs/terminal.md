@@ -1,76 +1,76 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux behavior, copy actions, and keyboard settings.
+title: "Terminal"
+description: "Terminalsteuerung von Mobile SSH, Zusatztasten, Bereiche, Scrollen, tmux-Verhalten, Kopieraktionen und Tastatureinstellungen."
 ---
 
 # Terminal
 
-The Mobile SSH terminal is built for phone and tablet operation. It combines a terminal canvas, an extra key row, multi-session panes, scroll handling, and reconnection behavior.
+Das Terminal von Mobile SSH ist für die Bedienung auf Telefon und Tablet gemacht. Es kombiniert eine Terminalfläche, eine Zusatztastenreihe, Mehrsitzungsbereiche, Scroll-Handling und Wiederverbindungsverhalten.
 
-## Terminal basics
+## Terminal-Grundlagen
 
-- The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps up to 5000 lines.
-- Tap a pane to select it before typing.
-- Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- Das Terminal verhält sich im xterm-Stil, mit Farbunterstützung und Cursor-Tasten-Handling.
+- Der Scrollback-Puffer hält bis zu 5000 Zeilen.
+- Tippe auf einen Bereich, um ihn vor dem Tippen auszuwählen.
+- Zoome einen Terminalbereich mit zwei Fingern, um die Textgröße zu ändern. Mobile SSH passt die Größe des entfernten PTY an, nachdem die Geste abgeschlossen ist.
+- Doppeltippe auf einen Bereich, um in den Vollbildmodus zu wechseln. Nutze Zurück, um zum Raster zurückzukehren.
 
-## Multi-session grid
+## Mehrsitzungsraster
 
-Mobile SSH can run up to eight SSH sessions at the same time. Each session appears as a pane in the terminal grid. The pane header shows the current target or title. Tap a pane to select it, or use **+ Add Session** to start another connection.
+Mobile SSH kann bis zu acht SSH-Sitzungen gleichzeitig ausführen. Jede Sitzung erscheint als Bereich im Terminalraster. Die Bereichskopfzeile zeigt das aktuelle Ziel oder den Titel. Tippe auf einen Bereich, um ihn auszuwählen, oder nutze **+ Sitzung hinzufügen**, um eine weitere Verbindung zu starten.
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+Das Schließen eines Bereichs trennt diese SSH-Sitzung. Das Zurückgehen zum Startbildschirm hält aktive Sitzungen über **Aktive Sitzungen** verfügbar.
 
-## Extra key row
+## Zusatztastenreihe
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+Die Zusatztastenreihe erscheint über der Android-Tastatur und bietet Terminaltasten, die auf Touch-Tastaturen unpraktisch sind:
 
 - `ESC`
 - `TAB`
 - `CTRL`
 - `Shift`
-- Arrow keys
+- Pfeiltasten
 - `HOME`
 - `END`
 - `PGUP`
 - `PGDN`
-- Keyboard toggle
+- Tastatur umschalten
 
-`CTRL` and `Shift` act as sticky modifiers for the next compatible input. For example, tap `CTRL`, then type `C` to send Ctrl-C.
+`CTRL` und `Shift` wirken als feste Modifikatoren für die nächste kompatible Eingabe. Tippe zum Beispiel auf `CTRL` und dann auf `C`, um Strg-C zu senden.
 
-## Keyboard behavior
+## Tastaturverhalten
 
-Mobile SSH has two keyboard-related settings:
+Mobile SSH hat zwei tastaturbezogene Einstellungen:
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
-- **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
+- **Terminal antippen, um die Tastatur anzuzeigen:** wenn aktiviert, bittet ein Tippen auf das Terminal Android, die Eingabemethode anzuzeigen.
+- **Tastaturvorschläge:** wenn aktiviert, können kompatible Tastaturen Vorschläge an Shell-Prompts anzeigen. Deaktiviere dies, wenn Vorschläge Terminalprogramme stören.
 
-When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
+Wenn Vorschläge aktiviert sind, puffert Mobile SSH den in Komposition befindlichen Text bis zu einer Wortgrenze, damit die Tastaturkorrektur das aktuelle Wort ersetzen kann, bevor es an die entfernte Shell gesendet wird. Steuertasten und Terminal-Tastenfolgen umgehen diesen Puffer, sodass Kürzel wie tmux-Präfixbefehle prompt ankommen.
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+Die Spracheingabe (die Mikrofontaste von Gboard) läuft durch denselben Kompositionspuffer, sodass diktierter Text gesendet wird, sobald er erkannt ist, und nicht Zeichen für Zeichen.
 
-## Select, copy, share
+## Auswählen, kopieren, teilen
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+Halte im Terminal gedrückt, um in den Auswahlmodus zu wechseln. Die Auswahlleiste bietet drei Aktionen:
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
-- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **Kopieren** — legt den ausgewählten Text in die Android-Zwischenablage.
+- **Teilen** — übergibt den ausgewählten Text an das Android-Teilen-Menü (Mail, Notizen, Messaging usw.).
+- **Alles auswählen** — erweitert die Auswahl auf den gesamten sichtbaren Terminalpuffer, dann Kopieren oder Teilen.
 
-## Scrolling
+## Scrollen
 
-Mobile SSH routes scroll gestures based on terminal state:
+Mobile SSH leitet Scroll-Gesten je nach Terminalzustand:
 
-- In normal shell output, swiping scrolls the local scrollback buffer.
-- In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
-- In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
+- Bei normaler Shell-Ausgabe scrollt das Wischen den lokalen Scrollback-Puffer.
+- In Terminal-Apps mit Maus-Modus sendet das Scrollen Mausrad-Escape-Sequenzen.
+- In Apps mit alternativem Bildschirm ohne Maus-Modus, etwa vielen tmux-Sitzungen, wechselt das Scrollen in den tmux-Kopiermodus und sendet zeilenweise Scroll-Befehle.
 
-If you type while scrolled back, Mobile SSH returns to the live terminal view.
+Wenn du tippst, während du zurückgescrollt hast, kehrt Mobile SSH zur Live-Ansicht des Terminals zurück.
 
-## tmux behavior
+## tmux-Verhalten
 
-Mobile SSH observes outgoing tmux attach and new-session commands such as:
+Mobile SSH beobachtet ausgehende tmux-Befehle für Attach und neue Sitzung, etwa:
 
 ```bash
 tmux attach -t work
@@ -78,14 +78,14 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+Wenn eine Verbindung abbricht, während du in tmux warst, kann sich die App den Namen der letzten tmux-Sitzung für diesen Server merken und nach der Wiederverbindung versuchen, sich erneut anzuhängen. Wenn kein expliziter Sitzungsname beobachtet wurde, die App aber weiß, dass du in einer tmux-ähnlichen Sitzung mit alternativem Bildschirm warst, kann sie ein generisches `tmux attach` versuchen.
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+Dieses Verhalten erfolgt nach bestem Bemühen. Wenn die entfernte tmux-Sitzung nicht mehr existiert, bleibt die entfernte Shell verfügbar.
 
-## Full-screen terminal programs
+## Vollbild-Terminalprogramme
 
-For programs such as Vim, less, htop, ncurses tools, and tmux panes:
+Für Programme wie Vim, less, htop, ncurses-Tools und tmux-Bereiche:
 
-- Disable keyboard suggestions if the keyboard starts buffering input in a way the program does not expect.
-- Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
-- Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+- Deaktiviere Tastaturvorschläge, wenn die Tastatur beginnt, die Eingabe auf eine Weise zu puffern, die das Programm nicht erwartet.
+- Nutze die Zusatztastenreihe für `ESC`, Pfeile, `PGUP` und `PGDN`.
+- Nutze den Pinch-Zoom, wenn der Text zu klein ist, und warte dann kurz, bis sich die entfernte Terminalgröße einpendelt.

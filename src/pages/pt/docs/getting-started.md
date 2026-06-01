@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "Primeiros passos"
+description: "Primeiros passos para instalar o Mobile SSH, conectar a um servidor e salvar perfis, credenciais e sessões."
 ---
 
-# Getting started
+# Primeiros passos
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+O Mobile SSH é um cliente SSH para Android para conectar aos seus próprios servidores Linux, Unix, de rede, IoT ou de desenvolvimento. Você fornece o endereço do servidor e as credenciais; o app abre um terminal SSH interativo.
 
-## Requirements
+## Requisitos
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 ou mais recente.
+- Acesso de rede do dispositivo Android ao seu servidor SSH.
+- Nome de host ou endereço IP do servidor SSH, porta, nome de usuário e uma senha ou chave privada.
+- Acesso ao armazenamento, se quiser usar a transferência de arquivos por SFTP com o navegador de arquivos local do telefone.
 
-## Connect to a server
+## Conectar a um servidor
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. Abra o Mobile SSH.
+2. Toque em **Servidores salvos** se já tiver criado um perfil, ou adicione um servidor no fluxo de conexão.
+3. Informe o host, a porta, o nome de usuário e os detalhes de autenticação.
+4. Toque no servidor para abrir uma sessão de terminal.
+5. Use **Sessões ativas** na tela inicial para voltar a sessões que ainda estão em execução.
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+A porta SSH padrão é `22`. Se o seu servidor usar outra porta, informe-a no perfil do servidor.
 
-## Save servers
+## Salvar servidores
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+Os servidores salvos guardam o destino da conexão e a configuração opcional de túneis. Um servidor salvo pode incluir:
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- Nome de host ou endereço IP.
+- Porta SSH.
+- Nome de usuário.
+- Detalhes de senha ou chave privada.
+- Regras opcionais de encaminhamento de portas local.
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+Use servidores salvos para hosts que você acessa com frequência. Se um servidor salvo apontar para um host diferente da sua sessão ativa atual, o Mobile SSH inicia uma nova conexão para o destino selecionado.
 
-## Save credentials
+## Salvar credenciais
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+A tela **Credenciais** armazena registros reutilizáveis de usuário/senha ou usuário/chave privada. As credenciais salvas podem ser selecionadas na caixa de diálogo de configuração do servidor, para que você não precise digitar os mesmos dados de login em cada host.
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+Os registros de credenciais são armazenados localmente no dispositivo Android. Proteja o dispositivo com um bloqueio de tela se salvar senhas, frases-senha ou chaves privadas.
 
-## Use private keys
+## Usar chaves privadas
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+O Mobile SSH aceita chaves privadas coladas e a importação de chaves pelo seletor de arquivos do Android. A implementação do app suporta chaves Ed25519, RSA, ECDSA e DSA.
 
-To use a private key:
+Para usar uma chave privada:
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. Abra **Credenciais** ou a caixa de diálogo de edição do servidor.
+2. Cole o texto da chave privada ou escolha **Importar de arquivo**.
+3. Informe a frase-senha da chave no campo de senha/frase-senha se a chave estiver criptografada.
+4. Salve a credencial ou o servidor.
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+A importação de chave privada usa o seletor de arquivos do Android para arquivos de chave. A transferência de arquivos usa um navegador de arquivos local separado e pode solicitar acesso mais amplo ao armazenamento em versões mais novas do Android.
 
-## Recent sessions
+## Sessões recentes
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+A tela inicial mostra as sessões recentes. Uma sessão recente pode reconectar ao mesmo conjunto de servidores. Se a sessão anterior ainda estiver ativa, o Mobile SSH retorna a ela em vez de iniciar uma conexão duplicada.
 
-## Active sessions
+## Sessões ativas
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+Quando há sessões em execução, a tela inicial mostra **Sessões ativas** com uma contagem. Toque para voltar à grade de terminais. Voltar à tela inicial não desconecta necessariamente as sessões SSH ativas; fechar painéis ou encerrar a atividade do terminal as desconecta.
 
-## First useful settings
+## Primeiras configurações úteis
 
-Open **Settings** from the start screen:
+Abra **Configurações** na tela inicial:
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- Ative tocar para mostrar o teclado se preferir que o teclado apareça ao tocar no terminal.
+- Desative as sugestões do IME se as sugestões do teclado atrapalharem programas de terminal como Vim, less, htop ou apps tmux em tela cheia.
 
-## Languages
+## Idiomas
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+O Mobile SSH segue o idioma do sistema Android. O app vem com traduções para árabe, bengali, chinês (simplificado e tradicional), inglês, francês, alemão, hindi, indonésio, japonês, marata, pidgin nigeriano, português, russo, espanhol, tâmil, télugo, turco e urdu. Altere o idioma em **Configurações → Sistema → Idiomas** do Android, e não dentro do app.
 
-## Security note
+## Nota de segurança
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+Conecte apenas a servidores em que você confia. O app atual armazena os dados de conexão salvos localmente e não oferece cofre na nuvem nem sincronização entre dispositivos. A implementação atual também não exibe uma confirmação de host conhecido, então evite conectar por redes não confiáveis quando a identidade do host for importante.

@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "آغاز"
+description: "Mobile SSH انسٹال کرنے، سرور سے جُڑنے، اور پروفائلز، اسناد اور سیشنز محفوظ کرنے کے پہلے مراحل۔"
 ---
 
-# Getting started
+# آغاز
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+Mobile SSH ایک Android SSH کلائنٹ ہے جو آپ کے اپنے Linux، Unix، نیٹ ورک، IoT یا ڈویلپمنٹ سرورز سے جُڑنے کے لیے ہے۔ آپ سرور کا پتہ اور اسناد فراہم کرتے ہیں؛ ایپ ایک متعامل SSH ٹرمینل کھولتی ہے۔
 
-## Requirements
+## تقاضے
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 یا نیا۔
+- Android آلے سے آپ کے SSH سرور تک نیٹ ورک رسائی۔
+- SSH سرور کا ہوسٹ نام یا IP پتہ، پورٹ، صارف نام، اور پاس ورڈ یا نجی کلید۔
+- اگر آپ فون کے مقامی فائل براؤزر کے ساتھ SFTP فائل منتقلی استعمال کرنا چاہتے ہیں تو اسٹوریج رسائی۔
 
-## Connect to a server
+## سرور سے جُڑنا
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. Mobile SSH کھولیں۔
+2. اگر آپ پہلے پروفائل بنا چکے ہیں تو **محفوظ سرورز** پر ٹیپ کریں، یا کنکشن کے دوران سرور شامل کریں۔
+3. ہوسٹ، پورٹ، صارف نام اور توثیق کی تفصیلات درج کریں۔
+4. ٹرمینل سیشن کھولنے کے لیے سرور پر ٹیپ کریں۔
+5. ابھی بھی چل رہے سیشنز پر واپس جانے کے لیے اسٹارٹ اسکرین پر **فعال سیشنز** استعمال کریں۔
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+پہلے سے طے شدہ SSH پورٹ `22` ہے۔ اگر آپ کا سرور کوئی اور پورٹ استعمال کرتا ہے تو سرور پروفائل میں وہ پورٹ درج کریں۔
 
-## Save servers
+## سرورز محفوظ کرنا
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+محفوظ سرورز کنکشن کا ہدف اور اختیاری ٹنل کنفیگریشن رکھتے ہیں۔ ایک محفوظ سرور میں شامل ہو سکتا ہے:
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- ہوسٹ نام یا IP پتہ۔
+- SSH پورٹ۔
+- صارف نام۔
+- پاس ورڈ یا نجی کلید کی تفصیلات۔
+- اختیاری مقامی پورٹ فارورڈنگ قواعد۔
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+جن ہوسٹس تک آپ بار بار رسائی کرتے ہیں ان کے لیے محفوظ سرورز استعمال کریں۔ اگر کوئی محفوظ سرور آپ کے موجودہ فعال سیشن سے مختلف ہوسٹ کی طرف اشارہ کرتا ہے تو Mobile SSH منتخب ہدف کے لیے نیا کنکشن شروع کرتا ہے۔
 
-## Save credentials
+## اسناد محفوظ کرنا
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+**اسناد** اسکرین دوبارہ قابلِ استعمال صارف نام/پاس ورڈ یا صارف نام/نجی کلید ریکارڈ محفوظ کرتی ہے۔ محفوظ اسناد سرور سیٹ اپ ڈائیلاگ سے منتخب کی جا سکتی ہیں تاکہ آپ ہر ہوسٹ کے لیے وہی لاگ اِن معلومات دوبارہ درج نہ کریں۔
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+اسناد ریکارڈ Android آلے پر مقامی طور پر محفوظ ہوتے ہیں۔ اگر آپ پاس ورڈز، پاس فریز یا نجی کلیدیں محفوظ کرتے ہیں تو آلے کو اسکرین لاک سے محفوظ کریں۔
 
-## Use private keys
+## نجی کلیدیں استعمال کرنا
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH چسپاں کی گئی نجی کلیدوں اور Android فائل پکر کے ذریعے کلید درآمد کی حمایت کرتا ہے۔ ایپ کا نفاذ Ed25519، RSA، ECDSA اور DSA کلیدوں کی حمایت کرتا ہے۔
 
-To use a private key:
+نجی کلید استعمال کرنے کے لیے:
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. **اسناد** یا سرور ترمیم ڈائیلاگ کھولیں۔
+2. نجی کلید کا متن چسپاں کریں، یا **فائل سے درآمد کریں** منتخب کریں۔
+3. اگر کلید مخفی کردہ ہے تو پاس ورڈ/پاس فریز خانے میں کلید پاس فریز درج کریں۔
+4. اسناد یا سرور محفوظ کریں۔
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+نجی کلید درآمد کلید فائلوں کے لیے Android کا فائل پکر استعمال کرتا ہے۔ فائل منتقلی ایک الگ مقامی فائل براؤزر استعمال کرتی ہے اور نئے Android ورژنز پر وسیع تر اسٹوریج رسائی مانگ سکتی ہے۔
 
-## Recent sessions
+## حالیہ سیشنز
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+اسٹارٹ اسکرین حالیہ سیشنز دکھاتی ہے۔ ایک حالیہ سیشن اسی سرور سیٹ سے دوبارہ جُڑ سکتا ہے۔ اگر پچھلا سیشن ابھی بھی فعال ہے تو Mobile SSH نقل کنکشن شروع کرنے کے بجائے اسی پر واپس آتا ہے۔
 
-## Active sessions
+## فعال سیشنز
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+جب سیشنز چل رہے ہوں تو اسٹارٹ اسکرین گنتی کے ساتھ **فعال سیشنز** دکھاتی ہے۔ ٹرمینل گرڈ پر واپس جانے کے لیے اس پر ٹیپ کریں۔ اسٹارٹ اسکرین پر واپس جانا ضروری نہیں کہ فعال SSH سیشنز منقطع کرے؛ پین بند کرنا یا ٹرمینل سرگرمی ختم کرنا انہیں منقطع کرتا ہے۔
 
-## First useful settings
+## پہلی مفید ترتیبات
 
-Open **Settings** from the start screen:
+اسٹارٹ اسکرین سے **ترتیبات** کھولیں:
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- اگر آپ چاہتے ہیں کہ ٹرمینل پر ٹیپ کرنے پر کی بورڈ ظاہر ہو تو ٹیپ-پر-کی بورڈ فعال کریں۔
+- اگر کی بورڈ تجاویز Vim، less، htop یا فل-اسکرین tmux جیسے ٹرمینل پروگراموں میں مداخلت کرتی ہیں تو IME تجاویز غیر فعال کریں۔
 
-## Languages
+## زبانیں
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+Mobile SSH، Android کی سسٹم زبان کی پیروی کرتا ہے۔ ایپ عربی، بنگالی، چینی (سادہ اور روایتی)، انگریزی، فرانسیسی، جرمن، ہندی، انڈونیشیائی، جاپانی، مراٹھی، نائجیرین پجن، پرتگالی، روسی، ہسپانوی، تامل، تیلگو، ترکی اور اردو کے تراجم کے ساتھ آتی ہے۔ زبان کو ایپ کے اندر سے نہیں بلکہ Android کے **ترتیبات → سسٹم → زبانیں** سے تبدیل کریں۔
 
-## Security note
+## حفاظتی نوٹ
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+صرف ان سرورز سے جُڑیں جن پر آپ بھروسہ کرتے ہیں۔ موجودہ ایپ محفوظ کنکشن ڈیٹا مقامی طور پر رکھتی ہے اور کلاؤڈ والٹ یا آلات کے درمیان مطابقت پذیری فراہم نہیں کرتی۔ موجودہ نفاذ معلوم-ہوسٹ تصدیق کا اشارہ بھی نہیں دکھاتا، اس لیے جب ہوسٹ شناخت اہم ہو تو غیر بھروسہ مند نیٹ ورکس پر جُڑنے سے گریز کریں۔

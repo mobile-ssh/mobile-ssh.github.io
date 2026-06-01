@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "கோப்பு பரிமாற்றம்"
+description: "உள்ளக கோப்புகள், தொலை கோப்புகள், பதிவேற்றம், பதிவிறக்கம், வரிசைப்படுத்தல் மற்றும் அனுமதிகளுக்கான Mobile SSH SFTP கோப்பு பரிமாற்ற வழிகாட்டி."
 ---
 
-# File transfer
+# கோப்பு பரிமாற்றம்
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH இல் செயலில் உள்ள SSH இணைப்புடன் இணைக்கப்பட்ட ஒரு SFTP கோப்பு பரிமாற்றத் திரை உள்ளது. இது Android இலிருந்து விரைவான சேவையக பராமரிப்புக்கானது: ஒரு கட்டமைப்பைப் பதிவேற்றவும், பதிவை பதிவிறக்கவும், தொலை கோப்பை மறுபெயரிடவும், அல்லது செயலியை விட்டு வெளியேறாமல் அனுமதிகளைப் பரிசோதிக்கவும்.
 
-## Open file transfer
+## கோப்பு பரிமாற்றத்தைத் திறத்தல்
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. ஒரு SSH சேவையகத்துடன் இணைக்கவும்.
+2. இணைக்கப்பட்ட டெர்மினல் பலகத்தைத் தேர்ந்தெடுக்கவும்.
+3. டெர்மினல் கருவிப்பட்டியிலிருந்து **பரிமாற்றம்** ஐத் திறக்கவும், அல்லது தற்போதைய திரை ஆதரித்தால் பலக தலைப்பில் நீண்ட நேரம் அழுத்தவும்.
+4. கோப்பு பரிமாற்றத் திரை ஒரு உள்ளக பலகம் மற்றும் ஒரு தொலை பலகத்துடன் திறக்கிறது.
 
-If there is no active SSH session, file transfer cannot open.
+செயலில் உள்ள SSH அமர்வு இல்லையென்றால், கோப்பு பரிமாற்றத்தைத் திறக்க முடியாது.
 
-## Local and remote panes
+## உள்ளக மற்றும் தொலை பலகங்கள்
 
-The file transfer screen has two browser panes:
+கோப்பு பரிமாற்றத் திரையில் இரண்டு உலாவி பலகங்கள் உள்ளன:
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **உள்ளக பலகம்:** தொலைபேசி சேமிப்பகம்.
+- **தொலை பலகம்:** SFTP வழியாக சேவையக கோப்புகள்.
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+செயலி ஒவ்வொரு ஹோஸ்ட்டிற்கும் சமீபத்திய உள்ளக மற்றும் தொலை பாதைகளை நினைவில் வைக்கிறது. வரிசைப்படுத்தல் அமைப்புகளும் இரு பலகங்களுக்கும் ஒவ்வொரு ஹோஸ்ட்டிற்கும் நினைவில் வைக்கப்படுகின்றன.
 
-## Android storage permission
+## Android சேமிப்பக அனுமதி
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+நேரடி கோப்பு உலாவலைக் கட்டுப்படுத்தும் Android பதிப்புகளில், உள்ளக பலகம் தொலைபேசி கோப்புகளை உலாவுவதற்கு முன் Mobile SSH சேமிப்பக அணுகலைக் கோரலாம். இந்த அனுமதியைத் தவிர்த்தாலோ மறுத்தாலோ, தொலை உலாவல் இன்னும் வேலை செய்யலாம், ஆனால் உள்ளக பதிவேற்ற மற்றும் பதிவிறக்கப் பாதைகள் வரம்புக்குட்படலாம்.
 
-Private key import is separate from file transfer and uses the Android file picker.
+தனிப்பட்ட விசை இறக்குமதி கோப்பு பரிமாற்றத்திலிருந்து தனியானது மற்றும் Android கோப்பு தேர்வியைப் பயன்படுத்துகிறது.
 
-## Upload files
+## கோப்புகளைப் பதிவேற்றுதல்
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. உள்ளக பலகத்தைத் திறக்கவும்.
+2. நீங்கள் பதிவேற்ற விரும்பும் கோப்புக்குச் செல்லவும்.
+3. பதிவேற்றத்தைத் தேர்ந்தெடுக்கவும்.
+4. தொலை இலக்கை உறுதிப்படுத்தவும்.
+5. முன்னேற்றம் மற்றும் முடிவுக்கு பரிமாற்ற வரிசையைப் பார்க்கவும்.
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+பதிவேற்றங்கள் ஏற்கனவே உள்ள SSH/SFTP இணைப்பைப் பயன்படுத்துகின்றன. இணைப்பு துண்டிக்கப்பட்டால், மீண்டும் இணைத்த பிறகு மீண்டும் முயற்சிக்கவும்.
 
-## Download files
+## கோப்புகளைப் பதிவிறக்குதல்
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. தொலை பலகத்தைத் திறக்கவும்.
+2. நீங்கள் பதிவிறக்க விரும்பும் கோப்புக்குச் செல்லவும்.
+3. பதிவிறக்கத்தைத் தேர்ந்தெடுக்கவும்.
+4. உள்ளக இலக்கை உறுதிப்படுத்தவும்.
+5. முன்னேற்றம் மற்றும் முடிவுக்கு பரிமாற்ற வரிசையைப் பார்க்கவும்.
 
-Large downloads should be done on a stable network when possible.
+பெரிய பதிவிறக்கங்களை முடிந்தவரை நிலையான நெட்வொர்க்கில் செய்யவும்.
 
-## Remote file actions
+## தொலை கோப்பு செயல்கள்
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+தேர்ந்தெடுத்த தொலை உருப்படியைப் பொறுத்து, Mobile SSH இது போன்ற செயல்களைக் காட்டலாம்:
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- பதிவிறக்கு.
+- மறுபெயரிடு.
+- நீக்கு.
+- கோப்பு அல்லது அடைவை உருவாக்கு.
+- உரை கோப்பைத் திருத்து.
+- கோப்பு விவரங்களைக் காண்.
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+தொலை கோப்பு விவரங்களில் அனுமதி பிட்கள், உரிமையாளர், குழு மற்றும் எண்ம அனுமதி மதிப்புகள் இருக்கலாம். மற்றொரு செயல்முறை அல்லது வரிசைப்படுத்தல் கருவியால் நிர்வகிக்கப்படும் சேவையக கோப்புகளை மாற்றுவதற்கு முன் இந்த விவரங்களைப் பயன்படுத்தவும்.
 
-## Sorting and recent paths
+## வரிசைப்படுத்தல் மற்றும் சமீபத்திய பாதைகள்
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+ஒவ்வொரு பலகமும் பெயர் அல்லது தேதியின்படி ஏறு அல்லது இறங்கு வரிசையில் வரிசைப்படுத்தலாம். Mobile SSH தேர்ந்தெடுத்த உள்ளக மற்றும் தொலை வரிசை முறைகளை சமீபத்திய பாதைகளுடன் ஒவ்வொரு ஹோஸ்ட்டிற்கும் சேமிக்கிறது, எனவே அதே சேவையகத்திற்கான மீண்டும் மீண்டும் பரிமாற்றங்கள் பழக்கமான இடங்களில் இருந்து தொடங்குகின்றன.
 
-## Transfer queue
+## பரிமாற்ற வரிசை
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+பரிமாற்றங்கள் வரிசையில் வைக்கப்பட்டு நிலையின்படி காட்டப்படுகின்றன. பதிவுப் பகுதி வரிசையில் உள்ள, தோல்வியடைந்த மற்றும் வெற்றிகரமான பரிமாற்றங்களைப் பிரிக்கிறது. அடிப்படை SFTP செயல்பாடு காரணம் வழங்கும்போது தோல்வியடைந்த பரிமாற்றங்களில் காரணம் இருக்கும்.
 
-## Practical tips
+## நடைமுறை குறிப்புகள்
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- குறிப்பிட்ட கோப்பு நகர்வுகளுக்கு SFTP ஐப் பயன்படுத்தவும்; பெரிய அடைவு ஒத்திசைவுக்கு சேவையகத்தில் `rsync` போன்ற கட்டளை வரி கருவிகளைப் பயன்படுத்தவும்.
+- காப்புப்பிரதி அல்லது வரிசைப்படுத்தல் மீட்பு பாதை இல்லாவிட்டால் நேரடி உற்பத்தி கோப்புகளைத் திருத்துவதைத் தவிர்க்கவும்.
+- பதிவேற்றத்திற்குப் பிறகு கோப்பு தோன்றாவிட்டால், தொலை பலகத்தைப் புதுப்பிக்கவும் அல்லது இலக்குப் பாதையைச் சரிபார்க்கவும்.
+- Android சேமிப்பக அணுகல் உள்ளக உலாவலைத் தடுத்தால், Android அமைப்புகளிலிருந்து அனுமதியை வழங்கி, கோப்பு பரிமாற்றத்தை மீண்டும் திறக்கவும்.

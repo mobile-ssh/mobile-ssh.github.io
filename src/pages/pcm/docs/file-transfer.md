@@ -1,60 +1,60 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "File transfer"
+description: "Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions."
 ---
 
 # File transfer
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH get one SFTP file transfer screen wey dey tie to di active SSH connection. E na for quick server maintenance from Android: upload config, download log, rename remote file, or check permissions without leaving di app.
 
 ## Open file transfer
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. Connect to one SSH server.
+2. Select di connected terminal pane.
+3. Open **Transfer** from di terminal toolbar, or long-press di pane header wen di current screen support am.
+4. Di file transfer screen go open with local pane and remote pane.
 
-If there is no active SSH session, file transfer cannot open.
+If no active SSH session dey, file transfer no fit open.
 
 ## Local and remote panes
 
-The file transfer screen has two browser panes:
+Di file transfer screen get two browser panes:
 
 - **Local pane:** phone storage.
 - **Remote pane:** server files over SFTP.
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+Di app dey remember recent local and remote paths per host. Sort settings too dey remembered per host for both panes.
 
 ## Android storage permission
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+For Android versions wey restrict direct file browsing, Mobile SSH fit ask for storage access before di local pane fit browse phone files. If you skip or deny dis permission, remote browsing fit still work, but local upload and download paths fit be limited.
 
-Private key import is separate from file transfer and uses the Android file picker.
+Private key import dey separate from file transfer and e dey use di Android file picker.
 
 ## Upload files
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
+1. Open di local pane.
+2. Navigate to di file wey you wan upload.
 3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+4. Confirm di remote destination.
+5. Watch di transfer queue for progress and completion.
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+Uploads dey use di existing SSH/SFTP connection. If di connection drop, retry after you reconnect.
 
 ## Download files
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
+1. Open di remote pane.
+2. Navigate to di file wey you wan download.
 3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+4. Confirm di local destination.
+5. Watch di transfer queue for progress and completion.
 
-Large downloads should be done on a stable network when possible.
+Make you do big downloads for stable network if possible.
 
 ## Remote file actions
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+Depending on di selected remote item, Mobile SSH fit show actions like:
 
 - Download.
 - Rename.
@@ -63,19 +63,19 @@ Depending on the selected remote item, Mobile SSH can show actions such as:
 - Edit text file.
 - View file details.
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+Remote file details fit include permission bits, owner, group, and octal permission values. Use dis details before you change server files wey anoda process or deployment tool dey manage.
 
 ## Sorting and recent paths
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+Each pane fit sort by name or date for ascending or descending order. Mobile SSH dey store di selected local and remote sort modes per host, along with recent paths, so repeated transfers to di same server dey start from familiar locations.
 
 ## Transfer queue
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+Transfers dey queued and displayed by status. Di log area dey separate queued, failed, and successful transfers. Failed transfers dey include reason wen di underlying SFTP operation provide one.
 
 ## Practical tips
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- Use SFTP for targeted file moves; use command-line tools like `rsync` on di server for large directory synchronization.
+- Avoid editing live production files unless you get backup or deployment rollback path.
+- If file no appear after upload, refresh di remote pane or verify di destination path.
+- If Android storage access dey block local browsing, grant di permission from Android Settings and reopen file transfer.

@@ -1,76 +1,76 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux behavior, copy actions, and keyboard settings.
+title: "டெர்மினல்"
+description: "Mobile SSH டெர்மினல் கட்டுப்பாடுகள், கூடுதல் விசைகள், பலகங்கள், உருளல், tmux நடத்தை, நகல் செயல்கள் மற்றும் விசைப்பலகை அமைப்புகள்."
 ---
 
-# Terminal
+# டெர்மினல்
 
-The Mobile SSH terminal is built for phone and tablet operation. It combines a terminal canvas, an extra key row, multi-session panes, scroll handling, and reconnection behavior.
+Mobile SSH டெர்மினல் தொலைபேசி மற்றும் டேப்லெட் இயக்கத்திற்காக உருவாக்கப்பட்டது. இது ஒரு டெர்மினல் கேன்வாஸ், கூடுதல் விசை வரிசை, பல-அமர்வு பலகங்கள், உருளல் கையாளுதல் மற்றும் மீள்-இணைப்பு நடத்தையை இணைக்கிறது.
 
-## Terminal basics
+## டெர்மினல் அடிப்படைகள்
 
-- The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps up to 5000 lines.
-- Tap a pane to select it before typing.
-- Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- டெர்மினல் வண்ண ஆதரவு மற்றும் கர்சர்-விசை கையாளுதலுடன் xterm-பாணி நடத்தையைப் பயன்படுத்துகிறது.
+- ஸ்க்ரோல்பேக் இடையகம் அதிகபட்சம் 5000 வரிகளை வைத்திருக்கிறது.
+- தட்டச்சு செய்வதற்கு முன் பலகத்தைத் தேர்ந்தெடுக்க அதைத் தட்டவும்.
+- உரை அளவை மாற்ற டெர்மினல் பலகத்தில் கிள்ளவும். சைகை நிலைத்த பிறகு Mobile SSH தொலை PTY இன் அளவை மாற்றுகிறது.
+- முழுத்திரை பயன்முறையில் நுழைய பலகத்தில் இருமுறை தட்டவும். கட்டத்திற்குத் திரும்ப Back ஐப் பயன்படுத்தவும்.
 
-## Multi-session grid
+## பல-அமர்வு கட்டம்
 
-Mobile SSH can run up to eight SSH sessions at the same time. Each session appears as a pane in the terminal grid. The pane header shows the current target or title. Tap a pane to select it, or use **+ Add Session** to start another connection.
+Mobile SSH ஒரே நேரத்தில் எட்டு SSH அமர்வுகள் வரை இயக்க முடியும். ஒவ்வொரு அமர்வும் டெர்மினல் கட்டத்தில் ஒரு பலகமாகத் தோன்றும். பலக தலைப்பு தற்போதைய இலக்கை அல்லது தலைப்பைக் காட்டுகிறது. தேர்ந்தெடுக்க பலகத்தைத் தட்டவும், அல்லது மற்றொரு இணைப்பைத் தொடங்க **+ அமர்வைச் சேர்** ஐப் பயன்படுத்தவும்.
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+பலகத்தை மூடுவது அந்த SSH அமர்வைத் துண்டிக்கிறது. தொடக்கத் திரைக்குத் திரும்புவது செயலில் உள்ள அமர்வுகளை **செயலில் உள்ள அமர்வுகள்** வழியாகக் கிடைக்கச் செய்கிறது.
 
-## Extra key row
+## கூடுதல் விசை வரிசை
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+கூடுதல் விசை வரிசை Android விசைப்பலகைக்கு மேலே தோன்றும் மற்றும் தொடு விசைப்பலகைகளில் சிரமமான டெர்மினல் விசைகளை வழங்குகிறது:
 
 - `ESC`
 - `TAB`
 - `CTRL`
 - `Shift`
-- Arrow keys
+- அம்பு விசைகள்
 - `HOME`
 - `END`
 - `PGUP`
 - `PGDN`
-- Keyboard toggle
+- விசைப்பலகை மாற்றி
 
-`CTRL` and `Shift` act as sticky modifiers for the next compatible input. For example, tap `CTRL`, then type `C` to send Ctrl-C.
+`CTRL` மற்றும் `Shift` அடுத்த இணக்கமான உள்ளீட்டிற்கான ஒட்டும் மாற்றிகளாகச் செயல்படுகின்றன. எடுத்துக்காட்டாக, `CTRL` ஐத் தட்டி, பின்னர் Ctrl-C அனுப்ப `C` ஐத் தட்டச்சு செய்யவும்.
 
-## Keyboard behavior
+## விசைப்பலகை நடத்தை
 
-Mobile SSH has two keyboard-related settings:
+Mobile SSH இல் விசைப்பலகை தொடர்பான இரண்டு அமைப்புகள் உள்ளன:
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
-- **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
+- **விசைப்பலகையைக் காட்ட டெர்மினலைத் தட்டவும்:** இயக்கப்பட்டால், டெர்மினலைத் தட்டுவது Android ஐ உள்ளீட்டு முறையைக் காட்டச் சொல்கிறது.
+- **விசைப்பலகை பரிந்துரைகள்:** இயக்கப்பட்டால், இணக்கமான விசைப்பலகைகள் ஷெல் ப்ராம்ப்ட்களில் பரிந்துரைகளைக் காட்டலாம். பரிந்துரைகள் டெர்மினல் நிரல்களில் இடையூறு செய்தால் இதை முடக்கவும்.
 
-When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
+பரிந்துரைகள் இயக்கப்படும்போது, Mobile SSH உருவாகும் உரையை சொல்-எல்லை வரை இடையகப்படுத்துகிறது, இதனால் தொலை ஷெல்லுக்கு அனுப்பப்படுவதற்கு முன் விசைப்பலகை திருத்தம் தற்போதைய சொல்லை மாற்ற முடியும். கட்டுப்பாட்டு விசைகளும் டெர்மினல் கார்டுகளும் அந்த இடையகத்தைத் தவிர்க்கின்றன, எனவே tmux முன்னொட்டு கட்டளைகள் போன்ற குறுக்குவழிகள் உடனடியாக வந்தடைகின்றன.
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+குரல் உள்ளீடு (Gboard மைக்ரோஃபோன் பொத்தான்) அதே உருவாகும்-உரை இடையகத்தின் வழியாகச் செல்கிறது, எனவே சொல்லப்பட்ட உரை எழுத்து-எழுத்தாக அல்லாமல் தீர்வு கண்ட பிறகு ஒருமுறை அனுப்பப்படுகிறது.
 
-## Select, copy, share
+## தேர்ந்தெடு, நகலெடு, பகிர்
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+தேர்வு பயன்முறையில் நுழைய டெர்மினலுக்குள் நீண்ட நேரம் அழுத்தவும். தேர்வு கருவிப்பட்டி மூன்று செயல்களை வழங்குகிறது:
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
-- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **நகலெடு** — தேர்ந்தெடுத்த உரையை Android கிளிப்போர்டில் வைக்கும்.
+- **பகிர்** — தேர்ந்தெடுத்த உரையை Android பகிர்வுத் தாளுக்கு (மின்னஞ்சல், குறிப்புகள், செய்தி அனுப்புதல் போன்றவை) அனுப்பும்.
+- **அனைத்தையும் தேர்ந்தெடு** — தேர்வை முழு புலப்படும் டெர்மினல் இடையகம் வரை விரிவாக்கி, பின்னர் நகலெடு அல்லது பகிர்.
 
-## Scrolling
+## உருளல்
 
-Mobile SSH routes scroll gestures based on terminal state:
+Mobile SSH டெர்மினல் நிலையின் அடிப்படையில் உருளல் சைகைகளை வழிநடத்துகிறது:
 
-- In normal shell output, swiping scrolls the local scrollback buffer.
-- In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
-- In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
+- சாதாரண ஷெல் வெளியீட்டில், ஸ்வைப் செய்வது உள்ளக ஸ்க்ரோல்பேக் இடையகத்தை உருட்டுகிறது.
+- மவுஸ்-பயன்முறை டெர்மினல் செயலிகளில், உருளல் மவுஸ்-வீல் எஸ்கேப் வரிசைகளை அனுப்புகிறது.
+- மவுஸ் பயன்முறை இல்லாத மாற்று-திரை செயலிகளில், பல tmux அமர்வுகள் போல, உருளல் tmux நகல் பயன்முறையில் நுழைந்து வரி உருளல் கட்டளைகளை அனுப்புகிறது.
 
-If you type while scrolled back, Mobile SSH returns to the live terminal view.
+பின்னோக்கி உருட்டிய நிலையில் தட்டச்சு செய்தால், Mobile SSH நேரடி டெர்மினல் காட்சிக்குத் திரும்புகிறது.
 
-## tmux behavior
+## tmux நடத்தை
 
-Mobile SSH observes outgoing tmux attach and new-session commands such as:
+Mobile SSH வெளிச்செல்லும் tmux attach மற்றும் new-session கட்டளைகளைக் கவனிக்கிறது, எடுத்துக்காட்டாக:
 
 ```bash
 tmux attach -t work
@@ -78,14 +78,14 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+நீங்கள் tmux இல் இருக்கும்போது இணைப்பு துண்டிக்கப்பட்டால், செயலி அந்த சேவையகத்தின் கடைசி tmux அமர்வுப் பெயரை நினைவில் வைத்து, மீள்-இணைப்புக்குப் பிறகு மீண்டும் இணைக்க முயற்சிக்கலாம். வெளிப்படையான அமர்வுப் பெயர் கவனிக்கப்படாவிட்டாலும், நீங்கள் மாற்று-திரை tmux போன்ற அமர்வில் இருந்தீர்கள் என்று செயலிக்குத் தெரிந்தால், அது பொதுவான `tmux attach` ஐ முயற்சிக்கலாம்.
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+இந்த நடத்தை சிறந்த-முயற்சி. தொலை tmux அமர்வு இனி இல்லையென்றால், தொலை ஷெல் கிடைக்கும்.
 
-## Full-screen terminal programs
+## முழுத்திரை டெர்மினல் நிரல்கள்
 
-For programs such as Vim, less, htop, ncurses tools, and tmux panes:
+Vim, less, htop, ncurses கருவிகள் மற்றும் tmux பலகங்கள் போன்ற நிரல்களுக்கு:
 
-- Disable keyboard suggestions if the keyboard starts buffering input in a way the program does not expect.
-- Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
-- Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+- நிரல் எதிர்பாராத வகையில் விசைப்பலகை உள்ளீட்டை இடையகப்படுத்தத் தொடங்கினால் விசைப்பலகை பரிந்துரைகளை முடக்கவும்.
+- `ESC`, அம்புகள், `PGUP` மற்றும் `PGDN` க்கு கூடுதல் விசை வரிசையைப் பயன்படுத்தவும்.
+- உரை மிகச் சிறியதாக இருந்தால் கிள்ளு பெரிதாக்கலைப் பயன்படுத்தி, பின்னர் தொலை டெர்மினல் அளவு நிலைபெறும் வரை சிறிது காத்திருக்கவும்.

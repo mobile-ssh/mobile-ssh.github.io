@@ -1,76 +1,76 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux behavior, copy actions, and keyboard settings.
+title: "終端機"
+description: "Mobile SSH 終端機控制、額外按鍵、窗格、捲動、tmux 行為、複製操作同鍵盤設定。"
 ---
 
-# Terminal
+# 終端機
 
-The Mobile SSH terminal is built for phone and tablet operation. It combines a terminal canvas, an extra key row, multi-session panes, scroll handling, and reconnection behavior.
+Mobile SSH 終端機係為手機同平板操作而設計。佢結合咗終端機畫布、額外按鍵列、多工作階段窗格、捲動處理同重新連線行為。
 
-## Terminal basics
+## 終端機基礎
 
-- The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps up to 5000 lines.
-- Tap a pane to select it before typing.
-- Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- 終端機採用 xterm 風格行為，支援顏色同游標鍵處理。
+- 捲動緩衝區最多保留 5000 行。
+- 輸入之前先撳窗格去選取佢。
+- 喺終端機窗格上面用兩指捏合可以更改文字大細。手勢穩定之後，Mobile SSH 會調整遠端 PTY 嘅大細。
+- 雙撳窗格進入全螢幕模式。用返回鍵返去格網。
 
-## Multi-session grid
+## 多工作階段格網
 
-Mobile SSH can run up to eight SSH sessions at the same time. Each session appears as a pane in the terminal grid. The pane header shows the current target or title. Tap a pane to select it, or use **+ Add Session** to start another connection.
+Mobile SSH 最多可以同時執行八個 SSH 工作階段。每個工作階段以窗格形式顯示喺終端機格網。窗格標題顯示目前目標或標題。撳窗格去選取佢，或者用 **+ 新增工作階段** 開始另一個連線。
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+關閉窗格會中斷嗰個 SSH 工作階段。返起始畫面嗰陣，使用中工作階段仍然可以透過 **使用中工作階段** 使用。
 
-## Extra key row
+## 額外按鍵列
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+額外按鍵列顯示喺 Android 鍵盤上面，提供喺觸控鍵盤上唔方便輸入嘅終端機按鍵：
 
 - `ESC`
 - `TAB`
 - `CTRL`
 - `Shift`
-- Arrow keys
+- 方向鍵
 - `HOME`
 - `END`
 - `PGUP`
 - `PGDN`
-- Keyboard toggle
+- 鍵盤切換
 
-`CTRL` and `Shift` act as sticky modifiers for the next compatible input. For example, tap `CTRL`, then type `C` to send Ctrl-C.
+`CTRL` 同 `Shift` 會作為黏性修飾鍵作用於下一次相容輸入。例如，撳 `CTRL`，再輸入 `C`，就會傳送 Ctrl-C。
 
-## Keyboard behavior
+## 鍵盤行為
 
-Mobile SSH has two keyboard-related settings:
+Mobile SSH 有兩個同鍵盤相關嘅設定：
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
-- **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
+- **撳終端機顯示鍵盤：** 啟用之後，撳終端機會要求 Android 顯示輸入法。
+- **鍵盤建議：** 啟用之後，相容鍵盤可以喺 shell 提示符顯示建議。如果建議干擾終端機程式，請關閉佢。
 
-When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
+啟用建議嗰陣，Mobile SSH 會將組字緊嘅文字緩衝到字詞邊界，等鍵盤更正可以喺傳送去遠端 shell 之前替換目前嘅單字。控制鍵同終端機組合鍵會繞過呢個緩衝，所以 tmux 前綴指令等捷徑仍然會即時送達。
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+語音輸入（Gboard 麥克風按鈕）都經過同一個組字文字緩衝，所以聽寫文字喺解析完成之後一次過傳送，而唔係逐個字元。
 
-## Select, copy, share
+## 選取、複製、分享
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+喺終端機入面長撳可以進入選取模式。選取工具列提供三個操作：
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
-- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **複製** —— 將所選文字放入 Android 剪貼簿。
+- **分享** —— 將所選文字傳俾 Android 分享面板（電郵、筆記、訊息等）。
+- **全選** —— 將選取擴展到整個可見終端機緩衝區，然後複製或分享。
 
-## Scrolling
+## 捲動
 
-Mobile SSH routes scroll gestures based on terminal state:
+Mobile SSH 會根據終端機狀態路由捲動手勢：
 
-- In normal shell output, swiping scrolls the local scrollback buffer.
-- In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
-- In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
+- 喺正常 shell 輸出，滑動會捲動本機捲動緩衝區。
+- 喺滑鼠模式嘅終端機應用程式，捲動會傳送滑鼠滾輪逸出序列。
+- 喺冇滑鼠模式嘅備用畫面應用程式（例如好多 tmux 工作階段），捲動會進入 tmux 複製模式並傳送逐行捲動指令。
 
-If you type while scrolled back, Mobile SSH returns to the live terminal view.
+如果你喺向後捲動嘅狀態下輸入，Mobile SSH 會返去即時終端機檢視。
 
-## tmux behavior
+## tmux 行為
 
-Mobile SSH observes outgoing tmux attach and new-session commands such as:
+Mobile SSH 會觀察送出嘅 tmux attach 同新工作階段指令，例如：
 
 ```bash
 tmux attach -t work
@@ -78,14 +78,14 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+當你喺 tmux 入面時連線中斷，應用程式可以記住嗰部伺服器最後嘅 tmux 工作階段名稱，並喺重新連線之後嘗試重新附加。如果冇觀察到明確嘅工作階段名稱，但應用程式知道你曾經喺備用畫面嘅類 tmux 工作階段，佢可能會嘗試通用嘅 `tmux attach`。
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+呢個行為係盡力而為。如果遠端 tmux 工作階段已經唔存在，遠端 shell 仍然可用。
 
-## Full-screen terminal programs
+## 全螢幕終端機程式
 
-For programs such as Vim, less, htop, ncurses tools, and tmux panes:
+對於 Vim、less、htop、ncurses 工具同 tmux 窗格等程式：
 
-- Disable keyboard suggestions if the keyboard starts buffering input in a way the program does not expect.
-- Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
-- Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+- 如果鍵盤開始以程式唔預期嘅方式緩衝輸入，請關閉鍵盤建議。
+- 用額外按鍵列輸入 `ESC`、方向鍵、`PGUP` 同 `PGDN`。
+- 如果文字太細，用捏合縮放，然後等一陣等遠端終端機大細穩定。

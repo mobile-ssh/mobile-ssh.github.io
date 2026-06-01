@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "Transfer berkas"
+description: "Panduan transfer berkas SFTP Mobile SSH untuk berkas lokal, berkas jarak jauh, unggah, unduh, pengurutan, dan izin."
 ---
 
-# File transfer
+# Transfer berkas
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH menyertakan layar transfer berkas SFTP yang terikat ke koneksi SSH aktif. Ini ditujukan untuk pemeliharaan server cepat dari Android: mengunggah konfigurasi, mengunduh log, mengganti nama berkas jarak jauh, atau memeriksa izin tanpa meninggalkan aplikasi.
 
-## Open file transfer
+## Membuka transfer berkas
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. Terhubung ke server SSH.
+2. Pilih panel terminal yang terhubung.
+3. Buka **Transfer** dari bilah alat terminal, atau tekan lama header panel bila layar saat ini mendukungnya.
+4. Layar transfer berkas terbuka dengan panel lokal dan panel jarak jauh.
 
-If there is no active SSH session, file transfer cannot open.
+Jika tidak ada sesi SSH aktif, transfer berkas tidak dapat dibuka.
 
-## Local and remote panes
+## Panel lokal dan jarak jauh
 
-The file transfer screen has two browser panes:
+Layar transfer berkas memiliki dua panel peramban:
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **Panel lokal:** penyimpanan ponsel.
+- **Panel jarak jauh:** berkas server melalui SFTP.
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+Aplikasi mengingat jalur lokal dan jarak jauh terbaru per host. Pengaturan pengurutan juga diingat per host untuk kedua panel.
 
-## Android storage permission
+## Izin penyimpanan Android
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+Pada versi Android yang membatasi penjelajahan berkas langsung, Mobile SSH mungkin meminta akses penyimpanan sebelum panel lokal dapat menjelajahi berkas ponsel. Jika Anda melewati atau menolak izin ini, penjelajahan jarak jauh mungkin tetap berfungsi, tetapi jalur unggah dan unduh lokal bisa terbatas.
 
-Private key import is separate from file transfer and uses the Android file picker.
+Impor kunci privat terpisah dari transfer berkas dan menggunakan pemilih berkas Android.
 
-## Upload files
+## Mengunggah berkas
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. Buka panel lokal.
+2. Navigasikan ke berkas yang ingin diunggah.
+3. Pilih unggah.
+4. Konfirmasi tujuan jarak jauh.
+5. Pantau antrean transfer untuk kemajuan dan penyelesaian.
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+Unggahan menggunakan koneksi SSH/SFTP yang ada. Jika koneksi putus, coba lagi setelah terhubung kembali.
 
-## Download files
+## Mengunduh berkas
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. Buka panel jarak jauh.
+2. Navigasikan ke berkas yang ingin diunduh.
+3. Pilih unduh.
+4. Konfirmasi tujuan lokal.
+5. Pantau antrean transfer untuk kemajuan dan penyelesaian.
 
-Large downloads should be done on a stable network when possible.
+Unduhan besar sebaiknya dilakukan di jaringan stabil bila memungkinkan.
 
-## Remote file actions
+## Tindakan berkas jarak jauh
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+Bergantung pada item jarak jauh yang dipilih, Mobile SSH dapat menampilkan tindakan seperti:
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- Unduh.
+- Ganti nama.
+- Hapus.
+- Buat berkas atau direktori.
+- Edit berkas teks.
+- Lihat detail berkas.
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+Detail berkas jarak jauh dapat mencakup bit izin, pemilik, grup, dan nilai izin oktal. Gunakan detail ini sebelum mengubah berkas server yang dikelola oleh proses atau alat penyebaran lain.
 
-## Sorting and recent paths
+## Pengurutan dan jalur terbaru
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+Setiap panel dapat mengurutkan berdasarkan nama atau tanggal secara naik atau turun. Mobile SSH menyimpan mode pengurutan lokal dan jarak jauh yang dipilih per host, bersama jalur terbaru, sehingga transfer berulang ke server yang sama dimulai dari lokasi yang familier.
 
-## Transfer queue
+## Antrean transfer
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+Transfer diantrekan dan ditampilkan menurut status. Area log memisahkan transfer yang antre, gagal, dan berhasil. Transfer yang gagal menyertakan alasan bila operasi SFTP yang mendasari menyediakannya.
 
-## Practical tips
+## Tips praktis
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- Gunakan SFTP untuk pemindahan berkas tertentu; gunakan alat baris perintah seperti `rsync` di server untuk sinkronisasi direktori besar.
+- Hindari mengedit berkas produksi langsung kecuali Anda punya cadangan atau jalur rollback penyebaran.
+- Jika berkas tidak muncul setelah diunggah, segarkan panel jarak jauh atau verifikasi jalur tujuan.
+- Jika akses penyimpanan Android memblokir penjelajahan lokal, berikan izin dari Pengaturan Android dan buka kembali transfer berkas.

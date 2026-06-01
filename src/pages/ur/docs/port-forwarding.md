@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "پورٹ فارورڈنگ"
+description: "Android کے لیے Mobile SSH مقامی پورٹ فارورڈنگ نحو اور ٹنل انتظام۔"
 ---
 
-# Port forwarding
+# پورٹ فارورڈنگ
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH مقامی SSH پورٹ فارورڈنگ کی حمایت کرتا ہے۔ Android آلے پر ایک مقامی پورٹ `127.0.0.1` پر سنتا ہے اور SSH کنکشن کے ذریعے ٹریفک کو دور دراز ہوسٹ اور پورٹ پر فارورڈ کرتا ہے۔
 
-## Saved tunnel syntax
+## محفوظ ٹنل نحو
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+پورٹ فارورڈنگ قواعد کوما سے الگ ہوتے ہیں۔ ہر اندراج دو شکلوں میں سے ایک استعمال کرتا ہے:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+مختصر شکل:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+یہ Android آلے پر `127.0.0.1:8080` باندھتا ہے اور سرور کے نقطۂ نظر سے اسے `localhost:8080` پر فارورڈ کرتا ہے۔
 
-Full form:
+مکمل شکل:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+یہ Android آلے پر `127.0.0.1:3000` باندھتا ہے اور SSH کے ذریعے اسے دور دراز جانب `localhost:3000` پر فارورڈ کرتا ہے۔
 
-Multiple forwards:
+متعدد فارورڈز:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## محفوظ سرور میں ٹنل شامل کرنا
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. **محفوظ سرورز** کھولیں۔
+2. سرور پروفائل شامل یا ترمیم کریں۔
+3. **پورٹ فارورڈز** میں فارورڈنگ قواعد درج کریں۔
+4. سرور محفوظ کریں۔
+5. سرور سے جُڑیں۔
 
-The app applies saved forwards after the SSH session connects.
+ایپ SSH سیشن کے جُڑنے کے بعد محفوظ فارورڈز لاگو کرتی ہے۔
 
-## Manage active tunnels
+## فعال ٹنلز کا انتظام
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+جُڑے ہوئے، سیشن منتخب کریں اور ٹرمینل ٹول بار سے ٹنل ویو کھولیں۔ وہاں سے آپ فعال مقامی فارورڈز دیکھ سکتے ہیں، نیا ٹنل شامل کر سکتے ہیں، یا مقامی فارورڈ ہٹا سکتے ہیں۔
 
-## Address binding
+## پتہ بائنڈنگ
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH مقامی فارورڈز کو Android آلے پر `127.0.0.1` سے باندھتا ہے۔ یہ جان بوجھ کر ہے: یہ ٹنل کو آلے-مقامی رکھتا ہے اور صرف-IPv6 لوپ بیک کے حیران کن نتائج سے بچاتا ہے۔ اگر Android ان کی نیٹ ورک رسائی کی اجازت دے تو اسی Android آلے پر دیگر ایپس فارورڈ شدہ مقامی پورٹ سے جُڑ سکتی ہیں۔
 
-## Common examples
+## عام مثالیں
 
-Access a web service running on the remote server:
+دور دراز سرور پر چل رہی ویب سروس تک رسائی:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+پھر Android آلے پر براؤزر سے `http://127.0.0.1:8080` کھولیں۔
 
-Access a development server:
+ڈویلپمنٹ سرور تک رسائی:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+SSH سرور سے قابلِ رسائی اندرونی ڈیٹابیس تک رسائی:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## ٹنل مسئلہ حل
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- رن ٹائم ٹنلز شامل کرنے سے پہلے یقینی بنائیں کہ SSH سیشن جُڑا ہوا ہے۔
+- جانچیں کہ مقامی پورٹ پہلے سے استعمال میں نہیں ہے۔
+- جانچیں کہ دور دراز ہوسٹ اور پورٹ SSH سرور سے قابلِ رسائی ہیں۔
+- جب منزل سروس خود SSH سرور پر ہو تو `localhost` استعمال کریں۔
+- SSH سرور کے پیچھے کسی اور ہوسٹ پر فارورڈ کرتے وقت سرور کا اندرونی DNS نام یا IP استعمال کریں۔

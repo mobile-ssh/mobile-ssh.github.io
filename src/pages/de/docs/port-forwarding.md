@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "Portweiterleitung"
+description: "Syntax der lokalen Portweiterleitung von Mobile SSH und Tunnelverwaltung für Android."
 ---
 
-# Port forwarding
+# Portweiterleitung
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH unterstützt lokale SSH-Portweiterleitung. Ein lokaler Port auf dem Android-Gerät lauscht auf `127.0.0.1` und leitet den Verkehr über die SSH-Verbindung an einen entfernten Host und Port weiter.
 
-## Saved tunnel syntax
+## Syntax des gespeicherten Tunnels
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+Portweiterleitungsregeln werden durch Kommas getrennt. Jeder Eintrag nutzt eine von zwei Formen:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+Kurzform:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+Dies bindet `127.0.0.1:8080` auf dem Android-Gerät und leitet es aus Sicht des Servers an `localhost:8080` weiter.
 
-Full form:
+Vollform:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+Dies bindet `127.0.0.1:3000` auf dem Android-Gerät und leitet es über SSH an `localhost:3000` auf der entfernten Seite weiter.
 
-Multiple forwards:
+Mehrere Weiterleitungen:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## Einen Tunnel zu einem gespeicherten Server hinzufügen
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. Öffne **Gespeicherte Server**.
+2. Füge ein Serverprofil hinzu oder bearbeite es.
+3. Gib die Weiterleitungsregeln unter **Portweiterleitungen** ein.
+4. Speichere den Server.
+5. Verbinde dich mit dem Server.
 
-The app applies saved forwards after the SSH session connects.
+Die App wendet gespeicherte Weiterleitungen an, nachdem die SSH-Sitzung verbunden ist.
 
-## Manage active tunnels
+## Aktive Tunnel verwalten
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+Wähle im verbundenen Zustand die Sitzung und öffne die Tunnelansicht in der Terminal-Symbolleiste. Von dort kannst du aktive lokale Weiterleitungen prüfen, einen neuen Tunnel hinzufügen oder eine lokale Weiterleitung entfernen.
 
-## Address binding
+## Adressbindung
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH bindet lokale Weiterleitungen an `127.0.0.1` auf dem Android-Gerät. Das ist beabsichtigt: Es hält den Tunnel lokal auf dem Gerät und vermeidet Überraschungen mit reinem IPv6-Loopback. Andere Apps auf demselben Android-Gerät können sich möglicherweise mit dem weitergeleiteten lokalen Port verbinden, wenn Android ihren Netzwerkzugriff erlaubt.
 
-## Common examples
+## Häufige Beispiele
 
-Access a web service running on the remote server:
+Zugriff auf einen Webdienst, der auf dem entfernten Server läuft:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+Öffne dann `http://127.0.0.1:8080` in einem Browser auf dem Android-Gerät.
 
-Access a development server:
+Zugriff auf einen Entwicklungsserver:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+Zugriff auf eine interne Datenbank, die vom SSH-Server aus erreichbar ist:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## Tunnel-Fehlerbehebung
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- Stelle sicher, dass die SSH-Sitzung verbunden ist, bevor du Tunnel zur Laufzeit hinzufügst.
+- Prüfe, dass der lokale Port nicht bereits belegt ist.
+- Prüfe, dass der entfernte Host und Port vom SSH-Server aus erreichbar sind.
+- Nutze `localhost`, wenn der Zieldienst auf dem SSH-Server selbst läuft.
+- Nutze den internen DNS-Namen oder die IP des Servers, wenn du an einen anderen Host hinter dem SSH-Server weiterleitest.

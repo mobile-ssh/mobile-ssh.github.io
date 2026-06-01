@@ -1,76 +1,76 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux behavior, copy actions, and keyboard settings.
+title: "ターミナル"
+description: "Mobile SSH のターミナル操作、追加キー、ペイン、スクロール、tmux の挙動、コピー操作、キーボード設定。"
 ---
 
-# Terminal
+# ターミナル
 
-The Mobile SSH terminal is built for phone and tablet operation. It combines a terminal canvas, an extra key row, multi-session panes, scroll handling, and reconnection behavior.
+Mobile SSH のターミナルはスマートフォンとタブレットでの操作向けに作られています。ターミナルキャンバス、追加キーの行、複数セッションのペイン、スクロール処理、再接続の挙動を組み合わせています。
 
-## Terminal basics
+## ターミナルの基本
 
-- The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps up to 5000 lines.
-- Tap a pane to select it before typing.
-- Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- ターミナルは xterm 風の挙動で、色のサポートとカーソルキー処理を備えます。
+- スクロールバックバッファは最大 5000 行を保持します。
+- 入力する前にペインをタップして選択します。
+- ターミナルのペインをピンチすると文字サイズを変更できます。ジェスチャーが落ち着くと Mobile SSH はリモートの PTY のサイズを変更します。
+- ペインをダブルタップすると全画面モードに入ります。戻るボタンでグリッドに戻ります。
 
-## Multi-session grid
+## 複数セッションのグリッド
 
-Mobile SSH can run up to eight SSH sessions at the same time. Each session appears as a pane in the terminal grid. The pane header shows the current target or title. Tap a pane to select it, or use **+ Add Session** to start another connection.
+Mobile SSH は最大 8 個の SSH セッションを同時に実行できます。各セッションはターミナルグリッドのペインとして表示されます。ペインのヘッダーには現在の接続先またはタイトルが表示されます。ペインをタップして選択するか、**+ セッションを追加** で別の接続を開始します。
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+ペインを閉じるとその SSH セッションが切断されます。開始画面に戻ると、アクティブなセッションは **アクティブなセッション** から引き続き利用できます。
 
-## Extra key row
+## 追加キーの行
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+追加キーの行は Android キーボードの上に表示され、タッチキーボードでは扱いにくいターミナルキーを提供します。
 
 - `ESC`
 - `TAB`
 - `CTRL`
 - `Shift`
-- Arrow keys
+- 矢印キー
 - `HOME`
 - `END`
 - `PGUP`
 - `PGDN`
-- Keyboard toggle
+- キーボードの切り替え
 
-`CTRL` and `Shift` act as sticky modifiers for the next compatible input. For example, tap `CTRL`, then type `C` to send Ctrl-C.
+`CTRL` と `Shift` は次の対応する入力に対する固定修飾キーとして働きます。たとえば `CTRL` をタップしてから `C` を入力すると Ctrl-C を送信します。
 
-## Keyboard behavior
+## キーボードの挙動
 
-Mobile SSH has two keyboard-related settings:
+Mobile SSH にはキーボード関連の設定が 2 つあります。
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
-- **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
+- **ターミナルをタップしてキーボードを表示：** 有効にすると、ターミナルをタップしたときに Android へ入力方式の表示を要求します。
+- **キーボードの予測候補：** 有効にすると、対応キーボードがシェルのプロンプトで候補を表示できます。候補がターミナルプログラムを妨げる場合は無効にします。
 
-When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
+候補が有効なとき、Mobile SSH は変換中のテキストを単語の区切りまでバッファし、リモートシェルへ送る前にキーボードの修正が現在の単語を置き換えられるようにします。コントロールキーやターミナルのキーコンビネーションはこのバッファを迂回するため、tmux のプレフィックスコマンドなどのショートカットはすぐに届きます。
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+音声入力（Gboard のマイクボタン）も同じ変換テキストバッファを通るため、ディクテーションした文字は確定後に一括で送信され、1 文字ずつは送られません。
 
-## Select, copy, share
+## 選択・コピー・共有
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+ターミナル内を長押しすると選択モードに入ります。選択ツールバーには 3 つの操作があります。
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
-- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **コピー** — 選択したテキストを Android のクリップボードに置きます。
+- **共有** — 選択したテキストを Android の共有シート（メール、メモ、メッセージなど）に渡します。
+- **すべて選択** — 選択を表示中のターミナルバッファ全体に広げ、コピーまたは共有します。
 
-## Scrolling
+## スクロール
 
-Mobile SSH routes scroll gestures based on terminal state:
+Mobile SSH はターミナルの状態に応じてスクロールのジェスチャーを振り分けます。
 
-- In normal shell output, swiping scrolls the local scrollback buffer.
-- In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
-- In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
+- 通常のシェル出力では、スワイプはローカルのスクロールバックバッファをスクロールします。
+- マウスモードのターミナルアプリでは、スクロールはマウスホイールのエスケープシーケンスを送信します。
+- マウスモードのない代替画面アプリ（多くの tmux セッションなど）では、スクロールは tmux のコピーモードに入り、行スクロールのコマンドを送信します。
 
-If you type while scrolled back, Mobile SSH returns to the live terminal view.
+スクロールバックした状態で入力すると、Mobile SSH はライブのターミナル表示に戻ります。
 
-## tmux behavior
+## tmux の挙動
 
-Mobile SSH observes outgoing tmux attach and new-session commands such as:
+Mobile SSH は送信される tmux の attach や新規セッションのコマンドを観察します。たとえば：
 
 ```bash
 tmux attach -t work
@@ -78,14 +78,14 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+tmux 中に接続が切れた場合、アプリはそのサーバーの最後の tmux セッション名を記憶し、再接続後に再アタッチを試みることがあります。明示的なセッション名が観察されなくても、代替画面の tmux 的なセッションにいたことをアプリが把握していれば、汎用の `tmux attach` を試すことがあります。
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+この挙動はベストエフォートです。リモートの tmux セッションがもう存在しない場合でも、リモートシェルは引き続き利用できます。
 
-## Full-screen terminal programs
+## 全画面のターミナルプログラム
 
-For programs such as Vim, less, htop, ncurses tools, and tmux panes:
+Vim、less、htop、ncurses ツール、tmux ペインなどのプログラムでは：
 
-- Disable keyboard suggestions if the keyboard starts buffering input in a way the program does not expect.
-- Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
-- Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+- キーボードがプログラムの想定しない形で入力をバッファし始めたら、キーボードの予測候補を無効にします。
+- `ESC`、矢印、`PGUP`、`PGDN` には追加キーの行を使います。
+- 文字が小さすぎる場合はピンチズームを使い、その後リモートのターミナルサイズが落ち着くまで少し待ちます。

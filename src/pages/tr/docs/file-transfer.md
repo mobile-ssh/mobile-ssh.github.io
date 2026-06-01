@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "Dosya aktarımı"
+description: "Yerel dosyalar, uzak dosyalar, yükleme, indirme, sıralama ve izinler için Mobile SSH SFTP dosya aktarım kılavuzu."
 ---
 
-# File transfer
+# Dosya aktarımı
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH, etkin SSH bağlantısına bağlı bir SFTP dosya aktarım ekranı içerir. Android'den hızlı sunucu bakımı içindir: bir yapılandırma yükleyin, bir günlük indirin, uzak bir dosyayı yeniden adlandırın veya uygulamadan çıkmadan izinleri inceleyin.
 
-## Open file transfer
+## Dosya aktarımını açma
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. Bir SSH sunucusuna bağlanın.
+2. Bağlı terminal bölmesini seçin.
+3. Terminal araç çubuğundan **Aktarım**'ı açın veya geçerli ekran destekliyorsa bölme başlığına uzun basın.
+4. Dosya aktarım ekranı bir yerel bölme ve bir uzak bölmeyle açılır.
 
-If there is no active SSH session, file transfer cannot open.
+Etkin bir SSH oturumu yoksa dosya aktarımı açılamaz.
 
-## Local and remote panes
+## Yerel ve uzak bölmeler
 
-The file transfer screen has two browser panes:
+Dosya aktarım ekranında iki tarayıcı bölmesi vardır:
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **Yerel bölme:** telefon depolaması.
+- **Uzak bölme:** SFTP üzerinden sunucu dosyaları.
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+Uygulama, ana bilgisayar başına son yerel ve uzak yolları hatırlar. Sıralama ayarları da her iki bölme için ana bilgisayar başına hatırlanır.
 
-## Android storage permission
+## Android depolama izni
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+Doğrudan dosya taramayı kısıtlayan Android sürümlerinde, yerel bölme telefon dosyalarını tarayabilmeden önce Mobile SSH depolama erişimi isteyebilir. Bu izni atlar veya reddederseniz uzak tarama yine de çalışabilir, ancak yerel yükleme ve indirme yolları sınırlı olabilir.
 
-Private key import is separate from file transfer and uses the Android file picker.
+Özel anahtar içe aktarma dosya aktarımından ayrıdır ve Android dosya seçiciyi kullanır.
 
-## Upload files
+## Dosya yükleme
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. Yerel bölmeyi açın.
+2. Yüklemek istediğiniz dosyaya gidin.
+3. Yüklemeyi seçin.
+4. Uzak hedefi onaylayın.
+5. İlerleme ve tamamlanma için aktarım kuyruğunu izleyin.
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+Yüklemeler mevcut SSH/SFTP bağlantısını kullanır. Bağlantı düşerse yeniden bağlandıktan sonra tekrar deneyin.
 
-## Download files
+## Dosya indirme
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. Uzak bölmeyi açın.
+2. İndirmek istediğiniz dosyaya gidin.
+3. İndirmeyi seçin.
+4. Yerel hedefi onaylayın.
+5. İlerleme ve tamamlanma için aktarım kuyruğunu izleyin.
 
-Large downloads should be done on a stable network when possible.
+Büyük indirmeler mümkün olduğunda kararlı bir ağda yapılmalıdır.
 
-## Remote file actions
+## Uzak dosya işlemleri
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+Seçili uzak öğeye bağlı olarak Mobile SSH şu işlemleri gösterebilir:
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- İndir.
+- Yeniden adlandır.
+- Sil.
+- Dosya veya dizin oluştur.
+- Metin dosyasını düzenle.
+- Dosya ayrıntılarını görüntüle.
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+Uzak dosya ayrıntıları izin bitlerini, sahibini, grubunu ve sekizlik izin değerlerini içerebilir. Başka bir işlem veya dağıtım aracı tarafından yönetilen sunucu dosyalarını değiştirmeden önce bu ayrıntıları kullanın.
 
-## Sorting and recent paths
+## Sıralama ve son yollar
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+Her bölme ada veya tarihe göre artan ya da azalan sıralayabilir. Mobile SSH seçili yerel ve uzak sıralama modlarını son yollarla birlikte ana bilgisayar başına saklar; böylece aynı sunucuya yapılan tekrar aktarımlar tanıdık konumlardan başlar.
 
-## Transfer queue
+## Aktarım kuyruğu
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+Aktarımlar kuyruğa alınır ve duruma göre gösterilir. Günlük alanı kuyruktaki, başarısız ve başarılı aktarımları ayırır. Başarısız aktarımlar, altta yatan SFTP işlemi bir neden sağladığında nedeni içerir.
 
-## Practical tips
+## Pratik ipuçları
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- Hedefli dosya taşımaları için SFTP kullanın; büyük dizin eşitlemesi için sunucuda `rsync` gibi komut satırı araçlarını kullanın.
+- Yedeğiniz veya dağıtım geri alma yolunuz olmadıkça canlı üretim dosyalarını düzenlemekten kaçının.
+- Yükledikten sonra bir dosya görünmüyorsa uzak bölmeyi yenileyin veya hedef yolu doğrulayın.
+- Android depolama erişimi yerel taramayı engelliyorsa Android Ayarları'ndan izni verin ve dosya aktarımını yeniden açın.

@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "Bağlantı noktası yönlendirme"
+description: "Android için Mobile SSH yerel bağlantı noktası yönlendirme söz dizimi ve tünel yönetimi."
 ---
 
-# Port forwarding
+# Bağlantı noktası yönlendirme
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH yerel SSH bağlantı noktası yönlendirmeyi destekler. Android cihazdaki yerel bir bağlantı noktası `127.0.0.1` üzerinde dinler ve trafiği SSH bağlantısı aracılığıyla uzak bir ana bilgisayara ve bağlantı noktasına yönlendirir.
 
-## Saved tunnel syntax
+## Kayıtlı tünel söz dizimi
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+Bağlantı noktası yönlendirme kuralları virgülle ayrılır. Her girdi iki biçimden birini kullanır:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+Kısa biçim:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+Bu, Android cihazda `127.0.0.1:8080`'i bağlar ve sunucunun bakış açısından `localhost:8080`'e yönlendirir.
 
-Full form:
+Tam biçim:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+Bu, Android cihazda `127.0.0.1:3000`'i bağlar ve SSH aracılığıyla uzak taraftaki `localhost:3000`'e yönlendirir.
 
-Multiple forwards:
+Birden çok yönlendirme:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## Kayıtlı bir sunucuya tünel ekleme
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. **Kayıtlı Sunucular**'ı açın.
+2. Bir sunucu profili ekleyin veya düzenleyin.
+3. Yönlendirme kurallarını **Bağlantı noktası yönlendirmeleri**'ne girin.
+4. Sunucuyu kaydedin.
+5. Sunucuya bağlanın.
 
-The app applies saved forwards after the SSH session connects.
+Uygulama, kaydedilen yönlendirmeleri SSH oturumu bağlandıktan sonra uygular.
 
-## Manage active tunnels
+## Etkin tünelleri yönetme
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+Bağlıyken oturumu seçin ve terminal araç çubuğundan tünel görünümünü açın. Oradan etkin yerel yönlendirmeleri inceleyebilir, yeni bir tünel ekleyebilir veya bir yerel yönlendirmeyi kaldırabilirsiniz.
 
-## Address binding
+## Adres bağlama
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH yerel yönlendirmeleri Android cihazdaki `127.0.0.1`'e bağlar. Bu kasıtlıdır: tüneli cihaza yerel tutar ve yalnızca IPv6 geri döngü sürprizlerinden kaçınır. Android ağ erişimine izin verirse aynı Android cihazdaki diğer uygulamalar yönlendirilen yerel bağlantı noktasına bağlanabilir.
 
-## Common examples
+## Sık örnekler
 
-Access a web service running on the remote server:
+Uzak sunucuda çalışan bir web hizmetine erişim:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+Ardından Android cihazdaki bir tarayıcıdan `http://127.0.0.1:8080`'i açın.
 
-Access a development server:
+Bir geliştirme sunucusuna erişim:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+SSH sunucusundan erişilebilen bir iç veritabanına erişim:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## Tünel sorun giderme
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- Çalışma zamanı tünelleri eklemeden önce SSH oturumunun bağlı olduğundan emin olun.
+- Yerel bağlantı noktasının zaten kullanımda olmadığını denetleyin.
+- Uzak ana bilgisayarın ve bağlantı noktasının SSH sunucusundan erişilebilir olduğunu denetleyin.
+- Hedef hizmet SSH sunucusunun kendisinde olduğunda `localhost` kullanın.
+- SSH sunucusunun arkasındaki başka bir ana bilgisayara yönlendirirken sunucunun iç DNS adını veya IP'sini kullanın.

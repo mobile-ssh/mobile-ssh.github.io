@@ -1,76 +1,76 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux behavior, copy actions, and keyboard settings.
+title: "টার্মিনাল"
+description: "Mobile SSH টার্মিনাল নিয়ন্ত্রণ, অতিরিক্ত কী, প্যান, স্ক্রলিং, tmux আচরণ, কপি ক্রিয়া এবং কীবোর্ড সেটিংস।"
 ---
 
-# Terminal
+# টার্মিনাল
 
-The Mobile SSH terminal is built for phone and tablet operation. It combines a terminal canvas, an extra key row, multi-session panes, scroll handling, and reconnection behavior.
+Mobile SSH টার্মিনাল ফোন ও ট্যাবলেট পরিচালনার জন্য তৈরি। এটি একটি টার্মিনাল ক্যানভাস, অতিরিক্ত কী সারি, মাল্টি-সেশন প্যান, স্ক্রল হ্যান্ডলিং এবং পুনঃসংযোগ আচরণ একত্র করে।
 
-## Terminal basics
+## টার্মিনাল মূল বিষয়
 
-- The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps up to 5000 lines.
-- Tap a pane to select it before typing.
-- Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- টার্মিনাল রঙ সমর্থন ও কার্সর-কী হ্যান্ডলিং সহ xterm-শৈলীর আচরণ ব্যবহার করে।
+- স্ক্রলব্যাক বাফার সর্বোচ্চ 5000 লাইন রাখে।
+- টাইপ করার আগে প্যান নির্বাচন করতে ট্যাপ করুন।
+- টেক্সটের আকার বদলাতে টার্মিনাল প্যানে পিঞ্চ করুন। অঙ্গভঙ্গি স্থির হলে Mobile SSH রিমোট PTY-এর আকার বদলায়।
+- ফুলস্ক্রিন মোডে যেতে প্যানে ডাবল-ট্যাপ করুন। গ্রিডে ফিরতে Back ব্যবহার করুন।
 
-## Multi-session grid
+## মাল্টি-সেশন গ্রিড
 
-Mobile SSH can run up to eight SSH sessions at the same time. Each session appears as a pane in the terminal grid. The pane header shows the current target or title. Tap a pane to select it, or use **+ Add Session** to start another connection.
+Mobile SSH একসাথে আটটি SSH সেশন পর্যন্ত চালাতে পারে। প্রতিটি সেশন টার্মিনাল গ্রিডে একটি প্যান হিসেবে দেখা যায়। প্যান হেডার বর্তমান গন্তব্য বা শিরোনাম দেখায়। নির্বাচন করতে প্যানে ট্যাপ করুন, অথবা অন্য সংযোগ শুরু করতে **+ সেশন যোগ করুন** ব্যবহার করুন।
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+প্যান বন্ধ করলে সেই SSH সেশন বিচ্ছিন্ন হয়। স্টার্ট স্ক্রিনে ফিরলে সক্রিয় সেশন **সক্রিয় সেশন**-এর মাধ্যমে উপলব্ধ থাকে।
 
-## Extra key row
+## অতিরিক্ত কী সারি
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+অতিরিক্ত কী সারি Android কীবোর্ডের উপরে দেখা যায় এবং এমন টার্মিনাল কী দেয় যা টাচ কীবোর্ডে অসুবিধাজনক:
 
 - `ESC`
 - `TAB`
 - `CTRL`
 - `Shift`
-- Arrow keys
+- তীর কী
 - `HOME`
 - `END`
 - `PGUP`
 - `PGDN`
-- Keyboard toggle
+- কীবোর্ড টগল
 
-`CTRL` and `Shift` act as sticky modifiers for the next compatible input. For example, tap `CTRL`, then type `C` to send Ctrl-C.
+`CTRL` এবং `Shift` পরবর্তী সামঞ্জস্যপূর্ণ ইনপুটের জন্য স্টিকি মডিফায়ার হিসেবে কাজ করে। যেমন, `CTRL` ট্যাপ করুন, তারপর Ctrl-C পাঠাতে `C` টাইপ করুন।
 
-## Keyboard behavior
+## কীবোর্ড আচরণ
 
-Mobile SSH has two keyboard-related settings:
+Mobile SSH-এ কীবোর্ড-সম্পর্কিত দুটি সেটিং আছে:
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
-- **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
+- **কীবোর্ড দেখাতে টার্মিনালে ট্যাপ করুন:** সক্ষম থাকলে টার্মিনালে ট্যাপ করলে Android-কে ইনপুট পদ্ধতি দেখাতে বলা হয়।
+- **কীবোর্ড সাজেশন:** সক্ষম থাকলে সামঞ্জস্যপূর্ণ কীবোর্ড শেল প্রম্পটে সাজেশন দেখাতে পারে। সাজেশন টার্মিনাল প্রোগ্রামে বাধা দিলে এটি নিষ্ক্রিয় করুন।
 
-When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
+সাজেশন সক্ষম থাকলে, Mobile SSH কম্পোজিং টেক্সট শব্দ-সীমা পর্যন্ত বাফার করে, যাতে রিমোট শেলে পাঠানোর আগে কীবোর্ড সংশোধন বর্তমান শব্দটি প্রতিস্থাপন করতে পারে। কন্ট্রোল কী এবং টার্মিনাল কর্ড সেই বাফার এড়িয়ে যায়, তাই tmux প্রিফিক্স কমান্ডের মতো শর্টকাট দ্রুত পৌঁছায়।
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+ভয়েস ইনপুট (Gboard মাইক্রোফোন বোতাম) একই কম্পোজিং-টেক্সট বাফারের মধ্য দিয়ে যায়, তাই উচ্চারিত টেক্সট অক্ষরে-অক্ষরে নয়, সমাধান হওয়ার পর একবারে পাঠানো হয়।
 
-## Select, copy, share
+## নির্বাচন, কপি, শেয়ার
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+নির্বাচন মোডে যেতে টার্মিনালের ভেতরে দীর্ঘক্ষণ চাপুন। নির্বাচন টুলবার তিনটি ক্রিয়া দেয়:
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
-- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **কপি** — নির্বাচিত টেক্সট Android ক্লিপবোর্ডে রাখে।
+- **শেয়ার** — নির্বাচিত টেক্সট Android শেয়ার শিটে (মেইল, নোট, মেসেজিং ইত্যাদি) পাঠায়।
+- **সব নির্বাচন** — নির্বাচনকে সম্পূর্ণ দৃশ্যমান টার্মিনাল বাফারে প্রসারিত করে, তারপর কপি বা শেয়ার।
 
-## Scrolling
+## স্ক্রলিং
 
-Mobile SSH routes scroll gestures based on terminal state:
+Mobile SSH টার্মিনাল অবস্থার উপর ভিত্তি করে স্ক্রল অঙ্গভঙ্গি রুট করে:
 
-- In normal shell output, swiping scrolls the local scrollback buffer.
-- In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
-- In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
+- সাধারণ শেল আউটপুটে সোয়াইপ করলে লোকাল স্ক্রলব্যাক বাফার স্ক্রল হয়।
+- মাউস-মোড টার্মিনাল অ্যাপে স্ক্রলিং মাউস-হুইল এস্কেপ সিকোয়েন্স পাঠায়।
+- মাউস মোড ছাড়া বিকল্প-স্ক্রিন অ্যাপে, যেমন অনেক tmux সেশন, স্ক্রলিং tmux কপি মোডে প্রবেশ করে এবং লাইন স্ক্রল কমান্ড পাঠায়।
 
-If you type while scrolled back, Mobile SSH returns to the live terminal view.
+পিছনে স্ক্রল করা অবস্থায় টাইপ করলে Mobile SSH লাইভ টার্মিনাল ভিউতে ফিরে আসে।
 
-## tmux behavior
+## tmux আচরণ
 
-Mobile SSH observes outgoing tmux attach and new-session commands such as:
+Mobile SSH বহির্গামী tmux attach ও new-session কমান্ড পর্যবেক্ষণ করে, যেমন:
 
 ```bash
 tmux attach -t work
@@ -78,14 +78,14 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+আপনি tmux-এ থাকা অবস্থায় সংযোগ বিচ্ছিন্ন হলে, অ্যাপ সেই সার্ভারের শেষ tmux সেশনের নাম মনে রাখতে পারে এবং পুনঃসংযোগের পর পুনরায় অ্যাটাচ করার চেষ্টা করতে পারে। স্পষ্ট কোনো সেশন নাম দেখা না গেলেও যদি অ্যাপ জানে আপনি বিকল্প-স্ক্রিন tmux-সদৃশ সেশনে ছিলেন, এটি সাধারণ `tmux attach` চেষ্টা করতে পারে।
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+এই আচরণ যথাসাধ্য। রিমোট tmux সেশন আর না থাকলে রিমোট শেল উপলব্ধ থাকে।
 
-## Full-screen terminal programs
+## ফুল-স্ক্রিন টার্মিনাল প্রোগ্রাম
 
-For programs such as Vim, less, htop, ncurses tools, and tmux panes:
+Vim, less, htop, ncurses টুল এবং tmux প্যানের মতো প্রোগ্রামের জন্য:
 
-- Disable keyboard suggestions if the keyboard starts buffering input in a way the program does not expect.
-- Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
-- Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+- প্রোগ্রাম যেভাবে আশা করে না সেভাবে কীবোর্ড ইনপুট বাফার করতে শুরু করলে কীবোর্ড সাজেশন নিষ্ক্রিয় করুন।
+- `ESC`, তীর, `PGUP` এবং `PGDN`-এর জন্য অতিরিক্ত কী সারি ব্যবহার করুন।
+- টেক্সট খুব ছোট হলে পিঞ্চ জুম ব্যবহার করুন, তারপর রিমোট টার্মিনালের আকার স্থির হওয়া পর্যন্ত একটু অপেক্ষা করুন।

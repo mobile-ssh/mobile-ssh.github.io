@@ -1,103 +1,103 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Troubleshooting
-description: Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues.
+title: "Fehlerbehebung"
+description: "Fehlerbehebungsanleitung für Mobile SSH zu Verbindung, Authentifizierung, Tastatur, tmux, Dateiübertragung und Tunneln."
 ---
 
-# Troubleshooting
+# Fehlerbehebung
 
-This page covers common Mobile SSH issues and the first checks to run before changing server-side SSH settings.
+Diese Seite behandelt häufige Probleme von Mobile SSH und die ersten Prüfungen, bevor du serverseitige SSH-Einstellungen änderst.
 
-## Cannot connect
+## Verbindung nicht möglich
 
-Check:
+Prüfe:
 
-- The Android device has network access.
-- The server hostname or IP address is correct.
-- The SSH port is correct, usually `22`.
-- A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
-- The SSH server is running and accepts connections from the network you are using.
+- Das Android-Gerät hat Netzwerkzugriff.
+- Der Hostname oder die IP-Adresse des Servers ist korrekt.
+- Der SSH-Port ist korrekt, normalerweise `22`.
+- Eine Firewall, ein VPN, das Mobilfunknetz oder das WLAN blockiert den Port nicht.
+- Der SSH-Server läuft und akzeptiert Verbindungen aus dem Netzwerk, das du nutzt.
 
-If the same host works from another device, compare the exact host, port, username, key, and network path.
+Wenn derselbe Host von einem anderen Gerät funktioniert, vergleiche genau Host, Port, Benutzername, Schlüssel und Netzwerkpfad.
 
-## Authentication failed
+## Authentifizierung fehlgeschlagen
 
-Check:
+Prüfe:
 
-- Username spelling.
-- Password or key passphrase.
-- Whether the server allows password login, key login, or both.
-- Whether the private key matches a public key in the server user's `authorized_keys`.
-- Whether the key file was imported fully, including the header and footer lines.
+- Die Schreibweise des Benutzernamens.
+- Das Passwort oder die Schlüssel-Passphrase.
+- Ob der Server Passwort-Login, Schlüssel-Login oder beides erlaubt.
+- Ob der private Schlüssel zu einem öffentlichen Schlüssel in der `authorized_keys` des Serverbenutzers passt.
+- Ob die Schlüsseldatei vollständig importiert wurde, einschließlich der Kopf- und Fußzeilen.
 
-For encrypted private keys, enter the passphrase in the password/passphrase field.
+Gib bei verschlüsselten privaten Schlüsseln die Passphrase im Passwort-/Passphrasenfeld ein.
 
-## Private key import failed
+## Import des privaten Schlüssels fehlgeschlagen
 
-Private key import uses Android's file picker. If import fails:
+Der Import des privaten Schlüssels nutzt die Dateiauswahl von Android. Wenn der Import fehlschlägt:
 
-- Confirm the selected file is a private key, not a public `.pub` file.
-- Open the file in a trusted text editor and verify it contains the full key block.
-- Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- Bestätige, dass die ausgewählte Datei ein privater Schlüssel ist und keine öffentliche `.pub`-Datei.
+- Öffne die Datei in einem vertrauenswürdigen Texteditor und prüfe, dass sie den vollständigen Schlüsselblock enthält.
+- Versuche, den Schlüssel manuell in das Feld für den privaten Schlüssel einzufügen.
+- Bestätige, dass der Schlüsseltyp von der App-Implementierung unterstützt wird: Ed25519, RSA, ECDSA oder DSA.
 
-## Keyboard input is delayed or changed
+## Tastatureingabe verzögert sich oder ändert sich
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+Wenn deine Android-Tastatur den Text ändert, bevor er die Shell erreicht, deaktiviere die Tastaturvorschläge in den Einstellungen von Mobile SSH. Das ist nützlich für Vim, tmux, htop, less, Shells mit ungewöhnlichen Tastenfolgen und entfernte Passwortabfragen.
 
-Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+Nutze die Zusatztastenreihe für Terminaltasten wie `ESC`, `TAB`, `CTRL`, Pfeile, `HOME`, `END`, `PGUP` und `PGDN`.
 
-## tmux scrolling is not what you expect
+## tmux-Scrollen ist nicht wie erwartet
 
-Mobile SSH changes scroll behavior based on terminal state. In tmux or other alternate-screen programs, scroll gestures may send tmux copy-mode commands rather than scrolling local history. If tmux mouse mode is enabled, the app sends mouse-wheel escape sequences.
+Mobile SSH ändert das Scrollverhalten je nach Terminalzustand. In tmux oder anderen Programmen mit alternativem Bildschirm können Scroll-Gesten tmux-Kopiermodus-Befehle senden, anstatt den lokalen Verlauf zu scrollen. Wenn der tmux-Maus-Modus aktiviert ist, sendet die App Mausrad-Escape-Sequenzen.
 
-If scrolling feels wrong:
+Wenn das Scrollen sich falsch anfühlt:
 
-- Try enabling or disabling tmux mouse mode on the remote server.
-- Use `PGUP` and `PGDN` from the extra key row.
-- Double-tap the pane for fullscreen before scrolling dense output.
-- Detach and reattach to tmux if the remote terminal size looks stale.
+- Versuche, den tmux-Maus-Modus auf dem entfernten Server zu aktivieren oder zu deaktivieren.
+- Nutze `PGUP` und `PGDN` aus der Zusatztastenreihe.
+- Doppeltippe auf den Bereich für den Vollbildmodus, bevor du dichte Ausgabe scrollst.
+- Trenne tmux und hänge dich erneut an, wenn die entfernte Terminalgröße veraltet wirkt.
 
-## Session dropped after screen lock
+## Sitzung nach Bildschirmsperre abgebrochen
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+Mobile SSH nutzt Keepalives, einen Vordergrunddienst, Wake Lock, Wi-Fi-Lock und Wiederverbindungsversuche, um Verbindungsabbrüche zu reduzieren. Die Akku-Richtlinien von Android können Hintergrundarbeit dennoch stoppen.
 
-Check:
+Prüfe:
 
-- Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
-- Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- Deaktiviere die Akku-Optimierung für Mobile SSH, wenn dein Gerät Hintergrund-Apps aggressiv stoppt.
+- Halte WLAN oder mobile Daten während langer Sitzungen stabil.
+- Öffne Mobile SSH erneut und tippe nach dem Entsperren auf **Aktive Sitzungen**.
+- Wenn der Server die SSH-Sitzung getrennt hat, verbinde dich erneut über die letzten Sitzungen.
 
-## File transfer cannot browse phone files
+## Dateiübertragung kann Telefondateien nicht durchsuchen
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+Auf neueren Android-Versionen kann das Durchsuchen lokaler Dateien Speicherzugriff erfordern. Erteile den Speicherzugriff in den Android-Einstellungen für Mobile SSH und öffne den Dateiübertragungsbildschirm erneut.
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+Wenn entfernte Dateien laden, lokale aber nicht, ist die SSH-Verbindung wahrscheinlich in Ordnung und das Problem liegt beim lokalen Android-Speicherzugriff.
 
-## Upload or download failed
+## Hochladen oder Herunterladen fehlgeschlagen
 
-Check:
+Prüfe:
 
-- The SSH session is still connected.
-- The remote directory exists.
-- The remote user has permission to read or write the path.
-- The local destination is writable.
-- There is enough free space on the Android device.
-- The network is stable for large transfers.
+- Die SSH-Sitzung ist noch verbunden.
+- Das entfernte Verzeichnis existiert.
+- Der entfernte Benutzer hat die Berechtigung, den Pfad zu lesen oder zu schreiben.
+- Das lokale Ziel ist beschreibbar.
+- Auf dem Android-Gerät ist genügend freier Speicher.
+- Das Netzwerk ist für große Übertragungen stabil.
 
-## Port forward failed
+## Portweiterleitung fehlgeschlagen
 
-Check:
+Prüfe:
 
-- The local port is between `1` and `65535`.
-- The local port is not already used.
-- The tunnel string is `PORT` or `LOCAL:REMOTEHOST:REMOTE`.
-- The remote host and remote port are reachable from the SSH server.
-- The SSH server allows TCP forwarding.
+- Der lokale Port liegt zwischen `1` und `65535`.
+- Der lokale Port wird nicht bereits verwendet.
+- Die Tunnelzeichenfolge ist `PORT` oder `LOCAL:REMOTEHOST:REMOTE`.
+- Der entfernte Host und der entfernte Port sind vom SSH-Server aus erreichbar.
+- Der SSH-Server erlaubt TCP-Weiterleitung.
 
-## Debug logs
+## Debug-Protokolle
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+Der Startbildschirm enthält eine Schaltfläche **Debug**. Wenn aktiviert, zeichnet Mobile SSH Diagnoseinformationen zu Terminalereignissen, SSH-Datengrößen, Toucheingaben, Größenänderungsverhalten und Tunnel-Lebenszyklus auf. Stoppe die Aufzeichnung, um ein Debug-Archiv lokal zu speichern.
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+Prüfe Debug-Archive, bevor du sie teilst. Sie sind für die Fehlerbehebung gedacht und können Servernamen, Zeitangaben, Terminalverhalten oder andere Umgebungsdetails offenlegen.

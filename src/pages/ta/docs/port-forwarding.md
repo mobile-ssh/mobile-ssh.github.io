@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "போர்ட் ஃபார்வர்டிங்"
+description: "Android க்கான Mobile SSH உள்ளக போர்ட் ஃபார்வர்டிங் தொடரியல் மற்றும் டன்னல் மேலாண்மை."
 ---
 
-# Port forwarding
+# போர்ட் ஃபார்வர்டிங்
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH உள்ளக SSH போர்ட் ஃபார்வர்டிங்கை ஆதரிக்கிறது. Android சாதனத்தில் உள்ள ஒரு உள்ளக போர்ட் `127.0.0.1` இல் கேட்கிறது மற்றும் SSH இணைப்பு வழியாக ட்ராஃபிக்கை தொலை ஹோஸ்ட் மற்றும் போர்ட்டிற்கு அனுப்புகிறது.
 
-## Saved tunnel syntax
+## சேமித்த டன்னல் தொடரியல்
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+போர்ட்-ஃபார்வர்டிங் விதிகள் காற்புள்ளியால் பிரிக்கப்படுகின்றன. ஒவ்வொரு உள்ளீடும் இரண்டு வடிவங்களில் ஒன்றைப் பயன்படுத்துகிறது:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+சுருக்க வடிவம்:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+இது Android சாதனத்தில் `127.0.0.1:8080` ஐப் பிணைத்து, சேவையகத்தின் பார்வையில் அதை `localhost:8080` க்கு அனுப்புகிறது.
 
-Full form:
+முழு வடிவம்:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+இது Android சாதனத்தில் `127.0.0.1:3000` ஐப் பிணைத்து, SSH வழியாக தொலைப் பக்கத்தில் `localhost:3000` க்கு அனுப்புகிறது.
 
-Multiple forwards:
+பல ஃபார்வர்டுகள்:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## சேமித்த சேவையகத்தில் டன்னலைச் சேர்த்தல்
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. **சேமித்த சேவையகங்கள்** ஐத் திறக்கவும்.
+2. சேவையக சுயவிவரத்தைச் சேர்க்கவும் அல்லது திருத்தவும்.
+3. **போர்ட் ஃபார்வர்டுகள்** இல் ஃபார்வர்டிங் விதிகளை உள்ளிடவும்.
+4. சேவையகத்தைச் சேமிக்கவும்.
+5. சேவையகத்துடன் இணைக்கவும்.
 
-The app applies saved forwards after the SSH session connects.
+SSH அமர்வு இணைந்த பிறகு செயலி சேமித்த ஃபார்வர்டுகளைப் பயன்படுத்துகிறது.
 
-## Manage active tunnels
+## செயலில் உள்ள டன்னல்களை நிர்வகித்தல்
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+இணைந்திருக்கும்போது, அமர்வைத் தேர்ந்தெடுத்து டெர்மினல் கருவிப்பட்டியிலிருந்து டன்னல் காட்சியைத் திறக்கவும். அங்கிருந்து நீங்கள் செயலில் உள்ள உள்ளக ஃபார்வர்டுகளைப் பரிசோதிக்கலாம், புதிய டன்னலைச் சேர்க்கலாம், அல்லது உள்ளக ஃபார்வர்டை அகற்றலாம்.
 
-## Address binding
+## முகவரி பிணைப்பு
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH உள்ளக ஃபார்வர்டுகளை Android சாதனத்தில் `127.0.0.1` உடன் பிணைக்கிறது. இது வேண்டுமென்றே: இது டன்னலை சாதன-உள்ளகமாக வைத்து, IPv6-மட்டும் லூப்பேக் ஆச்சரியங்களைத் தவிர்க்கிறது. Android அவற்றின் நெட்வொர்க் அணுகலை அனுமதித்தால், அதே Android சாதனத்தில் உள்ள பிற செயலிகள் அனுப்பப்பட்ட உள்ளக போர்ட்டுடன் இணைக்கலாம்.
 
-## Common examples
+## பொதுவான எடுத்துக்காட்டுகள்
 
-Access a web service running on the remote server:
+தொலை சேவையகத்தில் இயங்கும் வலை சேவையை அணுகுதல்:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+பின்னர் Android சாதனத்தில் உலாவியிலிருந்து `http://127.0.0.1:8080` ஐத் திறக்கவும்.
 
-Access a development server:
+டெவலப்மென்ட் சேவையகத்தை அணுகுதல்:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+SSH சேவையகத்திலிருந்து அணுகக்கூடிய உள் தரவுத்தளத்தை அணுகுதல்:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## டன்னல் சிக்கல் தீர்வு
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- இயக்க நேர டன்னல்களைச் சேர்ப்பதற்கு முன் SSH அமர்வு இணைக்கப்பட்டுள்ளதா என்பதை உறுதிசெய்க.
+- உள்ளக போர்ட் ஏற்கனவே பயன்பாட்டில் இல்லை என்பதைச் சரிபார்க்கவும்.
+- தொலை ஹோஸ்ட் மற்றும் போர்ட் SSH சேவையகத்திலிருந்து அணுகக்கூடியவை என்பதைச் சரிபார்க்கவும்.
+- இலக்கு சேவை SSH சேவையகத்திலேயே இருக்கும்போது `localhost` ஐப் பயன்படுத்தவும்.
+- SSH சேவையகத்தின் பின்னால் உள்ள மற்றொரு ஹோஸ்ட்டிற்கு அனுப்பும்போது சேவையகத்தின் உள் DNS பெயர் அல்லது IP ஐப் பயன்படுத்தவும்.

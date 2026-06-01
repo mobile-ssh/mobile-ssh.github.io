@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "Memulai"
+description: "Langkah pertama untuk memasang Mobile SSH, terhubung ke server, dan menyimpan profil, kredensial, serta sesi."
 ---
 
-# Getting started
+# Memulai
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+Mobile SSH adalah klien SSH Android untuk terhubung ke server Linux, Unix, jaringan, IoT, atau pengembangan milik Anda sendiri. Anda memberikan alamat server dan kredensial; aplikasi membuka terminal SSH interaktif.
 
-## Requirements
+## Persyaratan
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 atau lebih baru.
+- Akses jaringan dari perangkat Android ke server SSH Anda.
+- Nama host atau alamat IP server SSH, port, nama pengguna, dan kata sandi atau kunci privat.
+- Akses penyimpanan jika Anda ingin menggunakan transfer berkas SFTP dengan peramban berkas lokal ponsel.
 
-## Connect to a server
+## Terhubung ke server
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. Buka Mobile SSH.
+2. Ketuk **Server Tersimpan** jika Anda sudah membuat profil, atau tambahkan server dari alur koneksi.
+3. Masukkan host, port, nama pengguna, dan detail autentikasi.
+4. Ketuk server untuk membuka sesi terminal.
+5. Gunakan **Sesi Aktif** di layar awal untuk kembali ke sesi yang masih berjalan.
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+Port SSH default adalah `22`. Jika server Anda memakai port lain, masukkan port itu di profil server.
 
-## Save servers
+## Menyimpan server
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+Server tersimpan menyimpan tujuan koneksi dan konfigurasi tunnel opsional. Server tersimpan dapat mencakup:
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- Nama host atau alamat IP.
+- Port SSH.
+- Nama pengguna.
+- Detail kata sandi atau kunci privat.
+- Aturan penerusan port lokal opsional.
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+Gunakan server tersimpan untuk host yang sering Anda akses. Jika server tersimpan menunjuk ke host yang berbeda dari sesi aktif Anda saat ini, Mobile SSH memulai koneksi baru untuk tujuan yang dipilih.
 
-## Save credentials
+## Menyimpan kredensial
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+Layar **Kredensial** menyimpan catatan nama pengguna/kata sandi atau nama pengguna/kunci privat yang dapat digunakan kembali. Kredensial tersimpan dapat dipilih dari dialog penyiapan server, sehingga Anda tidak perlu memasukkan ulang informasi login yang sama untuk setiap host.
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+Catatan kredensial disimpan secara lokal di perangkat Android. Lindungi perangkat dengan kunci layar jika Anda menyimpan kata sandi, frasa sandi, atau kunci privat.
 
-## Use private keys
+## Menggunakan kunci privat
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH mendukung kunci privat yang ditempel dan impor kunci melalui pemilih berkas Android. Implementasi aplikasi mendukung kunci Ed25519, RSA, ECDSA, dan DSA.
 
-To use a private key:
+Untuk menggunakan kunci privat:
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. Buka **Kredensial** atau dialog edit server.
+2. Tempel teks kunci privat, atau pilih **Impor dari berkas**.
+3. Masukkan frasa sandi kunci di kolom kata sandi/frasa sandi jika kunci terenkripsi.
+4. Simpan kredensial atau server.
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+Impor kunci privat menggunakan pemilih berkas Android untuk berkas kunci. Transfer berkas menggunakan peramban berkas lokal terpisah dan dapat meminta akses penyimpanan yang lebih luas pada versi Android yang lebih baru.
 
-## Recent sessions
+## Sesi terbaru
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+Layar awal menampilkan sesi terbaru. Sesi terbaru dapat terhubung kembali ke kumpulan server yang sama. Jika sesi sebelumnya masih aktif, Mobile SSH kembali ke sesi itu alih-alih memulai koneksi ganda.
 
-## Active sessions
+## Sesi aktif
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+Saat ada sesi berjalan, layar awal menampilkan **Sesi Aktif** dengan jumlahnya. Ketuk untuk kembali ke kisi terminal. Kembali ke layar awal tidak selalu memutus sesi SSH aktif; menutup panel atau mengakhiri aktivitas terminal akan memutusnya.
 
-## First useful settings
+## Pengaturan pertama yang berguna
 
-Open **Settings** from the start screen:
+Buka **Pengaturan** dari layar awal:
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- Aktifkan ketuk untuk menampilkan keyboard jika Anda ingin keyboard muncul saat mengetuk terminal.
+- Nonaktifkan saran IME jika saran keyboard mengganggu program terminal seperti Vim, less, htop, atau aplikasi tmux layar penuh.
 
-## Languages
+## Bahasa
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+Mobile SSH mengikuti bahasa sistem Android. Aplikasi disertai terjemahan untuk bahasa Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Pidgin Nigeria, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, dan Urdu. Ubah bahasa di **Pengaturan → Sistem → Bahasa** Android, bukan dari dalam aplikasi.
 
-## Security note
+## Catatan keamanan
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+Hanya terhubung ke server yang Anda percayai. Aplikasi saat ini menyimpan data koneksi secara lokal dan tidak menyediakan brankas cloud atau sinkronisasi lintas perangkat. Implementasi saat ini juga tidak menampilkan konfirmasi host yang dikenal, jadi hindari terhubung melalui jaringan tepercaya rendah ketika identitas host penting.

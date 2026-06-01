@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "ファイル転送"
+description: "ローカルファイル、リモートファイル、アップロード、ダウンロード、並べ替え、権限についての Mobile SSH SFTP ファイル転送ガイド。"
 ---
 
-# File transfer
+# ファイル転送
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH には、アクティブな SSH 接続に結び付いた SFTP ファイル転送画面があります。Android からの素早いサーバーメンテナンス向けです。設定をアップロードする、ログをダウンロードする、リモートファイルの名前を変更する、権限を確認する、といった操作をアプリを離れずに行えます。
 
-## Open file transfer
+## ファイル転送を開く
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. SSH サーバーに接続します。
+2. 接続済みのターミナルペインを選びます。
+3. ターミナルのツールバーから **転送** を開くか、現在の画面が対応していればペインのヘッダーを長押しします。
+4. ローカルペインとリモートペインのあるファイル転送画面が開きます。
 
-If there is no active SSH session, file transfer cannot open.
+アクティブな SSH セッションがない場合、ファイル転送は開けません。
 
-## Local and remote panes
+## ローカルペインとリモートペイン
 
-The file transfer screen has two browser panes:
+ファイル転送画面には 2 つの参照ペインがあります。
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **ローカルペイン：** 端末のストレージ。
+- **リモートペイン：** SFTP 経由のサーバーファイル。
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+アプリはホストごとに最近のローカルおよびリモートのパスを記憶します。並べ替え設定も両ペインについてホストごとに記憶されます。
 
-## Android storage permission
+## Android のストレージ権限
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+直接のファイル参照を制限する Android バージョンでは、ローカルペインが端末のファイルを参照する前に、Mobile SSH がストレージアクセスを求めることがあります。この権限をスキップまたは拒否しても、リモートの参照は機能する場合がありますが、ローカルのアップロード・ダウンロードのパスが制限されることがあります。
 
-Private key import is separate from file transfer and uses the Android file picker.
+秘密鍵のインポートはファイル転送とは別で、Android のファイル選択ツールを使います。
 
-## Upload files
+## ファイルをアップロードする
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. ローカルペインを開きます。
+2. アップロードしたいファイルへ移動します。
+3. アップロードを選びます。
+4. リモートの保存先を確認します。
+5. 進捗と完了は転送キューで確認します。
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+アップロードは既存の SSH/SFTP 接続を使います。接続が切れた場合は、再接続後に再試行してください。
 
-## Download files
+## ファイルをダウンロードする
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. リモートペインを開きます。
+2. ダウンロードしたいファイルへ移動します。
+3. ダウンロードを選びます。
+4. ローカルの保存先を確認します。
+5. 進捗と完了は転送キューで確認します。
 
-Large downloads should be done on a stable network when possible.
+大きなダウンロードは、可能なら安定したネットワークで行ってください。
 
-## Remote file actions
+## リモートファイルの操作
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+選択したリモート項目に応じて、Mobile SSH は次のような操作を表示できます。
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- ダウンロード。
+- 名前の変更。
+- 削除。
+- ファイルまたはディレクトリの作成。
+- テキストファイルの編集。
+- ファイルの詳細表示。
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+リモートファイルの詳細には、権限ビット、所有者、グループ、8 進数の権限値が含まれることがあります。別のプロセスやデプロイツールが管理するサーバーファイルを変更する前に、これらの詳細を確認してください。
 
-## Sorting and recent paths
+## 並べ替えと最近のパス
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+各ペインは名前または日付で昇順・降順に並べ替えられます。Mobile SSH は選択したローカルおよびリモートの並べ替え方式を最近のパスとともにホストごとに保存するため、同じサーバーへの繰り返しの転送はなじみのある場所から始まります。
 
-## Transfer queue
+## 転送キュー
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+転送はキューに入れられ、状態別に表示されます。ログ領域は、待機中・失敗・成功の転送を分けて示します。失敗した転送は、基盤の SFTP 操作が理由を提供する場合にその理由を含みます。
 
-## Practical tips
+## 実用的なヒント
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- 個別のファイル移動には SFTP を使い、大きなディレクトリの同期にはサーバー上で `rsync` などのコマンドラインツールを使ってください。
+- バックアップやデプロイのロールバック手段がない限り、稼働中の本番ファイルの編集は避けてください。
+- アップロード後にファイルが表示されない場合は、リモートペインを更新するか、保存先パスを確認してください。
+- Android のストレージアクセスがローカルの参照を妨げる場合は、Android の設定で権限を付与し、ファイル転送を開き直してください。

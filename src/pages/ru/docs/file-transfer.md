@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "Передача файлов"
+description: "Руководство по передаче файлов по SFTP в Mobile SSH: локальные файлы, удалённые файлы, загрузка, скачивание, сортировка и права доступа."
 ---
 
-# File transfer
+# Передача файлов
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+Mobile SSH включает экран передачи файлов по SFTP, привязанный к активному SSH-подключению. Он предназначен для быстрого обслуживания сервера с Android: загрузить конфигурацию, скачать журнал, переименовать удалённый файл или проверить права доступа, не выходя из приложения.
 
-## Open file transfer
+## Открытие передачи файлов
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. Подключитесь к SSH-серверу.
+2. Выберите подключённую панель терминала.
+3. Откройте **Передача** на панели инструментов терминала или нажмите и удерживайте заголовок панели, если это поддерживается текущим экраном.
+4. Откроется экран передачи файлов с локальной и удалённой панелями.
 
-If there is no active SSH session, file transfer cannot open.
+Если активной SSH-сессии нет, передача файлов открыться не может.
 
-## Local and remote panes
+## Локальная и удалённая панели
 
-The file transfer screen has two browser panes:
+Экран передачи файлов имеет две панели браузера:
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **Локальная панель:** хранилище телефона.
+- **Удалённая панель:** файлы сервера по SFTP.
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+Приложение запоминает недавние локальные и удалённые пути для каждого хоста. Настройки сортировки также запоминаются для каждого хоста для обеих панелей.
 
-## Android storage permission
+## Разрешение на доступ к хранилищу Android
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+На версиях Android, ограничивающих прямой просмотр файлов, Mobile SSH может запросить доступ к хранилищу, прежде чем локальная панель сможет просматривать файлы телефона. Если вы пропустите или отклоните это разрешение, удалённый просмотр может по-прежнему работать, но локальные пути загрузки и скачивания могут быть ограничены.
 
-Private key import is separate from file transfer and uses the Android file picker.
+Импорт закрытого ключа отделён от передачи файлов и использует файловый выбор Android.
 
-## Upload files
+## Загрузка файлов
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. Откройте локальную панель.
+2. Перейдите к файлу, который хотите загрузить.
+3. Выберите загрузку.
+4. Подтвердите удалённое назначение.
+5. Следите за очередью передачи для прогресса и завершения.
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+Загрузка использует существующее подключение SSH/SFTP. Если соединение оборвётся, повторите попытку после переподключения.
 
-## Download files
+## Скачивание файлов
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. Откройте удалённую панель.
+2. Перейдите к файлу, который хотите скачать.
+3. Выберите скачивание.
+4. Подтвердите локальное назначение.
+5. Следите за очередью передачи для прогресса и завершения.
 
-Large downloads should be done on a stable network when possible.
+Большие скачивания по возможности выполняйте в стабильной сети.
 
-## Remote file actions
+## Действия с удалёнными файлами
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+В зависимости от выбранного удалённого элемента Mobile SSH может показать действия, такие как:
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- Скачать.
+- Переименовать.
+- Удалить.
+- Создать файл или каталог.
+- Редактировать текстовый файл.
+- Просмотреть сведения о файле.
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+Сведения об удалённом файле могут включать биты прав доступа, владельца, группу и восьмеричные значения прав. Используйте эти сведения перед изменением файлов сервера, которыми управляет другой процесс или инструмент развёртывания.
 
-## Sorting and recent paths
+## Сортировка и недавние пути
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+Каждую панель можно сортировать по имени или дате по возрастанию или убыванию. Mobile SSH хранит выбранные режимы сортировки локальной и удалённой панелей для каждого хоста вместе с недавними путями, поэтому повторные передачи на тот же сервер начинаются со знакомых мест.
 
-## Transfer queue
+## Очередь передачи
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+Передачи ставятся в очередь и отображаются по статусу. Область журнала разделяет передачи в очереди, неудачные и успешные. Неудачные передачи включают причину, если базовая операция SFTP её предоставляет.
 
-## Practical tips
+## Практические советы
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- Используйте SFTP для точечного перемещения файлов; для синхронизации больших каталогов используйте инструменты командной строки, такие как `rsync`, на сервере.
+- Избегайте редактирования «живых» рабочих файлов, если у вас нет резервной копии или способа отката развёртывания.
+- Если файл не появляется после загрузки, обновите удалённую панель или проверьте путь назначения.
+- Если доступ к хранилищу Android блокирует локальный просмотр, выдайте разрешение в настройках Android и снова откройте передачу файлов.

@@ -1,76 +1,76 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux behavior, copy actions, and keyboard settings.
+title: "టర్మినల్"
+description: "Mobile SSH టర్మినల్ నియంత్రణలు, అదనపు కీలు, పేన్‌లు, స్క్రోలింగ్, tmux ప్రవర్తన, కాపీ చర్యలు మరియు కీబోర్డ్ సెట్టింగ్‌లు."
 ---
 
-# Terminal
+# టర్మినల్
 
-The Mobile SSH terminal is built for phone and tablet operation. It combines a terminal canvas, an extra key row, multi-session panes, scroll handling, and reconnection behavior.
+Mobile SSH టర్మినల్ ఫోన్ మరియు టాబ్లెట్ నిర్వహణ కోసం రూపొందించబడింది. ఇది ఒక టర్మినల్ కాన్వాస్, అదనపు కీ వరుస, బహుళ-సెషన్ పేన్‌లు, స్క్రోల్ నిర్వహణ మరియు పునఃకనెక్షన్ ప్రవర్తనను కలుపుతుంది.
 
-## Terminal basics
+## టర్మినల్ ప్రాథమికాలు
 
-- The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps up to 5000 lines.
-- Tap a pane to select it before typing.
-- Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- టర్మినల్ రంగు మద్దతు మరియు కర్సర్-కీ నిర్వహణతో xterm-శైలి ప్రవర్తనను ఉపయోగిస్తుంది.
+- స్క్రోల్‌బ్యాక్ బఫర్ గరిష్టంగా 5000 లైన్‌లను ఉంచుతుంది.
+- టైప్ చేయడానికి ముందు పేన్‌ను ఎంచుకోవడానికి దాన్ని నొక్కండి.
+- టెక్స్ట్ పరిమాణాన్ని మార్చడానికి టర్మినల్ పేన్‌ను పించ్ చేయండి. సంజ్ఞ స్థిరపడిన తర్వాత Mobile SSH రిమోట్ PTY పరిమాణాన్ని మారుస్తుంది.
+- ఫుల్‌స్క్రీన్ మోడ్‌లోకి ప్రవేశించడానికి పేన్‌పై డబుల్-ట్యాప్ చేయండి. గ్రిడ్‌కు తిరిగి రావడానికి Back ఉపయోగించండి.
 
-## Multi-session grid
+## బహుళ-సెషన్ గ్రిడ్
 
-Mobile SSH can run up to eight SSH sessions at the same time. Each session appears as a pane in the terminal grid. The pane header shows the current target or title. Tap a pane to select it, or use **+ Add Session** to start another connection.
+Mobile SSH ఒకేసారి ఎనిమిది SSH సెషన్‌ల వరకు నడపగలదు. ప్రతి సెషన్ టర్మినల్ గ్రిడ్‌లో ఒక పేన్‌గా కనిపిస్తుంది. పేన్ హెడర్ ప్రస్తుత లక్ష్యం లేదా శీర్షికను చూపుతుంది. ఎంచుకోవడానికి పేన్‌ను నొక్కండి, లేదా మరో కనెక్షన్‌ను ప్రారంభించడానికి **+ సెషన్ జోడించు** ఉపయోగించండి.
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+పేన్‌ను మూసివేయడం ఆ SSH సెషన్‌ను డిస్‌కనెక్ట్ చేస్తుంది. స్టార్ట్ స్క్రీన్‌కు తిరిగి రావడం క్రియాశీల సెషన్‌లను **క్రియాశీల సెషన్లు** ద్వారా అందుబాటులో ఉంచుతుంది.
 
-## Extra key row
+## అదనపు కీ వరుస
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+అదనపు కీ వరుస Android కీబోర్డ్‌పైన కనిపిస్తుంది మరియు టచ్ కీబోర్డ్‌లపై ఇబ్బందికరమైన టర్మినల్ కీలను అందిస్తుంది:
 
 - `ESC`
 - `TAB`
 - `CTRL`
 - `Shift`
-- Arrow keys
+- బాణం కీలు
 - `HOME`
 - `END`
 - `PGUP`
 - `PGDN`
-- Keyboard toggle
+- కీబోర్డ్ టోగుల్
 
-`CTRL` and `Shift` act as sticky modifiers for the next compatible input. For example, tap `CTRL`, then type `C` to send Ctrl-C.
+`CTRL` మరియు `Shift` తదుపరి అనుకూల ఇన్‌పుట్ కోసం స్టిక్కీ మాడిఫైయర్‌లుగా పనిచేస్తాయి. ఉదాహరణకు, `CTRL` నొక్కి, ఆపై Ctrl-C పంపడానికి `C` టైప్ చేయండి.
 
-## Keyboard behavior
+## కీబోర్డ్ ప్రవర్తన
 
-Mobile SSH has two keyboard-related settings:
+Mobile SSH లో కీబోర్డ్‌కు సంబంధించిన రెండు సెట్టింగ్‌లు ఉన్నాయి:
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
-- **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
+- **కీబోర్డ్ చూపడానికి టర్మినల్‌ను నొక్కండి:** ప్రారంభించబడితే, టర్మినల్‌ను నొక్కడం ఇన్‌పుట్ పద్ధతిని చూపమని Android‌ను అడుగుతుంది.
+- **కీబోర్డ్ సూచనలు:** ప్రారంభించబడితే, అనుకూల కీబోర్డ్‌లు షెల్ ప్రాంప్ట్‌లలో సూచనలను చూపవచ్చు. సూచనలు టర్మినల్ ప్రోగ్రామ్‌లకు ఆటంకం కలిగిస్తే దీన్ని నిలిపివేయండి.
 
-When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
+సూచనలు ప్రారంభించబడినప్పుడు, Mobile SSH కంపోజ్ అవుతున్న టెక్స్ట్‌ను పద-సరిహద్దు వరకు బఫర్ చేస్తుంది, తద్వారా రిమోట్ షెల్‌కు పంపే ముందు కీబోర్డ్ సవరణ ప్రస్తుత పదాన్ని భర్తీ చేయగలదు. కంట్రోల్ కీలు మరియు టర్మినల్ కార్డ్‌లు ఆ బఫర్‌ను దాటవేస్తాయి, కాబట్టి tmux ప్రిఫిక్స్ కమాండ్‌ల వంటి షార్ట్‌కట్‌లు వెంటనే చేరతాయి.
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+వాయిస్ ఇన్‌పుట్ (Gboard మైక్రోఫోన్ బటన్) అదే కంపోజింగ్-టెక్స్ట్ బఫర్ గుండా వెళుతుంది, కాబట్టి చెప్పిన టెక్స్ట్ అక్షరం-అక్షరంగా కాకుండా పరిష్కరించబడిన తర్వాత ఒకసారి పంపబడుతుంది.
 
-## Select, copy, share
+## ఎంచుకోండి, కాపీ చేయండి, షేర్ చేయండి
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+ఎంపిక మోడ్‌లోకి ప్రవేశించడానికి టర్మినల్ లోపల ఎక్కువసేపు నొక్కండి. ఎంపిక టూల్‌బార్ మూడు చర్యలను అందిస్తుంది:
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
-- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **కాపీ** — ఎంచుకున్న టెక్స్ట్‌ను Android క్లిప్‌బోర్డ్‌లో ఉంచుతుంది.
+- **షేర్** — ఎంచుకున్న టెక్స్ట్‌ను Android షేర్ షీట్‌కు (మెయిల్, నోట్స్, మెసేజింగ్ మొ.) పంపుతుంది.
+- **అన్నీ ఎంచుకోండి** — ఎంపికను పూర్తి కనిపించే టర్మినల్ బఫర్‌కు విస్తరిస్తుంది, ఆపై కాపీ లేదా షేర్.
 
-## Scrolling
+## స్క్రోలింగ్
 
-Mobile SSH routes scroll gestures based on terminal state:
+Mobile SSH టర్మినల్ స్థితి ఆధారంగా స్క్రోల్ సంజ్ఞలను మళ్లిస్తుంది:
 
-- In normal shell output, swiping scrolls the local scrollback buffer.
-- In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
-- In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
+- సాధారణ షెల్ అవుట్‌పుట్‌లో, స్వైప్ చేయడం లోకల్ స్క్రోల్‌బ్యాక్ బఫర్‌ను స్క్రోల్ చేస్తుంది.
+- మౌస్-మోడ్ టర్మినల్ యాప్‌లలో, స్క్రోలింగ్ మౌస్-వీల్ ఎస్కేప్ సీక్వెన్స్‌లను పంపుతుంది.
+- మౌస్ మోడ్ లేని ప్రత్యామ్నాయ-స్క్రీన్ యాప్‌లలో, చాలా tmux సెషన్‌ల వంటివి, స్క్రోలింగ్ tmux కాపీ మోడ్‌లోకి ప్రవేశించి లైన్ స్క్రోల్ కమాండ్‌లను పంపుతుంది.
 
-If you type while scrolled back, Mobile SSH returns to the live terminal view.
+మీరు వెనక్కి స్క్రోల్ చేసిన స్థితిలో టైప్ చేస్తే, Mobile SSH లైవ్ టర్మినల్ వీక్షణకు తిరిగి వస్తుంది.
 
-## tmux behavior
+## tmux ప్రవర్తన
 
-Mobile SSH observes outgoing tmux attach and new-session commands such as:
+Mobile SSH బయటకు వెళ్లే tmux attach మరియు new-session కమాండ్‌లను గమనిస్తుంది, ఉదాహరణకు:
 
 ```bash
 tmux attach -t work
@@ -78,14 +78,14 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+మీరు tmux లో ఉన్నప్పుడు కనెక్షన్ తెగిపోతే, యాప్ ఆ సర్వర్ కోసం చివరి tmux సెషన్ పేరును గుర్తుంచుకుని, పునఃకనెక్షన్ తర్వాత మళ్లీ అటాచ్ చేయడానికి ప్రయత్నించవచ్చు. స్పష్టమైన సెషన్ పేరు గమనించబడకపోయినా, మీరు ప్రత్యామ్నాయ-స్క్రీన్ tmux-వంటి సెషన్‌లో ఉన్నారని యాప్‌కు తెలిస్తే, అది సాధారణ `tmux attach` ప్రయత్నించవచ్చు.
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+ఈ ప్రవర్తన ఉత్తమ-ప్రయత్నం. రిమోట్ tmux సెషన్ ఇకపై లేకపోతే, రిమోట్ షెల్ అందుబాటులో ఉంటుంది.
 
-## Full-screen terminal programs
+## ఫుల్-స్క్రీన్ టర్మినల్ ప్రోగ్రామ్‌లు
 
-For programs such as Vim, less, htop, ncurses tools, and tmux panes:
+Vim, less, htop, ncurses సాధనాలు మరియు tmux పేన్‌ల వంటి ప్రోగ్రామ్‌ల కోసం:
 
-- Disable keyboard suggestions if the keyboard starts buffering input in a way the program does not expect.
-- Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
-- Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+- ప్రోగ్రామ్ ఊహించని విధంగా కీబోర్డ్ ఇన్‌పుట్‌ను బఫర్ చేయడం ప్రారంభిస్తే కీబోర్డ్ సూచనలను నిలిపివేయండి.
+- `ESC`, బాణాలు, `PGUP` మరియు `PGDN` కోసం అదనపు కీ వరుసను ఉపయోగించండి.
+- టెక్స్ట్ చాలా చిన్నగా ఉంటే పించ్ జూమ్ ఉపయోగించి, ఆపై రిమోట్ టర్మినల్ పరిమాణం స్థిరపడే వరకు కొద్దిసేపు వేచి ఉండండి.

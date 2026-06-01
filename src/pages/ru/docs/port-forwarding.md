@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "Проброс портов"
+description: "Синтаксис локального проброса портов в Mobile SSH и управление туннелями для Android."
 ---
 
-# Port forwarding
+# Проброс портов
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH поддерживает локальный проброс портов SSH. Локальный порт на устройстве Android слушает на `127.0.0.1` и перенаправляет трафик через SSH-подключение на удалённый хост и порт.
 
-## Saved tunnel syntax
+## Синтаксис сохранённого туннеля
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+Правила проброса портов разделяются запятыми. Каждая запись использует одну из двух форм:
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+Краткая форма:
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+Это привязывает `127.0.0.1:8080` на устройстве Android и перенаправляет на `localhost:8080` с точки зрения сервера.
 
-Full form:
+Полная форма:
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+Это привязывает `127.0.0.1:3000` на устройстве Android и перенаправляет через SSH на `localhost:3000` на удалённой стороне.
 
-Multiple forwards:
+Несколько пробросов:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## Добавление туннеля к сохранённому серверу
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. Откройте **Сохранённые серверы**.
+2. Добавьте или отредактируйте профиль сервера.
+3. Введите правила проброса в поле **Проброс портов**.
+4. Сохраните сервер.
+5. Подключитесь к серверу.
 
-The app applies saved forwards after the SSH session connects.
+Приложение применяет сохранённые пробросы после подключения SSH-сессии.
 
-## Manage active tunnels
+## Управление активными туннелями
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+В подключённом состоянии выберите сессию и откройте представление туннелей на панели инструментов терминала. Оттуда можно осмотреть активные локальные пробросы, добавить новый туннель или удалить локальный проброс.
 
-## Address binding
+## Привязка адреса
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH привязывает локальные пробросы к `127.0.0.1` на устройстве Android. Это сделано намеренно: туннель остаётся локальным для устройства и избегаются неожиданности с loopback только по IPv6. Другие приложения на том же устройстве Android могут подключаться к проброшенному локальному порту, если Android разрешает им сетевой доступ.
 
-## Common examples
+## Распространённые примеры
 
-Access a web service running on the remote server:
+Доступ к веб-сервису, работающему на удалённом сервере:
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+Затем откройте `http://127.0.0.1:8080` в браузере на устройстве Android.
 
-Access a development server:
+Доступ к серверу разработки:
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+Доступ к внутренней базе данных, доступной с SSH-сервера:
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## Устранение неполадок с туннелями
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- Убедитесь, что SSH-сессия подключена, прежде чем добавлять туннели во время работы.
+- Проверьте, что локальный порт ещё не используется.
+- Проверьте, что удалённый хост и порт достижимы с SSH-сервера.
+- Используйте `localhost`, когда служба назначения находится на самом SSH-сервере.
+- Используйте внутреннее DNS-имя или IP сервера при пробросе на другой хост за SSH-сервером.

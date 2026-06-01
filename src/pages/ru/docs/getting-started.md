@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "Начало работы"
+description: "Первые шаги по установке Mobile SSH, подключению к серверу, сохранению профилей, учётных данных и сессий."
 ---
 
-# Getting started
+# Начало работы
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+Mobile SSH — это SSH-клиент для Android для подключения к вашим собственным серверам Linux, Unix, сетевым, IoT или серверам разработки. Вы указываете адрес сервера и учётные данные, а приложение открывает интерактивный SSH-терминал.
 
-## Requirements
+## Требования
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 или новее.
+- Сетевой доступ с устройства Android к вашему SSH-серверу.
+- Имя хоста или IP-адрес SSH-сервера, порт, имя пользователя и пароль либо закрытый ключ.
+- Доступ к хранилищу, если вы хотите использовать передачу файлов по SFTP с локальным файловым браузером телефона.
 
-## Connect to a server
+## Подключение к серверу
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. Откройте Mobile SSH.
+2. Нажмите **Сохранённые серверы**, если вы уже создали профиль, или добавьте сервер в процессе подключения.
+3. Введите хост, порт, имя пользователя и данные аутентификации.
+4. Нажмите на сервер, чтобы открыть сессию терминала.
+5. Используйте **Активные сессии** на стартовом экране, чтобы вернуться к ещё работающим сессиям.
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+Стандартный порт SSH — `22`. Если ваш сервер использует другой порт, укажите его в профиле сервера.
 
-## Save servers
+## Сохранение серверов
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+Сохранённые серверы хранят цель подключения и необязательную конфигурацию туннелей. Сохранённый сервер может включать:
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- Имя хоста или IP-адрес.
+- Порт SSH.
+- Имя пользователя.
+- Данные пароля или закрытого ключа.
+- Необязательные правила локального проброса портов.
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+Используйте сохранённые серверы для хостов, к которым обращаетесь регулярно. Если сохранённый сервер указывает на другой хост, отличный от текущей активной сессии, Mobile SSH запускает новое подключение для выбранной цели.
 
-## Save credentials
+## Сохранение учётных данных
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+Экран **Учётные данные** хранит многоразовые записи «имя пользователя/пароль» или «имя пользователя/закрытый ключ». Сохранённые учётные данные можно выбрать в диалоге настройки сервера, чтобы не вводить одни и те же данные для входа для каждого хоста.
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+Записи учётных данных хранятся локально на устройстве Android. Защитите устройство блокировкой экрана, если сохраняете пароли, парольные фразы или закрытые ключи.
 
-## Use private keys
+## Использование закрытых ключей
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH поддерживает вставку закрытых ключей и их импорт через файловый выбор Android. Реализация приложения поддерживает ключи Ed25519, RSA, ECDSA и DSA.
 
-To use a private key:
+Чтобы использовать закрытый ключ:
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. Откройте **Учётные данные** или диалог редактирования сервера.
+2. Вставьте текст закрытого ключа или выберите **Импорт из файла**.
+3. Введите парольную фразу ключа в поле пароля/парольной фразы, если ключ зашифрован.
+4. Сохраните учётные данные или сервер.
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+Импорт закрытого ключа использует файловый выбор Android для файлов ключей. Передача файлов использует отдельный локальный файловый браузер и на новых версиях Android может запрашивать более широкий доступ к хранилищу.
 
-## Recent sessions
+## Недавние сессии
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+На стартовом экране отображаются недавние сессии. Недавняя сессия может переподключиться к тому же набору серверов. Если предыдущая сессия всё ещё активна, Mobile SSH возвращается к ней вместо запуска дублирующего подключения.
 
-## Active sessions
+## Активные сессии
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+Когда сессии запущены, на стартовом экране отображается **Активные сессии** со счётчиком. Нажмите, чтобы вернуться к сетке терминалов. Возврат на стартовый экран не обязательно отключает активные SSH-сессии; закрытие панелей или завершение активности терминала отключает их.
 
-## First useful settings
+## Первые полезные настройки
 
-Open **Settings** from the start screen:
+Откройте **Настройки** на стартовом экране:
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- Включите показ клавиатуры по нажатию, если предпочитаете, чтобы клавиатура появлялась при касании терминала.
+- Отключите подсказки IME, если подсказки клавиатуры мешают терминальным программам, таким как Vim, less, htop или полноэкранным приложениям tmux.
 
-## Languages
+## Языки
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+Mobile SSH следует системному языку Android. Приложение поставляется с переводами на арабский, бенгальский, китайский (упрощённый и традиционный), английский, французский, немецкий, хинди, индонезийский, японский, маратхи, нигерийский пиджин, португальский, русский, испанский, тамильский, телугу, турецкий и урду. Меняйте язык в **Настройки → Система → Языки** Android, а не внутри приложения.
 
-## Security note
+## Примечание о безопасности
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+Подключайтесь только к серверам, которым доверяете. Текущее приложение хранит сохранённые данные подключения локально и не предоставляет облачное хранилище или синхронизацию между устройствами. Текущая реализация также не показывает запрос подтверждения известного хоста, поэтому избегайте подключения через недоверенные сети, когда важна идентификация хоста.

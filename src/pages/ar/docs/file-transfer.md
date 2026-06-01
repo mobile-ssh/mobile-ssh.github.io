@@ -1,81 +1,81 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+title: "نقل الملفات"
+description: "دليل نقل الملفات عبر SFTP في Mobile SSH للملفات المحلية والبعيدة، والرفع، والتنزيل، والفرز، والأذونات."
 ---
 
-# File transfer
+# نقل الملفات
 
-Mobile SSH includes an SFTP file transfer screen tied to the active SSH connection. It is meant for quick server maintenance from Android: upload a config, download a log, rename a remote file, or inspect permissions without leaving the app.
+يتضمّن Mobile SSH شاشة نقل ملفات عبر SFTP مرتبطة باتصال SSH النشط. وهي مخصّصة لصيانة الخادم السريعة من Android: رفع ملف إعداد، أو تنزيل سجل، أو إعادة تسمية ملف بعيد، أو فحص الأذونات دون مغادرة التطبيق.
 
-## Open file transfer
+## فتح نقل الملفات
 
-1. Connect to an SSH server.
-2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
-4. The file transfer screen opens with a local pane and a remote pane.
+1. اتصل بخادم SSH.
+2. حدّد جزء الطرفية المتصل.
+3. افتح **النقل** من شريط أدوات الطرفية، أو اضغط مطوّلًا على رأس الجزء عندما تدعمه الشاشة الحالية.
+4. تُفتح شاشة نقل الملفات بجزء محلي وجزء بعيد.
 
-If there is no active SSH session, file transfer cannot open.
+إذا لم تكن هناك جلسة SSH نشطة، فلا يمكن فتح نقل الملفات.
 
-## Local and remote panes
+## الجزء المحلي والبعيد
 
-The file transfer screen has two browser panes:
+تحتوي شاشة نقل الملفات على جزأي تصفّح:
 
-- **Local pane:** phone storage.
-- **Remote pane:** server files over SFTP.
+- **الجزء المحلي:** تخزين الهاتف.
+- **الجزء البعيد:** ملفات الخادم عبر SFTP.
 
-The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
+يتذكّر التطبيق المسارات المحلية والبعيدة الأخيرة لكل مضيف. تُحفظ إعدادات الفرز أيضًا لكل مضيف ولكلا الجزأين.
 
-## Android storage permission
+## إذن التخزين في Android
 
-On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.
+في إصدارات Android التي تقيّد تصفّح الملفات المباشر، قد يطلب Mobile SSH الوصول إلى التخزين قبل أن يتمكّن الجزء المحلي من تصفّح ملفات الهاتف. إذا تخطّيت هذا الإذن أو رفضته، فقد يستمر التصفّح البعيد في العمل، لكن قد تكون مسارات الرفع والتنزيل المحلية محدودة.
 
-Private key import is separate from file transfer and uses the Android file picker.
+استيراد المفتاح الخاص منفصل عن نقل الملفات ويستخدم منتقي ملفات Android.
 
-## Upload files
+## رفع الملفات
 
-1. Open the local pane.
-2. Navigate to the file you want to upload.
-3. Choose upload.
-4. Confirm the remote destination.
-5. Watch the transfer queue for progress and completion.
+1. افتح الجزء المحلي.
+2. انتقل إلى الملف الذي تريد رفعه.
+3. اختر الرفع.
+4. أكِّد الوجهة البعيدة.
+5. راقب قائمة انتظار النقل لمعرفة التقدّم والاكتمال.
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+تستخدم عمليات الرفع اتصال SSH/SFTP الحالي. إذا انقطع الاتصال، أعِد المحاولة بعد إعادة الاتصال.
 
-## Download files
+## تنزيل الملفات
 
-1. Open the remote pane.
-2. Navigate to the file you want to download.
-3. Choose download.
-4. Confirm the local destination.
-5. Watch the transfer queue for progress and completion.
+1. افتح الجزء البعيد.
+2. انتقل إلى الملف الذي تريد تنزيله.
+3. اختر التنزيل.
+4. أكِّد الوجهة المحلية.
+5. راقب قائمة انتظار النقل لمعرفة التقدّم والاكتمال.
 
-Large downloads should be done on a stable network when possible.
+يُفضّل إجراء التنزيلات الكبيرة على شبكة مستقرّة عند الإمكان.
 
-## Remote file actions
+## إجراءات الملفات البعيدة
 
-Depending on the selected remote item, Mobile SSH can show actions such as:
+بحسب العنصر البعيد المحدّد، قد يعرض Mobile SSH إجراءات مثل:
 
-- Download.
-- Rename.
-- Delete.
-- Create file or directory.
-- Edit text file.
-- View file details.
+- التنزيل.
+- إعادة التسمية.
+- الحذف.
+- إنشاء ملف أو دليل.
+- تحرير ملف نصي.
+- عرض تفاصيل الملف.
 
-Remote file details can include permission bits, owner, group, and octal permission values. Use these details before changing server files that are managed by another process or deployment tool.
+قد تتضمّن تفاصيل الملف البعيد بتات الأذونات، والمالك، والمجموعة، وقيم الأذونات الثُمانية. استخدم هذه التفاصيل قبل تغيير ملفات الخادم التي تديرها عملية أخرى أو أداة نشر.
 
-## Sorting and recent paths
+## الفرز والمسارات الأخيرة
 
-Each pane can sort by name or date in ascending or descending order. Mobile SSH stores the selected local and remote sort modes per host, along with recent paths, so repeated transfers to the same server start from familiar locations.
+يمكن لكل جزء الفرز بالاسم أو التاريخ تصاعديًا أو تنازليًا. يخزّن Mobile SSH وضعَي الفرز المحلي والبعيد المحدّدين لكل مضيف، مع المسارات الأخيرة، بحيث تبدأ عمليات النقل المتكررة إلى الخادم نفسه من أماكن مألوفة.
 
-## Transfer queue
+## قائمة انتظار النقل
 
-Transfers are queued and displayed by status. The log area separates queued, failed, and successful transfers. Failed transfers include a reason when the underlying SFTP operation provides one.
+تُوضَع عمليات النقل في قائمة انتظار وتُعرَض حسب الحالة. تفصل منطقة السجل بين عمليات النقل المنتظرة والفاشلة والناجحة. تتضمّن عمليات النقل الفاشلة سببًا عندما توفّره عملية SFTP الأساسية.
 
-## Practical tips
+## نصائح عملية
 
-- Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
-- Avoid editing live production files unless you have a backup or deployment rollback path.
-- If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If Android storage access blocks local browsing, grant the permission from Android Settings and reopen file transfer.
+- استخدم SFTP لنقل ملفات محدّدة؛ واستخدم أدوات سطر الأوامر مثل `rsync` على الخادم لمزامنة الأدلة الكبيرة.
+- تجنّب تحرير ملفات الإنتاج الحيّة ما لم يكن لديك نسخة احتياطية أو مسار تراجع للنشر.
+- إذا لم يظهر ملف بعد الرفع، فحدّث الجزء البعيد أو تحقّق من مسار الوجهة.
+- إذا منع وصول التخزين في Android التصفّح المحلي، فامنح الإذن من إعدادات Android وأعِد فتح نقل الملفات.

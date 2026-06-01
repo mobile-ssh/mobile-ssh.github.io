@@ -1,80 +1,80 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Getting started
-description: First steps for installing Mobile SSH, connecting to a server, saving profiles, credentials, and sessions.
+title: "開始使用"
+description: "安裝 Mobile SSH、連線伺服器，以及儲存設定檔、憑證同工作階段嘅第一步。"
 ---
 
-# Getting started
+# 開始使用
 
-Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, network, IoT, or development servers. You provide the server address and credentials; the app opens an interactive SSH terminal.
+Mobile SSH 係一款 Android SSH 用戶端，用�嚟連線你自己嘅 Linux、Unix、網絡、IoT 或開發伺服器。你提供伺服器位址同憑證，應用程式就會開一個互動式 SSH 終端機。
 
-## Requirements
+## 需求
 
-- Android 8.0 or newer.
-- Network access from the Android device to your SSH server.
-- SSH server hostname or IP address, port, username, and either a password or private key.
-- Storage access if you want to use SFTP file transfer with the local phone file browser.
+- Android 8.0 或更新版本。
+- Android 裝置可以連到你嘅 SSH 伺服器嘅網絡。
+- SSH 伺服器嘅主機名稱或 IP 位址、連接埠、用戶名，以及密碼或私鑰。
+- 如果你想用帶本機手機檔案瀏覽器嘅 SFTP 檔案傳輸，就需要儲存權限。
 
-## Connect to a server
+## 連線到伺服器
 
-1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
-4. Tap the server to open a terminal session.
-5. Use **Active Sessions** on the start screen to return to sessions that are still running.
+1. 開啟 Mobile SSH。
+2. 如果你已經建立咗設定檔，撳 **已儲存伺服器**；或者喺連線流程入面新增伺服器。
+3. 輸入主機、連接埠、用戶名同驗證資料。
+4. 撳伺服器去開啟終端機工作階段。
+5. 喺起始畫面用 **使用中工作階段** 返去仍然執行緊嘅工作階段。
 
-The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
+預設 SSH 連接埠係 `22`。如果你嘅伺服器用其他連接埠，喺伺服器設定檔入面填返個連接埠。
 
-## Save servers
+## 儲存伺服器
 
-Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
+已儲存伺服器會保留連線目標同可選嘅通道設定。一個已儲存伺服器可以包含：
 
-- Hostname or IP address.
-- SSH port.
-- Username.
-- Password or private key details.
-- Optional local port-forwarding rules.
+- 主機名稱或 IP 位址。
+- SSH 連接埠。
+- 用戶名。
+- 密碼或私鑰資料。
+- 可選嘅本機連接埠轉發規則。
 
-Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+對你經常存取嘅主機用已儲存伺服器。如果某個已儲存伺服器指向同你目前使用中工作階段唔同嘅主機，Mobile SSH 會為所選目標開一個新連線。
 
-## Save credentials
+## 儲存憑證
 
-The **Credentials** screen stores reusable username/password or username/private-key records. Saved credentials can be selected from the server setup dialog so you do not re-enter the same login material for every host.
+**憑證** 畫面會儲存可重用嘅用戶名/密碼或用戶名/私鑰記錄。你可以喺伺服器設定對話框揀返已儲存嘅憑證，咁就唔使為每部主機重複輸入相同嘅登入資料。
 
-Credential records are stored locally on the Android device. Protect the device with a screen lock if you save passwords, passphrases, or private keys.
+憑證記錄儲存喺 Android 裝置本機。如果你儲存密碼、密鑰口令或私鑰，請用螢幕鎖保護部裝置。
 
-## Use private keys
+## 使用私鑰
 
-Mobile SSH supports pasted private keys and key import through the Android file picker. The app implementation supports Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH 支援貼上私鑰，同埋透過 Android 檔案選擇器匯入金鑰。應用程式實作支援 Ed25519、RSA、ECDSA 同 DSA 金鑰。
 
-To use a private key:
+使用私鑰嘅方法：
 
-1. Open **Credentials** or the server edit dialog.
-2. Paste the private key text, or choose **Import from file**.
-3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
-4. Save the credential or server.
+1. 開啟 **憑證** 或伺服器編輯對話框。
+2. 貼上私鑰文字，或者揀 **由檔案匯入**。
+3. 如果金鑰已加密，喺密碼/口令欄位輸入金鑰口令。
+4. 儲存憑證或伺服器。
 
-Private key import uses Android's file picker for key files. File transfer uses a separate local file browser and may request broader storage access on newer Android versions.
+私鑰匯入用 Android 檔案選擇器揀金鑰檔案。檔案傳輸用另一個本機檔案瀏覽器，喺較新嘅 Android 版本可能會要求更廣嘅儲存權限。
 
-## Recent sessions
+## 最近工作階段
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+起始畫面會顯示最近工作階段。最近工作階段可以重新連線到同一組伺服器。如果上一個工作階段仍然使用緊，Mobile SSH 會返去嗰個，而唔係開一個重複嘅連線。
 
-## Active sessions
+## 使用中工作階段
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+當有工作階段執行緊，起始畫面會顯示帶計數嘅 **使用中工作階段**。撳佢返去終端機格網。返起始畫面唔一定會中斷使用中嘅 SSH 工作階段；關閉窗格或結束終端機活動先會中斷佢哋。
 
-## First useful settings
+## 最先有用嘅設定
 
-Open **Settings** from the start screen:
+喺起始畫面開啟 **設定**：
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- 如果你想撳終端機時彈出鍵盤，請啟用撳一下顯示鍵盤。
+- 如果鍵盤建議干擾到 Vim、less、htop 或全螢幕 tmux 等終端機程式，請關閉輸入法建議。
 
-## Languages
+## 語言
 
-Mobile SSH follows the Android system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** rather than from inside the app.
+Mobile SSH 跟隨 Android 系統語言。應用程式附帶阿拉伯文、孟加拉文、中文（簡體同繁體）、英文、法文、德文、印地文、印尼文、日文、馬拉地文、尼日利亞皮欽語、葡萄牙文、俄文、西班牙文、坦米爾文、泰盧固文、土耳其文同烏爾都文嘅翻譯。請喺 Android 嘅 **設定 → 系統 → 語言** 更改語言，而唔係喺應用程式入面改。
 
-## Security note
+## 安全提示
 
-Only connect to servers you trust. The current app stores saved connection data locally and does not provide a cloud vault or cross-device sync. The current implementation also does not present a known-host confirmation prompt, so avoid connecting over untrusted networks when host identity matters.
+只連線你信任嘅伺服器。目前嘅應用程式將已儲存嘅連線資料存喺本機，唔提供雲端保險庫或跨裝置同步。目前嘅實作亦唔會顯示已知主機確認提示，所以當主機身分重要嗰陣，請避免透過唔可信嘅網絡連線。

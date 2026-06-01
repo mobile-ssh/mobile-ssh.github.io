@@ -1,88 +1,88 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+title: "Redirection de ports"
+description: "Syntaxe de redirection de ports local de Mobile SSH et gestion des tunnels pour Android."
 ---
 
-# Port forwarding
+# Redirection de ports
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH prend en charge la redirection de ports SSH local. Un port local sur l'appareil Android écoute sur `127.0.0.1` et redirige le trafic via la connexion SSH vers un hôte et un port distants.
 
-## Saved tunnel syntax
+## Syntaxe du tunnel enregistré
 
-Port-forwarding rules are comma-separated. Each entry uses one of two forms:
+Les règles de redirection de ports sont séparées par des virgules. Chaque entrée utilise l'une des deux formes :
 
 ```text
 PORT
 LOCAL:REMOTEHOST:REMOTE
 ```
 
-Short form:
+Forme courte :
 
 ```text
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+Cela lie `127.0.0.1:8080` sur l'appareil Android et le redirige vers `localhost:8080` du point de vue du serveur.
 
-Full form:
+Forme complète :
 
 ```text
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+Cela lie `127.0.0.1:3000` sur l'appareil Android et le redirige via SSH vers `localhost:3000` du côté distant.
 
-Multiple forwards:
+Plusieurs redirections :
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
 ```
 
-## Add a tunnel to a saved server
+## Ajouter un tunnel à un serveur enregistré
 
-1. Open **Saved Servers**.
-2. Add or edit a server profile.
-3. Enter the forwarding rules in **Port forwards**.
-4. Save the server.
-5. Connect to the server.
+1. Ouvrez **Serveurs enregistrés**.
+2. Ajoutez ou modifiez un profil de serveur.
+3. Saisissez les règles de redirection dans **Redirection de ports**.
+4. Enregistrez le serveur.
+5. Connectez-vous au serveur.
 
-The app applies saved forwards after the SSH session connects.
+L'app applique les redirections enregistrées une fois la session SSH connectée.
 
-## Manage active tunnels
+## Gérer les tunnels actifs
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+Une fois connecté, sélectionnez la session et ouvrez la vue des tunnels depuis la barre d'outils du terminal. De là, vous pouvez inspecter les redirections locales actives, ajouter un nouveau tunnel ou supprimer une redirection locale.
 
-## Address binding
+## Liaison d'adresse
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH lie les redirections locales à `127.0.0.1` sur l'appareil Android. C'est intentionnel : cela garde le tunnel local à l'appareil et évite les surprises de loopback IPv6 uniquement. D'autres apps sur le même appareil Android peuvent se connecter au port local redirigé si Android autorise leur accès réseau.
 
-## Common examples
+## Exemples courants
 
-Access a web service running on the remote server:
+Accéder à un service web exécuté sur le serveur distant :
 
 ```text
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+Puis ouvrez `http://127.0.0.1:8080` depuis un navigateur sur l'appareil Android.
 
-Access a development server:
+Accéder à un serveur de développement :
 
 ```text
 3000:localhost:3000
 ```
 
-Access an internal database reachable from the SSH server:
+Accéder à une base de données interne joignable depuis le serveur SSH :
 
 ```text
 15432:db.internal:5432
 ```
 
-## Troubleshooting tunnels
+## Dépannage des tunnels
 
-- Make sure the SSH session is connected before adding runtime tunnels.
-- Check that the local port is not already in use.
-- Check that the remote host and port are reachable from the SSH server.
-- Use `localhost` when the destination service is on the SSH server itself.
-- Use the server's internal DNS name or IP when forwarding to another host behind the SSH server.
+- Assurez-vous que la session SSH est connectée avant d'ajouter des tunnels à l'exécution.
+- Vérifiez que le port local n'est pas déjà utilisé.
+- Vérifiez que l'hôte et le port distants sont joignables depuis le serveur SSH.
+- Utilisez `localhost` lorsque le service de destination est sur le serveur SSH lui-même.
+- Utilisez le nom DNS interne ou l'IP du serveur lors d'une redirection vers un autre hôte derrière le serveur SSH.

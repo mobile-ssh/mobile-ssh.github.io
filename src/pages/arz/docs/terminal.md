@@ -1,76 +1,76 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux behavior, copy actions, and keyboard settings.
+title: "الطرفية"
+description: "عناصر تحكم طرفية Mobile SSH، المفاتيح الإضافية، الأجزاء، التمرير، سلوك tmux، إجراءات النسخ، وإعدادات لوحة المفاتيح."
 ---
 
-# Terminal
+# الطرفية
 
-The Mobile SSH terminal is built for phone and tablet operation. It combines a terminal canvas, an extra key row, multi-session panes, scroll handling, and reconnection behavior.
+طرفية Mobile SSH متعملة علشان الشغل على الموبايل والتابلت. بتجمع بين مساحة الطرفية، وصف المفاتيح الإضافية، وأجزاء الجلسات المتعددة، ومعالجة التمرير، وسلوك إعادة الاتصال.
 
-## Terminal basics
+## أساسيات الطرفية
 
-- The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps up to 5000 lines.
-- Tap a pane to select it before typing.
-- Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- الطرفية بتستخدم سلوك بنمط xterm مع دعم الألوان ومعالجة مفاتيح المؤشّر.
+- مخزّن التمرير بيحتفظ بحد أقصى 5000 سطر.
+- اضغط على جزء علشان تختاره قبل ما تكتب.
+- اقرص جزء الطرفية علشان تغيّر حجم النص. Mobile SSH بيعيد تحجيم الـ PTY البعيد بعد ما الإيماءة تستقر.
+- اضغط مرتين على جزء علشان تدخل وضع ملء الشاشة. استخدم زر الرجوع علشان ترجع للشبكة.
 
-## Multi-session grid
+## شبكة الجلسات المتعددة
 
-Mobile SSH can run up to eight SSH sessions at the same time. Each session appears as a pane in the terminal grid. The pane header shows the current target or title. Tap a pane to select it, or use **+ Add Session** to start another connection.
+Mobile SSH يقدر يشغّل لحد ثماني جلسات SSH في نفس الوقت. كل جلسة بتظهر كجزء في شبكة الطرفيات. رأس الجزء بيعرض الوجهة أو العنوان الحالي. اضغط على جزء علشان تختاره، أو استخدم **+ إضافة جلسة** علشان تبدأ اتصال تاني.
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+قفل جزء بيقطع جلسة SSH دي. الرجوع للشاشة الرئيسية بيخلي الجلسات النشطة متاحة عبر **الجلسات النشطة**.
 
-## Extra key row
+## صف المفاتيح الإضافية
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+صف المفاتيح الإضافية بيظهر فوق لوحة مفاتيح Android وبيوفّر مفاتيح طرفية صعب استخدامها على لوحات اللمس:
 
 - `ESC`
 - `TAB`
 - `CTRL`
 - `Shift`
-- Arrow keys
+- مفاتيح الأسهم
 - `HOME`
 - `END`
 - `PGUP`
 - `PGDN`
-- Keyboard toggle
+- تبديل لوحة المفاتيح
 
-`CTRL` and `Shift` act as sticky modifiers for the next compatible input. For example, tap `CTRL`, then type `C` to send Ctrl-C.
+`CTRL` و`Shift` بيشتغلوا كمعدِّلَين لاصقَين للإدخال المتوافق اللي بعده. مثلًا، اضغط `CTRL` وبعدين اكتب `C` علشان تبعت Ctrl-C.
 
-## Keyboard behavior
+## سلوك لوحة المفاتيح
 
-Mobile SSH has two keyboard-related settings:
+في Mobile SSH إعدادين متعلقين بلوحة المفاتيح:
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
-- **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
+- **اللمس على الطرفية لإظهار لوحة المفاتيح:** لما يكون مفعّل، لمس الطرفية بيطلب من Android إظهار طريقة الإدخال.
+- **اقتراحات لوحة المفاتيح:** لما تكون مفعّلة، اللوحات المتوافقة تقدر تعرض اقتراحات عند موجّهات الصدفة. عطّل ده لو الاقتراحات بتتعارض مع برامج الطرفية.
 
-When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
+لما الاقتراحات تكون مفعّلة، Mobile SSH بيخزّن النص اللي بيتكتب لحد حدّ الكلمة، علشان تصحيح لوحة المفاتيح يقدر يستبدل الكلمة الحالية قبل ما تتبعت للصدفة البعيدة. مفاتيح التحكم وتوليفات الطرفية بتتخطّى المخزّن ده، علشان اختصارات زي أوامر بادئة tmux توصل بسرعة.
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+الإدخال الصوتي (زر ميكروفون Gboard) بيعدّي من نفس مخزّن النص، فالكلام المُملى بيتبعت بعد ما يتحدّد مش حرف حرف.
 
-## Select, copy, share
+## التحديد والنسخ والمشاركة
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+اضغط مطوّل جوّه الطرفية علشان تدخل وضع التحديد. شريط التحديد بيوفّر ثلاثة إجراءات:
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
-- **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **نسخ** — بيحط النص المحدد في حافظة Android.
+- **مشاركة** — بيمرّر النص المحدد لورقة مشاركة Android (البريد، الملاحظات، المراسلة، إلخ).
+- **تحديد الكل** — بيوسّع التحديد لكامل مخزّن الطرفية الظاهر، وبعدين انسخ أو شارك.
 
-## Scrolling
+## التمرير
 
-Mobile SSH routes scroll gestures based on terminal state:
+Mobile SSH بيوجّه إيماءات التمرير حسب حالة الطرفية:
 
-- In normal shell output, swiping scrolls the local scrollback buffer.
-- In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
-- In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
+- في خرج الصدفة العادي، السحب بيمرّر مخزّن التمرير المحلي.
+- في تطبيقات الطرفية بوضع الفأرة، التمرير بيبعت تسلسلات هروب عجلة الفأرة.
+- في تطبيقات الشاشة البديلة من غير وضع فأرة، زي كتير من جلسات tmux، التمرير بيدخل وضع نسخ tmux وبيبعت أوامر تمرير بالأسطر.
 
-If you type while scrolled back, Mobile SSH returns to the live terminal view.
+لو كتبت وإنت ماسك التمرير لفوق، Mobile SSH بيرجع لعرض الطرفية المباشر.
 
-## tmux behavior
+## سلوك tmux
 
-Mobile SSH observes outgoing tmux attach and new-session commands such as:
+Mobile SSH بيراقب أوامر tmux الصادرة للإرفاق وإنشاء جلسة جديدة، زي:
 
 ```bash
 tmux attach -t work
@@ -78,14 +78,14 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+لما الاتصال يقطع وإنت في tmux، التطبيق ممكن يفتكر اسم آخر جلسة tmux للسيرفر ده ويحاول يعيد الإرفاق بعد إعادة الاتصال. لو مافيش اسم جلسة صريح اتلاحظ بس التطبيق عارف إنك كنت في جلسة شبيهة بـ tmux بشاشة بديلة، ممكن يجرّب `tmux attach` عام.
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+السلوك ده بأفضل جهد. لو جلسة tmux البعيدة مابقتش موجودة، الصدفة البعيدة بتفضل متاحة.
 
-## Full-screen terminal programs
+## برامج الطرفية بملء الشاشة
 
-For programs such as Vim, less, htop, ncurses tools, and tmux panes:
+لبرامج زي Vim وless وhtop وأدوات ncurses وأجزاء tmux:
 
-- Disable keyboard suggestions if the keyboard starts buffering input in a way the program does not expect.
-- Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
-- Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+- عطّل اقتراحات لوحة المفاتيح لو اللوحة بدأت تخزّن الإدخال بطريقة البرنامج مش متوقّعها.
+- استخدم صف المفاتيح الإضافية لـ `ESC` والأسهم و`PGUP` و`PGDN`.
+- استخدم التكبير بالقرص لو النص صغير قوي، وبعدين استنى شوية لحد ما حجم الطرفية البعيدة يستقر.
