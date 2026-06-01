@@ -78,7 +78,9 @@ export const pcm: Dict = {
       "Single-session SSH terminal for phone, wit di extra key row down.",
       "Two stacked SSH session for phone, di active pane dey highlight.",
       "SFTP file transfer screen for phone, wit My Phone and Remote Host panes.",
-      "About dialog for phone, dey show version, author, license and website fields."
+      "About dialog for phone, dey show version, author, license and website fields.",
+      "Generate SSH Key dialog for phone wit label, user, key type, an passphrase fields.",
+      "Public Key dialog for phone wey dey show di key wey dem make wit copy, share, an save options."
     ],
     compareHead: "Where e stand next to Termux and Termius",
     compareIntro:

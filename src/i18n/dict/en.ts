@@ -79,7 +79,9 @@ export const en: Dict = {
       "Single-session SSH terminal on a phone with the extra key row at the bottom.",
       "Two stacked SSH sessions on a phone with the active pane highlighted.",
       "SFTP file transfer screen on a phone with local My Phone and Remote Host panes.",
-      "About dialog on a phone showing version, author, license, and website fields."
+      "About dialog on a phone showing version, author, license, and website fields.",
+      "Generate SSH Key dialog on a phone with label, user, key type, and passphrase fields.",
+      "Public Key dialog on a phone showing the generated key with copy, share, and save options."
     ],
     compareHead: "How it fits beside Termux and Termius",
     compareIntro:

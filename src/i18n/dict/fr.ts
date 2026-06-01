@@ -78,7 +78,9 @@ export const fr: Dict = {
       "Terminal SSH mono-session sur un téléphone avec la rangée de touches supplémentaires en bas.",
       "Deux sessions SSH empilées sur un téléphone avec le panneau actif mis en évidence.",
       "Écran de transfert SFTP sur un téléphone avec les panneaux Mon téléphone et Hôte distant.",
-      "Boîte de dialogue À propos sur un téléphone montrant la version, l'auteur, la licence et le site web."
+      "Boîte de dialogue À propos sur un téléphone montrant la version, l'auteur, la licence et le site web.",
+      "Boîte de dialogue Générer une clé SSH sur un téléphone avec les champs libellé, utilisateur, type de clé et phrase secrète.",
+      "Boîte de dialogue Clé publique sur un téléphone affichant la clé générée avec des options copier, partager et enregistrer."
     ],
     compareHead: "Sa place à côté de Termux et Termius",
     compareIntro:

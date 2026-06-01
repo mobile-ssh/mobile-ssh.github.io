@@ -78,7 +78,9 @@ export const tr: Dict = {
       "Bir telefonda tek oturumlu SSH terminali; en altta ek tuş satırı.",
       "Bir telefonda üst üste iki SSH oturumu; aktif panel vurgulu.",
       "Bir telefonda SFTP dosya aktarımı ekranı; Telefonum ve Uzak Sunucu panelleri.",
-      "Bir telefonda Hakkında iletişim kutusu; sürüm, yazar, lisans ve web sitesi alanları."
+      "Bir telefonda Hakkında iletişim kutusu; sürüm, yazar, lisans ve web sitesi alanları.",
+      "Telefonda etiket, kullanıcı, anahtar türü ve parola alanlarını içeren SSH Anahtarı Oluştur iletişim kutusu.",
+      "Telefonda oluşturulan anahtarı kopyalama, paylaşma ve kaydetme seçenekleriyle gösteren Genel Anahtar iletişim kutusu."
     ],
     compareHead: "Termux ve Termius yanında yeri",
     compareIntro:

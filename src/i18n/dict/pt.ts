@@ -78,7 +78,9 @@ export const pt: Dict = {
       "Terminal SSH de sessão única em um celular com a linha extra de teclas embaixo.",
       "Duas sessões SSH empilhadas em um celular com o painel ativo destacado.",
       "Tela de transferência SFTP em um celular com os painéis Meu telefone e Host remoto.",
-      "Diálogo Sobre em um celular mostrando versão, autor, licença e site."
+      "Diálogo Sobre em um celular mostrando versão, autor, licença e site.",
+      "Diálogo Gerar chave SSH em um telefone com campos de rótulo, usuário, tipo de chave e frase secreta.",
+      "Diálogo Chave pública em um telefone mostrando a chave gerada com opções de copiar, compartilhar e salvar."
     ],
     compareHead: "Seu lugar ao lado de Termux e Termius",
     compareIntro:

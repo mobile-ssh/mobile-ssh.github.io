@@ -15,7 +15,9 @@ const galleryShots = [
   "/assets/screenshots/phone-03-terminal.png",
   "/assets/screenshots/phone-multi-01-2panes.png",
   "/assets/screenshots/phone-05-transfer.png",
-  "/assets/screenshots/phone-06-about.png"
+  "/assets/screenshots/phone-06-about.png",
+  "/assets/screenshots/phone-07-keygen.png",
+  "/assets/screenshots/phone-08-pubkey.png"
 ];
 ---
 
@@ -34,7 +36,7 @@ const galleryShots = [
           </div>
         </div>
         <div class="hero-shot">
-          <img src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="280" height="628" />
+          <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="280" height="628" />
         </div>
       </div>
     </section>
@@ -81,7 +83,7 @@ const galleryShots = [
           <p>{t.home.multiP2}</p>
         </div>
         <div class="device-shot tablet-shot">
-          <img src="/assets/screenshots/tab10-multi-01-4panes.png" alt={t.home.multiAlt} loading="lazy" />
+          <img class="zoomable" src="/assets/screenshots/tab10-multi-01-4panes.png" alt={t.home.multiAlt} loading="lazy" />
         </div>
       </div>
     </section>
@@ -89,7 +91,7 @@ const galleryShots = [
     <section class="section alt">
       <div class="section-inner mockup-band">
         <div class="device-shot phone-shot">
-          <img src="/assets/screenshots/phone-05-transfer.png" alt={t.home.sftpAlt} loading="lazy" />
+          <img class="zoomable" src="/assets/screenshots/phone-05-transfer.png" alt={t.home.sftpAlt} loading="lazy" />
         </div>
         <div>
           <h2>{t.home.sftpHead}</h2>
@@ -111,7 +113,7 @@ const galleryShots = [
         <div class="phone-gallery">
           {galleryShots.map((src, i) => (
             <figure class="device-shot phone-shot">
-              <img src={src} alt={t.home.galleryAlts[i]} loading="lazy" />
+              <img class="zoomable" src={src} alt={t.home.galleryAlts[i]} loading="lazy" />
             </figure>
           ))}
         </div>
@@ -137,4 +139,118 @@ const galleryShots = [
       </div>
     </section>
   </main>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" type="button" aria-label="Close">×</button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous">‹</button>
+    <img class="lightbox-img" src="" alt="" />
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="Next">›</button>
+  </div>
 </BaseLayout>
+
+<style>
+  img.zoomable { cursor: zoom-in; }
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 4vw;
+    background: rgba(0, 0, 0, 0.88);
+    cursor: zoom-out;
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.55);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    line-height: 1;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  .lightbox-nav:hover { background: rgba(0, 0, 0, 0.7); }
+  .lightbox-prev { left: 1.25rem; }
+  .lightbox-next { right: 1.25rem; }
+  @media (max-width: 600px) {
+    .lightbox-nav { font-size: 2.2rem; width: 2.5rem; height: 2.5rem; }
+    .lightbox-prev { left: 0.4rem; }
+    .lightbox-next { right: 0.4rem; }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const box = document.getElementById("lightbox");
+    if (!box) return;
+    const img = box.querySelector(".lightbox-img");
+    const btnPrev = box.querySelector(".lightbox-prev");
+    const btnNext = box.querySelector(".lightbox-next");
+    const btnClose = box.querySelector(".lightbox-close");
+    const items = Array.from(document.querySelectorAll("img.zoomable"));
+    let index = 0;
+
+    const show = (i) => {
+      index = (i + items.length) % items.length;
+      const el = items[index];
+      img.src = el.currentSrc || el.src;
+      img.alt = el.alt || "";
+    };
+    const open = (i) => {
+      show(i);
+      box.hidden = false;
+      document.body.style.overflow = "hidden";
+    };
+    const close = () => {
+      box.hidden = true;
+      img.src = "";
+      document.body.style.overflow = "";
+    };
+    const prev = () => show(index - 1);
+    const next = () => show(index + 1);
+
+    items.forEach((el, i) => {
+      el.addEventListener("click", () => open(i));
+    });
+    // Clicking the backdrop closes; clicks on the image or controls do not.
+    box.addEventListener("click", close);
+    img.addEventListener("click", (e) => e.stopPropagation());
+    btnPrev.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
+    btnNext.addEventListener("click", (e) => { e.stopPropagation(); next(); });
+    btnClose.addEventListener("click", (e) => { e.stopPropagation(); close(); });
+    document.addEventListener("keydown", (e) => {
+      if (box.hidden) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+    });
+  })();
+</script>
