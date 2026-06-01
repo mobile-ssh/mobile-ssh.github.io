@@ -110,12 +110,25 @@ const galleryShots = [
           <h2>{t.home.galleryHead}</h2>
           <p>{t.home.galleryIntro}</p>
         </div>
-        <div class="phone-gallery">
-          {galleryShots.map((src, i) => (
-            <figure class="device-shot phone-shot">
-              <img class="zoomable" src={src} alt={t.home.galleryAlts[i]} loading="lazy" />
-            </figure>
-          ))}
+        <div class="carousel" id="shot-carousel">
+          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous screenshot">‹</button>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              {galleryShots.map((src, i) => (
+                <figure class="carousel-slide">
+                  <div class="device-shot phone-shot">
+                    <img class="zoomable" src={src} alt={t.home.galleryAlts[i]} loading="lazy" />
+                  </div>
+                </figure>
+              ))}
+            </div>
+          </div>
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Next screenshot">›</button>
+          <div class="carousel-dots">
+            {galleryShots.map((_, i) => (
+              <button class="carousel-dot" type="button" data-index={i} aria-label={`Go to screenshot ${i + 1}`}></button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -205,6 +218,73 @@ const galleryShots = [
     .lightbox-prev { left: 0.4rem; }
     .lightbox-next { right: 0.4rem; }
   }
+
+  /* Inline screenshot carousel */
+  .carousel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.35s ease;
+    will-change: transform;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  .carousel-slide .phone-shot {
+    max-width: 300px;
+  }
+  .carousel-arrow {
+    background: rgba(0, 0, 0, 0.08);
+    border: none;
+    color: inherit;
+    font-size: 2.4rem;
+    line-height: 1;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    user-select: none;
+  }
+  .carousel-arrow:hover { background: rgba(0, 0, 0, 0.18); }
+  .carousel-dots {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .carousel-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+  }
+  .carousel-dot[aria-current="true"] { background: #2196f3; }
+  @media (max-width: 600px) {
+    .carousel-arrow { font-size: 1.8rem; width: 2.2rem; height: 2.2rem; }
+  }
 </style>
 
 <script is:inline>
@@ -252,5 +332,39 @@ const galleryShots = [
       else if (e.key === "ArrowLeft") prev();
       else if (e.key === "ArrowRight") next();
     });
+  })();
+</script>
+
+<script is:inline>
+  (() => {
+    const root = document.getElementById("shot-carousel");
+    if (!root) return;
+    const track = root.querySelector(".carousel-track");
+    const slides = Array.from(root.querySelectorAll(".carousel-slide"));
+    const dots = Array.from(root.querySelectorAll(".carousel-dot"));
+    let i = 0;
+
+    const render = () => {
+      track.style.transform = `translateX(${-i * 100}%)`;
+      dots.forEach((d, n) => d.setAttribute("aria-current", n === i ? "true" : "false"));
+    };
+    const go = (n) => { i = (n + slides.length) % slides.length; render(); };
+
+    root.querySelector(".carousel-prev").addEventListener("click", () => go(i - 1));
+    root.querySelector(".carousel-next").addEventListener("click", () => go(i + 1));
+    dots.forEach((d, n) => d.addEventListener("click", () => go(n)));
+
+    // Swipe on touch devices.
+    let startX = null;
+    const vp = root.querySelector(".carousel-viewport");
+    vp.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    vp.addEventListener("touchend", (e) => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(dx < 0 ? i + 1 : i - 1);
+      startX = null;
+    });
+
+    render();
   })();
 </script>
