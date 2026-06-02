@@ -27,8 +27,7 @@ const galleryShots = [
       <div class="hero-inner">
         <div class="hero-copy">
           <a class="qr-badge" href="https://mobile-ssh.github.io" aria-label="mobile-ssh.github.io">
-            <img src="/assets/qr-mobile-ssh.svg" alt="QR code linking to mobile-ssh.github.io" width="116" height="116" />
-            <span>mobile-ssh.github.io</span>
+            <img src="/assets/qr-mobile-ssh.svg" alt="QR code linking to mobile-ssh.github.io" width="132" height="132" />
           </a>
           <p class="eyebrow">{t.home.eyebrow}</p>
           <h1>{t.home.h1}</h1>
@@ -38,9 +37,9 @@ const galleryShots = [
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
             <a class="button secondary" href={PLAY_STORE_URL} rel="noopener">{t.home.ctaPlay}</a>
           </div>
-        </div>
-        <div class="hero-shot">
-          <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="280" height="628" />
+          <div class="hero-shot">
+            <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="280" height="628" />
+          </div>
         </div>
       </div>
     </section>
@@ -164,29 +163,39 @@ const galleryShots = [
 <style>
   img.zoomable { cursor: zoom-in; }
 
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-copy :global(.cta-row) { justify-content: center; }
+
   .qr-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.85rem;
-    margin: 0 0 1.5rem;
-    padding: 0.7rem 1.1rem 0.7rem 0.7rem;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    padding: 0.7rem;
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12);
-    text-decoration: none;
-    color: #101820;
-    font-weight: 700;
-    font-size: 0.95rem;
-    line-height: 1.3;
   }
   .qr-badge img {
     display: block;
-    width: 116px;
-    height: 116px;
-    flex: 0 0 auto;
+    width: 132px;
+    height: 132px;
   }
-  .qr-badge span { max-width: 8rem; }
   .qr-badge:hover { box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55); }
+
+  .hero-copy .hero-shot {
+    order: 0;
+    margin-top: 2.5rem;
+  }
   .lightbox {
     position: fixed;
     inset: 0;
