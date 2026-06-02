@@ -36,6 +36,10 @@ const galleryShots = [
           </div>
         </div>
         <div class="hero-shot">
+          <a class="qr-badge" href="https://mobile-ssh.github.io" aria-label="mobile-ssh.github.io">
+            <img src="/assets/qr-mobile-ssh.svg" alt="QR code linking to mobile-ssh.github.io" width="120" height="120" />
+            <span>mobile-ssh.github.io</span>
+          </a>
           <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="280" height="628" />
         </div>
       </div>
@@ -159,6 +163,32 @@ const galleryShots = [
 
 <style>
   img.zoomable { cursor: zoom-in; }
+
+  .hero-shot {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .qr-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0.75rem 0.6rem;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    color: #101820;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .qr-badge img {
+    display: block;
+    width: 120px;
+    height: 120px;
+  }
+  .qr-badge:hover { box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45); }
   .lightbox {
     position: fixed;
     inset: 0;
