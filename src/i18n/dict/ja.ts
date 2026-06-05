@@ -80,7 +80,8 @@ export const ja: Dict = {
       "SFTP ファイル転送画面（マイフォンとリモートホストのパネル）。",
       "バージョン情報ダイアログ（バージョン、作者、ライセンス、サイト）。",
       "スマートフォンの「SSH キーを生成」ダイアログ。ラベル、ユーザー、キーの種類、パスフレーズの各フィールドを表示。",
-      "スマートフォンの「公開鍵」ダイアログ。生成された鍵とコピー・共有・保存のオプションを表示。"
+      "スマートフォンの「公開鍵」ダイアログ。生成された鍵とコピー・共有・保存のオプションを表示。",
+      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
     ],
     compareHead: "Termux や Termius の中での立ち位置",
     compareIntro:

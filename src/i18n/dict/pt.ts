@@ -80,7 +80,8 @@ export const pt: Dict = {
       "Tela de transferência SFTP em um celular com os painéis Meu telefone e Host remoto.",
       "Diálogo Sobre em um celular mostrando versão, autor, licença e site.",
       "Diálogo Gerar chave SSH em um telefone com campos de rótulo, usuário, tipo de chave e frase secreta.",
-      "Diálogo Chave pública em um telefone mostrando a chave gerada com opções de copiar, compartilhar e salvar."
+      "Diálogo Chave pública em um telefone mostrando a chave gerada com opções de copiar, compartilhar e salvar.",
+      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
     ],
     compareHead: "Seu lugar ao lado de Termux e Termius",
     compareIntro:

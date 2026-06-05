@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { defaultLocale, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
-import { renderVersionLine, PLAY_STORE_URL } from "../../i18n/version";
+import { renderVersionLine, PLAY_STORE_URL, PLAY_STORE_BETA_URL } from "../../i18n/version";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
@@ -14,6 +14,7 @@ const galleryShots = [
   "/assets/screenshots/phone-02-addserver.png",
   "/assets/screenshots/phone-03-terminal.png",
   "/assets/screenshots/phone-multi-01-2panes.png",
+  "/assets/screenshots/phone-04-multipane.png",
   "/assets/screenshots/phone-05-transfer.png",
   "/assets/screenshots/phone-06-about.png",
   "/assets/screenshots/phone-07-keygen.png",
@@ -37,6 +38,7 @@ const galleryShots = [
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
             <a class="button secondary" href={PLAY_STORE_URL} rel="noopener">{t.home.ctaPlay}</a>
           </div>
+          <p class="beta-link"><a href={PLAY_STORE_BETA_URL} rel="noopener">Join the beta (early access)</a></p>
           <div class="hero-shot">
             <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="280" height="628" />
           </div>
@@ -85,8 +87,8 @@ const galleryShots = [
           <p>{t.home.multiP1}</p>
           <p>{t.home.multiP2}</p>
         </div>
-        <div class="device-shot tablet-shot">
-          <img class="zoomable" src="/assets/screenshots/tab10-multi-01-4panes.png" alt={t.home.multiAlt} loading="lazy" />
+        <div class="device-shot phone-shot">
+          <img class="zoomable" src="/assets/screenshots/phone-multi-01-2panes.png" alt={t.home.multiAlt} loading="lazy" />
         </div>
       </div>
     </section>
@@ -196,6 +198,17 @@ const galleryShots = [
     order: 0;
     margin-top: 2.5rem;
   }
+  .beta-link {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    opacity: 0.72;
+  }
+  .beta-link a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .beta-link a:hover { opacity: 0.9; }
   .lightbox {
     position: fixed;
     inset: 0;

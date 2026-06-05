@@ -80,7 +80,8 @@ export const de: Dict = {
       "SFTP-Dateiübertragungs-Bildschirm auf einem Telefon mit Panels „Mein Telefon“ und „Remote-Host“.",
       "Über-Dialog auf einem Telefon mit Version, Autor, Lizenz und Website.",
       "Dialog „SSH-Schlüssel erzeugen“ auf einem Telefon mit Feldern für Bezeichnung, Benutzer, Schlüsseltyp und Passphrase.",
-      "Dialog „Öffentlicher Schlüssel“ auf einem Telefon mit dem erzeugten Schlüssel und Optionen zum Kopieren, Teilen und Speichern."
+      "Dialog „Öffentlicher Schlüssel“ auf einem Telefon mit dem erzeugten Schlüssel und Optionen zum Kopieren, Teilen und Speichern.",
+      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
     ],
     compareHead: "Sein Platz neben Termux und Termius",
     compareIntro:

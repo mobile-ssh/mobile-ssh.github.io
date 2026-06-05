@@ -80,7 +80,8 @@ export const yue: Dict = {
       "電話上嘅 SFTP 檔案傳輸畫面，包括「我嘅電話」同「遠端主機」面板。",
       "電話上嘅關於對話框，顯示版本、作者、授權同網站。",
       "電話上嘅「產生 SSH 密鑰」對話框，有標籤、用戶、密鑰類型同密碼短語欄位。",
-      "電話上嘅「公鑰」對話框，顯示產生咗嘅密鑰，連同複製、分享同儲存嘅選項。"
+      "電話上嘅「公鑰」對話框，顯示產生咗嘅密鑰，連同複製、分享同儲存嘅選項。",
+      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
     ],
     compareHead: "同 Termux、Termius 之間嘅定位",
     compareIntro:

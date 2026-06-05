@@ -80,7 +80,8 @@ export const zh: Dict = {
       "手机上的 SFTP 文件传输界面，包含「我的手机」与「远程主机」面板。",
       "手机上的「关于」对话框，显示版本、作者、许可与网站字段。",
       "手机上的“生成 SSH 密钥”对话框，包含标签、用户、密钥类型和口令字段。",
-      "手机上的“公钥”对话框，显示生成的密钥以及复制、分享和保存选项。"
+      "手机上的“公钥”对话框，显示生成的密钥以及复制、分享和保存选项。",
+      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
     ],
     compareHead: "在 Termux 与 Termius 之外的定位",
     compareIntro:

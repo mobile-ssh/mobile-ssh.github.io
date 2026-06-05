@@ -80,7 +80,8 @@ export const id: Dict = {
       "Layar transfer SFTP di ponsel dengan panel Ponsel Saya dan Host Jarak Jauh.",
       "Dialog Tentang di ponsel menampilkan kolom versi, penulis, lisensi, dan situs web.",
       "Dialog Buat Kunci SSH di ponsel dengan kolom label, pengguna, jenis kunci, dan frasa sandi.",
-      "Dialog Kunci Publik di ponsel yang menampilkan kunci yang dibuat dengan opsi salin, bagikan, dan simpan."
+      "Dialog Kunci Publik di ponsel yang menampilkan kunci yang dibuat dengan opsi salin, bagikan, dan simpan.",
+      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
     ],
     compareHead: "Tempatnya di samping Termux dan Termius",
     compareIntro:

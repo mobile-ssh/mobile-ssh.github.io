@@ -10,6 +10,9 @@ export const LANGUAGE_COUNT = locales.length;
 export const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=io.github.mobile_ssh";
 
+export const PLAY_STORE_BETA_URL =
+  "https://play.google.com/apps/testing/io.github.mobile_ssh";
+
 // "1.6 (12)" — Latin digits, locale-independent (matches prior behavior on
 // the About page across all locales).
 export const versionDisplay = `${VERSION_NAME} (${VERSION_CODE})`;

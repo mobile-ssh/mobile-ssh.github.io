@@ -47,14 +47,14 @@ export const en: Dict = {
     sectionAIntro:
       "Mobile SSH keeps the common admin path short: save a server, connect, keep sessions alive, move files when needed, and get back to active terminals quickly.",
     features: [
-      { title: "SSH terminal", text: "VT100/xterm-256color terminal emulation with color, cursor keys, scrollback, copy, and Android keyboard support." },
-      { title: "Multi-session grid", text: "Run up to eight sessions at once, switch by tapping panes, and double-tap a pane for fullscreen focus." },
-      { title: "Private keys", text: "Use passwords or imported/pasted private keys, including Ed25519, RSA, ECDSA, and DSA keys supported by the app." },
-      { title: "SFTP transfer", text: "Move files between phone storage and a remote server with local and remote browser panes." },
-      { title: "Port forwarding", text: "Save local tunnel specs with a server profile or add tunnels while connected." },
-      { title: "Reconnect workflow", text: "Foreground service, wake locks, keepalives, and reconnect attempts help sessions survive mobile network changes." },
-      { title: "Terminal selection", text: "Select terminal text to copy, share, or select all visible buffer output; copies go to the Android clipboard." },
-      { title: "Mobile keyboard friendly", text: "Gboard suggestions and voice input work alongside the extra key row; composing text buffers cleanly until a word boundary." }
+      { title: "SSH terminal", text: "xterm-256color terminal emulation with 5000-line scrollback, color, cursor keys, copy/share, and pinch-to-zoom text sizing." },
+      { title: "Multi-session grid", text: "Up to eight SSH sessions in a resizable grid — tap a pane to focus, double-tap for fullscreen, pinch to resize text." },
+      { title: "Private keys", text: "Password or private key auth. Generate Ed25519, ECDSA, or RSA keys on device; import or paste existing keys." },
+      { title: "SFTP transfer", text: "Dual-pane file browser tied to an active SSH session. Queue uploads and downloads, rename, delete, and inspect remote permissions." },
+      { title: "Port forwarding", text: "Save local tunnel specs with a server profile — tunnels open automatically on connect, or add/remove them while connected." },
+      { title: "Reconnect workflow", text: "Foreground service, wake locks, keepalives, and exponential-backoff reconnect keep sessions alive through screen-off and roaming." },
+      { title: "Backup & restore", text: "Export saved servers and credentials to an encrypted backup file; import with merge or replace to move between devices." },
+      { title: "Mobile keyboard friendly", text: "Extra key row with ESC, TAB, CTRL, ALT, arrows and more above the IME. Gboard suggestions and voice input work without interference." }
     ],
     multiHead: "One screen, several live shells",
     multiP1:
@@ -62,7 +62,7 @@ export const en: Dict = {
     multiP2:
       "Session history and active-session recovery help you return to current work after app switches, screen lock, or Android activity recreation.",
     multiAlt:
-      "Mobile SSH on a 10-inch Android tablet showing four live SSH terminal panes side by side.",
+      "Mobile SSH on a phone showing two live SSH terminal sessions in a side-by-side split view.",
     sftpHead: "SFTP when the terminal is not enough",
     sftpBody:
       "Open file transfer from a connected session to browse phone storage and remote directories. Queue uploads and downloads, sort files, remember recent paths per host, and inspect remote file permissions when deciding what to move.",
@@ -77,7 +77,8 @@ export const en: Dict = {
       "Mobile SSH start screen on a phone with Servers, Credentials, Logs, Settings, Debug, and About tiles.",
       "Add Server dialog on a phone showing host, port, credentials, private key, and port forward fields.",
       "Single-session SSH terminal on a phone with the extra key row at the bottom.",
-      "Two stacked SSH sessions on a phone with the active pane highlighted.",
+      "Two SSH sessions in a side-by-side split view on a phone.",
+      "Two SSH sessions stacked vertically on a phone with the active pane highlighted.",
       "SFTP file transfer screen on a phone with local My Phone and Remote Host panes.",
       "About dialog on a phone showing version, author, license, and website fields.",
       "Generate SSH Key dialog on a phone with label, user, key type, and passphrase fields.",
