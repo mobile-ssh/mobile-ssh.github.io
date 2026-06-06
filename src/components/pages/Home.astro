@@ -118,8 +118,8 @@ const galleryShots = [
           <p>{t.home.galleryIntro}</p>
         </div>
         <div class="carousel" id="shot-carousel" data-dot-label={t.home.carouselDot}>
-          <button class="carousel-arrow carousel-prev" type="button" aria-label={t.home.carouselPrev}>‹</button>
           <div class="carousel-viewport">
+            <button class="carousel-arrow carousel-prev" type="button" aria-label={t.home.carouselPrev}>‹</button>
             <div class="carousel-track">
               {galleryShots.map((src, i) => (
                 <figure class="carousel-slide">
@@ -129,8 +129,8 @@ const galleryShots = [
                 </figure>
               ))}
             </div>
+            <button class="carousel-arrow carousel-next" type="button" aria-label={t.home.carouselNext}>›</button>
           </div>
-          <button class="carousel-arrow carousel-next" type="button" aria-label={t.home.carouselNext}>›</button>
           <div class="carousel-dots"></div>
         </div>
       </div>
@@ -298,19 +298,20 @@ const galleryShots = [
     .lightbox-next { right: 0.4rem; }
   }
 
-  /* Inline screenshot carousel */
+  /* Inline screenshot carousel — single image, same width/height as video */
   .carousel {
-    --per-view: 3;
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    --per-view: 1;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    max-width: 1040px;
+    max-width: 480px;
     margin: 0 auto;
   }
   .carousel-viewport {
+    position: relative;
     overflow: hidden;
     width: 100%;
+    border-radius: 20px;
   }
   .carousel-track {
     display: flex;
@@ -318,26 +319,25 @@ const galleryShots = [
     will-change: transform;
   }
   .carousel-slide {
-    flex: 0 0 calc(100% / var(--per-view));
+    flex: 0 0 100%;
     min-width: 0;
     display: flex;
     justify-content: center;
     margin: 0;
-    padding: 0.5rem 0;
   }
   .carousel-slide .phone-shot {
     max-width: 480px;
+    width: 100%;
   }
-  @media (max-width: 900px) {
-    .carousel { --per-view: 2; }
-  }
-  @media (max-width: 600px) {
-    .carousel { --per-view: 1; }
-  }
+  /* Arrows overlay the image */
   .carousel-arrow {
-    background: rgba(0, 0, 0, 0.08);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.35);
     border: none;
-    color: inherit;
+    color: #fff;
     font-size: 2.4rem;
     line-height: 1;
     width: 2.75rem;
@@ -347,12 +347,12 @@ const galleryShots = [
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 auto;
     user-select: none;
   }
-  .carousel-arrow:hover { background: rgba(0, 0, 0, 0.18); }
+  .carousel-arrow:hover { background: rgba(0, 0, 0, 0.6); }
+  .carousel-prev { left: 0.5rem; }
+  .carousel-next { right: 0.5rem; }
   .carousel-dots {
-    grid-column: 1 / -1;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -494,27 +494,10 @@ const galleryShots = [
   (() => {
     const v = document.getElementById("feat-video");
     if (!v) return;
-
-    // Clicking anywhere on the video (poster or content) starts playback
-    // and immediately enters fullscreen.
-    v.addEventListener("click", (e) => {
-      // While playing, let the browser handle click (pause/resume via controls).
-      if (!v.paused) return;
-      v.play().then(() => {
-        if (v.requestFullscreen)            v.requestFullscreen();
-        else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen();
-        else if (v.mozRequestFullScreen)    v.mozRequestFullScreen();
-        else if (v.msRequestFullscreen)     v.msRequestFullscreen();
-      }).catch(() => {});
-    });
-
-    // Also enter fullscreen if play is triggered via the native controls.
-    v.addEventListener("play", () => {
-      if (document.fullscreenElement) return; // already fullscreen
-      if (v.requestFullscreen)            v.requestFullscreen();
-      else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen();
-      else if (v.mozRequestFullScreen)    v.mozRequestFullScreen();
-      else if (v.msRequestFullscreen)     v.msRequestFullscreen();
+    // Clicking anywhere on the poster/content starts playback inline.
+    // Fullscreen is left to the browser's native fullscreen button.
+    v.addEventListener("click", () => {
+      if (v.paused) v.play().catch(() => {});
     });
   })();
 </script>
