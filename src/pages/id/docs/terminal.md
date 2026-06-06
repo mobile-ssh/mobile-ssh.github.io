@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Terminal"
-description: "Kontrol terminal Mobile SSH, tombol tambahan, panel, gulir, perilaku tmux, tindakan salin, dan pengaturan keyboard."
+description: "Kontrol terminal Mobile SSH, tombol tambahan, panel, gulir, perilaku tmux, tindakan salin, pengaturan keyboard, dan peringatan agen."
 ---
 
 # Terminal
@@ -18,13 +18,13 @@ Terminal Mobile SSH dibuat untuk operasi di ponsel dan tablet. Ia menggabungkan 
 
 ## Kisi multi-sesi
 
-Mobile SSH dapat menjalankan hingga delapan sesi SSH sekaligus. Setiap sesi tampil sebagai panel di kisi terminal. Header panel menampilkan tujuan atau judul saat ini. Ketuk panel untuk memilihnya, atau gunakan **+ Tambah Sesi** untuk memulai koneksi lain.
+Mobile SSH dapat menjalankan hingga delapan sesi SSH sekaligus. Setiap sesi tampil sebagai panel di kisi terminal. Header panel menampilkan tujuan atau judul saat ini. Ketuk panel untuk memilihnya, atau gunakan **+ Add Session** untuk memulai koneksi lain.
 
-Menutup panel memutus sesi SSH itu. Kembali ke layar awal menjaga sesi aktif tetap tersedia melalui **Sesi Aktif**.
+Menutup panel memutus sesi SSH tersebut. Kembali ke layar awal menjaga sesi aktif tetap tersedia melalui **Active Sessions**.
 
 ## Baris tombol tambahan
 
-Baris tombol tambahan tampil di atas keyboard Android dan menyediakan tombol terminal yang sulit pada keyboard sentuh:
+Baris tombol tambahan tampil di atas keyboard Android dan menyediakan tombol terminal yang sulit diakses pada keyboard sentuh:
 
 - `ESC`
 - `TAB`
@@ -41,12 +41,12 @@ Baris tombol tambahan tampil di atas keyboard Android dan menyediakan tombol ter
 
 ## Perilaku keyboard
 
-Mobile SSH punya dua pengaturan terkait keyboard:
+Mobile SSH memiliki dua pengaturan terkait keyboard:
 
-- **Ketuk terminal untuk menampilkan keyboard:** saat aktif, mengetuk terminal meminta Android menampilkan metode input.
-- **Saran keyboard:** saat aktif, keyboard yang kompatibel dapat menampilkan saran di prompt shell. Nonaktifkan jika saran mengganggu program terminal.
+- **Tap terminal to show keyboard:** saat aktif, mengetuk terminal meminta Android menampilkan metode input.
+- **Keyboard suggestions:** saat aktif, keyboard yang kompatibel dapat menampilkan saran di prompt shell. Nonaktifkan ini jika saran mengganggu program terminal.
 
-Saat saran aktif, Mobile SSH menyangga teks yang sedang disusun hingga batas kata sehingga koreksi keyboard dapat mengganti kata saat ini sebelum dikirim ke shell jarak jauh. Tombol kontrol dan kord terminal melewati buffer itu, sehingga pintasan seperti perintah prefiks tmux tetap tiba dengan cepat.
+Saat saran aktif, Mobile SSH menyangga teks yang sedang disusun hingga batas kata sehingga koreksi keyboard dapat mengganti kata saat ini sebelum dikirim ke shell jarak jauh. Tombol kontrol dan kord terminal melewati buffer tersebut, sehingga pintasan seperti perintah prefiks tmux tetap tiba dengan cepat.
 
 Input suara (tombol mikrofon Gboard) dialirkan melalui buffer teks yang sama, jadi teks dikte dikirim setelah selesai dikenali, bukan karakter demi karakter.
 
@@ -54,9 +54,9 @@ Input suara (tombol mikrofon Gboard) dialirkan melalui buffer teks yang sama, ja
 
 Tekan lama di dalam terminal untuk masuk mode pemilihan. Bilah pemilihan menawarkan tiga tindakan:
 
-- **Salin** — menaruh teks terpilih ke papan klip Android.
-- **Bagikan** — meneruskan teks terpilih ke lembar berbagi Android (surel, catatan, perpesanan, dll.).
-- **Pilih semua** — memperluas pemilihan ke seluruh buffer terminal yang terlihat, lalu Salin atau Bagikan.
+- **Copy** — menaruh teks terpilih ke papan klip Android.
+- **Share** — meneruskan teks terpilih ke lembar berbagi Android (surel, catatan, perpesanan, dll.).
+- **Select all** — memperluas pemilihan ke seluruh buffer terminal yang terlihat, lalu Copy atau Share.
 
 ## Menggulir
 
@@ -82,10 +82,24 @@ Saat koneksi putus ketika Anda berada di tmux, aplikasi dapat mengingat nama ses
 
 Perilaku ini bersifat upaya terbaik. Jika sesi tmux jarak jauh tidak ada lagi, shell jarak jauh tetap tersedia.
 
+## Agent alerts
+
+Mobile SSH dapat memantau keluaran terminal sesi aktif untuk pola yang menandakan agen jarak jauh sedang menunggu input. Ketika kecocokan terdeteksi — misalnya, Claude Code atau Codex berhenti untuk menunggu konfirmasi — aplikasi mengirim notifikasi dengan suara dan getaran opsional.
+
+Untuk mengonfigurasi:
+
+1. Buka **Settings** dari layar awal.
+2. Aktifkan **Agent alerts**.
+3. Pilih suara notifikasi dan pola getaran.
+
+Peringatan diputar melalui output audio yang sedang aktif, termasuk headphone, sehingga Anda dapat mendengarnya saat menonton video atau saat ponsel terkunci. Notifikasi muncul bahkan ketika Mobile SSH berjalan di latar belakang.
+
+Pola peringatan agen dicocokkan dengan keluaran terminal yang terlihat. Jika alat jarak jauh Anda menampilkan baris prompt yang dapat dikenali (nama pengguna, tanda `?`, pertanyaan dalam tanda kurung), aplikasi mungkin menangkapnya secara otomatis. Jika peringatan terlalu sering muncul atau tidak muncul sama sekali, sesuaikan sensitivitasnya di Settings.
+
 ## Program terminal layar penuh
 
 Untuk program seperti Vim, less, htop, alat ncurses, dan panel tmux:
 
-- Nonaktifkan saran keyboard jika keyboard mulai menyangga input dengan cara yang tidak diharapkan program.
+- Nonaktifkan keyboard suggestions jika keyboard mulai menyangga input dengan cara yang tidak diharapkan program.
 - Gunakan baris tombol tambahan untuk `ESC`, panah, `PGUP`, dan `PGDN`.
 - Gunakan zoom cubit jika teks terlalu kecil, lalu tunggu sebentar agar ukuran terminal jarak jauh stabil.

@@ -50,7 +50,7 @@ Unggahan menggunakan koneksi SSH/SFTP yang ada. Jika koneksi putus, coba lagi se
 4. Konfirmasi tujuan lokal.
 5. Pantau antrean transfer untuk kemajuan dan penyelesaian.
 
-Unduhan besar sebaiknya dilakukan di jaringan stabil bila memungkinkan.
+Unduhan berukuran besar sebaiknya dilakukan di jaringan yang stabil bila memungkinkan.
 
 ## Tindakan berkas jarak jauh
 
@@ -76,6 +76,6 @@ Transfer diantrekan dan ditampilkan menurut status. Area log memisahkan transfer
 ## Tips praktis
 
 - Gunakan SFTP untuk pemindahan berkas tertentu; gunakan alat baris perintah seperti `rsync` di server untuk sinkronisasi direktori besar.
-- Hindari mengedit berkas produksi langsung kecuali Anda punya cadangan atau jalur rollback penyebaran.
+- Hindari mengedit berkas produksi langsung kecuali Anda memiliki cadangan atau jalur rollback penyebaran.
 - Jika berkas tidak muncul setelah diunggah, segarkan panel jarak jauh atau verifikasi jalur tujuan.
 - Jika akses penyimpanan Android memblokir penjelajahan lokal, berikan izin dari Pengaturan Android dan buka kembali transfer berkas.

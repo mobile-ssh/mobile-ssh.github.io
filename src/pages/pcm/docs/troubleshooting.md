@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Troubleshooting"
-description: "Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel issues."
+description: "Troubleshooting guide for Mobile SSH connection, authentication, keyboard, tmux, file transfer, and tunnel wahala."
 ---
 
 # Troubleshooting
 
-Dis page dey cover common Mobile SSH issues and di first checks wey you go run before you change server-side SSH settings.
+Dis page dey cover common Mobile SSH wahala and di first things wey you go check before you begin change server-side SSH settings.
 
 ## You no fit connect
 
@@ -27,7 +27,7 @@ Check:
 - Username spelling.
 - Password or key passphrase.
 - Whether di server allow password login, key login, or both.
-- Whether di private key match public key for di server user `authorized_keys`.
+- Whether di private key match public key wey dey for di server user `authorized_keys`.
 - Whether di key file enter fully, including di header and footer lines.
 
 For encrypted private keys, enter di passphrase for di password/passphrase field.
@@ -36,10 +36,10 @@ For encrypted private keys, enter di passphrase for di password/passphrase field
 
 Private key import dey use Android file picker. If import fail:
 
-- Confirm say di selected file na private key, no be public `.pub` file.
+- Confirm say di file wey you select na private key, no be public `.pub` file.
 - Open di file for trusted text editor and verify say e get di full key block.
-- Try paste di key by hand for di private key field.
-- Confirm say di key type na one wey di app implementation support: Ed25519, RSA, ECDSA, or DSA.
+- Try paste di key by hand inside di private key field.
+- Confirm say di key type na one wey di app support: Ed25519, RSA, ECDSA, or DSA.
 
 ## Keyboard input dey delay or dey change
 
@@ -55,7 +55,7 @@ If scrolling feel wrong:
 
 - Try enable or disable tmux mouse mode on di remote server.
 - Use `PGUP` and `PGDN` from di extra key row.
-- Double-tap di pane for fullscreen before you scroll dense output.
+- Double-tap di pane to enter fullscreen before you scroll dense output.
 - Detach and reattach to tmux if di remote terminal size look stale.
 
 ## Session drop after screen lock
@@ -64,16 +64,16 @@ Mobile SSH dey use keepalives, foreground service, wake lock, Wi-Fi lock, and re
 
 Check:
 
-- Disable battery optimization for Mobile SSH if your device dey aggressively stop background apps.
+- Disable battery optimization for Mobile SSH if your device dey aggressively kill background apps.
 - Keep Wi-Fi or mobile data stable during long sessions.
-- Reopen Mobile SSH and tap **Active Sessions** after you unlock.
-- If di server disconnect di SSH session, reconnect from recent sessions.
+- Reopen Mobile SSH and tap **Active Sessions** after you unlock di screen.
+- If di server don already disconnect di SSH session, reconnect from recent sessions.
 
 ## File transfer no fit browse phone files
 
 For newer Android versions, local file browsing fit require storage access. Grant storage access for Android Settings for Mobile SSH, then reopen di file transfer screen.
 
-If remote files load but local files no load, di SSH connection probably dey fine and di issue na local Android storage access.
+If remote files dey load but local files no dey load, di SSH connection probably dey fine and di problem na local Android storage access.
 
 ## Upload or download fail
 
@@ -98,6 +98,6 @@ Check:
 
 ## Debug logs
 
-Di start screen get one **Debug** button. Wen e dey enabled, Mobile SSH dey record diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save debug archive local.
+Di start screen get **Debug** button. When e dey enabled, Mobile SSH dey record diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save di debug archive for your device.
 
 Review debug archives before you share dem. Dem na for troubleshooting and dem fit reveal server names, timing, terminal behavior, or other environment details.

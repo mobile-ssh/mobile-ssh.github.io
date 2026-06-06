@@ -55,7 +55,7 @@ Si le défilement semble incorrect :
 
 - Essayez d'activer ou de désactiver le mode souris de tmux sur le serveur distant.
 - Utilisez `PGUP` et `PGDN` de la rangée de touches supplémentaires.
-- Touchez deux fois le volet pour le plein écran avant de faire défiler une sortie dense.
+- Touchez deux fois le volet pour passer en plein écran avant de faire défiler une sortie dense.
 - Détachez puis rattachez tmux si la taille du terminal distant semble obsolète.
 
 ## La session est tombée après le verrouillage de l'écran
@@ -66,7 +66,7 @@ Vérifiez :
 
 - Désactivez l'optimisation de batterie pour Mobile SSH si votre appareil arrête agressivement les apps en arrière-plan.
 - Gardez le Wi-Fi ou les données mobiles stables pendant les longues sessions.
-- Rouvrez Mobile SSH et touchez **Sessions actives** après le déverrouillage.
+- Rouvrez Mobile SSH et touchez **Active Sessions** après le déverrouillage.
 - Si le serveur a déconnecté la session SSH, reconnectez-vous depuis les sessions récentes.
 
 ## Le transfert de fichiers ne parcourt pas les fichiers du téléphone
@@ -98,6 +98,6 @@ Vérifiez :
 
 ## Journaux de débogage
 
-L'écran d'accueil comporte un bouton **Débogage**. Lorsqu'il est activé, Mobile SSH enregistre des informations de diagnostic sur les événements du terminal, les tailles de données SSH, la saisie tactile, le comportement de redimensionnement et le cycle de vie des tunnels. Arrêtez l'enregistrement pour sauvegarder une archive de débogage localement.
+L'écran d'accueil comporte un bouton **Debug**. Lorsqu'il est activé, Mobile SSH enregistre des informations de diagnostic sur les événements du terminal, les tailles de données SSH, la saisie tactile, le comportement de redimensionnement et le cycle de vie des tunnels. Arrêtez l'enregistrement pour sauvegarder une archive de débogage localement.
 
 Examinez les archives de débogage avant de les partager. Elles sont destinées au dépannage et peuvent révéler des noms de serveurs, des horodatages, le comportement du terminal ou d'autres détails de l'environnement.

@@ -24,7 +24,7 @@ Closing one pane dey disconnect dat SSH session. Returning to di start screen de
 
 ## Extra key row
 
-Di extra key row dey show on top di Android keyboard and e dey provide terminal keys wey hard for touch keyboards:
+Di extra key row dey show on top di Android keyboard and e dey provide terminal keys wey hard to use on touch keyboards:
 
 - `ESC`
 - `TAB`
@@ -81,6 +81,20 @@ tmux new -A -s work
 Wen connection drop while you dey for tmux, di app fit remember di last tmux session name for dat server and try reattach after reconnect. If e no observe explicit session name but di app sabi say you dey for alternate-screen tmux-like session, e fit try generic `tmux attach`.
 
 Dis behavior na best-effort. If di remote tmux session no dey again, di remote shell still dey available.
+
+## Agent alerts
+
+Mobile SSH fit dey watch di terminal output of di active session for patterns wey show say remote agent dey wait for input. Wen e detect match — for example, Claude Code or Codex wey pause to wait for prompt — di app go send notification with optional sound and vibration.
+
+To configure am:
+
+1. Open **Settings** from di start screen.
+2. Enable **Agent alerts**.
+3. Choose notification sound and vibration pattern.
+
+Di alert go play through any audio output wey dey active, including headphones, so you fit hear am while you dey watch video or wen phone don lock. Di notification go show even wen Mobile SSH dey background.
+
+Agent alert patterns dey match against visible terminal output. If your remote tool dey output recognizable prompt line (username, `?`, or bracketed question), di app fit pick am up automatically. If alerts dey fire too often or e no dey fire at all, adjust di sensitivity for Settings.
 
 ## Full-screen terminal programs
 

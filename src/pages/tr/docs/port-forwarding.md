@@ -41,9 +41,9 @@ Birden çok yönlendirme:
 
 ## Kayıtlı bir sunucuya tünel ekleme
 
-1. **Kayıtlı Sunucular**'ı açın.
+1. **Saved Servers**'ı açın.
 2. Bir sunucu profili ekleyin veya düzenleyin.
-3. Yönlendirme kurallarını **Bağlantı noktası yönlendirmeleri**'ne girin.
+3. Yönlendirme kurallarını **Port forwards** alanına girin.
 4. Sunucuyu kaydedin.
 5. Sunucuya bağlanın.
 
@@ -51,13 +51,13 @@ Uygulama, kaydedilen yönlendirmeleri SSH oturumu bağlandıktan sonra uygular.
 
 ## Etkin tünelleri yönetme
 
-Bağlıyken oturumu seçin ve terminal araç çubuğundan tünel görünümünü açın. Oradan etkin yerel yönlendirmeleri inceleyebilir, yeni bir tünel ekleyebilir veya bir yerel yönlendirmeyi kaldırabilirsiniz.
+Bağlıyken oturumu seçin ve terminal araç çubuğundan tünel görünümünü açın. Oradan etkin yerel yönlendirmeleri inceleyebilir, yeni bir tünel ekleyebilir veya mevcut bir yerel yönlendirmeyi kaldırabilirsiniz.
 
 ## Adres bağlama
 
 Mobile SSH yerel yönlendirmeleri Android cihazdaki `127.0.0.1`'e bağlar. Bu kasıtlıdır: tüneli cihaza yerel tutar ve yalnızca IPv6 geri döngü sürprizlerinden kaçınır. Android ağ erişimine izin verirse aynı Android cihazdaki diğer uygulamalar yönlendirilen yerel bağlantı noktasına bağlanabilir.
 
-## Sık örnekler
+## Yaygın örnekler
 
 Uzak sunucuda çalışan bir web hizmetine erişim:
 
@@ -65,7 +65,7 @@ Uzak sunucuda çalışan bir web hizmetine erişim:
 8080
 ```
 
-Ardından Android cihazdaki bir tarayıcıdan `http://127.0.0.1:8080`'i açın.
+Ardından Android cihazdaki bir tarayıcıdan `http://127.0.0.1:8080` adresini açın.
 
 Bir geliştirme sunucusuna erişim:
 
@@ -82,7 +82,7 @@ SSH sunucusundan erişilebilen bir iç veritabanına erişim:
 ## Tünel sorun giderme
 
 - Çalışma zamanı tünelleri eklemeden önce SSH oturumunun bağlı olduğundan emin olun.
-- Yerel bağlantı noktasının zaten kullanımda olmadığını denetleyin.
-- Uzak ana bilgisayarın ve bağlantı noktasının SSH sunucusundan erişilebilir olduğunu denetleyin.
+- Yerel bağlantı noktasının zaten kullanımda olmadığını kontrol edin.
+- Uzak ana bilgisayarın ve bağlantı noktasının SSH sunucusundan erişilebilir olduğunu kontrol edin.
 - Hedef hizmet SSH sunucusunun kendisinde olduğunda `localhost` kullanın.
-- SSH sunucusunun arkasındaki başka bir ana bilgisayara yönlendirirken sunucunun iç DNS adını veya IP'sini kullanın.
+- SSH sunucusunun arkasındaki başka bir ana bilgisayara yönlendirirken sunucunun iç DNS adını veya IP adresini kullanın.

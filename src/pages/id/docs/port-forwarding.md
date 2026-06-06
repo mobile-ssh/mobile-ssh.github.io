@@ -33,7 +33,7 @@ Bentuk penuh:
 
 Ini mengikat `127.0.0.1:3000` di perangkat Android dan meneruskannya melalui SSH ke `localhost:3000` di sisi jarak jauh.
 
-Beberapa penerusan:
+Beberapa penerusan sekaligus:
 
 ```text
 8080, 3000:localhost:3000, 15432:db.internal:5432
@@ -41,9 +41,9 @@ Beberapa penerusan:
 
 ## Menambah tunnel ke server tersimpan
 
-1. Buka **Server Tersimpan**.
+1. Buka **Saved Servers**.
 2. Tambah atau edit profil server.
-3. Masukkan aturan penerusan di **Penerusan port**.
+3. Masukkan aturan penerusan di **Port forwards**.
 4. Simpan server.
 5. Terhubung ke server.
 

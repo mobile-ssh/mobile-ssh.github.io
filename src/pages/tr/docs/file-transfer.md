@@ -12,7 +12,7 @@ Mobile SSH, etkin SSH bağlantısına bağlı bir SFTP dosya aktarım ekranı i�
 
 1. Bir SSH sunucusuna bağlanın.
 2. Bağlı terminal bölmesini seçin.
-3. Terminal araç çubuğundan **Aktarım**'ı açın veya geçerli ekran destekliyorsa bölme başlığına uzun basın.
+3. Terminal araç çubuğundan **Transfer**'i açın veya geçerli ekran destekliyorsa bölme başlığına uzun basın.
 4. Dosya aktarım ekranı bir yerel bölme ve bir uzak bölmeyle açılır.
 
 Etkin bir SSH oturumu yoksa dosya aktarımı açılamaz.
@@ -24,13 +24,13 @@ Dosya aktarım ekranında iki tarayıcı bölmesi vardır:
 - **Yerel bölme:** telefon depolaması.
 - **Uzak bölme:** SFTP üzerinden sunucu dosyaları.
 
-Uygulama, ana bilgisayar başına son yerel ve uzak yolları hatırlar. Sıralama ayarları da her iki bölme için ana bilgisayar başına hatırlanır.
+Uygulama, sunucu başına son yerel ve uzak yolları hatırlar. Sıralama ayarları da her iki bölme için sunucu başına hatırlanır.
 
 ## Android depolama izni
 
-Doğrudan dosya taramayı kısıtlayan Android sürümlerinde, yerel bölme telefon dosyalarını tarayabilmeden önce Mobile SSH depolama erişimi isteyebilir. Bu izni atlar veya reddederseniz uzak tarama yine de çalışabilir, ancak yerel yükleme ve indirme yolları sınırlı olabilir.
+Doğrudan dosya taramayı kısıtlayan Android sürümlerinde, yerel bölme telefon dosyalarını tarayabilmeden önce Mobile SSH depolama erişimi isteyebilir. Bu izni atlarsanız veya reddederseniz uzak tarama yine de çalışabilir, ancak yerel yükleme ve indirme yolları sınırlı olabilir.
 
-Özel anahtar içe aktarma dosya aktarımından ayrıdır ve Android dosya seçiciyi kullanır.
+Özel anahtar içe aktarma işlemi dosya aktarımından bağımsızdır ve Android dosya seçiciyi kullanır.
 
 ## Dosya yükleme
 
@@ -40,7 +40,7 @@ Doğrudan dosya taramayı kısıtlayan Android sürümlerinde, yerel bölme tele
 4. Uzak hedefi onaylayın.
 5. İlerleme ve tamamlanma için aktarım kuyruğunu izleyin.
 
-Yüklemeler mevcut SSH/SFTP bağlantısını kullanır. Bağlantı düşerse yeniden bağlandıktan sonra tekrar deneyin.
+Yüklemeler mevcut SSH/SFTP bağlantısını kullanır. Bağlantı kesilirse yeniden bağlandıktan sonra tekrar deneyin.
 
 ## Dosya indirme
 
@@ -50,7 +50,7 @@ Yüklemeler mevcut SSH/SFTP bağlantısını kullanır. Bağlantı düşerse yen
 4. Yerel hedefi onaylayın.
 5. İlerleme ve tamamlanma için aktarım kuyruğunu izleyin.
 
-Büyük indirmeler mümkün olduğunda kararlı bir ağda yapılmalıdır.
+Büyük indirmeler mümkün olduğunda kararlı bir ağ bağlantısıyla yapılmalıdır.
 
 ## Uzak dosya işlemleri
 
@@ -63,19 +63,19 @@ Seçili uzak öğeye bağlı olarak Mobile SSH şu işlemleri gösterebilir:
 - Metin dosyasını düzenle.
 - Dosya ayrıntılarını görüntüle.
 
-Uzak dosya ayrıntıları izin bitlerini, sahibini, grubunu ve sekizlik izin değerlerini içerebilir. Başka bir işlem veya dağıtım aracı tarafından yönetilen sunucu dosyalarını değiştirmeden önce bu ayrıntıları kullanın.
+Uzak dosya ayrıntıları izin bitlerini, sahibini, grubunu ve sekizlik izin değerlerini içerebilir. Başka bir işlem veya dağıtım aracı tarafından yönetilen sunucu dosyalarını değiştirmeden önce bu ayrıntıları inceleyin.
 
 ## Sıralama ve son yollar
 
-Her bölme ada veya tarihe göre artan ya da azalan sıralayabilir. Mobile SSH seçili yerel ve uzak sıralama modlarını son yollarla birlikte ana bilgisayar başına saklar; böylece aynı sunucuya yapılan tekrar aktarımlar tanıdık konumlardan başlar.
+Her bölme ada veya tarihe göre artan ya da azalan sırada sıralanabilir. Mobile SSH, seçili yerel ve uzak sıralama modlarını son yollarla birlikte sunucu başına saklar; böylece aynı sunucuya yapılan tekrarlı aktarımlar tanıdık konumlardan başlar.
 
 ## Aktarım kuyruğu
 
-Aktarımlar kuyruğa alınır ve duruma göre gösterilir. Günlük alanı kuyruktaki, başarısız ve başarılı aktarımları ayırır. Başarısız aktarımlar, altta yatan SFTP işlemi bir neden sağladığında nedeni içerir.
+Aktarımlar kuyruğa alınır ve duruma göre gösterilir. Günlük alanı kuyruktaki, başarısız ve başarılı aktarımları ayrı ayrı listeler. Başarısız aktarımlar, altta yatan SFTP işlemi bir neden sağladığında ilgili nedeni de gösterir.
 
 ## Pratik ipuçları
 
-- Hedefli dosya taşımaları için SFTP kullanın; büyük dizin eşitlemesi için sunucuda `rsync` gibi komut satırı araçlarını kullanın.
+- Hedefli dosya taşımaları için SFTP kullanın; büyük dizin eşitlemesi için sunucuda `rsync` gibi komut satırı araçlarını tercih edin.
 - Yedeğiniz veya dağıtım geri alma yolunuz olmadıkça canlı üretim dosyalarını düzenlemekten kaçının.
 - Yükledikten sonra bir dosya görünmüyorsa uzak bölmeyi yenileyin veya hedef yolu doğrulayın.
 - Android depolama erişimi yerel taramayı engelliyorsa Android Ayarları'ndan izni verin ve dosya aktarımını yeniden açın.

@@ -6,7 +6,7 @@ description: "Syntaxe de redirection de ports local de Mobile SSH et gestion des
 
 # Redirection de ports
 
-Mobile SSH prend en charge la redirection de ports SSH local. Un port local sur l'appareil Android écoute sur `127.0.0.1` et redirige le trafic via la connexion SSH vers un hôte et un port distants.
+Mobile SSH prend en charge la redirection de ports SSH locale. Un port local sur l'appareil Android écoute sur `127.0.0.1` et redirige le trafic via la connexion SSH vers un hôte et un port distants.
 
 ## Syntaxe du tunnel enregistré
 
@@ -41,13 +41,13 @@ Plusieurs redirections :
 
 ## Ajouter un tunnel à un serveur enregistré
 
-1. Ouvrez **Serveurs enregistrés**.
+1. Ouvrez **Saved Servers**.
 2. Ajoutez ou modifiez un profil de serveur.
-3. Saisissez les règles de redirection dans **Redirection de ports**.
+3. Saisissez les règles de redirection dans **Port forwards**.
 4. Enregistrez le serveur.
 5. Connectez-vous au serveur.
 
-L'app applique les redirections enregistrées une fois la session SSH connectée.
+L'application applique les redirections enregistrées une fois la session SSH établie.
 
 ## Gérer les tunnels actifs
 
@@ -55,7 +55,7 @@ Une fois connecté, sélectionnez la session et ouvrez la vue des tunnels depuis
 
 ## Liaison d'adresse
 
-Mobile SSH lie les redirections locales à `127.0.0.1` sur l'appareil Android. C'est intentionnel : cela garde le tunnel local à l'appareil et évite les surprises de loopback IPv6 uniquement. D'autres apps sur le même appareil Android peuvent se connecter au port local redirigé si Android autorise leur accès réseau.
+Mobile SSH lie les redirections locales à `127.0.0.1` sur l'appareil Android. C'est intentionnel : cela garde le tunnel local à l'appareil et évite les surprises liées aux adresses de loopback IPv6. D'autres applications sur le même appareil Android peuvent se connecter au port local redirigé si Android autorise leur accès réseau.
 
 ## Exemples courants
 
@@ -81,8 +81,8 @@ Accéder à une base de données interne joignable depuis le serveur SSH :
 
 ## Dépannage des tunnels
 
-- Assurez-vous que la session SSH est connectée avant d'ajouter des tunnels à l'exécution.
+- Assurez-vous que la session SSH est connectée avant d'ajouter des tunnels en cours d'exécution.
 - Vérifiez que le port local n'est pas déjà utilisé.
 - Vérifiez que l'hôte et le port distants sont joignables depuis le serveur SSH.
-- Utilisez `localhost` lorsque le service de destination est sur le serveur SSH lui-même.
-- Utilisez le nom DNS interne ou l'IP du serveur lors d'une redirection vers un autre hôte derrière le serveur SSH.
+- Utilisez `localhost` lorsque le service de destination se trouve sur le serveur SSH lui-même.
+- Utilisez le nom DNS interne ou l'adresse IP du serveur lors d'une redirection vers un autre hôte derrière le serveur SSH.

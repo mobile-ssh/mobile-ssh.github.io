@@ -66,7 +66,7 @@ Verifique:
 
 - Desative a otimização de bateria para o Mobile SSH se o seu aparelho interrompe agressivamente apps em segundo plano.
 - Mantenha o Wi-Fi ou os dados móveis estáveis durante sessões longas.
-- Reabra o Mobile SSH e toque em **Sessões ativas** após desbloquear.
+- Reabra o Mobile SSH e toque em **Active Sessions** após desbloquear.
 - Se o servidor desconectou a sessão SSH, reconecte pelas sessões recentes.
 
 ## A transferência de arquivos não navega pelos arquivos do telefone
@@ -98,6 +98,6 @@ Verifique:
 
 ## Logs de depuração
 
-A tela inicial inclui um botão **Depuração**. Quando ativado, o Mobile SSH registra informações de diagnóstico sobre eventos do terminal, tamanhos de dados SSH, entrada por toque, comportamento de redimensionamento e ciclo de vida dos túneis. Pare a gravação para salvar um arquivo de depuração localmente.
+A tela inicial inclui um botão **Debug**. Quando ativado, o Mobile SSH registra informações de diagnóstico sobre eventos do terminal, tamanhos de dados SSH, entrada por toque, comportamento de redimensionamento e ciclo de vida dos túneis. Pare a gravação para salvar um arquivo de depuração localmente.
 
 Revise os arquivos de depuração antes de compartilhá-los. Eles servem para solução de problemas e podem revelar nomes de servidores, tempos, comportamento do terminal ou outros detalhes do ambiente.

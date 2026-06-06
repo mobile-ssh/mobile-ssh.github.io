@@ -39,7 +39,8 @@ export const es: Dict = {
       { title: "Sin nivel Pro, sin anuncios", text: "Todas las funciones en la misma app. No hay muro de pago dividiendo flujos esenciales tras un Pro, ni banners en el terminal." },
       { title: "Tus datos se quedan en el teléfono", text: "Servidores, credenciales y claves guardados localmente. Sin cuenta en la nube; nada que pueda cerrarse." },
       { title: "Hosts guardados, un toque para conectar", text: "Añade un host una vez y reconéctate con un toque, incluyendo clave, puerto y túneles configurados." },
-      { title: "Teclas de terminal sobre el teclado", text: "Fila dedicada con ESC, TAB, CTRL, ALT, FN, flechas, Home, End, PgUp/PgDn — sin pelear con las sugerencias de Gboard." },
+      { title: "Alertas de agente", text: "Recibe una notificación — con sonido y vibración — en el momento en que Claude Code, Codex u otro agente remoto necesite tu intervención. Se reproduce por los auriculares incluso durante el vídeo." },
+      { title: "Teclas de terminal sobre el IME", text: "Fila dedicada con ESC, TAB, CTRL, ALT, FN, flechas, Home, End, PgUp/PgDn — sin pelear con las sugerencias de Gboard." },
       { title: "Reenvío de puertos sin comandos", text: "Los túneles se asocian al perfil del servidor y se levantan al conectar." },
       { title: "Sobrevive al bloqueo y al roaming", text: "Servicio en primer plano, wake locks y reconexión automática mantienen las shells vivas con la pantalla apagada, al cambiar de app o de red." }
     ],
@@ -47,14 +48,16 @@ export const es: Dict = {
     sectionAIntro:
       "Mobile SSH acorta el camino habitual de administración: guarda un servidor, conéctate, mantén las sesiones activas, mueve archivos cuando lo necesites y vuelve rápido a tus terminales en uso.",
     features: [
-      { title: "Terminal SSH", text: "Emulación de terminal VT100/xterm-256color con color, teclas de cursor, scrollback, copia y compatibilidad con el teclado de Android." },
-      { title: "Cuadrícula multi-sesión", text: "Ejecuta hasta ocho sesiones a la vez, cambia tocando un panel y haz doble toque sobre un panel para verlo a pantalla completa." },
-      { title: "Claves privadas", text: "Usa contraseñas o claves privadas importadas o pegadas, incluidas las claves Ed25519, RSA, ECDSA y DSA que admite la app." },
-      { title: "Transferencia SFTP", text: "Mueve archivos entre el almacenamiento del teléfono y un servidor remoto con paneles de exploración local y remota." },
-      { title: "Reenvío de puertos", text: "Guarda especificaciones de túnel locales junto a un perfil de servidor o añade túneles durante la conexión." },
-      { title: "Reconexión inteligente", text: "Servicio en primer plano, wake locks, keepalives e intentos de reconexión ayudan a que las sesiones sobrevivan a los cambios de red móvil." },
-      { title: "Selección en el terminal", text: "Selecciona texto del terminal para copiarlo, compartirlo o seleccionar todo el contenido visible; las copias van al portapapeles de Android." },
-      { title: "Amigable con teclados móviles", text: "Las sugerencias de Gboard y la entrada por voz funcionan junto a la fila de teclas extra; el texto en composición se almacena en buffer hasta el siguiente límite de palabra." }
+      { title: "Terminal SSH", text: "Emulación de terminal xterm-256color con scrollback de 5000 líneas, color, teclas de cursor, copiar/compartir y ajuste de texto con pellizco." },
+      { title: "Cuadrícula multi-sesión", text: "Hasta ocho sesiones SSH en una cuadrícula redimensionable — toca un panel para enfocarlo, doble toque para pantalla completa, pellizca para ajustar el texto." },
+      { title: "Enlaces tappables", text: "Las URL en el terminal aparecen subrayadas y se abren en el navegador con un toque — sin copiar ni cambiar de app." },
+      { title: "Carpetas de servidores", text: "Organiza los servidores guardados en grupos contraíbles. Toca la cabecera de un grupo para contraerlo; la estructura de carpetas se mantiene en el selector de conexión rápida." },
+      { title: "Alertas de agente", text: "Notificación con sonido y vibración cuando un agente remoto (Claude Code, Codex, etc.) necesita tu intervención. Se reproduce por los auriculares incluso durante las videollamadas." },
+      { title: "Claves privadas", text: "Autenticación por contraseña o clave privada. Genera claves Ed25519, ECDSA o RSA en el dispositivo; importa o pega claves existentes." },
+      { title: "Transferencia SFTP", text: "Explorador de archivos de doble panel vinculado a una sesión SSH activa. Encola subidas y descargas, renombra, elimina e inspecciona permisos remotos." },
+      { title: "Reenvío de puertos", text: "Guarda especificaciones de túnel locales con un perfil de servidor — los túneles se abren automáticamente al conectar, o añade/elimina mientras estás conectado." },
+      { title: "Flujo de reconexión", text: "Servicio en primer plano, wake locks, keepalives y reconexión con retroceso exponencial mantienen las sesiones vivas con la pantalla apagada y en roaming." },
+      { title: "Copia de seguridad y restauración", text: "Exporta servidores y credenciales guardados a un archivo de copia de seguridad cifrado; importa con fusión o reemplazo para cambiar de dispositivo." }
     ],
     multiHead: "Una pantalla, varias shells activas",
     multiP1:
@@ -62,7 +65,7 @@ export const es: Dict = {
     multiP2:
       "El historial de sesiones y la recuperación de sesiones activas te ayudan a volver al trabajo en curso después de cambiar de app, bloquear la pantalla o recrear actividades de Android.",
     multiAlt:
-      "Mobile SSH en una tableta Android de 10 pulgadas mostrando cuatro paneles de terminal SSH activos uno al lado del otro.",
+      "Mobile SSH en un teléfono mostrando dos sesiones SSH activas en una vista dividida en paralelo.",
     sftpHead: "SFTP cuando el terminal no basta",
     sftpBody:
       "Abre la transferencia de archivos desde una sesión conectada para explorar el almacenamiento del teléfono y los directorios remotos. Encola subidas y descargas, ordena los archivos, recuerda rutas recientes por servidor e inspecciona los permisos remotos antes de mover algo.",
@@ -76,12 +79,14 @@ export const es: Dict = {
       "Pantalla de inicio de Mobile SSH en un teléfono con los botones Servidores, Credenciales, Registros, Ajustes, Depuración y Acerca de.",
       "Diálogo Añadir servidor en un teléfono mostrando los campos host, puerto, credenciales, clave privada y reenvío de puertos.",
       "Terminal SSH de una sola sesión en un teléfono con la fila de teclas extra en la parte inferior.",
-      "Dos sesiones SSH apiladas en un teléfono con el panel activo resaltado.",
+      "Dos sesiones SSH en una vista dividida en paralelo en un teléfono.",
+      "Dos sesiones SSH apiladas verticalmente en un teléfono con el panel activo resaltado.",
       "Pantalla de transferencia de archivos SFTP en un teléfono con paneles Mi teléfono y Servidor remoto.",
       "Diálogo Acerca de en un teléfono mostrando los campos versión, autor, licencia y sitio web.",
       "Diálogo Generar clave SSH en un teléfono con campos de etiqueta, usuario, tipo de clave y frase de contraseña.",
       "Diálogo Clave pública en un teléfono que muestra la clave generada con opciones para copiar, compartir y guardar.",
-      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
+      "Pantalla de Servidores guardados que muestra servidores organizados en grupos contraíbles de Trabajo y Personal.",
+      "Terminal SSH en un teléfono con URL https:// subrayadas como enlaces tappables."
     ],
     compareHead: "Su lugar junto a Termux y Termius",
     compareIntro:
@@ -106,6 +111,8 @@ export const es: Dict = {
           "Autenticación por contraseña y por clave privada",
           "Claves privadas Ed25519, RSA, ECDSA y DSA admitidas por la implementación actual de la app",
           "Perfiles de servidor guardados con host, puerto, usuario, credencial, clave privada y especificaciones de túnel opcionales",
+          "Búsqueda de servidores guardados por nombre o host",
+          "Flujo Añadir sesión con búsqueda primero: elige un servidor guardado en una página de búsqueda dedicada y conéctate con un toque",
           "Registros de credenciales reutilizables que pueden seleccionarse al configurar un servidor",
           "Historial de sesiones recientes para reconectar a conjuntos habituales de servidores",
           "Registro de intentos de inicio de sesión, correctos y fallidos"
@@ -131,8 +138,9 @@ export const es: Dict = {
           "Disposición en cuadrícula para las sesiones activas",
           "Servicio en primer plano para sobrevivir al fondo y al bloqueo de pantalla",
           "Keepalives e intentos de reconexión con retroceso exponencial",
-          "Acceso a Sesiones activas desde la pantalla inicial",
-          "Seguimiento de comandos de tmux y sugerencias de reattach para trabajos interrumpidos"
+          "Acceso a Sesiones activas desde la pantalla inicial; la notificación permanente lista las sesiones — toca para abrir",
+          "Seguimiento de comandos de tmux y sugerencias de reattach para trabajos interrumpidos",
+          "Alertas de agente: notificación con sonido y vibración opcionales cuando un agente remoto (Claude Code, Codex, etc.) necesita intervención; se reproduce por los auriculares durante el vídeo"
         ]
       },
       {
@@ -238,6 +246,53 @@ export const es: Dict = {
         title: "Elige Termius cuando",
         body: "Quieres un espacio de trabajo SSH comercial y multiplataforma con bóveda cifrada sincronizada, uso compartido en equipo, gestión de llaveros, snippets y una app coherente en varios dispositivos."
       }
+    ],
+    featureHeading: "Función por función",
+    featureRows: [
+      { category: "Conexión",          feature: "Perfiles de servidor guardados",                   mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Conexión",          feature: "Búsqueda de servidores guardados",                  mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Conexión",          feature: "Carpetas / grupos de servidores",                   mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Conexión",          feature: "Selector Añadir sesión con búsqueda primero",       mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Conexión",          feature: "Registros de credenciales reutilizables",           mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Conexión",          feature: "Historial de sesiones recientes",                   mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Conexión",          feature: "Registro de inicios de sesión",                     mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Terminal",          feature: "Terminal SSH",                                       mobile: "yes",     termux: "via OpenSSH",  termius: "yes" },
+      { category: "Terminal",          feature: "Emulación xterm-256color",                          mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Terminal",          feature: "Buffer de scrollback de 5 000 líneas",              mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Terminal",          feature: "Fila de teclas extra (ESC/TAB/CTRL/…)",             mobile: "yes",     termux: "partial",      termius: "yes" },
+      { category: "Terminal",          feature: "Ajuste de texto con pellizco",                      mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Terminal",          feature: "Doble toque para pantalla completa",                mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Terminal",          feature: "URL tappables en la salida del terminal",           mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Terminal",          feature: "Selección de texto: copiar / compartir / todo",     mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Terminal",          feature: "Sugerencias de Gboard y entrada por voz",           mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Sesiones",          feature: "Varias sesiones SSH simultáneas",                   mobile: "up to 8", termux: "via tmux",     termius: "yes" },
+      { category: "Sesiones",          feature: "Disposición en cuadrícula",                         mobile: "yes",     termux: "no",           termius: "tabs" },
+      { category: "Sesiones",          feature: "Desplazamiento compatible con tmux",                mobile: "yes",     termux: "yes",          termius: "no" },
+      { category: "Sesiones",          feature: "Sugerencias de reattach de tmux al reconectar",     mobile: "yes",     termux: "yes",          termius: "no" },
+      { category: "Sesiones",          feature: "Alertas de agente (Claude Code / Codex)",           mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Sesiones",          feature: "Notificación permanente con lista de sesiones",      mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Sesiones",          feature: "Servicio en primer plano y wake lock",              mobile: "yes",     termux: "partial",      termius: "yes" },
+      { category: "Sesiones",          feature: "Reconexión automática con retroceso",               mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Archivos",          feature: "Interfaz de transferencia SFTP integrada",          mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Archivos",          feature: "Explorador local + remoto de doble panel",          mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Archivos",          feature: "Cola de subida / descarga",                         mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Archivos",          feature: "Renombrar / borrar / crear en remoto",              mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Archivos",          feature: "Vista de permisos de archivos remotos",             mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Archivos",          feature: "Ordenar por nombre o fecha por host",               mobile: "yes",     termux: "no",           termius: "partial" },
+      { category: "Túneles",           feature: "Reenvío local de puertos",                          mobile: "yes",     termux: "via CLI",      termius: "yes" },
+      { category: "Túneles",           feature: "Túneles guardados con el perfil del servidor",      mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Túneles",           feature: "Añadir / quitar túneles en tiempo de ejecución",   mobile: "yes",     termux: "no",           termius: "yes" },
+      { category: "Claves",            feature: "Autenticación por contraseña",                      mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Claves",            feature: "Autenticación por clave privada",                   mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Claves",            feature: "Generación de claves en el dispositivo",            mobile: "yes",     termux: "via ssh-keygen", termius: "yes" },
+      { category: "Claves",            feature: "Compartir / guardar clave pública generada",        mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Copia de seguridad", feature: "Exportar / importar copia de seguridad",          mobile: "yes",     termux: "no",           termius: "cloud vault" },
+      { category: "Copia de seguridad", feature: "Copia de seguridad local cifrada",                mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Copia de seguridad", feature: "Sin cuenta requerida",                            mobile: "yes",     termux: "yes",          termius: "no" },
+      { category: "Privacidad y coste", feature: "Sin muro de pago Pro",                            mobile: "yes",     termux: "yes",          termius: "partial" },
+      { category: "Privacidad y coste", feature: "Sin anuncios",                                    mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Privacidad y coste", feature: "Desactivar analíticas",                           mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Privacidad y coste", feature: "Datos solo locales (sin sincronización en la nube)", mobile: "yes", termux: "yes",          termius: "no" }
     ]
   },
   privacy: {
@@ -288,11 +343,11 @@ export const es: Dict = {
     intro:
       "Usa estas páginas como guía pública para instalar, conectar, gestionar sesiones, transferir archivos, reenviar puertos y solucionar problemas de Mobile SSH.",
     cards: [
-      { slug: "getting-started",  title: "Primeros pasos",         text: "Instala, abre la app, conéctate a tu primer servidor y guarda hosts habituales." },
-      { slug: "terminal",         title: "Terminal",               text: "Usa paneles, la fila de teclas extra, el desplazamiento, las acciones de copia, el comportamiento de tmux y los ajustes de teclado." },
+      { slug: "getting-started",  title: "Primeros pasos",            text: "Instala, abre la app, conéctate a tu primer servidor y guarda hosts habituales." },
+      { slug: "terminal",         title: "Terminal",                  text: "Usa paneles, la fila de teclas extra, el desplazamiento, las acciones de copia, el comportamiento de tmux y los ajustes de teclado." },
       { slug: "file-transfer",    title: "Transferencia de archivos", text: "Explora archivos del teléfono y del servidor, sube, descarga, ordena e inspecciona detalles remotos." },
-      { slug: "port-forwarding",  title: "Reenvío de puertos",     text: "Configura cadenas de túnel locales y gestiona reenvíos activos durante la conexión." },
-      { slug: "troubleshooting",  title: "Solución de problemas",  text: "Soluciona problemas de conexión, autenticación, teclado, almacenamiento y reconexión." }
+      { slug: "port-forwarding",  title: "Reenvío de puertos",        text: "Configura cadenas de túnel locales y gestiona reenvíos activos durante la conexión." },
+      { slug: "troubleshooting",  title: "Solución de problemas",     text: "Soluciona problemas de conexión, autenticación, teclado, almacenamiento y reconexión." }
     ]
   },
   docsNav: {

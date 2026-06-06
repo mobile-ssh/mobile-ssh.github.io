@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Memulai"
-description: "Langkah pertama untuk memasang Mobile SSH, terhubung ke server, dan menyimpan profil, kredensial, serta sesi."
+description: "Langkah pertama untuk memasang Mobile SSH, terhubung ke server, menyimpan profil, kredensial, dan sesi."
 ---
 
 # Memulai
@@ -18,10 +18,10 @@ Mobile SSH adalah klien SSH Android untuk terhubung ke server Linux, Unix, jarin
 ## Terhubung ke server
 
 1. Buka Mobile SSH.
-2. Ketuk **Server Tersimpan** jika Anda sudah membuat profil, atau tambahkan server dari alur koneksi.
-3. Masukkan host, port, nama pengguna, dan detail autentikasi.
+2. Ketuk **+ Add Session** dan cari server tersimpan, atau tambahkan server baru dari layar tersebut.
+3. Masukkan host, port, nama pengguna, dan detail autentikasi jika menambahkan server baru.
 4. Ketuk server untuk membuka sesi terminal.
-5. Gunakan **Sesi Aktif** di layar awal untuk kembali ke sesi yang masih berjalan.
+5. Gunakan **Active Sessions** di layar awal untuk kembali ke sesi yang masih berjalan.
 
 Port SSH default adalah `22`. Jika server Anda memakai port lain, masukkan port itu di profil server.
 
@@ -39,7 +39,7 @@ Gunakan server tersimpan untuk host yang sering Anda akses. Jika server tersimpa
 
 ## Menyimpan kredensial
 
-Layar **Kredensial** menyimpan catatan nama pengguna/kata sandi atau nama pengguna/kunci privat yang dapat digunakan kembali. Kredensial tersimpan dapat dipilih dari dialog penyiapan server, sehingga Anda tidak perlu memasukkan ulang informasi login yang sama untuk setiap host.
+Layar **Credentials** menyimpan catatan nama pengguna/kata sandi atau nama pengguna/kunci privat yang dapat digunakan kembali. Kredensial tersimpan dapat dipilih dari dialog penyiapan server, sehingga Anda tidak perlu memasukkan ulang informasi login yang sama untuk setiap host.
 
 Catatan kredensial disimpan secara lokal di perangkat Android. Lindungi perangkat dengan kunci layar jika Anda menyimpan kata sandi, frasa sandi, atau kunci privat.
 
@@ -49,8 +49,8 @@ Mobile SSH mendukung kunci privat yang ditempel dan impor kunci melalui pemilih 
 
 Untuk menggunakan kunci privat:
 
-1. Buka **Kredensial** atau dialog edit server.
-2. Tempel teks kunci privat, atau pilih **Impor dari berkas**.
+1. Buka **Credentials** atau dialog edit server.
+2. Tempel teks kunci privat, atau pilih **Import from file**.
 3. Masukkan frasa sandi kunci di kolom kata sandi/frasa sandi jika kunci terenkripsi.
 4. Simpan kredensial atau server.
 
@@ -60,21 +60,29 @@ Impor kunci privat menggunakan pemilih berkas Android untuk berkas kunci. Transf
 
 Layar awal menampilkan sesi terbaru. Sesi terbaru dapat terhubung kembali ke kumpulan server yang sama. Jika sesi sebelumnya masih aktif, Mobile SSH kembali ke sesi itu alih-alih memulai koneksi ganda.
 
+## Mencari server tersimpan
+
+Ketuk kolom pencarian di halaman **Saved Servers** untuk memfilter berdasarkan nama atau host. Layar **+ Add Session** juga terbuka dengan pencarian sehingga Anda dapat menemukan dan terhubung ke server tersimpan dalam satu langkah.
+
 ## Sesi aktif
 
-Saat ada sesi berjalan, layar awal menampilkan **Sesi Aktif** dengan jumlahnya. Ketuk untuk kembali ke kisi terminal. Kembali ke layar awal tidak selalu memutus sesi SSH aktif; menutup panel atau mengakhiri aktivitas terminal akan memutusnya.
+Saat ada sesi berjalan, layar awal menampilkan **Active Sessions** beserta jumlahnya. Ketuk untuk kembali ke kisi terminal. Notifikasi yang sedang berjalan juga mencantumkan host aktif — ketuk host di notifikasi untuk langsung beralih ke terminal tersebut.
+
+Kembali ke layar awal tidak memutus sesi SSH aktif; menutup panel atau mengakhiri aktivitas terminal akan memutusnya.
 
 ## Pengaturan pertama yang berguna
 
-Buka **Pengaturan** dari layar awal:
+Buka **Settings** dari layar awal (tersedia di halamannya sendiri):
 
 - Aktifkan ketuk untuk menampilkan keyboard jika Anda ingin keyboard muncul saat mengetuk terminal.
 - Nonaktifkan saran IME jika saran keyboard mengganggu program terminal seperti Vim, less, htop, atau aplikasi tmux layar penuh.
+- Aktifkan **Agent alerts** jika Anda menjalankan tugas latar belakang yang lama (Claude Code, Codex, skrip shell) dan ingin mendapat notifikasi suara atau getaran saat agen membutuhkan masukan Anda.
+- Matikan analitik penggunaan anonim jika Anda tidak ingin data apa pun dikirimkan.
 
 ## Bahasa
 
-Mobile SSH mengikuti bahasa sistem Android. Aplikasi disertai terjemahan untuk bahasa Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Pidgin Nigeria, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, dan Urdu. Ubah bahasa di **Pengaturan → Sistem → Bahasa** Android, bukan dari dalam aplikasi.
+Mobile SSH mengikuti bahasa sistem Android. Aplikasi disertai terjemahan untuk bahasa Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Pidgin Nigeria, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, dan Urdu. Ubah bahasa di **Settings → System → Languages** Android, bukan dari dalam aplikasi.
 
 ## Catatan keamanan
 
-Hanya terhubung ke server yang Anda percayai. Aplikasi saat ini menyimpan data koneksi secara lokal dan tidak menyediakan brankas cloud atau sinkronisasi lintas perangkat. Implementasi saat ini juga tidak menampilkan konfirmasi host yang dikenal, jadi hindari terhubung melalui jaringan tepercaya rendah ketika identitas host penting.
+Hanya terhubung ke server yang Anda percayai. Aplikasi saat ini menyimpan data koneksi secara lokal dan tidak menyediakan brankas cloud atau sinkronisasi lintas perangkat. Implementasi saat ini juga tidak menampilkan konfirmasi host yang dikenal, jadi hindari terhubung melalui jaringan yang tidak tepercaya ketika identitas host penting.

@@ -1,10 +1,10 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: "Sorun giderme"
+title: "Sorun Giderme"
 description: "Bağlantı, kimlik doğrulama, klavye, tmux, dosya aktarımı ve tünel sorunları için Mobile SSH sorun giderme kılavuzu."
 ---
 
-# Sorun giderme
+# Sorun Giderme
 
 Bu sayfa yaygın Mobile SSH sorunlarını ve sunucu tarafı SSH ayarlarını değiştirmeden önce yapılacak ilk denetimleri kapsar.
 
@@ -18,9 +18,9 @@ Denetleyin:
 - Bir güvenlik duvarı, VPN, operatör ağı veya Wi-Fi ağı bağlantı noktasını engellemiyor.
 - SSH sunucusu çalışıyor ve kullandığınız ağdan gelen bağlantıları kabul ediyor.
 
-Aynı ana bilgisayar başka bir cihazdan çalışıyorsa tam olarak ana bilgisayarı, bağlantı noktasını, kullanıcı adını, anahtarı ve ağ yolunu karşılaştırın.
+Aynı sunucu başka bir cihazdan çalışıyorsa tam olarak ana bilgisayarı, bağlantı noktasını, kullanıcı adını, anahtarı ve ağ yolunu karşılaştırın.
 
-## Kimlik doğrulama başarısız
+## Kimlik Doğrulama Başarısız
 
 Denetleyin:
 
@@ -32,7 +32,7 @@ Denetleyin:
 
 Şifreli özel anahtarlar için parola/parola tümcesi alanına parola tümcesini girin.
 
-## Özel anahtar içe aktarma başarısız
+## Özel Anahtar İçe Aktarma Başarısız
 
 Özel anahtar içe aktarma Android dosya seçiciyi kullanır. İçe aktarma başarısız olursa:
 
@@ -41,13 +41,13 @@ Denetleyin:
 - Anahtarı özel anahtar alanına elle yapıştırmayı deneyin.
 - Anahtar türünün uygulama tarafından desteklendiğini doğrulayın: Ed25519, RSA, ECDSA veya DSA.
 
-## Klavye girişi gecikiyor veya değişiyor
+## Klavye Girişi Gecikiyor veya Değişiyor
 
 Android klavyeniz metni kabuğa ulaşmadan değiştiriyorsa Mobile SSH ayarlarında klavye önerilerini devre dışı bırakın. Bu; Vim, tmux, htop, less, alışılmadık tuş akorları kullanan kabuklar ve uzak parola istemleri için yararlıdır.
 
 `ESC`, `TAB`, `CTRL`, oklar, `HOME`, `END`, `PGUP` ve `PGDN` gibi terminal tuşları için ek tuş satırını kullanın.
 
-## tmux kaydırması beklediğiniz gibi değil
+## tmux Kaydırması Beklediğiniz Gibi Değil
 
 Mobile SSH kaydırma davranışını terminal durumuna göre değiştirir. tmux veya diğer alternatif ekran programlarında kaydırma hareketleri yerel geçmişi kaydırmak yerine tmux kopya modu komutları gönderebilir. tmux fare modu etkinse uygulama fare tekerleği kaçış dizileri gönderir.
 
@@ -58,7 +58,7 @@ Kaydırma yanlış geliyorsa:
 - Yoğun çıktıyı kaydırmadan önce tam ekran için bölmeye çift dokunun.
 - Uzak terminal boyutu eski görünüyorsa tmux'u ayırıp yeniden ekleyin.
 
-## Ekran kilidinden sonra oturum düştü
+## Ekran Kilidinden Sonra Oturum Düştü
 
 Mobile SSH kesintileri azaltmak için keepalive, ön plan hizmeti, uyandırma kilidi, Wi-Fi kilidi ve yeniden bağlanma denemeleri kullanır. Android pil ilkeleri yine de arka plan işini durdurabilir.
 
@@ -66,16 +66,16 @@ Denetleyin:
 
 - Cihazınız arka plan uygulamalarını agresif biçimde durduruyorsa Mobile SSH için pil iyileştirmesini devre dışı bırakın.
 - Uzun oturumlar sırasında Wi-Fi veya mobil veriyi kararlı tutun.
-- Kilidi açtıktan sonra Mobile SSH'yi yeniden açın ve **Etkin Oturumlar**'a dokunun.
+- Kilidi açtıktan sonra Mobile SSH'yi yeniden açın ve **Active Sessions** seçeneğine dokunun.
 - Sunucu SSH oturumunu kestiyse son oturumlardan yeniden bağlanın.
 
-## Dosya aktarımı telefon dosyalarını tarayamıyor
+## Dosya Aktarımı Telefon Dosyalarını Tarayamıyor
 
 Daha yeni Android sürümlerinde yerel dosya tarama depolama erişimi gerektirebilir. Mobile SSH için Android Ayarları'nda depolama erişimi verin, ardından dosya aktarım ekranını yeniden açın.
 
 Uzak dosyalar yükleniyor ama yerel dosyalar yüklenmiyorsa SSH bağlantısı büyük olasılıkla iyidir ve sorun yerel Android depolama erişimindedir.
 
-## Yükleme veya indirme başarısız
+## Yükleme veya İndirme Başarısız
 
 Denetleyin:
 
@@ -86,7 +86,7 @@ Denetleyin:
 - Android cihazda yeterli boş alan var.
 - Büyük aktarımlar için ağ kararlı.
 
-## Bağlantı noktası yönlendirme başarısız
+## Bağlantı Noktası Yönlendirme Başarısız
 
 Denetleyin:
 
@@ -96,8 +96,8 @@ Denetleyin:
 - Uzak ana bilgisayar ve uzak bağlantı noktası SSH sunucusundan erişilebilir.
 - SSH sunucusu TCP yönlendirmeye izin veriyor.
 
-## Hata ayıklama günlükleri
+## Hata Ayıklama Günlükleri
 
-Başlangıç ekranında bir **Hata Ayıklama** düğmesi vardır. Etkinleştirildiğinde Mobile SSH; terminal olayları, SSH veri boyutları, dokunma girişi, yeniden boyutlandırma davranışı ve tünel yaşam döngüsü için tanılama bilgileri kaydeder. Bir hata ayıklama arşivini yerel olarak kaydetmek için kaydı durdurun.
+Başlangıç ekranında bir **Debug** düğmesi vardır. Etkinleştirildiğinde Mobile SSH; terminal olayları, SSH veri boyutları, dokunma girişi, yeniden boyutlandırma davranışı ve tünel yaşam döngüsü için tanılama bilgileri kaydeder. Bir hata ayıklama arşivini yerel olarak kaydetmek için kaydı durdurun.
 
-Hata ayıklama arşivlerini paylaşmadan önce gözden geçirin. Bunlar sorun giderme içindir ve sunucu adlarını, zamanlamaları, terminal davranışını veya diğer ortam ayrıntılarını açığa çıkarabilir.
+Hata ayıklama arşivlerini paylaşmadan önce gözden geçirin. Bunlar sorun giderme amaçlıdır ve sunucu adlarını, zamanlamaları, terminal davranışını veya diğer ortam ayrıntılarını açığa çıkarabilir.

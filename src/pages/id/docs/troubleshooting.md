@@ -66,7 +66,7 @@ Periksa:
 
 - Nonaktifkan optimisasi baterai untuk Mobile SSH jika perangkat Anda agresif menghentikan aplikasi latar belakang.
 - Jaga Wi-Fi atau data seluler tetap stabil selama sesi panjang.
-- Buka kembali Mobile SSH dan ketuk **Sesi Aktif** setelah membuka kunci.
+- Buka kembali Mobile SSH dan ketuk **Active Sessions** setelah membuka kunci.
 - Jika server memutus sesi SSH, sambung kembali dari sesi terbaru.
 
 ## Transfer berkas tidak dapat menjelajahi berkas ponsel

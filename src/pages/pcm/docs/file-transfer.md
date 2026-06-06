@@ -6,16 +6,16 @@ description: "Mobile SSH SFTP file transfer guide for local files, remote files,
 
 # File transfer
 
-Mobile SSH get one SFTP file transfer screen wey dey tie to di active SSH connection. E na for quick server maintenance from Android: upload config, download log, rename remote file, or check permissions without leaving di app.
+Mobile SSH get SFTP file transfer screen wey dey connected to di active SSH session. E dey useful for quick server maintenance from Android: upload config file, download log, rename remote file, or check permissions — all without leaving di app.
 
 ## Open file transfer
 
 1. Connect to one SSH server.
 2. Select di connected terminal pane.
-3. Open **Transfer** from di terminal toolbar, or long-press di pane header wen di current screen support am.
-4. Di file transfer screen go open with local pane and remote pane.
+3. Open **Transfer** from di terminal toolbar, or long-press di pane header if di current screen support am.
+4. Di file transfer screen go open with one local pane and one remote pane.
 
-If no active SSH session dey, file transfer no fit open.
+If no active SSH session dey, file transfer no go fit open.
 
 ## Local and remote panes
 
@@ -24,37 +24,37 @@ Di file transfer screen get two browser panes:
 - **Local pane:** phone storage.
 - **Remote pane:** server files over SFTP.
 
-Di app dey remember recent local and remote paths per host. Sort settings too dey remembered per host for both panes.
+Di app dey remember recent local and remote paths for each host. Sort settings also dey saved per host for both panes.
 
 ## Android storage permission
 
-For Android versions wey restrict direct file browsing, Mobile SSH fit ask for storage access before di local pane fit browse phone files. If you skip or deny dis permission, remote browsing fit still work, but local upload and download paths fit be limited.
+For Android versions wey restrict direct file browsing, Mobile SSH fit request storage access before di local pane go fit browse phone files. If you skip or deny dis permission, remote browsing fit still work, but local upload and download paths fit be limited.
 
 Private key import dey separate from file transfer and e dey use di Android file picker.
 
 ## Upload files
 
 1. Open di local pane.
-2. Navigate to di file wey you wan upload.
+2. Navigate go di file wey you wan upload.
 3. Choose upload.
 4. Confirm di remote destination.
-5. Watch di transfer queue for progress and completion.
+5. Watch di transfer queue to see progress and when e finish.
 
-Uploads dey use di existing SSH/SFTP connection. If di connection drop, retry after you reconnect.
+Uploads dey use di existing SSH/SFTP connection. If di connection cut, reconnect first then try again.
 
 ## Download files
 
 1. Open di remote pane.
-2. Navigate to di file wey you wan download.
+2. Navigate go di file wey you wan download.
 3. Choose download.
 4. Confirm di local destination.
-5. Watch di transfer queue for progress and completion.
+5. Watch di transfer queue to see progress and when e finish.
 
-Make you do big downloads for stable network if possible.
+Make you do big downloads on stable network when e possible.
 
 ## Remote file actions
 
-Depending on di selected remote item, Mobile SSH fit show actions like:
+Depending on di remote item wey you select, Mobile SSH fit show actions like:
 
 - Download.
 - Rename.
@@ -63,15 +63,15 @@ Depending on di selected remote item, Mobile SSH fit show actions like:
 - Edit text file.
 - View file details.
 
-Remote file details fit include permission bits, owner, group, and octal permission values. Use dis details before you change server files wey anoda process or deployment tool dey manage.
+Remote file details fit include permission bits, owner, group, and octal permission values. Check dis details before you change server files wey anoda process or deployment tool dey manage.
 
 ## Sorting and recent paths
 
-Each pane fit sort by name or date for ascending or descending order. Mobile SSH dey store di selected local and remote sort modes per host, along with recent paths, so repeated transfers to di same server dey start from familiar locations.
+Each pane fit sort by name or date, for ascending or descending order. Mobile SSH dey store di local and remote sort modes wey you choose per host, together with recent paths — so when you transfer to di same server again, e go start from familiar location.
 
 ## Transfer queue
 
-Transfers dey queued and displayed by status. Di log area dey separate queued, failed, and successful transfers. Failed transfers dey include reason wen di underlying SFTP operation provide one.
+Transfers dey queued and e show by status. Di log area dey separate queued, failed, and successful transfers. Failed transfers go show reason wen di underlying SFTP operation provide one.
 
 ## Practical tips
 

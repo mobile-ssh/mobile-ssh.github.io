@@ -12,7 +12,7 @@ Mobile SSH inclut un écran de transfert de fichiers SFTP lié à la connexion S
 
 1. Connectez-vous à un serveur SSH.
 2. Sélectionnez le volet de terminal connecté.
-3. Ouvrez **Transfert** depuis la barre d'outils du terminal, ou appuyez longuement sur l'en-tête du volet lorsque l'écran actuel le permet.
+3. Ouvrez **Transfer** depuis la barre d'outils du terminal, ou appuyez longuement sur l'en-tête du volet lorsque l'écran actuel le permet.
 4. L'écran de transfert de fichiers s'ouvre avec un volet local et un volet distant.
 
 S'il n'y a pas de session SSH active, le transfert de fichiers ne peut pas s'ouvrir.
@@ -71,7 +71,7 @@ Chaque volet peut trier par nom ou par date, en ordre croissant ou décroissant.
 
 ## File de transfert
 
-Les transferts sont mis en file et affichés par statut. La zone de journal sépare les transferts en file, échoués et réussis. Les transferts échoués indiquent un motif lorsque l'opération SFTP sous-jacente en fournit un.
+Les transferts sont mis en file et affichés par statut. La zone de journal sépare les transferts en attente, échoués et réussis. Les transferts échoués indiquent un motif lorsque l'opération SFTP sous-jacente en fournit un.
 
 ## Conseils pratiques
 

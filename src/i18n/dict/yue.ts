@@ -36,25 +36,28 @@ export const yue: Dict = {
     advantagesHead: "點解揀 Mobile SSH",
     advantagesIntro: "針對手機 SSH 客戶端慣常出嘅問題嚟設計。",
     advantages: [
-      { title: "冇 Pro 級數，冇廣告", text: "所有功能都喺同一個 app 入面。冇 paywall 將主要功能擺喺 Pro 升級後面，終端機上面亦冇廣告 banner。" },
+      { title: "冇 Pro 級數，冇廣告", text: "所有功能都喺同一個 App 入面。冇 paywall 將主要功能擺喺 Pro 升級後面，終端機上面亦冇廣告 banner。" },
       { title: "資料全部留喺手機", text: "儲存嘅伺服器、憑證、密鑰都喺裝置上面。冇雲端帳號，唔會有人關咗佢。" },
-      { title: "儲存主機，一㩒就連", text: "主機加一次，下次㩒一下就再連 —— 連密鑰、端口同已配置嘅 tunnel 都齊。" },
+      { title: "儲存主機，一㩒就連", text: "主機加一次，下次搜索㩒一下就再連 —— 連密鑰、端口同已配置嘅 tunnel 都齊。" },
+      { title: "Agent 提示", text: "當 Claude Code、Codex 或者其他遠端 agent 需要你輸入時，即刻收到通知 —— 有聲音同震動。就算係播緊視頻都會響耳機。" },
       { title: "鍵盤上面嘅終端機按鍵", text: "ESC、TAB、CTRL、ALT、FN、方向鍵、Home、End、PgUp/PgDn 專屬一行 —— 唔影響 Gboard 嘅輸入建議。" },
       { title: "唔使打指令嘅端口轉發", text: "Tunnel 黐喺伺服器 profile 度，連線即自動開。" },
-      { title: "熄屏漫遊都頂得住", text: "前景服務、wake lock、自動重連等住 session 喺熄屏、轉 app、轉網絡之間都唔斷。" }
+      { title: "熄屏漫遊都頂得住", text: "前景服務、wake lock、自動重連等住 session 喺熄屏、轉 App、轉網絡之間都唔斷。" }
     ],
     sectionAHead: "為 Android 上嘅 SSH 工作而設計",
     sectionAIntro:
       "Mobile SSH 幫你縮短常見嘅管理路徑：儲存伺服器、連線、保持會話、需要嗰陣搬檔案、然後快速返去仲開緊嘅終端機。",
     features: [
-      { title: "SSH 終端機", text: "VT100/xterm-256color 終端機模擬：色彩、游標鍵、回滾、複製，仲支援 Android 鍵盤。" },
-      { title: "多會話格", text: "同時最多八個會話；點面板就轉去，雙擊面板就全螢幕聚焦。" },
-      { title: "私鑰", text: "用密碼，或者匯入／貼上嘅私鑰，包括 App 支援嘅 Ed25519、RSA、ECDSA 同 DSA。" },
-      { title: "SFTP 傳輸", text: "用本機同遠端兩個瀏覽面板，喺電話儲存同遠端伺服器之間搬檔案。" },
-      { title: "端口轉發", text: "將本機隧道規格同伺服器設定檔一齊儲存，或者連線期間加新隧道。" },
-      { title: "重連工作流", text: "前景服務、wake lock、keepalive 同重連嘗試幫會話頂住流動網絡轉變。" },
-      { title: "終端機選擇", text: "揀選終端機文字嚟複製、分享，或者揀齊可見緩衝；複製會去到 Android 剪貼簿。" },
-      { title: "啱手機鍵盤用", text: "Gboard 建議同語音輸入同附加按鍵列共存；輸入緊嘅字會緩衝到字界先送出。" }
+      { title: "SSH 終端機", text: "xterm-256color 終端機模擬，5000 行回滾、色彩、游標鍵、複製／分享，仲支援揑住調文字大細。" },
+      { title: "多會話格", text: "同時最多八個 SSH 會話喺可調大小嘅格仔入面 —— 點面板聚焦、雙擊入全螢幕、揑住調文字大細。" },
+      { title: "可點擊連結", text: "終端機輸出裡面嘅 URL 會有底線，㩒一下就喺瀏覽器打開 —— 唔使複製或者切換 App。" },
+      { title: "伺服器資料夾", text: "將已儲存嘅伺服器整理入可摺疊嘅群組。㩒群組標題收起；資料夾結構亦會帶入快速連線選擇器。" },
+      { title: "Agent 提示", text: "當遠端 agent（Claude Code、Codex 等）需要你輸入時，有聲音同震動嘅通知。就算視頻通話期間都會響耳機。" },
+      { title: "私鑰", text: "密碼或私鑰驗證。可喺裝置上產生 Ed25519、ECDSA 或 RSA 密鑰；亦可匯入或貼上現有密鑰。" },
+      { title: "SFTP 傳輸", text: "與活躍 SSH 會話綁定嘅雙面板檔案瀏覽器。將上載同下載排隊，重新命名、刪除，並查看遠端權限。" },
+      { title: "端口轉發", text: "將本機隧道規格同伺服器設定檔一齊儲存 —— 連線時自動開，或者連線期間隨時加／刪。" },
+      { title: "重連工作流", text: "前景服務、wake lock、keepalive 同指數退避重連等住會話喺熄屏同漫遊之間都唔斷。" },
+      { title: "備份與還原", text: "將已儲存嘅伺服器同憑證匯出做加密備份檔案；匯入時可合併或取代，方便跨裝置搬移。" }
     ],
     multiHead: "一個畫面，幾個活躍 Shell",
     multiP1:
@@ -62,7 +65,7 @@ export const yue: Dict = {
     multiP2:
       "會話歷史同活躍會話復原幫你喺切 App、鎖屏，或者 Android 活動重建之後返到正在做緊嘅嘢。",
     multiAlt:
-      "10 吋 Android 平板上 Mobile SSH，並排顯示四個活躍 SSH 終端機面板。",
+      "Mobile SSH 喺電話上顯示兩個活躍 SSH 終端機會話並排分屏嘅畫面。",
     sftpHead: "當終端機唔夠用 — SFTP",
     sftpBody:
       "由已連線嘅會話打開檔案傳輸，去瀏覽電話儲存同遠端目錄。將上載同下載排隊，排序檔案，每個 host 記得最近用嘅路徑，搬之前查吓遠端權限。",
@@ -76,12 +79,14 @@ export const yue: Dict = {
       "電話上嘅 Mobile SSH 啟動畫面，包括伺服器、憑證、日誌、設定、除錯、關於等磚。",
       "電話上嘅新增伺服器對話框，顯示 host、port、憑證、私鑰同端口轉發欄位。",
       "電話上嘅單會話 SSH 終端機，下面係附加按鍵列。",
-      "電話上兩個疊住嘅 SSH 會話，活躍嘅面板有 highlight。",
+      "電話上兩個並排嘅 SSH 會話，並排分屏顯示。",
+      "電話上兩個上下疊住嘅 SSH 會話，活躍嘅面板有 highlight。",
       "電話上嘅 SFTP 檔案傳輸畫面，包括「我嘅電話」同「遠端主機」面板。",
       "電話上嘅關於對話框，顯示版本、作者、授權同網站。",
       "電話上嘅「產生 SSH 密鑰」對話框，有標籤、用戶、密鑰類型同密碼短語欄位。",
       "電話上嘅「公鑰」對話框，顯示產生咗嘅密鑰，連同複製、分享同儲存嘅選項。",
-      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
+      "已儲存伺服器畫面，顯示伺服器整理入可摺疊嘅「工作」同「個人」資料夾群組。",
+      "電話上嘅 SSH 終端機，https:// URL 帶底線成為可點擊嘅連結。"
     ],
     compareHead: "同 Termux、Termius 之間嘅定位",
     compareIntro:
@@ -106,6 +111,8 @@ export const yue: Dict = {
           "密碼驗證同私鑰驗證",
           "現時版本支援嘅 Ed25519、RSA、ECDSA 同 DSA 私鑰",
           "儲存嘅伺服器設定檔，包括 host、port、用戶、憑證、私鑰同可選隧道規格",
+          "按名稱或 host 搜索已儲存嘅伺服器",
+          "搜索優先嘅「新增會話」流程：喺專屬搜索頁揀已儲存嘅伺服器，一㩒就連",
           "可由伺服器設定畫面揀返用嘅可重用憑證紀錄",
           "用嚟重連常見伺服器組合嘅最近會話歷史",
           "成功同失敗嘅登入嘗試日誌"
@@ -131,8 +138,9 @@ export const yue: Dict = {
           "活躍會話採用格仔佈局",
           "用前景服務頂住背景同鎖屏",
           "Keepalive 同帶指數退避嘅重連嘗試",
-          "啟動畫面入面有「活躍會話」入口",
-          "追蹤 tmux 指令，俾被中斷嘅工作 reattach 提示"
+          "啟動畫面入面有「活躍會話」入口；持續通知列出會話 —— 㩒就開",
+          "追蹤 tmux 指令，俾被中斷嘅工作 reattach 提示",
+          "Agent 提示：當遠端 agent（Claude Code、Codex 等）需要輸入時，有可選聲音同震動嘅通知；就算播緊視頻都會響耳機"
         ]
       },
       {
@@ -238,6 +246,53 @@ export const yue: Dict = {
         title: "幾時揀 Termius",
         body: "你想要一個商業、跨平台嘅 SSH 工作空間，有加密保險庫同步、團隊分享、key chain 管理、snippet，同埋多裝置上一致嘅 App。"
       }
+    ],
+    featureHeading: "逐項功能對比",
+    featureRows: [
+      { category: "連線", feature: "已儲存嘅伺服器設定檔",               mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "連線", feature: "搜索已儲存嘅伺服器",                  mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "連線", feature: "伺服器資料夾／群組",                  mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "連線", feature: "搜索優先嘅「新增會話」選擇器",        mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "連線", feature: "可重用憑證紀錄",                      mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "連線", feature: "最近會話歷史",                        mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "連線", feature: "登入日誌",                            mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "終端機", feature: "SSH 終端機",                        mobile: "yes",    termux: "via OpenSSH",  termius: "yes" },
+      { category: "終端機", feature: "xterm-256color 模擬",               mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "終端機", feature: "5 000 行回滾緩衝",                  mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "終端機", feature: "附加按鍵列（ESC/TAB/CTRL/…）",     mobile: "yes",    termux: "partial",      termius: "yes" },
+      { category: "終端機", feature: "揑住調文字大細",                    mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "終端機", feature: "雙擊面板入全螢幕",                  mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "終端機", feature: "終端機輸出入面嘅可點擊 URL",        mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "終端機", feature: "文字選擇：複製／分享／全選",        mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "終端機", feature: "Gboard 建議同語音輸入",             mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "會話", feature: "多個同時 SSH 會話",                   mobile: "up to 8", termux: "via tmux",    termius: "yes" },
+      { category: "會話", feature: "格仔面板佈局",                        mobile: "yes",    termux: "no",           termius: "tabs" },
+      { category: "會話", feature: "識 tmux 嘅滾動",                      mobile: "yes",    termux: "yes",          termius: "no" },
+      { category: "會話", feature: "重連時嘅 tmux reattach 提示",         mobile: "yes",    termux: "yes",          termius: "no" },
+      { category: "會話", feature: "Agent 提示（Claude Code / Codex）",   mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "會話", feature: "持續通知列出會話清單",                mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "會話", feature: "前景服務同 wake lock",                mobile: "yes",    termux: "partial",      termius: "yes" },
+      { category: "會話", feature: "帶退避嘅自動重連",                    mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "檔案", feature: "內建 SFTP 檔案傳輸介面",              mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "檔案", feature: "本機加遠端雙面板瀏覽器",              mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "檔案", feature: "上載／下載排隊",                      mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "檔案", feature: "遠端重新命名／刪除／新增",            mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "檔案", feature: "遠端檔案權限查看",                    mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "檔案", feature: "每個 host 個別按名或日期排序",        mobile: "yes",    termux: "no",           termius: "partial" },
+      { category: "隧道", feature: "本機端口轉發",                        mobile: "yes",    termux: "via CLI",      termius: "yes" },
+      { category: "隧道", feature: "隧道隨伺服器設定檔儲存",              mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "隧道", feature: "執行時加／刪隧道",                    mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "密鑰", feature: "密碼驗證",                            mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "密鑰", feature: "私鑰驗證",                            mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "密鑰", feature: "裝置上產生密鑰",                      mobile: "yes",    termux: "via ssh-keygen", termius: "yes" },
+      { category: "密鑰", feature: "分享／儲存產生嘅公鑰",                mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "備份", feature: "匯出／匯入伺服器備份",                mobile: "yes",    termux: "no",           termius: "cloud vault" },
+      { category: "備份", feature: "加密本機備份檔案",                    mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "備份", feature: "唔需要帳號",                          mobile: "yes",    termux: "yes",          termius: "no" },
+      { category: "私隱與費用", feature: "冇 Pro paywall",                mobile: "yes",    termux: "yes",          termius: "partial" },
+      { category: "私隱與費用", feature: "冇廣告",                        mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "私隱與費用", feature: "可選退出分析",                  mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "私隱與費用", feature: "只係本機資料（冇雲端同步）",    mobile: "yes",    termux: "yes",          termius: "no" }
     ]
   },
   privacy: {

@@ -38,23 +38,26 @@ export const pcm: Dict = {
     advantages: [
       { title: "No Pro level, no ads", text: "All di features dey for di same app. No paywall wey go hide important work behind Pro upgrade, no ad banner for di terminal." },
       { title: "Your data dey for your phone", text: "Saved servers, credentials and keys dey stay for di device. No cloud account; nothing wey dem fit shut down." },
-      { title: "Saved hosts, one-tap connect", text: "Add host once, then reconnect wit one tap — wit key, port, and any tunnel wey you don set." },
+      { title: "Saved hosts, search to connect", text: "Add host once, then search and tap to connect — wit key, port, and any tunnel wey you don set." },
+      { title: "Agent alerts", text: "You go get notification — wit sound and vibration — di moment Claude Code, Codex, or another remote agent need your input. E dey play for headphones even when video dey run." },
       { title: "Terminal keys for top di keyboard", text: "Dedicated row wit ESC, TAB, CTRL, ALT, FN, arrows, Home, End, PgUp/PgDn — without fighting Gboard suggestion." },
       { title: "Port forwarding without command", text: "Tunnels dey attach to di server profile and dey come up automatic when you connect." },
-      { title: "E dey survive lock and network change", text: "Foreground service, wake locks and auto-reconnect dey keep di shell alive across screen-off, app switch and network change." }
+      { title: "E dey survive lock and roaming", text: "Foreground service, wake locks and auto-reconnect dey keep di shell alive across screen-off, app switch and network change." }
     ],
     sectionAHead: "Make for Android SSH work",
     sectionAIntro:
       "Mobile SSH dey keep di admin road short: save server, connect, keep session dey alive, move file when you need am, and quick return to live terminal.",
     features: [
-      { title: "SSH terminal", text: "VT100/xterm-256color terminal wit colour, cursor keys, scrollback, copy, and Android keyboard support." },
-      { title: "Multi-session grid", text: "Run up to eight session same time, switch by tap, double-tap pane for fullscreen focus." },
-      { title: "Private keys", text: "Use password or imported/pasted private keys; Ed25519, RSA, ECDSA and DSA dey supported." },
-      { title: "SFTP transfer", text: "Carry file between phone storage and remote server wit local and remote browser panes." },
-      { title: "Port forwarding", text: "Save local tunnel spec for server profile, abi add tunnel while you dey connect." },
-      { title: "Reconnect workflow", text: "Foreground service, wake locks, keepalive and reconnect try dey help session survive mobile network change." },
-      { title: "Terminal selection", text: "Pick terminal text to copy, share, or select di full visible buffer; di copy go enta Android clipboard." },
-      { title: "Mobile keyboard friendly", text: "Gboard suggestion and voice input dey work with di extra key row; composing text dey buffer until word boundary." }
+      { title: "SSH terminal", text: "xterm-256color terminal emulation wit 5000-line scrollback, colour, cursor keys, copy/share, and pinch-to-zoom text sizing." },
+      { title: "Multi-session grid", text: "Up to eight SSH session for resizable grid — tap pane to focus, double-tap for fullscreen, pinch to resize text." },
+      { title: "Clickable links", text: "URLs wey dey inside di terminal dey underline and go open for browser with one tap — no need to copy or switch app." },
+      { title: "Server folders", text: "Arrange saved servers for collapsible groups. Tap group header to collapse am; di folder structure dey carry enter di quick-connect picker." },
+      { title: "Agent alerts", text: "Notification wit sound and vibration when remote agent (Claude Code, Codex, etc.) need your input. E dey play for headphones even during video call." },
+      { title: "Private keys", text: "Password or private key login. Generate Ed25519, ECDSA, or RSA keys on device; import or paste existing keys." },
+      { title: "SFTP transfer", text: "Dual-pane file browser wey dey tie to active SSH session. Queue uploads and downloads, rename, delete, and check remote permissions." },
+      { title: "Port forwarding", text: "Save local tunnel spec wit server profile — tunnels dey open automatic on connect, or add/remove dem while you dey connect." },
+      { title: "Reconnect workflow", text: "Foreground service, wake locks, keepalives, and exponential-backoff reconnect dey keep session alive through screen-off and roaming." },
+      { title: "Backup & restore", text: "Export saved servers and credentials to encrypted backup file; import with merge or replace to move between devices." }
     ],
     multiHead: "One screen, plenty live shell",
     multiP1:
@@ -62,7 +65,7 @@ export const pcm: Dict = {
     multiP2:
       "Session history and active-session recovery dey help you return to wetin you dey do after app switch, screen lock or Android activity recreation.",
     multiAlt:
-      "Mobile SSH for 10-inch Android tablet, dey show four live SSH terminal panes side by side.",
+      "Mobile SSH for phone wey dey show two live SSH terminal session for side-by-side split view.",
     sftpHead: "SFTP when terminal no reach",
     sftpBody:
       "Open file transfer from connected session to browse phone storage and remote folder. Queue upload and download, sort file, remember recent path for each host, and check remote permission before you move anything.",
@@ -76,12 +79,14 @@ export const pcm: Dict = {
       "Mobile SSH start screen for phone, wit Servers, Credentials, Logs, Settings, Debug and About tiles.",
       "Add Server dialog for phone, dey show host, port, credentials, private key and port forward fields.",
       "Single-session SSH terminal for phone, wit di extra key row down.",
-      "Two stacked SSH session for phone, di active pane dey highlight.",
+      "Two SSH session for side-by-side split view for phone.",
+      "Two SSH session wey stack vertical for phone wit di active pane highlighted.",
       "SFTP file transfer screen for phone, wit My Phone and Remote Host panes.",
       "About dialog for phone, dey show version, author, license and website fields.",
-      "Generate SSH Key dialog for phone wit label, user, key type, an passphrase fields.",
-      "Public Key dialog for phone wey dey show di key wey dem make wit copy, share, an save options.",
-      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
+      "Generate SSH Key dialog for phone wit label, user, key type, and passphrase fields.",
+      "Public Key dialog for phone wey dey show di key wey dem make wit copy, share, and save options.",
+      "Saved Servers screen wey dey show servers wey dem arrange enter collapsible Work and Personal folder groups.",
+      "SSH terminal for phone wit https:// URLs wey dey underline as tappable clickable links."
     ],
     compareHead: "Where e stand next to Termux and Termius",
     compareIntro:
@@ -103,9 +108,11 @@ export const pcm: Dict = {
       {
         title: "Connections",
         items: [
-          "Password and private key login",
+          "Password login and private key login",
           "Ed25519, RSA, ECDSA and DSA private keys wey di current app dey support",
-          "Saved server profile wit host, port, user, credential, private key and optional tunnel spec",
+          "Saved server profile wit host, port, username, credential, private key and optional tunnel spec",
+          "Search saved servers by name or host",
+          "Search-first Add Session flow: pick saved server from dedicated search page and connect with one tap",
           "Reusable credential record wey you fit pick for server setup",
           "Recent session history to reconnect to common server set",
           "Login log for successful and failed try"
@@ -117,11 +124,11 @@ export const pcm: Dict = {
           "VT100/xterm-256color style terminal behaviour",
           "5000-line scrollback buffer",
           "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn and keyboard toggle",
-          "Tap to focus, optional «tap to show keyboard», copy and copy-all action",
-          "Pinch zoom to change text size, with remote terminal resize",
+          "Tap to focus, optional tap-to-show-keyboard setting, copy and copy-all action",
+          "Pinch-to-zoom text sizing wit remote terminal resize",
           "Double-tap pane fullscreen mode",
-          "Terminal text selection wit Copy, Share and Select all",
-          "Gboard suggestion/autocorrect and voice input support, wit composing text buffer"
+          "Terminal text selection wit Copy, Share and Select all action",
+          "Gboard suggestion/autocorrect and voice input support, wit composing-text buffer for terminals"
         ]
       },
       {
@@ -131,12 +138,13 @@ export const pcm: Dict = {
           "Grid layout for active session",
           "Foreground service to help background and screen-lock survive",
           "Keepalive and reconnect try wit exponential backoff",
-          "Active Sessions entry from start screen",
-          "tmux command tracking and reattach hint when work break"
+          "Active Sessions entry from start screen; ongoing notification wey dey list session — tap to open",
+          "tmux command tracking and reattach hint when work break",
+          "Agent alerts: notification wit optional sound and vibration when remote agent (Claude Code, Codex, etc.) need input; e dey play for headphones over video"
         ]
       },
       {
-        title: "File and tunnel",
+        title: "Files and tunnels",
         items: [
           "Dual-pane SFTP browser for local and remote file",
           "Upload and download queue",
@@ -238,6 +246,53 @@ export const pcm: Dict = {
         title: "Pick Termius when",
         body: "You want commercial, cross-platform SSH workspace wit encrypted vault sync, team sharing, keychain management, snippet, and one consistent app on plenty device."
       }
+    ],
+    featureHeading: "Feature by feature",
+    featureRows: [
+      { category: "Connection",       feature: "Saved server profile",                       mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Connection",       feature: "Search saved servers",                        mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Connection",       feature: "Server folders / groups",                     mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Connection",       feature: "Search-first Add Session picker",             mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Connection",       feature: "Reusable credential record",                  mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Connection",       feature: "Recent session history",                      mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Connection",       feature: "Login log",                                   mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Terminal",         feature: "SSH terminal",                                mobile: "yes",     termux: "via OpenSSH",   termius: "yes" },
+      { category: "Terminal",         feature: "xterm-256color emulation",                    mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "5 000-line scrollback buffer",                mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Extra key row (ESC/TAB/CTRL/…)",              mobile: "yes",     termux: "partial",       termius: "yes" },
+      { category: "Terminal",         feature: "Pinch-to-zoom text sizing",                   mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Double-tap pane to fullscreen",               mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Terminal",         feature: "URL wey fit tap for terminal output",         mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Terminal",         feature: "Text selection: copy / share / select all",   mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Gboard suggestion & voice input",             mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Sessions",         feature: "Plenty SSH session same time",                mobile: "up to 8", termux: "via tmux",      termius: "yes" },
+      { category: "Sessions",         feature: "Grid pane layout",                            mobile: "yes",     termux: "no",            termius: "tabs" },
+      { category: "Sessions",         feature: "tmux-friendly scroll",                        mobile: "yes",     termux: "yes",           termius: "no" },
+      { category: "Sessions",         feature: "tmux reattach hint on reconnect",             mobile: "yes",     termux: "yes",           termius: "no" },
+      { category: "Sessions",         feature: "Agent alerts (Claude Code / Codex)",          mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Sessions",         feature: "Ongoing notification wit session list",       mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Sessions",         feature: "Foreground service & wake lock",              mobile: "yes",     termux: "partial",       termius: "yes" },
+      { category: "Sessions",         feature: "Auto-reconnect wit backoff",                  mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Files",            feature: "Built-in SFTP file transfer UI",              mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Files",            feature: "Dual-pane local + remote browser",            mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Files",            feature: "Upload / download queue",                     mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Files",            feature: "Remote rename / delete / create",             mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Files",            feature: "Remote file permissions view",                mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Files",            feature: "Sort by name or date per host",               mobile: "yes",     termux: "no",            termius: "partial" },
+      { category: "Tunnels",          feature: "Local port forwarding",                       mobile: "yes",     termux: "via CLI",       termius: "yes" },
+      { category: "Tunnels",          feature: "Saved tunnels wit server profile",            mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Tunnels",          feature: "Runtime add / remove tunnels",                mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Keys",             feature: "Password login",                              mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Keys",             feature: "Private key login",                           mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Keys",             feature: "Key generation on device",                    mobile: "yes",     termux: "via ssh-keygen", termius: "yes" },
+      { category: "Keys",             feature: "Share / save generated public key",           mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Backup",           feature: "Export / import server backup",               mobile: "yes",     termux: "no",            termius: "cloud vault" },
+      { category: "Backup",           feature: "Encrypted local backup file",                 mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Backup",           feature: "No account needed",                           mobile: "yes",     termux: "yes",           termius: "no" },
+      { category: "Privacy & cost",   feature: "No Pro paywall",                              mobile: "yes",     termux: "yes",           termius: "partial" },
+      { category: "Privacy & cost",   feature: "No ads",                                      mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Privacy & cost",   feature: "Analytics opt-out",                           mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Privacy & cost",   feature: "Local-only data (no cloud sync)",             mobile: "yes",     termux: "yes",           termius: "no" }
     ]
   },
   privacy: {

@@ -7,65 +7,7 @@ import { getDict } from "../../i18n";
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
 
-type Cell = true | false | string;
-interface FeatureRow { category: string; feature: string; mobile: Cell; termux: Cell; termius: Cell; }
-
-const featureRows: FeatureRow[] = [
-  // Connection
-  { category: "Connection", feature: "Saved server profiles",            mobile: true,        termux: false,         termius: true },
-  { category: "Connection", feature: "Search saved servers",             mobile: true,        termux: false,         termius: true },
-  { category: "Connection", feature: "Server folders / groups",          mobile: true,        termux: false,         termius: true },
-  { category: "Connection", feature: "Search-first Add Session picker",  mobile: true,        termux: false,         termius: false },
-  { category: "Connection", feature: "Reusable credential records",      mobile: true,        termux: false,         termius: true },
-  { category: "Connection", feature: "Recent session history",           mobile: true,        termux: false,         termius: true },
-  { category: "Connection", feature: "Login log",                        mobile: true,        termux: false,         termius: false },
-  // Terminal
-  { category: "Terminal",   feature: "SSH terminal",                     mobile: true,        termux: "via OpenSSH", termius: true },
-  { category: "Terminal",   feature: "xterm-256color emulation",         mobile: true,        termux: true,          termius: true },
-  { category: "Terminal",   feature: "5 000-line scrollback buffer",     mobile: true,        termux: true,          termius: true },
-  { category: "Terminal",   feature: "Extra key row (ESC/TAB/CTRL/…)",   mobile: true,        termux: "partial",     termius: true },
-  { category: "Terminal",   feature: "Pinch-to-zoom text sizing",        mobile: true,        termux: true,          termius: true },
-  { category: "Terminal",   feature: "Double-tap pane to fullscreen",    mobile: true,        termux: false,         termius: false },
-  { category: "Terminal",   feature: "Tappable URLs in terminal output", mobile: true,        termux: false,         termius: true },
-  { category: "Terminal",   feature: "Text selection: copy / share / select all", mobile: true, termux: true,        termius: true },
-  { category: "Terminal",   feature: "Gboard suggestions & voice input", mobile: true,        termux: true,          termius: true },
-  // Sessions
-  { category: "Sessions",   feature: "Multiple concurrent SSH sessions", mobile: "up to 8",   termux: "via tmux",    termius: true },
-  { category: "Sessions",   feature: "Grid pane layout",                 mobile: true,        termux: false,         termius: "tabs" },
-  { category: "Sessions",   feature: "tmux-aware scrolling",             mobile: true,        termux: true,          termius: false },
-  { category: "Sessions",   feature: "tmux reattach hints on reconnect", mobile: true,        termux: true,          termius: false },
-  { category: "Sessions",   feature: "Agent alerts (Claude Code / Codex notifications)", mobile: true, termux: false, termius: false },
-  { category: "Sessions",   feature: "Ongoing notification with session list", mobile: true,  termux: false,         termius: false },
-  { category: "Sessions",   feature: "Foreground service & wake lock",   mobile: true,        termux: "partial",     termius: true },
-  { category: "Sessions",   feature: "Auto-reconnect with backoff",      mobile: true,        termux: false,         termius: true },
-  // Files
-  { category: "Files",      feature: "Built-in SFTP file transfer UI",   mobile: true,        termux: false,         termius: true },
-  { category: "Files",      feature: "Dual-pane local + remote browser", mobile: true,        termux: false,         termius: true },
-  { category: "Files",      feature: "Upload / download queue",          mobile: true,        termux: false,         termius: true },
-  { category: "Files",      feature: "Remote rename / delete / create",  mobile: true,        termux: false,         termius: true },
-  { category: "Files",      feature: "Remote file permissions view",     mobile: true,        termux: false,         termius: false },
-  { category: "Files",      feature: "Sort by name or date per host",    mobile: true,        termux: false,         termius: "partial" },
-  // Port forwarding
-  { category: "Tunnels",    feature: "Local port forwarding",            mobile: true,        termux: "via CLI",     termius: true },
-  { category: "Tunnels",    feature: "Saved tunnels with server profile", mobile: true,       termux: false,         termius: true },
-  { category: "Tunnels",    feature: "Runtime add / remove tunnels",     mobile: true,        termux: false,         termius: true },
-  // Keys
-  { category: "Keys",       feature: "Password authentication",          mobile: true,        termux: true,          termius: true },
-  { category: "Keys",       feature: "Private key authentication",       mobile: true,        termux: true,          termius: true },
-  { category: "Keys",       feature: "On-device key generation",         mobile: true,        termux: "via ssh-keygen", termius: true },
-  { category: "Keys",       feature: "Share / save generated public key",mobile: true,        termux: true,          termius: true },
-  // Backup
-  { category: "Backup",     feature: "Export / import server backup",    mobile: true,        termux: false,         termius: "cloud vault" },
-  { category: "Backup",     feature: "Encrypted local backup file",      mobile: true,        termux: false,         termius: false },
-  { category: "Backup",     feature: "No account required",              mobile: true,        termux: true,          termius: false },
-  // Privacy & cost
-  { category: "Privacy & cost", feature: "No Pro paywall",               mobile: true,        termux: true,          termius: "partial" },
-  { category: "Privacy & cost", feature: "No ads",                       mobile: true,        termux: true,          termius: true },
-  { category: "Privacy & cost", feature: "Analytics opt-out",            mobile: true,        termux: false,         termius: false },
-  { category: "Privacy & cost", feature: "Local-only data (no cloud sync)", mobile: true,    termux: true,          termius: false },
-];
-
-// Group rows by category preserving insertion order
+const featureRows = t.compare.featureRows;
 const categories = [...new Set(featureRows.map(r => r.category))];
 ---
 
@@ -108,12 +50,12 @@ const categories = [...new Set(featureRows.map(r => r.category))];
         ))}
       </div>
 
-      <h2 class="feat-heading">Feature by feature</h2>
+      <h2 class="feat-heading">{t.compare.featureHeading}</h2>
 
       <table class="feat-table">
         <thead>
           <tr>
-            <th class="feat-col-feature">Feature</th>
+            <th class="feat-col-feature">{t.compare.columns.need}</th>
             <th class="feat-col-app highlight-col">Mobile SSH</th>
             <th class="feat-col-app">Termux</th>
             <th class="feat-col-app">Termius</th>
@@ -128,14 +70,14 @@ const categories = [...new Set(featureRows.map(r => r.category))];
               {featureRows.filter(r => r.category === cat).map(row => (
                 <tr>
                   <td class="feat-name">{row.feature}</td>
-                  <td class={`feat-cell highlight-col ${row.mobile === true ? 'yes' : row.mobile === false ? 'no' : 'partial'}`}>
-                    {row.mobile === true ? '✓' : row.mobile === false ? '✗' : row.mobile}
+                  <td class={`feat-cell highlight-col ${row.mobile === 'yes' ? 'yes' : row.mobile === 'no' ? 'no' : 'partial'}`}>
+                    {row.mobile === 'yes' ? '✓' : row.mobile === 'no' ? '✗' : row.mobile}
                   </td>
-                  <td class={`feat-cell ${row.termux === true ? 'yes' : row.termux === false ? 'no' : 'partial'}`}>
-                    {row.termux === true ? '✓' : row.termux === false ? '✗' : row.termux}
+                  <td class={`feat-cell ${row.termux === 'yes' ? 'yes' : row.termux === 'no' ? 'no' : 'partial'}`}>
+                    {row.termux === 'yes' ? '✓' : row.termux === 'no' ? '✗' : row.termux}
                   </td>
-                  <td class={`feat-cell ${row.termius === true ? 'yes' : row.termius === false ? 'no' : 'partial'}`}>
-                    {row.termius === true ? '✓' : row.termius === false ? '✗' : row.termius}
+                  <td class={`feat-cell ${row.termius === 'yes' ? 'yes' : row.termius === 'no' ? 'no' : 'partial'}`}>
+                    {row.termius === 'yes' ? '✓' : row.termius === 'no' ? '✗' : row.termius}
                   </td>
                 </tr>
               ))}

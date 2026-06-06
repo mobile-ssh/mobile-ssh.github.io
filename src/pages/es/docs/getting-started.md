@@ -18,10 +18,10 @@ Mobile SSH es un cliente SSH para Android para conectarte a tus propios servidor
 ## Conectarse a un servidor
 
 1. Abre Mobile SSH.
-2. Toca **Servidores guardados** si ya creaste un perfil, o agrega un servidor en el flujo de conexión.
-3. Introduce el host, el puerto, el nombre de usuario y los datos de autenticación.
+2. Toca **+ Add Session** y busca un servidor guardado, o añade uno nuevo desde esa pantalla.
+3. Introduce el host, el puerto, el nombre de usuario y los datos de autenticación si añades un servidor nuevo.
 4. Toca el servidor para abrir una sesión de terminal.
-5. Usa **Sesiones activas** en la pantalla de inicio para volver a las sesiones que siguen en ejecución.
+5. Usa **Active Sessions** en la pantalla de inicio para volver a las sesiones que siguen en ejecución.
 
 El puerto SSH predeterminado es `22`. Si tu servidor usa otro puerto, indícalo en el perfil del servidor.
 
@@ -39,7 +39,7 @@ Usa servidores guardados para hosts a los que accedes con frecuencia. Si un serv
 
 ## Guardar credenciales
 
-La pantalla **Credenciales** almacena registros reutilizables de usuario/contraseña o usuario/clave privada. Las credenciales guardadas se pueden seleccionar en el cuadro de diálogo de configuración del servidor, para no volver a introducir los mismos datos de acceso en cada host.
+La pantalla **Credentials** almacena registros reutilizables de usuario/contraseña o usuario/clave privada. Las credenciales guardadas se pueden seleccionar en el cuadro de diálogo de configuración del servidor, para no volver a introducir los mismos datos de acceso en cada host.
 
 Los registros de credenciales se almacenan localmente en el dispositivo Android. Protege el dispositivo con un bloqueo de pantalla si guardas contraseñas, frases de contraseña o claves privadas.
 
@@ -49,8 +49,8 @@ Mobile SSH admite claves privadas pegadas y la importación de claves mediante e
 
 Para usar una clave privada:
 
-1. Abre **Credenciales** o el cuadro de diálogo de edición del servidor.
-2. Pega el texto de la clave privada o elige **Importar desde archivo**.
+1. Abre **Credentials** o el cuadro de diálogo de edición del servidor.
+2. Pega el texto de la clave privada o elige **Import from file**.
 3. Introduce la frase de contraseña de la clave en el campo de contraseña/frase si la clave está cifrada.
 4. Guarda la credencial o el servidor.
 
@@ -60,16 +60,24 @@ La importación de la clave privada usa el selector de archivos de Android para 
 
 La pantalla de inicio muestra las sesiones recientes. Una sesión reciente puede reconectarse al mismo conjunto de servidores. Si la sesión anterior sigue activa, Mobile SSH vuelve a ella en lugar de iniciar una conexión duplicada.
 
+## Buscar servidores guardados
+
+Toca el campo de búsqueda en la página **Saved Servers** para filtrar por nombre o host. La pantalla **+ Add Session** también se abre con búsqueda integrada, para que puedas encontrar y conectarte a un servidor guardado en un solo paso.
+
 ## Sesiones activas
 
-Cuando hay sesiones en ejecución, la pantalla de inicio muestra **Sesiones activas** con un contador. Tócalo para volver a la cuadrícula de terminales. Volver a la pantalla de inicio no desconecta necesariamente las sesiones SSH activas; cerrar paneles o finalizar la actividad de terminal sí las desconecta.
+Cuando hay sesiones en ejecución, la pantalla de inicio muestra **Active Sessions** con un contador. Tócalo para volver a la cuadrícula de terminales. Una notificación persistente también lista los hosts activos: toca un host en la notificación para ir directamente a esa terminal.
+
+Volver a la pantalla de inicio no desconecta las sesiones SSH activas; cerrar paneles o finalizar la actividad de terminal sí las desconecta.
 
 ## Primeros ajustes útiles
 
-Abre **Ajustes** en la pantalla de inicio:
+Abre **Settings** desde la pantalla de inicio (tiene su propia página):
 
-- Activa mostrar el teclado al tocar si prefieres que el teclado aparezca al tocar la terminal.
+- Activa "tap-to-show-keyboard" si prefieres que el teclado aparezca al tocar la terminal.
 - Desactiva las sugerencias del IME si las sugerencias del teclado interfieren con programas de terminal como Vim, less, htop o apps tmux a pantalla completa.
+- Activa **Agent alerts** si ejecutas tareas largas en segundo plano (Claude Code, Codex, scripts de shell) y quieres recibir una notificación sonora o de vibración cuando el agente necesite tu intervención.
+- Desactiva el envío de estadísticas de uso anónimas si prefieres que no se transmita ningún dato.
 
 ## Idiomas
 

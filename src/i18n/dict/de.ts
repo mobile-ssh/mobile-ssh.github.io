@@ -38,23 +38,26 @@ export const de: Dict = {
     advantages: [
       { title: "Keine Pro-Stufe, keine Werbung", text: "Alle Funktionen in derselben App. Keine Paywall, die wesentliche Workflows hinter einem Pro-Upgrade versteckt, keine Werbebanner im Terminal." },
       { title: "Deine Daten bleiben lokal", text: "Gespeicherte Server, Zugangsdaten und Schlüssel liegen auf dem Gerät. Kein Cloud-Konto; nichts, was abgeschaltet werden könnte." },
-      { title: "Gespeicherte Hosts, ein Tippen", text: "Host einmal anlegen und mit einem Tippen wieder verbinden — inklusive Schlüssel, Port und konfigurierten Tunneln." },
-      { title: "Terminal-Tasten über der Tastatur", text: "Eigene Reihe mit ESC, TAB, CTRL, ALT, FN, Pfeilen, Home, End, PgUp/PgDn — ohne Gboard-Vorschläge zu stören." },
+      { title: "Gespeicherte Hosts, Suche zum Verbinden", text: "Host einmal anlegen, dann suchen und antippen zum Verbinden – Schlüssel, Ports und Tunnel kommen automatisch mit." },
+      { title: "Agenten-Benachrichtigungen", text: "Erhalte eine Benachrichtigung – mit Ton und Vibration – sobald Claude Code, Codex oder ein anderer Remote-Agent deine Eingabe benötigt. Wird auch über Kopfhörer wiedergegeben, selbst während eines Videos." },
+      { title: "Terminal-Tasten über der Tastatur", text: "Eigene Reihe mit ESC, TAB, CTRL, ALT, FN, Pfeilen, Home, End, PgUp/PgDn – ohne Gboard-Vorschläge zu stören." },
       { title: "Portweiterleitung ohne Befehle", text: "Tunnel hängen am Server-Profil und gehen beim Verbinden automatisch hoch." },
-      { title: "Übersteht Sperre und Netzwechsel", text: "Foreground-Service, Wake Locks und Auto-Reconnect halten Sitzungen am Leben — bei ausgeschaltetem Bildschirm, App-Wechsel und Netzwerkwechsel." }
+      { title: "Übersteht Sperre und Netzwechsel", text: "Vordergrunddienst, Wake Locks und Auto-Reconnect halten Sitzungen am Leben – bei ausgeschaltetem Bildschirm, App-Wechsel und Netzwerkwechsel." }
     ],
     sectionAHead: "Gebaut für SSH-Arbeit auf Android",
     sectionAIntro:
       "Mobile SSH hält den üblichen Admin-Weg kurz: Server speichern, verbinden, Sitzungen am Leben halten, bei Bedarf Dateien bewegen und schnell zu aktiven Terminals zurückkehren.",
     features: [
-      { title: "SSH-Terminal", text: "VT100/xterm-256color-Emulation mit Farben, Cursortasten, Scrollback, Kopieren und Unterstützung der Android-Tastatur." },
-      { title: "Multi-Session-Raster", text: "Bis zu acht Sitzungen gleichzeitig, Wechsel per Antippen eines Panels, Doppeltipp für Vollbild-Fokus." },
-      { title: "Private Schlüssel", text: "Passwörter oder importierte/eingefügte private Schlüssel, inklusive Ed25519, RSA, ECDSA und DSA, die von der App unterstützt werden." },
-      { title: "SFTP-Übertragung", text: "Dateien zwischen Telefonspeicher und entferntem Server verschieben – mit lokalen und entfernten Browser-Panels." },
-      { title: "Portweiterleitung", text: "Lokale Tunnelangaben mit einem Serverprofil speichern oder Tunnel im laufenden Betrieb hinzufügen." },
-      { title: "Reconnect-Workflow", text: "Vordergrunddienst, Wake Locks, Keepalives und Reconnect-Versuche helfen Sessions, Netzwerkwechsel zu überleben." },
-      { title: "Terminal-Auswahl", text: "Terminaltext markieren zum Kopieren, Teilen oder Alles-auswählen; Kopien landen in der Android-Zwischenablage." },
-      { title: "Tastaturfreundlich", text: "Gboard-Vorschläge und Spracheingabe arbeiten neben der Zusatztastenreihe; komponierter Text wird sauber bis zur Wortgrenze gepuffert." }
+      { title: "SSH-Terminal", text: "xterm-256color-Terminalemulation mit 5000-Zeilen-Scrollback, Farbe, Cursortasten, Kopieren/Teilen und Pinch-to-Zoom-Textgröße." },
+      { title: "Multi-Session-Raster", text: "Bis zu acht SSH-Sitzungen in einem veränderbaren Raster – Tippen auf ein Panel für Fokus, Doppeltippen für Vollbild, Pinch zum Textgrößen-Anpassen." },
+      { title: "Anklickbare Links", text: "URLs im Terminal sind unterstrichen und öffnen sich mit einem Tippen im Browser – kein Kopieren oder Wechseln der App nötig." },
+      { title: "Serverordner", text: "Gespeicherte Server in einklappbare Gruppen organisieren. Tippe auf eine Gruppen-Kopfzeile zum Einklappen; die Ordnerstruktur erscheint auch in der Schnellverbindungsauswahl." },
+      { title: "Agenten-Benachrichtigungen", text: "Benachrichtigung mit Ton und Vibration, wenn ein Remote-Agent (Claude Code, Codex usw.) deine Eingabe benötigt. Wird auch während Videoanrufen in Kopfhörern wiedergegeben." },
+      { title: "Private Schlüssel", text: "Passwort- oder Private-Key-Authentifizierung. Ed25519-, ECDSA- oder RSA-Schlüssel auf dem Gerät erzeugen; vorhandene Schlüssel importieren oder einfügen." },
+      { title: "SFTP-Übertragung", text: "Dual-Panel-Dateibrowser, an eine aktive SSH-Sitzung gebunden. Uploads und Downloads in die Warteschlange stellen, umbenennen, löschen und entfernte Berechtigungen prüfen." },
+      { title: "Portweiterleitung", text: "Lokale Tunnel-Angaben mit einem Serverprofil speichern – Tunnel öffnen sich beim Verbinden automatisch, oder im laufenden Betrieb hinzufügen/entfernen." },
+      { title: "Reconnect-Workflow", text: "Vordergrunddienst, Wake Locks, Keepalives und Reconnect mit exponentiellem Backoff halten Sitzungen bei ausgeschaltetem Bildschirm und Roaming am Leben." },
+      { title: "Sicherung & Wiederherstellung", text: "Gespeicherte Server und Zugangsdaten in eine verschlüsselte Sicherungsdatei exportieren; mit Zusammenführen oder Ersetzen importieren, um zwischen Geräten zu wechseln." }
     ],
     multiHead: "Ein Bildschirm, mehrere aktive Shells",
     multiP1:
@@ -62,13 +65,14 @@ export const de: Dict = {
     multiP2:
       "Sitzungsverlauf und Wiederherstellung aktiver Sitzungen helfen, nach App-Wechseln, Bildschirmsperre oder Android-Activity-Recreation zur laufenden Arbeit zurückzukehren.",
     multiAlt:
-      "Mobile SSH auf einem 10-Zoll-Android-Tablet mit vier aktiven SSH-Terminal-Panels nebeneinander.",
+      "Mobile SSH auf einem Smartphone mit zwei aktiven SSH-Terminal-Sitzungen in einer nebeneinander angeordneten geteilten Ansicht.",
     sftpHead: "SFTP, wenn das Terminal nicht reicht",
     sftpBody:
       "Öffne die Dateiübertragung aus einer verbundenen Sitzung, um Telefonspeicher und entfernte Verzeichnisse zu durchsuchen. Uploads und Downloads in die Warteschlange stellen, sortieren, zuletzt verwendete Pfade pro Host merken und entfernte Dateirechte prüfen, bevor etwas bewegt wird.",
     sftpCtaGuide: "Dateiübertragungs-Anleitung",
     sftpCtaAll: "Alle Funktionen",
-    sftpAlt: "Dateiübertragungs-Bildschirm von Mobile SSH auf einem Telefon mit lokalem und entferntem Panel.",
+    sftpAlt:
+      "Dateiübertragungs-Bildschirm von Mobile SSH auf einem Telefon mit lokalem und entferntem Panel.",
     galleryHead: "Auf einem echten Gerät ansehen",
     galleryIntro:
       "Screenshots von Android-Telefonen – dieselben Bildschirme, mit denen du Server hinzufügst, in Terminals arbeitest, mehrere Sitzungen ausführst und Dateien per SFTP überträgst.",
@@ -76,12 +80,14 @@ export const de: Dict = {
       "Startbildschirm von Mobile SSH auf einem Telefon mit Kacheln Server, Anmeldedaten, Logs, Einstellungen, Debug und Über.",
       "Dialog „Server hinzufügen“ auf einem Telefon mit Feldern für Host, Port, Anmeldedaten, privatem Schlüssel und Portweiterleitung.",
       "Einzelnes SSH-Terminal auf einem Telefon mit Zusatztastenreihe unten.",
-      "Zwei gestapelte SSH-Sitzungen auf einem Telefon mit hervorgehobenem aktivem Panel.",
+      "Zwei SSH-Sitzungen in einer nebeneinander angeordneten geteilten Ansicht auf einem Telefon.",
+      "Zwei SSH-Sitzungen übereinander auf einem Telefon mit hervorgehobenem aktivem Panel.",
       "SFTP-Dateiübertragungs-Bildschirm auf einem Telefon mit Panels „Mein Telefon“ und „Remote-Host“.",
-      "Über-Dialog auf einem Telefon mit Version, Autor, Lizenz und Website.",
+      "Über-Dialog auf einem Telefon mit Feldern für Version, Autor, Lizenz und Website.",
       "Dialog „SSH-Schlüssel erzeugen“ auf einem Telefon mit Feldern für Bezeichnung, Benutzer, Schlüsseltyp und Passphrase.",
       "Dialog „Öffentlicher Schlüssel“ auf einem Telefon mit dem erzeugten Schlüssel und Optionen zum Kopieren, Teilen und Speichern.",
-      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
+      "Bildschirm „Gespeicherte Server“ mit Servern, die in einklappbaren Gruppen „Arbeit“ und „Privat“ organisiert sind.",
+      "SSH-Terminal auf einem Telefon mit https://-URLs, die als antippbare, anklickbare Links unterstrichen sind."
     ],
     compareHead: "Sein Platz neben Termux und Termius",
     compareIntro:
@@ -104,8 +110,10 @@ export const de: Dict = {
         title: "Verbindungen",
         items: [
           "Passwort- und Private-Key-Authentifizierung",
-          "Private Schlüssel Ed25519, RSA, ECDSA und DSA, die von der aktuellen App unterstützt werden",
+          "Private Schlüssel Ed25519, RSA, ECDSA und DSA, die von der aktuellen App-Implementierung unterstützt werden",
           "Gespeicherte Serverprofile mit Host, Port, Benutzer, Anmeldedaten, privatem Schlüssel und optionalen Tunneln",
+          "Gespeicherte Server nach Name oder Host durchsuchen",
+          "Suche-zuerst-Sitzung-hinzufügen-Ablauf: gespeicherten Server auf einer eigenen Suchseite auswählen und mit einem Tippen verbinden",
           "Wiederverwendbare Anmeldedaten, die bei der Servereinrichtung ausgewählt werden können",
           "Verlauf kürzlicher Sitzungen für die Wiederverbindung üblicher Servergruppen",
           "Login-Log für erfolgreiche und fehlgeschlagene Versuche"
@@ -121,7 +129,7 @@ export const de: Dict = {
           "Pinch-Zoom-Textgröße mit Größenänderung des entfernten Terminals",
           "Vollbildmodus per Doppeltipp",
           "Terminaltext-Auswahl mit Kopieren, Teilen und Alles auswählen",
-          "Gboard-Vorschläge/Autokorrektur und Spracheingabe, mit Pufferung des komponierten Texts"
+          "Gboard-Vorschläge/Autokorrektur und Spracheingabe, mit Pufferung des komponierten Texts für Terminals"
         ]
       },
       {
@@ -131,8 +139,9 @@ export const de: Dict = {
           "Rasteranordnung für aktive Sitzungen",
           "Vordergrunddienst für Hintergrund- und Bildschirmsperre-Stabilität",
           "Keepalives und Reconnect-Versuche mit exponentiellem Backoff",
-          "Einstieg „Aktive Sitzungen“ vom Startbildschirm",
-          "tmux-Befehlsverfolgung und Reattach-Hinweise für unterbrochene Arbeit"
+          "Einstieg „Aktive Sitzungen“ vom Startbildschirm; dauerhafte Benachrichtigung listet Sitzungen auf – tippen zum Öffnen",
+          "tmux-Befehlsverfolgung und Reattach-Hinweise für unterbrochene Arbeit",
+          "Agenten-Benachrichtigungen: Benachrichtigung mit optionalem Ton und Vibration, wenn ein Remote-Agent (Claude Code, Codex usw.) Eingabe benötigt; wird auch bei Video in Kopfhörern wiedergegeben"
         ]
       },
       {
@@ -149,7 +158,7 @@ export const de: Dict = {
       {
         title: "Lokalisierung",
         items: [
-          "App-Übersetzungen: Arabisch, Bengalisch, Chinesisch (vereinfacht und traditionell), Englisch, Französisch, Deutsch, Hindi, Indonesisch, Japanisch, Marathi, Nigerianisches Pidgin, Portugiesisch, Russisch, Spanisch, Tamil, Telugu, Türkisch und Urdu",
+          "App-Übersetzungen: Arabisch, Bengalisch, Chinesisch (vereinfacht und traditionell), Englisch, Französisch, Deutsch, Hindi, Indonesisch, Japanisch, Marathi, Nigerianisches Pidgin, Portugiesisch, Russisch, Spanisch, Tamil, Telugu, Türkisch, Urdu",
           "Folgt der Android-Systemsprache; kein gesonderter App-Sprachpicker nötig"
         ]
       },
@@ -196,7 +205,7 @@ export const de: Dict = {
       },
       {
         need: "Terminalsteuerung auf Android",
-        mobileSsh: "Eingebaute Zusatztastenreihe, Rasterausführungen, Vollbild-Panels, Pinch-Zoom, Textauswahl mit Kopieren/Teilen, Gboard-Vorschläge, Spracheingabe und tmux-taugliches Scrollen.",
+        mobileSsh: "Eingebaute Zusatztastenreihe, Rastersitzungen, Vollbild-Panels, Pinch-Zoom, Textauswahl mit Kopieren/Teilen, Gboard-Vorschläge, Spracheingabe und tmux-taugliches Scrollen.",
         termux: "Mächtige Terminalumgebung; das Verhalten hängt von installierten Werkzeugen und Konfiguration ab.",
         termius: "Mobile-Tastaturzusatz, Gesten, Tabs, Autovervollständigung, Snippets und feinpolierte Terminal-UX."
       },
@@ -222,7 +231,7 @@ export const de: Dict = {
         need: "Bester Anwendungsfall",
         mobileSsh: "Du willst eine einfache Android-App, um dich mit Servern zu verbinden, Dateien zu übertragen und Sitzungen am Leben zu halten.",
         termux: "Du willst eine vollständige Kommandozeilen-Umgebung auf Android und bist sicher beim Installieren und Konfigurieren von Paketen.",
-        termius: "Du willst Geräteübergreifende Synchronisation, gepflegte Produktivitätsfunktionen, Tresore und Zusammenarbeit."
+        termius: "Du willst geräteübergreifende Synchronisation, gepflegte Produktivitätsfunktionen, Tresore und Zusammenarbeit."
       }
     ],
     cards: [
@@ -238,6 +247,53 @@ export const de: Dict = {
         title: "Wähle Termius, wenn",
         body: "Du einen kommerziellen, plattformübergreifenden SSH-Arbeitsraum mit verschlüsselten Tresoren, Team-Sharing, Schlüsselbund-Verwaltung, Snippets und einer konsistenten App auf mehreren Geräten willst."
       }
+    ],
+    featureHeading: "Funktion für Funktion",
+    featureRows: [
+      { category: "Verbindung",        feature: "Gespeicherte Serverprofile",                        mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Verbindung",        feature: "Gespeicherte Server durchsuchen",                   mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Verbindung",        feature: "Serverordner / Gruppen",                            mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Verbindung",        feature: "Suche-zuerst-Sitzung-hinzufügen-Auswahl",           mobile: "yes",      termux: "no",             termius: "no" },
+      { category: "Verbindung",        feature: "Wiederverwendbare Anmeldedaten",                    mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Verbindung",        feature: "Verlauf kürzlicher Sitzungen",                      mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Verbindung",        feature: "Login-Log",                                         mobile: "yes",      termux: "no",             termius: "no" },
+      { category: "Terminal",          feature: "SSH-Terminal",                                      mobile: "yes",      termux: "via OpenSSH",    termius: "yes" },
+      { category: "Terminal",          feature: "xterm-256color-Emulation",                          mobile: "yes",      termux: "yes",            termius: "yes" },
+      { category: "Terminal",          feature: "5.000-Zeilen-Scrollback-Puffer",                    mobile: "yes",      termux: "yes",            termius: "yes" },
+      { category: "Terminal",          feature: "Zusatztastenreihe (ESC/TAB/CTRL/…)",                mobile: "yes",      termux: "partial",        termius: "yes" },
+      { category: "Terminal",          feature: "Pinch-to-Zoom-Textgröße",                           mobile: "yes",      termux: "yes",            termius: "yes" },
+      { category: "Terminal",          feature: "Doppeltipp auf Panel für Vollbild",                 mobile: "yes",      termux: "no",             termius: "no" },
+      { category: "Terminal",          feature: "Antippbare URLs in der Terminalausgabe",            mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Terminal",          feature: "Textauswahl: Kopieren / Teilen / Alles auswählen",  mobile: "yes",      termux: "yes",            termius: "yes" },
+      { category: "Terminal",          feature: "Gboard-Vorschläge & Spracheingabe",                 mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Sitzungen",         feature: "Mehrere gleichzeitige SSH-Sitzungen",               mobile: "up to 8",  termux: "via tmux",       termius: "yes" },
+      { category: "Sitzungen",         feature: "Raster-Panel-Anordnung",                            mobile: "yes",      termux: "no",             termius: "tabs" },
+      { category: "Sitzungen",         feature: "tmux-taugliches Scrollen",                          mobile: "yes",      termux: "yes",            termius: "no" },
+      { category: "Sitzungen",         feature: "tmux-Reattach-Hinweise beim Reconnect",             mobile: "yes",      termux: "yes",            termius: "no" },
+      { category: "Sitzungen",         feature: "Agenten-Benachrichtigungen (Claude Code / Codex)",  mobile: "yes",      termux: "no",             termius: "no" },
+      { category: "Sitzungen",         feature: "Dauerhafte Benachrichtigung mit Sitzungsliste",     mobile: "yes",      termux: "no",             termius: "no" },
+      { category: "Sitzungen",         feature: "Vordergrunddienst & Wake Lock",                     mobile: "yes",      termux: "partial",        termius: "yes" },
+      { category: "Sitzungen",         feature: "Auto-Reconnect mit Backoff",                        mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Dateien",           feature: "Eingebaute SFTP-Dateiübertragungs-UI",              mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Dateien",           feature: "Dual-Panel lokaler + entfernter Browser",           mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Dateien",           feature: "Upload-/Download-Warteschlange",                    mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Dateien",           feature: "Entferntes Umbenennen / Löschen / Erstellen",       mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Dateien",           feature: "Entfernte Dateirechte anzeigen",                    mobile: "yes",      termux: "no",             termius: "no" },
+      { category: "Dateien",           feature: "Sortieren nach Name oder Datum pro Host",           mobile: "yes",      termux: "no",             termius: "partial" },
+      { category: "Tunnel",            feature: "Lokale Portweiterleitung",                          mobile: "yes",      termux: "via CLI",        termius: "yes" },
+      { category: "Tunnel",            feature: "Gespeicherte Tunnel mit Serverprofil",              mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Tunnel",            feature: "Tunnel im Betrieb hinzufügen / entfernen",          mobile: "yes",      termux: "no",             termius: "yes" },
+      { category: "Schlüssel",         feature: "Passwort-Authentifizierung",                        mobile: "yes",      termux: "yes",            termius: "yes" },
+      { category: "Schlüssel",         feature: "Private-Key-Authentifizierung",                     mobile: "yes",      termux: "yes",            termius: "yes" },
+      { category: "Schlüssel",         feature: "Schlüsselerzeugung auf dem Gerät",                  mobile: "yes",      termux: "via ssh-keygen", termius: "yes" },
+      { category: "Schlüssel",         feature: "Erzeugten öffentlichen Schlüssel teilen / speichern", mobile: "yes",   termux: "yes",            termius: "yes" },
+      { category: "Sicherung",         feature: "Server-Sicherung exportieren / importieren",        mobile: "yes",      termux: "no",             termius: "cloud vault" },
+      { category: "Sicherung",         feature: "Verschlüsselte lokale Sicherungsdatei",             mobile: "yes",      termux: "no",             termius: "no" },
+      { category: "Sicherung",         feature: "Kein Konto erforderlich",                           mobile: "yes",      termux: "yes",            termius: "no" },
+      { category: "Datenschutz & Kosten", feature: "Keine Pro-Paywall",                              mobile: "yes",      termux: "yes",            termius: "partial" },
+      { category: "Datenschutz & Kosten", feature: "Keine Werbung",                                  mobile: "yes",      termux: "yes",            termius: "yes" },
+      { category: "Datenschutz & Kosten", feature: "Analyse-Opt-out",                                mobile: "yes",      termux: "no",             termius: "no" },
+      { category: "Datenschutz & Kosten", feature: "Nur lokale Daten (keine Cloud-Synchronisation)", mobile: "yes",      termux: "yes",            termius: "no" }
     ]
   },
   privacy: {
@@ -265,7 +321,10 @@ export const de: Dict = {
         heading: "Logs und Fehlerbehebung",
         body: "Login-Verlauf und optionale Debug-Logs werden lokal zur Fehleranalyse gespeichert. Debug-Logs können Terminal-Ereignisse, SSH-Datengrößen, Touch-Diagnose, Resize-Ereignisse und Tunnel-Lifecycle-Ereignisse enthalten. Prüfe ein Debug-Archiv, bevor du es mit Support oder Dritten teilst."
       },
-      { heading: "Anonyme Nutzungsanalyse", body: "Um zu verstehen, wie die App genutzt wird, und sie zu verbessern, sendet Mobile SSH anonyme Nutzungsanalysen an Aptabase, einen datenschutzorientierten Analyseanbieter, der in unserem Auftrag handelt. Beschränkt ist dies auf anonyme Ereignisse (etwa App-Starts und welche Funktionen genutzt werden) zusammen mit App-Version, Android-Version, Gerätemodell und Sprache. Es wird eine zufällige Sitzungskennung verwendet, die regelmäßig zurückgesetzt wird und weder mit Ihnen noch mit Ihrem Gerät verknüpft ist. Ihre SSH-Server, Hostnamen, Benutzernamen, Passwörter, Schlüssel, Befehle oder Dateiinhalte sind niemals enthalten. Die Daten werden über eine verschlüsselte (HTTPS-)Verbindung gesendet. Die Analyse ist standardmäßig aktiviert und kann jederzeit in den Einstellungen deaktiviert werden; wenn sie deaktiviert ist, wird nichts gesendet." }
+      {
+        heading: "Anonyme Nutzungsanalyse",
+        body: "Um zu verstehen, wie die App genutzt wird, und sie zu verbessern, sendet Mobile SSH anonyme Nutzungsanalysen an Aptabase, einen datenschutzorientierten Analyseanbieter, der in unserem Auftrag handelt. Beschränkt ist dies auf anonyme Ereignisse (etwa App-Starts und welche Funktionen genutzt werden) zusammen mit App-Version, Android-Version, Gerätemodell und Sprache. Es wird eine zufällige Sitzungskennung verwendet, die regelmäßig zurückgesetzt wird und weder mit dir noch mit deinem Gerät verknüpft ist. Deine SSH-Server, Hostnamen, Benutzernamen, Passwörter, Schlüssel, Befehle oder Dateiinhalte sind niemals enthalten. Die Daten werden über eine verschlüsselte (HTTPS-)Verbindung gesendet. Die Analyse ist standardmäßig aktiviert und kann jederzeit in den Einstellungen deaktiviert werden; wenn sie deaktiviert ist, wird nichts gesendet."
+      }
     ],
     permissionsHeading: "Berechtigungen",
     permissions: [

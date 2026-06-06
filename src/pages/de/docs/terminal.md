@@ -18,9 +18,9 @@ Das Terminal von Mobile SSH ist für die Bedienung auf Telefon und Tablet gemach
 
 ## Mehrsitzungsraster
 
-Mobile SSH kann bis zu acht SSH-Sitzungen gleichzeitig ausführen. Jede Sitzung erscheint als Bereich im Terminalraster. Die Bereichskopfzeile zeigt das aktuelle Ziel oder den Titel. Tippe auf einen Bereich, um ihn auszuwählen, oder nutze **+ Sitzung hinzufügen**, um eine weitere Verbindung zu starten.
+Mobile SSH kann bis zu acht SSH-Sitzungen gleichzeitig ausführen. Jede Sitzung erscheint als Bereich im Terminalraster. Die Bereichskopfzeile zeigt das aktuelle Ziel oder den Titel. Tippe auf einen Bereich, um ihn auszuwählen, oder nutze **+ Add Session**, um eine weitere Verbindung zu starten.
 
-Das Schließen eines Bereichs trennt diese SSH-Sitzung. Das Zurückgehen zum Startbildschirm hält aktive Sitzungen über **Aktive Sitzungen** verfügbar.
+Das Schließen eines Bereichs trennt diese SSH-Sitzung. Das Zurückgehen zum Startbildschirm hält aktive Sitzungen über **Active Sessions** verfügbar.
 
 ## Zusatztastenreihe
 
@@ -54,9 +54,9 @@ Die Spracheingabe (die Mikrofontaste von Gboard) läuft durch denselben Komposit
 
 Halte im Terminal gedrückt, um in den Auswahlmodus zu wechseln. Die Auswahlleiste bietet drei Aktionen:
 
-- **Kopieren** — legt den ausgewählten Text in die Android-Zwischenablage.
-- **Teilen** — übergibt den ausgewählten Text an das Android-Teilen-Menü (Mail, Notizen, Messaging usw.).
-- **Alles auswählen** — erweitert die Auswahl auf den gesamten sichtbaren Terminalpuffer, dann Kopieren oder Teilen.
+- **Copy** -- legt den ausgewählten Text in die Android-Zwischenablage.
+- **Share** -- übergibt den ausgewählten Text an das Android-Teilen-Menü (Mail, Notizen, Messaging usw.).
+- **Select all** -- erweitert die Auswahl auf den gesamten sichtbaren Terminalpuffer, danach Copy oder Share.
 
 ## Scrollen
 
@@ -81,6 +81,20 @@ tmux new -A -s work
 Wenn eine Verbindung abbricht, während du in tmux warst, kann sich die App den Namen der letzten tmux-Sitzung für diesen Server merken und nach der Wiederverbindung versuchen, sich erneut anzuhängen. Wenn kein expliziter Sitzungsname beobachtet wurde, die App aber weiß, dass du in einer tmux-ähnlichen Sitzung mit alternativem Bildschirm warst, kann sie ein generisches `tmux attach` versuchen.
 
 Dieses Verhalten erfolgt nach bestem Bemühen. Wenn die entfernte tmux-Sitzung nicht mehr existiert, bleibt die entfernte Shell verfügbar.
+
+## Agent alerts
+
+Mobile SSH kann die Terminalausgabe der aktiven Sitzung auf Muster überwachen, die darauf hinweisen, dass ein entfernter Agent auf eine Eingabe wartet. Wenn ein Treffer erkannt wird — zum Beispiel wenn Claude Code oder Codex auf eine Eingabe pausiert — sendet die App eine Benachrichtigung mit optionalem Ton und Vibration.
+
+Zum Einrichten:
+
+1. Öffne **Settings** vom Startbildschirm.
+2. Aktiviere **Agent alerts**.
+3. Wähle einen Benachrichtigungston und ein Vibrationsmuster.
+
+Der Alarm wird über den jeweils aktiven Audioausgang abgespielt, einschließlich Kopfhörer, sodass du ihn hören kannst, während du ein Video schaust oder das Telefon gesperrt ist. Die Benachrichtigung erscheint auch dann, wenn Mobile SSH im Hintergrund läuft.
+
+Agent-Alert-Muster werden mit der sichtbaren Terminalausgabe abgeglichen. Wenn dein entferntes Tool eine erkennbare Prompt-Zeile ausgibt (einen Benutzernamen, ein `?`, eine Frage in eckigen Klammern), kann die App sie automatisch erkennen. Wenn Alerts zu oft oder gar nicht ausgelöst werden, passe die Empfindlichkeit in den Settings an.
 
 ## Vollbild-Terminalprogramme
 

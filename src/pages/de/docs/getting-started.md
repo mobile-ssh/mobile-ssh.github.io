@@ -18,10 +18,10 @@ Mobile SSH ist ein SSH-Client für Android, um sich mit deinen eigenen Linux-, U
 ## Mit einem Server verbinden
 
 1. Öffne Mobile SSH.
-2. Tippe auf **Gespeicherte Server**, wenn du bereits ein Profil erstellt hast, oder füge einen Server im Verbindungsablauf hinzu.
-3. Gib Host, Port, Benutzername und Authentifizierungsdetails ein.
+2. Tippe auf **+ Add Session** und suche nach einem gespeicherten Server oder füge von diesem Bildschirm einen neuen hinzu.
+3. Gib Host, Port, Benutzername und Authentifizierungsdetails ein, wenn du einen neuen Server hinzufügst.
 4. Tippe auf den Server, um eine Terminalsitzung zu öffnen.
-5. Nutze **Aktive Sitzungen** auf dem Startbildschirm, um zu noch laufenden Sitzungen zurückzukehren.
+5. Nutze **Active Sessions** auf dem Startbildschirm, um zu noch laufenden Sitzungen zurückzukehren.
 
 Der Standard-SSH-Port ist `22`. Wenn dein Server einen anderen Port verwendet, gib ihn im Serverprofil an.
 
@@ -39,7 +39,7 @@ Nutze gespeicherte Server für Hosts, auf die du wiederholt zugreifst. Wenn ein 
 
 ## Zugangsdaten speichern
 
-Der Bildschirm **Zugangsdaten** speichert wiederverwendbare Datensätze aus Benutzername/Passwort oder Benutzername/privatem Schlüssel. Gespeicherte Zugangsdaten lassen sich im Server-Einrichtungsdialog auswählen, damit du nicht für jeden Host dieselben Anmeldedaten erneut eingeben musst.
+Der Bildschirm **Credentials** speichert wiederverwendbare Datensätze aus Benutzername/Passwort oder Benutzername/privatem Schlüssel. Gespeicherte Zugangsdaten lassen sich im Server-Einrichtungsdialog auswählen, damit du nicht für jeden Host dieselben Anmeldedaten erneut eingeben musst.
 
 Zugangsdatensätze werden lokal auf dem Android-Gerät gespeichert. Schütze das Gerät mit einer Bildschirmsperre, wenn du Passwörter, Passphrasen oder private Schlüssel speicherst.
 
@@ -49,7 +49,7 @@ Mobile SSH unterstützt eingefügte private Schlüssel und den Schlüsselimport 
 
 So verwendest du einen privaten Schlüssel:
 
-1. Öffne **Zugangsdaten** oder den Bearbeitungsdialog des Servers.
+1. Öffne **Credentials** oder den Bearbeitungsdialog des Servers.
 2. Füge den Text des privaten Schlüssels ein oder wähle **Aus Datei importieren**.
 3. Gib die Schlüssel-Passphrase im Passwort-/Passphrasenfeld ein, falls der Schlüssel verschlüsselt ist.
 4. Speichere die Zugangsdaten oder den Server.
@@ -60,21 +60,29 @@ Der Import des privaten Schlüssels nutzt die Dateiauswahl von Android für Schl
 
 Der Startbildschirm zeigt die letzten Sitzungen. Eine letzte Sitzung kann sich erneut mit demselben Serverset verbinden. Wenn die vorherige Sitzung noch aktiv ist, kehrt Mobile SSH zu ihr zurück, statt eine doppelte Verbindung zu starten.
 
+## Gespeicherte Server durchsuchen
+
+Tippe auf das Suchfeld auf der Seite **Saved Servers**, um nach Name oder Host zu filtern. Der Bildschirm **+ Add Session** öffnet sich ebenfalls mit einer Suche, sodass du in einem Schritt einen gespeicherten Server finden und verbinden kannst.
+
 ## Aktive Sitzungen
 
-Wenn Sitzungen laufen, zeigt der Startbildschirm **Aktive Sitzungen** mit einer Anzahl an. Tippe darauf, um zum Terminalraster zurückzukehren. Das Zurückgehen zum Startbildschirm trennt aktive SSH-Sitzungen nicht zwangsläufig; das Schließen von Bereichen oder das Beenden der Terminal-Aktivität trennt sie.
+Wenn Sitzungen laufen, zeigt der Startbildschirm **Active Sessions** mit einer Anzahl an. Tippe darauf, um zum Terminalraster zurückzukehren. Eine laufende Benachrichtigung listet außerdem die aktiven Hosts auf — tippe in der Benachrichtigung auf einen Host, um direkt zu diesem Terminal zu springen.
+
+Das Zurückgehen zum Startbildschirm trennt aktive SSH-Sitzungen nicht; das Schließen von Bereichen oder das Beenden der Terminal-Aktivität trennt sie.
 
 ## Erste nützliche Einstellungen
 
-Öffne **Einstellungen** auf dem Startbildschirm:
+Öffne **Settings** auf dem Startbildschirm (es gibt eine eigene Seite dafür):
 
-- Aktiviere „Tippen zeigt die Tastatur“, wenn die Tastatur beim Tippen auf das Terminal erscheinen soll.
+- Aktiviere „Tippen zeigt die Tastatur", wenn die Tastatur beim Tippen auf das Terminal erscheinen soll.
 - Deaktiviere IME-Vorschläge, wenn die Tastaturvorschläge Terminalprogramme wie Vim, less, htop oder Vollbild-tmux-Apps stören.
+- Aktiviere **Agent alerts**, wenn du lange Hintergrundaufgaben (Claude Code, Codex, Shell-Skripte) ausführst und eine Ton- oder Vibrationsbenachrichtigung erhalten möchtest, sobald der Agent deine Eingabe benötigt.
+- Deaktiviere die anonyme Nutzungsanalyse, wenn du keine Daten senden möchtest.
 
 ## Sprachen
 
-Mobile SSH folgt der Systemsprache von Android. Die App enthält Übersetzungen für Arabisch, Bengali, Chinesisch (vereinfacht und traditionell), Englisch, Französisch, Deutsch, Hindi, Indonesisch, Japanisch, Marathi, Nigerianisches Pidgin, Portugiesisch, Russisch, Spanisch, Tamil, Telugu, Türkisch und Urdu. Ändere die Sprache in **Einstellungen → System → Sprachen** von Android, nicht in der App.
+Mobile SSH folgt der Systemsprache von Android. Die App enthält Übersetzungen für Arabisch, Bengali, Chinesisch (vereinfacht und traditionell), Englisch, Französisch, Deutsch, Hindi, Indonesisch, Japanisch, Marathi, Nigerianisches Pidgin, Portugiesisch, Russisch, Spanisch, Tamil, Telugu, Türkisch und Urdu. Ändere die Sprache in Android **Settings → System → Languages**, nicht in der App.
 
 ## Sicherheitshinweis
 
-Verbinde dich nur mit Servern, denen du vertraust. Die aktuelle App speichert gespeicherte Verbindungsdaten lokal und bietet keinen Cloud-Tresor und keine geräteübergreifende Synchronisierung. Die aktuelle Implementierung zeigt außerdem keine Bestätigung des bekannten Hosts an; vermeide daher Verbindungen über nicht vertrauenswürdige Netzwerke, wenn die Host-Identität wichtig ist.
+Verbinde dich nur mit Servern, denen du vertraust. Die aktuelle App speichert Verbindungsdaten lokal und bietet keinen Cloud-Tresor und keine geräteübergreifende Synchronisierung. Die aktuelle Implementierung zeigt außerdem keine Bestätigung des bekannten Hosts an; vermeide daher Verbindungen über nicht vertrauenswürdige Netzwerke, wenn die Host-Identität wichtig ist.

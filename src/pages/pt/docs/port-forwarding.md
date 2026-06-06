@@ -23,7 +23,7 @@ Forma curta:
 8080
 ```
 
-Isso vincula `127.0.0.1:8080` no dispositivo Android e o encaminha para `localhost:8080` do ponto de vista do servidor.
+Isso vincula `127.0.0.1:8080` no dispositivo Android e encaminha para `localhost:8080` do ponto de vista do servidor.
 
 Forma completa:
 
@@ -31,7 +31,7 @@ Forma completa:
 3000:localhost:3000
 ```
 
-Isso vincula `127.0.0.1:3000` no dispositivo Android e o encaminha por SSH para `localhost:3000` no lado remoto.
+Isso vincula `127.0.0.1:3000` no dispositivo Android e encaminha por SSH para `localhost:3000` no lado remoto.
 
 Vários encaminhamentos:
 
@@ -41,21 +41,21 @@ Vários encaminhamentos:
 
 ## Adicionar um túnel a um servidor salvo
 
-1. Abra **Servidores salvos**.
+1. Abra **Saved Servers**.
 2. Adicione ou edite um perfil de servidor.
-3. Informe as regras de encaminhamento em **Encaminhamento de portas**.
+3. Informe as regras de encaminhamento em **Port forwards**.
 4. Salve o servidor.
 5. Conecte ao servidor.
 
-O app aplica os encaminhamentos salvos depois que a sessão SSH conecta.
+O app aplica os encaminhamentos salvos após a sessão SSH ser estabelecida.
 
 ## Gerenciar túneis ativos
 
-Conectado, selecione a sessão e abra a visão de túneis na barra de ferramentas do terminal. A partir daí você pode inspecionar os encaminhamentos locais ativos, adicionar um novo túnel ou remover um encaminhamento local.
+Com a sessão conectada, selecione a sessão e abra a visualização de túneis na barra de ferramentas do terminal. A partir daí você pode inspecionar os encaminhamentos locais ativos, adicionar um novo túnel ou remover um encaminhamento local.
 
 ## Vinculação de endereço
 
-O Mobile SSH vincula os encaminhamentos locais a `127.0.0.1` no dispositivo Android. Isso é intencional: mantém o túnel local ao dispositivo e evita surpresas de loopback apenas IPv6. Outros apps no mesmo dispositivo Android podem conseguir conectar à porta local encaminhada se o Android permitir o acesso de rede deles.
+O Mobile SSH vincula os encaminhamentos locais a `127.0.0.1` no dispositivo Android. Isso é intencional: mantém o túnel local ao dispositivo e evita surpresas com loopback exclusivo de IPv6. Outros apps no mesmo dispositivo Android podem conseguir se conectar à porta local encaminhada, caso o Android permita o acesso de rede a eles.
 
 ## Exemplos comuns
 
@@ -65,7 +65,7 @@ Acessar um serviço web em execução no servidor remoto:
 8080
 ```
 
-Depois, abra `http://127.0.0.1:8080` em um navegador no dispositivo Android.
+Em seguida, abra `http://127.0.0.1:8080` em um navegador no dispositivo Android.
 
 Acessar um servidor de desenvolvimento:
 
@@ -82,7 +82,7 @@ Acessar um banco de dados interno alcançável a partir do servidor SSH:
 ## Solução de problemas de túneis
 
 - Verifique se a sessão SSH está conectada antes de adicionar túneis em tempo de execução.
-- Verifique se a porta local já não está em uso.
+- Verifique se a porta local não está sendo usada por outro processo.
 - Verifique se o host e a porta remotos são alcançáveis a partir do servidor SSH.
 - Use `localhost` quando o serviço de destino estiver no próprio servidor SSH.
 - Use o nome DNS interno ou o IP do servidor ao encaminhar para outro host atrás do servidor SSH.

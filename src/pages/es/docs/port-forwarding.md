@@ -41,9 +41,9 @@ Varios reenvíos:
 
 ## Agregar un túnel a un servidor guardado
 
-1. Abre **Servidores guardados**.
+1. Abre **Saved Servers**.
 2. Agrega o edita un perfil de servidor.
-3. Introduce las reglas de reenvío en **Reenvío de puertos**.
+3. Introduce las reglas de reenvío en **Port forwards**.
 4. Guarda el servidor.
 5. Conéctate al servidor.
 

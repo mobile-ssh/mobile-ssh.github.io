@@ -6,11 +6,11 @@ description: "Syntax der lokalen Portweiterleitung von Mobile SSH und Tunnelverw
 
 # Portweiterleitung
 
-Mobile SSH unterstützt lokale SSH-Portweiterleitung. Ein lokaler Port auf dem Android-Gerät lauscht auf `127.0.0.1` und leitet den Verkehr über die SSH-Verbindung an einen entfernten Host und Port weiter.
+Mobile SSH unterstützt lokale SSH-Portweiterleitung. Ein lokaler Port auf dem Android-Gerät lauscht auf `127.0.0.1` und leitet den Datenverkehr über die SSH-Verbindung an einen entfernten Host und Port weiter.
 
-## Syntax des gespeicherten Tunnels
+## Syntax gespeicherter Tunnel
 
-Portweiterleitungsregeln werden durch Kommas getrennt. Jeder Eintrag nutzt eine von zwei Formen:
+Portweiterleitungsregeln werden durch Kommas getrennt. Jeder Eintrag verwendet eine von zwei Formen:
 
 ```text
 PORT
@@ -23,7 +23,7 @@ Kurzform:
 8080
 ```
 
-Dies bindet `127.0.0.1:8080` auf dem Android-Gerät und leitet es aus Sicht des Servers an `localhost:8080` weiter.
+Diese bindet `127.0.0.1:8080` auf dem Android-Gerät und leitet es aus Sicht des Servers an `localhost:8080` weiter.
 
 Vollform:
 
@@ -31,7 +31,7 @@ Vollform:
 3000:localhost:3000
 ```
 
-Dies bindet `127.0.0.1:3000` auf dem Android-Gerät und leitet es über SSH an `localhost:3000` auf der entfernten Seite weiter.
+Diese bindet `127.0.0.1:3000` auf dem Android-Gerät und leitet es über SSH an `localhost:3000` auf der entfernten Seite weiter.
 
 Mehrere Weiterleitungen:
 
@@ -41,9 +41,9 @@ Mehrere Weiterleitungen:
 
 ## Einen Tunnel zu einem gespeicherten Server hinzufügen
 
-1. Öffne **Gespeicherte Server**.
+1. Öffne **Saved Servers**.
 2. Füge ein Serverprofil hinzu oder bearbeite es.
-3. Gib die Weiterleitungsregeln unter **Portweiterleitungen** ein.
+3. Gib die Weiterleitungsregeln im Feld **Port forwards** ein.
 4. Speichere den Server.
 5. Verbinde dich mit dem Server.
 
@@ -51,11 +51,11 @@ Die App wendet gespeicherte Weiterleitungen an, nachdem die SSH-Sitzung verbunde
 
 ## Aktive Tunnel verwalten
 
-Wähle im verbundenen Zustand die Sitzung und öffne die Tunnelansicht in der Terminal-Symbolleiste. Von dort kannst du aktive lokale Weiterleitungen prüfen, einen neuen Tunnel hinzufügen oder eine lokale Weiterleitung entfernen.
+Wähle im verbundenen Zustand die Sitzung aus und öffne die Tunnelansicht über die Terminal-Symbolleiste. Von dort kannst du aktive lokale Weiterleitungen einsehen, einen neuen Tunnel hinzufügen oder eine lokale Weiterleitung entfernen.
 
 ## Adressbindung
 
-Mobile SSH bindet lokale Weiterleitungen an `127.0.0.1` auf dem Android-Gerät. Das ist beabsichtigt: Es hält den Tunnel lokal auf dem Gerät und vermeidet Überraschungen mit reinem IPv6-Loopback. Andere Apps auf demselben Android-Gerät können sich möglicherweise mit dem weitergeleiteten lokalen Port verbinden, wenn Android ihren Netzwerkzugriff erlaubt.
+Mobile SSH bindet lokale Weiterleitungen an `127.0.0.1` auf dem Android-Gerät. Das ist beabsichtigt: Es hält den Tunnel lokal auf dem Gerät und vermeidet unerwartetes Verhalten mit reinem IPv6-Loopback. Andere Apps auf demselben Android-Gerät können sich möglicherweise mit dem weitergeleiteten lokalen Port verbinden, sofern Android ihnen den Netzwerkzugriff erlaubt.
 
 ## Häufige Beispiele
 
@@ -65,7 +65,7 @@ Zugriff auf einen Webdienst, der auf dem entfernten Server läuft:
 8080
 ```
 
-Öffne dann `http://127.0.0.1:8080` in einem Browser auf dem Android-Gerät.
+Öffne danach `http://127.0.0.1:8080` in einem Browser auf dem Android-Gerät.
 
 Zugriff auf einen Entwicklungsserver:
 
@@ -79,10 +79,10 @@ Zugriff auf eine interne Datenbank, die vom SSH-Server aus erreichbar ist:
 15432:db.internal:5432
 ```
 
-## Tunnel-Fehlerbehebung
+## Tunnelprobleme beheben
 
 - Stelle sicher, dass die SSH-Sitzung verbunden ist, bevor du Tunnel zur Laufzeit hinzufügst.
-- Prüfe, dass der lokale Port nicht bereits belegt ist.
-- Prüfe, dass der entfernte Host und Port vom SSH-Server aus erreichbar sind.
-- Nutze `localhost`, wenn der Zieldienst auf dem SSH-Server selbst läuft.
-- Nutze den internen DNS-Namen oder die IP des Servers, wenn du an einen anderen Host hinter dem SSH-Server weiterleitest.
+- Prüfe, ob der lokale Port nicht bereits belegt ist.
+- Prüfe, ob der entfernte Host und Port vom SSH-Server aus erreichbar sind.
+- Verwende `localhost`, wenn der Zieldienst auf dem SSH-Server selbst läuft.
+- Verwende den internen DNS-Namen oder die IP des Servers, wenn du an einen anderen Host hinter dem SSH-Server weiterleitest.

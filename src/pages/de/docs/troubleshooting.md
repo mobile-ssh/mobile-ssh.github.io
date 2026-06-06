@@ -39,7 +39,7 @@ Der Import des privaten Schlüssels nutzt die Dateiauswahl von Android. Wenn der
 - Bestätige, dass die ausgewählte Datei ein privater Schlüssel ist und keine öffentliche `.pub`-Datei.
 - Öffne die Datei in einem vertrauenswürdigen Texteditor und prüfe, dass sie den vollständigen Schlüsselblock enthält.
 - Versuche, den Schlüssel manuell in das Feld für den privaten Schlüssel einzufügen.
-- Bestätige, dass der Schlüsseltyp von der App-Implementierung unterstützt wird: Ed25519, RSA, ECDSA oder DSA.
+- Bestätige, dass der Schlüsseltyp von der App unterstützt wird: Ed25519, RSA, ECDSA oder DSA.
 
 ## Tastatureingabe verzögert sich oder ändert sich
 
@@ -66,7 +66,7 @@ Prüfe:
 
 - Deaktiviere die Akku-Optimierung für Mobile SSH, wenn dein Gerät Hintergrund-Apps aggressiv stoppt.
 - Halte WLAN oder mobile Daten während langer Sitzungen stabil.
-- Öffne Mobile SSH erneut und tippe nach dem Entsperren auf **Aktive Sitzungen**.
+- Öffne Mobile SSH erneut und tippe nach dem Entsperren auf **Active Sessions**.
 - Wenn der Server die SSH-Sitzung getrennt hat, verbinde dich erneut über die letzten Sitzungen.
 
 ## Dateiübertragung kann Telefondateien nicht durchsuchen
@@ -83,7 +83,7 @@ Prüfe:
 - Das entfernte Verzeichnis existiert.
 - Der entfernte Benutzer hat die Berechtigung, den Pfad zu lesen oder zu schreiben.
 - Das lokale Ziel ist beschreibbar.
-- Auf dem Android-Gerät ist genügend freier Speicher.
+- Auf dem Android-Gerät ist genügend freier Speicher vorhanden.
 - Das Netzwerk ist für große Übertragungen stabil.
 
 ## Portweiterleitung fehlgeschlagen

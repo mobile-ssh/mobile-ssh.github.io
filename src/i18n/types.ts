@@ -105,6 +105,8 @@ export interface Dict {
     };
     rows: CompareRow[];
     cards: CompareCard[];
+    featureHeading: string;
+    featureRows: { category: string; feature: string; mobile: string; termux: string; termius: string }[];
   };
   privacy: {
     metaTitle: string;

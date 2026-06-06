@@ -38,8 +38,9 @@ export const ja: Dict = {
     advantages: [
       { title: "Pro 版なし、広告なし", text: "すべての機能が同じアプリの中にあります。基本機能を Pro アップグレードの裏に隠すペイウォールはなく、ターミナルに広告バナーも出ません。" },
       { title: "データは端末内に留まる", text: "保存したサーバー、認証情報、鍵はすべて端末内。クラウドアカウント不要、停止される心配なし。" },
-      { title: "保存ホストにワンタップ接続", text: "一度ホストを登録すれば、鍵・ポート・設定済みトンネルとともにワンタップで再接続。" },
-      { title: "キーボード上のターミナルキー", text: "ESC、TAB、CTRL、ALT、FN、矢印、Home、End、PgUp/PgDn の専用列を Gboard の予測と衝突せずに表示。" },
+      { title: "保存ホストにワンタップ接続", text: "一度ホストを登録すれば、検索してタップするだけで再接続。鍵・ポート・設定済みトンネルも一緒に。" },
+      { title: "エージェント アラート", text: "Claude Code、Codex、または他のリモート エージェントが入力を必要とした瞬間に、音とバイブレーション付きの通知を受け取ります。動画再生中もイヤホンで鳴ります。" },
+      { title: "IME の上のターミナル キー", text: "ESC、TAB、CTRL、ALT、FN、矢印、Home、End、PgUp/PgDn の専用列を Gboard の予測と衝突せずに表示。" },
       { title: "コマンド不要のポート転送", text: "トンネルはサーバープロファイルに紐づき、接続と同時に自動で立ち上がります。" },
       { title: "ロックや回線切替に強い", text: "フォアグラウンドサービス、ウェイクロック、自動再接続で、画面オフ・アプリ切替・ネットワーク変更を越えてセッションを維持。" }
     ],
@@ -47,14 +48,16 @@ export const ja: Dict = {
     sectionAIntro:
       "Mobile SSH は管理者の定番ルートを短くします。サーバーを保存し、つなぎ、セッションを維持し、必要なときにファイルを動かし、すばやくアクティブな端末に戻れます。",
     features: [
-      { title: "SSH ターミナル", text: "VT100/xterm-256color のエミュレーション。色、カーソル キー、スクロールバック、コピー、Android キーボードに対応。" },
-      { title: "マルチセッション グリッド", text: "同時に最大 8 セッション。ペインをタップして切り替え、ダブルタップでフルスクリーン。" },
-      { title: "秘密鍵", text: "パスワードまたは取り込み/貼り付け済みの秘密鍵を使用可能。Ed25519、RSA、ECDSA、DSA に対応。" },
-      { title: "SFTP 転送", text: "ローカル／リモートのブラウザ ペインで、端末ストレージとリモートサーバー間でファイルを移動。" },
-      { title: "ポートフォワード", text: "ローカルトンネル定義をサーバープロファイルとともに保存、または接続中に追加可能。" },
-      { title: "再接続ワークフロー", text: "前面サービス、wake lock、keepalive、再接続の試行が、モバイル回線の変化を越えてセッションを維持。" },
-      { title: "端末選択", text: "端末テキストを選択してコピー、共有、画面の全選択。コピーは Android クリップボードへ。" },
-      { title: "モバイル キーボードに優しい", text: "Gboard の候補と音声入力が拡張キーバーと併用可能。入力中テキストは単語境界までバッファ。" }
+      { title: "SSH ターミナル", text: "xterm-256color 端末エミュレーション。5000 行スクロールバック、カラー、カーソルキー、コピー／共有、ピンチで文字サイズ変更に対応。" },
+      { title: "マルチセッション グリッド", text: "リサイズ可能なグリッドで最大 8 つの SSH セッション。ペインをタップしてフォーカス、ダブルタップでフルスクリーン、ピンチで文字サイズ変更。" },
+      { title: "タップ可能なリンク", text: "ターミナル出力内の URL に下線が引かれ、タップするだけでブラウザで開きます。コピーやアプリ切替は不要。" },
+      { title: "サーバー フォルダー", text: "保存済みサーバーを折りたたみ可能なグループに整理。グループのヘッダーをタップして折りたたみ。フォルダー構造はクイック接続ピッカーにも反映されます。" },
+      { title: "エージェント アラート", text: "リモート エージェント（Claude Code、Codex など）が入力を必要としたときに、音とバイブレーション付きの通知。動画通話中もイヤホンで鳴ります。" },
+      { title: "秘密鍵", text: "パスワードまたは秘密鍵認証。端末上で Ed25519、ECDSA、RSA 鍵を生成、または既存の鍵をインポート・貼り付け。" },
+      { title: "SFTP 転送", text: "アクティブな SSH セッションに紐づく二画面ファイルブラウザ。アップロード・ダウンロードをキューに入れ、名前変更、削除、リモート権限の確認が可能。" },
+      { title: "ポートフォワード", text: "ローカル トンネル設定をサーバープロファイルと一緒に保存。接続時に自動で開くか、接続中に追加・削除が可能。" },
+      { title: "再接続ワークフロー", text: "フォアグラウンドサービス、ウェイクロック、keepalive、指数バックオフ付き再接続で、画面オフやローミングを越えてセッションを維持。" },
+      { title: "バックアップと復元", text: "保存済みサーバーと認証情報を暗号化バックアップ ファイルに書き出し。マージまたは置換でインポートして端末間で移行。" }
     ],
     multiHead: "ひとつの画面で複数のシェル",
     multiP1:
@@ -62,7 +65,7 @@ export const ja: Dict = {
     multiP2:
       "セッション履歴とアクティブセッションの復元により、アプリ切り替え、画面ロック、Android アクティビティの再生成のあとも作業に戻れます。",
     multiAlt:
-      "10 インチの Android タブレットで Mobile SSH が 4 つのアクティブな SSH 端末ペインを並べて表示。",
+      "スマートフォン上の Mobile SSH が 2 つのアクティブな SSH 端末セッションを横並びのスプリット ビューで表示。",
     sftpHead: "端末だけでは足りないときの SFTP",
     sftpBody:
       "接続済みセッションからファイル転送を開いて、端末ストレージとリモートディレクトリを参照できます。アップロードとダウンロードをキューに入れ、並べ替え、ホストごとの最近のパスを記憶し、リモートのファイル権限を確認しながら移動できます。",
@@ -76,12 +79,14 @@ export const ja: Dict = {
       "Mobile SSH のスタート画面（サーバー、認証情報、ログ、設定、デバッグ、バージョン情報のタイル）。",
       "サーバー追加ダイアログ（ホスト、ポート、認証情報、秘密鍵、ポート転送のフィールド）。",
       "単一セッションの SSH 端末（下部に拡張キーバー付き）。",
-      "縦に並んだ 2 つの SSH セッション（アクティブなペインを強調）。",
+      "スマートフォン上で 2 つの SSH セッションを横並びのスプリット ビューで表示。",
+      "スマートフォン上で 2 つの SSH セッションを縦に積み重ねて表示（アクティブ ペインを強調）。",
       "SFTP ファイル転送画面（マイフォンとリモートホストのパネル）。",
       "バージョン情報ダイアログ（バージョン、作者、ライセンス、サイト）。",
       "スマートフォンの「SSH キーを生成」ダイアログ。ラベル、ユーザー、キーの種類、パスフレーズの各フィールドを表示。",
       "スマートフォンの「公開鍵」ダイアログ。生成された鍵とコピー・共有・保存のオプションを表示。",
-      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
+      "保存済みサーバー画面。折りたたみ可能な「仕事」と「個人」のフォルダー グループにサーバーが整理されて表示。",
+      "スマートフォンの SSH 端末。https:// の URL がタップ可能なリンクとして下線付きで表示。"
     ],
     compareHead: "Termux や Termius の中での立ち位置",
     compareIntro:
@@ -105,7 +110,9 @@ export const ja: Dict = {
         items: [
           "パスワード認証と秘密鍵認証",
           "現行実装が対応する Ed25519、RSA、ECDSA、DSA の秘密鍵",
-          "ホスト、ポート、ユーザー、認証情報、秘密鍵、トンネル設定を含む保存済みサーバープロファイル",
+          "ホスト、ポート、ユーザー名、認証情報、秘密鍵、トンネル設定を含む保存済みサーバープロファイル",
+          "名前またはホストで保存済みサーバーを検索",
+          "検索優先の「セッション追加」フロー：専用の検索ページで保存済みサーバーを選んでワンタップ接続",
           "サーバー設定で選べる再利用可能な認証情報レコード",
           "よく使うサーバー群へ再接続するための最近のセッション履歴",
           "成功と失敗のログイン履歴"
@@ -131,8 +138,9 @@ export const ja: Dict = {
           "アクティブセッションのグリッド表示",
           "バックグラウンドや画面ロックに耐える前面サービス",
           "Keepalive と指数バックオフ付き再接続",
-          "スタート画面からの「アクティブセッション」入口",
-          "tmux コマンド追跡と中断した作業向けの reattach ヒント"
+          "スタート画面からの「アクティブセッション」入口。進行中の通知にセッション一覧を表示 — タップで開く",
+          "tmux コマンド追跡と中断した作業向けの reattach ヒント",
+          "エージェント アラート：リモート エージェント（Claude Code、Codex など）が入力を必要としたときに、任意の音とバイブレーション付きの通知。動画再生中もイヤホンで鳴る"
         ]
       },
       {
@@ -238,6 +246,53 @@ export const ja: Dict = {
         title: "Termius を選ぶとき",
         body: "暗号化ボルトの同期、チーム共有、キーチェーン管理、スニペット、複数端末で一貫したアプリを備えた商用のクロスプラットフォーム SSH ワークスペースが必要な場合。"
       }
+    ],
+    featureHeading: "機能の比較",
+    featureRows: [
+      { category: "接続", feature: "保存済みサーバープロファイル",               mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "接続", feature: "保存済みサーバーの検索",                     mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "接続", feature: "サーバー フォルダー／グループ",              mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "接続", feature: "検索優先の「セッション追加」ピッカー",       mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "接続", feature: "再利用可能な認証情報レコード",               mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "接続", feature: "最近のセッション履歴",                       mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "接続", feature: "ログイン履歴",                               mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "ターミナル", feature: "SSH ターミナル",                       mobile: "yes",    termux: "via OpenSSH",  termius: "yes" },
+      { category: "ターミナル", feature: "xterm-256color エミュレーション",      mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "ターミナル", feature: "5000 行スクロールバック バッファ",     mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "ターミナル", feature: "拡張キーバー（ESC/TAB/CTRL/…）",      mobile: "yes",    termux: "partial",      termius: "yes" },
+      { category: "ターミナル", feature: "ピンチで文字サイズ変更",               mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "ターミナル", feature: "ペインをダブルタップでフルスクリーン", mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "ターミナル", feature: "端末出力内のタップ可能な URL",         mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "ターミナル", feature: "テキスト選択：コピー／共有／全選択",   mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "ターミナル", feature: "Gboard 候補と音声入力",               mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "セッション", feature: "複数の SSH 同時セッション",            mobile: "up to 8", termux: "via tmux",   termius: "yes" },
+      { category: "セッション", feature: "グリッド ペイン レイアウト",           mobile: "yes",    termux: "no",           termius: "tabs" },
+      { category: "セッション", feature: "tmux に配慮したスクロール",            mobile: "yes",    termux: "yes",          termius: "no" },
+      { category: "セッション", feature: "再接続時の tmux reattach ヒント",     mobile: "yes",    termux: "yes",          termius: "no" },
+      { category: "セッション", feature: "エージェント アラート（Claude Code／Codex）", mobile: "yes", termux: "no",      termius: "no" },
+      { category: "セッション", feature: "セッション一覧を表示する進行中の通知", mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "セッション", feature: "フォアグラウンドサービスとウェイクロック", mobile: "yes", termux: "partial",    termius: "yes" },
+      { category: "セッション", feature: "バックオフ付き自動再接続",             mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "ファイル", feature: "内蔵 SFTP ファイル転送 UI",             mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "ファイル", feature: "二画面ローカル＋リモート ブラウザ",      mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "ファイル", feature: "アップロード／ダウンロード キュー",      mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "ファイル", feature: "リモート名前変更／削除／作成",           mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "ファイル", feature: "リモート ファイル権限の表示",            mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "ファイル", feature: "ホスト単位で記憶する名前／日付並び替え", mobile: "yes",    termux: "no",           termius: "partial" },
+      { category: "トンネル", feature: "ローカル ポートフォワード",              mobile: "yes",    termux: "via CLI",      termius: "yes" },
+      { category: "トンネル", feature: "サーバープロファイルに保存するトンネル", mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "トンネル", feature: "ランタイム トンネル追加／削除",          mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "鍵", feature: "パスワード認証",                              mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "鍵", feature: "秘密鍵認証",                                  mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "鍵", feature: "端末上での鍵の生成",                          mobile: "yes",    termux: "via ssh-keygen", termius: "yes" },
+      { category: "鍵", feature: "生成した公開鍵の共有／保存",                  mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "バックアップ", feature: "サーバー バックアップのエクスポート／インポート", mobile: "yes", termux: "no", termius: "cloud vault" },
+      { category: "バックアップ", feature: "暗号化ローカル バックアップ ファイル", mobile: "yes",  termux: "no",           termius: "no" },
+      { category: "バックアップ", feature: "アカウント不要",                     mobile: "yes",    termux: "yes",          termius: "no" },
+      { category: "プライバシーとコスト", feature: "Pro ペイウォールなし",       mobile: "yes",    termux: "yes",          termius: "partial" },
+      { category: "プライバシーとコスト", feature: "広告なし",                   mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "プライバシーとコスト", feature: "分析のオプトアウト",         mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "プライバシーとコスト", feature: "ローカルのみのデータ（クラウド同期なし）", mobile: "yes", termux: "yes", termius: "no" }
     ]
   },
   privacy: {
@@ -288,10 +343,10 @@ export const ja: Dict = {
     intro:
       "Mobile SSH のインストール、接続、セッション管理、ファイル転送、ポート転送、トラブルシューティングの公開ガイドとしてこれらのページをご利用ください。",
     cards: [
-      { slug: "getting-started",  title: "はじめに",         text: "インストール、アプリの起動、最初のサーバーへの接続、よく使うホストの保存。" },
-      { slug: "terminal",         title: "ターミナル",       text: "ペイン、拡張キーバー、スクロール、コピー操作、tmux 動作、キーボード設定。" },
-      { slug: "file-transfer",    title: "ファイル転送",     text: "端末とサーバーのファイル閲覧、アップロード、ダウンロード、並べ替え、リモート詳細の確認。" },
-      { slug: "port-forwarding",  title: "ポート転送",       text: "ローカル トンネル文字列の設定と、接続中のアクティブな転送の管理。" },
+      { slug: "getting-started",  title: "はじめに",               text: "インストール、アプリの起動、最初のサーバーへの接続、よく使うホストの保存。" },
+      { slug: "terminal",         title: "ターミナル",             text: "ペイン、拡張キーバー、スクロール、コピー操作、tmux 動作、キーボード設定。" },
+      { slug: "file-transfer",    title: "ファイル転送",           text: "端末とサーバーのファイル閲覧、アップロード、ダウンロード、並べ替え、リモート詳細の確認。" },
+      { slug: "port-forwarding",  title: "ポート転送",             text: "ローカル トンネル文字列の設定と、接続中のアクティブな転送の管理。" },
       { slug: "troubleshooting",  title: "トラブルシューティング", text: "接続、認証、キーボード、ストレージ、再接続の問題を解決。" }
     ]
   },

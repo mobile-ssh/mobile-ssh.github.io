@@ -39,6 +39,7 @@ export const id: Dict = {
       { title: "Tanpa tingkatan Pro, tanpa iklan", text: "Semua fitur ada di aplikasi yang sama. Tidak ada paywall yang menyembunyikan alur kerja penting di balik upgrade Pro, tidak ada banner iklan di terminal." },
       { title: "Data Anda tetap lokal", text: "Server, kredensial, dan kunci yang disimpan ada di perangkat. Tidak ada akun cloud; tidak ada yang bisa dihentikan." },
       { title: "Host tersimpan, terhubung dengan satu tap", text: "Tambahkan host sekali dan hubungkan kembali dengan satu tap — termasuk kunci, port, dan tunnel yang sudah dikonfigurasi." },
+      { title: "Peringatan agen", text: "Dapatkan notifikasi — dengan suara dan getaran — saat Claude Code, Codex, atau agen jarak jauh lain memerlukan masukan Anda. Berbunyi di headphone bahkan saat video sedang berjalan." },
       { title: "Tombol terminal di atas keyboard", text: "Baris khusus berisi ESC, TAB, CTRL, ALT, FN, panah, Home, End, PgUp/PgDn — tanpa mengganggu saran Gboard." },
       { title: "Penerusan port tanpa perintah", text: "Tunnel melekat pada profil server dan otomatis aktif saat tersambung." },
       { title: "Bertahan saat layar terkunci dan roaming", text: "Layanan foreground, wake lock, dan koneksi ulang otomatis menjaga sesi tetap hidup meski layar mati, ganti aplikasi, atau ganti jaringan." }
@@ -47,14 +48,16 @@ export const id: Dict = {
     sectionAIntro:
       "Mobile SSH memendekkan jalur administrasi umum: simpan server, sambungkan, jaga sesi tetap hidup, pindahkan berkas saat diperlukan, dan kembali cepat ke terminal aktif.",
     features: [
-      { title: "Terminal SSH", text: "Emulasi terminal VT100/xterm-256color dengan warna, tombol kursor, scrollback, salin, dan dukungan keyboard Android." },
-      { title: "Kisi multi-sesi", text: "Jalankan hingga delapan sesi sekaligus, ganti dengan menyentuh panel, dan ketuk ganda panel untuk fokus layar penuh." },
-      { title: "Kunci pribadi", text: "Gunakan kata sandi atau kunci pribadi yang diimpor/ditempel, termasuk Ed25519, RSA, ECDSA, dan DSA yang didukung aplikasi." },
-      { title: "Transfer SFTP", text: "Pindahkan berkas antara penyimpanan ponsel dan server jarak jauh dengan panel telusur lokal dan jarak jauh." },
-      { title: "Penerusan port", text: "Simpan spesifikasi tunnel lokal bersama profil server atau tambahkan tunnel saat tersambung." },
-      { title: "Alur penyambungan ulang", text: "Layanan latar depan, wake lock, keepalive, dan upaya penyambungan ulang membantu sesi bertahan terhadap perubahan jaringan seluler." },
-      { title: "Seleksi terminal", text: "Pilih teks terminal untuk disalin, dibagikan, atau pilih seluruh buffer yang terlihat; salinan masuk ke clipboard Android." },
-      { title: "Ramah keyboard ponsel", text: "Saran Gboard dan input suara bekerja bersama baris tombol tambahan; teks yang sedang disusun di-buffer rapi hingga batas kata." }
+      { title: "Terminal SSH", text: "Emulasi terminal xterm-256color dengan scrollback 5000 baris, warna, tombol kursor, salin/bagikan, dan penyesuaian ukuran teks dengan cubit." },
+      { title: "Kisi multi-sesi", text: "Hingga delapan sesi SSH dalam kisi yang dapat diubah ukurannya — ketuk panel untuk fokus, ketuk ganda untuk layar penuh, cubit untuk ubah ukuran teks." },
+      { title: "Tautan yang dapat diklik", text: "URL di terminal digarisbawahi dan terbuka di browser dengan satu tap — tanpa menyalin atau berpindah aplikasi." },
+      { title: "Folder server", text: "Atur server tersimpan ke dalam grup yang dapat diciutkan. Ketuk tajuk grup untuk menciutkannya; struktur folder tersedia di pemilih sambungan cepat." },
+      { title: "Peringatan agen", text: "Notifikasi dengan suara dan getaran saat agen jarak jauh (Claude Code, Codex, dll.) memerlukan masukan Anda. Berbunyi di headphone bahkan saat panggilan video." },
+      { title: "Kunci pribadi", text: "Autentikasi kata sandi atau kunci pribadi. Buat kunci Ed25519, ECDSA, atau RSA di perangkat; impor atau tempel kunci yang ada." },
+      { title: "Transfer SFTP", text: "Penjelajah berkas dua panel yang terhubung ke sesi SSH aktif. Antrakan unggahan dan unduhan, ganti nama, hapus, dan periksa izin jarak jauh." },
+      { title: "Penerusan port", text: "Simpan spesifikasi tunnel lokal bersama profil server — tunnel terbuka otomatis saat tersambung, atau tambah/hapus saat sedang terhubung." },
+      { title: "Alur penyambungan ulang", text: "Layanan foreground, wake lock, keepalive, dan penyambungan ulang backoff eksponensial menjaga sesi hidup saat layar mati dan roaming." },
+      { title: "Cadangan & pemulihan", text: "Ekspor server dan kredensial tersimpan ke file cadangan terenkripsi; impor dengan gabung atau ganti untuk berpindah antar perangkat." }
     ],
     multiHead: "Satu layar, beberapa shell aktif",
     multiP1:
@@ -62,7 +65,7 @@ export const id: Dict = {
     multiP2:
       "Riwayat sesi dan pemulihan sesi aktif membantu Anda kembali ke pekerjaan saat ini setelah berpindah aplikasi, kunci layar, atau pembuatan ulang aktivitas Android.",
     multiAlt:
-      "Mobile SSH pada tablet Android 10 inci menampilkan empat panel terminal SSH aktif berdampingan.",
+      "Mobile SSH di ponsel yang menampilkan dua sesi SSH terminal aktif dalam tampilan terbagi berdampingan.",
     sftpHead: "SFTP saat terminal tidak cukup",
     sftpBody:
       "Buka transfer berkas dari sesi yang tersambung untuk menelusuri penyimpanan ponsel dan direktori jarak jauh. Antrekan unggahan dan unduhan, urutkan berkas, ingat jalur terbaru per host, dan periksa izin berkas jarak jauh sebelum memindahkan.",
@@ -76,12 +79,14 @@ export const id: Dict = {
       "Layar awal Mobile SSH di ponsel dengan ubin Server, Kredensial, Log, Pengaturan, Debug, dan Tentang.",
       "Dialog Tambah Server di ponsel menampilkan kolom host, port, kredensial, kunci pribadi, dan penerusan port.",
       "Terminal SSH satu sesi di ponsel dengan baris tombol tambahan di bagian bawah.",
-      "Dua sesi SSH bertumpuk di ponsel dengan panel aktif disorot.",
+      "Dua sesi SSH dalam tampilan terbagi berdampingan di ponsel.",
+      "Dua sesi SSH bertumpuk secara vertikal di ponsel dengan panel aktif disorot.",
       "Layar transfer SFTP di ponsel dengan panel Ponsel Saya dan Host Jarak Jauh.",
       "Dialog Tentang di ponsel menampilkan kolom versi, penulis, lisensi, dan situs web.",
       "Dialog Buat Kunci SSH di ponsel dengan kolom label, pengguna, jenis kunci, dan frasa sandi.",
       "Dialog Kunci Publik di ponsel yang menampilkan kunci yang dibuat dengan opsi salin, bagikan, dan simpan.",
-      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
+      "Layar Server Tersimpan yang menampilkan server yang diatur dalam grup folder Kerja dan Pribadi yang dapat diciutkan.",
+      "Terminal SSH di ponsel dengan URL https:// digarisbawahi sebagai tautan yang dapat diklik."
     ],
     compareHead: "Tempatnya di samping Termux dan Termius",
     compareIntro:
@@ -104,8 +109,10 @@ export const id: Dict = {
         title: "Koneksi",
         items: [
           "Autentikasi kata sandi dan kunci pribadi",
-          "Kunci pribadi Ed25519, RSA, ECDSA, dan DSA didukung implementasi saat ini",
+          "Kunci pribadi Ed25519, RSA, ECDSA, dan DSA didukung implementasi aplikasi saat ini",
           "Profil server tersimpan dengan host, port, pengguna, kredensial, kunci pribadi, dan spesifikasi tunnel opsional",
+          "Cari server tersimpan berdasarkan nama atau host",
+          "Alur Tambah Sesi berbasis pencarian: pilih server tersimpan dari halaman pencarian khusus dan sambung dengan satu tap",
           "Catatan kredensial yang dapat dipakai ulang dan dipilih dari penyetelan server",
           "Riwayat sesi terkini untuk menyambung ulang ke set server umum",
           "Log upaya masuk berhasil dan gagal"
@@ -117,11 +124,11 @@ export const id: Dict = {
           "Perilaku terminal bergaya VT100/xterm-256color",
           "Buffer scrollback 5000 baris",
           "Baris tombol tambahan untuk ESC, TAB, CTRL, Shift, panah, Home, End, PgUp, PgDn, dan toggle keyboard",
-          "Sentuh untuk fokus, opsi «sentuh untuk tampilkan keyboard», aksi salin dan salin semua",
+          "Sentuh untuk fokus, opsi sentuh-untuk-tampilkan-keyboard, aksi salin dan salin semua",
           "Cubit untuk ukuran teks dengan resize terminal jarak jauh",
           "Mode layar penuh panel dengan ketuk ganda",
           "Seleksi teks terminal dengan Salin, Bagikan, dan Pilih semua",
-          "Saran/koreksi Gboard dan input suara didukung, dengan buffer teks yang sedang disusun"
+          "Saran/koreksi Gboard dan input suara didukung, dengan buffer teks yang sedang disusun untuk terminal"
         ]
       },
       {
@@ -129,10 +136,11 @@ export const id: Dict = {
         items: [
           "Hingga delapan sesi SSH bersamaan",
           "Tata letak kisi untuk sesi aktif",
-          "Dukungan layanan latar depan untuk ketahanan latar belakang dan kunci layar",
+          "Dukungan layanan foreground untuk ketahanan latar belakang dan kunci layar",
           "Keepalive dan upaya penyambungan ulang dengan backoff eksponensial",
-          "Pintu masuk Sesi Aktif dari layar awal",
-          "Pelacakan perintah tmux dan petunjuk reattach untuk pekerjaan terhenti"
+          "Titik masuk Sesi Aktif dari layar awal; notifikasi berkelanjutan menampilkan daftar sesi — ketuk untuk membuka",
+          "Pelacakan perintah tmux dan petunjuk reattach untuk pekerjaan terhenti",
+          "Peringatan agen: notifikasi dengan suara dan getaran opsional saat agen jarak jauh (Claude Code, Codex, dll.) memerlukan masukan; berbunyi di headphone saat video"
         ]
       },
       {
@@ -238,6 +246,53 @@ export const id: Dict = {
         title: "Pilih Termius bila",
         body: "Anda ingin ruang kerja SSH komersial lintas platform dengan sinkronisasi brankas terenkripsi, berbagi tim, manajemen keyring, snippet, dan aplikasi yang konsisten di beberapa perangkat."
       }
+    ],
+    featureHeading: "Fitur per fitur",
+    featureRows: [
+      { category: "Koneksi",          feature: "Profil server tersimpan",                        mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Koneksi",          feature: "Cari server tersimpan",                          mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Koneksi",          feature: "Folder / grup server",                           mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Koneksi",          feature: "Pemilih Tambah Sesi berbasis pencarian",         mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Koneksi",          feature: "Catatan kredensial yang dapat dipakai ulang",    mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Koneksi",          feature: "Riwayat sesi terkini",                           mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Koneksi",          feature: "Log masuk",                                      mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Terminal",         feature: "Terminal SSH",                                   mobile: "yes",     termux: "via OpenSSH",   termius: "yes" },
+      { category: "Terminal",         feature: "Emulasi xterm-256color",                         mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Buffer scrollback 5 000 baris",                  mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Baris tombol tambahan (ESC/TAB/CTRL/…)",         mobile: "yes",     termux: "partial",       termius: "yes" },
+      { category: "Terminal",         feature: "Ukuran teks dengan cubit",                       mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Ketuk ganda panel ke layar penuh",               mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Terminal",         feature: "URL yang dapat diklik di output terminal",       mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Terminal",         feature: "Seleksi teks: salin / bagikan / pilih semua",   mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Saran Gboard & input suara",                     mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Sesi",             feature: "Beberapa sesi SSH bersamaan",                    mobile: "up to 8", termux: "via tmux",      termius: "yes" },
+      { category: "Sesi",             feature: "Tata letak panel kisi",                          mobile: "yes",     termux: "no",            termius: "tabs" },
+      { category: "Sesi",             feature: "Gulir ramah tmux",                               mobile: "yes",     termux: "yes",           termius: "no" },
+      { category: "Sesi",             feature: "Petunjuk reattach tmux saat penyambungan ulang", mobile: "yes",     termux: "yes",           termius: "no" },
+      { category: "Sesi",             feature: "Peringatan agen (Claude Code / Codex)",          mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Sesi",             feature: "Notifikasi berkelanjutan dengan daftar sesi",    mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Sesi",             feature: "Layanan foreground & wake lock",                 mobile: "yes",     termux: "partial",       termius: "yes" },
+      { category: "Sesi",             feature: "Penyambungan ulang otomatis dengan backoff",     mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Berkas",           feature: "UI transfer berkas SFTP bawaan",                 mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Berkas",           feature: "Penjelajah dua panel lokal + jarak jauh",        mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Berkas",           feature: "Antrean unggah / unduh",                         mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Berkas",           feature: "Ganti nama / hapus / buat jarak jauh",           mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Berkas",           feature: "Tampilan izin berkas jarak jauh",                mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Berkas",           feature: "Urutkan berdasarkan nama atau tanggal per host", mobile: "yes",     termux: "no",            termius: "partial" },
+      { category: "Tunnel",           feature: "Penerusan port lokal",                           mobile: "yes",     termux: "via CLI",       termius: "yes" },
+      { category: "Tunnel",           feature: "Tunnel tersimpan bersama profil server",         mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Tunnel",           feature: "Tambah / hapus tunnel saat runtime",             mobile: "yes",     termux: "no",            termius: "yes" },
+      { category: "Kunci",            feature: "Autentikasi kata sandi",                         mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Kunci",            feature: "Autentikasi kunci pribadi",                      mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Kunci",            feature: "Pembuatan kunci di perangkat",                   mobile: "yes",     termux: "via ssh-keygen", termius: "yes" },
+      { category: "Kunci",            feature: "Bagikan / simpan kunci publik yang dibuat",      mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Cadangan",         feature: "Ekspor / impor cadangan server",                 mobile: "yes",     termux: "no",            termius: "cloud vault" },
+      { category: "Cadangan",         feature: "File cadangan lokal terenkripsi",                mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Cadangan",         feature: "Tidak perlu akun",                               mobile: "yes",     termux: "yes",           termius: "no" },
+      { category: "Privasi & biaya",  feature: "Tanpa paywall Pro",                              mobile: "yes",     termux: "yes",           termius: "partial" },
+      { category: "Privasi & biaya",  feature: "Tanpa iklan",                                   mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Privasi & biaya",  feature: "Opsi keluar analitik",                           mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Privasi & biaya",  feature: "Data hanya lokal (tanpa sinkronisasi awan)",     mobile: "yes",     termux: "yes",           termius: "no" }
     ]
   },
   privacy: {
@@ -255,7 +310,7 @@ export const id: Dict = {
       },
       {
         heading: "Informasi yang dikirim melalui jaringan",
-        body: "Mobile SSH mengirim data autentikasi SSH hanya ke server yang Anda konfigurasi dan sambungi. Input/output terminal, isi berkas SFTP, dan trafik penerusan port lokal dipertukarkan dengan server dan titik akhir jarak jauh pilihan Anda. Mobile SSH tidak mengirim data ini ke layanan analitik, iklan, telemetri, atau sinkronisasi awan Mobile SSH.",
+        body: "Mobile SSH mengirim data autentikasi SSH hanya ke server yang Anda konfigurasi dan sambungi. Input/output terminal, isi berkas SFTP, dan trafik penerusan port lokal dipertukarkan dengan server dan titik akhir jarak jauh pilihan Anda. Mobile SSH tidak mengirim data ini ke layanan analitik, iklan, telemetri, atau sinkronisasi awan Mobile SSH."
       },
       {
         heading: "Transfer berkas dan akses penyimpanan",
@@ -271,7 +326,7 @@ export const id: Dict = {
     permissions: [
       { label: "Internet", body: "diperlukan untuk menyambung ke server SSH." },
       { label: "Wake lock dan Wi-Fi lock", body: "menjaga sesi SSH tetap aktif saat perangkat tidur." },
-      { label: "Layanan latar depan dan notifikasi", body: "untuk menangani koneksi aktif di latar belakang." },
+      { label: "Layanan foreground dan notifikasi", body: "untuk menangani koneksi aktif di latar belakang." },
       { label: "Akses penyimpanan", body: "digunakan oleh transfer berkas dan impor kunci." }
     ],
     securityHeading: "Tanggung jawab keamanan",

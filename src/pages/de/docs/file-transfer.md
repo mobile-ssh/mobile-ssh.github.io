@@ -12,7 +12,7 @@ Mobile SSH enthält einen SFTP-Dateiübertragungsbildschirm, der an die aktive S
 
 1. Verbinde dich mit einem SSH-Server.
 2. Wähle den verbundenen Terminalbereich aus.
-3. Öffne **Übertragung** in der Terminal-Symbolleiste, oder halte die Bereichskopfzeile gedrückt, wenn der aktuelle Bildschirm dies unterstützt.
+3. Öffne **Transfer** in der Terminal-Symbolleiste, oder halte die Bereichskopfzeile gedrückt, wenn der aktuelle Bildschirm dies unterstützt.
 4. Der Dateiübertragungsbildschirm öffnet sich mit einem lokalen und einem entfernten Bereich.
 
 Wenn keine aktive SSH-Sitzung vorhanden ist, kann die Dateiübertragung nicht geöffnet werden.

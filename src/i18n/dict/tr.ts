@@ -38,7 +38,8 @@ export const tr: Dict = {
     advantages: [
       { title: "Pro seviyesi yok, reklam yok", text: "Tüm özellikler aynı uygulamada. Temel akışları bir Pro yükseltmesinin ardına saklayan bir paywall yok, terminalde reklam afişi yok." },
       { title: "Verileriniz cihazınızda kalır", text: "Kaydedilen sunucular, kimlik bilgileri ve anahtarlar cihazda saklanır. Bulut hesabı yok; kapatılacak bir şey yok." },
-      { title: "Kayıtlı sunucular, tek dokunuşla bağlantı", text: "Sunucuyu bir kez ekleyin, tek dokunuşla yeniden bağlanın — anahtar, port ve yapılandırılmış tüneller dahil." },
+      { title: "Kayıtlı sunucular, arayarak bağlan", text: "Sunucuyu bir kez ekleyin, arayın ve dokunarak bağlanın — anahtar, port ve tüneller birlikte gelir." },
+      { title: "Ajan uyarıları", text: "Claude Code, Codex veya başka bir uzak ajan giridinize ihtiyaç duyduğu anda sesli ve titreşimli bildirim alın. Video oynatılırken bile kulaklıktan çalar." },
       { title: "Klavyenin üstünde terminal tuşları", text: "ESC, TAB, CTRL, ALT, FN, yön tuşları, Home, End, PgUp/PgDn için ayrı bir sıra — Gboard önerileriyle çakışmadan." },
       { title: "Komut yazmadan port yönlendirme", text: "Tüneller sunucu profiline bağlıdır ve bağlandığınız anda otomatik olarak yükselir." },
       { title: "Kilit ve ağ değişimine dayanıklı", text: "Ön plan servisi, wake lock'lar ve otomatik yeniden bağlanma; ekran kapalıyken, uygulama değişiminde ve ağ değişiminde oturumları canlı tutar." }
@@ -47,14 +48,16 @@ export const tr: Dict = {
     sectionAIntro:
       "Mobile SSH yaygın yönetim yolunu kısaltır: sunucuyu kaydet, bağlan, oturumları canlı tut, gerektiğinde dosya taşı ve hızlıca aktif terminallere geri dön.",
     features: [
-      { title: "SSH terminali", text: "Renk, imleç tuşları, geri kaydırma, kopyalama ve Android klavye desteğiyle VT100/xterm-256color emülasyonu." },
-      { title: "Çoklu oturum ızgarası", text: "Aynı anda sekiz oturuma kadar; panele dokunarak geç, panele çift dokunarak tam ekrana al." },
-      { title: "Özel anahtarlar", text: "Parolalar veya içe aktarılan/yapıştırılan özel anahtarlar; uygulamanın desteklediği Ed25519, RSA, ECDSA ve DSA dahil." },
-      { title: "SFTP aktarımı", text: "Yerel ve uzak gezgin panelleriyle telefon depolaması ile uzak sunucu arasında dosya taşı." },
-      { title: "Port yönlendirme", text: "Yerel tünel tanımlarını sunucu profiline kaydet veya bağlıyken tünel ekle." },
-      { title: "Yeniden bağlanma", text: "Ön plan servisi, wake lock, keepalive ve yeniden bağlanma denemeleri oturumların mobil ağ değişikliklerine dayanmasını sağlar." },
-      { title: "Terminal seçimi", text: "Terminal metnini seç, kopyala, paylaş veya görünen tamponun tamamını seç; kopyalar Android panosuna gider." },
-      { title: "Mobil klavye dostu", text: "Gboard önerileri ve sesli giriş ek tuş satırıyla birlikte çalışır; yazılmakta olan metin sözcük sınırına kadar tamponlanır." }
+      { title: "SSH terminali", text: "5000 satırlık geri kaydırma, renk, imleç tuşları, kopyala/paylaş ve sıkıştırarak metin boyutlandırmayla xterm-256color terminal emülasyonu." },
+      { title: "Çoklu oturum ızgarası", text: "Yeniden boyutlandırılabilir ızgarada sekiz SSH oturumuna kadar — odaklanmak için panele dokun, tam ekran için çift dokun, metni boyutlandırmak için sıkıştır." },
+      { title: "Tıklanabilir bağlantılar", text: "Terminaldeki URL'ler altı çizili olur ve bir dokunuşla tarayıcıda açılır — kopyalamaya veya uygulama değiştirmeye gerek kalmaz." },
+      { title: "Sunucu klasörleri", text: "Kaydedilen sunucuları daraltılabilir gruplara düzenle. Daraltmak için grup başlığına dokun; klasör yapısı hızlı bağlan seçicisine de yansır." },
+      { title: "Ajan uyarıları", text: "Uzak bir ajan (Claude Code, Codex vb.) girdinizi beklediğinde sesli ve titreşimli bildirim. Video görüşmeleri sırasında bile kulaklıktan çalar." },
+      { title: "Özel anahtarlar", text: "Parola veya özel anahtarla kimlik doğrulama. Cihazda Ed25519, ECDSA veya RSA anahtarı oluşturun; mevcut anahtarları içe aktarın veya yapıştırın." },
+      { title: "SFTP aktarımı", text: "Aktif SSH oturumuna bağlı çift panelli dosya gezgini. Yükleme ve indirme sırala; yeniden adlandır, sil ve uzak izinleri incele." },
+      { title: "Port yönlendirme", text: "Yerel tünel tanımlarını sunucu profiliyle kaydet — tüneller bağlandığında otomatik açılır ya da bağlıyken ekle/kaldır." },
+      { title: "Yeniden bağlanma akışı", text: "Ön plan servisi, wake lock'lar, keepalive ve üstel gerilemeli yeniden bağlanma; ekran kapandığında ve ağ değişiminde oturumları canlı tutar." },
+      { title: "Yedekleme ve geri yükleme", text: "Kaydedilen sunucuları ve kimlik bilgilerini şifreli bir yedek dosyasına aktar; cihazlar arası geçiş için birleştir veya değiştir seçeneğiyle içe aktar." }
     ],
     multiHead: "Tek ekran, birkaç canlı kabuk",
     multiP1:
@@ -62,7 +65,7 @@ export const tr: Dict = {
     multiP2:
       "Oturum geçmişi ve aktif oturum kurtarma, uygulama değişimleri, ekran kilidi veya Android aktivitesinin yeniden oluşturulmasının ardından sürmekte olan işe dönmene yardım eder.",
     multiAlt:
-      "10 inçlik Android tablette Mobile SSH, yan yana dört aktif SSH terminal panelini gösteriyor.",
+      "Bir telefonda Mobile SSH, yan yana iki canlı SSH terminal oturumunu bölünmüş görünümde gösteriyor.",
     sftpHead: "Terminal yetmediğinde SFTP",
     sftpBody:
       "Telefon depolamasını ve uzak dizinleri taramak için bağlı bir oturumdan dosya aktarımını aç. Yüklemeleri ve indirmeleri sıraya al, dosyaları sırala, her ana bilgisayar için son yolları hatırla ve taşımadan önce uzak izinleri incele.",
@@ -76,12 +79,14 @@ export const tr: Dict = {
       "Bir telefonda Mobile SSH başlangıç ekranı; Sunucular, Kimlik Bilgileri, Günlükler, Ayarlar, Hata Ayıklama ve Hakkında kutucukları.",
       "Bir telefonda Sunucu Ekle iletişim kutusu; ana bilgisayar, port, kimlik bilgileri, özel anahtar ve port yönlendirme alanları.",
       "Bir telefonda tek oturumlu SSH terminali; en altta ek tuş satırı.",
+      "Bir telefonda yan yana iki SSH oturumu bölünmüş görünümde.",
       "Bir telefonda üst üste iki SSH oturumu; aktif panel vurgulu.",
       "Bir telefonda SFTP dosya aktarımı ekranı; Telefonum ve Uzak Sunucu panelleri.",
       "Bir telefonda Hakkında iletişim kutusu; sürüm, yazar, lisans ve web sitesi alanları.",
       "Telefonda etiket, kullanıcı, anahtar türü ve parola alanlarını içeren SSH Anahtarı Oluştur iletişim kutusu.",
       "Telefonda oluşturulan anahtarı kopyalama, paylaşma ve kaydetme seçenekleriyle gösteren Genel Anahtar iletişim kutusu.",
-      "Two SSH sessions stacked vertically on a phone with the active pane highlighted."
+      "Kaydedilen sunucuların daraltılabilir İş ve Kişisel klasör gruplarında düzenlendiğini gösteren Kaydedilen Sunucular ekranı.",
+      "Bir telefonda SSH terminali; https:// URL'leri dokunulabilir tıklanabilir bağlantılar olarak altı çizili şekilde görünüyor."
     ],
     compareHead: "Termux ve Termius yanında yeri",
     compareIntro:
@@ -104,8 +109,10 @@ export const tr: Dict = {
         title: "Bağlantılar",
         items: [
           "Parola ve özel anahtarla kimlik doğrulama",
-          "Mevcut uygulamanın desteklediği Ed25519, RSA, ECDSA ve DSA özel anahtarları",
-          "Ana bilgisayar, port, kullanıcı, kimlik bilgisi, özel anahtar ve isteğe bağlı tünelle birlikte kaydedilmiş sunucu profilleri",
+          "Mevcut uygulama tarafından desteklenen Ed25519, RSA, ECDSA ve DSA özel anahtarları",
+          "Ana bilgisayar, port, kullanıcı, kimlik bilgisi, özel anahtar ve isteğe bağlı tünel tanımlarıyla kaydedilmiş sunucu profilleri",
+          "Kaydedilen sunucuları ada veya ana bilgisayara göre arama",
+          "Arama öncelikli Oturum Ekle akışı: ayrılmış bir arama sayfasından kayıtlı sunucu seç ve tek dokunuşla bağlan",
           "Sunucu kurulumunda seçilebilen yeniden kullanılabilir kimlik bilgisi kayıtları",
           "Sık kullanılan sunucu setlerine yeniden bağlanmak için son oturum geçmişi",
           "Başarılı ve başarısız giriş denemeleri günlüğü"
@@ -131,8 +138,9 @@ export const tr: Dict = {
           "Aktif oturumlar için ızgara düzeni",
           "Arka plan ve ekran kilidi dayanıklılığı için ön plan servisi",
           "Üstel gerilemeli keepalive ve yeniden bağlanma denemeleri",
-          "Başlangıç ekranından Aktif Oturumlar girişi",
-          "Kesintiye uğrayan iş için tmux komut izleme ve reattach ipuçları"
+          "Başlangıç ekranından Aktif Oturumlar girişi; süregelen bildirim oturumları listeler — açmak için dokunun",
+          "Kesintiye uğrayan iş için tmux komut izleme ve reattach ipuçları",
+          "Ajan uyarıları: uzak bir ajan (Claude Code, Codex vb.) giridinizi beklediğinde isteğe bağlı ses ve titreşimli bildirim; video sırasında kulaklıktan çalar"
         ]
       },
       {
@@ -238,6 +246,53 @@ export const tr: Dict = {
         title: "Şu durumlarda Termius'u seç",
         body: "Şifreli kasa eşitlemesi, takım paylaşımı, anahtarlık yönetimi, parçacıklar ve birden çok cihazda tutarlı bir uygulamayla ticari, çapraz platform bir SSH çalışma alanı istiyorsan."
       }
+    ],
+    featureHeading: "Özellik karşılaştırması",
+    featureRows: [
+      { category: "Bağlantı", feature: "Kaydedilmiş sunucu profilleri",              mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Bağlantı", feature: "Kaydedilen sunucuları arama",                mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Bağlantı", feature: "Sunucu klasörleri / grupları",               mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Bağlantı", feature: "Arama öncelikli Oturum Ekle seçici",         mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Bağlantı", feature: "Yeniden kullanılabilir kimlik bilgisi kayıtları", mobile: "yes", termux: "no",         termius: "yes" },
+      { category: "Bağlantı", feature: "Son oturum geçmişi",                         mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Bağlantı", feature: "Giriş günlüğü",                              mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Terminal",  feature: "SSH terminali",                              mobile: "yes",    termux: "via OpenSSH",  termius: "yes" },
+      { category: "Terminal",  feature: "xterm-256color emülasyonu",                  mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "Terminal",  feature: "5.000 satırlık geri kaydırma tamponu",       mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "Terminal",  feature: "Ek tuş satırı (ESC/TAB/CTRL/…)",            mobile: "yes",    termux: "partial",      termius: "yes" },
+      { category: "Terminal",  feature: "Sıkıştırarak metin boyutlandırma",           mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "Terminal",  feature: "Çift dokunarak paneli tam ekrana al",        mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Terminal",  feature: "Terminaldeki tıklanabilir URL'ler",          mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Terminal",  feature: "Metin seçimi: kopyala / paylaş / tümünü seç", mobile: "yes", termux: "yes",          termius: "yes" },
+      { category: "Terminal",  feature: "Gboard önerileri ve sesli giriş",           mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Oturumlar", feature: "Eşzamanlı birden çok SSH oturumu",          mobile: "up to 8", termux: "via tmux",   termius: "yes" },
+      { category: "Oturumlar", feature: "Izgara panel düzeni",                       mobile: "yes",    termux: "no",           termius: "tabs" },
+      { category: "Oturumlar", feature: "tmux uyumlu kaydırma",                     mobile: "yes",    termux: "yes",          termius: "no" },
+      { category: "Oturumlar", feature: "Yeniden bağlanmada tmux reattach ipuçları", mobile: "yes",   termux: "yes",          termius: "no" },
+      { category: "Oturumlar", feature: "Ajan uyarıları (Claude Code / Codex)",      mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Oturumlar", feature: "Oturum listesini gösteren süregelen bildirim", mobile: "yes", termux: "no",          termius: "no" },
+      { category: "Oturumlar", feature: "Ön plan servisi ve wake lock",              mobile: "yes",    termux: "partial",      termius: "yes" },
+      { category: "Oturumlar", feature: "Geri çekilmeli otomatik yeniden bağlanma",  mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Dosyalar",  feature: "Yerleşik SFTP dosya aktarımı arayüzü",      mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Dosyalar",  feature: "Çift panelli yerel + uzak gezgin",          mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Dosyalar",  feature: "Yükleme / indirme kuyruğu",                mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Dosyalar",  feature: "Uzak yeniden adlandır / sil / oluştur",     mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Dosyalar",  feature: "Uzak dosya izinleri görünümü",              mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Dosyalar",  feature: "Her ana bilgisayar için ada veya tarihe göre sıralama", mobile: "yes", termux: "no", termius: "partial" },
+      { category: "Tüneller",  feature: "Yerel port yönlendirme",                   mobile: "yes",    termux: "via CLI",      termius: "yes" },
+      { category: "Tüneller",  feature: "Sunucu profiliyle kaydedilen tüneller",     mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Tüneller",  feature: "Çalışma zamanında tünel ekle / kaldır",    mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Anahtarlar", feature: "Parola ile kimlik doğrulama",              mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "Anahtarlar", feature: "Özel anahtarla kimlik doğrulama",          mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "Anahtarlar", feature: "Cihazda anahtar oluşturma",                mobile: "yes",    termux: "via ssh-keygen", termius: "yes" },
+      { category: "Anahtarlar", feature: "Oluşturulan genel anahtarı paylaş / kaydet", mobile: "yes", termux: "yes",          termius: "yes" },
+      { category: "Yedekleme", feature: "Sunucu yedeğini dışa / içe aktar",         mobile: "yes",    termux: "no",           termius: "cloud vault" },
+      { category: "Yedekleme", feature: "Şifreli yerel yedek dosyası",              mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Yedekleme", feature: "Hesap gerekmez",                            mobile: "yes",    termux: "yes",          termius: "no" },
+      { category: "Gizlilik ve maliyet", feature: "Pro paywall yok",                 mobile: "yes",    termux: "yes",          termius: "partial" },
+      { category: "Gizlilik ve maliyet", feature: "Reklam yok",                      mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "Gizlilik ve maliyet", feature: "Analitikten çıkma seçeneği",      mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Gizlilik ve maliyet", feature: "Yalnızca yerel veriler (bulut eşitlemesi yok)", mobile: "yes", termux: "yes", termius: "no" }
     ]
   },
   privacy: {
@@ -288,11 +343,11 @@ export const tr: Dict = {
     intro:
       "Mobile SSH'yi kurmak, bağlanmak, oturumları yönetmek, dosya aktarmak, port yönlendirmek ve sorunları çözmek için bu sayfaları genel kılavuz olarak kullanın.",
     cards: [
-      { slug: "getting-started",  title: "Başlarken",      text: "Kur, uygulamayı aç, ilk sunucuna bağlan ve sık kullanılan ana bilgisayarları kaydet." },
-      { slug: "terminal",         title: "Terminal",       text: "Paneller, ek tuş satırı, kaydırma, kopyalama eylemleri, tmux davranışı ve klavye ayarları." },
-      { slug: "file-transfer",    title: "Dosya aktarımı", text: "Telefon ve sunucu dosyalarını gez, yükle, indir, sırala ve uzak ayrıntıları incele." },
+      { slug: "getting-started",  title: "Başlarken",        text: "Kur, uygulamayı aç, ilk sunucuna bağlan ve sık kullanılan ana bilgisayarları kaydet." },
+      { slug: "terminal",         title: "Terminal",          text: "Paneller, ek tuş satırı, kaydırma, kopyalama eylemleri, tmux davranışı ve klavye ayarları." },
+      { slug: "file-transfer",    title: "Dosya aktarımı",   text: "Telefon ve sunucu dosyalarını gez, yükle, indir, sırala ve uzak ayrıntıları incele." },
       { slug: "port-forwarding",  title: "Port yönlendirme", text: "Yerel tünel dizelerini yapılandır ve bağlıyken aktif yönlendirmeleri yönet." },
-      { slug: "troubleshooting",  title: "Sorun giderme",   text: "Bağlantı, kimlik doğrulama, klavye, depolama ve yeniden bağlanma sorunlarını çöz." }
+      { slug: "troubleshooting",  title: "Sorun giderme",    text: "Bağlantı, kimlik doğrulama, klavye, depolama ve yeniden bağlanma sorunlarını çöz." }
     ]
   },
   docsNav: {
