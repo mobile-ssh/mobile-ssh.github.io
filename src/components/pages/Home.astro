@@ -144,11 +144,11 @@ const galleryShots = [
         </div>
         <div class="video-solo">
           <video
+            id="feat-video"
             src="/assets/videos/features.mp4"
             poster="/assets/screenshots/phone-03-terminal.png"
             controls
             preload="none"
-            playsinline
             aria-label="Demo of server folders, clickable links, agent alerts, server search, and Add Session"
           ></video>
         </div>
@@ -486,5 +486,19 @@ const galleryShots = [
     perView = getPerView();
     buildDots();
     render();
+  })();
+</script>
+
+<script is:inline>
+  (() => {
+    const v = document.getElementById("feat-video");
+    if (!v) return;
+    v.addEventListener("play", () => {
+      const el = v;
+      if (el.requestFullscreen)             el.requestFullscreen();
+      else if (el.webkitRequestFullscreen)  el.webkitRequestFullscreen();
+      else if (el.mozRequestFullScreen)     el.mozRequestFullScreen();
+      else if (el.msRequestFullscreen)      el.msRequestFullscreen();
+    });
   })();
 </script>
