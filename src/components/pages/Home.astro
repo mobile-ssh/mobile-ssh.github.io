@@ -493,12 +493,27 @@ const galleryShots = [
   (() => {
     const v = document.getElementById("feat-video");
     if (!v) return;
+
+    // Clicking anywhere on the video (poster or content) starts playback
+    // and immediately enters fullscreen.
+    v.addEventListener("click", (e) => {
+      // While playing, let the browser handle click (pause/resume via controls).
+      if (!v.paused) return;
+      v.play().then(() => {
+        if (v.requestFullscreen)            v.requestFullscreen();
+        else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+        else if (v.mozRequestFullScreen)    v.mozRequestFullScreen();
+        else if (v.msRequestFullscreen)     v.msRequestFullscreen();
+      }).catch(() => {});
+    });
+
+    // Also enter fullscreen if play is triggered via the native controls.
     v.addEventListener("play", () => {
-      const el = v;
-      if (el.requestFullscreen)             el.requestFullscreen();
-      else if (el.webkitRequestFullscreen)  el.webkitRequestFullscreen();
-      else if (el.mozRequestFullScreen)     el.mozRequestFullScreen();
-      else if (el.msRequestFullscreen)      el.msRequestFullscreen();
+      if (document.fullscreenElement) return; // already fullscreen
+      if (v.requestFullscreen)            v.requestFullscreen();
+      else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+      else if (v.mozRequestFullScreen)    v.mozRequestFullScreen();
+      else if (v.msRequestFullscreen)     v.msRequestFullscreen();
     });
   })();
 </script>
