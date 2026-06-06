@@ -82,6 +82,20 @@ When a connection drops while you were in tmux, the app can remember the last tm
 
 This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
 
+## Agent alerts
+
+Mobile SSH can watch the terminal output of the active session for patterns that indicate a remote agent is waiting for input. When a match is detected — for example, Claude Code or Codex pausing for a prompt — the app sends a notification with optional sound and vibration.
+
+To configure:
+
+1. Open **Settings** from the start screen.
+2. Enable **Agent alerts**.
+3. Choose a notification sound and vibration pattern.
+
+The alert plays through whichever audio output is active, including headphones, so you can hear it while watching a video or with the phone locked. The notification appears even when Mobile SSH is in the background.
+
+Agent alert patterns are matched against visible terminal output. If your remote tool outputs a recognizable prompt line (a username, a `?`, a bracketed question), the app may pick it up automatically. If alerts fire too often or not at all, adjust the sensitivity in Settings.
+
 ## Full-screen terminal programs
 
 For programs such as Vim, less, htop, ncurses tools, and tmux panes:

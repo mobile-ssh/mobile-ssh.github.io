@@ -38,7 +38,8 @@ export const en: Dict = {
     advantages: [
       { title: "No Pro tier, no ads", text: "Every feature is in the same app. No paywall splitting essential workflows behind a Pro upgrade, no ad banners on the terminal." },
       { title: "Your data stays local", text: "Saved servers, credentials, and keys live on the device. No cloud account; nothing to be sunset." },
-      { title: "Saved hosts, one-tap connect", text: "Add a host once and reconnect with a tap, including key, port, and any tunnels you have configured." },
+      { title: "Saved hosts, search to connect", text: "Add a host once, then search and tap to connect — keys, ports, and tunnels come with it." },
+      { title: "Agent alerts", text: "Get a notification — with sound and vibration — the moment Claude Code, Codex, or another remote agent needs your input. Plays in headphones even over video." },
       { title: "Terminal keys above the IME", text: "Dedicated row with ESC, TAB, CTRL, ALT, FN, arrows, Home, End, PgUp/PgDn — without fighting Gboard suggestions." },
       { title: "Port forwarding without commands", text: "Tunnels attach to the server profile and come up automatically when you connect." },
       { title: "Survives lock and roaming", text: "Foreground service, wake locks, and auto-reconnect keep shells alive through screen-off, app switches, and network changes." }
@@ -49,12 +50,12 @@ export const en: Dict = {
     features: [
       { title: "SSH terminal", text: "xterm-256color terminal emulation with 5000-line scrollback, color, cursor keys, copy/share, and pinch-to-zoom text sizing." },
       { title: "Multi-session grid", text: "Up to eight SSH sessions in a resizable grid — tap a pane to focus, double-tap for fullscreen, pinch to resize text." },
+      { title: "Agent alerts", text: "Notification with sound and vibration when a remote agent (Claude Code, Codex, etc.) needs your input. Plays in headphones even during video calls." },
       { title: "Private keys", text: "Password or private key auth. Generate Ed25519, ECDSA, or RSA keys on device; import or paste existing keys." },
       { title: "SFTP transfer", text: "Dual-pane file browser tied to an active SSH session. Queue uploads and downloads, rename, delete, and inspect remote permissions." },
       { title: "Port forwarding", text: "Save local tunnel specs with a server profile — tunnels open automatically on connect, or add/remove them while connected." },
       { title: "Reconnect workflow", text: "Foreground service, wake locks, keepalives, and exponential-backoff reconnect keep sessions alive through screen-off and roaming." },
-      { title: "Backup & restore", text: "Export saved servers and credentials to an encrypted backup file; import with merge or replace to move between devices." },
-      { title: "Mobile keyboard friendly", text: "Extra key row with ESC, TAB, CTRL, ALT, arrows and more above the IME. Gboard suggestions and voice input work without interference." }
+      { title: "Backup & restore", text: "Export saved servers and credentials to an encrypted backup file; import with merge or replace to move between devices." }
     ],
     multiHead: "One screen, several live shells",
     multiP1:
@@ -107,6 +108,8 @@ export const en: Dict = {
           "Password authentication and private key authentication",
           "Ed25519, RSA, ECDSA, and DSA private keys supported by the current app implementation",
           "Saved server profiles with host, port, username, credential, private key, and optional tunnel specs",
+          "Search saved servers by name or host",
+          "Search-first Add Session flow: pick a saved server from a dedicated search page and connect with one tap",
           "Reusable credential records that can be selected from server setup",
           "Recent session history for reconnecting to common server sets",
           "Login log for successful and failed attempts"
@@ -132,8 +135,9 @@ export const en: Dict = {
           "Grid layout for active sessions",
           "Foreground service support for background and screen-lock resilience",
           "Keepalive and reconnect attempts with exponential backoff",
-          "Active Sessions entry point from the start screen",
-          "tmux command tracking and reattach hints for interrupted work"
+          "Active Sessions entry point from the start screen; ongoing notification lists sessions — tap to open",
+          "tmux command tracking and reattach hints for interrupted work",
+          "Agent alerts: notification with optional sound and vibration when a remote agent (Claude Code, Codex, etc.) needs input; plays in headphones over video"
         ]
       },
       {

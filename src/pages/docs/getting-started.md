@@ -18,8 +18,8 @@ Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, netw
 ## Connect to a server
 
 1. Open Mobile SSH.
-2. Tap **Saved Servers** if you already created a profile, or add a server from the connection flow.
-3. Enter the host, port, username, and authentication details.
+2. Tap **+ Add Session** and search for a saved server, or add a new one from that screen.
+3. Enter the host, port, username, and authentication details if adding a new server.
 4. Tap the server to open a terminal session.
 5. Use **Active Sessions** on the start screen to return to sessions that are still running.
 
@@ -60,16 +60,24 @@ Private key import uses Android's file picker for key files. File transfer uses 
 
 The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
 
+## Search saved servers
+
+Tap the search field on the **Saved Servers** page to filter by name or host. The **+ Add Session** screen also opens with search so you can find and connect to a saved server in one step.
+
 ## Active sessions
 
-When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. Going back to the start screen does not necessarily disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
+When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. An ongoing notification also lists active hosts — tap a host in the notification to jump straight to that terminal.
+
+Going back to the start screen does not disconnect active SSH sessions; closing panes or finishing the terminal activity disconnects them.
 
 ## First useful settings
 
-Open **Settings** from the start screen:
+Open **Settings** from the start screen (it has its own page):
 
 - Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
 - Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
+- Enable **Agent alerts** if you run long background tasks (Claude Code, Codex, shell scripts) and want a sound or vibration notification when the agent needs your input.
+- Turn off anonymous usage analytics if you prefer no data to be sent.
 
 ## Languages
 
