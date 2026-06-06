@@ -50,6 +50,8 @@ export const en: Dict = {
     features: [
       { title: "SSH terminal", text: "xterm-256color terminal emulation with 5000-line scrollback, color, cursor keys, copy/share, and pinch-to-zoom text sizing." },
       { title: "Multi-session grid", text: "Up to eight SSH sessions in a resizable grid — tap a pane to focus, double-tap for fullscreen, pinch to resize text." },
+      { title: "Clickable links", text: "URLs in the terminal are underlined and open in the browser with a tap — no copying or switching apps needed." },
+      { title: "Server folders", text: "Organize saved servers into collapsible groups. Tap a group header to collapse it; the folder structure carries into the quick-connect picker." },
       { title: "Agent alerts", text: "Notification with sound and vibration when a remote agent (Claude Code, Codex, etc.) needs your input. Plays in headphones even during video calls." },
       { title: "Private keys", text: "Password or private key auth. Generate Ed25519, ECDSA, or RSA keys on device; import or paste existing keys." },
       { title: "SFTP transfer", text: "Dual-pane file browser tied to an active SSH session. Queue uploads and downloads, rename, delete, and inspect remote permissions." },
@@ -83,7 +85,9 @@ export const en: Dict = {
       "SFTP file transfer screen on a phone with local My Phone and Remote Host panes.",
       "About dialog on a phone showing version, author, license, and website fields.",
       "Generate SSH Key dialog on a phone with label, user, key type, and passphrase fields.",
-      "Public Key dialog on a phone showing the generated key with copy, share, and save options."
+      "Public Key dialog on a phone showing the generated key with copy, share, and save options.",
+      "Saved Servers screen showing servers organized into collapsible Work and Personal folder groups.",
+      "SSH terminal on a phone with https:// URLs underlined as tappable clickable links."
     ],
     compareHead: "How it fits beside Termux and Termius",
     compareIntro:

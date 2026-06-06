@@ -18,7 +18,9 @@ const galleryShots = [
   "/assets/screenshots/phone-05-transfer.png",
   "/assets/screenshots/phone-06-about.png",
   "/assets/screenshots/phone-07-keygen.png",
-  "/assets/screenshots/phone-08-pubkey.png"
+  "/assets/screenshots/phone-08-pubkey.png",
+  "/assets/screenshots/phone-09-groups.png",
+  "/assets/screenshots/phone-10-links.png"
 ];
 ---
 
@@ -137,6 +139,39 @@ const galleryShots = [
     <section class="section alt">
       <div class="section-inner">
         <div class="section-head">
+          <h2>See it in action</h2>
+          <p>Short demos of recent features — server folders with collapsible groups and tappable links in the terminal.</p>
+        </div>
+        <div class="video-grid">
+          <figure class="video-card">
+            <video
+              src="/assets/videos/links-folders.mp4"
+              poster="/assets/screenshots/phone-09-groups.png"
+              controls
+              preload="none"
+              playsinline
+              aria-label="Demo of server folders and clickable links features"
+            ></video>
+            <figcaption>Server folders &amp; clickable links</figcaption>
+          </figure>
+          <figure class="video-card">
+            <video
+              src="/assets/videos/newfeatures.mp4"
+              poster="/assets/screenshots/phone-01-main.png"
+              controls
+              preload="none"
+              playsinline
+              aria-label="Demo of agent alerts, settings page, server search, and Add Session features"
+            ></video>
+            <figcaption>Agent alerts, server search &amp; Add Session</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
           <h2>{t.home.compareHead}</h2>
           <p>{t.home.compareIntro}</p>
         </div>
@@ -164,6 +199,33 @@ const galleryShots = [
 
 <style>
   img.zoomable { cursor: zoom-in; }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .video-card {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .video-card video {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    background: #000;
+  }
+  .video-card figcaption {
+    font-size: 0.9rem;
+    opacity: 0.72;
+    text-align: center;
+  }
 
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);

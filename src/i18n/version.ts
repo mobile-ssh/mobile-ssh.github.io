@@ -3,8 +3,8 @@ import { locales, type LocaleCode } from "./locales";
 // Single source of truth for the Mobile SSH app version surfaced on the site.
 // Bump these on app release; per-locale dicts only carry templates with
 // {count} and {version} placeholders.
-export const VERSION_NAME = "1.8";
-export const VERSION_CODE = 14;
+export const VERSION_NAME = "1.9";
+export const VERSION_CODE = 15;
 export const LANGUAGE_COUNT = locales.length;
 
 export const PLAY_STORE_URL =
