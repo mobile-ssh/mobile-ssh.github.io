@@ -48,4 +48,20 @@ const t = getDict(locale);
       </div>
     </section>
   </main>
+
+<style>
+  /* Highlight the Mobile SSH column (2nd column) */
+  :global(.compare-table th:nth-child(2)),
+  :global(.compare-table td:nth-child(2)) {
+    background: #e8f5e9;
+    border-left: 2px solid var(--green);
+    border-right: 2px solid var(--green);
+    font-weight: 500;
+  }
+  :global(.compare-table th:nth-child(2)) {
+    background: var(--green);
+    color: #fff;
+    font-weight: 700;
+  }
+</style>
 </BaseLayout>
