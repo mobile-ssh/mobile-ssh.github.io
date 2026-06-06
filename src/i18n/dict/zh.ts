@@ -75,6 +75,18 @@ export const zh: Dict = {
     galleryHead: "在真实设备上的实际效果",
     galleryIntro:
       "来自 Android 手机的截图——你将用于添加服务器、在终端中工作、运行多个会话以及通过 SFTP 移动文件的相同界面。",
+    carouselPrev: "上一张截图",
+    carouselNext: "下一张截图",
+    carouselDot: "跳到第 {n} 张",
+    videoHead: "观看实际效果",
+    videoIntro: "近期功能的简短演示——服务器文件夹支持可折叠分组，终端中可点击链接。",
+    videoAlt: "服务器文件夹、可点击链接、智能体提醒、服务器搜索和 Add Session 的演示",
+    lightboxClose: "关闭",
+    lightboxPrev: "上一张",
+    lightboxNext: "下一张",
+    betaJoin: "加入公测",
+    betaOr: "或发送邮件至",
+    betaRequest: "申请私人测试资格",
     galleryAlts: [
       "手机上的 Mobile SSH 起始界面，包含服务器、凭据、日志、设置、调试与关于等磁贴。",
       "手机上的「添加服务器」对话框，显示主机、端口、凭据、私钥与端口转发字段。",

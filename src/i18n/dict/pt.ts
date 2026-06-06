@@ -76,6 +76,18 @@ export const pt: Dict = {
     galleryHead: "Veja em um aparelho real",
     galleryIntro:
       "Capturas de celulares Android — as mesmas telas que você vai usar para adicionar servidores, trabalhar em terminais, rodar várias sessões e mover arquivos por SFTP.",
+    carouselPrev: "Captura anterior",
+    carouselNext: "Próxima captura",
+    carouselDot: "Ir para a posição {n}",
+    videoHead: "Veja em ação",
+    videoIntro: "Demonstrações rápidas de funcionalidades recentes — pastas de servidor com grupos recolhíveis e links clicáveis no terminal.",
+    videoAlt: "Demo de pastas de servidor, links clicáveis, alertas de agente, pesquisa de servidor e Add Session",
+    lightboxClose: "Fechar",
+    lightboxPrev: "Anterior",
+    lightboxNext: "Próximo",
+    betaJoin: "Participar da beta",
+    betaOr: "ou envie um e-mail para",
+    betaRequest: "para solicitar acesso à beta privada",
     galleryAlts: [
       "Tela inicial do Mobile SSH em um celular com os botões Servidores, Credenciais, Logs, Configurações, Depuração e Sobre.",
       "Diálogo Adicionar servidor em um celular mostrando os campos host, porta, credenciais, chave privada e encaminhamento de portas.",

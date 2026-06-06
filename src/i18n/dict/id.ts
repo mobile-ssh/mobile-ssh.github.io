@@ -75,6 +75,18 @@ export const id: Dict = {
     galleryHead: "Lihat di perangkat nyata",
     galleryIntro:
       "Tangkapan layar dari ponsel Android — layar yang sama yang akan Anda gunakan untuk menambahkan server, bekerja di terminal, menjalankan beberapa sesi, dan memindahkan berkas via SFTP.",
+    carouselPrev: "Tangkapan layar sebelumnya",
+    carouselNext: "Tangkapan layar berikutnya",
+    carouselDot: "Pergi ke posisi {n}",
+    videoHead: "Lihat dalam aksi",
+    videoIntro: "Demo singkat fitur terbaru — folder server dengan grup yang dapat dilipat dan tautan yang dapat diketuk di terminal.",
+    videoAlt: "Demo folder server, tautan yang dapat diklik, peringatan agen, pencarian server, dan Add Session",
+    lightboxClose: "Tutup",
+    lightboxPrev: "Sebelumnya",
+    lightboxNext: "Berikutnya",
+    betaJoin: "Bergabung dengan beta",
+    betaOr: "atau kirim email ke",
+    betaRequest: "untuk meminta akses beta privat",
     galleryAlts: [
       "Layar awal Mobile SSH di ponsel dengan ubin Server, Kredensial, Log, Pengaturan, Debug, dan Tentang.",
       "Dialog Tambah Server di ponsel menampilkan kolom host, port, kredensial, kunci pribadi, dan penerusan port.",

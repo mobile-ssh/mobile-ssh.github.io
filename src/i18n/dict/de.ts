@@ -76,6 +76,18 @@ export const de: Dict = {
     galleryHead: "Auf einem echten Gerät ansehen",
     galleryIntro:
       "Screenshots von Android-Telefonen – dieselben Bildschirme, mit denen du Server hinzufügst, in Terminals arbeitest, mehrere Sitzungen ausführst und Dateien per SFTP überträgst.",
+    carouselPrev: "Vorheriger Screenshot",
+    carouselNext: "Nächster Screenshot",
+    carouselDot: "Zu Position {n} wechseln",
+    videoHead: "In Aktion sehen",
+    videoIntro: "Kurze Demos der neuesten Funktionen — Serverordner mit einklappbaren Gruppen und antippbare Links im Terminal.",
+    videoAlt: "Demo von Serverordnern, anklickbaren Links, Agentenbenachrichtigungen, Serversuche und Add Session",
+    lightboxClose: "Schließen",
+    lightboxPrev: "Zurück",
+    lightboxNext: "Weiter",
+    betaJoin: "Beta beitreten",
+    betaOr: "oder E-Mail an",
+    betaRequest: "um Zugang zur privaten Beta anzufordern",
     galleryAlts: [
       "Startbildschirm von Mobile SSH auf einem Telefon mit Kacheln Server, Anmeldedaten, Logs, Einstellungen, Debug und Über.",
       "Dialog „Server hinzufügen“ auf einem Telefon mit Feldern für Host, Port, Anmeldedaten, privatem Schlüssel und Portweiterleitung.",

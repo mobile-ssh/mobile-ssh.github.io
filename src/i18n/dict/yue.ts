@@ -75,6 +75,18 @@ export const yue: Dict = {
     galleryHead: "睇吓真機效果",
     galleryIntro:
       "Android 電話嘅截圖 — 你會用嚟新增伺服器、喺終端機做嘢、跑多個會話，同埋用 SFTP 搬檔案嘅同一啲畫面。",
+    carouselPrev: "上一張截圖",
+    carouselNext: "下一張截圖",
+    carouselDot: "去第 {n} 個位置",
+    videoHead: "睇佢實際運作",
+    videoIntro: "近期功能嘅短片示範——伺服器資料夾支援可摺疊群組，以及終端機內可點擊嘅連結。",
+    videoAlt: "伺服器資料夾、可點擊連結、代理人提醒、伺服器搜尋同 Add Session 嘅示範",
+    lightboxClose: "關閉",
+    lightboxPrev: "上一張",
+    lightboxNext: "下一張",
+    betaJoin: "加入公測",
+    betaOr: "或傳送電郵至",
+    betaRequest: "申請私人測試資格",
     galleryAlts: [
       "電話上嘅 Mobile SSH 啟動畫面，包括伺服器、憑證、日誌、設定、除錯、關於等磚。",
       "電話上嘅新增伺服器對話框，顯示 host、port、憑證、私鑰同端口轉發欄位。",

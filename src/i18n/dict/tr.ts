@@ -75,6 +75,18 @@ export const tr: Dict = {
     galleryHead: "Gerçek bir cihazda gör",
     galleryIntro:
       "Android telefonlardan ekran görüntüleri — sunucu eklemek, terminallerde çalışmak, birden çok oturum yürütmek ve SFTP ile dosya taşımak için kullanacağın aynı ekranlar.",
+    carouselPrev: "Önceki ekran görüntüsü",
+    carouselNext: "Sonraki ekran görüntüsü",
+    carouselDot: "{n}. konuma git",
+    videoHead: "Çalışırken görün",
+    videoIntro: "Son özelliklerin kısa demoları — daraltılabilir gruplu sunucu klasörleri ve terminalde dokunulabilir bağlantılar.",
+    videoAlt: "Sunucu klasörleri, tıklanabilir bağlantılar, ajan uyarıları, sunucu araması ve Add Session demosu",
+    lightboxClose: "Kapat",
+    lightboxPrev: "Önceki",
+    lightboxNext: "Sonraki",
+    betaJoin: "Beta'ya katıl",
+    betaOr: "veya e-posta gönderin",
+    betaRequest: "özel beta erişimi istemek için",
     galleryAlts: [
       "Bir telefonda Mobile SSH başlangıç ekranı; Sunucular, Kimlik Bilgileri, Günlükler, Ayarlar, Hata Ayıklama ve Hakkında kutucukları.",
       "Bir telefonda Sunucu Ekle iletişim kutusu; ana bilgisayar, port, kimlik bilgileri, özel anahtar ve port yönlendirme alanları.",

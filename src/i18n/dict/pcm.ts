@@ -75,6 +75,18 @@ export const pcm: Dict = {
     galleryHead: "See am for real device",
     galleryIntro:
       "Screenshots from Android phone — di same screens wey you go use to add server, work for terminal, run plenty session, and move file with SFTP.",
+    carouselPrev: "Di screenshot wey dey before",
+    carouselNext: "Di next screenshot",
+    carouselDot: "Go position {n}",
+    videoHead: "See am as e dey work",
+    videoIntro: "Short demos of new features — server folders wey get groups wey you fit collapse, and links wey you fit tap for terminal.",
+    videoAlt: "Demo of server folders, links wey you fit click, agent alerts, server search, and Add Session",
+    lightboxClose: "Close am",
+    lightboxPrev: "Di one before",
+    lightboxNext: "Di next one",
+    betaJoin: "Join di beta",
+    betaOr: "or email",
+    betaRequest: "to request private beta access",
     galleryAlts: [
       "Mobile SSH start screen for phone, wit Servers, Credentials, Logs, Settings, Debug and About tiles.",
       "Add Server dialog for phone, dey show host, port, credentials, private key and port forward fields.",

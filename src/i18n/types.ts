@@ -75,6 +75,18 @@ export interface Dict {
     galleryHead: string;
     galleryIntro: string;
     galleryAlts: string[];
+    carouselPrev: string;
+    carouselNext: string;
+    carouselDot: string;
+    videoHead: string;
+    videoIntro: string;
+    videoAlt: string;
+    lightboxClose: string;
+    lightboxPrev: string;
+    lightboxNext: string;
+    betaJoin: string;
+    betaOr: string;
+    betaRequest: string;
     compareHead: string;
     compareIntro: string;
     compareGuideTitle: string;

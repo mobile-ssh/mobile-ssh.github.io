@@ -76,6 +76,18 @@ export const en: Dict = {
     galleryHead: "See it on a real device",
     galleryIntro:
       "Screenshots from Android phones — the same screens you'll use to add servers, work in terminals, run multiple sessions, and move files over SFTP.",
+    carouselPrev: "Previous screenshot",
+    carouselNext: "Next screenshot",
+    carouselDot: "Go to position {n}",
+    videoHead: "See it in action",
+    videoIntro: "Short demos of recent features — server folders with collapsible groups and tappable links in the terminal.",
+    videoAlt: "Demo of server folders, clickable links, agent alerts, server search, and Add Session",
+    lightboxClose: "Close",
+    lightboxPrev: "Previous",
+    lightboxNext: "Next",
+    betaJoin: "Join the beta",
+    betaOr: "or email",
+    betaRequest: "to request private beta access",
     galleryAlts: [
       "Mobile SSH start screen on a phone with Servers, Credentials, Logs, Settings, Debug, and About tiles.",
       "Add Server dialog on a phone showing host, port, credentials, private key, and port forward fields.",

@@ -75,6 +75,18 @@ export const ja: Dict = {
     galleryHead: "実機でのスクリーンショット",
     galleryIntro:
       "Android スマートフォンのスクリーンショット — サーバー追加、端末作業、複数セッション、SFTP でのファイル移動などで実際に使う画面です。",
+    carouselPrev: "前のスクリーンショット",
+    carouselNext: "次のスクリーンショット",
+    carouselDot: "位置 {n} へ移動",
+    videoHead: "実際の動きを見る",
+    videoIntro: "最新機能の短いデモ — 折りたたみ可能なグループ付きサーバーフォルダーとターミナル内のタップ可能なリンク。",
+    videoAlt: "サーバーフォルダー、クリック可能なリンク、エージェントアラート、サーバー検索、Add Session のデモ",
+    lightboxClose: "閉じる",
+    lightboxPrev: "前へ",
+    lightboxNext: "次へ",
+    betaJoin: "ベータに参加する",
+    betaOr: "またはメールで",
+    betaRequest: "プライベートベータへのアクセスをリクエストする",
     galleryAlts: [
       "Mobile SSH のスタート画面（サーバー、認証情報、ログ、設定、デバッグ、バージョン情報のタイル）。",
       "サーバー追加ダイアログ（ホスト、ポート、認証情報、秘密鍵、ポート転送のフィールド）。",

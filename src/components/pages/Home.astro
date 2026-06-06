@@ -40,7 +40,7 @@ const galleryShots = [
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
             <a class="button secondary" href={PLAY_STORE_URL} rel="noopener">{t.home.ctaPlay}</a>
           </div>
-          <p class="beta-link"><a href={PLAY_STORE_BETA_URL} rel="noopener">Join the beta</a> · or email <a href="mailto:mobile.ssh.info@gmail.com">mobile.ssh.info@gmail.com</a> to request private beta access</p>
+          <p class="beta-link"><a href={PLAY_STORE_BETA_URL} rel="noopener">{t.home.betaJoin}</a> · {t.home.betaOr} <a href="mailto:mobile.ssh.info@gmail.com">mobile.ssh.info@gmail.com</a> {t.home.betaRequest}</p>
           <div class="hero-shot">
             <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="280" height="628" />
           </div>
@@ -117,8 +117,8 @@ const galleryShots = [
           <h2>{t.home.galleryHead}</h2>
           <p>{t.home.galleryIntro}</p>
         </div>
-        <div class="carousel" id="shot-carousel">
-          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous screenshot">‹</button>
+        <div class="carousel" id="shot-carousel" data-dot-label={t.home.carouselDot}>
+          <button class="carousel-arrow carousel-prev" type="button" aria-label={t.home.carouselPrev}>‹</button>
           <div class="carousel-viewport">
             <div class="carousel-track">
               {galleryShots.map((src, i) => (
@@ -130,7 +130,7 @@ const galleryShots = [
               ))}
             </div>
           </div>
-          <button class="carousel-arrow carousel-next" type="button" aria-label="Next screenshot">›</button>
+          <button class="carousel-arrow carousel-next" type="button" aria-label={t.home.carouselNext}>›</button>
           <div class="carousel-dots"></div>
         </div>
       </div>
@@ -139,8 +139,8 @@ const galleryShots = [
     <section class="section alt">
       <div class="section-inner">
         <div class="section-head">
-          <h2>See it in action</h2>
-          <p>Short demos of recent features — server folders with collapsible groups and tappable links in the terminal.</p>
+          <h2>{t.home.videoHead}</h2>
+          <p>{t.home.videoIntro}</p>
         </div>
         <div class="video-solo">
           <video
@@ -149,7 +149,7 @@ const galleryShots = [
             poster="/assets/screenshots/phone-03-terminal.png"
             controls
             preload="none"
-            aria-label="Demo of server folders, clickable links, agent alerts, server search, and Add Session"
+            aria-label={t.home.videoAlt}
           ></video>
         </div>
       </div>
@@ -176,10 +176,10 @@ const galleryShots = [
   </main>
 
   <div id="lightbox" class="lightbox" hidden>
-    <button class="lightbox-close" type="button" aria-label="Close">×</button>
-    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous">‹</button>
+    <button class="lightbox-close" type="button" aria-label={t.home.lightboxClose}>×</button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label={t.home.lightboxPrev}>‹</button>
     <img class="lightbox-img" src="" alt="" />
-    <button class="lightbox-nav lightbox-next" type="button" aria-label="Next">›</button>
+    <button class="lightbox-nav lightbox-next" type="button" aria-label={t.home.lightboxNext}>›</button>
   </div>
 </BaseLayout>
 
@@ -326,7 +326,7 @@ const galleryShots = [
     padding: 0.5rem 0;
   }
   .carousel-slide .phone-shot {
-    max-width: 260px;
+    max-width: 480px;
   }
   @media (max-width: 900px) {
     .carousel { --per-view: 2; }
@@ -436,13 +436,14 @@ const galleryShots = [
       Math.max(1, parseInt(getComputedStyle(root).getPropertyValue("--per-view"), 10) || 1);
     const maxIndex = () => Math.max(0, n - perView);
 
+    const dotLabelTpl = root.getAttribute("data-dot-label") || "Go to position {n}";
     const buildDots = () => {
       dotsBox.textContent = "";
       for (let p = 0; p <= maxIndex(); p++) {
         const b = document.createElement("button");
         b.type = "button";
         b.className = "carousel-dot";
-        b.setAttribute("aria-label", `Go to position ${p + 1}`);
+        b.setAttribute("aria-label", dotLabelTpl.replace("{n}", String(p + 1)));
         b.addEventListener("click", () => go(p));
         dotsBox.appendChild(b);
       }

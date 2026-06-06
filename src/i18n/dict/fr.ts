@@ -75,6 +75,18 @@ export const fr: Dict = {
     galleryHead: "Voyez-le sur un vrai appareil",
     galleryIntro:
       "Captures réalisées sur des téléphones Android — les écrans que vous utiliserez pour ajouter des serveurs, travailler dans des terminaux, lancer plusieurs sessions et déplacer des fichiers en SFTP.",
+    carouselPrev: "Capture précédente",
+    carouselNext: "Capture suivante",
+    carouselDot: "Aller à la position {n}",
+    videoHead: "Voir en action",
+    videoIntro: "Courtes démonstrations des fonctionnalités récentes — dossiers serveur avec groupes réductibles et liens cliquables dans le terminal.",
+    videoAlt: "Démonstration des dossiers serveur, des liens cliquables, des alertes d'agent, de la recherche de serveur et de Add Session",
+    lightboxClose: "Fermer",
+    lightboxPrev: "Précédent",
+    lightboxNext: "Suivant",
+    betaJoin: "Rejoindre la bêta",
+    betaOr: "ou envoyez un e-mail à",
+    betaRequest: "pour demander un accès à la bêta privée",
     galleryAlts: [
       "Écran d'accueil de Mobile SSH sur un téléphone avec les tuiles Serveurs, Identifiants, Journaux, Paramètres, Débogage et À propos.",
       "Boîte de dialogue Ajouter un serveur sur un téléphone montrant les champs hôte, port, identifiants, clé privée et redirection de ports.",
