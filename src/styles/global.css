@@ -170,7 +170,7 @@ a:hover {
 
 .hero-shot img {
   display: block;
-  max-width: 280px;
+  max-width: 480px;
   width: 100%;
   height: auto;
   border-radius: 28px;
@@ -342,7 +342,7 @@ p {
 }
 
 .phone-shot {
-  max-width: 320px;
+  max-width: 480px;
   width: 100%;
   margin-inline: auto;
 }
@@ -563,10 +563,6 @@ pre code {
 
   .hero-shot {
     order: -1;
-  }
-
-  .hero-shot img {
-    max-width: 220px;
   }
 
   .phone-gallery {
