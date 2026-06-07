@@ -41,15 +41,6 @@ const categories = [...new Set(featureRows.map(r => r.category))];
         </tbody>
       </table>
 
-      <div class="feature-grid" style="margin-top: 2rem;">
-        {t.compare.cards.map((card) => (
-          <article class="compare-card">
-            <h2>{card.title}</h2>
-            <p>{card.body}</p>
-          </article>
-        ))}
-      </div>
-
       <h2 class="feat-heading">{t.compare.featureHeading}</h2>
 
       <table class="feat-table">
