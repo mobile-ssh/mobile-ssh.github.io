@@ -22,6 +22,17 @@ O Mobile SSH pode executar até oito sessões SSH ao mesmo tempo. Cada sessão a
 
 Fechar um painel desconecta aquela sessão SSH. Voltar à tela inicial mantém as sessões ativas disponíveis em **Active Sessions**.
 
+## Eternal Terminal (ET)
+
+Cada servidor salvo pode usar um de dois transportes, escolhido com o seletor **Transport** ao adicionar ou editar um servidor:
+
+- **SSH** -- uma conexão SSH padrão (o padrão).
+- **Eternal Terminal** -- uma sessão ET que sobrevive a quedas de rede, suspensão do dispositivo e mudanças de endereço IP sem reiniciar o seu shell.
+
+O ET mantém a sessão ativa no servidor, de modo que, quando o seu telefone muda de rede ou desperta da suspensão, o Mobile SSH reanexa ao mesmo shell em execução em vez de abrir um novo. Isso o torna uma boa escolha para dados móveis, transições entre Wi-Fi e rede celular e comandos de longa duração.
+
+O ET precisa de um processo `etserver` no host. Se o servidor não tiver um, o Mobile SSH pode instalá-lo e iniciá-lo para você pela conexão SSH existente -- sem necessidade de configuração manual no servidor. Quando o ET estiver disponível, conecte com o transporte **Eternal Terminal** selecionado.
+
 ## Linha de teclas extras
 
 A linha de teclas extras aparece acima do teclado do Android e fornece teclas de terminal difíceis de acionar em teclados de toque:
@@ -81,6 +92,23 @@ tmux new -A -s work
 Quando uma conexão cai enquanto você estava no tmux, o app pode lembrar o nome da última sessão tmux daquele servidor e tentar reanexar após a reconexão. Se nenhum nome de sessão explícito foi observado, mas o app identificou que você estava em uma sessão de tela alternativa semelhante ao tmux, ele pode tentar um `tmux attach` genérico.
 
 Esse comportamento é feito na medida do possível. Se a sessão tmux remota não existir mais, o shell remoto continua disponível.
+
+## Gerenciador do tmux
+
+O Mobile SSH inclui um gerenciador do tmux para que você possa navegar e controlar o tmux sem digitar combinações de prefixo. Abra-o com o botão **Tmux** a partir de uma sessão conectada. Ele lista, em três seções:
+
+- **Sessions** -- todas as sessões tmux no servidor.
+- **Windows** -- as janelas da sessão selecionada.
+- **Panes** -- os painéis da janela selecionada.
+
+A partir do gerenciador, você pode:
+
+- **Anexar** uma sessão ao terminal atual.
+- **Criar** uma nova sessão ou janela e **renomeá-las**.
+- **Dividir** um painel horizontal ou verticalmente, **ampliar** um painel e **encerrar** sessões, janelas ou painéis.
+- **Ordenar** as sessões por nome ou data de criação.
+
+Um 🔔 marca qualquer sessão cujo agente esteja aguardando entrada, para que você possa identificar de relance uma execução pausada do Claude Code ou do Codex e anexar a ela. Isso complementa as dicas de reanexação acima: a lógica de reanexação restaura automaticamente a sua última sessão ao reconectar, enquanto o gerenciador oferece controle manual completo.
 
 ## Agent alerts
 

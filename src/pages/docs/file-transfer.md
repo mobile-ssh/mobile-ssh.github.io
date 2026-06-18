@@ -26,6 +26,8 @@ The file transfer screen has two browser panes:
 
 The app remembers recent local and remote paths per host. Sort settings are also remembered per host for both panes.
 
+The file transfer screen follows your system light or dark theme, so it matches the rest of Mobile SSH.
+
 ## Android storage permission
 
 On Android versions that restrict direct file browsing, Mobile SSH may ask for storage access before the local pane can browse phone files. If you skip or deny this permission, remote browsing may still work, but local upload and download paths can be limited.

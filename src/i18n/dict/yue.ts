@@ -25,7 +25,7 @@ export const yue: Dict = {
   home: {
     metaTitle: "Mobile SSH — Android SSH 客戶端",
     metaDescription:
-      "Mobile SSH 係一款集中式嘅 Android SSH 客戶端，支援多會話終端機、SFTP 傳輸、私鑰、端口轉發，同埋識 tmux 嘅工作流程。",
+      "Mobile SSH 係一款集中式嘅 Android SSH 客戶端，支援多會話終端機、Eternal Terminal 彈性會話、tmux 管理器、SFTP 傳輸、私鑰、端口轉發，同埋插件。",
     eyebrow: "Android SSH 客戶端",
     h1: "Mobile SSH",
     intro:
@@ -79,8 +79,8 @@ export const yue: Dict = {
     carouselNext: "下一張截圖",
     carouselDot: "去第 {n} 個位置",
     videoHead: "睇佢實際運作",
-    videoIntro: "近期功能嘅短片示範——伺服器資料夾支援可摺疊群組，以及終端機內可點擊嘅連結。",
-    videoAlt: "伺服器資料夾、可點擊連結、代理人提醒、伺服器搜尋同 Add Session 嘅示範",
+    videoIntro: "2.0 功能嘅短片示範——tmux 切換視窗、SFTP 檔案傳輸、安裝同使用 AI Chat 插件、Eternal Terminal，仲有一㩒就連嘅最近會話。",
+    videoAlt: "tmux 切換視窗、SFTP 下載檔案、安裝同使用 AI Chat 插件、Eternal Terminal 傳輸，同埋最近會話嘅示範",
     lightboxClose: "關閉",
     lightboxPrev: "上一張",
     lightboxNext: "下一張",

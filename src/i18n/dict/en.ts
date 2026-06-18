@@ -25,11 +25,11 @@ export const en: Dict = {
   home: {
     metaTitle: "Mobile SSH - Android SSH client",
     metaDescription:
-      "Mobile SSH is a focused Android SSH client with multi-session terminals, SFTP transfer, private keys, port forwarding, and tmux-aware workflows.",
+      "Mobile SSH is a focused Android SSH client with multi-session terminals, Eternal Terminal resilient sessions, a tmux manager, SFTP transfer, private keys, port forwarding, and plugins.",
     eyebrow: "Android SSH client",
     h1: "Mobile SSH",
     intro:
-      "A focused SSH client for Android with multi-session terminals, private key authentication, SFTP file transfer, local port forwarding, and tmux-aware controls built for phone and tablet use.",
+      "A focused SSH client for Android with multi-session terminals, Eternal Terminal sessions that survive network drops, a built-in tmux manager, SFTP file transfer, local port forwarding, and plugins — built for phone and tablet use.",
     versionLine: "Available in {count} languages · version {version}",
     ctaDocs: "Read the docs",
     ctaPlay: "Get it on Google Play",
@@ -42,7 +42,9 @@ export const en: Dict = {
       { title: "Agent alerts", text: "Get a notification — with sound and vibration — the moment Claude Code, Codex, or another remote agent needs your input. Plays in headphones even over video." },
       { title: "Terminal keys above the IME", text: "Dedicated row with ESC, TAB, CTRL, ALT, FN, arrows, Home, End, PgUp/PgDn — without fighting Gboard suggestions." },
       { title: "Port forwarding without commands", text: "Tunnels attach to the server profile and come up automatically when you connect." },
-      { title: "Survives lock and roaming", text: "Foreground service, wake locks, and auto-reconnect keep shells alive through screen-off, app switches, and network changes." }
+      { title: "Survives lock and roaming", text: "Foreground service, wake locks, and auto-reconnect keep shells alive through screen-off, app switches, and network changes." },
+      { title: "Eternal Terminal", text: "An optional ET transport keeps the remote shell alive across network drops, sleep, and IP changes. No etserver on the host? Mobile SSH can install it over SSH for you." },
+      { title: "Extend it with plugins", text: "Browse a public catalog and install plugins on demand to add new workflows. Each plugin is downloaded and SHA-256 verified into app-private storage." }
     ],
     sectionAHead: "Built around Android SSH work",
     sectionAIntro:
@@ -57,7 +59,10 @@ export const en: Dict = {
       { title: "SFTP transfer", text: "Dual-pane file browser tied to an active SSH session. Queue uploads and downloads, rename, delete, and inspect remote permissions." },
       { title: "Port forwarding", text: "Save local tunnel specs with a server profile — tunnels open automatically on connect, or add/remove them while connected." },
       { title: "Reconnect workflow", text: "Foreground service, wake locks, keepalives, and exponential-backoff reconnect keep sessions alive through screen-off and roaming." },
-      { title: "Backup & restore", text: "Export saved servers and credentials to an encrypted backup file; import with merge or replace to move between devices." }
+      { title: "Backup & restore", text: "Export saved servers and credentials to an encrypted backup file; import with merge or replace to move between devices." },
+      { title: "Eternal Terminal", text: "Connect over Eternal Terminal (ET) for sessions that survive network drops, sleep, and IP changes — with optional automatic etserver setup over SSH." },
+      { title: "Tmux manager", text: "List and switch tmux sessions, windows, and panes — attach, rename, create, split, zoom, or kill. Sort by name or date; a 🔔 flags agents awaiting input." },
+      { title: "Plugins", text: "Browse, install, and run plugins to extend Mobile SSH. Plugins download on demand from a public catalog and are SHA-256 verified into app-private storage." }
     ],
     multiHead: "One screen, several live shells",
     multiP1:
@@ -80,8 +85,8 @@ export const en: Dict = {
     carouselNext: "Next screenshot",
     carouselDot: "Go to position {n}",
     videoHead: "See it in action",
-    videoIntro: "Short demos of recent features — server folders with collapsible groups and tappable links in the terminal.",
-    videoAlt: "Demo of server folders, clickable links, agent alerts, server search, and Add Session",
+    videoIntro: "Short demos of the 2.0 features — a tmux window switch, an SFTP file transfer, installing and chatting with the AI Chat plugin, Eternal Terminal, and one-tap Recent Sessions.",
+    videoAlt: "Demo of a tmux window switch, an SFTP file download, installing and using the AI Chat plugin, the Eternal Terminal transport, and Recent Sessions",
     lightboxClose: "Close",
     lightboxPrev: "Previous",
     lightboxNext: "Next",
@@ -112,7 +117,7 @@ export const en: Dict = {
   features: {
     metaTitle: "Features | Mobile SSH",
     metaDescription:
-      "Key Mobile SSH features for Android SSH, terminal, SFTP, private key, tmux, and port forwarding workflows.",
+      "Key Mobile SSH features for Android SSH, terminal, Eternal Terminal, tmux manager, SFTP, private keys, port forwarding, and plugins.",
     eyebrow: "Feature list",
     h1: "Mobile SSH features",
     intro:
@@ -153,7 +158,9 @@ export const en: Dict = {
           "Keepalive and reconnect attempts with exponential backoff",
           "Active Sessions entry point from the start screen; ongoing notification lists sessions — tap to open",
           "tmux command tracking and reattach hints for interrupted work",
-          "Agent alerts: notification with optional sound and vibration when a remote agent (Claude Code, Codex, etc.) needs input; plays in headphones over video"
+          "Agent alerts: notification with optional sound and vibration when a remote agent (Claude Code, Codex, etc.) needs input; plays in headphones over video",
+          "Eternal Terminal (ET) transport for sessions that survive network drops, sleep, and IP changes, with optional automatic etserver setup over SSH",
+          "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, with name/date sorting and a 🔔 for agents awaiting input"
         ]
       },
       {
@@ -164,7 +171,8 @@ export const en: Dict = {
           "Remote rename, delete, create, edit, and details flows",
           "Sort by name or date with per-host persistence",
           "Local port forwarding saved with server profiles",
-          "Runtime tunnel add/remove view for connected sessions"
+          "Runtime tunnel add/remove view for connected sessions",
+          "File transfer follows the system light or dark theme"
         ]
       },
       {
@@ -182,6 +190,14 @@ export const en: Dict = {
           "Export saved servers and credentials to a backup file",
           "Optional passphrase encrypts the backup; import with merge or replace",
           "An unencrypted backup stores passwords and keys in plain text — protect or delete the file"
+        ]
+      },
+      {
+        title: "Plugins",
+        items: [
+          "Browse, install, and run plugins to extend Mobile SSH",
+          "Plugins download on demand from a public catalog and are SHA-256 verified into app-private storage",
+          "Configure a custom or private catalog source when you need one"
         ]
       }
     ],
@@ -305,7 +321,12 @@ export const en: Dict = {
       { category: "Privacy & cost", feature: "No Pro paywall",                 mobile: "yes",    termux: "yes",          termius: "partial" },
       { category: "Privacy & cost", feature: "No ads",                         mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Privacy & cost", feature: "Analytics opt-out",              mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "Privacy & cost", feature: "Local-only data (no cloud sync)", mobile: "yes",  termux: "yes",          termius: "no" }
+      { category: "Privacy & cost", feature: "Local-only data (no cloud sync)", mobile: "yes",  termux: "yes",          termius: "no" },
+      { category: "Sessions",   feature: "Eternal Terminal (resilient sessions)", mobile: "yes", termux: "via CLI",   termius: "no" },
+      { category: "Sessions",   feature: "Auto-install etserver over SSH",     mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Sessions",   feature: "tmux session manager",               mobile: "yes",    termux: "via CLI",      termius: "no" },
+      { category: "Plugins",    feature: "Plugin support",                     mobile: "yes",    termux: "via packages", termius: "no" },
+      { category: "Plugins",    feature: "Install-on-demand plugin catalog",   mobile: "yes",    termux: "no",           termius: "no" }
     ]
   },
   privacy: {

@@ -25,7 +25,7 @@ export const id: Dict = {
   home: {
     metaTitle: "Mobile SSH — Klien SSH untuk Android",
     metaDescription:
-      "Mobile SSH adalah klien SSH yang fokus untuk Android dengan terminal multi-sesi, transfer SFTP, kunci pribadi, penerusan port, dan alur kerja yang ramah tmux.",
+      "Mobile SSH adalah klien SSH Android yang fokus dengan terminal multi-sesi, sesi tangguh Eternal Terminal, pengelola tmux, transfer SFTP, kunci pribadi, penerusan port, dan plugin.",
     eyebrow: "Klien SSH untuk Android",
     h1: "Mobile SSH",
     intro:
@@ -79,8 +79,8 @@ export const id: Dict = {
     carouselNext: "Tangkapan layar berikutnya",
     carouselDot: "Pergi ke posisi {n}",
     videoHead: "Lihat dalam aksi",
-    videoIntro: "Demo singkat fitur terbaru — folder server dengan grup yang dapat dilipat dan tautan yang dapat diketuk di terminal.",
-    videoAlt: "Demo folder server, tautan yang dapat diklik, peringatan agen, pencarian server, dan Add Session",
+    videoIntro: "Demo singkat fitur 2.0 — beralih jendela tmux, transfer berkas SFTP, memasang dan mengobrol dengan plugin AI Chat, Eternal Terminal, dan Sesi Terkini dengan satu tap.",
+    videoAlt: "Demo beralih jendela tmux, mengunduh berkas SFTP, memasang dan menggunakan plugin AI Chat, transport Eternal Terminal, dan Sesi Terkini",
     lightboxClose: "Tutup",
     lightboxPrev: "Sebelumnya",
     lightboxNext: "Berikutnya",

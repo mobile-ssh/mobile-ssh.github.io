@@ -25,11 +25,11 @@ export const hi: Dict = {
   home: {
     metaTitle: "Mobile SSH — Android के लिए SSH क्लाइंट",
     metaDescription:
-      "Mobile SSH एक केंद्रित Android SSH क्लाइंट है जिसमें मल्टी-सेशन टर्मिनल, SFTP ट्रांसफ़र, प्राइवेट की, पोर्ट फ़ॉरवर्डिंग और tmux-समर्थित वर्कफ़्लो शामिल हैं।",
+      "Mobile SSH एक केंद्रित Android SSH क्लाइंट है जिसमें मल्टी-सेशन टर्मिनल, Eternal Terminal के लचीले सेशन, एक tmux मैनेजर, SFTP ट्रांसफ़र, प्राइवेट कीज़, पोर्ट फ़ॉरवर्डिंग और प्लगइन शामिल हैं।",
     eyebrow: "Android SSH क्लाइंट",
     h1: "Mobile SSH",
     intro:
-      "Android के लिए एक केंद्रित SSH क्लाइंट: मल्टी-सेशन टर्मिनल, प्राइवेट-की प्रमाणीकरण, SFTP फ़ाइल ट्रांसफ़र, स्थानीय पोर्ट फ़ॉरवर्डिंग और फ़ोन व टैबलेट के लिए tmux-समर्थित नियंत्रण।",
+      "Android के लिए एक केंद्रित SSH क्लाइंट: मल्टी-सेशन टर्मिनल, नेटवर्क टूटने पर भी बचे रहने वाले Eternal Terminal सेशन, अंतर्निहित tmux मैनेजर, SFTP फ़ाइल ट्रांसफ़र, स्थानीय पोर्ट फ़ॉरवर्डिंग और प्लगइन — फ़ोन व टैबलेट उपयोग के लिए बना।",
     versionLine: "{count} भाषाओं में उपलब्ध · संस्करण {version}",
     ctaDocs: "दस्तावेज़ पढ़ें",
     ctaPlay: "Google Play पर पाएं",
@@ -79,8 +79,8 @@ export const hi: Dict = {
     carouselNext: "अगला स्क्रीनशॉट",
     carouselDot: "स्थान {n} पर जाएं",
     videoHead: "इसे काम करते देखें",
-    videoIntro: "हाल की सुविधाओं के संक्षिप्त डेमो — संक्षिप्त करने योग्य समूहों वाले सर्वर फ़ोल्डर और टर्मिनल में टैप करने योग्य लिंक।",
-    videoAlt: "सर्वर फ़ोल्डर, क्लिक करने योग्य लिंक, एजेंट अलर्ट, सर्वर खोज और Add Session का डेमो",
+    videoIntro: "2.0 सुविधाओं के संक्षिप्त डेमो — tmux विंडो स्विच, SFTP फ़ाइल ट्रांसफ़र, AI Chat प्लगइन स्थापित कर उससे चैट, Eternal Terminal और एक-टैप हाल के सेशन।",
+    videoAlt: "tmux विंडो स्विच, SFTP फ़ाइल डाउनलोड, AI Chat प्लगइन स्थापित कर उसका उपयोग, Eternal Terminal ट्रांसपोर्ट और हाल के सेशन का डेमो",
     lightboxClose: "बंद करें",
     lightboxPrev: "पिछला",
     lightboxNext: "अगला",
@@ -111,7 +111,7 @@ export const hi: Dict = {
   features: {
     metaTitle: "विशेषताएँ | Mobile SSH",
     metaDescription:
-      "Android पर SSH, टर्मिनल, SFTP, प्राइवेट की, tmux और पोर्ट फ़ॉरवर्डिंग वर्कफ़्लो के लिए Mobile SSH की प्रमुख विशेषताएँ।",
+      "Android SSH, टर्मिनल, Eternal Terminal, tmux मैनेजर, SFTP, प्राइवेट कीज़, पोर्ट फ़ॉरवर्डिंग और प्लगइन के लिए Mobile SSH की प्रमुख विशेषताएँ।",
     eyebrow: "विशेषताओं की सूची",
     h1: "Mobile SSH की विशेषताएँ",
     intro:

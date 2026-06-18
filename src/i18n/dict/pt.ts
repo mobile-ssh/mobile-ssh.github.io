@@ -25,7 +25,7 @@ export const pt: Dict = {
   home: {
     metaTitle: "Mobile SSH — Cliente SSH para Android",
     metaDescription:
-      "O Mobile SSH é um cliente SSH focado para Android com terminais multi-sessão, transferência SFTP, chaves privadas, redirecionamento de portas e fluxos compatíveis com tmux.",
+      "O Mobile SSH é um cliente SSH focado para Android com terminais multi-sessão, sessões resilientes com Eternal Terminal, um gerenciador de tmux, transferência SFTP, chaves privadas, redirecionamento de portas e plugins.",
     eyebrow: "Cliente SSH para Android",
     h1: "Mobile SSH",
     intro:
@@ -80,8 +80,8 @@ export const pt: Dict = {
     carouselNext: "Próxima captura",
     carouselDot: "Ir para a posição {n}",
     videoHead: "Veja em ação",
-    videoIntro: "Demonstrações rápidas de funcionalidades recentes — pastas de servidor com grupos recolhíveis e links clicáveis no terminal.",
-    videoAlt: "Demo de pastas de servidor, links clicáveis, alertas de agente, pesquisa de servidor e Add Session",
+    videoIntro: "Demonstrações rápidas dos recursos da 2.0 — uma troca de janela do tmux, uma transferência de arquivo por SFTP, instalar e conversar com o plugin AI Chat, Eternal Terminal e Sessões Recentes com um toque.",
+    videoAlt: "Demo de uma troca de janela do tmux, um download de arquivo por SFTP, instalar e usar o plugin AI Chat, o transporte Eternal Terminal e Sessões Recentes",
     lightboxClose: "Fechar",
     lightboxPrev: "Anterior",
     lightboxNext: "Próximo",

@@ -26,6 +26,8 @@ A tela de transferência de arquivos tem dois painéis de navegação:
 
 O app lembra os caminhos locais e remotos recentes por host. As configurações de ordenação também são lembradas por host para ambos os painéis.
 
+A tela de transferência de arquivos segue o tema claro ou escuro do seu sistema, para que combine com o restante do Mobile SSH.
+
 ## Permissão de armazenamento do Android
 
 Em versões do Android que restringem a navegação direta de arquivos, o Mobile SSH pode pedir acesso ao armazenamento antes que o painel local consiga navegar pelos arquivos do telefone. Se você pular ou negar essa permissão, a navegação remota ainda pode funcionar, mas os caminhos locais de upload e download podem ficar limitados.

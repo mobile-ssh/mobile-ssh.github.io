@@ -22,6 +22,17 @@ Mobile SSH can run up to eight SSH sessions at the same time. Each session appea
 
 Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
 
+## Eternal Terminal (ET)
+
+Each saved server can use one of two transports, chosen with the **Transport** selector when you add or edit a server:
+
+- **SSH** -- a standard SSH connection (the default).
+- **Eternal Terminal** -- an ET session that survives network drops, device sleep, and IP address changes without restarting your shell.
+
+ET keeps the session alive on the server, so when your phone changes networks or wakes from sleep, Mobile SSH reattaches to the same running shell instead of opening a new one. This makes it a good fit for mobile data, Wi-Fi/cellular hand-offs, and long-running commands.
+
+ET needs an `etserver` process on the host. If the server does not have one, Mobile SSH can install and start it for you over the existing SSH connection -- no manual server setup required. Once ET is available, connect with the **Eternal Terminal** transport selected.
+
 ## Extra key row
 
 The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
@@ -81,6 +92,23 @@ tmux new -A -s work
 When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
 
 This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+
+## Tmux manager
+
+Mobile SSH includes a tmux manager so you can browse and control tmux without typing prefix chords. Open it with the **Tmux** button from a connected session. It lists, in three sections:
+
+- **Sessions** -- every tmux session on the server.
+- **Windows** -- windows in the selected session.
+- **Panes** -- panes in the selected window.
+
+From the manager you can:
+
+- **Attach** a session to the current terminal.
+- **Create** a new session or window, and **rename** them.
+- **Split** a pane horizontally or vertically, **zoom** a pane, and **kill** sessions, windows, or panes.
+- **Sort** sessions by name or creation date.
+
+A 🔔 marks any session whose agent is awaiting input, so you can spot a paused Claude Code or Codex run at a glance and attach to it. This complements the reattach hints above: the reattach logic restores your last session automatically on reconnect, while the manager gives you full manual control.
 
 ## Agent alerts
 

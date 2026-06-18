@@ -25,11 +25,11 @@ export const es: Dict = {
   home: {
     metaTitle: "Mobile SSH — Cliente SSH para Android",
     metaDescription:
-      "Mobile SSH es un cliente SSH enfocado para Android con terminales multi-sesión, transferencia SFTP, claves privadas, reenvío de puertos y flujos compatibles con tmux.",
+      "Mobile SSH es un cliente SSH enfocado para Android con terminales multi-sesión, sesiones resilientes de Eternal Terminal, un gestor de tmux, transferencia SFTP, claves privadas, reenvío de puertos y complementos.",
     eyebrow: "Cliente SSH para Android",
     h1: "Mobile SSH",
     intro:
-      "Un cliente SSH enfocado para Android con terminales multi-sesión, autenticación por clave privada, transferencia de archivos SFTP, reenvío local de puertos y controles compatibles con tmux pensados para teléfonos y tabletas.",
+      "Un cliente SSH enfocado para Android con terminales multi-sesión, sesiones de Eternal Terminal que sobreviven a cortes de red, un gestor de tmux integrado, transferencia de archivos SFTP, reenvío local de puertos y complementos — diseñado para teléfonos y tabletas.",
     versionLine: "Disponible en {count} idiomas · versión {version}",
     ctaDocs: "Leer la documentación",
     ctaPlay: "Disponible en Google Play",
@@ -42,7 +42,9 @@ export const es: Dict = {
       { title: "Alertas de agente", text: "Recibe una notificación — con sonido y vibración — en el momento en que Claude Code, Codex u otro agente remoto necesite tu intervención. Se reproduce por los auriculares incluso durante el vídeo." },
       { title: "Teclas de terminal sobre el IME", text: "Fila dedicada con ESC, TAB, CTRL, ALT, FN, flechas, Home, End, PgUp/PgDn — sin pelear con las sugerencias de Gboard." },
       { title: "Reenvío de puertos sin comandos", text: "Los túneles se asocian al perfil del servidor y se levantan al conectar." },
-      { title: "Sobrevive al bloqueo y al roaming", text: "Servicio en primer plano, wake locks y reconexión automática mantienen las shells vivas con la pantalla apagada, al cambiar de app o de red." }
+      { title: "Sobrevive al bloqueo y al roaming", text: "Servicio en primer plano, wake locks y reconexión automática mantienen las shells vivas con la pantalla apagada, al cambiar de app o de red." },
+      { title: "Eternal Terminal", text: "Un transporte ET opcional mantiene la shell remota activa a través de cortes de red, modo de suspensión y cambios de IP. ¿Sin etserver en el host? Mobile SSH puede instalarlo por SSH por ti." },
+      { title: "Amplíalo con complementos", text: "Explora un catálogo público e instala complementos bajo demanda para añadir nuevos flujos de trabajo. Cada complemento se descarga y se verifica con SHA-256 en el almacenamiento privado de la app." }
     ],
     sectionAHead: "Diseñado para el trabajo SSH en Android",
     sectionAIntro:
@@ -57,7 +59,10 @@ export const es: Dict = {
       { title: "Transferencia SFTP", text: "Explorador de archivos de doble panel vinculado a una sesión SSH activa. Encola subidas y descargas, renombra, elimina e inspecciona permisos remotos." },
       { title: "Reenvío de puertos", text: "Guarda especificaciones de túnel locales con un perfil de servidor — los túneles se abren automáticamente al conectar, o añade/elimina mientras estás conectado." },
       { title: "Flujo de reconexión", text: "Servicio en primer plano, wake locks, keepalives y reconexión con retroceso exponencial mantienen las sesiones vivas con la pantalla apagada y en roaming." },
-      { title: "Copia de seguridad y restauración", text: "Exporta servidores y credenciales guardados a un archivo de copia de seguridad cifrado; importa con fusión o reemplazo para cambiar de dispositivo." }
+      { title: "Copia de seguridad y restauración", text: "Exporta servidores y credenciales guardados a un archivo de copia de seguridad cifrado; importa con fusión o reemplazo para cambiar de dispositivo." },
+      { title: "Eternal Terminal", text: "Conéctate mediante Eternal Terminal (ET) para sesiones que sobreviven a cortes de red, modo de suspensión y cambios de IP — con instalación automática opcional de etserver por SSH." },
+      { title: "Gestor de tmux", text: "Lista y cambia entre sesiones, ventanas y paneles de tmux — adjunta, renombra, crea, divide, amplía o cierra. Ordena por nombre o fecha; un 🔔 señala los agentes que esperan intervención." },
+      { title: "Complementos", text: "Explora, instala y ejecuta complementos para ampliar Mobile SSH. Los complementos se descargan bajo demanda desde un catálogo público y se verifican con SHA-256 en el almacenamiento privado de la app." }
     ],
     multiHead: "Una pantalla, varias shells activas",
     multiP1:
@@ -79,8 +84,8 @@ export const es: Dict = {
     carouselNext: "Captura siguiente",
     carouselDot: "Ir a la posición {n}",
     videoHead: "Véalo en acción",
-    videoIntro: "Demostraciones breves de funciones recientes: carpetas de servidor con grupos desplegables y enlaces pulsables en el terminal.",
-    videoAlt: "Demo de carpetas de servidor, enlaces clicables, alertas del agente, búsqueda de servidor y Add Session",
+    videoIntro: "Demostraciones breves de las funciones de la 2.0: un cambio de ventana en tmux, una transferencia de archivos por SFTP, la instalación del complemento AI Chat y una conversación con él, Eternal Terminal y Sesiones recientes con un toque.",
+    videoAlt: "Demo de un cambio de ventana en tmux, una descarga de archivo por SFTP, la instalación y el uso del complemento AI Chat, el transporte Eternal Terminal y las Sesiones recientes",
     lightboxClose: "Cerrar",
     lightboxPrev: "Anterior",
     lightboxNext: "Siguiente",
@@ -111,7 +116,7 @@ export const es: Dict = {
   features: {
     metaTitle: "Funciones | Mobile SSH",
     metaDescription:
-      "Funciones clave de Mobile SSH para flujos de SSH, terminal, SFTP, clave privada, tmux y reenvío de puertos en Android.",
+      "Funciones clave de Mobile SSH para SSH en Android, terminal, Eternal Terminal, gestor de tmux, SFTP, claves privadas, reenvío de puertos y complementos.",
     eyebrow: "Lista de funciones",
     h1: "Funciones de Mobile SSH",
     intro:
@@ -152,7 +157,9 @@ export const es: Dict = {
           "Keepalives e intentos de reconexión con retroceso exponencial",
           "Acceso a Sesiones activas desde la pantalla inicial; la notificación permanente lista las sesiones — toca para abrir",
           "Seguimiento de comandos de tmux y sugerencias de reattach para trabajos interrumpidos",
-          "Alertas de agente: notificación con sonido y vibración opcionales cuando un agente remoto (Claude Code, Codex, etc.) necesita intervención; se reproduce por los auriculares durante el vídeo"
+          "Alertas de agente: notificación con sonido y vibración opcionales cuando un agente remoto (Claude Code, Codex, etc.) necesita intervención; se reproduce por los auriculares durante el vídeo",
+          "Transporte Eternal Terminal (ET) para sesiones que sobreviven a cortes de red, modo de suspensión y cambios de IP, con instalación automática opcional de etserver por SSH",
+          "Gestor de tmux: lista y cambia entre sesiones, ventanas y paneles — adjunta, renombra, crea, divide, amplía o cierra, con ordenación por nombre/fecha y un 🔔 para los agentes que esperan intervención"
         ]
       },
       {
@@ -163,7 +170,8 @@ export const es: Dict = {
           "Acciones remotas de renombrar, borrar, crear, editar y ver detalles",
           "Ordenar por nombre o fecha con persistencia por host",
           "Reenvío local de puertos guardado con el perfil del servidor",
-          "Vista de añadir/quitar túneles en tiempo de ejecución para sesiones conectadas"
+          "Vista de añadir/quitar túneles en tiempo de ejecución para sesiones conectadas",
+          "La transferencia de archivos sigue el tema claro u oscuro del sistema"
         ]
       },
       {
@@ -181,6 +189,14 @@ export const es: Dict = {
           "Exporta servidores y credenciales guardados a un archivo de copia de seguridad",
           "Una frase de contraseña opcional cifra la copia; importa con fusión o reemplazo",
           "Una copia sin cifrar guarda contraseñas y claves en texto plano: protege o elimina el archivo"
+        ]
+      },
+      {
+        title: "Complementos",
+        items: [
+          "Explora, instala y ejecuta complementos para ampliar Mobile SSH",
+          "Los complementos se descargan bajo demanda desde un catálogo público y se verifican con SHA-256 en el almacenamiento privado de la app",
+          "Configura una fuente de catálogo personalizada o privada cuando lo necesites"
         ]
       }
     ],
@@ -304,7 +320,12 @@ export const es: Dict = {
       { category: "Privacidad y coste", feature: "Sin muro de pago Pro",                            mobile: "yes",     termux: "yes",          termius: "parcial" },
       { category: "Privacidad y coste", feature: "Sin anuncios",                                    mobile: "yes",     termux: "yes",          termius: "yes" },
       { category: "Privacidad y coste", feature: "Desactivar analíticas",                           mobile: "yes",     termux: "no",           termius: "no" },
-      { category: "Privacidad y coste", feature: "Datos solo locales (sin sincronización en la nube)", mobile: "yes", termux: "yes",          termius: "no" }
+      { category: "Privacidad y coste", feature: "Datos solo locales (sin sincronización en la nube)", mobile: "yes", termux: "yes",          termius: "no" },
+      { category: "Sesiones",          feature: "Eternal Terminal (sesiones resilientes)",             mobile: "yes",     termux: "mediante CLI",      termius: "no" },
+      { category: "Sesiones",          feature: "Instalación automática de etserver por SSH",          mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Sesiones",          feature: "Gestor de sesiones de tmux",                          mobile: "yes",     termux: "mediante CLI",      termius: "no" },
+      { category: "Complementos",      feature: "Compatibilidad con complementos",                     mobile: "yes",     termux: "mediante paquetes", termius: "no" },
+      { category: "Complementos",      feature: "Catálogo de complementos bajo demanda",               mobile: "yes",     termux: "no",           termius: "no" }
     ]
   },
   privacy: {

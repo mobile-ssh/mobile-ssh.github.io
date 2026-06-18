@@ -25,6 +25,13 @@ Mobile SSH is an Android SSH client for connecting to your own Linux, Unix, netw
 
 The default SSH port is `22`. If your server uses another port, enter that port in the server profile.
 
+## Choose a transport
+
+When adding or editing a server, the **Transport** selector chooses how Mobile SSH connects:
+
+- **SSH** -- a standard SSH connection (the default).
+- **Eternal Terminal** -- a resilient session that survives network drops, sleep, and IP changes. If the host has no `etserver`, Mobile SSH can install one over SSH for you. See the **Terminal** guide for details.
+
 ## Save servers
 
 Saved servers keep the connection target and optional tunnel configuration. A saved server can include:
@@ -58,7 +65,7 @@ Private key import uses Android's file picker for key files. File transfer uses 
 
 ## Recent sessions
 
-The start screen shows recent sessions. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+The start screen shows recent sessions at the top for quick access. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
 
 ## Search saved servers
 
@@ -78,6 +85,16 @@ Open **Settings** from the start screen (it has its own page):
 - Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
 - Enable **Agent alerts** if you run long background tasks (Claude Code, Codex, shell scripts) and want a sound or vibration notification when the agent needs your input.
 - Turn off anonymous usage analytics if you prefer no data to be sent.
+
+## Plugins
+
+Plugins extend Mobile SSH with extra workflows. Open **Plugins** from the start screen to:
+
+- Browse a catalog of available plugins.
+- Install the ones you want -- each plugin is downloaded on demand and verified by SHA-256 checksum into the app's private storage.
+- Run installed plugins from the same screen.
+
+Plugins are fetched from a public catalog by default. If you maintain your own, you can point Mobile SSH at a custom or private catalog source. Only install plugins from sources you trust.
 
 ## Languages
 

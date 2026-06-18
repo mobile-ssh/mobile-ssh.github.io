@@ -39,12 +39,12 @@ describe("locale dicts – structure", () => {
       expect(() => getDict(locale)).not.toThrow();
     });
 
-    it(`${locale}: advantages has 7 items`, () => {
+    it(`${locale}: advantages has 9 items`, () => {
       const t = getDict(locale);
       expect(t.home.advantages).toHaveLength(en.home.advantages.length);
     });
 
-    it(`${locale}: features has 10 items`, () => {
+    it(`${locale}: features has 13 items`, () => {
       const t = getDict(locale);
       expect(t.home.features).toHaveLength(en.home.features.length);
     });

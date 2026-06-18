@@ -25,6 +25,13 @@ O Mobile SSH é um cliente SSH para Android para conectar aos seus próprios ser
 
 A porta SSH padrão é `22`. Se o seu servidor usar outra porta, informe-a no perfil do servidor.
 
+## Escolher um transporte
+
+Ao adicionar ou editar um servidor, o seletor **Transport** escolhe como o Mobile SSH se conecta:
+
+- **SSH** -- uma conexão SSH padrão (o padrão).
+- **Eternal Terminal** -- uma sessão resiliente que sobrevive a quedas de rede, suspensão e mudanças de IP. Se o host não tiver um `etserver`, o Mobile SSH pode instalar um para você pelo SSH. Consulte o guia **Terminal** para mais detalhes.
+
 ## Salvar servidores
 
 Os servidores salvos guardam o destino da conexão e a configuração opcional de túneis. Um servidor salvo pode incluir:
@@ -58,7 +65,7 @@ A importação de chave privada usa o seletor de arquivos do Android para arquiv
 
 ## Sessões recentes
 
-A tela inicial mostra as sessões recentes. Uma sessão recente pode reconectar ao mesmo conjunto de servidores. Se a sessão anterior ainda estiver ativa, o Mobile SSH retorna a ela em vez de iniciar uma conexão duplicada.
+A tela inicial mostra as sessões recentes na parte superior para acesso rápido. Uma sessão recente pode reconectar ao mesmo conjunto de servidores. Se a sessão anterior ainda estiver ativa, o Mobile SSH retorna a ela em vez de iniciar uma conexão duplicada.
 
 ## Pesquisar servidores salvos
 
@@ -78,6 +85,16 @@ Abra **Settings** na tela inicial (ela tem sua própria página):
 - Desative as sugestões do IME se as sugestões do teclado atrapalharem programas de terminal como Vim, less, htop ou apps tmux em tela cheia.
 - Ative **Agent alerts** se você executa tarefas longas em segundo plano (Claude Code, Codex, scripts de shell) e quer receber uma notificação sonora ou vibração quando o agente precisar da sua entrada.
 - Desative a coleta anônima de dados de uso se preferir que nenhuma informação seja enviada.
+
+## Plugins
+
+Os plugins ampliam o Mobile SSH com fluxos de trabalho adicionais. Abra **Plugins** na tela inicial para:
+
+- Navegar por um catálogo de plugins disponíveis.
+- Instalar os que você quiser -- cada plugin é baixado sob demanda e verificado por checksum SHA-256 no armazenamento privado do app.
+- Executar os plugins instalados a partir da mesma tela.
+
+Os plugins são obtidos de um catálogo público por padrão. Se você mantiver o seu próprio, pode apontar o Mobile SSH para uma origem de catálogo personalizada ou privada. Instale apenas plugins de origens em que você confia.
 
 ## Idiomas
 
