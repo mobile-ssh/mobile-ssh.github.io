@@ -99,7 +99,12 @@ export const de: Dict = {
       "Dialog „SSH-Schlüssel erzeugen“ auf einem Telefon mit Feldern für Bezeichnung, Benutzer, Schlüsseltyp und Passphrase.",
       "Dialog „Öffentlicher Schlüssel“ auf einem Telefon mit dem erzeugten Schlüssel und Optionen zum Kopieren, Teilen und Speichern.",
       "Bildschirm „Gespeicherte Server“ mit Servern, die in einklappbaren Gruppen „Arbeit“ und „Privat“ organisiert sind.",
-      "SSH-Terminal auf einem Telefon mit https://-URLs, die als antippbare, anklickbare Links unterstrichen sind."
+      "SSH-Terminal auf einem Telefon mit https://-URLs, die als antippbare, anklickbare Links unterstrichen sind.",
+      "Startbildschirm von Mobile SSH auf einem Telefon mit einer Liste „Recent Sessions“, um eine SSH-Verbindung mit einem Tippen fortzusetzen.",
+      "Tmux-Manager auf einem Telefon mit einer Auflistung von tmux-Sitzungen, -Fenstern und -Panels samt Schaltflächen zum Anhängen, Umbenennen und Wechseln.",
+      "Plugins-Bildschirm auf einem Telefon mit einem installierbaren Plugin-Katalog mit Tailscale, WireGuard und VS Code.",
+      "AI-Chat-Plugin auf einem Telefon, das eine Antwort eines lokalen llama3.2-Modells streamt, das über SSH auf dem entfernten Server läuft.",
+      "Dialog „Server hinzufügen“ auf einem Telefon mit dem Transport auf Eternal Terminal eingestellt, damit Sitzungen Netzwerkausfälle überstehen."
     ],
     compareHead: "Sein Platz neben Termux und Termius",
     compareIntro:

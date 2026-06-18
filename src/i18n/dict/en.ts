@@ -104,7 +104,12 @@ export const en: Dict = {
       "Generate SSH Key dialog on a phone with label, user, key type, and passphrase fields.",
       "Public Key dialog on a phone showing the generated key with copy, share, and save options.",
       "Saved Servers screen showing servers organized into collapsible Work and Personal folder groups.",
-      "SSH terminal on a phone with https:// URLs underlined as tappable clickable links."
+      "SSH terminal on a phone with https:// URLs underlined as tappable clickable links.",
+      "Mobile SSH home screen on a phone showing a Recent Sessions list to resume an SSH connection with one tap.",
+      "Tmux manager on a phone listing tmux sessions, windows, and panes with buttons to attach, rename, and switch.",
+      "Plugins screen on a phone showing an installable plugin catalog with Tailscale, WireGuard, and VS Code.",
+      "AI Chat plugin on a phone streaming a reply from a local llama3.2 model running on the remote server over SSH.",
+      "Add Server dialog on a phone with the transport set to Eternal Terminal so sessions survive network drops."
     ],
     compareHead: "How it fits beside Termux and Termius",
     compareIntro:

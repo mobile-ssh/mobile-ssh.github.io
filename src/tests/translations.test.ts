@@ -49,7 +49,7 @@ describe("locale dicts – structure", () => {
       expect(t.home.features).toHaveLength(en.home.features.length);
     });
 
-    it(`${locale}: galleryAlts has 11 items`, () => {
+    it(`${locale}: galleryAlts has ${en.home.galleryAlts.length} items`, () => {
       const t = getDict(locale);
       expect(t.home.galleryAlts).toHaveLength(en.home.galleryAlts.length);
     });

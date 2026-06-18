@@ -98,7 +98,12 @@ export const tr: Dict = {
       "Telefonda etiket, kullanıcı, anahtar türü ve parola alanlarını içeren SSH Anahtarı Oluştur iletişim kutusu.",
       "Telefonda oluşturulan anahtarı kopyalama, paylaşma ve kaydetme seçenekleriyle gösteren Genel Anahtar iletişim kutusu.",
       "Kaydedilen sunucuların daraltılabilir İş ve Kişisel klasör gruplarında düzenlendiğini gösteren Kaydedilen Sunucular ekranı.",
-      "Bir telefonda SSH terminali; https:// URL'leri dokunulabilir tıklanabilir bağlantılar olarak altı çizili şekilde görünüyor."
+      "Bir telefonda SSH terminali; https:// URL'leri dokunulabilir tıklanabilir bağlantılar olarak altı çizili şekilde görünüyor.",
+      "Bir telefonda Mobile SSH ana ekranı; SSH bağlantısını tek dokunuşla sürdürmek için bir Son Oturumlar listesi gösteriyor.",
+      "Bir telefonda tmux yöneticisi; tmux oturumlarını, pencerelerini ve panellerini listeliyor, bağlan, yeniden adlandır ve geçiş yap düğmeleriyle.",
+      "Bir telefonda Eklentiler ekranı; Tailscale, WireGuard ve VS Code içeren, kurulabilir bir eklenti kataloğu gösteriyor.",
+      "Bir telefonda AI Chat eklentisi; uzak sunucuda SSH üzerinden çalışan yerel bir llama3.2 modelinden gelen yanıtı akıtıyor.",
+      "Bir telefonda Sunucu Ekle iletişim kutusu; oturumların ağ kopmalarına dayanması için aktarım Eternal Terminal olarak ayarlanmış."
     ],
     compareHead: "Termux ve Termius yanında yeri",
     compareIntro:

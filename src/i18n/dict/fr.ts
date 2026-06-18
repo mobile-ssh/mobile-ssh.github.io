@@ -98,7 +98,12 @@ export const fr: Dict = {
       "Boîte de dialogue Générer une clé SSH sur un téléphone avec les champs libellé, utilisateur, type de clé et phrase secrète.",
       "Boîte de dialogue Clé publique sur un téléphone affichant la clé générée avec des options copier, partager et enregistrer.",
       "Écran Serveurs enregistrés affichant les serveurs organisés en groupes de dossiers Travail et Personnel repliables.",
-      "Terminal SSH sur un téléphone avec des URL https:// soulignées comme liens cliquables tapotables."
+      "Terminal SSH sur un téléphone avec des URL https:// soulignées comme liens cliquables tapotables.",
+      "Écran d'accueil de Mobile SSH sur un téléphone affichant une liste Recent Sessions pour reprendre une connexion SSH en un tap.",
+      "Gestionnaire tmux sur un téléphone listant les sessions, fenêtres et panneaux tmux avec des boutons pour attacher, renommer et basculer.",
+      "Écran Plugins sur un téléphone affichant un catalogue de plugins installables avec Tailscale, WireGuard et VS Code.",
+      "Plugin AI Chat sur un téléphone diffusant en continu une réponse d'un modèle llama3.2 local exécuté sur le serveur distant via SSH.",
+      "Boîte de dialogue Ajouter un serveur sur un téléphone avec le transport réglé sur Eternal Terminal pour que les sessions survivent aux coupures réseau."
     ],
     compareHead: "Sa place à côté de Termux et Termius",
     compareIntro:

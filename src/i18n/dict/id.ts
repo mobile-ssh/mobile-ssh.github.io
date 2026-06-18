@@ -98,7 +98,12 @@ export const id: Dict = {
       "Dialog Buat Kunci SSH di ponsel dengan kolom label, pengguna, jenis kunci, dan frasa sandi.",
       "Dialog Kunci Publik di ponsel yang menampilkan kunci yang dibuat dengan opsi salin, bagikan, dan simpan.",
       "Layar Server Tersimpan yang menampilkan server yang diatur dalam grup folder Kerja dan Pribadi yang dapat diciutkan.",
-      "Terminal SSH di ponsel dengan URL https:// digarisbawahi sebagai tautan yang dapat diklik."
+      "Terminal SSH di ponsel dengan URL https:// digarisbawahi sebagai tautan yang dapat diklik.",
+      "Layar awal Mobile SSH di ponsel yang menampilkan daftar Recent Sessions untuk melanjutkan koneksi SSH dengan satu tap.",
+      "Pengelola tmux di ponsel yang menampilkan daftar sesi, jendela, dan panel tmux dengan tombol untuk attach, ganti nama, dan beralih.",
+      "Layar Plugin di ponsel yang menampilkan katalog plugin yang dapat dipasang dengan Tailscale, WireGuard, dan VS Code.",
+      "Plugin AI Chat di ponsel yang menampilkan aliran balasan dari model llama3.2 lokal yang berjalan di server jarak jauh melalui SSH.",
+      "Dialog Tambah Server di ponsel dengan transport disetel ke Eternal Terminal agar sesi bertahan saat koneksi jaringan terputus."
     ],
     compareHead: "Tempatnya di samping Termux dan Termius",
     compareIntro:

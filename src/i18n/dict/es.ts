@@ -103,7 +103,12 @@ export const es: Dict = {
       "Diálogo Generar clave SSH en un teléfono con campos de etiqueta, usuario, tipo de clave y frase de contraseña.",
       "Diálogo Clave pública en un teléfono que muestra la clave generada con opciones para copiar, compartir y guardar.",
       "Pantalla de Servidores guardados que muestra servidores organizados en grupos contraíbles de Trabajo y Personal.",
-      "Terminal SSH en un teléfono con URL https:// subrayadas como enlaces tappables."
+      "Terminal SSH en un teléfono con URL https:// subrayadas como enlaces tappables.",
+      "Pantalla de inicio de Mobile SSH en un teléfono mostrando una lista de Recent Sessions para reanudar una conexión SSH con un toque.",
+      "Gestor de tmux en un teléfono listando sesiones, ventanas y paneles de tmux con botones para adjuntar, renombrar y cambiar.",
+      "Pantalla de complementos en un teléfono mostrando un catálogo de complementos instalables con Tailscale, WireGuard y VS Code.",
+      "Complemento AI Chat en un teléfono transmitiendo una respuesta de un modelo local llama3.2 que se ejecuta en el servidor remoto por SSH.",
+      "Diálogo Añadir servidor en un teléfono con el transporte configurado como Eternal Terminal para que las sesiones sobrevivan a los cortes de red."
     ],
     compareHead: "Su lugar junto a Termux y Termius",
     compareIntro:

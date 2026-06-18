@@ -98,7 +98,12 @@ export const yue: Dict = {
       "電話上嘅「產生 SSH 密鑰」對話框，有標籤、用戶、密鑰類型同密碼短語欄位。",
       "電話上嘅「公鑰」對話框，顯示產生咗嘅密鑰，連同複製、分享同儲存嘅選項。",
       "已儲存伺服器畫面，顯示伺服器整理入可摺疊嘅「工作」同「個人」資料夾群組。",
-      "電話上嘅 SSH 終端機，https:// URL 帶底線成為可點擊嘅連結。"
+      "電話上嘅 SSH 終端機，https:// URL 帶底線成為可點擊嘅連結。",
+      "電話上嘅 Mobile SSH 啟動畫面，顯示 Recent Sessions 清單，一㩒就可以續返之前嘅 SSH 連線。",
+      "電話上嘅 tmux 管理器，列出 tmux 會話、視窗同面板，仲有附加、重新命名同切換嘅按鈕。",
+      "電話上嘅插件畫面，顯示可安裝嘅插件目錄，包括 Tailscale、WireGuard 同 VS Code。",
+      "電話上嘅 AI Chat 插件，正經 SSH 串流播放遠端伺服器上跑緊嘅本機 llama3.2 模型嘅回覆。",
+      "電話上嘅新增伺服器對話框，傳輸方式設定為 Eternal Terminal，等會話喺斷網之後都唔斷。"
     ],
     compareHead: "同 Termux、Termius 之間嘅定位",
     compareIntro:

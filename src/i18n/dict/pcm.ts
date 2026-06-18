@@ -98,7 +98,12 @@ export const pcm: Dict = {
       "Generate SSH Key dialog for phone wit label, user, key type, and passphrase fields.",
       "Public Key dialog for phone wey dey show di key wey dem make wit copy, share, and save options.",
       "Saved Servers screen wey dey show servers wey dem arrange enter collapsible Work and Personal folder groups.",
-      "SSH terminal for phone wit https:// URLs wey dey underline as tappable clickable links."
+      "SSH terminal for phone wit https:// URLs wey dey underline as tappable clickable links.",
+      "Mobile SSH home screen for phone wey dey show Recent Sessions list to resume SSH connection wit one tap.",
+      "Tmux manager for phone wey dey list tmux sessions, windows, and panes wit buttons to attach, rename, and switch.",
+      "Plugins screen for phone wey dey show plugin catalog wey you fit install, wit Tailscale, WireGuard, and VS Code.",
+      "AI Chat plugin for phone wey dey stream reply from local llama3.2 model wey dey run on di remote server over SSH.",
+      "Add Server dialog for phone wit di transport set to Eternal Terminal so session go survive network drop."
     ],
     compareHead: "Where e stand next to Termux and Termius",
     compareIntro:
