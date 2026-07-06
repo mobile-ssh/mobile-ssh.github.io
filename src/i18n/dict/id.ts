@@ -29,7 +29,7 @@ export const id: Dict = {
     eyebrow: "Klien SSH untuk Android",
     h1: "Mobile SSH",
     intro:
-      "Klien SSH yang fokus untuk Android dengan terminal multi-sesi, autentikasi kunci pribadi, transfer berkas SFTP, penerusan port lokal, dan kontrol ramah tmux untuk ponsel dan tablet.",
+      "Klien SSH yang fokus untuk Android dengan terminal multi-sesi, sesi Eternal Terminal yang tetap bertahan saat koneksi jaringan terputus, pengelola tmux bawaan, transfer berkas SFTP, penerusan port lokal, dan plugin — dibuat untuk penggunaan ponsel dan tablet.",
     versionLine: "Tersedia dalam {count} bahasa · versi {version}",
     ctaDocs: "Baca dokumentasi",
     ctaPlay: "Dapatkan di Google Play",

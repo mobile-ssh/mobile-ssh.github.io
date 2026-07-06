@@ -116,7 +116,7 @@ export const ta: Dict = {
   features: {
     metaTitle: "அம்சங்கள் | Mobile SSH",
     metaDescription:
-      "Android-இல் SSH, டெர்மினல், SFTP, தனிப்பட்ட கீ, tmux மற்றும் போர்ட் முன்னோடல் பணிப்பாய்வுகளுக்கான Mobile SSH-இன் முக்கிய அம்சங்கள்.",
+      "Android SSH, டெர்மினல், Eternal Terminal, tmux மேலாளர், SFTP, தனிப்பட்ட கீகள், போர்ட் முன்னோடல் மற்றும் சொருகிகளுக்கான Mobile SSH-இன் முக்கிய அம்சங்கள்.",
     eyebrow: "அம்ச பட்டியல்",
     h1: "Mobile SSH அம்சங்கள்",
     intro:

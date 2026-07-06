@@ -47,6 +47,9 @@ export interface Dict {
     privacy: string;
     contact: string;
     feedback: string;
+    // Optional: link to the (English-only) closed-beta recruitment page.
+    // Components fall back to English when a locale omits it.
+    beta?: string;
   };
   home: {
     metaTitle: string;
@@ -87,6 +90,14 @@ export interface Dict {
     betaJoin: string;
     betaOr: string;
     betaRequest: string;
+    // Optional: hero "testers wanted" banner. Components fall back to English
+    // when a locale omits these (the closed test runs in English).
+    betaWantedTitle?: string;
+    betaWantedText?: string;
+    betaWantedCta?: string;
+    // Optional: iOS TestFlight beta link in the hero. Falls back to English
+    // when a locale omits it (the iOS beta runs in English).
+    betaIos?: string;
     compareHead: string;
     compareIntro: string;
     compareGuideTitle: string;

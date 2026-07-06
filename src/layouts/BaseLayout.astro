@@ -9,9 +9,12 @@ interface Props {
   description: string;
   locale?: LocaleCode;
   pathKey?: "home" | "features" | "docs" | "compare" | "about" | "privacy";
+  // Set false for standalone, English-only pages (e.g. /beta) so we don't emit
+  // hreflang alternates or a language switcher pointing at non-existent routes.
+  localized?: boolean;
 }
 
-const { title, description, locale = defaultLocale, pathKey } = Astro.props;
+const { title, description, locale = defaultLocale, pathKey, localized = true } = Astro.props;
 const info = localeMap[locale];
 const t = getDict(locale);
 const currentPath = Astro.url.pathname;
@@ -53,10 +56,12 @@ function localePath(targetCode: LocaleCode): string {
     <meta name="description" content={description} />
     <meta name="theme-color" content="#101820" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    {locales.map((l) => (
+    {localized && locales.map((l) => (
       <link rel="alternate" hreflang={l.htmlLang} href={`https://mobile-ssh.github.io${localePath(l.code)}`} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={`https://mobile-ssh.github.io${localePath(defaultLocale)}`} />
+    {localized && (
+      <link rel="alternate" hreflang="x-default" href={`https://mobile-ssh.github.io${localePath(defaultLocale)}`} />
+    )}
     <title>{title}</title>
   </head>
   <body>
@@ -75,14 +80,16 @@ function localePath(targetCode: LocaleCode): string {
           </a>
         ))}
       </nav>
-      <div class="lang-switch">
-        <label for="lang-select" class="sr-only">{t.meta.languageSwitcher}</label>
-        <select id="lang-select" aria-label={t.meta.languageSwitcher} data-current={locale}>
-          {locales.map((l) => (
-            <option value={localePath(l.code)} selected={l.code === locale}>{l.nativeName}</option>
-          ))}
-        </select>
-      </div>
+      {localized && (
+        <div class="lang-switch">
+          <label for="lang-select" class="sr-only">{t.meta.languageSwitcher}</label>
+          <select id="lang-select" aria-label={t.meta.languageSwitcher} data-current={locale}>
+            {locales.map((l) => (
+              <option value={localePath(l.code)} selected={l.code === locale}>{l.nativeName}</option>
+            ))}
+          </select>
+        </div>
+      )}
     </header>
     <slot />
     <footer class="site-footer">
@@ -94,6 +101,7 @@ function localePath(targetCode: LocaleCode): string {
         <a href={localizedHref(locale, "/docs/")}>{t.footer.documentation}</a>
         <a href={localizedHref(locale, "/compare/")}>{t.footer.comparison}</a>
         <a href={localizedHref(locale, "/privacy/")}>{t.footer.privacy}</a>
+        <a href="/beta/">{t.footer.beta ?? "Beta testing"}</a>
         <a href="mailto:mobile.ssh.info@gmail.com">{t.footer.contact}</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuyl6-O-dPuSjoBqAu2sVPPSj7_170tMIHoAs7tFS-4iLtlA/viewform?usp=header" target="_blank" rel="noopener">{t.footer.feedback}</a>
       </nav>

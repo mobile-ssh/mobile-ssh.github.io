@@ -20,7 +20,8 @@ export const en: Dict = {
     comparison: "Comparison",
     privacy: "Privacy",
     contact: "Contact",
-    feedback: "Feedback"
+    feedback: "Feedback",
+    beta: "Beta testing"
   },
   home: {
     metaTitle: "Mobile SSH - Android SSH client",
@@ -93,6 +94,10 @@ export const en: Dict = {
     betaJoin: "Join the beta",
     betaOr: "or email",
     betaRequest: "to request private beta access",
+    betaWantedTitle: "Android & iOS SSH users wanted",
+    betaWantedText: "Join the closed beta and help shape Mobile SSH.",
+    betaWantedCta: "See how to join →",
+    betaIos: "Testing on iPhone or iPad? Join the iOS beta on TestFlight",
     galleryAlts: [
       "Mobile SSH start screen on a phone with Servers, Credentials, Logs, Settings, Debug, and About tiles.",
       "Add Server dialog on a phone showing host, port, credentials, private key, and port forward fields.",

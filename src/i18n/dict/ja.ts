@@ -325,7 +325,12 @@ export const ja: Dict = {
       { category: "プライバシーとコスト", feature: "Pro ペイウォールなし",       mobile: "yes",    termux: "yes",          termius: "一部対応" },
       { category: "プライバシーとコスト", feature: "広告なし",                   mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "プライバシーとコスト", feature: "分析のオプトアウト",         mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "プライバシーとコスト", feature: "ローカルのみのデータ（クラウド同期なし）", mobile: "yes", termux: "yes", termius: "no" }
+      { category: "プライバシーとコスト", feature: "ローカルのみのデータ（クラウド同期なし）", mobile: "yes", termux: "yes", termius: "no" },
+      { category: "セッション", feature: "Eternal Terminal（耐障害性セッション）",    mobile: "yes",    termux: "CLI 経由",      termius: "no" },
+      { category: "セッション", feature: "SSH 経由の etserver 自動インストール",      mobile: "yes",    termux: "no",            termius: "no" },
+      { category: "セッション", feature: "tmux セッション マネージャー",              mobile: "yes",    termux: "CLI 経由",      termius: "no" },
+      { category: "プラグイン", feature: "プラグイン サポート",                       mobile: "yes",    termux: "パッケージ経由", termius: "no" },
+      { category: "プラグイン", feature: "オンデマンド インストールのプラグイン カタログ", mobile: "yes", termux: "no",           termius: "no" }
     ]
   },
   privacy: {

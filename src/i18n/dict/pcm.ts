@@ -25,11 +25,11 @@ export const pcm: Dict = {
   home: {
     metaTitle: "Mobile SSH — SSH client for Android",
     metaDescription:
-      "Mobile SSH na focused Android SSH client wey carry multi-session terminals, SFTP transfer, private keys, port forwarding, and tmux-friendly workflow.",
+      "Mobile SSH na focused Android SSH client wey carry multi-session terminals, Eternal Terminal resilient sessions, tmux manager, SFTP transfer, private keys, port forwarding, and plugins.",
     eyebrow: "Android SSH client",
     h1: "Mobile SSH",
     intro:
-      "Na one focused SSH client for Android: multi-session terminals, private key login, SFTP file transfer, local port forwarding, and tmux-friendly controls wey dem build for phone and tablet.",
+      "Na one focused SSH client for Android: multi-session terminals, Eternal Terminal sessions wey dey survive network drop, built-in tmux manager, SFTP file transfer, local port forwarding, and plugins — dem build am for phone and tablet use.",
     versionLine: "Dey for {count} language · version {version}",
     ctaDocs: "Read di docs",
     ctaPlay: "Get am for Google Play",

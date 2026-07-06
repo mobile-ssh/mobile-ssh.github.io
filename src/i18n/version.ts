@@ -4,7 +4,7 @@ import { locales, type LocaleCode } from "./locales";
 // Bump these on app release; per-locale dicts only carry templates with
 // {count} and {version} placeholders.
 export const VERSION_NAME = "2.0";
-export const VERSION_CODE = 17;
+export const VERSION_CODE = 21;
 export const LANGUAGE_COUNT = locales.length;
 
 export const PLAY_STORE_URL =
@@ -12,6 +12,10 @@ export const PLAY_STORE_URL =
 
 export const PLAY_STORE_BETA_URL =
   "https://play.google.com/apps/testing/io.github.mobile_ssh";
+
+// iOS closed beta runs on TestFlight. No public App Store listing / version is
+// surfaced yet, so this is the only iOS link the site carries.
+export const TESTFLIGHT_URL = "https://testflight.apple.com/join/Ku4JtTEg";
 
 // "1.6 (12)" — Latin digits, locale-independent (matches prior behavior on
 // the About page across all locales).

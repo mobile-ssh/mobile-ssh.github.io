@@ -29,7 +29,7 @@ export const yue: Dict = {
     eyebrow: "Android SSH 客戶端",
     h1: "Mobile SSH",
     intro:
-      "為 Android 而設嘅集中式 SSH 客戶端：多會話終端機、私鑰驗證、SFTP 檔案傳輸、本機端口轉發，仲有專為電話同平板而設嘅 tmux 友好控制。",
+      "為 Android 而設嘅集中式 SSH 客戶端：多會話終端機、網絡中斷都頂得住嘅 Eternal Terminal 會話、內建 tmux 管理器、SFTP 檔案傳輸、本機端口轉發，同埋插件 —— 專為電話同平板而設。",
     versionLine: "支援 {count} 種語言 · 版本 {version}",
     ctaDocs: "睇文檔",
     ctaPlay: "喺 Google Play 下載",
@@ -116,7 +116,7 @@ export const yue: Dict = {
   features: {
     metaTitle: "功能 | Mobile SSH",
     metaDescription:
-      "Mobile SSH 喺 Android 上嘅核心功能：SSH、終端機、SFTP、私鑰、tmux 同端口轉發。",
+      "Mobile SSH 喺 Android 上嘅核心功能：SSH、終端機、Eternal Terminal、tmux 管理器、SFTP、私鑰、端口轉發，同埋插件。",
     eyebrow: "功能清單",
     h1: "Mobile SSH 功能",
     intro:

@@ -1,0 +1,254 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../i18n/version";
+
+// Standalone, English-only recruitment page. The closed test, feedback form,
+// and target communities are English, so this page opts out of i18n routing
+// (localized={false}) to avoid hreflang/lang-switch links to routes that do
+// not exist.
+const FEEDBACK_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfuyl6-O-dPuSjoBqAu2sVPPSj7_170tMIHoAs7tFS-4iLtlA/viewform?usp=header";
+const EMAIL = "mobile.ssh.info@gmail.com";
+
+const audience = [
+  { tag: "Homelab", text: "You run a NAS, Proxmox box, Pi cluster, or a rack in the closet and poke at it from your phone." },
+  { tag: "Self-hosting", text: "Jellyfin, Nextcloud, *arr stack, containers — and the inevitable 11pm \"why is it down\" SSH session." },
+  { tag: "DevOps / sysadmin", text: "You get paged, open a shell on the move, and need tmux and reconnect to just work." },
+  { tag: "Termux & Linux", text: "You already live in a terminal on Android and want a focused SSH/SFTP client beside it." },
+  { tag: "Raspberry Pi & VPS", text: "A Pi on the LAN or a $5 droplet you administer from a phone or tablet." },
+  { tag: "Indie hackers", text: "You ship from anywhere and sometimes that means deploying from a train." }
+];
+
+const steps = [
+  {
+    n: "1",
+    title: "Opt in to the beta",
+    text: "On Android, open this page on your device and tap the Google Play button to join the closed test. On iPhone or iPad, tap the TestFlight button and accept the invite in Apple's TestFlight app. You only need to do this once."
+  },
+  {
+    n: "2",
+    title: "Install Mobile SSH",
+    text: "After opting in, Mobile SSH installs from Google Play (Android) or TestFlight (iOS) like any other app — you'll get beta updates automatically."
+  },
+  {
+    n: "3",
+    title: "Use it for real — for about two weeks",
+    text: "Connect to your own servers and run the checklist below. The closed test needs testers opted in for 14 continuous days, so please keep it installed for the run."
+  },
+  {
+    n: "4",
+    title: "Send one piece of feedback",
+    text: "Fill in the short feedback form — even \"everything worked\" is useful. You can also leave a private review in the Play beta listing, or send feedback straight from the TestFlight app on iOS."
+  }
+];
+
+const checklist = [
+  "Connect to one of your servers with a password or a private key",
+  "Save it as a host, then reconnect to it with one tap",
+  "Open two sessions side by side in the multi-session grid",
+  "Transfer a file both ways over SFTP",
+  "Set up a local port forward on a saved server",
+  "Lock your screen mid-session, come back, and confirm it reconnects",
+  "Submit the feedback form once you've tried a few of these"
+];
+
+const reasons = [
+  { tag: "Free, no ads", text: "Every feature is in the one app. No Pro paywall, no ad banners on the terminal." },
+  { tag: "Stays on your device", text: "Saved servers, credentials, and keys are local. No cloud account, nothing to leak." },
+  { tag: "Real influence", text: "This is a small project. Feedback during the beta goes straight into the next releases." }
+];
+---
+
+<BaseLayout
+  title="Beta testers wanted | Mobile SSH"
+  description="Help test Mobile SSH, a focused SSH/SFTP client for Android and iOS. Join the closed beta on Google Play or TestFlight and shape the app with your feedback."
+  localized={false}
+>
+  <main>
+    <section class="page-header">
+      <p class="eyebrow">Closed beta</p>
+      <h1>Android &amp; iOS SSH users wanted</h1>
+      <p>
+        Mobile SSH is a focused SSH, SFTP, and terminal client for Android and iOS. We're running a
+        closed test on Google Play and TestFlight and looking for people who actually SSH from a phone or
+        tablet to put it through real use — and tell us what to fix.
+      </p>
+      <div class="cta-row">
+        <a class="button" href={PLAY_STORE_BETA_URL} rel="noopener">Opt in on Google Play</a>
+        <a class="button" href={TESTFLIGHT_URL} rel="noopener">Test on iOS (TestFlight)</a>
+        <a class="button secondary" href={FEEDBACK_FORM_URL} target="_blank" rel="noopener">Open feedback form</a>
+      </div>
+      <p class="fineprint">On Android, opt in with the Google account you'll test with. On iOS, install Apple's TestFlight app, then open the invite.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Who this is for</h2>
+          <p>If you keep a terminal one tap away on your phone, you're exactly who we want.</p>
+        </div>
+        <div class="feature-grid">
+          {audience.map((a) => (
+            <article class="feature-card">
+              <span class="tag">{a.tag}</span>
+              <p>{a.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>How to join — four steps</h2>
+          <p>About 15 minutes to set up, then occasional real use over two weeks.</p>
+        </div>
+        <ol class="steps">
+          {steps.map((s) => (
+            <li class="step">
+              <span class="step-n">{s.n}</span>
+              <div>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div class="cta-row">
+          <a class="button" href={PLAY_STORE_BETA_URL} rel="noopener">Opt in on Google Play</a>
+          <a class="button" href={TESTFLIGHT_URL} rel="noopener">Test on iOS (TestFlight)</a>
+          <a class="button secondary" href={FEEDBACK_FORM_URL} target="_blank" rel="noopener">Open feedback form</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Tester checklist</h2>
+          <p>Try a few of these on your own servers — it's the fastest way to surface real bugs.</p>
+        </div>
+        <ul class="checklist">
+          {checklist.map((c) => (
+            <li>{c}</li>
+          ))}
+        </ul>
+        <div class="callout">
+          <p>
+            <strong>In your feedback, it helps to mention:</strong> what you tested, anything that
+            broke or felt clunky, what's missing for your workflow, and your device model and
+            Android or iOS version.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Why bother testing</h2>
+        </div>
+        <div class="feature-grid three">
+          {reasons.map((r) => (
+            <article class="feature-card">
+              <span class="tag">{r.tag}</span>
+              <p>{r.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner final-cta">
+        <h2>Ready to test?</h2>
+        <p>Opt in on Google Play or TestFlight, use it for real over the next couple of weeks, and send us a note.</p>
+        <div class="cta-row">
+          <a class="button" href={PLAY_STORE_BETA_URL} rel="noopener">Opt in on Google Play</a>
+          <a class="button" href={TESTFLIGHT_URL} rel="noopener">Test on iOS (TestFlight)</a>
+          <a class="button secondary" href={FEEDBACK_FORM_URL} target="_blank" rel="noopener">Open feedback form</a>
+          <a class="button secondary" href={`mailto:${EMAIL}`}>Email us</a>
+        </div>
+        <p class="fineprint">
+          The Android closed test runs on Google Play and needs testers opted in for 14 continuous days;
+          the iOS beta runs on TestFlight. You can leave either test anytime. Questions? Email
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .page-header .cta-row { margin-top: 1.6rem; }
+  .fineprint {
+    margin-top: 0.9rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+    max-width: 820px;
+  }
+  .step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.15rem;
+  }
+  .step-n {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: var(--green);
+    color: #fff;
+    font-weight: 800;
+  }
+  .step h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+  .step p { margin: 0; color: var(--muted); }
+
+  .checklist {
+    max-width: 820px;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .checklist li {
+    position: relative;
+    padding-left: 2rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--green);
+    font-weight: 800;
+  }
+
+  .feature-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 900px) {
+    .feature-grid.three { grid-template-columns: 1fr; }
+  }
+
+  .final-cta { text-align: center; }
+  .final-cta .cta-row { justify-content: center; margin-top: 1.4rem; }
+  .final-cta .fineprint { max-width: 640px; margin-inline: auto; }
+</style>

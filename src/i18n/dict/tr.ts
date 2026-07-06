@@ -25,11 +25,11 @@ export const tr: Dict = {
   home: {
     metaTitle: "Mobile SSH — Android için SSH istemcisi",
     metaDescription:
-      "Mobile SSH; çoklu oturum terminalleri, SFTP aktarımı, özel anahtarlar, port yönlendirme ve tmux uyumlu akışlar sunan, Android için odaklanmış bir SSH istemcisidir.",
+      "Mobile SSH; çoklu oturum terminalleri, Eternal Terminal dayanıklı oturumları, tmux yöneticisi, SFTP aktarımı, özel anahtarlar, port yönlendirme ve eklentiler sunan, Android için odaklanmış bir SSH istemcisidir.",
     eyebrow: "Android için SSH istemcisi",
     h1: "Mobile SSH",
     intro:
-      "Android için odaklanmış bir SSH istemcisi: çoklu oturum terminalleri, özel anahtarla kimlik doğrulama, SFTP dosya aktarımı, yerel port yönlendirme ve telefon ile tablet için tmux uyumlu kontroller.",
+      "Android için odaklanmış bir SSH istemcisi: çoklu oturum terminalleri, ağ kesintilerine dayanıklı Eternal Terminal oturumları, yerleşik bir tmux yöneticisi, SFTP dosya aktarımı, yerel port yönlendirme ve eklentiler — telefon ve tablet kullanımı için tasarlandı.",
     versionLine: "{count} dilde mevcut · sürüm {version}",
     ctaDocs: "Belgeleri oku",
     ctaPlay: "Google Play'den indirin",
@@ -42,7 +42,9 @@ export const tr: Dict = {
       { title: "Ajan uyarıları", text: "Claude Code, Codex veya başka bir uzak ajan giridinize ihtiyaç duyduğu anda sesli ve titreşimli bildirim alın. Video oynatılırken bile kulaklıktan çalar." },
       { title: "Klavyenin üstünde terminal tuşları", text: "ESC, TAB, CTRL, ALT, FN, yön tuşları, Home, End, PgUp/PgDn için ayrı bir sıra — Gboard önerileriyle çakışmadan." },
       { title: "Komut yazmadan port yönlendirme", text: "Tüneller sunucu profiline bağlıdır ve bağlandığınız anda otomatik olarak yükselir." },
-      { title: "Kilit ve ağ değişimine dayanıklı", text: "Ön plan servisi, wake lock'lar ve otomatik yeniden bağlanma; ekran kapalıyken, uygulama değişiminde ve ağ değişiminde oturumları canlı tutar." }
+      { title: "Kilit ve ağ değişimine dayanıklı", text: "Ön plan servisi, wake lock'lar ve otomatik yeniden bağlanma; ekran kapalıyken, uygulama değişiminde ve ağ değişiminde oturumları canlı tutar." },
+      { title: "Eternal Terminal", text: "İsteğe bağlı ET aktarımı, uzak kabuğu ağ kesintileri, uyku modu ve IP değişiklikleri boyunca canlı tutar. Ana bilgisayarda etserver yok mu? Mobile SSH, SSH üzerinden onu sizin için kurabilir." },
+      { title: "Eklentilerle genişletin", text: "Yeni iş akışları eklemek için genel bir katalogu gözden geçirin ve eklentileri istek üzerine kurun. Her eklenti indirilir ve uygulamaya özel depolamaya SHA-256 ile doğrulanarak kaydedilir." }
     ],
     sectionAHead: "Android'de SSH çalışması için tasarlandı",
     sectionAIntro:
@@ -57,7 +59,10 @@ export const tr: Dict = {
       { title: "SFTP aktarımı", text: "Aktif SSH oturumuna bağlı çift panelli dosya gezgini. Yükleme ve indirme sırala; yeniden adlandır, sil ve uzak izinleri incele." },
       { title: "Port yönlendirme", text: "Yerel tünel tanımlarını sunucu profiliyle kaydet — tüneller bağlandığında otomatik açılır ya da bağlıyken ekle/kaldır." },
       { title: "Yeniden bağlanma akışı", text: "Ön plan servisi, wake lock'lar, keepalive ve üstel gerilemeli yeniden bağlanma; ekran kapandığında ve ağ değişiminde oturumları canlı tutar." },
-      { title: "Yedekleme ve geri yükleme", text: "Kaydedilen sunucuları ve kimlik bilgilerini şifreli bir yedek dosyasına aktar; cihazlar arası geçiş için birleştir veya değiştir seçeneğiyle içe aktar." }
+      { title: "Yedekleme ve geri yükleme", text: "Kaydedilen sunucuları ve kimlik bilgilerini şifreli bir yedek dosyasına aktar; cihazlar arası geçiş için birleştir veya değiştir seçeneğiyle içe aktar." },
+      { title: "Eternal Terminal", text: "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) üzerinden bağlanın — isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla." },
+      { title: "Tmux yöneticisi", text: "tmux oturumlarını, pencerelerini ve panellerini listeleyin ve aralarında geçiş yapın — bağlanın, yeniden adlandırın, oluşturun, bölün, yakınlaştırın veya sonlandırın. Ada veya tarihe göre sıralayın; girdi bekleyen ajanları bir 🔔 işaretler." },
+      { title: "Eklentiler", text: "Mobile SSH'yi genişletmek için eklentilere göz atın, kurun ve çalıştırın. Eklentiler genel bir katalogdan istek üzerine indirilir ve uygulamaya özel depolamaya SHA-256 ile doğrulanarak kaydedilir." }
     ],
     multiHead: "Tek ekran, birkaç canlı kabuk",
     multiP1:

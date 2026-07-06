@@ -25,7 +25,7 @@ export const fr: Dict = {
   home: {
     metaTitle: "Mobile SSH — Client SSH pour Android",
     metaDescription:
-      "Mobile SSH est un client SSH ciblé pour Android avec terminaux multi-sessions, transfert SFTP, clés privées, redirection de ports et flux compatibles tmux.",
+      "Mobile SSH est un client SSH ciblé pour Android avec terminaux multi-sessions, sessions résilientes Eternal Terminal, un gestionnaire tmux, transfert SFTP, clés privées, redirection de ports et plugins.",
     eyebrow: "Client SSH pour Android",
     h1: "Mobile SSH",
     intro:

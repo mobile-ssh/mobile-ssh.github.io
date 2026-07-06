@@ -29,7 +29,7 @@ export const pt: Dict = {
     eyebrow: "Cliente SSH para Android",
     h1: "Mobile SSH",
     intro:
-      "Um cliente SSH focado para Android com terminais multi-sessão, autenticação por chave privada, transferência de arquivos SFTP, redirecionamento local de portas e controles compatíveis com tmux pensados para celular e tablet.",
+      "Um cliente SSH focado para Android com terminais multi-sessão, sessões com Eternal Terminal que sobrevivem a quedas de rede, um gerenciador de tmux embutido, transferência de arquivos SFTP, redirecionamento local de portas e plugins — feito para uso em celular e tablet.",
     versionLine: "Disponível em {count} idiomas · versão {version}",
     ctaDocs: "Ler a documentação",
     ctaPlay: "Disponível no Google Play",
@@ -117,7 +117,7 @@ export const pt: Dict = {
   features: {
     metaTitle: "Recursos | Mobile SSH",
     metaDescription:
-      "Principais recursos do Mobile SSH para fluxos de SSH, terminal, SFTP, chave privada, tmux e redirecionamento de portas no Android.",
+      "Principais recursos do Mobile SSH para SSH no Android, terminal, Eternal Terminal, gerenciador de tmux, SFTP, chaves privadas, redirecionamento de portas e plugins.",
     eyebrow: "Lista de recursos",
     h1: "Recursos do Mobile SSH",
     intro:

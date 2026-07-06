@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { defaultLocale, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
-import { renderVersionLine, PLAY_STORE_URL, PLAY_STORE_BETA_URL } from "../../i18n/version";
+import { renderVersionLine, PLAY_STORE_URL, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
@@ -45,7 +45,16 @@ const galleryShots = [
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
             <a class="button secondary" href={PLAY_STORE_URL} rel="noopener">{t.home.ctaPlay}</a>
           </div>
+          <a class="beta-banner" href="/beta/">
+            <span class="beta-banner-flag">Beta</span>
+            <span class="beta-banner-text">
+              <strong>{t.home.betaWantedTitle ?? "Android & iOS SSH users wanted"}</strong>
+              <span>{t.home.betaWantedText ?? "Join the closed beta and help shape Mobile SSH."}</span>
+            </span>
+            <span class="beta-banner-cta">{t.home.betaWantedCta ?? "See how to join →"}</span>
+          </a>
           <p class="beta-link"><a href={PLAY_STORE_BETA_URL} rel="noopener">{t.home.betaJoin}</a> · {t.home.betaOr} <a href="mailto:mobile.ssh.info@gmail.com">mobile.ssh.info@gmail.com</a> {t.home.betaRequest}</p>
+          <p class="beta-link"><a href={TESTFLIGHT_URL} rel="noopener">{t.home.betaIos ?? "Testing on iPhone or iPad? Join the iOS beta on TestFlight"}</a></p>
           <div class="hero-shot">
             <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="480" height="1077" />
           </div>
@@ -235,6 +244,59 @@ const galleryShots = [
   .hero-copy .hero-shot {
     order: 0;
     margin-top: 2.5rem;
+  }
+  .beta-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+    max-width: 520px;
+    margin-top: 1.1rem;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    color: #fff;
+    background: rgba(46, 229, 157, 0.10);
+    border: 1px solid rgba(46, 229, 157, 0.55);
+    border-radius: 12px;
+  }
+  .beta-banner:hover {
+    text-decoration: none;
+    background: rgba(46, 229, 157, 0.16);
+    border-color: rgba(46, 229, 157, 0.85);
+  }
+  .beta-banner-flag {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background: #2ee59d;
+    color: #101820;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .beta-banner-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+    line-height: 1.35;
+  }
+  .beta-banner-text strong { font-size: 1rem; }
+  .beta-banner-text span { font-size: 0.88rem; opacity: 0.85; }
+  .beta-banner-cta {
+    flex: 0 0 auto;
+    margin-left: auto;
+    align-self: center;
+    color: #2ee59d;
+    font-weight: 750;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) {
+    .beta-banner { flex-wrap: wrap; gap: 0.5rem 0.85rem; }
+    .beta-banner-cta { margin-left: 0; }
   }
   .beta-link {
     margin-top: 0.75rem;
