@@ -105,9 +105,10 @@ export interface Dict {
     betaWantedTitle?: string;
     betaWantedText?: string;
     betaWantedCta?: string;
-    // Optional: iOS TestFlight beta link in the hero. Falls back to English
-    // when a locale omits it (the iOS beta runs in English).
-    betaIos?: string;
+    // Optional: note telling Android testers to open the Play opt-in link in a
+    // mobile browser (the closed test may be missing inside the Google Play
+    // app). Falls back to English when a locale omits it.
+    betaPlayNote?: string;
     compareHead: string;
     compareIntro: string;
     compareGuideTitle: string;
