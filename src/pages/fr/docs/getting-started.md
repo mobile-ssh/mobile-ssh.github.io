@@ -6,14 +6,19 @@ description: "Premiers pas pour installer Mobile SSH, se connecter à un serveur
 
 # Premiers pas
 
-Mobile SSH est un client SSH pour Android permettant de vous connecter à vos propres serveurs Linux, Unix, réseau, IoT ou de développement. Vous fournissez l'adresse du serveur et les identifiants ; l'app ouvre un terminal SSH interactif.
+Mobile SSH est un client SSH pour Android et iOS permettant de vous connecter à vos propres serveurs Linux, Unix, réseau, IoT ou de développement. Vous fournissez l'adresse du serveur et les identifiants ; l'app ouvre un terminal SSH interactif.
 
 ## Prérequis
 
-- Android 8.0 ou plus récent.
-- Un accès réseau de l'appareil Android vers votre serveur SSH.
+- Android 8.0 ou plus récent, ou iOS 16 ou plus récent (iPhone ou iPad).
+- Un accès réseau de l'appareil vers votre serveur SSH.
 - Le nom d'hôte ou l'adresse IP du serveur SSH, le port, le nom d'utilisateur et un mot de passe ou une clé privée.
-- Un accès au stockage si vous souhaitez utiliser le transfert de fichiers SFTP avec l'explorateur de fichiers local du téléphone.
+- Sur Android, un accès au stockage si vous souhaitez utiliser le transfert de fichiers SFTP avec l'explorateur de fichiers local du téléphone ; iOS utilise à la place les sélecteurs de fichiers et de photos du système.
+
+## Installer l'app
+
+- **Android :** installez Mobile SSH depuis Google Play.
+- **iOS :** l'app iOS est proposée en bêta publique sur TestFlight. Installez l'app TestFlight d'Apple, puis ouvrez le lien d'invitation Mobile SSH depuis la page d'accueil du site pour l'installer et recevoir les mises à jour.
 
 ## Se connecter à un serveur
 
@@ -41,11 +46,11 @@ Utilisez les serveurs enregistrés pour les hôtes auxquels vous accédez régul
 
 L'écran **Credentials** stocke des enregistrements réutilisables utilisateur/mot de passe ou utilisateur/clé privée. Les identifiants enregistrés peuvent être sélectionnés dans la boîte de dialogue de configuration du serveur, pour ne pas resaisir les mêmes informations de connexion pour chaque hôte.
 
-Les enregistrements d'identifiants sont stockés localement sur l'appareil Android. Protégez l'appareil par un verrouillage d'écran si vous enregistrez des mots de passe, des phrases secrètes ou des clés privées.
+Les enregistrements d'identifiants sont stockés localement sur l'appareil — sur iOS, les secrets sont conservés dans le Keychain du système. Protégez l'appareil par un verrouillage d'écran si vous enregistrez des mots de passe, des phrases secrètes ou des clés privées.
 
 ## Utiliser des clés privées
 
-Mobile SSH prend en charge les clés privées collées et l'importation de clés via le sélecteur de fichiers d'Android. L'implémentation de l'app prend en charge les clés Ed25519, RSA, ECDSA et DSA.
+Mobile SSH prend en charge les clés privées collées et l'importation de clés via le sélecteur de fichiers du système. Sur Android, l'app prend en charge les clés Ed25519, RSA, ECDSA et DSA ; sur iOS, elle prend en charge les clés Ed25519 et ECDSA (P-256/384/521).
 
 Pour utiliser une clé privée :
 
@@ -54,7 +59,7 @@ Pour utiliser une clé privée :
 3. Saisissez la phrase secrète de la clé dans le champ mot de passe/phrase secrète si la clé est chiffrée.
 4. Enregistrez l'identifiant ou le serveur.
 
-L'importation de la clé privée utilise le sélecteur de fichiers d'Android pour les fichiers de clé. Le transfert de fichiers utilise un explorateur de fichiers local distinct et peut demander un accès au stockage plus large sur les versions récentes d'Android.
+L'importation de la clé privée utilise le sélecteur de fichiers du système pour les fichiers de clé. Sur Android, le transfert de fichiers utilise un explorateur de fichiers local distinct et peut demander un accès au stockage plus large sur les versions récentes d'Android ; sur iOS, les fichiers passent par les sélecteurs de documents et de photos du système.
 
 ## Sessions récentes
 
@@ -81,7 +86,7 @@ Ouvrez **Settings** depuis l'écran d'accueil (il dispose de sa propre page) :
 
 ## Langues
 
-Mobile SSH suit la langue du système Android. L'app est livrée avec des traductions en arabe, bengali, chinois (simplifié et traditionnel), anglais, français, allemand, hindi, indonésien, japonais, marathi, pidgin nigérian, portugais, russe, espagnol, tamoul, télougou, turc et ourdou. Changez de langue dans **Settings → System → Languages** d'Android, et non depuis l'app.
+Mobile SSH suit la langue du système. L'app est livrée avec des traductions en arabe, bengali, chinois (simplifié et traditionnel), anglais, français, allemand, hindi, indonésien, japonais, marathi, pidgin nigérian, portugais, russe, espagnol, tamoul, télougou, turc et ourdou. Changez de langue dans **Settings → System → Languages** d'Android, ou sur iOS dans **Settings → General → Language & Region**, et non depuis l'app.
 
 ## Note de sécurité
 

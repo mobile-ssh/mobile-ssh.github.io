@@ -54,6 +54,31 @@ describe("locale dicts – structure", () => {
       expect(t.home.galleryAlts).toHaveLength(en.home.galleryAlts.length);
     });
 
+    it(`${locale}: galleryIosAlts has ${en.home.galleryIosAlts.length} items`, () => {
+      const t = getDict(locale);
+      expect(t.home.galleryIosAlts).toHaveLength(en.home.galleryIosAlts.length);
+    });
+
+    it(`${locale}: versionLine keeps {count}/{version}/{iosVersion} placeholders`, () => {
+      const t = getDict(locale);
+      expect(t.home.versionLine).toContain("{count}");
+      expect(t.home.versionLine).toContain("{version}");
+      expect(t.home.versionLine).toContain("{iosVersion}");
+    });
+
+    it(`${locale}: iOS keys are set (ctaIos, platform labels, videoIosAlt)`, () => {
+      const t = getDict(locale);
+      expect(t.home.ctaIos).toBeTruthy();
+      expect(t.home.platformAndroid).toBeTruthy();
+      expect(t.home.platformIos).toBeTruthy();
+      expect(t.home.videoIosAlt).toBeTruthy();
+    });
+
+    it(`${locale}: about notices include the iOS libraries`, () => {
+      const t = getDict(locale);
+      expect(t.about.notices.length).toBe(en.about.notices.length);
+    });
+
     it(`${locale}: featureRows has ${en.compare.featureRows.length} rows`, () => {
       const t = getDict(locale);
       expect(t.compare.featureRows).toHaveLength(en.compare.featureRows.length);

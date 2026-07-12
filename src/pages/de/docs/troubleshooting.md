@@ -12,7 +12,7 @@ Diese Seite behandelt häufige Probleme von Mobile SSH und die ersten Prüfungen
 
 Prüfe:
 
-- Das Android-Gerät hat Netzwerkzugriff.
+- Das Gerät hat Netzwerkzugriff.
 - Der Hostname oder die IP-Adresse des Servers ist korrekt.
 - Der SSH-Port ist korrekt, normalerweise `22`.
 - Eine Firewall, ein VPN, das Mobilfunknetz oder das WLAN blockiert den Port nicht.
@@ -34,16 +34,16 @@ Gib bei verschlüsselten privaten Schlüsseln die Passphrase im Passwort-/Passph
 
 ## Import des privaten Schlüssels fehlgeschlagen
 
-Der Import des privaten Schlüssels nutzt die Dateiauswahl von Android. Wenn der Import fehlschlägt:
+Der Import des privaten Schlüssels nutzt die Dateiauswahl des Systems. Wenn der Import fehlschlägt:
 
 - Bestätige, dass die ausgewählte Datei ein privater Schlüssel ist und keine öffentliche `.pub`-Datei.
 - Öffne die Datei in einem vertrauenswürdigen Texteditor und prüfe, dass sie den vollständigen Schlüsselblock enthält.
 - Versuche, den Schlüssel manuell in das Feld für den privaten Schlüssel einzufügen.
-- Bestätige, dass der Schlüsseltyp von der App unterstützt wird: Ed25519, RSA, ECDSA oder DSA.
+- Bestätige, dass der Schlüsseltyp unterstützt wird: Ed25519, RSA, ECDSA oder DSA auf Android; Ed25519 oder ECDSA (P-256/384/521) auf iOS.
 
 ## Tastatureingabe verzögert sich oder ändert sich
 
-Wenn deine Android-Tastatur den Text ändert, bevor er die Shell erreicht, deaktiviere die Tastaturvorschläge in den Einstellungen von Mobile SSH. Das ist nützlich für Vim, tmux, htop, less, Shells mit ungewöhnlichen Tastenfolgen und entfernte Passwortabfragen.
+Wenn deine Bildschirmtastatur den Text ändert, bevor er die Shell erreicht, deaktiviere die Tastaturvorschläge in den Einstellungen von Mobile SSH. Das ist nützlich für Vim, tmux, htop, less, Shells mit ungewöhnlichen Tastenfolgen und entfernte Passwortabfragen.
 
 Nutze die Zusatztastenreihe für Terminaltasten wie `ESC`, `TAB`, `CTRL`, Pfeile, `HOME`, `END`, `PGUP` und `PGDN`.
 
@@ -60,7 +60,7 @@ Wenn das Scrollen sich falsch anfühlt:
 
 ## Sitzung nach Bildschirmsperre abgebrochen
 
-Mobile SSH nutzt Keepalives, einen Vordergrunddienst, Wake Lock, Wi-Fi-Lock und Wiederverbindungsversuche, um Verbindungsabbrüche zu reduzieren. Die Akku-Richtlinien von Android können Hintergrundarbeit dennoch stoppen.
+Auf Android nutzt Mobile SSH Keepalives, einen Vordergrunddienst, Wake Lock, Wi-Fi-Lock und Wiederverbindungsversuche, um Verbindungsabbrüche zu reduzieren. Die Akku-Richtlinien von Android können Hintergrundarbeit dennoch stoppen.
 
 Prüfe:
 
@@ -69,11 +69,15 @@ Prüfe:
 - Öffne Mobile SSH erneut und tippe nach dem Entsperren auf **Active Sessions**.
 - Wenn der Server die SSH-Sitzung getrennt hat, verbinde dich erneut über die letzten Sitzungen.
 
+Auf iOS hält das System Apps im Hintergrund an, daher kann eine reine SSH-Verbindung nicht unbegrenzt offen bleiben, sobald du zu einer anderen App wechselst oder den Bildschirm sperrst. Eine kurze Karenzzeit deckt schnelle App-Wechsel ab; für alles Längere aktiviere **Auto-attach tmux session** im Serverprofil (oder nutze den **Eternal Terminal**-Transport), damit du beim erneuten Verbinden wieder in derselben Shell landest, in der du aufgehört hast.
+
 ## Dateiübertragung kann Telefondateien nicht durchsuchen
 
 Auf neueren Android-Versionen kann das Durchsuchen lokaler Dateien Speicherzugriff erfordern. Erteile den Speicherzugriff in den Android-Einstellungen für Mobile SSH und öffne den Dateiübertragungsbildschirm erneut.
 
 Wenn entfernte Dateien laden, lokale aber nicht, ist die SSH-Verbindung wahrscheinlich in Ordnung und das Problem liegt beim lokalen Android-Speicherzugriff.
+
+Auf iOS gibt es keine Speicherberechtigung: Der lokale Bereich zeigt den Dokumentenbereich der App, und Dateien fügst du über die Dokument- und Fotoauswahl des Systems hinzu.
 
 ## Hochladen oder Herunterladen fehlgeschlagen
 
@@ -83,7 +87,7 @@ Prüfe:
 - Das entfernte Verzeichnis existiert.
 - Der entfernte Benutzer hat die Berechtigung, den Pfad zu lesen oder zu schreiben.
 - Das lokale Ziel ist beschreibbar.
-- Auf dem Android-Gerät ist genügend freier Speicher vorhanden.
+- Auf dem Gerät ist genügend freier Speicher vorhanden.
 - Das Netzwerk ist für große Übertragungen stabil.
 
 ## Portweiterleitung fehlgeschlagen

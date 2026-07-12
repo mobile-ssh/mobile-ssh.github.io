@@ -6,7 +6,7 @@ description: "Guia de transferência de arquivos por SFTP do Mobile SSH para arq
 
 # Transferência de arquivos
 
-O Mobile SSH inclui uma tela de transferência de arquivos por SFTP vinculada à conexão SSH ativa. Ela serve para manutenção rápida do servidor a partir do Android: enviar uma configuração, baixar um log, renomear um arquivo remoto ou inspecionar permissões sem sair do app.
+O Mobile SSH inclui uma tela de transferência de arquivos por SFTP vinculada à conexão SSH ativa. Ela serve para manutenção rápida do servidor a partir do seu telefone ou tablet: enviar uma configuração, baixar um log, renomear um arquivo remoto ou inspecionar permissões sem sair do app.
 
 ## Abrir a transferência de arquivos
 
@@ -28,11 +28,13 @@ O app lembra os caminhos locais e remotos recentes por host. As configurações 
 
 A tela de transferência de arquivos segue o tema claro ou escuro do seu sistema, para que combine com o restante do Mobile SSH.
 
-## Permissão de armazenamento do Android
+## Acesso ao armazenamento
 
 Em versões do Android que restringem a navegação direta de arquivos, o Mobile SSH pode pedir acesso ao armazenamento antes que o painel local consiga navegar pelos arquivos do telefone. Se você pular ou negar essa permissão, a navegação remota ainda pode funcionar, mas os caminhos locais de upload e download podem ficar limitados.
 
-A importação de chave privada é separada da transferência de arquivos e usa o seletor de arquivos do Android.
+No iOS, o painel local trabalha com a área de documentos do próprio app, e você traz arquivos por meio dos seletores de documentos e de fotos do sistema — incluindo a importação com seleção múltipla de fotos e documentos. Nenhuma permissão de armazenamento separada é necessária.
+
+A importação de chave privada é separada da transferência de arquivos e usa o seletor de arquivos do sistema.
 
 ## Enviar arquivos (upload)
 
@@ -80,4 +82,4 @@ As transferências são enfileiradas e exibidas por status. A área de log separ
 - Use o SFTP para mover arquivos pontuais; use ferramentas de linha de comando como o `rsync` no servidor para sincronizar diretórios grandes.
 - Evite editar arquivos de produção em uso, a menos que tenha um backup ou um caminho de reversão da implantação.
 - Se um arquivo não aparecer após o upload, atualize o painel remoto ou verifique o caminho de destino.
-- Se o acesso ao armazenamento do Android bloquear a navegação local, conceda a permissão nas Configurações do Android e reabra a transferência de arquivos.
+- Se o acesso ao armazenamento do Android bloquear a navegação local, conceda a permissão nas Configurações do Android e reabra a transferência de arquivos. No iOS, use os seletores para adicionar arquivos ao painel local.

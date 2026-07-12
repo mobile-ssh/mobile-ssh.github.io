@@ -14,7 +14,7 @@ Terminal Mobile SSH dibuat untuk operasi di ponsel dan tablet. Ia menggabungkan 
 - Buffer gulir balik menyimpan hingga 5000 baris.
 - Ketuk panel untuk memilihnya sebelum mengetik.
 - Cubit panel terminal untuk mengubah ukuran teks. Mobile SSH mengubah ukuran PTY jarak jauh setelah gerakan berhenti.
-- Ketuk dua kali panel untuk masuk mode layar penuh. Gunakan Kembali untuk kembali ke kisi.
+- Ketuk dua kali panel (atau gunakan kontrol perluasnya) untuk masuk mode layar penuh. Gunakan Kembali di Android, atau kontrol ciutkan di iOS, untuk kembali ke kisi.
 
 ## Kisi multi-sesi
 
@@ -24,7 +24,7 @@ Menutup panel memutus sesi SSH tersebut. Kembali ke layar awal menjaga sesi akti
 
 ## Baris tombol tambahan
 
-Baris tombol tambahan tampil di atas keyboard Android dan menyediakan tombol terminal yang sulit diakses pada keyboard sentuh:
+Baik di Android maupun iOS, baris tombol tambahan tampil di atas keyboard di layar dan menyediakan tombol terminal yang sulit diakses pada keyboard sentuh:
 
 - `ESC`
 - `TAB`
@@ -43,19 +43,19 @@ Baris tombol tambahan tampil di atas keyboard Android dan menyediakan tombol ter
 
 Mobile SSH memiliki dua pengaturan terkait keyboard:
 
-- **Tap terminal to show keyboard:** saat aktif, mengetuk terminal meminta Android menampilkan metode input.
+- **Tap terminal to show keyboard:** saat aktif, mengetuk terminal meminta sistem menampilkan keyboard di layar.
 - **Keyboard suggestions:** saat aktif, keyboard yang kompatibel dapat menampilkan saran di prompt shell. Nonaktifkan ini jika saran mengganggu program terminal.
 
 Saat saran aktif, Mobile SSH menyangga teks yang sedang disusun hingga batas kata sehingga koreksi keyboard dapat mengganti kata saat ini sebelum dikirim ke shell jarak jauh. Tombol kontrol dan kord terminal melewati buffer tersebut, sehingga pintasan seperti perintah prefiks tmux tetap tiba dengan cepat.
 
-Input suara (tombol mikrofon Gboard) dialirkan melalui buffer teks yang sama, jadi teks dikte dikirim setelah selesai dikenali, bukan karakter demi karakter.
+Di Android, input suara (tombol mikrofon Gboard) dialirkan melalui buffer teks yang sama, jadi teks dikte dikirim setelah selesai dikenali, bukan karakter demi karakter.
 
 ## Pilih, salin, bagikan
 
 Tekan lama di dalam terminal untuk masuk mode pemilihan. Bilah pemilihan menawarkan tiga tindakan:
 
-- **Copy** — menaruh teks terpilih ke papan klip Android.
-- **Share** — meneruskan teks terpilih ke lembar berbagi Android (surel, catatan, perpesanan, dll.).
+- **Copy** — menaruh teks terpilih ke papan klip sistem.
+- **Share** — meneruskan teks terpilih ke lembar berbagi sistem (surel, catatan, perpesanan, dll.).
 - **Select all** — memperluas pemilihan ke seluruh buffer terminal yang terlihat, lalu Copy atau Share.
 
 ## Menggulir

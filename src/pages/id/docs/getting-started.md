@@ -6,14 +6,19 @@ description: "Langkah pertama untuk memasang Mobile SSH, terhubung ke server, me
 
 # Memulai
 
-Mobile SSH adalah klien SSH Android untuk terhubung ke server Linux, Unix, jaringan, IoT, atau pengembangan milik Anda sendiri. Anda memberikan alamat server dan kredensial; aplikasi membuka terminal SSH interaktif.
+Mobile SSH adalah klien SSH untuk Android dan iOS untuk terhubung ke server Linux, Unix, jaringan, IoT, atau pengembangan milik Anda sendiri. Anda memberikan alamat server dan kredensial; aplikasi membuka terminal SSH interaktif.
 
 ## Persyaratan
 
-- Android 8.0 atau lebih baru.
-- Akses jaringan dari perangkat Android ke server SSH Anda.
+- Android 8.0 atau lebih baru, atau iOS 16 atau lebih baru (iPhone atau iPad).
+- Akses jaringan dari perangkat ke server SSH Anda.
 - Nama host atau alamat IP server SSH, port, nama pengguna, dan kata sandi atau kunci privat.
-- Akses penyimpanan jika Anda ingin menggunakan transfer berkas SFTP dengan peramban berkas lokal ponsel.
+- Di Android, akses penyimpanan jika Anda ingin menggunakan transfer berkas SFTP dengan peramban berkas lokal ponsel; iOS menggunakan pemilih berkas dan foto sistem sebagai gantinya.
+
+## Memasang aplikasi
+
+- **Android:** pasang Mobile SSH dari Google Play.
+- **iOS:** aplikasi iOS hadir sebagai beta publik di TestFlight. Pasang aplikasi TestFlight dari Apple, lalu buka tautan undangan Mobile SSH dari halaman beranda situs untuk memasang dan menerima pembaruan.
 
 ## Terhubung ke server
 
@@ -41,11 +46,11 @@ Gunakan server tersimpan untuk host yang sering Anda akses. Jika server tersimpa
 
 Layar **Credentials** menyimpan catatan nama pengguna/kata sandi atau nama pengguna/kunci privat yang dapat digunakan kembali. Kredensial tersimpan dapat dipilih dari dialog penyiapan server, sehingga Anda tidak perlu memasukkan ulang informasi login yang sama untuk setiap host.
 
-Catatan kredensial disimpan secara lokal di perangkat Android. Lindungi perangkat dengan kunci layar jika Anda menyimpan kata sandi, frasa sandi, atau kunci privat.
+Catatan kredensial disimpan secara lokal di perangkat — di iOS, data rahasia disimpan di Keychain sistem. Lindungi perangkat dengan kunci layar jika Anda menyimpan kata sandi, frasa sandi, atau kunci privat.
 
 ## Menggunakan kunci privat
 
-Mobile SSH mendukung kunci privat yang ditempel dan impor kunci melalui pemilih berkas Android. Implementasi aplikasi mendukung kunci Ed25519, RSA, ECDSA, dan DSA.
+Mobile SSH mendukung kunci privat yang ditempel dan impor kunci melalui pemilih berkas sistem. Di Android aplikasi mendukung kunci Ed25519, RSA, ECDSA, dan DSA; di iOS aplikasi mendukung kunci Ed25519 dan ECDSA (P-256/384/521).
 
 Untuk menggunakan kunci privat:
 
@@ -54,7 +59,7 @@ Untuk menggunakan kunci privat:
 3. Masukkan frasa sandi kunci di kolom kata sandi/frasa sandi jika kunci terenkripsi.
 4. Simpan kredensial atau server.
 
-Impor kunci privat menggunakan pemilih berkas Android untuk berkas kunci. Transfer berkas menggunakan peramban berkas lokal terpisah dan dapat meminta akses penyimpanan yang lebih luas pada versi Android yang lebih baru.
+Impor kunci privat menggunakan pemilih berkas sistem untuk berkas kunci. Di Android, transfer berkas menggunakan peramban berkas lokal terpisah dan dapat meminta akses penyimpanan yang lebih luas pada versi Android yang lebih baru; di iOS, berkas masuk melalui pemilih dokumen dan foto sistem.
 
 ## Sesi terbaru
 
@@ -81,7 +86,7 @@ Buka **Settings** dari layar awal (tersedia di halamannya sendiri):
 
 ## Bahasa
 
-Mobile SSH mengikuti bahasa sistem Android. Aplikasi disertai terjemahan untuk bahasa Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Pidgin Nigeria, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, dan Urdu. Ubah bahasa di **Settings → System → Languages** Android, bukan dari dalam aplikasi.
+Mobile SSH mengikuti bahasa sistem. Aplikasi disertai terjemahan untuk bahasa Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Pidgin Nigeria, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, dan Urdu. Ubah bahasa di **Settings → System → Languages** Android, atau di iOS di **Settings → General → Language & Region**, bukan dari dalam aplikasi.
 
 ## Catatan keamanan
 

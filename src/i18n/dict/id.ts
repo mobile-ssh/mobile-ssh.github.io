@@ -15,7 +15,7 @@ export const id: Dict = {
     privacy: "Privasi"
   },
   footer: {
-    tagline: "Alur kerja SSH, SFTP, dan terminal yang fokus untuk perangkat Android.",
+    tagline: "Alur kerja SSH, SFTP, dan terminal yang fokus untuk perangkat Android dan iOS.",
     documentation: "Dokumentasi",
     comparison: "Perbandingan",
     privacy: "Privasi",
@@ -23,16 +23,19 @@ export const id: Dict = {
     feedback: "Umpan Balik"
   },
   home: {
-    metaTitle: "Mobile SSH — Klien SSH untuk Android",
+    metaTitle: "Mobile SSH — Klien SSH untuk Android & iOS",
     metaDescription:
-      "Mobile SSH adalah klien SSH Android yang fokus dengan terminal multi-sesi, sesi tangguh Eternal Terminal, pengelola tmux, transfer SFTP, kunci pribadi, penerusan port, dan plugin.",
-    eyebrow: "Klien SSH untuk Android",
+      "Mobile SSH adalah klien SSH yang fokus untuk Android dan iOS dengan terminal multi-sesi, sesi tangguh Eternal Terminal, pengelola tmux, transfer SFTP, kunci pribadi, penerusan port, dan plugin.",
+    eyebrow: "Klien SSH untuk Android & iOS",
     h1: "Mobile SSH",
     intro:
-      "Klien SSH yang fokus untuk Android dengan terminal multi-sesi, sesi Eternal Terminal yang tetap bertahan saat koneksi jaringan terputus, pengelola tmux bawaan, transfer berkas SFTP, penerusan port lokal, dan plugin — dibuat untuk penggunaan ponsel dan tablet.",
-    versionLine: "Tersedia dalam {count} bahasa · versi {version}",
+      "Klien SSH yang fokus untuk Android dan iOS dengan terminal multi-sesi, sesi Eternal Terminal yang tetap bertahan saat koneksi jaringan terputus, pengelola tmux bawaan, transfer berkas SFTP, penerusan port lokal, dan plugin — dibuat untuk penggunaan ponsel dan tablet.",
+    versionLine: "Tersedia dalam {count} bahasa · Android {version} · iOS {iosVersion} beta",
     ctaDocs: "Baca dokumentasi",
     ctaPlay: "Dapatkan di Google Play",
+    ctaIos: "Dapatkan beta iOS di TestFlight",
+    platformAndroid: "Android",
+    platformIos: "iOS — iPhone & iPad",
     advantagesHead: "Mengapa Mobile SSH",
     advantagesIntro: "Dirancang untuk menjawab hal-hal yang biasa keliru pada klien SSH ponsel.",
     advantages: [
@@ -40,11 +43,13 @@ export const id: Dict = {
       { title: "Data Anda tetap lokal", text: "Server, kredensial, dan kunci yang disimpan ada di perangkat. Tidak ada akun cloud; tidak ada yang bisa dihentikan." },
       { title: "Host tersimpan, terhubung dengan satu tap", text: "Tambahkan host sekali dan hubungkan kembali dengan satu tap — termasuk kunci, port, dan tunnel yang sudah dikonfigurasi." },
       { title: "Peringatan agen", text: "Dapatkan notifikasi — dengan suara dan getaran — saat Claude Code, Codex, atau agen jarak jauh lain memerlukan masukan Anda. Berbunyi di headphone bahkan saat video sedang berjalan." },
-      { title: "Tombol terminal di atas keyboard", text: "Baris khusus berisi ESC, TAB, CTRL, ALT, FN, panah, Home, End, PgUp/PgDn — tanpa mengganggu saran Gboard." },
+      { title: "Tombol terminal di atas keyboard", text: "Baris khusus berisi ESC, TAB, CTRL, ALT, FN, panah, Home, End, PgUp/PgDn di Android dan iOS — tombol terminal tanpa berebut dengan koreksi otomatis." },
       { title: "Penerusan port tanpa perintah", text: "Tunnel melekat pada profil server dan otomatis aktif saat tersambung." },
-      { title: "Bertahan saat layar terkunci dan roaming", text: "Layanan foreground, wake lock, dan koneksi ulang otomatis menjaga sesi tetap hidup meski layar mati, ganti aplikasi, atau ganti jaringan." }
+      { title: "Bertahan saat layar terkunci dan roaming", text: "Di Android, layanan foreground, wake lock, dan koneksi ulang otomatis menjaga shell tetap hidup saat layar mati dan ganti jaringan; di iOS, koneksi ulang otomatis plus attach otomatis tmux mengembalikan Anda tepat ke tempat terakhir Anda bekerja." },
+      { title: "Eternal Terminal", text: "Transport ET opsional menjaga shell jarak jauh tetap hidup saat koneksi jaringan terputus, perangkat tidur, dan IP berubah. Tidak ada etserver di host? Mobile SSH dapat memasangnya untuk Anda melalui SSH." },
+      { title: "Perluas dengan plugin", text: "Telusuri katalog publik dan pasang plugin sesuai kebutuhan untuk menambah alur kerja baru. Setiap plugin diunduh dan diverifikasi SHA-256 ke penyimpanan privat aplikasi." }
     ],
-    sectionAHead: "Dirancang untuk pekerjaan SSH di Android",
+    sectionAHead: "Dirancang untuk pekerjaan SSH seluler",
     sectionAIntro:
       "Mobile SSH memendekkan jalur administrasi umum: simpan server, sambungkan, jaga sesi tetap hidup, pindahkan berkas saat diperlukan, dan kembali cepat ke terminal aktif.",
     features: [
@@ -53,17 +58,20 @@ export const id: Dict = {
       { title: "Tautan yang dapat diklik", text: "URL di terminal digarisbawahi dan terbuka di browser dengan satu tap — tanpa menyalin atau berpindah aplikasi." },
       { title: "Folder server", text: "Atur server tersimpan ke dalam grup yang dapat diciutkan. Ketuk tajuk grup untuk menciutkannya; struktur folder tersedia di pemilih sambungan cepat." },
       { title: "Peringatan agen", text: "Notifikasi dengan suara dan getaran saat agen jarak jauh (Claude Code, Codex, dll.) memerlukan masukan Anda. Berbunyi di headphone bahkan saat panggilan video." },
-      { title: "Kunci pribadi", text: "Autentikasi kata sandi atau kunci pribadi. Buat kunci Ed25519, ECDSA, atau RSA di perangkat; impor atau tempel kunci yang ada." },
+      { title: "Kunci pribadi", text: "Autentikasi kata sandi atau kunci pribadi. Buat kunci Ed25519 atau ECDSA di perangkat (RSA juga di Android); impor atau tempel kunci yang ada." },
       { title: "Transfer SFTP", text: "Penjelajah berkas dua panel yang terhubung ke sesi SSH aktif. Antrakan unggahan dan unduhan, ganti nama, hapus, dan periksa izin jarak jauh." },
       { title: "Penerusan port", text: "Simpan spesifikasi tunnel lokal bersama profil server — tunnel terbuka otomatis saat tersambung, atau tambah/hapus saat sedang terhubung." },
-      { title: "Alur penyambungan ulang", text: "Layanan foreground, wake lock, keepalive, dan penyambungan ulang backoff eksponensial menjaga sesi hidup saat layar mati dan roaming." },
-      { title: "Cadangan & pemulihan", text: "Ekspor server dan kredensial tersimpan ke file cadangan terenkripsi; impor dengan gabung atau ganti untuk berpindah antar perangkat." }
+      { title: "Alur penyambungan ulang", text: "Keepalive dan penyambungan ulang backoff eksponensial menjaga sesi hidup saat layar mati dan roaming — ditopang layanan foreground di Android dan attach otomatis tmux di iOS." },
+      { title: "Cadangan & pemulihan", text: "Ekspor server dan kredensial tersimpan ke file cadangan terenkripsi; impor dengan gabung atau ganti untuk berpindah antar perangkat — cadangan dapat dipertukarkan antara Android dan iOS." },
+      { title: "Eternal Terminal", text: "Sambung melalui Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah — dengan opsi penyiapan etserver otomatis melalui SSH." },
+      { title: "Pengelola tmux", text: "Lihat daftar dan beralih antar sesi, jendela, dan panel tmux — attach, ganti nama, buat, pisah, zoom, atau kill. Urutkan berdasarkan nama atau tanggal; ikon 🔔 menandai agen yang menunggu masukan." },
+      { title: "Plugin", text: "Telusuri, pasang, dan jalankan plugin untuk memperluas Mobile SSH. Plugin diunduh sesuai kebutuhan dari katalog publik dan diverifikasi SHA-256 ke penyimpanan privat aplikasi." }
     ],
     multiHead: "Satu layar, beberapa shell aktif",
     multiP1:
       "Tampilan terminal dapat menampung beberapa sesi SSH aktif dalam kisi. Pilih panel untuk mengetik, gunakan baris tombol tambahan untuk kontrol terminal, cubit untuk menyesuaikan ukuran teks, dan ketuk ganda panel saat butuh fokus layar penuh.",
     multiP2:
-      "Riwayat sesi dan pemulihan sesi aktif membantu Anda kembali ke pekerjaan saat ini setelah berpindah aplikasi, kunci layar, atau pembuatan ulang aktivitas Android.",
+      "Riwayat sesi dan pemulihan sesi aktif membantu Anda kembali ke pekerjaan saat ini setelah berpindah aplikasi, kunci layar, atau saat sistem menghentikan aplikasi.",
     multiAlt:
       "Mobile SSH di ponsel yang menampilkan dua sesi SSH terminal aktif dalam tampilan terbagi berdampingan.",
     sftpHead: "SFTP saat terminal tidak cukup",
@@ -74,13 +82,14 @@ export const id: Dict = {
     sftpAlt: "Layar transfer berkas Mobile SSH di ponsel dengan panel lokal dan jarak jauh.",
     galleryHead: "Lihat di perangkat nyata",
     galleryIntro:
-      "Tangkapan layar dari ponsel Android — layar yang sama yang akan Anda gunakan untuk menambahkan server, bekerja di terminal, menjalankan beberapa sesi, dan memindahkan berkas via SFTP.",
+      "Tangkapan layar dari ponsel Android dan iPhone — layar yang sama yang akan Anda gunakan untuk menambahkan server, bekerja di terminal, menjalankan beberapa sesi, dan memindahkan berkas via SFTP.",
     carouselPrev: "Tangkapan layar sebelumnya",
     carouselNext: "Tangkapan layar berikutnya",
     carouselDot: "Pergi ke posisi {n}",
     videoHead: "Lihat dalam aksi",
-    videoIntro: "Demo singkat fitur 2.0 — beralih jendela tmux, transfer berkas SFTP, memasang dan mengobrol dengan plugin AI Chat, Eternal Terminal, dan Sesi Terkini dengan satu tap.",
-    videoAlt: "Demo beralih jendela tmux, mengunduh berkas SFTP, memasang dan menggunakan plugin AI Chat, transport Eternal Terminal, dan Sesi Terkini",
+    videoIntro: "Demo singkat di kedua platform. Android: beralih jendela tmux, transfer berkas SFTP, memasang dan mengobrol dengan plugin AI Chat, Eternal Terminal, dan Sesi Terkini dengan satu tap. iOS: server tersimpan dalam grup, opsi sambungan dengan attach otomatis tmux, sesi terminal langsung, dan pengelola Tmux.",
+    videoAlt: "Demo Android beralih jendela tmux, mengunduh berkas SFTP, memasang dan menggunakan plugin AI Chat, transport Eternal Terminal, dan Sesi Terkini",
+    videoIosAlt: "Demo iOS server tersimpan dalam grup, opsi sambungan dengan attach otomatis tmux dan penerusan port, sesi terminal SSH langsung, dan pengelola Tmux yang beralih jendela",
     lightboxClose: "Tutup",
     lightboxPrev: "Sebelumnya",
     lightboxNext: "Berikutnya",
@@ -105,28 +114,50 @@ export const id: Dict = {
       "Plugin AI Chat di ponsel yang menampilkan aliran balasan dari model llama3.2 lokal yang berjalan di server jarak jauh melalui SSH.",
       "Dialog Tambah Server di ponsel dengan transport disetel ke Eternal Terminal agar sesi bertahan saat koneksi jaringan terputus."
     ],
+    galleryIosAlts: [
+      "Formulir sambungan Mobile SSH di iPhone dengan kolom server, autentikasi, folder, dan transport.",
+      "Server Tersimpan di iPhone yang diatur dalam grup Production dan Staging dengan pencarian server.",
+      "Terminal SSH langsung di iPhone dengan bilah status tmux dan baris tombol tambahan di bagian bawah.",
+      "Dua sesi SSH berdampingan dalam kisi di iPhone dengan panel ketuk-untuk-fokus.",
+      "Transfer Berkas di iPhone dengan panel Ponsel Saya dan Host Jarak Jauh serta log transfer yang selesai.",
+      "Autentikasi kunci di iPhone dengan kunci Ed25519 yang dibuat di perangkat dan kunci publik yang dapat disalin.",
+      "Pengelola tmux di iPhone yang menampilkan daftar sesi dan jendela dengan aksi attach, ganti nama, dan kill — ikon bel menandai agen yang menunggu masukan.",
+      "Terminal SSH di iPhone yang ter-attach ke jendela tmux menampilkan kode di editor jarak jauh.",
+      "Katalog plugin di iPhone dengan Tailscale, WireGuard, VS Code, AI Chat, dan Open WebUI yang dapat dipasang.",
+      "Formulir sambungan di iPhone dengan transport disetel ke Eternal Terminal agar sesi bertahan saat koneksi jaringan terputus.",
+      "Pengaturan peringatan agen di iPhone dengan sakelar getaran, suara, dan hanya-headphone.",
+      "Layar sambungan Mobile SSH di iPhone dengan bagian Terkini untuk menyambung ulang dengan satu tap."
+    ],
     compareHead: "Tempatnya di samping Termux dan Termius",
     compareIntro:
-      "Mobile SSH sengaja dibuat sempit: bukan lingkungan Linux lengkap maupun brankas tim lintas platform. Ini adalah alat SSH/SFTP lokal untuk Android dengan akses cepat ke kontrol sesi yang paling sering dibutuhkan pengguna seluler.",
+      "Mobile SSH sengaja dibuat sempit: bukan lingkungan Linux lengkap maupun brankas tim lintas platform. Ini adalah alat SSH/SFTP lokal untuk Android dan iOS dengan akses cepat ke kontrol sesi yang paling sering dibutuhkan pengguna seluler.",
     compareGuideTitle: "Panduan perbandingan",
-    compareGuideText: "Kapan memilih Mobile SSH, Termux, atau Termius pada perangkat Android.",
+    compareGuideText: "Kapan memilih Mobile SSH, Termux, atau Termius di ponsel atau tablet Anda.",
     privacyTitle: "Kebijakan privasi",
     privacyText: "Lihat data koneksi mana yang disimpan lokal dan apa yang dikirim ke server Anda."
   },
   features: {
     metaTitle: "Fitur | Mobile SSH",
     metaDescription:
-      "Fitur utama Mobile SSH untuk alur SSH, terminal, SFTP, kunci pribadi, tmux, dan penerusan port di Android.",
+      "Fitur utama Mobile SSH untuk SSH di Android dan iOS: terminal, Eternal Terminal, pengelola tmux, SFTP, kunci pribadi, penerusan port, dan plugin.",
     eyebrow: "Daftar fitur",
     h1: "Fitur Mobile SSH",
     intro:
-      "Mobile SSH dibangun untuk penggunaan SSH langsung di Android: buka terminal, jaga tetap hidup, pindahkan berkas, simpan server, dan pulih cepat dari gangguan seluler.",
+      "Mobile SSH dibangun untuk penggunaan SSH langsung dari perangkat Android dan iOS: buka terminal, jaga tetap hidup, pindahkan berkas, simpan server, dan pulih cepat dari gangguan seluler.",
     groups: [
+      {
+        title: "Platform",
+        items: [
+          "Android 8.0 atau lebih baru — pasang dari Google Play",
+          "iOS 16 atau lebih baru di iPhone dan iPad — ikuti beta publik di TestFlight",
+          "Cadangan terenkripsi dapat dipertukarkan: ekspor di satu platform, impor di platform lainnya"
+        ]
+      },
       {
         title: "Koneksi",
         items: [
           "Autentikasi kata sandi dan kunci pribadi",
-          "Kunci pribadi Ed25519, RSA, ECDSA, dan DSA didukung implementasi aplikasi saat ini",
+          "Kunci pribadi Ed25519, RSA, ECDSA, dan DSA di Android; Ed25519 dan ECDSA (P-256/384/521) di iOS",
           "Profil server tersimpan dengan host, port, pengguna, kredensial, kunci pribadi, dan spesifikasi tunnel opsional",
           "Cari server tersimpan berdasarkan nama atau host",
           "Alur Tambah Sesi berbasis pencarian: pilih server tersimpan dari halaman pencarian khusus dan sambung dengan satu tap",
@@ -145,7 +176,7 @@ export const id: Dict = {
           "Cubit untuk ukuran teks dengan resize terminal jarak jauh",
           "Mode layar penuh panel dengan ketuk ganda",
           "Seleksi teks terminal dengan Salin, Bagikan, dan Pilih semua",
-          "Saran/koreksi Gboard dan input suara didukung, dengan buffer teks yang sedang disusun untuk terminal"
+          "Saran/koreksi Gboard dan input suara di Android, dengan buffer teks yang sedang disusun untuk terminal"
         ]
       },
       {
@@ -153,11 +184,13 @@ export const id: Dict = {
         items: [
           "Hingga delapan sesi SSH bersamaan",
           "Tata letak kisi untuk sesi aktif",
-          "Dukungan layanan foreground untuk ketahanan latar belakang dan kunci layar",
+          "Ketahanan latar belakang dan kunci layar: layanan foreground di Android; attach otomatis tmux menyambungkan kembali shell Anda di iOS",
           "Keepalive dan upaya penyambungan ulang dengan backoff eksponensial",
           "Titik masuk Sesi Aktif dari layar awal; notifikasi berkelanjutan menampilkan daftar sesi — ketuk untuk membuka",
           "Pelacakan perintah tmux dan petunjuk reattach untuk pekerjaan terhenti",
-          "Peringatan agen: notifikasi dengan suara dan getaran opsional saat agen jarak jauh (Claude Code, Codex, dll.) memerlukan masukan; berbunyi di headphone saat video"
+          "Peringatan agen: notifikasi dengan suara dan getaran opsional saat agen jarak jauh (Claude Code, Codex, dll.) memerlukan masukan; berbunyi di headphone saat video",
+          "Transport Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah, dengan opsi penyiapan etserver otomatis melalui SSH",
+          "Pengelola tmux: lihat daftar dan beralih antar sesi, jendela, dan panel — attach, ganti nama, buat, pisah, zoom, atau kill, dengan pengurutan nama/tanggal dan 🔔 untuk agen yang menunggu masukan"
         ]
       },
       {
@@ -168,38 +201,47 @@ export const id: Dict = {
           "Aksi jarak jauh: ganti nama, hapus, buat, edit, dan detail",
           "Urutkan berdasarkan nama atau tanggal dengan persistensi per host",
           "Penerusan port lokal yang disimpan bersama profil server",
-          "Tampilan tambah/hapus tunnel runtime untuk sesi yang tersambung"
+          "Tampilan tambah/hapus tunnel runtime untuk sesi yang tersambung",
+          "Transfer berkas mengikuti tema terang atau gelap sistem"
         ]
       },
       {
         title: "Pelokalan",
         items: [
           "Terjemahan UI aplikasi: Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Pidgin Nigeria, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, Urdu",
-          "Mengikuti bahasa sistem Android; tidak perlu pemilih khusus dalam aplikasi"
+          "Mengikuti bahasa sistem di Android dan iOS; tidak perlu pemilih khusus dalam aplikasi"
         ]
       },
       {
         title: "Kunci dan cadangan",
         items: [
-          "Buat kunci Ed25519, ECDSA, atau RSA baru di perangkat, dengan frasa sandi opsional",
+          "Buat kunci Ed25519 atau ECDSA baru di perangkat (RSA juga di Android), dengan frasa sandi opsional",
           "Salin, bagikan, atau simpan kunci publik yang dibuat untuk ditambahkan ke authorized_keys server",
           "Ekspor server dan kredensial tersimpan ke file cadangan",
           "Frasa sandi opsional mengenkripsi cadangan; impor dengan gabung atau ganti",
           "Cadangan tanpa enkripsi menyimpan kata sandi dan kunci dalam teks biasa — lindungi atau hapus file"
         ]
+      },
+      {
+        title: "Plugin",
+        items: [
+          "Telusuri, pasang, dan jalankan plugin untuk memperluas Mobile SSH",
+          "Plugin diunduh sesuai kebutuhan dari katalog publik dan diverifikasi SHA-256 ke penyimpanan privat aplikasi",
+          "Konfigurasikan sumber katalog khusus atau privat saat diperlukan"
+        ]
       }
     ],
     security:
-      "Catatan keamanan: aplikasi saat ini menyimpan profil server dan kredensial yang tersimpan secara lokal di perangkat Android. Tidak ada sinkronisasi awan. Lindungi perangkat dengan kunci layar yang kuat dan hindari menyimpan kredensial di perangkat bersama."
+      "Catatan keamanan: aplikasi saat ini menyimpan profil server dan kredensial yang tersimpan secara lokal di perangkat (di iOS, rahasia disimpan di Keychain sistem). Tidak ada sinkronisasi awan. Lindungi perangkat dengan kunci layar yang kuat dan hindari menyimpan kredensial di perangkat bersama."
   },
   compare: {
-    metaTitle: "Mobile SSH vs Termux vs Termius di Android",
+    metaTitle: "Mobile SSH vs Termux vs Termius di perangkat seluler",
     metaDescription:
-      "Perbandingan yang seimbang antara Mobile SSH, Termux, dan Termius untuk alur SSH di Android.",
-    eyebrow: "Pilihan SSH di Android",
+      "Perbandingan yang seimbang antara Mobile SSH, Termux, dan Termius untuk alur SSH di Android dan iOS.",
+    eyebrow: "Pilihan SSH seluler",
     h1: "Mobile SSH vs Termux vs Termius",
     intro:
-      "Alat-alat ini saling beririsan di sekitar SSH, tetapi dibangun untuk tujuan berbeda. Mobile SSH adalah klien SSH/SFTP yang fokus untuk Android, Termux adalah lingkungan Linux, dan Termius adalah klien SSH lintas platform dengan fitur produktivitas berbasis akun.",
+      "Alat-alat ini saling beririsan di sekitar SSH, tetapi dibangun untuk tujuan berbeda. Mobile SSH adalah klien SSH/SFTP yang fokus untuk Android dan iOS, Termux adalah lingkungan Linux khusus Android, dan Termius adalah klien SSH lintas platform dengan fitur produktivitas berbasis akun.",
     columns: {
       need: "Kebutuhan",
       mobileSsh: "Mobile SSH",
@@ -209,7 +251,7 @@ export const id: Dict = {
     rows: [
       {
         need: "Tujuan utama",
-        mobileSsh: "Klien SSH, SFTP, tunnel lokal, dan terminal khusus untuk Android.",
+        mobileSsh: "Klien SSH, SFTP, tunnel lokal, dan terminal khusus untuk Android dan iOS.",
         termux: "Emulator terminal Android dan lingkungan Linux dengan paket APT.",
         termius: "Klien SSH modern di Android, iOS, desktop, dan alur kerja tim berorientasi web."
       },
@@ -220,8 +262,8 @@ export const id: Dict = {
         termius: "Buat atau sinkronkan host, kunci, snippet, dan brankas melalui model aplikasi/akun Termius."
       },
       {
-        need: "Kontrol terminal Android",
-        mobileSsh: "Baris tombol tambahan bawaan, sesi kisi, panel layar penuh, zoom cubit, seleksi dengan salin/bagikan, saran Gboard, input suara, dan gulir ramah tmux.",
+        need: "Kontrol terminal seluler",
+        mobileSsh: "Baris tombol tambahan bawaan, sesi kisi, panel layar penuh, zoom cubit, seleksi dengan salin/bagikan, dan gulir ramah tmux — plus saran Gboard dan input suara di Android.",
         termux: "Lingkungan terminal yang kuat; perilakunya tergantung pada alat dan konfigurasi terpasang.",
         termius: "Add-on keyboard seluler, gestur, tab, autocomplete, snippet, dan UX terminal yang rapi."
       },
@@ -233,7 +275,7 @@ export const id: Dict = {
       },
       {
         need: "Kerja multi-sesi",
-        mobileSsh: "Hingga delapan sesi SSH bersamaan dalam kisi Android.",
+        mobileSsh: "Hingga delapan sesi SSH bersamaan dalam kisi.",
         termux: "Gunakan multiplexer seperti tmux di dalam Termux atau shell jarak jauh.",
         termius: "Tab dan tampilan terbagi tergantung platform dan paket."
       },
@@ -245,7 +287,7 @@ export const id: Dict = {
       },
       {
         need: "Kasus terbaik",
-        mobileSsh: "Anda ingin aplikasi Android sederhana untuk menyambung ke server, memindahkan berkas, dan menjaga sesi tetap hidup.",
+        mobileSsh: "Anda ingin aplikasi sederhana di Android atau iOS untuk menyambung ke server, memindahkan berkas, dan menjaga sesi tetap hidup.",
         termux: "Anda ingin lingkungan baris perintah lengkap di Android dan nyaman memasang/mengonfigurasi paket.",
         termius: "Anda ingin sinkronisasi lintas perangkat, fitur produktivitas rapi, brankas, dan kolaborasi."
       }
@@ -253,7 +295,7 @@ export const id: Dict = {
     cards: [
       {
         title: "Pilih Mobile SSH bila",
-        body: "Anda ingin akses SSH langsung dari Android tanpa menyiapkan lingkungan Linux penuh atau model akun yang disinkronkan ke cloud. Sangat cocok untuk server tersimpan, SFTP, sesi tmux, dan alur tunnel lokal yang cepat."
+        body: "Anda ingin akses SSH langsung dari ponsel atau tablet — Android atau iOS — tanpa menyiapkan lingkungan Linux penuh atau model akun yang disinkronkan ke cloud. Sangat cocok untuk server tersimpan, SFTP, sesi tmux, dan alur tunnel lokal yang cepat."
       },
       {
         title: "Pilih Termux bila",
@@ -309,21 +351,26 @@ export const id: Dict = {
       { category: "Privasi & biaya",  feature: "Tanpa paywall Pro",                              mobile: "yes",     termux: "yes",           termius: "sebagian" },
       { category: "Privasi & biaya",  feature: "Tanpa iklan",                                   mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Privasi & biaya",  feature: "Opsi keluar analitik",                           mobile: "yes",     termux: "no",            termius: "no" },
-      { category: "Privasi & biaya",  feature: "Data hanya lokal (tanpa sinkronisasi awan)",     mobile: "yes",     termux: "yes",           termius: "no" }
+      { category: "Privasi & biaya",  feature: "Data hanya lokal (tanpa sinkronisasi awan)",     mobile: "yes",     termux: "yes",           termius: "no" },
+      { category: "Sesi",             feature: "Eternal Terminal (sesi tangguh)",                mobile: "yes",     termux: "melalui CLI",   termius: "no" },
+      { category: "Sesi",             feature: "Pasang etserver otomatis melalui SSH",           mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Sesi",             feature: "Pengelola sesi tmux",                            mobile: "yes",     termux: "melalui CLI",   termius: "no" },
+      { category: "Plugin",           feature: "Dukungan plugin",                                mobile: "yes",     termux: "melalui paket", termius: "no" },
+      { category: "Plugin",           feature: "Katalog plugin pasang-sesuai-kebutuhan",         mobile: "yes",     termux: "no",            termius: "no" }
     ]
   },
   privacy: {
     metaTitle: "Kebijakan Privasi | Mobile SSH",
     metaDescription:
-      "Kebijakan privasi Mobile SSH meliputi penyimpanan lokal, transmisi data SSH, transfer berkas, log, dan izin Android.",
+      "Kebijakan privasi Mobile SSH meliputi penyimpanan lokal, transmisi data SSH, transfer berkas, log, dan izin aplikasi di Android dan iOS.",
     eyebrow: "Privasi",
     h1: "Kebijakan Privasi",
     intro:
-      "Mobile SSH dirancang sebagai klien SSH lokal untuk Android. Tidak memerlukan akun Mobile SSH dan tidak menyediakan layanan sinkronisasi awan Mobile SSH.",
+      "Mobile SSH dirancang sebagai klien SSH lokal untuk Android dan iOS. Tidak memerlukan akun Mobile SSH dan tidak menyediakan layanan sinkronisasi awan Mobile SSH.",
     sections: [
       {
         heading: "Informasi yang tersimpan di perangkat Anda",
-        body: "Jika memilih menyimpan data aplikasi, Mobile SSH menyimpannya secara lokal di perangkat Android. Ini dapat mencakup profil server tersimpan, nama pengguna, port, kata sandi, kunci pribadi, frasa-sandi kunci, aturan penerusan port, sesi terbaru, riwayat upaya masuk, jalur transfer berkas, preferensi urutan, petunjuk reattach tmux, pengaturan aplikasi, dan log debug saat perekaman debug diaktifkan."
+        body: "Jika memilih menyimpan data aplikasi, Mobile SSH menyimpannya secara lokal di perangkat — di iOS, rahasia disimpan di Keychain sistem. Ini dapat mencakup profil server tersimpan, nama pengguna, port, kata sandi, kunci pribadi, frasa-sandi kunci, aturan penerusan port, sesi terbaru, riwayat upaya masuk, jalur transfer berkas, preferensi urutan, petunjuk reattach tmux, pengaturan aplikasi, dan log debug saat perekaman debug diaktifkan."
       },
       {
         heading: "Informasi yang dikirim melalui jaringan",
@@ -331,30 +378,30 @@ export const id: Dict = {
       },
       {
         heading: "Transfer berkas dan akses penyimpanan",
-        body: "Fitur transfer berkas menjelajahi penyimpanan ponsel lokal dan direktori SFTP jarak jauh agar Anda dapat mengunggah dan mengunduh berkas. Pada versi Android yang memerlukannya, aplikasi dapat meminta akses penyimpanan agar penjelajah lokal dapat membaca dan menulis berkas terpilih."
+        body: "Fitur transfer berkas menjelajahi penyimpanan ponsel lokal dan direktori SFTP jarak jauh agar Anda dapat mengunggah dan mengunduh berkas. Pada versi Android yang memerlukannya, aplikasi dapat meminta akses penyimpanan agar penjelajah lokal dapat membaca dan menulis berkas terpilih. Di iOS, berkas lokal dan foto diakses melalui pemilih dokumen dan foto sistem."
       },
       {
         heading: "Log dan pemecahan masalah",
         body: "Riwayat masuk dan log debug opsional disimpan lokal untuk pemecahan masalah. Log debug dapat mencakup peristiwa terminal, ukuran data SSH, diagnostik input sentuh, peristiwa resize, dan peristiwa siklus hidup tunnel. Tinjau arsip debug sebelum membagikannya ke dukungan atau pihak lain."
       },
-      { heading: "Analitik penggunaan anonim", body: "Untuk memahami cara aplikasi digunakan dan menyempurnakannya, Mobile SSH mengirim analitik penggunaan anonim ke Aptabase, penyedia analitik yang berfokus pada privasi yang bertindak atas nama kami. Ini terbatas pada peristiwa anonim (seperti pembukaan aplikasi dan fitur yang digunakan) beserta versi aplikasi, versi Android, model perangkat, dan bahasa. Digunakan pengidentifikasi sesi acak yang disetel ulang secara berkala dan tidak terkait dengan Anda atau perangkat Anda. Ini tidak pernah mencakup server SSH, nama host, nama pengguna, kata sandi, kunci, perintah, atau isi file Anda. Data dikirim melalui koneksi terenkripsi (HTTPS). Analitik aktif secara default dan dapat dimatikan kapan saja di Setelan; saat dimatikan, tidak ada yang dikirim." }
+      { heading: "Analitik penggunaan anonim", body: "Untuk memahami cara aplikasi digunakan dan menyempurnakannya, Mobile SSH mengirim analitik penggunaan anonim ke Aptabase, penyedia analitik yang berfokus pada privasi yang bertindak atas nama kami. Ini terbatas pada peristiwa anonim (seperti pembukaan aplikasi dan fitur yang digunakan) beserta versi aplikasi, versi sistem operasi, model perangkat, dan bahasa. Digunakan pengidentifikasi sesi acak yang disetel ulang secara berkala dan tidak terkait dengan Anda atau perangkat Anda. Ini tidak pernah mencakup server SSH, nama host, nama pengguna, kata sandi, kunci, perintah, atau isi file Anda. Data dikirim melalui koneksi terenkripsi (HTTPS). Analitik aktif secara default dan dapat dimatikan kapan saja di Setelan; saat dimatikan, tidak ada yang dikirim." }
     ],
     permissionsHeading: "Izin",
     permissions: [
       { label: "Internet", body: "diperlukan untuk menyambung ke server SSH." },
-      { label: "Wake lock dan Wi-Fi lock", body: "menjaga sesi SSH tetap aktif saat perangkat tidur." },
-      { label: "Layanan foreground dan notifikasi", body: "untuk menangani koneksi aktif di latar belakang." },
-      { label: "Akses penyimpanan", body: "digunakan oleh transfer berkas dan impor kunci." }
+      { label: "Wake lock dan Wi-Fi lock", body: "digunakan di Android untuk menjaga sesi SSH tetap aktif saat perangkat tidur." },
+      { label: "Layanan foreground dan notifikasi", body: "digunakan di Android untuk menangani koneksi aktif di latar belakang; di iOS, notifikasi digunakan untuk peringatan agen." },
+      { label: "Akses penyimpanan", body: "digunakan oleh transfer berkas dan impor kunci; di iOS ini melalui pemilih dokumen dan foto sistem." }
     ],
     securityHeading: "Tanggung jawab keamanan",
     securityBody:
-      "Lindungi perangkat Android dengan kunci layar kuat jika menyimpan kredensial atau kunci pribadi. Hanya sambungkan ke server yang Anda percayai. Implementasi saat ini menggunakan penyimpanan aplikasi lokal, bukan brankas awan terenkripsi terpisah.",
+      "Lindungi perangkat Anda dengan kunci layar kuat jika menyimpan kredensial atau kunci pribadi. Hanya sambungkan ke server yang Anda percayai. Implementasi saat ini menggunakan penyimpanan aplikasi lokal (dan Keychain iOS), bukan brankas awan terenkripsi terpisah.",
     contactHeading: "Kontak",
     contactBody: "Kontak dukungan: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },
   docsIndex: {
     metaTitle: "Dokumentasi | Mobile SSH",
-    metaDescription: "Dokumentasi pengguna akhir untuk Mobile SSH di Android.",
+    metaDescription: "Dokumentasi pengguna akhir untuk Mobile SSH di Android dan iOS.",
     eyebrow: "Panduan pengguna",
     h1: "Dokumentasi Mobile SSH",
     intro:
@@ -377,7 +424,7 @@ export const id: Dict = {
   },
   about: {
     metaTitle: "Tentang | Mobile SSH",
-    metaDescription: "Tentang Mobile SSH: versi, penulis, lisensi, dan pemberitahuan open-source untuk klien SSH Android.",
+    metaDescription: "Tentang Mobile SSH: versi, penulis, lisensi, dan pemberitahuan open-source untuk klien SSH Android dan iOS.",
     eyebrow: "Tentang",
     h1: "Tentang Mobile SSH",
     intro: "Klien SSH multi-sesi dengan tmux, penerusan port, dan SFTP.",
@@ -393,11 +440,13 @@ export const id: Dict = {
     noticesHeading: "Pemberitahuan open source",
     noticesIntro: "Mobile SSH dibangun di atas pustaka open-source berikut. Setiap pustaka digunakan menurut lisensinya masing-masing.",
     notices: [
-      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
-      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
-      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
-      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
-      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+      { name: "JSch (mwiede fork) — Android",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch) — Android",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch) — Android", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java — Android",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog — Android",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" },
+      { name: "SwiftNIO & SwiftNIO SSH — iOS",       license: "Apache 2.0", url: "https://github.com/apple/swift-nio-ssh" },
+      { name: "Swift Crypto — iOS",                  license: "Apache 2.0", url: "https://github.com/apple/swift-crypto" }
     ],
     contactHeading: "Kontak",
     contactBody: "Kontak dukungan: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."

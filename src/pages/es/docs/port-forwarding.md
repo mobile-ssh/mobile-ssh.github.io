@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Reenvío de puertos"
-description: "Sintaxis de reenvío de puertos local de Mobile SSH y gestión de túneles para Android."
+description: "Sintaxis de reenvío de puertos local de Mobile SSH y gestión de túneles en Android e iOS."
 ---
 
 # Reenvío de puertos
 
-Mobile SSH admite el reenvío de puertos SSH local. Un puerto local en el dispositivo Android escucha en `127.0.0.1` y reenvía el tráfico a través de la conexión SSH a un host y puerto remotos.
+Mobile SSH admite el reenvío de puertos SSH local tanto en Android como en iOS. Un puerto local en el dispositivo escucha en `127.0.0.1` y reenvía el tráfico a través de la conexión SSH a un host y puerto remotos.
 
 ## Sintaxis del túnel guardado
 
@@ -23,7 +23,7 @@ Forma corta:
 8080
 ```
 
-Esto vincula `127.0.0.1:8080` en el dispositivo Android y lo reenvía a `localhost:8080` desde el punto de vista del servidor.
+Esto vincula `127.0.0.1:8080` en el dispositivo y lo reenvía a `localhost:8080` desde el punto de vista del servidor.
 
 Forma completa:
 
@@ -31,7 +31,7 @@ Forma completa:
 3000:localhost:3000
 ```
 
-Esto vincula `127.0.0.1:3000` en el dispositivo Android y lo reenvía por SSH a `localhost:3000` en el lado remoto.
+Esto vincula `127.0.0.1:3000` en el dispositivo y lo reenvía por SSH a `localhost:3000` en el lado remoto.
 
 Varios reenvíos:
 
@@ -55,7 +55,7 @@ Mientras estás conectado, selecciona la sesión y abre la vista de túneles des
 
 ## Vinculación de dirección
 
-Mobile SSH vincula los reenvíos locales a `127.0.0.1` en el dispositivo Android. Es intencional: mantiene el túnel local al dispositivo y evita sorpresas de loopback solo IPv6. Otras apps en el mismo dispositivo Android podrían conectarse al puerto local reenviado si Android permite su acceso de red.
+Mobile SSH vincula los reenvíos locales a `127.0.0.1` en el dispositivo. Es intencional: mantiene el túnel local al dispositivo y evita sorpresas de loopback solo IPv6. Otras apps en el mismo dispositivo podrían conectarse al puerto local reenviado si el sistema operativo permite su acceso de red.
 
 ## Ejemplos comunes
 
@@ -65,7 +65,7 @@ Acceder a un servicio web que se ejecuta en el servidor remoto:
 8080
 ```
 
-Luego abre `http://127.0.0.1:8080` desde un navegador en el dispositivo Android.
+Luego abre `http://127.0.0.1:8080` desde un navegador en el mismo dispositivo.
 
 Acceder a un servidor de desarrollo:
 

@@ -12,7 +12,7 @@ Cette page couvre les problèmes courants de Mobile SSH et les premières vérif
 
 Vérifiez :
 
-- L'appareil Android dispose d'un accès réseau.
+- L'appareil dispose d'un accès réseau.
 - Le nom d'hôte ou l'adresse IP du serveur est correct.
 - Le port SSH est correct, généralement `22`.
 - Un pare-feu, un VPN, le réseau de l'opérateur ou le réseau Wi-Fi ne bloquent pas le port.
@@ -34,16 +34,16 @@ Pour les clés privées chiffrées, saisissez la phrase secrète dans le champ m
 
 ## Échec de l'importation de la clé privée
 
-L'importation de la clé privée utilise le sélecteur de fichiers d'Android. Si l'importation échoue :
+L'importation de la clé privée utilise le sélecteur de fichiers du système. Si l'importation échoue :
 
 - Confirmez que le fichier sélectionné est une clé privée, et non un fichier public `.pub`.
 - Ouvrez le fichier dans un éditeur de texte de confiance et vérifiez qu'il contient le bloc de clé complet.
 - Essayez de coller la clé manuellement dans le champ de clé privée.
-- Confirmez que le type de clé est pris en charge par l'implémentation de l'app : Ed25519, RSA, ECDSA ou DSA.
+- Confirmez que le type de clé est pris en charge : Ed25519, RSA, ECDSA ou DSA sur Android ; Ed25519 ou ECDSA (P-256/384/521) sur iOS.
 
 ## La saisie au clavier est retardée ou modifiée
 
-Si votre clavier Android modifie le texte avant qu'il n'atteigne le shell, désactivez les suggestions du clavier dans les réglages de Mobile SSH. C'est utile pour Vim, tmux, htop, less, les shells utilisant des combinaisons de touches inhabituelles et les invites de mot de passe distantes.
+Si votre clavier à l'écran modifie le texte avant qu'il n'atteigne le shell, désactivez les suggestions du clavier dans les réglages de Mobile SSH. C'est utile pour Vim, tmux, htop, less, les shells utilisant des combinaisons de touches inhabituelles et les invites de mot de passe distantes.
 
 Utilisez la rangée de touches supplémentaires pour les touches de terminal comme `ESC`, `TAB`, `CTRL`, les flèches, `HOME`, `END`, `PGUP` et `PGDN`.
 
@@ -60,7 +60,7 @@ Si le défilement semble incorrect :
 
 ## La session est tombée après le verrouillage de l'écran
 
-Mobile SSH utilise des keepalives, un service de premier plan, un wake lock, un Wi-Fi lock et des tentatives de reconnexion pour réduire les déconnexions. Les politiques de batterie d'Android peuvent tout de même arrêter le travail en arrière-plan.
+Sur Android, Mobile SSH utilise des keepalives, un service de premier plan, un wake lock, un Wi-Fi lock et des tentatives de reconnexion pour réduire les déconnexions. Les politiques de batterie d'Android peuvent tout de même arrêter le travail en arrière-plan.
 
 Vérifiez :
 
@@ -69,11 +69,15 @@ Vérifiez :
 - Rouvrez Mobile SSH et touchez **Active Sessions** après le déverrouillage.
 - Si le serveur a déconnecté la session SSH, reconnectez-vous depuis les sessions récentes.
 
+Sur iOS, le système suspend les apps en arrière-plan : une connexion SSH brute ne peut donc pas rester ouverte indéfiniment une fois que vous changez d'app ou verrouillez l'écran. Un court délai de grâce couvre les changements d'app rapides ; pour toute durée plus longue, activez **Auto-attach tmux session** sur le profil du serveur (ou utilisez le transport **Eternal Terminal**) afin que la reconnexion vous ramène dans le même shell, là où vous vous étiez arrêté.
+
 ## Le transfert de fichiers ne parcourt pas les fichiers du téléphone
 
 Sur les versions récentes d'Android, la navigation dans les fichiers locaux peut nécessiter un accès au stockage. Accordez l'accès au stockage dans les Réglages d'Android pour Mobile SSH, puis rouvrez l'écran de transfert de fichiers.
 
 Si les fichiers distants se chargent mais pas les fichiers locaux, la connexion SSH est probablement correcte et le problème vient de l'accès au stockage local Android.
+
+Sur iOS, il n'y a pas de permission de stockage : le volet local affiche la zone de documents de l'app, et vous ajoutez des fichiers via les sélecteurs de documents et de photos du système.
 
 ## Échec de l'envoi ou du téléchargement
 
@@ -83,7 +87,7 @@ Vérifiez :
 - Le répertoire distant existe.
 - L'utilisateur distant a la permission de lire ou d'écrire le chemin.
 - La destination locale est accessible en écriture.
-- Il y a assez d'espace libre sur l'appareil Android.
+- Il y a assez d'espace libre sur l'appareil.
 - Le réseau est stable pour les transferts volumineux.
 
 ## Échec de la redirection de port

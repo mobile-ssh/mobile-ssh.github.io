@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Penerusan port"
-description: "Sintaks penerusan port lokal Mobile SSH dan pengelolaan tunnel untuk Android."
+description: "Sintaks penerusan port lokal Mobile SSH dan pengelolaan tunnel di Android dan iOS."
 ---
 
 # Penerusan port
 
-Mobile SSH mendukung penerusan port SSH lokal. Sebuah port lokal di perangkat Android mendengarkan di `127.0.0.1` dan meneruskan lalu lintas melalui koneksi SSH ke host dan port jarak jauh.
+Mobile SSH mendukung penerusan port SSH lokal di Android maupun iOS. Sebuah port lokal di perangkat mendengarkan di `127.0.0.1` dan meneruskan lalu lintas melalui koneksi SSH ke host dan port jarak jauh.
 
 ## Sintaks tunnel tersimpan
 
@@ -23,7 +23,7 @@ Bentuk singkat:
 8080
 ```
 
-Ini mengikat `127.0.0.1:8080` di perangkat Android dan meneruskannya ke `localhost:8080` dari sudut pandang server.
+Ini mengikat `127.0.0.1:8080` di perangkat dan meneruskannya ke `localhost:8080` dari sudut pandang server.
 
 Bentuk penuh:
 
@@ -31,7 +31,7 @@ Bentuk penuh:
 3000:localhost:3000
 ```
 
-Ini mengikat `127.0.0.1:3000` di perangkat Android dan meneruskannya melalui SSH ke `localhost:3000` di sisi jarak jauh.
+Ini mengikat `127.0.0.1:3000` di perangkat dan meneruskannya melalui SSH ke `localhost:3000` di sisi jarak jauh.
 
 Beberapa penerusan sekaligus:
 
@@ -55,7 +55,7 @@ Saat terhubung, pilih sesi dan buka tampilan tunnel dari bilah alat terminal. Da
 
 ## Pengikatan alamat
 
-Mobile SSH mengikat penerusan lokal ke `127.0.0.1` di perangkat Android. Ini disengaja: menjaga tunnel tetap lokal di perangkat dan menghindari kejutan loopback khusus IPv6. Aplikasi lain di perangkat Android yang sama mungkin dapat terhubung ke port lokal yang diteruskan jika Android mengizinkan akses jaringannya.
+Mobile SSH mengikat penerusan lokal ke `127.0.0.1` di perangkat. Ini disengaja: menjaga tunnel tetap lokal di perangkat dan menghindari kejutan loopback khusus IPv6. Aplikasi lain di perangkat yang sama mungkin dapat terhubung ke port lokal yang diteruskan jika sistem operasi mengizinkan akses jaringannya.
 
 ## Contoh umum
 
@@ -65,7 +65,7 @@ Mengakses layanan web yang berjalan di server jarak jauh:
 8080
 ```
 
-Lalu buka `http://127.0.0.1:8080` dari peramban di perangkat Android.
+Lalu buka `http://127.0.0.1:8080` dari peramban di perangkat yang sama.
 
 Mengakses server pengembangan:
 

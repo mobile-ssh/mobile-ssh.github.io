@@ -60,6 +60,12 @@ export interface Dict {
     versionLine: string;
     ctaDocs: string;
     ctaPlay: string;
+    // iOS install CTA (TestFlight public beta link).
+    ctaIos: string;
+    // Short platform captions used above the screenshot carousels and demo
+    // videos ("Android" / "iOS — iPhone & iPad").
+    platformAndroid: string;
+    platformIos: string;
     advantagesHead: string;
     advantagesIntro: string;
     advantages: FeatureRow[];
@@ -78,12 +84,16 @@ export interface Dict {
     galleryHead: string;
     galleryIntro: string;
     galleryAlts: string[];
+    // Alt text for the iOS screenshot carousel (same order as the iOS shots
+    // in Home.astro).
+    galleryIosAlts: string[];
     carouselPrev: string;
     carouselNext: string;
     carouselDot: string;
     videoHead: string;
     videoIntro: string;
     videoAlt: string;
+    videoIosAlt: string;
     lightboxClose: string;
     lightboxPrev: string;
     lightboxNext: string;

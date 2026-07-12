@@ -6,7 +6,7 @@ description: "SFTP-Dateiübertragungsanleitung von Mobile SSH für lokale und en
 
 # Dateiübertragung
 
-Mobile SSH enthält einen SFTP-Dateiübertragungsbildschirm, der an die aktive SSH-Verbindung gebunden ist. Er ist für schnelle Serverwartung von Android gedacht: eine Konfiguration hochladen, ein Log herunterladen, eine entfernte Datei umbenennen oder Berechtigungen prüfen, ohne die App zu verlassen.
+Mobile SSH enthält einen SFTP-Dateiübertragungsbildschirm, der an die aktive SSH-Verbindung gebunden ist. Er ist für schnelle Serverwartung vom Telefon oder Tablet aus gedacht: eine Konfiguration hochladen, ein Log herunterladen, eine entfernte Datei umbenennen oder Berechtigungen prüfen, ohne die App zu verlassen.
 
 ## Dateiübertragung öffnen
 
@@ -26,11 +26,13 @@ Der Dateiübertragungsbildschirm hat zwei Browserbereiche:
 
 Die App merkt sich die zuletzt verwendeten lokalen und entfernten Pfade pro Host. Auch die Sortiereinstellungen werden pro Host für beide Bereiche gemerkt.
 
-## Android-Speicherberechtigung
+## Speicherzugriff
 
 Auf Android-Versionen, die das direkte Durchsuchen von Dateien einschränken, kann Mobile SSH Speicherzugriff anfordern, bevor der lokale Bereich die Telefondateien durchsuchen kann. Wenn du diese Berechtigung überspringst oder verweigerst, funktioniert das entfernte Durchsuchen möglicherweise weiterhin, aber lokale Hoch- und Herunterladepfade können eingeschränkt sein.
 
-Der Import des privaten Schlüssels ist von der Dateiübertragung getrennt und nutzt die Dateiauswahl von Android.
+Auf iOS arbeitet der lokale Bereich mit dem eigenen Dokumentenbereich der App, und du bringst Dateien über die Dokument- und Fotoauswahl des Systems herein — einschließlich Mehrfachauswahl beim Import von Fotos und Dokumenten. Eine separate Speicherberechtigung ist nicht nötig.
+
+Der Import des privaten Schlüssels ist von der Dateiübertragung getrennt und nutzt die Dateiauswahl des Systems.
 
 ## Dateien hochladen
 
@@ -78,4 +80,4 @@ Jeder Bereich kann nach Name oder Datum auf- oder absteigend sortieren. Mobile S
 - Nutze SFTP für gezielte Dateiverschiebungen; nutze Kommandozeilenwerkzeuge wie `rsync` auf dem Server für die Synchronisierung großer Verzeichnisse.
 - Vermeide das Bearbeiten von Live-Produktionsdateien, sofern du kein Backup oder keinen Rollback-Pfad der Bereitstellung hast.
 - Wenn eine Datei nach dem Hochladen nicht erscheint, aktualisiere den entfernten Bereich oder prüfe den Zielpfad.
-- Wenn der Android-Speicherzugriff das lokale Durchsuchen blockiert, erteile die Berechtigung in den Android-Einstellungen und öffne die Dateiübertragung erneut.
+- Wenn der Android-Speicherzugriff das lokale Durchsuchen blockiert, erteile die Berechtigung in den Android-Einstellungen und öffne die Dateiübertragung erneut. Füge auf iOS Dateien stattdessen über die Auswahldialoge zum lokalen Bereich hinzu.

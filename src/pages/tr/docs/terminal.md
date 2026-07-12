@@ -14,7 +14,7 @@ Mobile SSH terminali telefon ve tablet kullanımı için tasarlanmıştır. Bir 
 - Geri kaydırma arabelleği en fazla 5000 satır tutar.
 - Yazmadan önce bir bölmeyi seçmek için dokunun.
 - Metin boyutunu değiştirmek için bir terminal bölmesini kıstırın. Hareket durulduktan sonra Mobile SSH uzak PTY'yi yeniden boyutlandırır.
-- Tam ekran moduna girmek için bir bölmeye çift dokunun. Izgaraya dönmek için Geri'yi kullanın.
+- Tam ekran moduna girmek için bir bölmeye çift dokunun (veya bölmenin genişletme denetimini kullanın). Izgaraya dönmek için Android'de Geri'yi, iOS'ta ise daraltma denetimini kullanın.
 
 ## Çoklu oturum ızgarası
 
@@ -22,9 +22,20 @@ Mobile SSH aynı anda sekiz SSH oturumuna kadar çalıştırabilir. Her oturum t
 
 Bir bölmeyi kapatmak o SSH oturumunu keser. Başlangıç ekranına dönmek etkin oturumları **Active Sessions** aracılığıyla erişilebilir tutar.
 
+## Eternal Terminal (ET)
+
+Kaydedilen her sunucu, sunucu eklerken veya düzenlerken **Transport** seçiciyle belirlenen iki aktarımdan birini kullanabilir:
+
+- **SSH** — standart bir SSH bağlantısı (varsayılan).
+- **Eternal Terminal** — kabuğunuzu yeniden başlatmadan ağ kesintilerine, cihazın uyku moduna geçmesine ve IP adresi değişikliklerine dayanan bir ET oturumu.
+
+ET oturumu sunucuda canlı tutar; böylece telefonunuz ağ değiştirdiğinde veya uykudan uyandığında Mobile SSH yeni bir kabuk açmak yerine aynı çalışan kabuğa yeniden bağlanır. Bu, onu mobil veri, Wi-Fi/hücresel geçişleri ve uzun süren komutlar için iyi bir seçim yapar.
+
+ET, ana bilgisayarda bir `etserver` süreci gerektirir. Sunucuda yoksa Mobile SSH onu mevcut SSH bağlantısı üzerinden sizin için kurup başlatabilir — elle sunucu kurulumu gerekmez. ET kullanılabilir olduğunda **Eternal Terminal** aktarımı seçili şekilde bağlanın.
+
 ## Ek tuş satırı
 
-Ek tuş satırı Android klavyesinin üstünde görünür ve dokunmatik klavyelerde kullanımı güç olan terminal tuşlarını sağlar:
+Hem Android hem iOS'ta ek tuş satırı ekran klavyesinin üstünde görünür ve dokunmatik klavyelerde kullanımı güç olan terminal tuşlarını sağlar:
 
 - `ESC`
 - `TAB`
@@ -43,19 +54,19 @@ Ek tuş satırı Android klavyesinin üstünde görünür ve dokunmatik klavyele
 
 Mobile SSH'de klavyeyle ilgili iki ayar bulunur:
 
-- **Klavyeyi göstermek için terminale dokun:** etkinleştirildiğinde terminale dokunmak Android'den giriş yöntemini göstermesini ister.
+- **Klavyeyi göstermek için terminale dokun:** etkinleştirildiğinde terminale dokunmak sistemden ekran klavyesini göstermesini ister.
 - **Keyboard suggestions:** etkinleştirildiğinde uyumlu klavyeler kabuk istemlerinde öneri gösterebilir. Öneriler terminal programlarıyla çakışıyorsa devre dışı bırakın.
 
 Öneriler etkinken Mobile SSH, oluşturulan metni bir sözcük sınırına kadar arabelleğe alır; böylece klavye düzeltmesi geçerli sözcüğü uzak kabuğa gönderilmeden önce değiştirebilir. Denetim tuşları ve terminal akorları bu arabelleği atlar; dolayısıyla tmux önek komutları gibi kısayollar anında iletilir.
 
-Sesli giriş (Gboard mikrofon düğmesi) aynı oluşturma metni arabelleğinden geçer; bu nedenle dikte edilen metin karakter karakter değil, çözümlendikten sonra tek seferde gönderilir.
+Android'de sesli giriş (Gboard mikrofon düğmesi) aynı oluşturma metni arabelleğinden geçer; bu nedenle dikte edilen metin karakter karakter değil, çözümlendikten sonra tek seferde gönderilir.
 
 ## Seç, kopyala, paylaş
 
 Seçim moduna girmek için terminalin içine uzun basın. Seçim araç çubuğu üç işlem sunar:
 
-- **Copy** — seçili metni Android panosuna koyar.
-- **Share** — seçili metni Android paylaşım sayfasına (e-posta, notlar, mesajlaşma vb.) iletir.
+- **Copy** — seçili metni sistem panosuna koyar.
+- **Share** — seçili metni sistem paylaşım sayfasına (e-posta, notlar, mesajlaşma vb.) iletir.
 - **Select all** — seçimi görünür terminal arabelleğinin tamamına genişletir, ardından Copy veya Share uygulanabilir.
 
 ## Kaydırma
@@ -81,6 +92,23 @@ tmux new -A -s work
 tmux'tayken bağlantı düştüğünde uygulama o sunucunun son tmux oturum adını hatırlayabilir ve yeniden bağlandıktan sonra yeniden eklemeyi deneyebilir. Açık bir oturum adı gözlemlenmediyse ancak uygulama alternatif ekranlı tmux benzeri bir oturumda olduğunuzu tespit ettiyse genel bir `tmux attach` deneyebilir.
 
 Bu davranış elden gelenin en iyisidir. Uzak tmux oturumu artık mevcut değilse uzak kabuk kullanılabilir kalmaya devam eder.
+
+## Tmux yöneticisi
+
+Mobile SSH, önek akorları yazmadan tmux'u gezip yönetebilmeniz için bir tmux yöneticisi içerir. Bağlı bir oturumdan **Tmux** düğmesiyle açın. Üç bölüm halinde listeler:
+
+- **Sessions** — sunucudaki tüm tmux oturumları.
+- **Windows** — seçili oturumdaki pencereler.
+- **Panes** — seçili penceredeki bölmeler.
+
+Yöneticiden şunları yapabilirsiniz:
+
+- Bir oturumu geçerli terminale **bağlayın (attach)**.
+- Yeni bir oturum veya pencere **oluşturun** ve bunları **yeniden adlandırın**.
+- Bir bölmeyi yatay veya dikey **bölün**, bir bölmeyi **yakınlaştırın** ve oturumları, pencereleri veya bölmeleri **sonlandırın**.
+- Oturumları ada veya oluşturulma tarihine göre **sıralayın**.
+
+🔔 simgesi, ajanı girdi bekleyen her oturumu işaretler; böylece duraklamış bir Claude Code veya Codex çalışmasını bir bakışta fark edip ona bağlanabilirsiniz. Bu, yukarıdaki reattach ipuçlarını tamamlar: reattach mantığı yeniden bağlanmada son oturumunuzu otomatik olarak geri yüklerken, yönetici size tam elle denetim sunar.
 
 ## Agent alerts
 

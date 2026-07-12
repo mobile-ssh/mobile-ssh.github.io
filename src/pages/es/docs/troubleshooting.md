@@ -12,7 +12,7 @@ Esta página cubre los problemas comunes de Mobile SSH y las primeras comprobaci
 
 Comprueba:
 
-- El dispositivo Android tiene acceso a la red.
+- El dispositivo tiene acceso a la red.
 - El nombre de host o la dirección IP del servidor es correcto.
 - El puerto SSH es correcto, normalmente `22`.
 - Un firewall, una VPN, la red del operador o la red Wi-Fi no están bloqueando el puerto.
@@ -34,16 +34,16 @@ Para claves privadas cifradas, introduce la frase de contraseña en el campo de 
 
 ## Falló la importación de la clave privada
 
-La importación de la clave privada usa el selector de archivos de Android. Si la importación falla:
+La importación de la clave privada usa el selector de archivos del sistema. Si la importación falla:
 
 - Confirma que el archivo seleccionado es una clave privada, no un archivo público `.pub`.
 - Abre el archivo en un editor de texto de confianza y verifica que contiene el bloque completo de la clave.
 - Prueba a pegar la clave manualmente en el campo de clave privada.
-- Confirma que el tipo de clave es uno de los admitidos por la implementación de la app: Ed25519, RSA, ECDSA o DSA.
+- Confirma que el tipo de clave es compatible: Ed25519, RSA, ECDSA o DSA en Android; Ed25519 o ECDSA (P-256/384/521) en iOS.
 
 ## La entrada del teclado se retrasa o cambia
 
-Si tu teclado de Android cambia el texto antes de que llegue al shell, desactiva las sugerencias del teclado en los ajustes de Mobile SSH. Es útil para Vim, tmux, htop, less, shells con combinaciones de teclas poco habituales y prompts de contraseña remotos.
+Si tu teclado en pantalla cambia el texto antes de que llegue al shell, desactiva las sugerencias del teclado en los ajustes de Mobile SSH. Es útil para Vim, tmux, htop, less, shells con combinaciones de teclas poco habituales y prompts de contraseña remotos.
 
 Usa la fila de teclas extra para teclas de terminal como `ESC`, `TAB`, `CTRL`, flechas, `HOME`, `END`, `PGUP` y `PGDN`.
 
@@ -60,7 +60,7 @@ Si el desplazamiento no funciona bien:
 
 ## La sesión se cae tras el bloqueo de pantalla
 
-Mobile SSH usa keepalives, un servicio en primer plano, wake lock, Wi-Fi lock e intentos de reconexión para reducir las desconexiones. Las políticas de batería de Android aún pueden detener el trabajo en segundo plano.
+En Android, Mobile SSH usa keepalives, un servicio en primer plano, wake lock, Wi-Fi lock e intentos de reconexión para reducir las desconexiones. Las políticas de batería de Android aún pueden detener el trabajo en segundo plano.
 
 Comprueba:
 
@@ -69,11 +69,15 @@ Comprueba:
 - Vuelve a abrir Mobile SSH y toca **Active Sessions** tras desbloquear.
 - Si el servidor desconectó la sesión SSH, reconéctate desde las sesiones recientes.
 
+En iOS, el sistema suspende las apps en segundo plano, por lo que una conexión SSH en bruto no puede mantenerse abierta indefinidamente una vez que cambias de app o bloqueas la pantalla. Un breve período de gracia cubre los cambios rápidos de app; para cualquier cosa más larga, activa **Auto-attach tmux session** en el perfil del servidor (o usa el transporte **Eternal Terminal**) para que al reconectarte vuelvas al mismo shell donde lo dejaste.
+
 ## La transferencia de archivos no explora los archivos del teléfono
 
 En versiones recientes de Android, la exploración de archivos locales puede requerir acceso al almacenamiento. Concede el acceso al almacenamiento en los Ajustes de Android para Mobile SSH y vuelve a abrir la pantalla de transferencia de archivos.
 
 Si los archivos remotos cargan pero los locales no, la conexión SSH probablemente está bien y el problema es el acceso al almacenamiento local de Android.
+
+En iOS no hay permiso de almacenamiento: el panel local muestra el área de documentos de la app, y los archivos se añaden mediante los selectores de documentos y fotos del sistema.
 
 ## Falló la subida o la descarga
 
@@ -83,7 +87,7 @@ Comprueba:
 - El directorio remoto existe.
 - El usuario remoto tiene permiso para leer o escribir en la ruta.
 - El destino local admite escritura.
-- Hay suficiente espacio libre en el dispositivo Android.
+- Hay suficiente espacio libre en el dispositivo.
 - La red es estable para transferencias grandes.
 
 ## Falló el reenvío de puertos

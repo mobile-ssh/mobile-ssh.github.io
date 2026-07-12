@@ -6,14 +6,19 @@ description: "First steps to install Mobile SSH, connect to server, save profile
 
 # How to Start
 
-Mobile SSH na Android SSH client wey you fit use connect to your own Linux, Unix, network, IoT, or development servers. You go provide di server address and credentials; di app go open one interactive SSH terminal.
+Mobile SSH na SSH client for Android and iOS wey you fit use connect to your own Linux, Unix, network, IoT, or development servers. You go provide di server address and credentials; di app go open one interactive SSH terminal.
 
 ## Wetin you need
 
-- Android 8.0 or newer.
-- Network access from di Android device go your SSH server.
+- Android 8.0 or newer, or iOS 16 or newer (iPhone or iPad).
+- Network access from di device go your SSH server.
 - SSH server hostname or IP address, port, username, and either password or private key.
-- Storage access if you wan use SFTP file transfer with di local phone file browser.
+- For Android, storage access if you wan use SFTP file transfer with di local phone file browser; iOS dey use di system file and photo pickers instead.
+
+## Install di app
+
+- **Android:** install Mobile SSH from Google Play.
+- **iOS:** di iOS app dey come as public beta for TestFlight. Install Apple TestFlight app, then open di Mobile SSH invite link from di site home page to install am and dey receive updates.
 
 ## Connect to one server
 
@@ -41,11 +46,11 @@ Use saved servers for hosts wey you dey access plenty times. If one saved server
 
 Di **Credentials** screen dey store username/password or username/private-key records wey you fit reuse. You fit select saved credentials from di server setup dialog so you no go need enter di same login material for every host again.
 
-Credential records dey store local for di Android device. Protect di device with screen lock if you save passwords, passphrases, or private keys.
+Credential records dey store local for di device — for iOS, di secrets dey stay inside di system Keychain. Protect di device with screen lock if you save passwords, passphrases, or private keys.
 
 ## Use private keys
 
-Mobile SSH dey support pasted private keys and key import through di Android file picker. Di app dey support Ed25519, RSA, ECDSA, and DSA keys.
+Mobile SSH dey support pasted private keys and key import through di system file picker. For Android di app dey support Ed25519, RSA, ECDSA, and DSA keys; for iOS e dey support Ed25519 and ECDSA (P-256/384/521) keys.
 
 To use private key:
 
@@ -54,7 +59,7 @@ To use private key:
 3. Enter di key passphrase for di password/passphrase field if di key dey encrypted.
 4. Save di credential or server.
 
-Private key import dey use Android file picker for key files. File transfer dey use separate local file browser and fit request wider storage access for newer Android versions.
+Private key import dey use di system file picker for key files. For Android, file transfer dey use separate local file browser and fit request wider storage access for newer Android versions; for iOS, files dey enter through di system document and photo pickers.
 
 ## Recent sessions
 
@@ -81,7 +86,7 @@ Open **Settings** from di start screen (e get im own page):
 
 ## Languages
 
-Mobile SSH dey follow di Android system language. Di app dey ship with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages** instead of from inside di app.
+Mobile SSH dey follow di system language. Di app dey ship with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages**, or for iOS from **Settings → General → Language & Region**, instead of from inside di app.
 
 ## Security note
 

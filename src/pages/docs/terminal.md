@@ -14,7 +14,7 @@ The Mobile SSH terminal is built for phone and tablet operation. It combines a t
 - The scrollback buffer keeps up to 5000 lines.
 - Tap a pane to select it before typing.
 - Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
-- Double-tap a pane to enter fullscreen mode. Use Back to return to the grid.
+- Double-tap a pane (or use its expand control) to enter fullscreen mode. Use Back on Android, or the collapse control on iOS, to return to the grid.
 
 ## Multi-session grid
 
@@ -35,7 +35,7 @@ ET needs an `etserver` process on the host. If the server does not have one, Mob
 
 ## Extra key row
 
-The extra key row appears above the Android keyboard and provides terminal keys that are awkward on touch keyboards:
+On both Android and iOS, the extra key row appears above the on-screen keyboard and provides terminal keys that are awkward on touch keyboards:
 
 - `ESC`
 - `TAB`
@@ -54,19 +54,19 @@ The extra key row appears above the Android keyboard and provides terminal keys 
 
 Mobile SSH has two keyboard-related settings:
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks Android to show the input method.
+- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks the system to show the on-screen keyboard.
 - **Keyboard suggestions:** when enabled, compatible keyboards can show suggestions at shell prompts. Disable this if suggestions interfere with terminal programs.
 
 When suggestions are enabled, Mobile SSH buffers composing text until a word boundary so keyboard correction can replace the current word before it is sent to the remote shell. Control keys and terminal chords bypass that buffer so shortcuts such as tmux prefix commands still arrive promptly.
 
-Voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
+On Android, voice input (the Gboard microphone button) is routed through the same composing-text buffer, so dictated text is sent once it resolves rather than character by character.
 
 ## Select, copy, share
 
 Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
 
-- **Copy** -- place the selected text on the Android clipboard.
-- **Share** -- pass the selected text to the Android share sheet (mail, notes, messaging, etc.).
+- **Copy** -- place the selected text on the system clipboard.
+- **Share** -- pass the selected text to the system share sheet (mail, notes, messaging, etc.).
 - **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
 
 ## Scrolling

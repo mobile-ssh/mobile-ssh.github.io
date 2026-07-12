@@ -27,6 +27,26 @@ const galleryShots = [
   "/assets/screenshots/phone-14-aichat.png",
   "/assets/screenshots/phone-15-eternal.png"
 ];
+
+const galleryIosShots = [
+  "/assets/screenshots/ios-01-connect.png",
+  "/assets/screenshots/ios-02-servers.png",
+  "/assets/screenshots/ios-03-terminal.png",
+  "/assets/screenshots/ios-04-multiplex.png",
+  "/assets/screenshots/ios-05-sftp.png",
+  "/assets/screenshots/ios-06-keygen.png",
+  "/assets/screenshots/ios-07-tmux.png",
+  "/assets/screenshots/ios-08-code.png",
+  "/assets/screenshots/ios-09-plugins.png",
+  "/assets/screenshots/ios-10-eternal.png",
+  "/assets/screenshots/ios-11-agent-alerts.png",
+  "/assets/screenshots/ios-12-recent.png"
+];
+
+const galleries = [
+  { label: "android", shots: galleryShots },
+  { label: "ios", shots: galleryIosShots }
+];
 ---
 
 <BaseLayout title={t.home.metaTitle} description={t.home.metaDescription} locale={locale} pathKey="home">
@@ -44,6 +64,7 @@ const galleryShots = [
           <div class="cta-row">
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
             <a class="button secondary" href={PLAY_STORE_URL} rel="noopener">{t.home.ctaPlay}</a>
+            <a class="button secondary" href={TESTFLIGHT_URL} rel="noopener">{t.home.ctaIos}</a>
           </div>
           <a class="beta-banner" href="/beta/">
             <span class="beta-banner-flag">Beta</span>
@@ -131,21 +152,28 @@ const galleryShots = [
           <h2>{t.home.galleryHead}</h2>
           <p>{t.home.galleryIntro}</p>
         </div>
-        <div class="carousel" id="shot-carousel" data-dot-label={t.home.carouselDot}>
-          <div class="carousel-viewport">
-            <button class="carousel-arrow carousel-prev" type="button" aria-label={t.home.carouselPrev}>‹</button>
-            <div class="carousel-track">
-              {galleryShots.map((src, i) => (
-                <figure class="carousel-slide">
-                  <div class="device-shot phone-shot">
-                    <img class="zoomable" src={src} alt={t.home.galleryAlts[i]} loading="lazy" />
+        <div class="gallery-duo">
+          {galleries.map((g) => (
+            <div class="gallery-col">
+              <h3 class="platform-label">{g.label === "android" ? t.home.platformAndroid : t.home.platformIos}</h3>
+              <div class="carousel" data-dot-label={t.home.carouselDot}>
+                <div class="carousel-viewport">
+                  <button class="carousel-arrow carousel-prev" type="button" aria-label={t.home.carouselPrev}>‹</button>
+                  <div class="carousel-track">
+                    {g.shots.map((src, i) => (
+                      <figure class="carousel-slide">
+                        <div class="device-shot phone-shot">
+                          <img class="zoomable" src={src} alt={(g.label === "android" ? t.home.galleryAlts : t.home.galleryIosAlts)[i]} loading="lazy" />
+                        </div>
+                      </figure>
+                    ))}
                   </div>
-                </figure>
-              ))}
+                  <button class="carousel-arrow carousel-next" type="button" aria-label={t.home.carouselNext}>›</button>
+                </div>
+                <div class="carousel-dots"></div>
+              </div>
             </div>
-            <button class="carousel-arrow carousel-next" type="button" aria-label={t.home.carouselNext}>›</button>
-          </div>
-          <div class="carousel-dots"></div>
+          ))}
         </div>
       </div>
     </section>
@@ -156,15 +184,29 @@ const galleryShots = [
           <h2>{t.home.videoHead}</h2>
           <p>{t.home.videoIntro}</p>
         </div>
-        <div class="video-solo">
-          <video
-            id="feat-video"
-            src="/assets/videos/features.mp4"
-            poster="/assets/screenshots/phone-03-terminal.png"
-            controls
-            preload="none"
-            aria-label={t.home.videoAlt}
-          ></video>
+        <div class="video-duo">
+          <figure class="video-col">
+            <figcaption class="platform-label">{t.home.platformAndroid}</figcaption>
+            <video
+              class="feat-video"
+              src="/assets/videos/features.mp4"
+              poster="/assets/screenshots/phone-03-terminal.png"
+              controls
+              preload="none"
+              aria-label={t.home.videoAlt}
+            ></video>
+          </figure>
+          <figure class="video-col">
+            <figcaption class="platform-label">{t.home.platformIos}</figcaption>
+            <video
+              class="feat-video"
+              src="/assets/videos/ios-features.mp4"
+              poster="/assets/screenshots/ios-03-terminal.png"
+              controls
+              preload="none"
+              aria-label={t.home.videoIosAlt}
+            ></video>
+          </figure>
         </div>
       </div>
     </section>
@@ -200,11 +242,31 @@ const galleryShots = [
 <style>
   img.zoomable { cursor: zoom-in; }
 
-  .video-solo {
-    display: flex;
+  /* Two platform columns (Android / iOS) for the gallery and the demo videos. */
+  .gallery-duo,
+  .video-duo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 480px));
+    gap: 2.5rem 3rem;
     justify-content: center;
   }
-  .video-solo video {
+  .gallery-col { min-width: 0; }
+  .video-col {
+    margin: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .platform-label {
+    margin: 0 0 0.9rem;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    opacity: 0.85;
+  }
+  .video-col video {
     width: 100%;
     max-width: 480px;
     border-radius: 20px;
@@ -421,6 +483,7 @@ const galleryShots = [
   .carousel-next { right: 0.5rem; }
   .carousel-dots {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
     margin-top: 0.75rem;
@@ -489,9 +552,7 @@ const galleryShots = [
 </script>
 
 <script is:inline>
-  (() => {
-    const root = document.getElementById("shot-carousel");
-    if (!root) return;
+  document.querySelectorAll(".carousel").forEach((root) => {
     const track = root.querySelector(".carousel-track");
     const dotsBox = root.querySelector(".carousel-dots");
     const slides = Array.from(root.querySelectorAll(".carousel-slide"));
@@ -554,17 +615,15 @@ const galleryShots = [
     perView = getPerView();
     buildDots();
     render();
-  })();
+  });
 </script>
 
 <script is:inline>
-  (() => {
-    const v = document.getElementById("feat-video");
-    if (!v) return;
+  document.querySelectorAll(".feat-video").forEach((v) => {
     // Clicking anywhere on the poster/content starts playback inline.
     // Fullscreen is left to the browser's native fullscreen button.
     v.addEventListener("click", () => {
       if (v.paused) v.play().catch(() => {});
     });
-  })();
+  });
 </script>

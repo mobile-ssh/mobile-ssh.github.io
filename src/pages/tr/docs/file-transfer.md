@@ -6,7 +6,7 @@ description: "Yerel dosyalar, uzak dosyalar, yükleme, indirme, sıralama ve izi
 
 # Dosya aktarımı
 
-Mobile SSH, etkin SSH bağlantısına bağlı bir SFTP dosya aktarım ekranı içerir. Android'den hızlı sunucu bakımı içindir: bir yapılandırma yükleyin, bir günlük indirin, uzak bir dosyayı yeniden adlandırın veya uygulamadan çıkmadan izinleri inceleyin.
+Mobile SSH, etkin SSH bağlantısına bağlı bir SFTP dosya aktarım ekranı içerir. Telefonunuzdan veya tabletinizden hızlı sunucu bakımı içindir: bir yapılandırma yükleyin, bir günlük indirin, uzak bir dosyayı yeniden adlandırın veya uygulamadan çıkmadan izinleri inceleyin.
 
 ## Dosya aktarımını açma
 
@@ -26,11 +26,13 @@ Dosya aktarım ekranında iki tarayıcı bölmesi vardır:
 
 Uygulama, sunucu başına son yerel ve uzak yolları hatırlar. Sıralama ayarları da her iki bölme için sunucu başına hatırlanır.
 
-## Android depolama izni
+## Depolama erişimi
 
 Doğrudan dosya taramayı kısıtlayan Android sürümlerinde, yerel bölme telefon dosyalarını tarayabilmeden önce Mobile SSH depolama erişimi isteyebilir. Bu izni atlarsanız veya reddederseniz uzak tarama yine de çalışabilir, ancak yerel yükleme ve indirme yolları sınırlı olabilir.
 
-Özel anahtar içe aktarma işlemi dosya aktarımından bağımsızdır ve Android dosya seçiciyi kullanır.
+iOS'ta yerel bölme, uygulamanın kendi belgeler alanıyla çalışır ve dosyaları sistem belge ve fotoğraf seçicileri aracılığıyla içeri alırsınız — fotoğrafların ve belgelerin çoklu seçimle içe aktarılması dahil. Ayrı bir depolama izni gerekmez.
+
+Özel anahtar içe aktarma işlemi dosya aktarımından bağımsızdır ve sistem dosya seçiciyi kullanır.
 
 ## Dosya yükleme
 
@@ -78,4 +80,4 @@ Aktarımlar kuyruğa alınır ve duruma göre gösterilir. Günlük alanı kuyru
 - Hedefli dosya taşımaları için SFTP kullanın; büyük dizin eşitlemesi için sunucuda `rsync` gibi komut satırı araçlarını tercih edin.
 - Yedeğiniz veya dağıtım geri alma yolunuz olmadıkça canlı üretim dosyalarını düzenlemekten kaçının.
 - Yükledikten sonra bir dosya görünmüyorsa uzak bölmeyi yenileyin veya hedef yolu doğrulayın.
-- Android depolama erişimi yerel taramayı engelliyorsa Android Ayarları'ndan izni verin ve dosya aktarımını yeniden açın.
+- Android depolama erişimi yerel taramayı engelliyorsa Android Ayarları'ndan izni verin ve dosya aktarımını yeniden açın. iOS'ta ise dosyaları yerel bölmeye eklemek için bunun yerine seçicileri kullanın.

@@ -1,12 +1,12 @@
 ---
 layout: ../../layouts/DocLayout.astro
 title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management for Android.
+description: Mobile SSH local port forwarding syntax and tunnel management on Android and iOS.
 ---
 
 # Port forwarding
 
-Mobile SSH supports local SSH port forwarding. A local port on the Android device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
+Mobile SSH supports local SSH port forwarding on both Android and iOS. A local port on the device listens on `127.0.0.1` and forwards traffic through the SSH connection to a remote host and port.
 
 ## Saved tunnel syntax
 
@@ -23,7 +23,7 @@ Short form:
 8080
 ```
 
-This binds `127.0.0.1:8080` on the Android device and forwards it to `localhost:8080` from the server's point of view.
+This binds `127.0.0.1:8080` on the device and forwards it to `localhost:8080` from the server's point of view.
 
 Full form:
 
@@ -31,7 +31,7 @@ Full form:
 3000:localhost:3000
 ```
 
-This binds `127.0.0.1:3000` on the Android device and forwards it through SSH to `localhost:3000` on the remote side.
+This binds `127.0.0.1:3000` on the device and forwards it through SSH to `localhost:3000` on the remote side.
 
 Multiple forwards:
 
@@ -55,7 +55,7 @@ While connected, select the session and open the tunnel view from the terminal t
 
 ## Address binding
 
-Mobile SSH binds local forwards to `127.0.0.1` on the Android device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same Android device may be able to connect to the forwarded local port if Android permits their network access.
+Mobile SSH binds local forwards to `127.0.0.1` on the device. This is intentional: it keeps the tunnel local to the device and avoids IPv6-only loopback surprises. Other apps on the same device may be able to connect to the forwarded local port if the operating system permits their network access.
 
 ## Common examples
 
@@ -65,7 +65,7 @@ Access a web service running on the remote server:
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from a browser on the Android device.
+Then open `http://127.0.0.1:8080` from a browser on the same device.
 
 Access a development server:
 

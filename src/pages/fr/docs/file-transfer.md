@@ -6,7 +6,7 @@ description: "Guide de transfert de fichiers SFTP de Mobile SSH pour les fichier
 
 # Transfert de fichiers
 
-Mobile SSH inclut un écran de transfert de fichiers SFTP lié à la connexion SSH active. Il est destiné à la maintenance rapide d'un serveur depuis Android : envoyer une configuration, télécharger un journal, renommer un fichier distant ou inspecter des permissions sans quitter l'app.
+Mobile SSH inclut un écran de transfert de fichiers SFTP lié à la connexion SSH active. Il est destiné à la maintenance rapide d'un serveur depuis votre téléphone ou votre tablette : envoyer une configuration, télécharger un journal, renommer un fichier distant ou inspecter des permissions sans quitter l'app.
 
 ## Ouvrir le transfert de fichiers
 
@@ -26,11 +26,13 @@ L'écran de transfert de fichiers comporte deux volets de navigation :
 
 L'app mémorise les chemins locaux et distants récents par hôte. Les réglages de tri sont aussi mémorisés par hôte pour les deux volets.
 
-## Permission de stockage Android
+## Accès au stockage
 
 Sur les versions d'Android qui restreignent la navigation directe dans les fichiers, Mobile SSH peut demander un accès au stockage avant que le volet local puisse parcourir les fichiers du téléphone. Si vous ignorez ou refusez cette permission, la navigation distante peut toujours fonctionner, mais les chemins locaux d'envoi et de téléchargement peuvent être limités.
 
-L'importation de la clé privée est distincte du transfert de fichiers et utilise le sélecteur de fichiers d'Android.
+Sur iOS, le volet local fonctionne avec la zone de documents propre à l'app, et vous importez des fichiers via les sélecteurs de documents et de photos du système — y compris l'importation en sélection multiple de photos et de documents. Aucune permission de stockage distincte n'est nécessaire.
+
+L'importation de la clé privée est distincte du transfert de fichiers et utilise le sélecteur de fichiers du système.
 
 ## Envoyer des fichiers
 
@@ -78,4 +80,4 @@ Les transferts sont mis en file et affichés par statut. La zone de journal sép
 - Utilisez SFTP pour des déplacements de fichiers ponctuels ; utilisez des outils en ligne de commande comme `rsync` sur le serveur pour synchroniser de grands répertoires.
 - Évitez de modifier des fichiers de production en service sans sauvegarde ni possibilité de retour arrière du déploiement.
 - Si un fichier n'apparaît pas après l'envoi, actualisez le volet distant ou vérifiez le chemin de destination.
-- Si l'accès au stockage Android bloque la navigation locale, accordez la permission dans les Réglages d'Android et rouvrez le transfert de fichiers.
+- Si l'accès au stockage Android bloque la navigation locale, accordez la permission dans les Réglages d'Android et rouvrez le transfert de fichiers. Sur iOS, utilisez plutôt les sélecteurs pour ajouter des fichiers au volet local.

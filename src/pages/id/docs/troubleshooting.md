@@ -12,7 +12,7 @@ Halaman ini membahas masalah umum Mobile SSH dan pemeriksaan pertama yang dijala
 
 Periksa:
 
-- Perangkat Android memiliki akses jaringan.
+- Perangkat memiliki akses jaringan.
 - Nama host atau alamat IP server benar.
 - Port SSH benar, biasanya `22`.
 - Firewall, VPN, jaringan operator, atau jaringan Wi-Fi tidak memblokir port.
@@ -34,16 +34,16 @@ Untuk kunci privat terenkripsi, masukkan frasa sandi di kolom kata sandi/frasa s
 
 ## Impor kunci privat gagal
 
-Impor kunci privat menggunakan pemilih berkas Android. Jika impor gagal:
+Impor kunci privat menggunakan pemilih berkas sistem. Jika impor gagal:
 
 - Pastikan berkas yang dipilih adalah kunci privat, bukan berkas publik `.pub`.
 - Buka berkas di editor teks tepercaya dan verifikasi berisi blok kunci lengkap.
 - Coba tempel kunci secara manual ke kolom kunci privat.
-- Pastikan tipe kunci didukung implementasi aplikasi: Ed25519, RSA, ECDSA, atau DSA.
+- Pastikan tipe kunci didukung: Ed25519, RSA, ECDSA, atau DSA di Android; Ed25519 atau ECDSA (P-256/384/521) di iOS.
 
 ## Input keyboard tertunda atau berubah
 
-Jika keyboard Android Anda mengubah teks sebelum mencapai shell, nonaktifkan saran keyboard di pengaturan Mobile SSH. Ini berguna untuk Vim, tmux, htop, less, shell dengan kord tombol tak lazim, dan prompt kata sandi jarak jauh.
+Jika keyboard di layar Anda mengubah teks sebelum mencapai shell, nonaktifkan saran keyboard di pengaturan Mobile SSH. Ini berguna untuk Vim, tmux, htop, less, shell dengan kord tombol tak lazim, dan prompt kata sandi jarak jauh.
 
 Gunakan baris tombol tambahan untuk tombol terminal seperti `ESC`, `TAB`, `CTRL`, panah, `HOME`, `END`, `PGUP`, dan `PGDN`.
 
@@ -60,7 +60,7 @@ Jika gulir terasa salah:
 
 ## Sesi putus setelah layar terkunci
 
-Mobile SSH memakai keepalive, layanan latar depan, wake lock, Wi-Fi lock, dan upaya koneksi ulang untuk mengurangi pemutusan. Kebijakan baterai Android tetap dapat menghentikan kerja latar belakang.
+Di Android, Mobile SSH memakai keepalive, layanan latar depan, wake lock, Wi-Fi lock, dan upaya koneksi ulang untuk mengurangi pemutusan. Kebijakan baterai Android tetap dapat menghentikan kerja latar belakang.
 
 Periksa:
 
@@ -69,11 +69,15 @@ Periksa:
 - Buka kembali Mobile SSH dan ketuk **Active Sessions** setelah membuka kunci.
 - Jika server memutus sesi SSH, sambung kembali dari sesi terbaru.
 
+Di iOS, sistem menangguhkan aplikasi di latar belakang, sehingga koneksi SSH mentah tidak dapat dibiarkan terbuka tanpa batas begitu Anda berpindah aplikasi atau mengunci layar. Masa tenggang singkat mencakup perpindahan aplikasi yang cepat; untuk durasi yang lebih lama, aktifkan **Auto-attach tmux session** pada profil server (atau gunakan transport **Eternal Terminal**) sehingga saat tersambung kembali Anda langsung berada di shell yang sama tempat Anda meninggalkannya.
+
 ## Transfer berkas tidak dapat menjelajahi berkas ponsel
 
 Pada versi Android yang lebih baru, penjelajahan berkas lokal mungkin memerlukan akses penyimpanan. Berikan akses penyimpanan di Pengaturan Android untuk Mobile SSH, lalu buka kembali layar transfer berkas.
 
 Jika berkas jarak jauh dimuat tetapi berkas lokal tidak, koneksi SSH kemungkinan baik-baik saja dan masalahnya pada akses penyimpanan lokal Android.
+
+Di iOS tidak ada izin penyimpanan: panel lokal menampilkan area dokumen aplikasi, dan Anda menambahkan berkas melalui pemilih dokumen dan foto sistem.
 
 ## Unggah atau unduh gagal
 
@@ -83,7 +87,7 @@ Periksa:
 - Direktori jarak jauh ada.
 - Pengguna jarak jauh punya izin membaca atau menulis jalur tersebut.
 - Tujuan lokal dapat ditulisi.
-- Ada cukup ruang kosong di perangkat Android.
+- Ada cukup ruang kosong di perangkat.
 - Jaringan stabil untuk transfer besar.
 
 ## Penerusan port gagal

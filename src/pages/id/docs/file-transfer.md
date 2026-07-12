@@ -6,7 +6,7 @@ description: "Panduan transfer berkas SFTP Mobile SSH untuk berkas lokal, berkas
 
 # Transfer berkas
 
-Mobile SSH menyertakan layar transfer berkas SFTP yang terikat ke koneksi SSH aktif. Ini ditujukan untuk pemeliharaan server cepat dari Android: mengunggah konfigurasi, mengunduh log, mengganti nama berkas jarak jauh, atau memeriksa izin tanpa meninggalkan aplikasi.
+Mobile SSH menyertakan layar transfer berkas SFTP yang terikat ke koneksi SSH aktif. Ini ditujukan untuk pemeliharaan server cepat dari ponsel atau tablet Anda: mengunggah konfigurasi, mengunduh log, mengganti nama berkas jarak jauh, atau memeriksa izin tanpa meninggalkan aplikasi.
 
 ## Membuka transfer berkas
 
@@ -26,11 +26,13 @@ Layar transfer berkas memiliki dua panel peramban:
 
 Aplikasi mengingat jalur lokal dan jarak jauh terbaru per host. Pengaturan pengurutan juga diingat per host untuk kedua panel.
 
-## Izin penyimpanan Android
+## Akses penyimpanan
 
 Pada versi Android yang membatasi penjelajahan berkas langsung, Mobile SSH mungkin meminta akses penyimpanan sebelum panel lokal dapat menjelajahi berkas ponsel. Jika Anda melewati atau menolak izin ini, penjelajahan jarak jauh mungkin tetap berfungsi, tetapi jalur unggah dan unduh lokal bisa terbatas.
 
-Impor kunci privat terpisah dari transfer berkas dan menggunakan pemilih berkas Android.
+Di iOS, panel lokal bekerja dengan area dokumen milik aplikasi sendiri, dan Anda memasukkan berkas melalui pemilih dokumen dan foto sistem — termasuk impor multi-pilih untuk foto dan dokumen. Tidak diperlukan izin penyimpanan terpisah.
+
+Impor kunci privat terpisah dari transfer berkas dan menggunakan pemilih berkas sistem.
 
 ## Mengunggah berkas
 
@@ -78,4 +80,4 @@ Transfer diantrekan dan ditampilkan menurut status. Area log memisahkan transfer
 - Gunakan SFTP untuk pemindahan berkas tertentu; gunakan alat baris perintah seperti `rsync` di server untuk sinkronisasi direktori besar.
 - Hindari mengedit berkas produksi langsung kecuali Anda memiliki cadangan atau jalur rollback penyebaran.
 - Jika berkas tidak muncul setelah diunggah, segarkan panel jarak jauh atau verifikasi jalur tujuan.
-- Jika akses penyimpanan Android memblokir penjelajahan lokal, berikan izin dari Pengaturan Android dan buka kembali transfer berkas.
+- Jika akses penyimpanan Android memblokir penjelajahan lokal, berikan izin dari Pengaturan Android dan buka kembali transfer berkas. Di iOS, gunakan pemilih tersebut untuk menambahkan berkas ke panel lokal.

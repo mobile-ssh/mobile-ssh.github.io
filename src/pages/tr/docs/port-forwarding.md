@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Bağlantı noktası yönlendirme"
-description: "Android için Mobile SSH yerel bağlantı noktası yönlendirme söz dizimi ve tünel yönetimi."
+description: "Android ve iOS'ta Mobile SSH yerel bağlantı noktası yönlendirme söz dizimi ve tünel yönetimi."
 ---
 
 # Bağlantı noktası yönlendirme
 
-Mobile SSH yerel SSH bağlantı noktası yönlendirmeyi destekler. Android cihazdaki yerel bir bağlantı noktası `127.0.0.1` üzerinde dinler ve trafiği SSH bağlantısı aracılığıyla uzak bir ana bilgisayara ve bağlantı noktasına yönlendirir.
+Mobile SSH hem Android hem de iOS'ta yerel SSH bağlantı noktası yönlendirmeyi destekler. Cihazdaki yerel bir bağlantı noktası `127.0.0.1` üzerinde dinler ve trafiği SSH bağlantısı aracılığıyla uzak bir ana bilgisayara ve bağlantı noktasına yönlendirir.
 
 ## Kayıtlı tünel söz dizimi
 
@@ -23,7 +23,7 @@ Kısa biçim:
 8080
 ```
 
-Bu, Android cihazda `127.0.0.1:8080`'i bağlar ve sunucunun bakış açısından `localhost:8080`'e yönlendirir.
+Bu, cihazda `127.0.0.1:8080`'i bağlar ve sunucunun bakış açısından `localhost:8080`'e yönlendirir.
 
 Tam biçim:
 
@@ -31,7 +31,7 @@ Tam biçim:
 3000:localhost:3000
 ```
 
-Bu, Android cihazda `127.0.0.1:3000`'i bağlar ve SSH aracılığıyla uzak taraftaki `localhost:3000`'e yönlendirir.
+Bu, cihazda `127.0.0.1:3000`'i bağlar ve SSH aracılığıyla uzak taraftaki `localhost:3000`'e yönlendirir.
 
 Birden çok yönlendirme:
 
@@ -55,7 +55,7 @@ Bağlıyken oturumu seçin ve terminal araç çubuğundan tünel görünümünü
 
 ## Adres bağlama
 
-Mobile SSH yerel yönlendirmeleri Android cihazdaki `127.0.0.1`'e bağlar. Bu kasıtlıdır: tüneli cihaza yerel tutar ve yalnızca IPv6 geri döngü sürprizlerinden kaçınır. Android ağ erişimine izin verirse aynı Android cihazdaki diğer uygulamalar yönlendirilen yerel bağlantı noktasına bağlanabilir.
+Mobile SSH yerel yönlendirmeleri cihazdaki `127.0.0.1`'e bağlar. Bu kasıtlıdır: tüneli cihaza yerel tutar ve yalnızca IPv6 geri döngü sürprizlerinden kaçınır. İşletim sistemi ağ erişimine izin verirse aynı cihazdaki diğer uygulamalar yönlendirilen yerel bağlantı noktasına bağlanabilir.
 
 ## Yaygın örnekler
 
@@ -65,7 +65,7 @@ Uzak sunucuda çalışan bir web hizmetine erişim:
 8080
 ```
 
-Ardından Android cihazdaki bir tarayıcıdan `http://127.0.0.1:8080` adresini açın.
+Ardından aynı cihazdaki bir tarayıcıdan `http://127.0.0.1:8080` adresini açın.
 
 Bir geliştirme sunucusuna erişim:
 

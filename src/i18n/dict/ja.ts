@@ -15,7 +15,7 @@ export const ja: Dict = {
     privacy: "プライバシー"
   },
   footer: {
-    tagline: "Android 端末向けに絞り込んだ SSH／SFTP／ターミナル ワークフロー。",
+    tagline: "Android と iOS の端末向けに絞り込んだ SSH／SFTP／ターミナル ワークフロー。",
     documentation: "ドキュメント",
     comparison: "比較",
     privacy: "プライバシー",
@@ -23,16 +23,19 @@ export const ja: Dict = {
     feedback: "フィードバック"
   },
   home: {
-    metaTitle: "Mobile SSH — Android 用 SSH クライアント",
+    metaTitle: "Mobile SSH — Android・iOS 用 SSH クライアント",
     metaDescription:
-      "Mobile SSH は、マルチセッション端末、Eternal Terminal の耐障害性セッション、tmux マネージャー、SFTP 転送、秘密鍵、ポートフォワード、プラグインを備えた、Android 向けの絞り込まれた SSH クライアントです。",
-    eyebrow: "Android 用 SSH クライアント",
+      "Mobile SSH は、マルチセッション端末、Eternal Terminal の耐障害性セッション、tmux マネージャー、SFTP 転送、秘密鍵、ポートフォワード、プラグインを備えた、Android と iOS 向けの絞り込まれた SSH クライアントです。",
+    eyebrow: "Android・iOS 用 SSH クライアント",
     h1: "Mobile SSH",
     intro:
-      "Android 向けの絞り込まれた SSH クライアント。マルチセッション端末、ネットワーク切断を乗り越える Eternal Terminal セッション、内蔵 tmux マネージャー、SFTP ファイル転送、ローカル ポートフォワード、プラグインをスマホとタブレットのために用意しました。",
-    versionLine: "{count} 言語に対応 · バージョン {version}",
+      "Android と iOS 向けの絞り込まれた SSH クライアント。マルチセッション端末、ネットワーク切断を乗り越える Eternal Terminal セッション、内蔵 tmux マネージャー、SFTP ファイル転送、ローカル ポートフォワード、プラグインをスマホとタブレットのために用意しました。",
+    versionLine: "{count} 言語に対応 · Android {version} · iOS {iosVersion} ベータ",
     ctaDocs: "ドキュメントを読む",
     ctaPlay: "Google Play で手に入れよう",
+    ctaIos: "TestFlight で iOS ベータを手に入れよう",
+    platformAndroid: "Android",
+    platformIos: "iOS — iPhone & iPad",
     advantagesHead: "Mobile SSH を選ぶ理由",
     advantagesIntro: "モバイル SSH クライアントが取りこぼしがちなポイントに合わせて作られています。",
     advantages: [
@@ -40,13 +43,13 @@ export const ja: Dict = {
       { title: "データは端末内に留まる", text: "保存したサーバー、認証情報、鍵はすべて端末内。クラウドアカウント不要、停止される心配なし。" },
       { title: "保存ホストにワンタップ接続", text: "一度ホストを登録すれば、検索してタップするだけで再接続。鍵・ポート・設定済みトンネルも一緒に。" },
       { title: "エージェント アラート", text: "Claude Code、Codex、または他のリモート エージェントが入力を必要とした瞬間に、音とバイブレーション付きの通知を受け取ります。動画再生中もイヤホンで鳴ります。" },
-      { title: "IME の上のターミナル キー", text: "ESC、TAB、CTRL、ALT、FN、矢印、Home、End、PgUp/PgDn の専用列を Gboard の予測と衝突せずに表示。" },
+      { title: "キーボードの上のターミナル キー", text: "ESC、TAB、CTRL、ALT、FN、矢印、Home、End、PgUp/PgDn の専用列を Android と iOS で表示 — 自動修正と衝突しないターミナル キー。" },
       { title: "コマンド不要のポート転送", text: "トンネルはサーバープロファイルに紐づき、接続と同時に自動で立ち上がります。" },
-      { title: "ロックや回線切替に強い", text: "フォアグラウンドサービス、ウェイクロック、自動再接続で、画面オフ・アプリ切替・ネットワーク変更を越えてセッションを維持。" },
+      { title: "ロックや回線切替に強い", text: "Android ではフォアグラウンドサービス、ウェイクロック、自動再接続で、画面オフやネットワーク変更を越えてシェルを維持。iOS では自動再接続と tmux 自動アタッチで、中断したまさにその場所に戻れます。" },
       { title: "Eternal Terminal", text: "オプションの ET トランスポートがネットワーク切断、スリープ、IP 変更をまたいでリモートシェルを生き続けさせます。ホストに etserver がなくても、Mobile SSH が SSH 経由でインストールできます。" },
       { title: "プラグインで拡張", text: "公開カタログを閲覧し、必要なプラグインをオンデマンドでインストールして新しいワークフローを追加できます。各プラグインはダウンロード後に SHA-256 で検証され、アプリ専用ストレージに保存されます。" }
     ],
-    sectionAHead: "Android 上の SSH 作業を中心に設計",
+    sectionAHead: "モバイルでの SSH 作業を中心に設計",
     sectionAIntro:
       "Mobile SSH は管理者の定番ルートを短くします。サーバーを保存し、つなぎ、セッションを維持し、必要なときにファイルを動かし、すばやくアクティブな端末に戻れます。",
     features: [
@@ -55,11 +58,11 @@ export const ja: Dict = {
       { title: "タップ可能なリンク", text: "ターミナル出力内の URL に下線が引かれ、タップするだけでブラウザで開きます。コピーやアプリ切替は不要。" },
       { title: "サーバー フォルダー", text: "保存済みサーバーを折りたたみ可能なグループに整理。グループのヘッダーをタップして折りたたみ。フォルダー構造はクイック接続ピッカーにも反映されます。" },
       { title: "エージェント アラート", text: "リモート エージェント（Claude Code、Codex など）が入力を必要としたときに、音とバイブレーション付きの通知。動画通話中もイヤホンで鳴ります。" },
-      { title: "秘密鍵", text: "パスワードまたは秘密鍵認証。端末上で Ed25519、ECDSA、RSA 鍵を生成、または既存の鍵をインポート・貼り付け。" },
+      { title: "秘密鍵", text: "パスワードまたは秘密鍵認証。端末上で Ed25519 または ECDSA 鍵を生成（Android では RSA も）、または既存の鍵をインポート・貼り付け。" },
       { title: "SFTP 転送", text: "アクティブな SSH セッションに紐づく二画面ファイルブラウザ。アップロード・ダウンロードをキューに入れ、名前変更、削除、リモート権限の確認が可能。" },
       { title: "ポートフォワード", text: "ローカル トンネル設定をサーバープロファイルと一緒に保存。接続時に自動で開くか、接続中に追加・削除が可能。" },
-      { title: "再接続ワークフロー", text: "フォアグラウンドサービス、ウェイクロック、keepalive、指数バックオフ付き再接続で、画面オフやローミングを越えてセッションを維持。" },
-      { title: "バックアップと復元", text: "保存済みサーバーと認証情報を暗号化バックアップ ファイルに書き出し。マージまたは置換でインポートして端末間で移行。" },
+      { title: "再接続ワークフロー", text: "keepalive と指数バックオフ付き再接続で、画面オフやローミングを越えてセッションを維持 — Android ではフォアグラウンドサービス、iOS では tmux 自動アタッチが支えます。" },
+      { title: "バックアップと復元", text: "保存済みサーバーと認証情報を暗号化バックアップ ファイルに書き出し。マージまたは置換でインポートして端末間で移行 — バックアップは Android と iOS の間で相互に利用できます。" },
       { title: "Eternal Terminal", text: "Eternal Terminal (ET) 経由で接続すると、ネットワーク切断、スリープ、IP 変更を乗り越えるセッションが実現します — SSH 経由のオプション自動 etserver セットアップ付き。" },
       { title: "Tmux マネージャー", text: "tmux のセッション、ウィンドウ、ペインを一覧表示して切り替え — アタッチ、名前変更、作成、分割、ズーム、強制終了が可能。名前または日付でソートでき、入力待ちのエージェントには 🔔 が付きます。" },
       { title: "プラグイン", text: "プラグインを閲覧・インストール・実行して Mobile SSH を拡張できます。プラグインは公開カタログからオンデマンドでダウンロードされ、SHA-256 で検証されてアプリ専用ストレージに保存されます。" }
@@ -68,7 +71,7 @@ export const ja: Dict = {
     multiP1:
       "端末ビューはグリッドで複数のアクティブな SSH セッションを保持できます。ペインをタップして入力、拡張キーバーで端末操作、ピンチで文字サイズ調整、ダブルタップでフルスクリーン フォーカス。",
     multiP2:
-      "セッション履歴とアクティブセッションの復元により、アプリ切り替え、画面ロック、Android アクティビティの再生成のあとも作業に戻れます。",
+      "セッション履歴とアクティブセッションの復元により、アプリ切り替え、画面ロック、システムによるアプリの解放のあとも作業に戻れます。",
     multiAlt:
       "スマートフォン上の Mobile SSH が 2 つのアクティブな SSH 端末セッションを横並びのスプリット ビューで表示。",
     sftpHead: "端末だけでは足りないときの SFTP",
@@ -79,13 +82,14 @@ export const ja: Dict = {
     sftpAlt: "スマートフォンの Mobile SSH ファイル転送画面（ローカルとリモートのパネル付き）。",
     galleryHead: "実機でのスクリーンショット",
     galleryIntro:
-      "Android スマートフォンのスクリーンショット — サーバー追加、端末作業、複数セッション、SFTP でのファイル移動などで実際に使う画面です。",
+      "Android スマートフォンと iPhone のスクリーンショット — サーバー追加、端末作業、複数セッション、SFTP でのファイル移動などで実際に使う画面です。",
     carouselPrev: "前のスクリーンショット",
     carouselNext: "次のスクリーンショット",
     carouselDot: "位置 {n} へ移動",
     videoHead: "実際の動きを見る",
-    videoIntro: "2.0 の新機能の短いデモ — tmux のウィンドウ切り替え、SFTP のファイル転送、AI Chat プラグインのインストールとチャット、Eternal Terminal、ワンタップの最近のセッション。",
-    videoAlt: "tmux のウィンドウ切り替え、SFTP でのファイルダウンロード、AI Chat プラグインのインストールと利用、Eternal Terminal トランスポート、最近のセッションのデモ",
+    videoIntro: "両プラットフォームでの短いデモ。Android：tmux のウィンドウ切り替え、SFTP のファイル転送、AI Chat プラグインのインストールとチャット、Eternal Terminal、ワンタップの最近のセッション。iOS：グループ化された保存済みサーバー、tmux 自動アタッチ付きの接続オプション、ライブの端末セッション、Tmux マネージャー。",
+    videoAlt: "Android のデモ：tmux のウィンドウ切り替え、SFTP でのファイルダウンロード、AI Chat プラグインのインストールと利用、Eternal Terminal トランスポート、最近のセッション",
+    videoIosAlt: "iOS のデモ：グループ化された保存済みサーバー、tmux 自動アタッチとポート転送付きの接続オプション、ライブの SSH 端末セッション、ウィンドウを切り替える Tmux マネージャー",
     lightboxClose: "閉じる",
     lightboxPrev: "前へ",
     lightboxNext: "次へ",
@@ -110,28 +114,50 @@ export const ja: Dict = {
       "スマートフォンの AI Chat プラグイン。リモートサーバー上でローカル稼働する llama3.2 モデルからの返信を SSH 経由でストリーミング表示。",
       "スマートフォンのサーバー追加ダイアログ。トランスポートを Eternal Terminal に設定し、ネットワーク切断を乗り越えてセッションを維持。"
     ],
+    galleryIosAlts: [
+      "iPhone 上の Mobile SSH 接続フォーム。サーバー、認証、フォルダー、トランスポートの各フィールドを表示。",
+      "iPhone 上の保存済みサーバー画面。Production と Staging のグループに整理され、サーバー検索付き。",
+      "iPhone 上のライブ SSH 端末。tmux ステータスバーと下部の拡張キーバー付き。",
+      "iPhone 上のグリッドで 2 つの SSH セッションを横並びに表示。タップでフォーカスできるペイン付き。",
+      "iPhone 上のファイル転送画面。マイフォンとリモートホストのパネルと、完了した転送ログを表示。",
+      "iPhone 上の鍵認証画面。端末上で生成した Ed25519 鍵とコピー可能な公開鍵を表示。",
+      "iPhone 上の tmux マネージャー。セッションとウィンドウを一覧表示し、アタッチ、名前変更、強制終了の操作を備える — ベルが入力待ちのエージェントを示す。",
+      "iPhone 上の SSH 端末。tmux ウィンドウにアタッチし、リモート エディター内のコードを表示。",
+      "iPhone 上のプラグイン カタログ。Tailscale、WireGuard、VS Code、AI Chat、Open WebUI をインストール可能。",
+      "iPhone 上の接続フォーム。トランスポートを Eternal Terminal に設定し、ネットワーク切断を乗り越えてセッションを維持。",
+      "iPhone 上のエージェント アラート設定。バイブレーション、音、イヤホンのみの各トグルを表示。",
+      "iPhone 上の Mobile SSH 接続画面。ワンタップで再接続できる「最近」セクション付き。"
+    ],
     compareHead: "Termux や Termius の中での立ち位置",
     compareIntro:
-      "Mobile SSH は意図的に狭い範囲に絞られています。完全な Linux 環境でも、クロスプラットフォームのチーム用ボルトでもありません。モバイル ユーザーが最もよく使うセッション操作にすばやくアクセスできるローカルな Android SSH／SFTP ツールです。",
+      "Mobile SSH は意図的に狭い範囲に絞られています。完全な Linux 環境でも、クロスプラットフォームのチーム用ボルトでもありません。モバイル ユーザーが最もよく使うセッション操作にすばやくアクセスできる、Android と iOS 向けのローカルな SSH／SFTP ツールです。",
     compareGuideTitle: "比較ガイド",
-    compareGuideText: "Android で Mobile SSH、Termux、Termius のどれを選ぶか。",
+    compareGuideText: "スマホやタブレットで Mobile SSH、Termux、Termius のどれを選ぶか。",
     privacyTitle: "プライバシーポリシー",
     privacyText: "接続データのうちどれが端末にローカル保存され、何がサーバーに送られるかを確認します。"
   },
   features: {
     metaTitle: "機能 | Mobile SSH",
     metaDescription:
-      "Android の SSH、ターミナル、Eternal Terminal、tmux マネージャー、SFTP、秘密鍵、ポート転送、プラグインに関する Mobile SSH の主な機能。",
+      "Android と iOS の SSH：ターミナル、Eternal Terminal、tmux マネージャー、SFTP、秘密鍵、ポート転送、プラグインに関する Mobile SSH の主な機能。",
     eyebrow: "機能一覧",
     h1: "Mobile SSH の機能",
     intro:
-      "Mobile SSH は Android で直接 SSH を使うために作られています。端末を開き、生かし続け、ファイルを動かし、サーバーを保存し、モバイルの中断からすばやく復帰します。",
+      "Mobile SSH は Android と iOS の端末から直接 SSH を使うために作られています。端末を開き、生かし続け、ファイルを動かし、サーバーを保存し、モバイルの中断からすばやく復帰します。",
     groups: [
+      {
+        title: "プラットフォーム",
+        items: [
+          "Android 8.0 以降 — Google Play からインストール",
+          "iPhone と iPad の iOS 16 以降 — TestFlight のパブリック ベータに参加",
+          "暗号化バックアップは相互に利用可能：一方のプラットフォームで書き出し、もう一方で取り込み"
+        ]
+      },
       {
         title: "接続",
         items: [
           "パスワード認証と秘密鍵認証",
-          "現行実装が対応する Ed25519、RSA、ECDSA、DSA の秘密鍵",
+          "Android では Ed25519、RSA、ECDSA、DSA の秘密鍵に対応。iOS では Ed25519 と ECDSA（P-256/384/521）",
           "ホスト、ポート、ユーザー名、認証情報、秘密鍵、トンネル設定を含む保存済みサーバープロファイル",
           "名前またはホストで保存済みサーバーを検索",
           "検索優先の「セッション追加」フロー：専用の検索ページで保存済みサーバーを選んでワンタップ接続",
@@ -150,7 +176,7 @@ export const ja: Dict = {
           "ピンチで文字サイズ変更（リモート端末リサイズ付き）",
           "ペインのダブルタップでフルスクリーン",
           "端末テキスト選択（コピー、共有、すべて選択）",
-          "Gboard の候補／自動修正と音声入力に対応、入力中テキストのバッファあり"
+          "Android では Gboard の候補／自動修正と音声入力に対応、入力中テキストのバッファあり"
         ]
       },
       {
@@ -158,7 +184,7 @@ export const ja: Dict = {
         items: [
           "同時最大 8 つの SSH セッション",
           "アクティブセッションのグリッド表示",
-          "バックグラウンドや画面ロックに耐える前面サービス",
+          "バックグラウンドや画面ロックへの耐性：Android では前面サービス、iOS では tmux 自動アタッチがシェルを再アタッチ",
           "Keepalive と指数バックオフ付き再接続",
           "スタート画面からの「アクティブセッション」入口。進行中の通知にセッション一覧を表示 — タップで開く",
           "tmux コマンド追跡と中断した作業向けの reattach ヒント",
@@ -183,13 +209,13 @@ export const ja: Dict = {
         title: "ローカライズ",
         items: [
           "UI 翻訳：アラビア語、ベンガル語、中国語（簡体・繁体）、英語、フランス語、ドイツ語、ヒンディー語、インドネシア語、日本語、マラーティー語、ナイジェリアン ピジン、ポルトガル語、ロシア語、スペイン語、タミル語、テルグ語、トルコ語、ウルドゥー語",
-          "Android のシステム言語に追従。アプリ内の言語ピッカーは不要"
+          "Android と iOS のシステム言語に追従。アプリ内の言語ピッカーは不要"
         ]
       },
       {
         title: "鍵とバックアップ",
         items: [
-          "端末上で新しい Ed25519、ECDSA、RSA 鍵を生成（パスフレーズは任意）",
+          "端末上で新しい Ed25519 または ECDSA 鍵を生成（Android では RSA も。パスフレーズは任意）",
           "生成した公開鍵をコピー・共有・保存して、サーバーの authorized_keys に追加",
           "保存済みのサーバーと認証情報をバックアップファイルに書き出し",
           "任意のパスフレーズでバックアップを暗号化。インポートはマージまたは置換",
@@ -206,16 +232,16 @@ export const ja: Dict = {
       }
     ],
     security:
-      "セキュリティ注記：現行のアプリは保存済みのサーバーと認証情報を Android 端末にローカル保存します。クラウド同期は提供しません。強固な画面ロックで端末を保護し、共有端末では認証情報を保存しないでください。"
+      "セキュリティ注記：現行のアプリは保存済みのサーバーと認証情報を端末にローカル保存します（iOS ではシークレットはシステムの Keychain に保管）。クラウド同期は提供しません。強固な画面ロックで端末を保護し、共有端末では認証情報を保存しないでください。"
   },
   compare: {
-    metaTitle: "Android の Mobile SSH／Termux／Termius",
+    metaTitle: "モバイルの Mobile SSH／Termux／Termius",
     metaDescription:
-      "Android の SSH ワークフローにおける Mobile SSH、Termux、Termius のバランスの取れた比較。",
-    eyebrow: "Android の SSH 選択肢",
+      "Android と iOS の SSH ワークフローにおける Mobile SSH、Termux、Termius のバランスの取れた比較。",
+    eyebrow: "モバイルの SSH 選択肢",
     h1: "Mobile SSH／Termux／Termius",
     intro:
-      "これらは SSH の周りで重なりますが、目的は異なります。Mobile SSH は Android に絞った SSH／SFTP クライアント、Termux は Linux 環境、Termius はアカウント基盤の生産性機能を備えたクロスプラットフォーム SSH クライアントです。",
+      "これらは SSH の周りで重なりますが、目的は異なります。Mobile SSH は Android と iOS に絞った SSH／SFTP クライアント、Termux は Android 専用の Linux 環境、Termius はアカウント基盤の生産性機能を備えたクロスプラットフォーム SSH クライアントです。",
     columns: {
       need: "目的",
       mobileSsh: "Mobile SSH",
@@ -225,7 +251,7 @@ export const ja: Dict = {
     rows: [
       {
         need: "主な用途",
-        mobileSsh: "Android 向けの SSH、SFTP、ローカル トンネル、端末の専用クライアント。",
+        mobileSsh: "Android と iOS 向けの SSH、SFTP、ローカル トンネル、端末の専用クライアント。",
         termux: "APT パッケージを使う Android の端末エミュレーター兼 Linux 環境。",
         termius: "Android、iOS、デスクトップ、Web 寄りのチーム作業に対応する最新の SSH クライアント。"
       },
@@ -236,8 +262,8 @@ export const ja: Dict = {
         termius: "Termius のアプリ／アカウントモデルでホスト、鍵、スニペット、ボルト項目を作成または同期。"
       },
       {
-        need: "Android の端末操作",
-        mobileSsh: "拡張キーバー、グリッド セッション、フルスクリーン ペイン、ピンチ ズーム、コピー／共有付き選択、Gboard 候補、音声入力、tmux に配慮したスクロール。",
+        need: "モバイルの端末操作",
+        mobileSsh: "拡張キーバー、グリッド セッション、フルスクリーン ペイン、ピンチ ズーム、コピー／共有付き選択、tmux に配慮したスクロール — さらに Android では Gboard 候補と音声入力。",
         termux: "強力な端末環境。動作は入れたツールと設定次第。",
         termius: "モバイル キーボード アドオン、ジェスチャー、タブ、自動補完、スニペット、洗練された端末 UX。"
       },
@@ -249,7 +275,7 @@ export const ja: Dict = {
       },
       {
         need: "マルチセッション",
-        mobileSsh: "Android のグリッドで同時最大 8 つの SSH セッション。",
+        mobileSsh: "グリッドで同時最大 8 つの SSH セッション。",
         termux: "Termux 内またはリモート シェルで tmux などの多重化を使用。",
         termius: "プラットフォームとプランに応じてタブやスプリットビューが利用可能。"
       },
@@ -261,7 +287,7 @@ export const ja: Dict = {
       },
       {
         need: "向いている場面",
-        mobileSsh: "Android からサーバーに接続し、ファイルを転送し、セッションを生かし続けたいときの軽量アプリ。",
+        mobileSsh: "Android または iOS でサーバーに接続し、ファイルを転送し、セッションを生かし続けたいときの軽量アプリ。",
         termux: "Android 上で本格的なコマンドライン環境が必要で、パッケージの導入や設定に慣れている人向け。",
         termius: "端末をまたいだ同期、洗練された生産性機能、ボルト、コラボレーションが必要な人向け。"
       }
@@ -269,7 +295,7 @@ export const ja: Dict = {
     cards: [
       {
         title: "Mobile SSH を選ぶとき",
-        body: "完全な Linux 環境やクラウド同期アカウントを構築せずに、Android から直接 SSH したい場合。保存済みサーバー、SFTP、tmux セッション、素早いローカル トンネルに特に向いています。"
+        body: "完全な Linux 環境やクラウド同期アカウントを構築せずに、スマホやタブレット — Android でも iOS でも — から直接 SSH したい場合。保存済みサーバー、SFTP、tmux セッション、素早いローカル トンネルに特に向いています。"
       },
       {
         title: "Termux を選ぶとき",
@@ -336,15 +362,15 @@ export const ja: Dict = {
   privacy: {
     metaTitle: "プライバシーポリシー | Mobile SSH",
     metaDescription:
-      "ローカル保存、SSH データ送信、ファイル転送、ログ、Android パーミッションを含む Mobile SSH のプライバシーポリシー。",
+      "ローカル保存、SSH データ送信、ファイル転送、ログ、Android と iOS のアプリ パーミッションを含む Mobile SSH のプライバシーポリシー。",
     eyebrow: "プライバシー",
     h1: "プライバシーポリシー",
     intro:
-      "Mobile SSH はローカルな Android SSH クライアントとして設計されています。Mobile SSH アカウントは不要で、Mobile SSH のクラウド同期サービスは提供しません。",
+      "Mobile SSH は Android と iOS 向けのローカルな SSH クライアントとして設計されています。Mobile SSH アカウントは不要で、Mobile SSH のクラウド同期サービスは提供しません。",
     sections: [
       {
         heading: "端末に保存される情報",
-        body: "アプリのデータを保存することを選んだ場合、Mobile SSH はそれを Android 端末にローカル保存します。保存されるものには、サーバープロファイル、ユーザー名、ポート、パスワード、秘密鍵、鍵のパスフレーズ、ポート転送ルール、最近のセッション、ログイン試行履歴、ファイル転送のパス、並べ替え設定、tmux の reattach ヒント、アプリ設定、デバッグ記録が有効な場合のデバッグログが含まれます。"
+        body: "アプリのデータを保存することを選んだ場合、Mobile SSH はそれを端末にローカル保存します — iOS ではシークレットはシステムの Keychain に保管されます。保存されるものには、サーバープロファイル、ユーザー名、ポート、パスワード、秘密鍵、鍵のパスフレーズ、ポート転送ルール、最近のセッション、ログイン試行履歴、ファイル転送のパス、並べ替え設定、tmux の reattach ヒント、アプリ設定、デバッグ記録が有効な場合のデバッグログが含まれます。"
       },
       {
         heading: "ネットワーク経由で送信される情報",
@@ -352,30 +378,30 @@ export const ja: Dict = {
       },
       {
         heading: "ファイル転送とストレージ アクセス",
-        body: "ファイル転送機能は、ファイルをアップロード／ダウンロードするために端末ローカルのストレージとリモートの SFTP ディレクトリを参照します。それを必要とする Android のバージョンでは、ローカル ファイル ブラウザが選択ファイルを読み書きできるようにストレージ アクセスを要求する場合があります。"
+        body: "ファイル転送機能は、ファイルをアップロード／ダウンロードするために端末ローカルのストレージとリモートの SFTP ディレクトリを参照します。それを必要とする Android のバージョンでは、ローカル ファイル ブラウザが選択ファイルを読み書きできるようにストレージ アクセスを要求する場合があります。iOS では、ローカルのファイルや写真にはシステムのドキュメント ピッカーとフォト ピッカーを通じてアクセスします。"
       },
       {
         heading: "ログとトラブルシューティング",
         body: "ログイン履歴と任意のデバッグログはトラブルシューティングのためにローカル保存されます。デバッグログには端末イベント、SSH データのサイズ、タッチ入力の診断、リサイズ イベント、トンネルのライフサイクル イベントが含まれることがあります。デバッグ アーカイブをサポートや他者に共有する前に内容を確認してください。"
       },
-      { heading: "匿名の使用状況分析", body: "アプリの使われ方を把握して改善するため、Mobile SSH は当社に代わって処理を行うプライバシー重視の分析プロバイダー Aptabase に匿名の使用状況分析を送信します。対象は匿名のイベント（アプリの起動や利用機能など）と、アプリのバージョン、Android のバージョン、端末モデル、言語に限られます。定期的にリセットされるランダムなセッション識別子を使用し、あなたや端末には紐づきません。SSH サーバー、ホスト名、ユーザー名、パスワード、鍵、コマンド、ファイルの内容を含めることは一切ありません。データは暗号化された（HTTPS）接続で送信されます。分析は既定で有効ですが、設定でいつでもオフにできます。オフのときは何も送信されません。" }
+      { heading: "匿名の使用状況分析", body: "アプリの使われ方を把握して改善するため、Mobile SSH は当社に代わって処理を行うプライバシー重視の分析プロバイダー Aptabase に匿名の使用状況分析を送信します。対象は匿名のイベント（アプリの起動や利用機能など）と、アプリのバージョン、オペレーティング システムのバージョン、端末モデル、言語に限られます。定期的にリセットされるランダムなセッション識別子を使用し、あなたや端末には紐づきません。SSH サーバー、ホスト名、ユーザー名、パスワード、鍵、コマンド、ファイルの内容を含めることは一切ありません。データは暗号化された（HTTPS）接続で送信されます。分析は既定で有効ですが、設定でいつでもオフにできます。オフのときは何も送信されません。" }
     ],
     permissionsHeading: "パーミッション",
     permissions: [
       { label: "インターネット", body: "SSH サーバーへの接続に必要です。" },
-      { label: "Wake lock と Wi-Fi lock", body: "端末がスリープ中もアクティブな SSH セッションを維持するために使用されます。" },
-      { label: "前面サービスと通知", body: "バックグラウンドでのアクティブ接続の処理に使用されます。" },
-      { label: "ストレージ アクセス", body: "ファイル転送と鍵の取り込みフローで使用されます。" }
+      { label: "Wake lock と Wi-Fi lock", body: "Android で、端末がスリープ中もアクティブな SSH セッションを維持するために使用されます。" },
+      { label: "前面サービスと通知", body: "Android ではバックグラウンドでのアクティブ接続の処理に使用されます。iOS では通知はエージェント アラートに使用されます。" },
+      { label: "ストレージ アクセス", body: "ファイル転送と鍵の取り込みフローで使用されます。iOS ではシステムのドキュメント ピッカーとフォト ピッカーを経由します。" }
     ],
     securityHeading: "セキュリティ上の責任",
     securityBody:
-      "認証情報や秘密鍵を保存する場合は、強固な画面ロックで Android 端末を保護してください。信頼できるサーバーにのみ接続してください。現行実装は、別建ての暗号化クラウド ボルトではなく、アプリのローカル ストレージを使用します。",
+      "認証情報や秘密鍵を保存する場合は、強固な画面ロックで端末を保護してください。信頼できるサーバーにのみ接続してください。現行実装は、別建ての暗号化クラウド ボルトではなく、アプリのローカル ストレージ（および iOS の Keychain）を使用します。",
     contactHeading: "お問い合わせ",
     contactBody: "サポート連絡先：[mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)。"
   },
   docsIndex: {
     metaTitle: "ドキュメント | Mobile SSH",
-    metaDescription: "Android 向け Mobile SSH のエンドユーザー ドキュメント。",
+    metaDescription: "Android と iOS 向け Mobile SSH のエンドユーザー ドキュメント。",
     eyebrow: "ユーザー ガイド",
     h1: "Mobile SSH ドキュメント",
     intro:
@@ -398,7 +424,7 @@ export const ja: Dict = {
   },
   about: {
     metaTitle: "情報 | Mobile SSH",
-    metaDescription: "Mobile SSH について：Android 用 SSH クライアントのバージョン、作者、ライセンス、オープンソース表記。",
+    metaDescription: "Mobile SSH について：Android・iOS 用 SSH クライアントのバージョン、作者、ライセンス、オープンソース表記。",
     eyebrow: "情報",
     h1: "Mobile SSH について",
     intro: "tmux、ポート転送、SFTP に対応するマルチセッション SSH クライアント。",
@@ -414,11 +440,13 @@ export const ja: Dict = {
     noticesHeading: "オープンソース表記",
     noticesIntro: "Mobile SSH は次のオープンソース ライブラリを使用しています。それぞれのライセンスに従って利用しています。",
     notices: [
-      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
-      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
-      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
-      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
-      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+      { name: "JSch (mwiede fork) — Android",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch) — Android",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch) — Android", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java — Android",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog — Android",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" },
+      { name: "SwiftNIO & SwiftNIO SSH — iOS",       license: "Apache 2.0", url: "https://github.com/apple/swift-nio-ssh" },
+      { name: "Swift Crypto — iOS",                  license: "Apache 2.0", url: "https://github.com/apple/swift-crypto" }
     ],
     contactHeading: "お問い合わせ",
     contactBody: "サポート連絡先：[mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)。"

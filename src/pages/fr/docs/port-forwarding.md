@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Redirection de ports"
-description: "Syntaxe de redirection de ports local de Mobile SSH et gestion des tunnels pour Android."
+description: "Syntaxe de redirection de ports local de Mobile SSH et gestion des tunnels sur Android et iOS."
 ---
 
 # Redirection de ports
 
-Mobile SSH prend en charge la redirection de ports SSH locale. Un port local sur l'appareil Android écoute sur `127.0.0.1` et redirige le trafic via la connexion SSH vers un hôte et un port distants.
+Mobile SSH prend en charge la redirection de ports SSH locale aussi bien sur Android que sur iOS. Un port local sur l'appareil écoute sur `127.0.0.1` et redirige le trafic via la connexion SSH vers un hôte et un port distants.
 
 ## Syntaxe du tunnel enregistré
 
@@ -23,7 +23,7 @@ Forme courte :
 8080
 ```
 
-Cela lie `127.0.0.1:8080` sur l'appareil Android et le redirige vers `localhost:8080` du point de vue du serveur.
+Cela lie `127.0.0.1:8080` sur l'appareil et le redirige vers `localhost:8080` du point de vue du serveur.
 
 Forme complète :
 
@@ -31,7 +31,7 @@ Forme complète :
 3000:localhost:3000
 ```
 
-Cela lie `127.0.0.1:3000` sur l'appareil Android et le redirige via SSH vers `localhost:3000` du côté distant.
+Cela lie `127.0.0.1:3000` sur l'appareil et le redirige via SSH vers `localhost:3000` du côté distant.
 
 Plusieurs redirections :
 
@@ -55,7 +55,7 @@ Une fois connecté, sélectionnez la session et ouvrez la vue des tunnels depuis
 
 ## Liaison d'adresse
 
-Mobile SSH lie les redirections locales à `127.0.0.1` sur l'appareil Android. C'est intentionnel : cela garde le tunnel local à l'appareil et évite les surprises liées aux adresses de loopback IPv6. D'autres applications sur le même appareil Android peuvent se connecter au port local redirigé si Android autorise leur accès réseau.
+Mobile SSH lie les redirections locales à `127.0.0.1` sur l'appareil. C'est intentionnel : cela garde le tunnel local à l'appareil et évite les surprises liées aux adresses de loopback IPv6. D'autres applications sur le même appareil peuvent se connecter au port local redirigé si le système d'exploitation autorise leur accès réseau.
 
 ## Exemples courants
 
@@ -65,7 +65,7 @@ Accéder à un service web exécuté sur le serveur distant :
 8080
 ```
 
-Puis ouvrez `http://127.0.0.1:8080` depuis un navigateur sur l'appareil Android.
+Puis ouvrez `http://127.0.0.1:8080` depuis un navigateur sur le même appareil.
 
 Accéder à un serveur de développement :
 

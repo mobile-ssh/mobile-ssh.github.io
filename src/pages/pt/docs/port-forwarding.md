@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Encaminhamento de portas"
-description: "Sintaxe de encaminhamento de portas local do Mobile SSH e gerenciamento de túneis para Android."
+description: "Sintaxe de encaminhamento de portas local do Mobile SSH e gerenciamento de túneis no Android e no iOS."
 ---
 
 # Encaminhamento de portas
 
-O Mobile SSH suporta encaminhamento de portas SSH local. Uma porta local no dispositivo Android escuta em `127.0.0.1` e encaminha o tráfego pela conexão SSH para um host e porta remotos.
+O Mobile SSH suporta encaminhamento de portas SSH local tanto no Android quanto no iOS. Uma porta local no dispositivo escuta em `127.0.0.1` e encaminha o tráfego pela conexão SSH para um host e porta remotos.
 
 ## Sintaxe do túnel salvo
 
@@ -23,7 +23,7 @@ Forma curta:
 8080
 ```
 
-Isso vincula `127.0.0.1:8080` no dispositivo Android e encaminha para `localhost:8080` do ponto de vista do servidor.
+Isso vincula `127.0.0.1:8080` no dispositivo e encaminha para `localhost:8080` do ponto de vista do servidor.
 
 Forma completa:
 
@@ -31,7 +31,7 @@ Forma completa:
 3000:localhost:3000
 ```
 
-Isso vincula `127.0.0.1:3000` no dispositivo Android e encaminha por SSH para `localhost:3000` no lado remoto.
+Isso vincula `127.0.0.1:3000` no dispositivo e encaminha por SSH para `localhost:3000` no lado remoto.
 
 Vários encaminhamentos:
 
@@ -55,7 +55,7 @@ Com a sessão conectada, selecione a sessão e abra a visualização de túneis 
 
 ## Vinculação de endereço
 
-O Mobile SSH vincula os encaminhamentos locais a `127.0.0.1` no dispositivo Android. Isso é intencional: mantém o túnel local ao dispositivo e evita surpresas com loopback exclusivo de IPv6. Outros apps no mesmo dispositivo Android podem conseguir se conectar à porta local encaminhada, caso o Android permita o acesso de rede a eles.
+O Mobile SSH vincula os encaminhamentos locais a `127.0.0.1` no dispositivo. Isso é intencional: mantém o túnel local ao dispositivo e evita surpresas com loopback exclusivo de IPv6. Outros apps no mesmo dispositivo podem conseguir se conectar à porta local encaminhada, caso o sistema operacional permita o acesso de rede a eles.
 
 ## Exemplos comuns
 
@@ -65,7 +65,7 @@ Acessar um serviço web em execução no servidor remoto:
 8080
 ```
 
-Em seguida, abra `http://127.0.0.1:8080` em um navegador no dispositivo Android.
+Em seguida, abra `http://127.0.0.1:8080` em um navegador no mesmo dispositivo.
 
 Acessar um servidor de desenvolvimento:
 

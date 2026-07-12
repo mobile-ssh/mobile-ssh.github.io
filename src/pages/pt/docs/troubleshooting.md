@@ -12,7 +12,7 @@ Esta página cobre problemas comuns do Mobile SSH e as primeiras verificações 
 
 Verifique:
 
-- O dispositivo Android tem acesso à rede.
+- O dispositivo tem acesso à rede.
 - O nome de host ou endereço IP do servidor está correto.
 - A porta SSH está correta, normalmente `22`.
 - Um firewall, VPN, rede da operadora ou rede Wi-Fi não está bloqueando a porta.
@@ -34,16 +34,16 @@ Para chaves privadas criptografadas, informe a frase-senha no campo de senha/fra
 
 ## Falha na importação da chave privada
 
-A importação de chave privada usa o seletor de arquivos do Android. Se a importação falhar:
+A importação de chave privada usa o seletor de arquivos do sistema. Se a importação falhar:
 
 - Confirme que o arquivo selecionado é uma chave privada, não um arquivo público `.pub`.
 - Abra o arquivo em um editor de texto confiável e verifique se ele contém o bloco completo da chave.
 - Tente colar a chave manualmente no campo de chave privada.
-- Confirme que o tipo de chave é um dos suportados pela implementação do app: Ed25519, RSA, ECDSA ou DSA.
+- Confirme que o tipo de chave é suportado: Ed25519, RSA, ECDSA ou DSA no Android; Ed25519 ou ECDSA (P-256/384/521) no iOS.
 
 ## A entrada do teclado atrasa ou muda
 
-Se o seu teclado Android altera o texto antes de ele chegar ao shell, desative as sugestões do teclado nas configurações do Mobile SSH. Isso é útil para Vim, tmux, htop, less, shells que usam combinações de teclas incomuns e prompts de senha remotos.
+Se o seu teclado na tela altera o texto antes de ele chegar ao shell, desative as sugestões do teclado nas configurações do Mobile SSH. Isso é útil para Vim, tmux, htop, less, shells que usam combinações de teclas incomuns e prompts de senha remotos.
 
 Use a linha de teclas extras para teclas de terminal como `ESC`, `TAB`, `CTRL`, setas, `HOME`, `END`, `PGUP` e `PGDN`.
 
@@ -60,7 +60,7 @@ Se a rolagem parecer errada:
 
 ## A sessão caiu após o bloqueio de tela
 
-O Mobile SSH usa keepalives, um serviço em primeiro plano, wake lock, Wi-Fi lock e tentativas de reconexão para reduzir desconexões. As políticas de bateria do Android ainda podem interromper o trabalho em segundo plano.
+No Android, o Mobile SSH usa keepalives, um serviço em primeiro plano, wake lock, Wi-Fi lock e tentativas de reconexão para reduzir desconexões. As políticas de bateria do Android ainda podem interromper o trabalho em segundo plano.
 
 Verifique:
 
@@ -69,11 +69,15 @@ Verifique:
 - Reabra o Mobile SSH e toque em **Active Sessions** após desbloquear.
 - Se o servidor desconectou a sessão SSH, reconecte pelas sessões recentes.
 
+No iOS, o sistema suspende os apps em segundo plano, então uma conexão SSH pura não pode ser mantida aberta indefinidamente depois que você troca de app ou bloqueia a tela. Um curto período de tolerância cobre trocas rápidas de app; para qualquer coisa mais longa, ative **Auto-attach tmux session** no perfil do servidor (ou use o transporte **Eternal Terminal**) para que a reconexão devolva você ao mesmo shell onde parou.
+
 ## A transferência de arquivos não navega pelos arquivos do telefone
 
 Em versões mais novas do Android, a navegação de arquivos locais pode exigir acesso ao armazenamento. Conceda o acesso ao armazenamento nas Configurações do Android para o Mobile SSH e reabra a tela de transferência de arquivos.
 
 Se os arquivos remotos carregam mas os locais não, a conexão SSH provavelmente está bem e o problema é o acesso ao armazenamento local do Android.
+
+No iOS não há permissão de armazenamento: o painel local mostra a área de documentos do app, e você adiciona arquivos pelos seletores de documentos e fotos do sistema.
 
 ## Falha no upload ou download
 
@@ -83,7 +87,7 @@ Verifique:
 - O diretório remoto existe.
 - O usuário remoto tem permissão para ler ou gravar no caminho.
 - O destino local é gravável.
-- Há espaço livre suficiente no dispositivo Android.
+- Há espaço livre suficiente no dispositivo.
 - A rede está estável para transferências grandes.
 
 ## Falha no encaminhamento de porta

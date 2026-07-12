@@ -14,7 +14,7 @@ Le terminal de Mobile SSH est conçu pour une utilisation sur téléphone et tab
 - Le tampon de défilement conserve jusqu'à 5000 lignes.
 - Touchez un volet pour le sélectionner avant de taper.
 - Pincez un volet du terminal pour modifier la taille du texte. Mobile SSH redimensionne le PTY distant une fois le geste stabilisé.
-- Touchez deux fois un volet pour passer en plein écran. Utilisez Retour pour revenir à la grille.
+- Touchez deux fois un volet (ou utilisez sa commande d'agrandissement) pour passer en plein écran. Utilisez Retour sur Android, ou la commande de réduction sur iOS, pour revenir à la grille.
 
 ## Grille multi-sessions
 
@@ -24,7 +24,7 @@ Fermer un volet déconnecte cette session SSH. Revenir à l'écran d'accueil gar
 
 ## Rangée de touches supplémentaires
 
-La rangée de touches supplémentaires apparaît au-dessus du clavier Android et fournit des touches de terminal peu pratiques sur les claviers tactiles :
+Sur Android comme sur iOS, la rangée de touches supplémentaires apparaît au-dessus du clavier à l'écran et fournit des touches de terminal peu pratiques sur les claviers tactiles :
 
 - `ESC`
 - `TAB`
@@ -43,19 +43,19 @@ La rangée de touches supplémentaires apparaît au-dessus du clavier Android et
 
 Mobile SSH propose deux réglages liés au clavier :
 
-- **Toucher le terminal pour afficher le clavier :** lorsqu'il est activé, toucher le terminal demande à Android d'afficher la méthode de saisie.
+- **Toucher le terminal pour afficher le clavier :** lorsqu'il est activé, toucher le terminal demande au système d'afficher le clavier à l'écran.
 - **Suggestions du clavier :** lorsqu'elles sont activées, les claviers compatibles peuvent afficher des suggestions aux invites du shell. Désactivez-les si les suggestions gênent les programmes de terminal.
 
 Lorsque les suggestions sont activées, Mobile SSH met en tampon le texte en cours de composition jusqu'à une limite de mot, afin que la correction du clavier puisse remplacer le mot actuel avant son envoi au shell distant. Les touches de contrôle et les combinaisons de terminal contournent ce tampon, de sorte que les raccourcis comme les commandes de préfixe tmux arrivent rapidement.
 
-La saisie vocale (le bouton micro de Gboard) passe par le même tampon de texte en composition ; le texte dicté est donc envoyé une fois résolu, et non caractère par caractère.
+Sur Android, la saisie vocale (le bouton micro de Gboard) passe par le même tampon de texte en composition ; le texte dicté est donc envoyé une fois résolu, et non caractère par caractère.
 
 ## Sélectionner, copier, partager
 
 Appuyez longuement dans le terminal pour entrer en mode sélection. La barre de sélection propose trois actions :
 
-- **Copier** — place le texte sélectionné dans le presse-papiers d'Android.
-- **Partager** — transmet le texte sélectionné à la feuille de partage d'Android (mail, notes, messagerie, etc.).
+- **Copier** — place le texte sélectionné dans le presse-papiers du système.
+- **Partager** — transmet le texte sélectionné à la feuille de partage du système (mail, notes, messagerie, etc.).
 - **Tout sélectionner** — étend la sélection à tout le tampon visible du terminal, puis Copier ou Partager.
 
 ## Défilement

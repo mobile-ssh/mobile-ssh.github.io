@@ -6,7 +6,7 @@ description: "Guía de transferencia de archivos por SFTP de Mobile SSH para arc
 
 # Transferencia de archivos
 
-Mobile SSH incluye una pantalla de transferencia de archivos por SFTP vinculada a la conexión SSH activa. Está pensada para el mantenimiento rápido del servidor desde Android: subir una configuración, descargar un registro, renombrar un archivo remoto o inspeccionar permisos sin salir de la app.
+Mobile SSH incluye una pantalla de transferencia de archivos por SFTP vinculada a la conexión SSH activa. Está pensada para el mantenimiento rápido del servidor desde tu teléfono o tableta: subir una configuración, descargar un registro, renombrar un archivo remoto o inspeccionar permisos sin salir de la app.
 
 ## Abrir la transferencia de archivos
 
@@ -26,11 +26,13 @@ La pantalla de transferencia de archivos tiene dos paneles de exploración:
 
 La app recuerda las rutas locales y remotas recientes por host. Los ajustes de ordenación también se recuerdan por host para ambos paneles.
 
-## Permiso de almacenamiento de Android
+## Acceso al almacenamiento
 
 En las versiones de Android que restringen la exploración directa de archivos, Mobile SSH puede pedir acceso al almacenamiento antes de que el panel local pueda explorar los archivos del teléfono. Si omites o deniegas este permiso, la exploración remota puede seguir funcionando, pero las rutas locales de subida y descarga pueden quedar limitadas.
 
-La importación de la clave privada es independiente de la transferencia de archivos y usa el selector de archivos de Android.
+En iOS, el panel local funciona con el área de documentos propia de la app, y los archivos se incorporan mediante los selectores de documentos y fotos del sistema, incluida la importación con selección múltiple de fotos y documentos. No se necesita un permiso de almacenamiento aparte.
+
+La importación de la clave privada es independiente de la transferencia de archivos y usa el selector de archivos del sistema.
 
 ## Subir archivos
 
@@ -78,4 +80,4 @@ Las transferencias se ponen en cola y se muestran por estado. El área de regist
 - Usa SFTP para mover archivos puntuales; usa herramientas de línea de comandos como `rsync` en el servidor para sincronizar directorios grandes.
 - Evita editar archivos de producción en uso a menos que tengas una copia de seguridad o una vía de reversión del despliegue.
 - Si un archivo no aparece tras subirlo, actualiza el panel remoto o verifica la ruta de destino.
-- Si el acceso al almacenamiento de Android bloquea la exploración local, concede el permiso en los Ajustes de Android y vuelve a abrir la transferencia de archivos.
+- Si el acceso al almacenamiento de Android bloquea la exploración local, concede el permiso en los Ajustes de Android y vuelve a abrir la transferencia de archivos. En iOS, usa en su lugar los selectores para añadir archivos al panel local.

@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Portweiterleitung"
-description: "Syntax der lokalen Portweiterleitung von Mobile SSH und Tunnelverwaltung für Android."
+description: "Syntax der lokalen Portweiterleitung von Mobile SSH und Tunnelverwaltung auf Android und iOS."
 ---
 
 # Portweiterleitung
 
-Mobile SSH unterstützt lokale SSH-Portweiterleitung. Ein lokaler Port auf dem Android-Gerät lauscht auf `127.0.0.1` und leitet den Datenverkehr über die SSH-Verbindung an einen entfernten Host und Port weiter.
+Mobile SSH unterstützt lokale SSH-Portweiterleitung auf Android und iOS. Ein lokaler Port auf dem Gerät lauscht auf `127.0.0.1` und leitet den Datenverkehr über die SSH-Verbindung an einen entfernten Host und Port weiter.
 
 ## Syntax gespeicherter Tunnel
 
@@ -23,7 +23,7 @@ Kurzform:
 8080
 ```
 
-Diese bindet `127.0.0.1:8080` auf dem Android-Gerät und leitet es aus Sicht des Servers an `localhost:8080` weiter.
+Diese bindet `127.0.0.1:8080` auf dem Gerät und leitet es aus Sicht des Servers an `localhost:8080` weiter.
 
 Vollform:
 
@@ -31,7 +31,7 @@ Vollform:
 3000:localhost:3000
 ```
 
-Diese bindet `127.0.0.1:3000` auf dem Android-Gerät und leitet es über SSH an `localhost:3000` auf der entfernten Seite weiter.
+Diese bindet `127.0.0.1:3000` auf dem Gerät und leitet es über SSH an `localhost:3000` auf der entfernten Seite weiter.
 
 Mehrere Weiterleitungen:
 
@@ -55,7 +55,7 @@ Wähle im verbundenen Zustand die Sitzung aus und öffne die Tunnelansicht über
 
 ## Adressbindung
 
-Mobile SSH bindet lokale Weiterleitungen an `127.0.0.1` auf dem Android-Gerät. Das ist beabsichtigt: Es hält den Tunnel lokal auf dem Gerät und vermeidet unerwartetes Verhalten mit reinem IPv6-Loopback. Andere Apps auf demselben Android-Gerät können sich möglicherweise mit dem weitergeleiteten lokalen Port verbinden, sofern Android ihnen den Netzwerkzugriff erlaubt.
+Mobile SSH bindet lokale Weiterleitungen an `127.0.0.1` auf dem Gerät. Das ist beabsichtigt: Es hält den Tunnel lokal auf dem Gerät und vermeidet unerwartetes Verhalten mit reinem IPv6-Loopback. Andere Apps auf demselben Gerät können sich möglicherweise mit dem weitergeleiteten lokalen Port verbinden, sofern das Betriebssystem ihnen den Netzwerkzugriff erlaubt.
 
 ## Häufige Beispiele
 
@@ -65,7 +65,7 @@ Zugriff auf einen Webdienst, der auf dem entfernten Server läuft:
 8080
 ```
 
-Öffne danach `http://127.0.0.1:8080` in einem Browser auf dem Android-Gerät.
+Öffne danach `http://127.0.0.1:8080` in einem Browser auf demselben Gerät.
 
 Zugriff auf einen Entwicklungsserver:
 

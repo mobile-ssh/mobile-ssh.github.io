@@ -6,7 +6,7 @@ description: "Mobile SSH SFTP file transfer guide for local files, remote files,
 
 # File transfer
 
-Mobile SSH get SFTP file transfer screen wey dey connected to di active SSH session. E dey useful for quick server maintenance from Android: upload config file, download log, rename remote file, or check permissions — all without leaving di app.
+Mobile SSH get SFTP file transfer screen wey dey connected to di active SSH session. E dey useful for quick server maintenance from your phone or tablet: upload config file, download log, rename remote file, or check permissions — all without leaving di app.
 
 ## Open file transfer
 
@@ -26,11 +26,13 @@ Di file transfer screen get two browser panes:
 
 Di app dey remember recent local and remote paths for each host. Sort settings also dey saved per host for both panes.
 
-## Android storage permission
+## Storage access
 
 For Android versions wey restrict direct file browsing, Mobile SSH fit request storage access before di local pane go fit browse phone files. If you skip or deny dis permission, remote browsing fit still work, but local upload and download paths fit be limited.
 
-Private key import dey separate from file transfer and e dey use di Android file picker.
+For iOS, di local pane dey work with di app own documents area, and you dey bring files in through di system document and photo pickers — including multi-select import of photos and documents. You no need any separate storage permission.
+
+Private key import dey separate from file transfer and e dey use di system file picker.
 
 ## Upload files
 
@@ -78,4 +80,4 @@ Transfers dey queued and e show by status. Di log area dey separate queued, fail
 - Use SFTP for targeted file moves; use command-line tools like `rsync` on di server for large directory synchronization.
 - Avoid editing live production files unless you get backup or deployment rollback path.
 - If file no appear after upload, refresh di remote pane or verify di destination path.
-- If Android storage access dey block local browsing, grant di permission from Android Settings and reopen file transfer.
+- If Android storage access dey block local browsing, grant di permission from Android Settings and reopen file transfer. For iOS, use di pickers instead to add files go di local pane.

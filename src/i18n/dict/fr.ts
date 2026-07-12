@@ -15,7 +15,7 @@ export const fr: Dict = {
     privacy: "Confidentialité"
   },
   footer: {
-    tagline: "Flux SSH, SFTP et terminal ciblés pour les appareils Android.",
+    tagline: "Flux SSH, SFTP et terminal ciblés pour les appareils Android et iOS.",
     documentation: "Documentation",
     comparison: "Comparaison",
     privacy: "Confidentialité",
@@ -23,16 +23,19 @@ export const fr: Dict = {
     feedback: "Commentaires"
   },
   home: {
-    metaTitle: "Mobile SSH — Client SSH pour Android",
+    metaTitle: "Mobile SSH — Client SSH pour Android et iOS",
     metaDescription:
-      "Mobile SSH est un client SSH ciblé pour Android avec terminaux multi-sessions, sessions résilientes Eternal Terminal, un gestionnaire tmux, transfert SFTP, clés privées, redirection de ports et plugins.",
-    eyebrow: "Client SSH pour Android",
+      "Mobile SSH est un client SSH ciblé pour Android et iOS avec terminaux multi-sessions, sessions résilientes Eternal Terminal, un gestionnaire tmux, transfert SFTP, clés privées, redirection de ports et plugins.",
+    eyebrow: "Client SSH pour Android et iOS",
     h1: "Mobile SSH",
     intro:
-      "Un client SSH ciblé pour Android, avec terminaux multi-sessions, authentification par clé privée, transfert de fichiers SFTP, redirection de ports locale et contrôles compatibles tmux pensés pour téléphone et tablette.",
-    versionLine: "Disponible en {count} langues · version {version}",
+      "Un client SSH ciblé pour Android et iOS, avec terminaux multi-sessions, authentification par clé privée, transfert de fichiers SFTP, redirection de ports locale et contrôles compatibles tmux pensés pour téléphone et tablette.",
+    versionLine: "Disponible en {count} langues · Android {version} · iOS {iosVersion} bêta",
     ctaDocs: "Lire la documentation",
     ctaPlay: "Disponible sur Google Play",
+    ctaIos: "Obtenir la bêta iOS sur TestFlight",
+    platformAndroid: "Android",
+    platformIos: "iOS — iPhone et iPad",
     advantagesHead: "Pourquoi Mobile SSH",
     advantagesIntro: "Conçu autour des points faibles habituels des clients SSH mobiles.",
     advantages: [
@@ -40,11 +43,13 @@ export const fr: Dict = {
       { title: "Vos données restent locales", text: "Serveurs, identifiants et clés enregistrés sur l'appareil. Aucun compte cloud, rien qui puisse être abandonné." },
       { title: "Hôtes enregistrés, connexion en un tap", text: "Ajoutez un hôte une fois et reconnectez-vous en un tap — clé, port et tunnels configurés inclus." },
       { title: "Alertes agent", text: "Recevez une notification — avec son et vibration — au moment où Claude Code, Codex ou un autre agent distant a besoin de votre intervention. Fonctionne dans les écouteurs même pendant une vidéo." },
-      { title: "Touches terminal au-dessus du clavier", text: "Rangée dédiée avec ESC, TAB, CTRL, ALT, FN, flèches, Home, End, PgUp/PgDn — sans gêner les suggestions Gboard." },
+      { title: "Touches terminal au-dessus du clavier", text: "Rangée dédiée avec ESC, TAB, CTRL, ALT, FN, flèches, Home, End, PgUp/PgDn sur Android et iOS — des touches terminal sans lutter contre l'autocorrection." },
       { title: "Redirection de ports sans commandes", text: "Les tunnels sont liés au profil serveur et s'activent automatiquement à la connexion." },
-      { title: "Résiste au verrouillage et au changement de réseau", text: "Service au premier plan, wake locks et reconnexion automatique gardent les sessions actives malgré l'écran éteint, les changements d'app et de réseau." }
+      { title: "Résiste au verrouillage et au changement de réseau", text: "Sur Android, un service de premier plan, des wake locks et la reconnexion automatique gardent les shells actifs malgré l'écran éteint et les changements de réseau ; sur iOS, la reconnexion automatique et le rattachement tmux automatique vous ramènent exactement là où vous étiez." },
+      { title: "Eternal Terminal", text: "Un transport ET optionnel garde le shell distant actif malgré les coupures réseau, la mise en veille et les changements d'IP. Pas d'etserver sur l'hôte ? Mobile SSH peut l'installer pour vous via SSH." },
+      { title: "Extensible par plugins", text: "Parcourez un catalogue public et installez des plugins à la demande pour ajouter de nouveaux workflows. Chaque plugin est téléchargé et vérifié par SHA-256 dans le stockage privé de l'app." }
     ],
-    sectionAHead: "Conçu pour l'usage SSH sur Android",
+    sectionAHead: "Conçu pour l'usage SSH mobile",
     sectionAIntro:
       "Mobile SSH raccourcit le chemin d'administration habituel : enregistrer un serveur, se connecter, garder les sessions vivantes, déplacer des fichiers au besoin et revenir vite aux terminaux actifs.",
     features: [
@@ -53,17 +58,20 @@ export const fr: Dict = {
       { title: "Liens cliquables", text: "Les URL dans le terminal sont soulignées et s'ouvrent dans le navigateur d'un tapotement — pas besoin de copier ni de changer d'application." },
       { title: "Dossiers de serveurs", text: "Organisez les serveurs enregistrés en groupes repliables. Tapotez l'en-tête d'un groupe pour le replier ; la structure de dossiers se retrouve dans le sélecteur de connexion rapide." },
       { title: "Alertes agent", text: "Notification avec son et vibration quand un agent distant (Claude Code, Codex, etc.) a besoin de votre intervention. Fonctionne dans les écouteurs même pendant les appels vidéo." },
-      { title: "Clés privées", text: "Authentification par mot de passe ou clé privée. Générez des clés Ed25519, ECDSA ou RSA sur l'appareil ; importez ou collez des clés existantes." },
+      { title: "Clés privées", text: "Authentification par mot de passe ou clé privée. Générez des clés Ed25519 ou ECDSA sur l'appareil (RSA aussi sur Android) ; importez ou collez des clés existantes." },
       { title: "Transfert SFTP", text: "Explorateur de fichiers à deux panneaux lié à une session SSH active. Mettez en file envois et téléchargements, renommez, supprimez et inspectez les permissions distantes." },
       { title: "Redirection de ports", text: "Enregistrez des spécifications de tunnel locales avec un profil de serveur — les tunnels s'ouvrent automatiquement à la connexion, ou ajoutez/retirez-les en cours de connexion." },
-      { title: "Workflow de reconnexion", text: "Service de premier plan, wake locks, keepalives et reconnexion à backoff exponentiel gardent les sessions actives malgré l'écran éteint et l'itinérance." },
-      { title: "Sauvegarde et restauration", text: "Exportez serveurs et identifiants dans un fichier de sauvegarde chiffré ; importez avec fusion ou remplacement pour passer d'un appareil à l'autre." }
+      { title: "Workflow de reconnexion", text: "Keepalives et reconnexion à backoff exponentiel gardent les sessions actives malgré l'écran éteint et l'itinérance — appuyés par un service de premier plan sur Android et le rattachement tmux automatique sur iOS." },
+      { title: "Sauvegarde et restauration", text: "Exportez serveurs et identifiants dans un fichier de sauvegarde chiffré ; importez avec fusion ou remplacement pour passer d'un appareil à l'autre — les sauvegardes sont interopérables entre Android et iOS." },
+      { title: "Eternal Terminal", text: "Connectez-vous via Eternal Terminal (ET) pour des sessions qui survivent aux coupures réseau, à la mise en veille et aux changements d'IP — avec installation automatique optionnelle d'etserver via SSH." },
+      { title: "Gestionnaire tmux", text: "Listez et basculez entre sessions, fenêtres et panneaux tmux — attachez, renommez, créez, divisez, zoomez ou tuez. Triez par nom ou par date ; un 🔔 signale les agents en attente d'intervention." },
+      { title: "Plugins", text: "Parcourez, installez et exécutez des plugins pour étendre Mobile SSH. Les plugins se téléchargent à la demande depuis un catalogue public et sont vérifiés par SHA-256 dans le stockage privé de l'app." }
     ],
     multiHead: "Un écran, plusieurs shells actifs",
     multiP1:
       "La vue terminal peut contenir plusieurs sessions SSH actives en grille. Sélectionnez un panneau pour saisir, utilisez la rangée de touches supplémentaires pour les contrôles du terminal, pincez pour ajuster la taille du texte et double-tapez un panneau pour le mettre en plein écran.",
     multiP2:
-      "L'historique des sessions et la récupération des sessions actives vous aident à revenir au travail en cours après un changement d'application, un verrouillage d'écran ou une recréation d'activité Android.",
+      "L'historique des sessions et la récupération des sessions actives vous aident à revenir au travail en cours après un changement d'application, un verrouillage d'écran ou lorsque le système récupère les ressources de l'app.",
     multiAlt:
       "Mobile SSH sur un téléphone affichant deux sessions SSH actives dans une vue côte à côte en écran partagé.",
     sftpHead: "SFTP quand le terminal ne suffit pas",
@@ -74,13 +82,14 @@ export const fr: Dict = {
     sftpAlt: "Écran de transfert de fichiers de Mobile SSH sur un téléphone avec panneaux local et distant.",
     galleryHead: "Voyez-le sur un vrai appareil",
     galleryIntro:
-      "Captures réalisées sur des téléphones Android — les écrans que vous utiliserez pour ajouter des serveurs, travailler dans des terminaux, lancer plusieurs sessions et déplacer des fichiers en SFTP.",
+      "Captures réalisées sur des téléphones Android et des iPhone — les écrans que vous utiliserez pour ajouter des serveurs, travailler dans des terminaux, lancer plusieurs sessions et déplacer des fichiers en SFTP.",
     carouselPrev: "Capture précédente",
     carouselNext: "Capture suivante",
     carouselDot: "Aller à la position {n}",
     videoHead: "Voir en action",
-    videoIntro: "Courtes démonstrations des fonctionnalités 2.0 — un changement de fenêtre tmux, un transfert de fichier SFTP, l'installation du plugin AI Chat et une conversation avec lui, Eternal Terminal et les sessions récentes en un tap.",
-    videoAlt: "Démonstration d'un changement de fenêtre tmux, d'un téléchargement de fichier SFTP, de l'installation et de l'utilisation du plugin AI Chat, du transport Eternal Terminal et des sessions récentes",
+    videoIntro: "Courtes démonstrations sur les deux plateformes. Android : un changement de fenêtre tmux, un transfert de fichier SFTP, l'installation du plugin AI Chat et une conversation avec lui, Eternal Terminal et les sessions récentes en un tap. iOS : serveurs enregistrés groupés, options de connexion avec rattachement tmux automatique, une session de terminal en direct et le gestionnaire tmux.",
+    videoAlt: "Démonstration Android d'un changement de fenêtre tmux, d'un téléchargement de fichier SFTP, de l'installation et de l'utilisation du plugin AI Chat, du transport Eternal Terminal et des sessions récentes",
+    videoIosAlt: "Démonstration iOS de serveurs enregistrés groupés, d'options de connexion avec rattachement tmux automatique et redirection de ports, d'une session de terminal SSH en direct et du gestionnaire tmux changeant de fenêtre",
     lightboxClose: "Fermer",
     lightboxPrev: "Précédent",
     lightboxNext: "Suivant",
@@ -105,28 +114,50 @@ export const fr: Dict = {
       "Plugin AI Chat sur un téléphone diffusant en continu une réponse d'un modèle llama3.2 local exécuté sur le serveur distant via SSH.",
       "Boîte de dialogue Ajouter un serveur sur un téléphone avec le transport réglé sur Eternal Terminal pour que les sessions survivent aux coupures réseau."
     ],
+    galleryIosAlts: [
+      "Formulaire de connexion de Mobile SSH sur un iPhone avec les champs serveur, authentification, dossier et transport.",
+      "Serveurs enregistrés sur un iPhone organisés en groupes Production et Staging avec recherche de serveurs.",
+      "Terminal SSH en direct sur un iPhone avec une barre d'état tmux et la rangée de touches supplémentaires en bas.",
+      "Deux sessions SSH côte à côte dans une grille sur un iPhone avec panneaux focalisables au tap.",
+      "Transfert de fichiers sur un iPhone avec les panneaux Mon téléphone et Hôte distant et un journal de transfert terminé.",
+      "Authentification par clé sur un iPhone avec une clé Ed25519 générée sur l'appareil et une clé publique copiable.",
+      "Gestionnaire tmux sur un iPhone listant sessions et fenêtres avec des actions attacher, renommer et tuer — une cloche signale un agent en attente d'intervention.",
+      "Terminal SSH sur un iPhone attaché à une fenêtre tmux affichant du code dans un éditeur distant.",
+      "Catalogue de plugins sur un iPhone avec Tailscale, WireGuard, VS Code, AI Chat et Open WebUI disponibles à l'installation.",
+      "Formulaire de connexion sur un iPhone avec le transport réglé sur Eternal Terminal pour que les sessions survivent aux coupures réseau.",
+      "Réglages des alertes agent sur un iPhone avec les options vibration, son et écouteurs uniquement.",
+      "Écran de connexion de Mobile SSH sur un iPhone avec une section Récents pour se reconnecter en un tap."
+    ],
     compareHead: "Sa place à côté de Termux et Termius",
     compareIntro:
-      "Mobile SSH est volontairement restreint : ce n'est pas un environnement Linux complet, ni un coffre cloud d'équipe. C'est un outil SSH/SFTP local pour Android avec un accès rapide aux contrôles de session dont les utilisateurs mobiles ont le plus besoin.",
+      "Mobile SSH est volontairement restreint : ce n'est pas un environnement Linux complet, ni un coffre cloud d'équipe. C'est un outil SSH/SFTP local pour Android et iOS avec un accès rapide aux contrôles de session dont les utilisateurs mobiles ont le plus besoin.",
     compareGuideTitle: "Guide de comparaison",
-    compareGuideText: "Quand choisir Mobile SSH, Termux ou Termius sur appareils Android.",
+    compareGuideText: "Quand choisir Mobile SSH, Termux ou Termius sur votre téléphone ou votre tablette.",
     privacyTitle: "Politique de confidentialité",
     privacyText: "Quelles données de connexion restent locales et quelles données sont envoyées à vos serveurs."
   },
   features: {
     metaTitle: "Fonctionnalités | Mobile SSH",
     metaDescription:
-      "Principales fonctionnalités de Mobile SSH pour SSH, terminal, SFTP, clé privée, tmux et redirection de ports sur Android.",
+      "Principales fonctionnalités de Mobile SSH pour SSH sur Android et iOS : terminal, Eternal Terminal, gestionnaire tmux, SFTP, clés privées, redirection de ports et plugins.",
     eyebrow: "Liste des fonctionnalités",
     h1: "Fonctionnalités de Mobile SSH",
     intro:
-      "Mobile SSH est conçu pour un usage SSH direct sur Android : ouvrir des terminaux, les garder vivants, déplacer des fichiers, enregistrer des serveurs et se remettre vite des interruptions mobiles.",
+      "Mobile SSH est conçu pour un usage SSH direct depuis les appareils Android et iOS : ouvrir des terminaux, les garder vivants, déplacer des fichiers, enregistrer des serveurs et se remettre vite des interruptions mobiles.",
     groups: [
+      {
+        title: "Plateformes",
+        items: [
+          "Android 8.0 ou plus récent — installation depuis Google Play",
+          "iOS 16 ou plus récent sur iPhone et iPad — rejoignez la bêta publique sur TestFlight",
+          "Les sauvegardes chiffrées sont interopérables : exportez sur une plateforme, importez sur l'autre"
+        ]
+      },
       {
         title: "Connexions",
         items: [
           "Authentification par mot de passe et par clé privée",
-          "Clés privées Ed25519, RSA, ECDSA et DSA prises en charge par l'implémentation actuelle",
+          "Clés privées Ed25519, RSA, ECDSA et DSA sur Android ; Ed25519 et ECDSA (P-256/384/521) sur iOS",
           "Profils de serveur enregistrés avec hôte, port, utilisateur, identifiant, clé privée et tunnels optionnels",
           "Recherche de serveurs enregistrés par nom ou hôte",
           "Flux Ajouter une session avec recherche en premier : choisissez un serveur enregistré depuis une page de recherche dédiée et connectez-vous en un tap",
@@ -145,7 +176,7 @@ export const fr: Dict = {
           "Pincement pour redimensionner le texte avec resize du terminal distant",
           "Mode plein écran d'un panneau au double-tap",
           "Sélection de texte avec actions Copier, Partager et Tout sélectionner",
-          "Suggestions/autocorrection Gboard et saisie vocale prises en charge, avec mise en tampon du texte en composition"
+          "Suggestions/autocorrection Gboard et saisie vocale sur Android, avec mise en tampon du texte en composition pour les terminaux"
         ]
       },
       {
@@ -153,11 +184,13 @@ export const fr: Dict = {
         items: [
           "Jusqu'à huit sessions SSH simultanées",
           "Disposition en grille pour les sessions actives",
-          "Service de premier plan pour la résilience en arrière-plan et au verrouillage d'écran",
+          "Résilience en arrière-plan et au verrouillage d'écran : un service de premier plan sur Android ; le rattachement tmux automatique rattache votre shell sur iOS",
           "Keepalives et tentatives de reconnexion avec backoff exponentiel",
           "Point d'entrée Sessions actives depuis l'écran d'accueil ; la notification persistante liste les sessions — tapotez pour ouvrir",
           "Suivi des commandes tmux et indications de reattach pour les travaux interrompus",
-          "Alertes agent : notification avec son et vibration optionnels quand un agent distant (Claude Code, Codex, etc.) a besoin d'une intervention ; fonctionne dans les écouteurs pendant une vidéo"
+          "Alertes agent : notification avec son et vibration optionnels quand un agent distant (Claude Code, Codex, etc.) a besoin d'une intervention ; fonctionne dans les écouteurs pendant une vidéo",
+          "Transport Eternal Terminal (ET) pour des sessions qui survivent aux coupures réseau, à la mise en veille et aux changements d'IP, avec installation automatique optionnelle d'etserver via SSH",
+          "Gestionnaire tmux : listez et basculez entre sessions, fenêtres et panneaux — attachez, renommez, créez, divisez, zoomez ou tuez, avec tri par nom/date et un 🔔 pour les agents en attente d'intervention"
         ]
       },
       {
@@ -168,38 +201,47 @@ export const fr: Dict = {
           "Actions distantes renommer, supprimer, créer, éditer et détails",
           "Tri par nom ou par date avec persistance par hôte",
           "Redirection locale de ports enregistrée avec le profil du serveur",
-          "Vue d'ajout/suppression de tunnels à chaud pour les sessions connectées"
+          "Vue d'ajout/suppression de tunnels à chaud pour les sessions connectées",
+          "Le transfert de fichiers suit le thème clair ou sombre du système"
         ]
       },
       {
         title: "Localisation",
         items: [
           "Interface traduite : arabe, bengali, chinois (simplifié et traditionnel), anglais, français, allemand, hindi, indonésien, japonais, marathi, pidgin nigérian, portugais, russe, espagnol, tamoul, télougou, turc et ourdou",
-          "Suit la langue système Android ; aucun sélecteur intégré requis"
+          "Suit la langue système sur Android et iOS ; aucun sélecteur intégré requis"
         ]
       },
       {
         title: "Clés et sauvegarde",
         items: [
-          "Générez de nouvelles clés Ed25519, ECDSA ou RSA sur l'appareil, avec une phrase secrète facultative",
+          "Générez de nouvelles clés Ed25519 ou ECDSA sur l'appareil (RSA aussi sur Android), avec une phrase secrète facultative",
           "Copiez, partagez ou enregistrez une clé publique générée pour l'ajouter au authorized_keys du serveur",
           "Exportez les serveurs et identifiants enregistrés vers un fichier de sauvegarde",
           "Une phrase secrète facultative chiffre la sauvegarde ; importez avec fusion ou remplacement",
           "Une sauvegarde non chiffrée stocke mots de passe et clés en clair — protégez ou supprimez le fichier"
         ]
+      },
+      {
+        title: "Plugins",
+        items: [
+          "Parcourez, installez et exécutez des plugins pour étendre Mobile SSH",
+          "Les plugins se téléchargent à la demande depuis un catalogue public et sont vérifiés par SHA-256 dans le stockage privé de l'app",
+          "Configurez une source de catalogue personnalisée ou privée si besoin"
+        ]
       }
     ],
     security:
-      "Sécurité : l'application actuelle stocke les profils de serveur et les identifiants enregistrés localement sur l'appareil Android. Elle ne propose pas de synchronisation cloud. Protégez l'appareil par un verrouillage d'écran solide et évitez d'enregistrer des identifiants sur des appareils partagés."
+      "Sécurité : l'application actuelle stocke les profils de serveur et les identifiants enregistrés localement sur l'appareil (sur iOS, les secrets sont conservés dans le trousseau système Keychain). Elle ne propose pas de synchronisation cloud. Protégez l'appareil par un verrouillage d'écran solide et évitez d'enregistrer des identifiants sur des appareils partagés."
   },
   compare: {
-    metaTitle: "Mobile SSH vs Termux vs Termius sur Android",
+    metaTitle: "Mobile SSH vs Termux vs Termius sur mobile",
     metaDescription:
-      "Comparaison équilibrée de Mobile SSH, Termux et Termius pour les flux SSH sur Android.",
-    eyebrow: "Options SSH sur Android",
+      "Comparaison équilibrée de Mobile SSH, Termux et Termius pour les flux SSH sur Android et iOS.",
+    eyebrow: "Options SSH mobiles",
     h1: "Mobile SSH vs Termux vs Termius",
     intro:
-      "Ces outils se recoupent autour de SSH mais visent des usages différents. Mobile SSH est un client SSH/SFTP ciblé pour Android, Termux est un environnement Linux et Termius est un client SSH multi-plateformes avec fonctionnalités de productivité basées sur compte.",
+      "Ces outils se recoupent autour de SSH mais visent des usages différents. Mobile SSH est un client SSH/SFTP ciblé pour Android et iOS, Termux est un environnement Linux réservé à Android et Termius est un client SSH multi-plateformes avec fonctionnalités de productivité basées sur compte.",
     columns: {
       need: "Besoin",
       mobileSsh: "Mobile SSH",
@@ -209,7 +251,7 @@ export const fr: Dict = {
     rows: [
       {
         need: "But principal",
-        mobileSsh: "Client SSH, SFTP, tunnel local et terminal dédié pour Android.",
+        mobileSsh: "Client SSH, SFTP, tunnel local et terminal dédié pour Android et iOS.",
         termux: "Émulateur de terminal et environnement Linux pour Android avec paquets APT.",
         termius: "Client SSH moderne pour Android, iOS, bureau et flux d'équipe orientés web."
       },
@@ -220,8 +262,8 @@ export const fr: Dict = {
         termius: "Créer ou synchroniser hôtes, clés, snippets et coffres via l'app/compte Termius."
       },
       {
-        need: "Contrôles terminal Android",
-        mobileSsh: "Rangée de touches supplémentaires intégrée, sessions en grille, panneaux plein écran, zoom au pincement, sélection avec copier/partager, suggestions Gboard, saisie vocale et défilement compatible tmux.",
+        need: "Contrôles terminal mobiles",
+        mobileSsh: "Rangée de touches supplémentaires intégrée, sessions en grille, panneaux plein écran, zoom au pincement, sélection avec copier/partager et défilement compatible tmux — plus suggestions Gboard et saisie vocale sur Android.",
         termux: "Environnement de terminal puissant ; le comportement dépend des outils et de la configuration installés.",
         termius: "Module clavier mobile, gestes, onglets, autocomplétion, snippets et UX de terminal soignée."
       },
@@ -233,7 +275,7 @@ export const fr: Dict = {
       },
       {
         need: "Travail multi-sessions",
-        mobileSsh: "Jusqu'à huit sessions SSH simultanées dans une grille Android.",
+        mobileSsh: "Jusqu'à huit sessions SSH simultanées dans une grille.",
         termux: "Utilisez des multiplexeurs comme tmux dans Termux ou dans les shells distants.",
         termius: "Onglets et vue divisée, selon la plateforme et l'offre."
       },
@@ -245,7 +287,7 @@ export const fr: Dict = {
       },
       {
         need: "Cas idéal",
-        mobileSsh: "Une app Android simple pour se connecter à des serveurs, transférer des fichiers et garder les sessions actives.",
+        mobileSsh: "Une app simple sur Android ou iOS pour se connecter à des serveurs, transférer des fichiers et garder les sessions actives.",
         termux: "Un environnement en ligne de commande complet sur Android, avec l'aisance d'installer et configurer des paquets.",
         termius: "Synchronisation multi-appareils, productivité soignée, coffres et collaboration."
       }
@@ -253,7 +295,7 @@ export const fr: Dict = {
     cards: [
       {
         title: "Choisissez Mobile SSH si",
-        body: "Vous voulez un accès SSH direct depuis Android sans monter d'environnement Linux complet ni de compte cloud synchronisé. Particulièrement adapté aux serveurs enregistrés, à SFTP, aux sessions tmux et aux flux rapides de tunnel local."
+        body: "Vous voulez un accès SSH direct depuis votre téléphone ou votre tablette — Android ou iOS — sans monter d'environnement Linux complet ni de compte cloud synchronisé. Particulièrement adapté aux serveurs enregistrés, à SFTP, aux sessions tmux et aux flux rapides de tunnel local."
       },
       {
         title: "Choisissez Termux si",
@@ -309,21 +351,26 @@ export const fr: Dict = {
       { category: "Confidentialité et coût", feature: "Pas de paywall Pro",                            mobile: "yes",     termux: "yes",           termius: "partiel" },
       { category: "Confidentialité et coût", feature: "Pas de publicités",                             mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Confidentialité et coût", feature: "Désactivation des statistiques",               mobile: "yes",     termux: "no",            termius: "no" },
-      { category: "Confidentialité et coût", feature: "Données uniquement locales (pas de cloud sync)", mobile: "yes",  termux: "yes",           termius: "no" }
+      { category: "Confidentialité et coût", feature: "Données uniquement locales (pas de cloud sync)", mobile: "yes",  termux: "yes",           termius: "no" },
+      { category: "Sessions",           feature: "Eternal Terminal (sessions résilientes)",            mobile: "yes",     termux: "via CLI",       termius: "no" },
+      { category: "Sessions",           feature: "Installation automatique d'etserver via SSH",        mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Sessions",           feature: "Gestionnaire de sessions tmux",                      mobile: "yes",     termux: "via CLI",       termius: "no" },
+      { category: "Plugins",            feature: "Prise en charge des plugins",                        mobile: "yes",     termux: "via paquets",   termius: "no" },
+      { category: "Plugins",            feature: "Catalogue de plugins à installation à la demande",   mobile: "yes",     termux: "no",            termius: "no" }
     ]
   },
   privacy: {
     metaTitle: "Politique de confidentialité | Mobile SSH",
     metaDescription:
-      "Politique de confidentialité de Mobile SSH, comprenant stockage local, transmission de données SSH, transfert de fichiers, journaux et permissions Android.",
+      "Politique de confidentialité de Mobile SSH, comprenant stockage local, transmission de données SSH, transfert de fichiers, journaux et permissions de l'app sur Android et iOS.",
     eyebrow: "Confidentialité",
     h1: "Politique de confidentialité",
     intro:
-      "Mobile SSH est conçu comme un client SSH local pour Android. Il ne nécessite pas de compte Mobile SSH et ne propose pas de service de synchronisation cloud.",
+      "Mobile SSH est conçu comme un client SSH local pour Android et iOS. Il ne nécessite pas de compte Mobile SSH et ne propose pas de service de synchronisation cloud.",
     sections: [
       {
         heading: "Informations stockées sur votre appareil",
-        body: "Si vous choisissez d'enregistrer des données dans l'application, Mobile SSH les conserve localement sur l'appareil Android. Cela peut inclure les profils de serveur enregistrés, noms d'utilisateur, ports, mots de passe, clés privées, phrases de passe, règles de redirection de ports, sessions récentes, historique des tentatives de connexion, chemins de transfert, préférences de tri, indications de reattach tmux, paramètres de l'application et journaux de débogage lorsque l'enregistrement de débogage est activé."
+        body: "Si vous choisissez d'enregistrer des données dans l'application, Mobile SSH les conserve localement sur l'appareil — sur iOS, les secrets sont conservés dans le trousseau système Keychain. Cela peut inclure les profils de serveur enregistrés, noms d'utilisateur, ports, mots de passe, clés privées, phrases de passe, règles de redirection de ports, sessions récentes, historique des tentatives de connexion, chemins de transfert, préférences de tri, indications de reattach tmux, paramètres de l'application et journaux de débogage lorsque l'enregistrement de débogage est activé."
       },
       {
         heading: "Informations envoyées sur le réseau",
@@ -331,30 +378,30 @@ export const fr: Dict = {
       },
       {
         heading: "Transfert de fichiers et accès au stockage",
-        body: "La fonctionnalité de transfert de fichiers parcourt le stockage local du téléphone et les dossiers SFTP distants pour permettre l'envoi et le téléchargement. Sur les versions d'Android qui l'exigent, l'application peut demander l'accès au stockage pour que l'explorateur local puisse lire et écrire les fichiers sélectionnés."
+        body: "La fonctionnalité de transfert de fichiers parcourt le stockage local du téléphone et les dossiers SFTP distants pour permettre l'envoi et le téléchargement. Sur les versions d'Android qui l'exigent, l'application peut demander l'accès au stockage pour que l'explorateur local puisse lire et écrire les fichiers sélectionnés. Sur iOS, l'accès aux fichiers locaux et aux photos passe par les sélecteurs de documents et de photos du système."
       },
       {
         heading: "Journaux et dépannage",
         body: "L'historique des connexions et les journaux de débogage optionnels sont stockés localement pour le dépannage. Les journaux de débogage peuvent inclure des événements de terminal, des tailles de données SSH, des diagnostics tactiles, des événements de redimensionnement et des événements de cycle de vie des tunnels. Vérifiez toute archive de débogage avant de la partager avec le support ou un tiers."
       },
-      { heading: "Statistiques d'usage anonymes", body: "Pour comprendre comment l'app est utilisée et l'améliorer, Mobile SSH envoie des statistiques d'usage anonymes à Aptabase, un fournisseur d'analytique respectueux de la vie privée agissant pour notre compte. Cela se limite à des événements anonymes (comme les ouvertures de l'app et les fonctions utilisées) ainsi qu'à la version de l'app, la version d'Android, le modèle de l'appareil et la langue. Un identifiant de session aléatoire, réinitialisé régulièrement, est utilisé ; il n'est lié ni à vous ni à votre appareil. Cela n'inclut jamais vos serveurs SSH, noms d'hôte, identifiants, mots de passe, clés, commandes ou contenus de fichiers. Les données sont envoyées via une connexion chiffrée (HTTPS). L'analytique est activée par défaut et peut être désactivée à tout moment dans les Réglages ; lorsqu'elle est désactivée, rien n'est envoyé." }
+      { heading: "Statistiques d'usage anonymes", body: "Pour comprendre comment l'app est utilisée et l'améliorer, Mobile SSH envoie des statistiques d'usage anonymes à Aptabase, un fournisseur d'analytique respectueux de la vie privée agissant pour notre compte. Cela se limite à des événements anonymes (comme les ouvertures de l'app et les fonctions utilisées) ainsi qu'à la version de l'app, la version du système d'exploitation, le modèle de l'appareil et la langue. Un identifiant de session aléatoire, réinitialisé régulièrement, est utilisé ; il n'est lié ni à vous ni à votre appareil. Cela n'inclut jamais vos serveurs SSH, noms d'hôte, identifiants, mots de passe, clés, commandes ou contenus de fichiers. Les données sont envoyées via une connexion chiffrée (HTTPS). L'analytique est activée par défaut et peut être désactivée à tout moment dans les Réglages ; lorsqu'elle est désactivée, rien n'est envoyé." }
     ],
     permissionsHeading: "Permissions",
     permissions: [
       { label: "Internet", body: "nécessaire pour se connecter aux serveurs SSH." },
-      { label: "Wake lock et Wi-Fi lock", body: "utilisés pour garder les sessions SSH actives pendant que l'appareil dort." },
-      { label: "Service de premier plan et notifications", body: "utilisés pour gérer les connexions actives en arrière-plan." },
-      { label: "Accès au stockage", body: "utilisé par le transfert de fichiers et l'import de clés." }
+      { label: "Wake lock et Wi-Fi lock", body: "utilisés sur Android pour garder les sessions SSH actives pendant que l'appareil dort." },
+      { label: "Service de premier plan et notifications", body: "utilisés sur Android pour gérer les connexions actives en arrière-plan ; sur iOS, les notifications servent aux alertes agent." },
+      { label: "Accès au stockage", body: "utilisé par le transfert de fichiers et l'import de clés ; sur iOS, cela passe par les sélecteurs de documents et de photos du système." }
     ],
     securityHeading: "Responsabilités de sécurité",
     securityBody:
-      "Protégez votre appareil Android avec un verrouillage d'écran solide si vous enregistrez des identifiants ou des clés privées. Ne vous connectez qu'à des serveurs de confiance. L'implémentation actuelle utilise le stockage local de l'app plutôt qu'un coffre cloud chiffré séparé.",
+      "Protégez votre appareil avec un verrouillage d'écran solide si vous enregistrez des identifiants ou des clés privées. Ne vous connectez qu'à des serveurs de confiance. L'implémentation actuelle utilise le stockage local de l'app (et le trousseau Keychain sur iOS) plutôt qu'un coffre cloud chiffré séparé.",
     contactHeading: "Contact",
     contactBody: "Contact support : [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },
   docsIndex: {
     metaTitle: "Documentation | Mobile SSH",
-    metaDescription: "Documentation utilisateur de Mobile SSH pour Android.",
+    metaDescription: "Documentation utilisateur de Mobile SSH pour Android et iOS.",
     eyebrow: "Guide utilisateur",
     h1: "Documentation Mobile SSH",
     intro:
@@ -377,7 +424,7 @@ export const fr: Dict = {
   },
   about: {
     metaTitle: "À propos | Mobile SSH",
-    metaDescription: "À propos de Mobile SSH : version, auteur, licence et mentions open source du client SSH pour Android.",
+    metaDescription: "À propos de Mobile SSH : version, auteur, licence et mentions open source du client SSH pour Android et iOS.",
     eyebrow: "À propos",
     h1: "À propos de Mobile SSH",
     intro: "Client SSH multi-sessions avec tmux, redirection de ports et SFTP.",
@@ -393,11 +440,13 @@ export const fr: Dict = {
     noticesHeading: "Mentions open source",
     noticesIntro: "Mobile SSH s'appuie sur les bibliothèques open source suivantes, chacune utilisée selon sa licence respective.",
     notices: [
-      { name: "JSch (mwiede fork)",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
-      { name: "JZlib (bundled in JSch)",   license: "BSD 3-clause" },
-      { name: "jBCrypt (bundled in JSch)", license: "ISC" },
-      { name: "Ed25519 / Ed448 Java",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
-      { name: "StringFog",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" }
+      { name: "JSch (mwiede fork) — Android",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch" },
+      { name: "JZlib (bundled in JSch) — Android",   license: "BSD 3-clause" },
+      { name: "jBCrypt (bundled in JSch) — Android", license: "ISC" },
+      { name: "Ed25519 / Ed448 Java — Android",      license: "CC0 (public domain)", url: "https://github.com/str4d/ed25519-java" },
+      { name: "StringFog — Android",                 license: "Apache 2.0", url: "https://github.com/megatronking/stringfog" },
+      { name: "SwiftNIO & SwiftNIO SSH — iOS",       license: "Apache 2.0", url: "https://github.com/apple/swift-nio-ssh" },
+      { name: "Swift Crypto — iOS",                  license: "Apache 2.0", url: "https://github.com/apple/swift-crypto" }
     ],
     contactHeading: "Contact",
     contactBody: "Contact support : [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."

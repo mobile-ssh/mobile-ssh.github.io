@@ -14,7 +14,7 @@ Das Terminal von Mobile SSH ist für die Bedienung auf Telefon und Tablet gemach
 - Der Scrollback-Puffer hält bis zu 5000 Zeilen.
 - Tippe auf einen Bereich, um ihn vor dem Tippen auszuwählen.
 - Zoome einen Terminalbereich mit zwei Fingern, um die Textgröße zu ändern. Mobile SSH passt die Größe des entfernten PTY an, nachdem die Geste abgeschlossen ist.
-- Doppeltippe auf einen Bereich, um in den Vollbildmodus zu wechseln. Nutze Zurück, um zum Raster zurückzukehren.
+- Doppeltippe auf einen Bereich (oder nutze sein Bedienelement zum Erweitern), um in den Vollbildmodus zu wechseln. Nutze Zurück auf Android oder das Bedienelement zum Einklappen auf iOS, um zum Raster zurückzukehren.
 
 ## Mehrsitzungsraster
 
@@ -24,7 +24,7 @@ Das Schließen eines Bereichs trennt diese SSH-Sitzung. Das Zurückgehen zum Sta
 
 ## Zusatztastenreihe
 
-Die Zusatztastenreihe erscheint über der Android-Tastatur und bietet Terminaltasten, die auf Touch-Tastaturen unpraktisch sind:
+Sowohl auf Android als auch auf iOS erscheint die Zusatztastenreihe über der Bildschirmtastatur und bietet Terminaltasten, die auf Touch-Tastaturen unpraktisch sind:
 
 - `ESC`
 - `TAB`
@@ -43,19 +43,19 @@ Die Zusatztastenreihe erscheint über der Android-Tastatur und bietet Terminalta
 
 Mobile SSH hat zwei tastaturbezogene Einstellungen:
 
-- **Terminal antippen, um die Tastatur anzuzeigen:** wenn aktiviert, bittet ein Tippen auf das Terminal Android, die Eingabemethode anzuzeigen.
+- **Terminal antippen, um die Tastatur anzuzeigen:** wenn aktiviert, bittet ein Tippen auf das Terminal das System, die Bildschirmtastatur anzuzeigen.
 - **Tastaturvorschläge:** wenn aktiviert, können kompatible Tastaturen Vorschläge an Shell-Prompts anzeigen. Deaktiviere dies, wenn Vorschläge Terminalprogramme stören.
 
 Wenn Vorschläge aktiviert sind, puffert Mobile SSH den in Komposition befindlichen Text bis zu einer Wortgrenze, damit die Tastaturkorrektur das aktuelle Wort ersetzen kann, bevor es an die entfernte Shell gesendet wird. Steuertasten und Terminal-Tastenfolgen umgehen diesen Puffer, sodass Kürzel wie tmux-Präfixbefehle prompt ankommen.
 
-Die Spracheingabe (die Mikrofontaste von Gboard) läuft durch denselben Kompositionspuffer, sodass diktierter Text gesendet wird, sobald er erkannt ist, und nicht Zeichen für Zeichen.
+Auf Android läuft die Spracheingabe (die Mikrofontaste von Gboard) durch denselben Kompositionspuffer, sodass diktierter Text gesendet wird, sobald er erkannt ist, und nicht Zeichen für Zeichen.
 
 ## Auswählen, kopieren, teilen
 
 Halte im Terminal gedrückt, um in den Auswahlmodus zu wechseln. Die Auswahlleiste bietet drei Aktionen:
 
-- **Copy** -- legt den ausgewählten Text in die Android-Zwischenablage.
-- **Share** -- übergibt den ausgewählten Text an das Android-Teilen-Menü (Mail, Notizen, Messaging usw.).
+- **Copy** -- legt den ausgewählten Text in die System-Zwischenablage.
+- **Share** -- übergibt den ausgewählten Text an das System-Teilen-Menü (Mail, Notizen, Messaging usw.).
 - **Select all** -- erweitert die Auswahl auf den gesamten sichtbaren Terminalpuffer, danach Copy oder Share.
 
 ## Scrollen

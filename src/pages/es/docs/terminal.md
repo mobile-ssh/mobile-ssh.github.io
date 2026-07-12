@@ -14,7 +14,7 @@ La terminal de Mobile SSH está pensada para usarse en teléfono y tableta. Comb
 - El búfer de desplazamiento conserva hasta 5000 líneas.
 - Toca un panel para seleccionarlo antes de escribir.
 - Pellizca un panel de la terminal para cambiar el tamaño del texto. Mobile SSH redimensiona el PTY remoto cuando el gesto se estabiliza.
-- Toca dos veces un panel para entrar en modo pantalla completa. Usa Atrás para volver a la cuadrícula.
+- Toca dos veces un panel (o usa su control para expandir) para entrar en modo pantalla completa. Usa Atrás en Android, o el control para contraer en iOS, para volver a la cuadrícula.
 
 ## Cuadrícula de varias sesiones
 
@@ -24,7 +24,7 @@ Cerrar un panel desconecta esa sesión SSH. Volver a la pantalla de inicio manti
 
 ## Fila de teclas extra
 
-La fila de teclas extra aparece sobre el teclado de Android y ofrece teclas de terminal que resultan incómodas en teclados táctiles:
+Tanto en Android como en iOS, la fila de teclas extra aparece sobre el teclado en pantalla y ofrece teclas de terminal que resultan incómodas en teclados táctiles:
 
 - `ESC`
 - `TAB`
@@ -43,19 +43,19 @@ La fila de teclas extra aparece sobre el teclado de Android y ofrece teclas de t
 
 Mobile SSH tiene dos ajustes relacionados con el teclado:
 
-- **Tocar la terminal para mostrar el teclado:** cuando está activado, tocar la terminal pide a Android que muestre el método de entrada.
+- **Tocar la terminal para mostrar el teclado:** cuando está activado, tocar la terminal pide al sistema que muestre el teclado en pantalla.
 - **Sugerencias del teclado:** cuando está activado, los teclados compatibles pueden mostrar sugerencias en los prompts del shell. Desactívalo si las sugerencias interfieren con los programas de terminal.
 
 Cuando las sugerencias están activadas, Mobile SSH almacena el texto en composición hasta un límite de palabra, para que la corrección del teclado pueda reemplazar la palabra actual antes de enviarla al shell remoto. Las teclas de control y las combinaciones de terminal omiten ese búfer, de modo que atajos como los comandos de prefijo de tmux llegan de inmediato.
 
-La entrada por voz (el botón de micrófono de Gboard) pasa por el mismo búfer de texto en composición, así que el texto dictado se envía cuando se resuelve, no carácter por carácter.
+En Android, la entrada por voz (el botón de micrófono de Gboard) pasa por el mismo búfer de texto en composición, así que el texto dictado se envía cuando se resuelve, no carácter por carácter.
 
 ## Seleccionar, copiar, compartir
 
 Mantén pulsado dentro de la terminal para entrar en modo de selección. La barra de selección ofrece tres acciones:
 
-- **Copiar** — coloca el texto seleccionado en el portapapeles de Android.
-- **Compartir** — pasa el texto seleccionado al panel de compartir de Android (correo, notas, mensajería, etc.).
+- **Copiar** — coloca el texto seleccionado en el portapapeles del sistema.
+- **Compartir** — pasa el texto seleccionado al panel de compartir del sistema (correo, notas, mensajería, etc.).
 - **Seleccionar todo** — amplía la selección a todo el búfer visible de la terminal; luego usa Copiar o Compartir.
 
 ## Desplazamiento

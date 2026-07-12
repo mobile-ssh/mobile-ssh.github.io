@@ -12,7 +12,7 @@ This page covers common Mobile SSH issues and the first checks to run before cha
 
 Check:
 
-- The Android device has network access.
+- The device has network access.
 - The server hostname or IP address is correct.
 - The SSH port is correct, usually `22`.
 - A firewall, VPN, carrier network, or Wi-Fi network is not blocking the port.
@@ -34,16 +34,16 @@ For encrypted private keys, enter the passphrase in the password/passphrase fiel
 
 ## Private key import failed
 
-Private key import uses Android's file picker. If import fails:
+Private key import uses the system file picker. If import fails:
 
 - Confirm the selected file is a private key, not a public `.pub` file.
 - Open the file in a trusted text editor and verify it contains the full key block.
 - Try pasting the key manually into the private key field.
-- Confirm the key type is one supported by the app implementation: Ed25519, RSA, ECDSA, or DSA.
+- Confirm the key type is supported: Ed25519, RSA, ECDSA, or DSA on Android; Ed25519 or ECDSA (P-256/384/521) on iOS.
 
 ## Keyboard input is delayed or changed
 
-If your Android keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
+If your on-screen keyboard changes text before it reaches the shell, disable keyboard suggestions in Mobile SSH settings. This is useful for Vim, tmux, htop, less, shells using unusual key chords, and remote password prompts.
 
 Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
 
@@ -60,7 +60,7 @@ If scrolling feels wrong:
 
 ## Session dropped after screen lock
 
-Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
+On Android, Mobile SSH uses keepalives, a foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies can still stop background work.
 
 Check:
 
@@ -69,11 +69,15 @@ Check:
 - Reopen Mobile SSH and tap **Active Sessions** after unlocking.
 - If the server disconnected the SSH session, reconnect from recent sessions.
 
+On iOS, the system suspends apps in the background, so a raw SSH connection cannot be kept open indefinitely once you switch away or lock the screen. A short grace period covers quick app switches; for anything longer, enable **Auto-attach tmux session** on the server profile (or use the **Eternal Terminal** transport) so reconnecting drops you back into the same shell where you left off.
+
 ## File transfer cannot browse phone files
 
 On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
 
 If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+
+On iOS there is no storage permission: the local pane shows the app's documents area, and you add files through the system document and photo pickers.
 
 ## Upload or download failed
 
@@ -83,7 +87,7 @@ Check:
 - The remote directory exists.
 - The remote user has permission to read or write the path.
 - The local destination is writable.
-- There is enough free space on the Android device.
+- There is enough free space on the device.
 - The network is stable for large transfers.
 
 ## Port forward failed

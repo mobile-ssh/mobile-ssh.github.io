@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Port forwarding"
-description: "Mobile SSH local port forwarding syntax and tunnel management for Android."
+description: "Mobile SSH local port forwarding syntax and tunnel management on Android and iOS."
 ---
 
 # Port forwarding
 
-Mobile SSH dey support local SSH port forwarding. One local port for di Android device go dey listen on `127.0.0.1` and go dey forward traffic through di SSH connection go reach remote host and port.
+Mobile SSH dey support local SSH port forwarding for both Android and iOS. One local port for di device go dey listen on `127.0.0.1` and go dey forward traffic through di SSH connection go reach remote host and port.
 
 ## Syntax for saved tunnel
 
@@ -23,7 +23,7 @@ Short form:
 8080
 ```
 
-Dis one go bind `127.0.0.1:8080` on di Android device and forward am go `localhost:8080` from di server side.
+Dis one go bind `127.0.0.1:8080` on di device and forward am go `localhost:8080` from di server side.
 
 Full form:
 
@@ -31,7 +31,7 @@ Full form:
 3000:localhost:3000
 ```
 
-Dis one go bind `127.0.0.1:3000` on di Android device and forward am through SSH go `localhost:3000` on di remote side.
+Dis one go bind `127.0.0.1:3000` on di device and forward am through SSH go `localhost:3000` on di remote side.
 
 Multiple forwards:
 
@@ -55,7 +55,7 @@ While you dey connected, select di session and open di tunnel view from di termi
 
 ## Address binding
 
-Mobile SSH dey bind local forwards to `127.0.0.1` on di Android device. E be so on purpose: e dey keep di tunnel local to di device and e dey avoid IPv6-only loopback wahala. Other apps on di same Android device fit connect to di forwarded local port if Android allow dia network access.
+Mobile SSH dey bind local forwards to `127.0.0.1` on di device. E be so on purpose: e dey keep di tunnel local to di device and e dey avoid IPv6-only loopback wahala. Other apps on di same device fit connect to di forwarded local port if di operating system allow dia network access.
 
 ## Common examples
 
@@ -65,7 +65,7 @@ To access web service wey dey run on di remote server:
 8080
 ```
 
-Then open `http://127.0.0.1:8080` from any browser on di Android device.
+Then open `http://127.0.0.1:8080` from any browser on di same device.
 
 To access development server:
 

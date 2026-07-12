@@ -12,7 +12,7 @@ Bu sayfa yaygın Mobile SSH sorunlarını ve sunucu tarafı SSH ayarlarını de�
 
 Denetleyin:
 
-- Android cihazın ağ erişimi var.
+- Cihazın ağ erişimi var.
 - Sunucunun ana bilgisayar adı veya IP adresi doğru.
 - SSH bağlantı noktası doğru, genellikle `22`.
 - Bir güvenlik duvarı, VPN, operatör ağı veya Wi-Fi ağı bağlantı noktasını engellemiyor.
@@ -34,16 +34,16 @@ Denetleyin:
 
 ## Özel Anahtar İçe Aktarma Başarısız
 
-Özel anahtar içe aktarma Android dosya seçiciyi kullanır. İçe aktarma başarısız olursa:
+Özel anahtar içe aktarma sistem dosya seçicisini kullanır. İçe aktarma başarısız olursa:
 
 - Seçilen dosyanın genel bir `.pub` dosyası değil, özel anahtar olduğunu doğrulayın.
 - Dosyayı güvenilir bir metin düzenleyicide açın ve tam anahtar bloğunu içerdiğini doğrulayın.
 - Anahtarı özel anahtar alanına elle yapıştırmayı deneyin.
-- Anahtar türünün uygulama tarafından desteklendiğini doğrulayın: Ed25519, RSA, ECDSA veya DSA.
+- Anahtar türünün desteklendiğini doğrulayın: Android'de Ed25519, RSA, ECDSA veya DSA; iOS'ta Ed25519 veya ECDSA (P-256/384/521).
 
 ## Klavye Girişi Gecikiyor veya Değişiyor
 
-Android klavyeniz metni kabuğa ulaşmadan değiştiriyorsa Mobile SSH ayarlarında klavye önerilerini devre dışı bırakın. Bu; Vim, tmux, htop, less, alışılmadık tuş akorları kullanan kabuklar ve uzak parola istemleri için yararlıdır.
+Ekran klavyeniz metni kabuğa ulaşmadan değiştiriyorsa Mobile SSH ayarlarında klavye önerilerini devre dışı bırakın. Bu; Vim, tmux, htop, less, alışılmadık tuş akorları kullanan kabuklar ve uzak parola istemleri için yararlıdır.
 
 `ESC`, `TAB`, `CTRL`, oklar, `HOME`, `END`, `PGUP` ve `PGDN` gibi terminal tuşları için ek tuş satırını kullanın.
 
@@ -60,7 +60,7 @@ Kaydırma yanlış geliyorsa:
 
 ## Ekran Kilidinden Sonra Oturum Düştü
 
-Mobile SSH kesintileri azaltmak için keepalive, ön plan hizmeti, uyandırma kilidi, Wi-Fi kilidi ve yeniden bağlanma denemeleri kullanır. Android pil ilkeleri yine de arka plan işini durdurabilir.
+Android'de Mobile SSH kesintileri azaltmak için keepalive, ön plan hizmeti, uyandırma kilidi, Wi-Fi kilidi ve yeniden bağlanma denemeleri kullanır. Android pil ilkeleri yine de arka plan işini durdurabilir.
 
 Denetleyin:
 
@@ -69,11 +69,15 @@ Denetleyin:
 - Kilidi açtıktan sonra Mobile SSH'yi yeniden açın ve **Active Sessions** seçeneğine dokunun.
 - Sunucu SSH oturumunu kestiyse son oturumlardan yeniden bağlanın.
 
+iOS'ta sistem, arka plandaki uygulamaları askıya alır; bu yüzden başka bir uygulamaya geçtiğinizde veya ekranı kilitlediğinizde ham bir SSH bağlantısı süresiz açık tutulamaz. Kısa bir ek süre hızlı uygulama geçişlerini karşılar; daha uzun süreler için sunucu profilinde **Auto-attach tmux session** seçeneğini etkinleştirin (veya **Eternal Terminal** aktarımını kullanın); böylece yeniden bağlandığınızda kaldığınız kabuğa geri dönersiniz.
+
 ## Dosya Aktarımı Telefon Dosyalarını Tarayamıyor
 
 Daha yeni Android sürümlerinde yerel dosya tarama depolama erişimi gerektirebilir. Mobile SSH için Android Ayarları'nda depolama erişimi verin, ardından dosya aktarım ekranını yeniden açın.
 
 Uzak dosyalar yükleniyor ama yerel dosyalar yüklenmiyorsa SSH bağlantısı büyük olasılıkla iyidir ve sorun yerel Android depolama erişimindedir.
+
+iOS'ta depolama izni yoktur: yerel bölme uygulamanın belgeler alanını gösterir ve dosyaları sistemin belge ve fotoğraf seçicileri aracılığıyla eklersiniz.
 
 ## Yükleme veya İndirme Başarısız
 
@@ -83,7 +87,7 @@ Denetleyin:
 - Uzak dizin var.
 - Uzak kullanıcının yolu okuma veya yazma izni var.
 - Yerel hedef yazılabilir.
-- Android cihazda yeterli boş alan var.
+- Cihazda yeterli boş alan var.
 - Büyük aktarımlar için ağ kararlı.
 
 ## Bağlantı Noktası Yönlendirme Başarısız

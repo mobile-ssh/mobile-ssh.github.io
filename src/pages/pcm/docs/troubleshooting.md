@@ -12,7 +12,7 @@ Dis page dey cover common Mobile SSH wahala and di first things wey you go check
 
 Check:
 
-- Di Android device get network access.
+- Di device get network access.
 - Di server hostname or IP address correct.
 - Di SSH port correct, usually `22`.
 - Firewall, VPN, carrier network, or Wi-Fi network no dey block di port.
@@ -34,16 +34,16 @@ For encrypted private keys, enter di passphrase for di password/passphrase field
 
 ## Private key import fail
 
-Private key import dey use Android file picker. If import fail:
+Private key import dey use di system file picker. If import fail:
 
 - Confirm say di file wey you select na private key, no be public `.pub` file.
 - Open di file for trusted text editor and verify say e get di full key block.
 - Try paste di key by hand inside di private key field.
-- Confirm say di key type na one wey di app support: Ed25519, RSA, ECDSA, or DSA.
+- Confirm say di key type dey supported: Ed25519, RSA, ECDSA, or DSA for Android; Ed25519 or ECDSA (P-256/384/521) for iOS.
 
 ## Keyboard input dey delay or dey change
 
-If your Android keyboard dey change text before e reach di shell, disable keyboard suggestions for Mobile SSH settings. Dis dey useful for Vim, tmux, htop, less, shells wey dey use unusual key chords, and remote password prompts.
+If your on-screen keyboard dey change text before e reach di shell, disable keyboard suggestions for Mobile SSH settings. Dis dey useful for Vim, tmux, htop, less, shells wey dey use unusual key chords, and remote password prompts.
 
 Use di extra key row for terminal keys like `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
 
@@ -60,7 +60,7 @@ If scrolling feel wrong:
 
 ## Session drop after screen lock
 
-Mobile SSH dey use keepalives, foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies fit still stop background work.
+For Android, Mobile SSH dey use keepalives, foreground service, wake lock, Wi-Fi lock, and reconnect attempts to reduce disconnects. Android battery policies fit still stop background work.
 
 Check:
 
@@ -69,11 +69,15 @@ Check:
 - Reopen Mobile SSH and tap **Active Sessions** after you unlock di screen.
 - If di server don already disconnect di SSH session, reconnect from recent sessions.
 
+For iOS, di system dey suspend apps for background, so raw SSH connection no fit stay open forever once you switch comot or lock di screen. Short grace period dey cover quick app switches; for anything wey long pass dat, enable **Auto-attach tmux session** for di server profile (or use di **Eternal Terminal** transport) so when you reconnect, e go drop you back inside di same shell where you stop.
+
 ## File transfer no fit browse phone files
 
 For newer Android versions, local file browsing fit require storage access. Grant storage access for Android Settings for Mobile SSH, then reopen di file transfer screen.
 
 If remote files dey load but local files no dey load, di SSH connection probably dey fine and di problem na local Android storage access.
+
+For iOS, storage permission no dey: di local pane dey show di app own documents area, and you dey add files through di system document and photo pickers.
 
 ## Upload or download fail
 
@@ -83,7 +87,7 @@ Check:
 - Di remote directory dey exist.
 - Di remote user get permission to read or write di path.
 - Di local destination dey writable.
-- Enough free space dey on di Android device.
+- Enough free space dey on di device.
 - Di network stable for large transfers.
 
 ## Port forward fail
