@@ -41,14 +41,19 @@ Tanto en Android como en iOS, la fila de teclas extra aparece sobre el teclado e
 
 ## Comportamiento del teclado
 
-Mobile SSH tiene dos ajustes relacionados con el teclado:
+La terminal usa una conexión nativa de paso directo con el teclado en pantalla: cada carácter se envía al shell remoto a medida que escribes, con la autocorrección y las sugerencias predictivas desactivadas, de modo que el teclado nunca reescribe la entrada antes de que llegue al shell. Esto mantiene predecibles Vim, tmux, htop, less, los shells con combinaciones de teclas poco habituales y los prompts de contraseña remotos — no hay ningún búfer de sugerencias que desactivar.
 
 - **Tocar la terminal para mostrar el teclado:** cuando está activado, tocar la terminal pide al sistema que muestre el teclado en pantalla.
-- **Sugerencias del teclado:** cuando está activado, los teclados compatibles pueden mostrar sugerencias en los prompts del shell. Desactívalo si las sugerencias interfieren con los programas de terminal.
 
-Cuando las sugerencias están activadas, Mobile SSH almacena el texto en composición hasta un límite de palabra, para que la corrección del teclado pueda reemplazar la palabra actual antes de enviarla al shell remoto. Las teclas de control y las combinaciones de terminal omiten ese búfer, de modo que atajos como los comandos de prefijo de tmux llegan de inmediato.
+El dictado por voz del teclado en pantalla sigue funcionando: el texto dictado se entrega directamente al shell como cualquier otra entrada escrita.
 
-En Android, la entrada por voz (el botón de micrófono de Gboard) pasa por el mismo búfer de texto en composición, así que el texto dictado se envía cuando se resuelve, no carácter por carácter.
+## Teclados de hardware
+
+Los teclados externos y Bluetooth controlan la terminal directamente tanto en Android como en iOS. Además de los caracteres corrientes, Mobile SSH asigna las teclas de flecha, `Home`/`End`, `PgUp`/`PgDn`, `Insert`, `Delete`, `Esc`, las teclas de función `F1`–`F12`, las combinaciones `Ctrl`+tecla y `Alt`/`Option` como Meta, y `Shift`+`Tab`. Las teclas modificadoras se combinan con los modificadores fijos de la fila de teclas extra.
+
+## Pegar
+
+Al pegar en un programa que lo solicita (bash, Vim y otras apps con soporte de bracketed paste), el contenido se envuelve con marcadores de pegado entre corchetes, de modo que el contenido multilínea del portapapeles se inserta como texto en lugar de ejecutarse automáticamente línea por línea. Solo se envuelven los pegados reales; el texto escrito y dictado no se toca.
 
 ## Seleccionar, copiar, compartir
 
@@ -100,6 +105,6 @@ Los patrones de Agent alerts se comparan con la salida visible de la terminal. S
 
 Para programas como Vim, less, htop, herramientas ncurses y paneles de tmux:
 
-- Desactiva las sugerencias del teclado si el teclado empieza a almacenar la entrada de un modo que el programa no espera.
+- La entrada pasa directamente al programa — no hay autocorrección ni búfer de sugerencias que interfiera.
 - Usa la fila de teclas extra para `ESC`, flechas, `PGUP` y `PGDN`.
 - Usa el zoom con pellizco si el texto es demasiado pequeño, y luego espera un momento a que el tamaño de la terminal remota se estabilice.

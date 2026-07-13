@@ -46,7 +46,7 @@ export const en: Dict = {
       { title: "Agent alerts", text: "Get a notification — with sound and vibration — the moment Claude Code, Codex, or another remote agent needs your input. Plays in headphones even over video." },
       { title: "Terminal keys above the keyboard", text: "Dedicated row with ESC, TAB, CTRL, ALT, FN, arrows, Home, End, PgUp/PgDn on Android and iOS — terminal keys without fighting autocorrect." },
       { title: "Port forwarding without commands", text: "Tunnels attach to the server profile and come up automatically when you connect." },
-      { title: "Survives lock and roaming", text: "On Android, a foreground service, wake locks, and auto-reconnect keep shells alive through screen-off and network changes; on iOS, auto-reconnect plus tmux auto-attach put you back exactly where you left off." },
+      { title: "Survives lock and roaming", text: "Give a saved server several addresses — a home LAN IP and a VPN IP — and Mobile SSH dials whichever answers, trying the last one that worked first, and reconnects the moment the network changes. On Android a foreground service and wake locks hold shells through screen-off; on iOS auto-reconnect plus tmux auto-attach put you back where you left off." },
       { title: "Eternal Terminal", text: "An optional ET transport keeps the remote shell alive across network drops, sleep, and IP changes. No etserver on the host? Mobile SSH can install it over SSH for you." },
       { title: "Extend it with plugins", text: "Browse a public catalog and install plugins on demand to add new workflows. Each plugin is downloaded and SHA-256 verified into app-private storage." }
     ],
@@ -167,9 +167,10 @@ export const en: Dict = {
           "Saved server profiles with host, port, username, credential, private key, and optional tunnel specs",
           "Search saved servers by name or host",
           "Search-first Add Session flow: pick a saved server from a dedicated search page and connect with one tap",
+          "Multiple addresses per saved server for LAN/VPN roaming — dialed in order with the last working address tried first, and reconnection kicks in on network change",
           "Reusable credential records that can be selected from server setup",
           "Recent session history for reconnecting to common server sets",
-          "Login log for successful and failed attempts"
+          "Login log for successful and failed attempts, recording the exact dialed address"
         ]
       },
       {
@@ -182,7 +183,9 @@ export const en: Dict = {
           "Pinch-to-zoom text sizing with remote terminal resize",
           "Double-tap pane fullscreen mode",
           "Terminal text selection with Copy, Share, and Select all actions",
-          "Gboard suggestions/autocorrect and voice input on Android, with composing-text buffering for terminals"
+          "Native pass-through keyboard input — no autocorrect fighting the shell; soft-keyboard voice dictation still works",
+          "External and Bluetooth keyboard support on Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
+          "Bracketed paste so multi-line clipboard content is not auto-executed"
         ]
       },
       {
@@ -204,6 +207,7 @@ export const en: Dict = {
         items: [
           "Dual-pane SFTP browser for local and remote files",
           "Queued upload and download operations",
+          "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit, and details flows",
           "Sort by name or date with per-host persistence",
           "Local port forwarding saved with server profiles",
@@ -269,7 +273,7 @@ export const en: Dict = {
       },
       {
         need: "Mobile terminal controls",
-        mobileSsh: "Built-in extra key row, grid sessions, fullscreen panes, pinch zoom, text selection with copy/share, and tmux-aware scrolling — plus Gboard suggestions and voice input on Android.",
+        mobileSsh: "Built-in extra key row, grid sessions, fullscreen panes, pinch zoom, text selection with copy/share, and tmux-aware scrolling — with native pass-through typing and external-keyboard support on both platforms.",
         termux: "Powerful terminal environment; terminal behavior depends on installed tools and configuration.",
         termius: "Mobile keyboard add-on, gestures, tabs, autocomplete, snippets, and polished terminal UX."
       },
@@ -329,7 +333,7 @@ export const en: Dict = {
       { category: "Terminal",   feature: "Double-tap pane to fullscreen",       mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",   feature: "Tappable URLs in terminal output",    mobile: "yes",    termux: "partial",      termius: "yes" },
       { category: "Terminal",   feature: "Text selection: copy / share / select all", mobile: "yes", termux: "yes",      termius: "yes" },
-      { category: "Terminal",   feature: "Gboard suggestions & voice input",    mobile: "Android", termux: "no",          termius: "yes" },
+      { category: "Terminal",   feature: "Hardware / Bluetooth keyboard support", mobile: "yes",   termux: "yes",         termius: "yes" },
       { category: "Sessions",   feature: "Multiple concurrent SSH sessions",    mobile: "up to 8", termux: "up to 8",    termius: "yes" },
       { category: "Sessions",   feature: "Grid pane layout",                    mobile: "yes",    termux: "via tmux",     termius: "tabs" },
       { category: "Sessions",   feature: "tmux-aware scrolling",               mobile: "yes",    termux: "yes",          termius: "no" },

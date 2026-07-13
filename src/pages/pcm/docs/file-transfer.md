@@ -54,6 +54,10 @@ Uploads dey use di existing SSH/SFTP connection. If di connection cut, reconnect
 
 Make you do big downloads on stable network when e possible.
 
+## Copy whole folders
+
+Upload and download no dey limited to single file. Choose one folder and Mobile SSH go copy di whole subtree for both directions — phone to remote and remote to phone — e go first create di destination directories, then queue each file. Any subdirectory wey e no fit read, e go skip am and report am without stopping di rest of di copy.
+
 ## Remote file actions
 
 Depending on di remote item wey you select, Mobile SSH fit show actions like:

@@ -43,9 +43,7 @@ Der Import des privaten Schlüssels nutzt die Dateiauswahl des Systems. Wenn der
 
 ## Tastatureingabe verzögert sich oder ändert sich
 
-Wenn deine Bildschirmtastatur den Text ändert, bevor er die Shell erreicht, deaktiviere die Tastaturvorschläge in den Einstellungen von Mobile SSH. Das ist nützlich für Vim, tmux, htop, less, Shells mit ungewöhnlichen Tastenfolgen und entfernte Passwortabfragen.
-
-Nutze die Zusatztastenreihe für Terminaltasten wie `ESC`, `TAB`, `CTRL`, Pfeile, `HOME`, `END`, `PGUP` und `PGDN`.
+Mobile SSH sendet Tastenanschläge direkt an die Shell, wobei Autokorrektur und Vorschläge deaktiviert sind, sodass die Tastatur den Text nicht umschreiben sollte, bevor er die entfernte Seite erreicht. Wenn deine Tastatur die Eingabe dennoch verändert, stelle sicher, dass kein systemweites Ersetzungs- oder Zwischenablage-Tool sie abfängt, und nutze die Zusatztastenreihe für Terminaltasten wie `ESC`, `TAB`, `CTRL`, Pfeile, `HOME`, `END`, `PGUP` und `PGDN`.
 
 ## tmux-Scrollen ist nicht wie erwartet
 

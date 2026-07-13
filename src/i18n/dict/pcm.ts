@@ -45,7 +45,7 @@ export const pcm: Dict = {
       { title: "Agent alerts", text: "You go get notification — wit sound and vibration — di moment Claude Code, Codex, or another remote agent need your input. E dey play for headphones even when video dey run." },
       { title: "Terminal keys for top di keyboard", text: "Dedicated row wit ESC, TAB, CTRL, ALT, FN, arrows, Home, End, PgUp/PgDn for Android and iOS — terminal keys wey no dey fight autocorrect." },
       { title: "Port forwarding without command", text: "Tunnels dey attach to di server profile and dey come up automatic when you connect." },
-      { title: "E dey survive lock and roaming", text: "For Android, foreground service, wake locks and auto-reconnect dey keep di shell alive across screen-off and network change; for iOS, auto-reconnect plus tmux auto-attach go carry you back exactly where you stop." },
+      { title: "E dey survive lock and roaming", text: "Give one saved server plenty address — home LAN IP and VPN IP — and Mobile SSH go dial whichever one answer, e go first try di last one wey work, and e go reconnect di moment di network change. For Android, foreground service and wake locks dey hold di shell across screen-off; for iOS, auto-reconnect plus tmux auto-attach go carry you back where you stop." },
       { title: "Eternal Terminal", text: "Optional ET transport dey keep di remote shell alive across network drop, sleep, and IP change. Di host no get etserver? Mobile SSH fit install am over SSH for you." },
       { title: "Extend am wit plugins", text: "Browse public catalog and install plugins as you need dem to add new workflow. Each plugin dey download and SHA-256 verified enter app-private storage." }
     ],
@@ -161,9 +161,10 @@ export const pcm: Dict = {
           "Saved server profile wit host, port, username, credential, private key and optional tunnel spec",
           "Search saved servers by name or host",
           "Search-first Add Session flow: pick saved server from dedicated search page and connect with one tap",
+          "Plenty address for one saved server for LAN/VPN roaming — dem dey dial dem in order, di last address wey work go first, and reconnect go kick in when network change",
           "Reusable credential record wey you fit pick for server setup",
           "Recent session history to reconnect to common server set",
-          "Login log for successful and failed try"
+          "Login log for successful and failed try, wey dey record di exact address wey dem dial"
         ]
       },
       {
@@ -176,7 +177,9 @@ export const pcm: Dict = {
           "Pinch-to-zoom text sizing wit remote terminal resize",
           "Double-tap pane fullscreen mode",
           "Terminal text selection wit Copy, Share and Select all action",
-          "Gboard suggestion/autocorrect and voice input for Android, wit composing-text buffer for terminals"
+          "Native pass-through keyboard input — no autocorrect dey fight di shell; soft-keyboard voice dictation still dey work",
+          "External and Bluetooth keyboard support for Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
+          "Bracketed paste so multi-line clipboard content no go run by itself"
         ]
       },
       {
@@ -198,6 +201,7 @@ export const pcm: Dict = {
         items: [
           "Dual-pane SFTP browser for local and remote file",
           "Upload and download queue",
+          "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit and details",
           "Sort by name or date wit per-host memory",
           "Local port forwarding wey dey save with server profile",
@@ -263,7 +267,7 @@ export const pcm: Dict = {
       },
       {
         need: "Mobile terminal control",
-        mobileSsh: "Built-in extra key row, grid session, fullscreen pane, pinch zoom, text selection wit copy/share, and tmux-friendly scroll — plus Gboard suggestion and voice input for Android.",
+        mobileSsh: "Built-in extra key row, grid session, fullscreen pane, pinch zoom, text selection wit copy/share, and tmux-friendly scroll — wit native pass-through typing and external-keyboard support for both platform.",
         termux: "Powerful terminal environment; behaviour depend on di tool and config wey you install.",
         termius: "Mobile keyboard add-on, gesture, tab, autocomplete, snippet and polished terminal UX."
       },
@@ -323,7 +327,7 @@ export const pcm: Dict = {
       { category: "Terminal",         feature: "Double-tap pane to fullscreen",               mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Terminal",         feature: "URL wey fit tap for terminal output",         mobile: "yes",     termux: "partial",       termius: "yes" },
       { category: "Terminal",         feature: "Text selection: copy / share / select all",   mobile: "yes",     termux: "yes",           termius: "yes" },
-      { category: "Terminal",         feature: "Gboard suggestion & voice input",             mobile: "Android", termux: "no",            termius: "yes" },
+      { category: "Terminal",         feature: "Hardware / Bluetooth keyboard support",       mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Sessions",         feature: "Plenty SSH session same time",                mobile: "up to 8", termux: "up to 8",       termius: "yes" },
       { category: "Sessions",         feature: "Grid pane layout",                            mobile: "yes",     termux: "via tmux",      termius: "tabs" },
       { category: "Sessions",         feature: "tmux-friendly scroll",                        mobile: "yes",     termux: "yes",           termius: "no" },

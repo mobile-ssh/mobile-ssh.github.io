@@ -45,7 +45,7 @@ export const zh: Dict = {
       { title: "智能体提醒", text: "当 Claude Code、Codex 或其他远程智能体需要你的输入时，立即收到带声音和振动的通知。即使在播放视频时也会通过耳机播放。" },
       { title: "键盘上方的终端键", text: "专用按键栏包含 ESC、TAB、CTRL、ALT、FN、方向键、Home、End、PgUp/PgDn，Android 和 iOS 均可用——终端按键不再与自动更正冲突。" },
       { title: "无需命令的端口转发", text: "隧道附加在服务器配置上，连接时自动建立。" },
-      { title: "锁屏和切网仍在线", text: "在 Android 上，前台服务、唤醒锁和自动重连让会话穿过锁屏和网络变化；在 iOS 上，自动重连加上 tmux 自动附加让你准确回到离开时的位置。" },
+      { title: "锁屏和切网仍在线", text: "为一个已保存的服务器设置多个地址——家庭 LAN IP 和 VPN IP——Mobile SSH 会拨通其中能响应的那个，优先尝试上次成功的地址，并在网络变化的瞬间重连。在 Android 上，前台服务和唤醒锁让会话穿过锁屏；在 iOS 上，自动重连加上 tmux 自动附加让你回到离开时的位置。" },
       { title: "Eternal Terminal", text: "可选的 ET 传输让远程 shell 在网络中断、休眠和 IP 变化后仍然存活。主机上没有 etserver？Mobile SSH 可以通过 SSH 为你安装。" },
       { title: "用插件扩展", text: "浏览公开目录并按需安装插件，添加新的工作流。每个插件下载后都会经 SHA-256 校验并存入应用私有存储。" }
     ],
@@ -161,9 +161,10 @@ export const zh: Dict = {
           "保存的服务器档案，包含主机、端口、用户名、凭据、私钥与可选的隧道描述",
           "按名称或主机搜索已保存的服务器",
           "搜索优先的添加会话流程：从专用搜索页面选择已保存的服务器，一键连接",
+          "每个已保存的服务器可设置多个地址，用于 LAN/VPN 漫游——按顺序拨号，优先尝试上次成功的地址，网络变化时自动重连",
           "可在服务器配置中选择的可复用凭据记录",
           "用于重新连接常见服务器集的最近会话历史",
-          "成功与失败的登录日志"
+          "成功与失败的登录日志，并记录实际拨通的地址"
         ]
       },
       {
@@ -176,7 +177,9 @@ export const zh: Dict = {
           "捏合缩放文字大小并触发远程终端 resize",
           "面板双击全屏",
           "终端文本选择：复制、分享与全选操作",
-          "Android 上支持 Gboard 候选词/自动更正与语音输入，带终端输入组合文本缓存"
+          "原生直通键盘输入——自动更正不会再与 shell 冲突；软键盘语音听写仍然可用",
+          "Android 和 iOS 上支持外接与 Bluetooth 键盘，包括方向键、功能键以及 Ctrl/Alt 组合键",
+          "括号粘贴（bracketed paste），使多行剪贴板内容不会被自动执行"
         ]
       },
       {
@@ -198,6 +201,7 @@ export const zh: Dict = {
         items: [
           "本地与远程双面板 SFTP 浏览器",
           "上传与下载的队列操作",
+          "在手机与远程主机之间递归上传和下载文件夹",
           "远程重命名、删除、创建、编辑与详情",
           "按名称或日期排序，并按主机持久化",
           "随服务器档案保存的本地端口转发",
@@ -263,7 +267,7 @@ export const zh: Dict = {
       },
       {
         need: "移动端终端控制",
-        mobileSsh: "内置拓展按键栏、网格会话、面板全屏、捏合缩放、带复制/分享的文本选择与 tmux 友好滚动——Android 上还支持 Gboard 候选词与语音输入。",
+        mobileSsh: "内置拓展按键栏、网格会话、面板全屏、捏合缩放、带复制/分享的文本选择与 tmux 友好滚动——两个平台上都支持原生直通输入与外接键盘。",
         termux: "强大的终端环境；终端行为取决于已安装的工具与配置。",
         termius: "移动键盘扩展、手势、标签页、自动补全、片段与打磨过的终端 UX。"
       },
@@ -323,7 +327,7 @@ export const zh: Dict = {
       { category: "终端", feature: "双击面板全屏",                    mobile: "yes",    termux: "no",           termius: "no" },
       { category: "终端", feature: "终端输出中的可点击 URL",          mobile: "yes",    termux: "部分",         termius: "yes" },
       { category: "终端", feature: "文本选择：复制/分享/全选",        mobile: "yes",    termux: "yes",          termius: "yes" },
-      { category: "终端", feature: "Gboard 候选词与语音输入",         mobile: "Android", termux: "no",          termius: "yes" },
+      { category: "终端", feature: "硬件 / Bluetooth 键盘支持",       mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "会话", feature: "多个并发 SSH 会话",               mobile: "最多 8 个", termux: "最多 8 个",  termius: "yes" },
       { category: "会话", feature: "网格面板布局",                    mobile: "yes",    termux: "通过 tmux",    termius: "标签页" },
       { category: "会话", feature: "tmux 友好滚动",                   mobile: "yes",    termux: "yes",          termius: "no" },

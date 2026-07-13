@@ -54,6 +54,10 @@ Las subidas usan la conexión SSH/SFTP existente. Si la conexión se cae, reint�
 
 Las descargas grandes conviene hacerlas en una red estable cuando sea posible.
 
+## Copiar carpetas completas
+
+Las subidas y descargas no se limitan a archivos sueltos. Elige una carpeta y Mobile SSH copia todo el subárbol en ambas direcciones — del teléfono al remoto y del remoto al teléfono — creando primero los directorios de destino y luego poniendo en cola cada archivo. Un subdirectorio que no se pueda leer se omite y se informa, sin detener el resto de la copia.
+
 ## Acciones sobre archivos remotos
 
 Según el elemento remoto seleccionado, Mobile SSH puede mostrar acciones como:

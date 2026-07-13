@@ -45,7 +45,7 @@ export const de: Dict = {
       { title: "Agenten-Benachrichtigungen", text: "Erhalte eine Benachrichtigung – mit Ton und Vibration – sobald Claude Code, Codex oder ein anderer Remote-Agent deine Eingabe benötigt. Wird auch über Kopfhörer wiedergegeben, selbst während eines Videos." },
       { title: "Terminal-Tasten über der Tastatur", text: "Eigene Reihe mit ESC, TAB, CTRL, ALT, FN, Pfeilen, Home, End, PgUp/PgDn auf Android und iOS – Terminal-Tasten ohne Kampf gegen die Autokorrektur." },
       { title: "Portweiterleitung ohne Befehle", text: "Tunnel hängen am Server-Profil und gehen beim Verbinden automatisch hoch." },
-      { title: "Übersteht Sperre und Netzwechsel", text: "Auf Android halten ein Vordergrunddienst, Wake Locks und Auto-Reconnect Shells bei ausgeschaltetem Bildschirm und Netzwerkwechseln am Leben; auf iOS bringen dich Auto-Reconnect plus tmux-Auto-Attach genau dorthin zurück, wo du aufgehört hast." },
+      { title: "Übersteht Sperre und Netzwechsel", text: "Gib einem gespeicherten Server mehrere Adressen – eine LAN-IP zu Hause und eine VPN-IP – und Mobile SSH wählt diejenige, die antwortet, versucht dabei zuerst die zuletzt funktionierende und verbindet sich neu, sobald sich das Netzwerk ändert. Auf Android halten ein Vordergrunddienst und Wake Locks Shells bei ausgeschaltetem Bildschirm am Leben; auf iOS bringen dich Auto-Reconnect plus tmux-Auto-Attach dorthin zurück, wo du aufgehört hast." },
       { title: "Eternal Terminal", text: "Ein optionaler ET-Transport hält die entfernte Shell über Netzwerkausfälle, Schlafmodus und IP-Wechsel hinweg am Leben. Kein etserver auf dem Host? Mobile SSH kann ihn für dich über SSH installieren." },
       { title: "Erweiterbar mit Plugins", text: "Durchsuche einen öffentlichen Katalog und installiere Plugins bei Bedarf, um neue Workflows hinzuzufügen. Jedes Plugin wird heruntergeladen und per SHA-256 verifiziert im app-privaten Speicher abgelegt." }
     ],
@@ -162,9 +162,10 @@ export const de: Dict = {
           "Gespeicherte Serverprofile mit Host, Port, Benutzer, Anmeldedaten, privatem Schlüssel und optionalen Tunneln",
           "Gespeicherte Server nach Name oder Host durchsuchen",
           "Suche-zuerst-Sitzung-hinzufügen-Ablauf: gespeicherten Server auf einer eigenen Suchseite auswählen und mit einem Tippen verbinden",
+          "Mehrere Adressen pro gespeichertem Server für LAN/VPN-Roaming – der Reihe nach gewählt, wobei die zuletzt funktionierende Adresse zuerst versucht wird, und bei Netzwechsel setzt die Wiederverbindung ein",
           "Wiederverwendbare Anmeldedaten, die bei der Servereinrichtung ausgewählt werden können",
           "Verlauf kürzlicher Sitzungen für die Wiederverbindung üblicher Servergruppen",
-          "Login-Log für erfolgreiche und fehlgeschlagene Versuche"
+          "Login-Log für erfolgreiche und fehlgeschlagene Versuche, das die genau gewählte Adresse festhält"
         ]
       },
       {
@@ -177,7 +178,9 @@ export const de: Dict = {
           "Pinch-Zoom-Textgröße mit Größenänderung des entfernten Terminals",
           "Vollbildmodus per Doppeltipp",
           "Terminaltext-Auswahl mit Kopieren, Teilen und Alles auswählen",
-          "Gboard-Vorschläge/Autokorrektur und Spracheingabe auf Android, mit Pufferung des komponierten Texts für Terminals"
+          "Native durchgereichte Tastatureingabe – keine Autokorrektur, die gegen die Shell kämpft; Spracheingabe der Bildschirmtastatur funktioniert weiterhin",
+          "Unterstützung externer und Bluetooth-Tastaturen auf Android und iOS, einschließlich Pfeiltasten, Funktionstasten und Ctrl/Alt-Tastenkombinationen",
+          "Bracketed Paste, damit mehrzeiliger Zwischenablage-Inhalt nicht automatisch ausgeführt wird"
         ]
       },
       {
@@ -199,6 +202,7 @@ export const de: Dict = {
         items: [
           "SFTP-Browser mit zwei Panels für lokale und entfernte Dateien",
           "Upload- und Download-Operationen in der Warteschlange",
+          "Rekursiver Ordner-Upload und -Download zwischen Telefon und entferntem Host",
           "Entferntes Umbenennen, Löschen, Erstellen, Bearbeiten und Details",
           "Sortieren nach Name oder Datum mit Persistenz pro Host",
           "Lokale Portweiterleitung im Serverprofil gespeichert",
@@ -264,7 +268,7 @@ export const de: Dict = {
       },
       {
         need: "Mobile Terminalsteuerung",
-        mobileSsh: "Eingebaute Zusatztastenreihe, Rastersitzungen, Vollbild-Panels, Pinch-Zoom, Textauswahl mit Kopieren/Teilen und tmux-taugliches Scrollen – plus Gboard-Vorschläge und Spracheingabe auf Android.",
+        mobileSsh: "Eingebaute Zusatztastenreihe, Rastersitzungen, Vollbild-Panels, Pinch-Zoom, Textauswahl mit Kopieren/Teilen und tmux-taugliches Scrollen – mit nativer durchgereichter Eingabe und Unterstützung externer Tastaturen auf beiden Plattformen.",
         termux: "Mächtige Terminalumgebung; das Verhalten hängt von installierten Werkzeugen und Konfiguration ab.",
         termius: "Mobile-Tastaturzusatz, Gesten, Tabs, Autovervollständigung, Snippets und feinpolierte Terminal-UX."
       },
@@ -324,7 +328,7 @@ export const de: Dict = {
       { category: "Terminal",          feature: "Doppeltipp auf Panel für Vollbild",                 mobile: "yes",      termux: "no",             termius: "no" },
       { category: "Terminal",          feature: "Antippbare URLs in der Terminalausgabe",            mobile: "yes",      termux: "teilweise",      termius: "yes" },
       { category: "Terminal",          feature: "Textauswahl: Kopieren / Teilen / Alles auswählen",  mobile: "yes",      termux: "yes",            termius: "yes" },
-      { category: "Terminal",          feature: "Gboard-Vorschläge & Spracheingabe",                 mobile: "Android",  termux: "no",             termius: "yes" },
+      { category: "Terminal",          feature: "Hardware- / Bluetooth-Tastaturunterstützung",       mobile: "yes",      termux: "yes",            termius: "yes" },
       { category: "Sitzungen",         feature: "Mehrere gleichzeitige SSH-Sitzungen",               mobile: "bis zu 8",  termux: "bis zu 8",       termius: "yes" },
       { category: "Sitzungen",         feature: "Raster-Panel-Anordnung",                            mobile: "yes",      termux: "über tmux",      termius: "Tabs" },
       { category: "Sitzungen",         feature: "tmux-taugliches Scrollen",                          mobile: "yes",      termux: "yes",            termius: "no" },

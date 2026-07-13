@@ -39,8 +39,13 @@ Gespeicherte Server bewahren das Verbindungsziel und die optionale Tunnel-Konfig
 - Benutzername.
 - Passwort- oder Schlüsseldetails.
 - Optionale Regeln für lokale Portweiterleitung.
+- Optionale zusätzliche Adressen für dieselbe Maschine (siehe unten).
 
 Nutze gespeicherte Server für Hosts, auf die du wiederholt zugreifst. Wenn ein gespeicherter Server auf einen anderen Host als deine aktuelle aktive Sitzung zeigt, startet Mobile SSH eine neue Verbindung für das ausgewählte Ziel.
+
+### Mehrere Adressen (LAN/VPN-Roaming)
+
+Dieselbe Maschine ist je nach Standort oft unter verschiedenen Adressen erreichbar – eine WLAN-IP zu Hause gegenüber einer VPN-IP. Füge die Alternativen im Bearbeitungsdialog des Servers hinzu, bei Bedarf jede mit eigenem Port. Beim Verbinden probiert Mobile SSH die Adressen der Reihe nach durch, bis eine antwortet, und merkt sich die zuletzt funktionierende Adresse, um sie beim nächsten Mal zuerst zu wählen. Ein Netzwechsel (zum Beispiel das Verlassen des VPN) löst eine sofortige Wiederverbindung mit der nun erreichbaren Adresse aus, statt auf das Timeout der toten Route zu warten.
 
 ## Zugangsdaten speichern
 
@@ -80,7 +85,6 @@ Das Zurückgehen zum Startbildschirm trennt aktive SSH-Sitzungen nicht; das Schl
 Öffne **Settings** auf dem Startbildschirm (es gibt eine eigene Seite dafür):
 
 - Aktiviere „Tippen zeigt die Tastatur", wenn die Tastatur beim Tippen auf das Terminal erscheinen soll.
-- Deaktiviere IME-Vorschläge, wenn die Tastaturvorschläge Terminalprogramme wie Vim, less, htop oder Vollbild-tmux-Apps stören.
 - Aktiviere **Agent alerts**, wenn du lange Hintergrundaufgaben (Claude Code, Codex, Shell-Skripte) ausführst und eine Ton- oder Vibrationsbenachrichtigung erhalten möchtest, sobald der Agent deine Eingabe benötigt.
 - Deaktiviere die anonyme Nutzungsanalyse, wenn du keine Daten senden möchtest.
 

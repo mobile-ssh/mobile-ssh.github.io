@@ -43,9 +43,7 @@ Private key import dey use di system file picker. If import fail:
 
 ## Keyboard input dey delay or dey change
 
-If your on-screen keyboard dey change text before e reach di shell, disable keyboard suggestions for Mobile SSH settings. Dis dey useful for Vim, tmux, htop, less, shells wey dey use unusual key chords, and remote password prompts.
-
-Use di extra key row for terminal keys like `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
+Mobile SSH dey send keystrokes straight to di shell wit autocorrect and predictive suggestions off, so di keyboard no suppose rewrite text before e reach di remote side. If your keyboard still dey change input, confirm say no system-level replacement or clipboard tool dey intercept am, and use di extra key row for terminal keys like `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP`, and `PGDN`.
 
 ## tmux scrolling no be wetin you expect
 

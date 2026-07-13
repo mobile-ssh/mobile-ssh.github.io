@@ -41,14 +41,19 @@ Baik di Android maupun iOS, baris tombol tambahan tampil di atas keyboard di lay
 
 ## Perilaku keyboard
 
-Mobile SSH memiliki dua pengaturan terkait keyboard:
+Terminal menggunakan koneksi pass-through native ke keyboard di layar: setiap karakter dikirim ke shell jarak jauh saat Anda mengetik, dengan koreksi otomatis dan saran prediktif dimatikan sehingga keyboard tidak pernah menulis ulang input sebelum mencapai shell. Ini menjaga Vim, tmux, htop, less, shell dengan kord tombol tak biasa, dan prompt kata sandi jarak jauh tetap dapat diprediksi — tidak ada buffer saran yang perlu dinonaktifkan.
 
 - **Tap terminal to show keyboard:** saat aktif, mengetuk terminal meminta sistem menampilkan keyboard di layar.
-- **Keyboard suggestions:** saat aktif, keyboard yang kompatibel dapat menampilkan saran di prompt shell. Nonaktifkan ini jika saran mengganggu program terminal.
 
-Saat saran aktif, Mobile SSH menyangga teks yang sedang disusun hingga batas kata sehingga koreksi keyboard dapat mengganti kata saat ini sebelum dikirim ke shell jarak jauh. Tombol kontrol dan kord terminal melewati buffer tersebut, sehingga pintasan seperti perintah prefiks tmux tetap tiba dengan cepat.
+Dikte suara keyboard di layar tetap berfungsi: teks yang didiktekan langsung dikirim ke shell seperti input yang diketik lainnya.
 
-Di Android, input suara (tombol mikrofon Gboard) dialirkan melalui buffer teks yang sama, jadi teks dikte dikirim setelah selesai dikenali, bukan karakter demi karakter.
+## Keyboard hardware
+
+Keyboard eksternal dan Bluetooth menggerakkan terminal secara langsung baik di Android maupun iOS. Selain karakter biasa, Mobile SSH memetakan tombol panah, `Home`/`End`, `PgUp`/`PgDn`, `Insert`, `Delete`, `Esc`, tombol fungsi `F1`–`F12`, kord `Ctrl`+tombol dan `Alt`/`Option`-sebagai-Meta, serta `Shift`+`Tab`. Tombol pengubah dapat digabung dengan pengubah lengket pada baris tombol tambahan.
+
+## Menempel
+
+Menempel ke program yang memintanya (bash, Vim, dan aplikasi bracketed-paste lain) dibungkus dengan penanda bracketed-paste, sehingga konten clipboard multi-baris disisipkan sebagai teks alih-alih dieksekusi otomatis baris demi baris. Hanya tempel sungguhan yang dibungkus; teks yang diketik dan didiktekan tidak diubah.
 
 ## Pilih, salin, bagikan
 
@@ -100,6 +105,6 @@ Pola peringatan agen dicocokkan dengan keluaran terminal yang terlihat. Jika ala
 
 Untuk program seperti Vim, less, htop, alat ncurses, dan panel tmux:
 
-- Nonaktifkan keyboard suggestions jika keyboard mulai menyangga input dengan cara yang tidak diharapkan program.
+- Input diteruskan langsung ke program — tidak ada koreksi otomatis atau buffer saran yang mengganggu.
 - Gunakan baris tombol tambahan untuk `ESC`, panah, `PGUP`, dan `PGDN`.
 - Gunakan zoom cubit jika teks terlalu kecil, lalu tunggu sebentar agar ukuran terminal jarak jauh stabil.

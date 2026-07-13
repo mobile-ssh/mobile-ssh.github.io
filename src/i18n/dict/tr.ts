@@ -45,7 +45,7 @@ export const tr: Dict = {
       { title: "Ajan uyarıları", text: "Claude Code, Codex veya başka bir uzak ajan girdinize ihtiyaç duyduğu anda sesli ve titreşimli bildirim alın. Video oynatılırken bile kulaklıktan çalar." },
       { title: "Klavyenin üstünde terminal tuşları", text: "Android ve iOS'ta ESC, TAB, CTRL, ALT, FN, yön tuşları, Home, End, PgUp/PgDn için ayrı bir sıra — otomatik düzeltmeyle çakışmayan terminal tuşları." },
       { title: "Komut yazmadan port yönlendirme", text: "Tüneller sunucu profiline bağlıdır ve bağlandığınız anda otomatik olarak yükselir." },
-      { title: "Kilit ve ağ değişimine dayanıklı", text: "Android'de ön plan servisi, wake lock'lar ve otomatik yeniden bağlanma, ekran kapalıyken ve ağ değişiminde oturumları canlı tutar; iOS'ta otomatik yeniden bağlanma ve tmux otomatik ekleme sizi tam kaldığınız yere geri getirir." },
+      { title: "Kilit ve ağ değişimine dayanıklı", text: "Kaydedilen bir sunucuya birden çok adres verin — bir ev LAN IP'si ve bir VPN IP'si — Mobile SSH hangisi yanıt verirse ona bağlanır, en son çalışan adresi önce dener ve ağ değiştiği anda yeniden bağlanır. Android'de bir ön plan servisi ve wake lock'lar, ekran kapalıyken oturumları canlı tutar; iOS'ta otomatik yeniden bağlanma ve tmux otomatik ekleme sizi kaldığınız yere geri getirir." },
       { title: "Eternal Terminal", text: "İsteğe bağlı ET aktarımı, uzak kabuğu ağ kesintileri, uyku modu ve IP değişiklikleri boyunca canlı tutar. Ana bilgisayarda etserver yok mu? Mobile SSH, SSH üzerinden onu sizin için kurabilir." },
       { title: "Eklentilerle genişletin", text: "Yeni iş akışları eklemek için genel bir katalogu gözden geçirin ve eklentileri istek üzerine kurun. Her eklenti indirilir ve uygulamaya özel depolamaya SHA-256 ile doğrulanarak kaydedilir." }
     ],
@@ -161,9 +161,10 @@ export const tr: Dict = {
           "Ana bilgisayar, port, kullanıcı, kimlik bilgisi, özel anahtar ve isteğe bağlı tünel tanımlarıyla kaydedilmiş sunucu profilleri",
           "Kaydedilen sunucuları ada veya ana bilgisayara göre arama",
           "Arama öncelikli Oturum Ekle akışı: ayrılmış bir arama sayfasından kayıtlı sunucu seç ve tek dokunuşla bağlan",
+          "LAN/VPN dolaşımı için kayıtlı sunucu başına birden çok adres — sırayla denenir, en son çalışan adres önce denenir ve ağ değişiminde yeniden bağlanma devreye girer",
           "Sunucu kurulumunda seçilebilen yeniden kullanılabilir kimlik bilgisi kayıtları",
           "Sık kullanılan sunucu setlerine yeniden bağlanmak için son oturum geçmişi",
-          "Başarılı ve başarısız giriş denemeleri günlüğü"
+          "Başarılı ve başarısız giriş denemeleri günlüğü; tam olarak hangi adrese bağlanıldığını kaydeder"
         ]
       },
       {
@@ -176,7 +177,9 @@ export const tr: Dict = {
           "Sıkıştırarak metin boyutunu değiştir ve uzak terminali yeniden boyutlandır",
           "Çift dokunarak panel tam ekran modu",
           "Kopyala, Paylaş ve Tümünü seç eylemleriyle terminal metni seçimi",
-          "Android'de Gboard önerisi/otomatik düzeltme ve sesli giriş; terminaller için yazılan metin tamponlamasıyla"
+          "Yerel geçişli klavye girişi — otomatik düzeltme kabukla çakışmaz; ekran klavyesi sesli diktesi yine de çalışır",
+          "Android ve iOS'ta harici ve Bluetooth klavye desteği; oklar, işlev tuşları ve Ctrl/Alt akorları dahil",
+          "Köşeli parantezli yapıştırma (bracketed paste); böylece çok satırlı pano içeriği otomatik çalıştırılmaz"
         ]
       },
       {
@@ -198,6 +201,7 @@ export const tr: Dict = {
         items: [
           "Yerel ve uzak dosyalar için çift panelli SFTP gezgini",
           "Sıraya alınmış yükleme ve indirme işlemleri",
+          "Telefon ve uzak ana bilgisayar arasında özyinelemeli klasör yükleme ve indirme",
           "Uzak yeniden adlandırma, silme, oluşturma, düzenleme ve ayrıntılar",
           "Her ana bilgisayar için kalıcı, ada veya tarihe göre sıralama",
           "Sunucu profilleriyle kaydedilen yerel port yönlendirme",
@@ -263,7 +267,7 @@ export const tr: Dict = {
       },
       {
         need: "Mobil terminal kontrolleri",
-        mobileSsh: "Yerleşik ek tuş satırı, ızgara oturumları, tam ekran paneller, sıkıştırarak yakınlaştırma, kopya/paylaş ile seçim ve tmux uyumlu kaydırma — ayrıca Android'de Gboard önerileri ve sesli giriş.",
+        mobileSsh: "Yerleşik ek tuş satırı, ızgara oturumları, tam ekran paneller, sıkıştırarak yakınlaştırma, kopya/paylaş ile seçim ve tmux uyumlu kaydırma — her iki platformda yerel geçişli yazım ve harici klavye desteğiyle.",
         termux: "Güçlü terminal ortamı; davranış yüklü araçlara ve yapılandırmaya bağlı.",
         termius: "Mobil klavye eklentisi, hareketler, sekmeler, otomatik tamamlama, parçacıklar ve cilalı terminal deneyimi."
       },
@@ -323,7 +327,7 @@ export const tr: Dict = {
       { category: "Terminal",  feature: "Çift dokunarak paneli tam ekrana al",        mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",  feature: "Terminaldeki tıklanabilir URL'ler",          mobile: "yes",    termux: "kısmi",        termius: "yes" },
       { category: "Terminal",  feature: "Metin seçimi: kopyala / paylaş / tümünü seç", mobile: "yes", termux: "yes",          termius: "yes" },
-      { category: "Terminal",  feature: "Gboard önerileri ve sesli giriş",           mobile: "Android", termux: "no",          termius: "yes" },
+      { category: "Terminal",  feature: "Donanım / Bluetooth klavye desteği",         mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Oturumlar", feature: "Eşzamanlı birden çok SSH oturumu",          mobile: "en fazla 8", termux: "en fazla 8", termius: "yes" },
       { category: "Oturumlar", feature: "Izgara panel düzeni",                       mobile: "yes",    termux: "tmux ile",     termius: "sekmeler" },
       { category: "Oturumlar", feature: "tmux uyumlu kaydırma",                     mobile: "yes",    termux: "yes",          termius: "no" },

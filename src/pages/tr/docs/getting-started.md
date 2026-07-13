@@ -46,8 +46,13 @@ Kayıtlı sunucular, bağlantı hedefini ve isteğe bağlı tünel yapılandırm
 - Kullanıcı adı.
 - Parola veya özel anahtar ayrıntıları.
 - İsteğe bağlı yerel bağlantı noktası yönlendirme kuralları.
+- Aynı makine için isteğe bağlı ek adresler (aşağıya bakın).
 
 Sık eriştiğiniz ana bilgisayarlar için kayıtlı sunucuları kullanın. Kayıtlı bir sunucu, mevcut etkin oturumunuzdan farklı bir ana bilgisayara işaret ediyorsa Mobile SSH seçilen hedef için yeni bir bağlantı başlatır.
+
+### Birden çok adres (LAN/VPN dolaşımı)
+
+Aynı makineye, bulunduğunuz yere bağlı olarak genellikle farklı adreslerden erişilebilir — bir ev Wi-Fi IP'si ile bir VPN IP'si gibi. Sunucunun düzenleme iletişim kutusunda, gerekirse her biri kendi bağlantı noktasıyla, alternatif adresleri ekleyin. Bağlandığınızda Mobile SSH adresleri biri yanıt verene kadar sırayla dener ve en son çalışan adresi hatırlayıp bir sonraki sefer önce onu arar. Bir ağ değişikliği (örneğin VPN'den ayrılmak), ölü rotanın zaman aşımına uğramasını beklemek yerine artık erişilebilir olan adrese anında yeniden bağlanmayı tetikler.
 
 ## Kimlik bilgilerini kaydetme
 
@@ -87,7 +92,6 @@ Başlangıç ekranına dönmek etkin SSH oturumlarını kesmez; bölmeleri kapat
 Başlangıç ekranından **Settings** sayfasını açın (kendi sayfası vardır):
 
 - Terminale dokunulduğunda klavyenin görünmesini istiyorsanız "dokununca klavyeyi göster" seçeneğini etkinleştirin.
-- Klavye önerileri Vim, less, htop veya tam ekran tmux gibi terminal programlarıyla çakışıyorsa IME önerilerini devre dışı bırakın.
 - Arka planda uzun süren görevler (Claude Code, Codex, kabuk betikleri) çalıştırıyorsanız ve ajanın girdinize ihtiyaç duyduğunda ses veya titreşim bildirimi almak istiyorsanız **Agent alerts** seçeneğini etkinleştirin.
 - Herhangi bir veri gönderilmesini istemiyorsanız anonim kullanım analitiğini kapatın.
 

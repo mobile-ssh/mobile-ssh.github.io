@@ -56,6 +56,10 @@ Uploads use the existing SSH/SFTP connection. If the connection drops, retry aft
 
 Large downloads should be done on a stable network when possible.
 
+## Copy whole folders
+
+Uploads and downloads are not limited to single files. Choose a folder and Mobile SSH copies the entire subtree in both directions — phone to remote and remote to phone — creating the destination directories first and then queuing each file. An unreadable subdirectory is skipped and reported without stopping the rest of the copy.
+
 ## Remote file actions
 
 Depending on the selected remote item, Mobile SSH can show actions such as:

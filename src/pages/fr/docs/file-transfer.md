@@ -54,6 +54,10 @@ Les envois utilisent la connexion SSH/SFTP existante. Si la connexion tombe, ré
 
 Les téléchargements volumineux doivent se faire sur un réseau stable lorsque c'est possible.
 
+## Copier des dossiers entiers
+
+Les envois et les téléchargements ne se limitent pas aux fichiers isolés. Choisissez un dossier et Mobile SSH copie toute l'arborescence dans les deux sens — du téléphone vers l'hôte distant et de l'hôte distant vers le téléphone — en créant d'abord les répertoires de destination, puis en mettant chaque fichier en file d'attente. Un sous-répertoire illisible est ignoré et signalé sans interrompre le reste de la copie.
+
 ## Actions sur les fichiers distants
 
 Selon l'élément distant sélectionné, Mobile SSH peut afficher des actions telles que :

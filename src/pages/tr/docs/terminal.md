@@ -52,14 +52,19 @@ Hem Android hem iOS'ta ek tuş satırı ekran klavyesinin üstünde görünür v
 
 ## Klavye davranışı
 
-Mobile SSH'de klavyeyle ilgili iki ayar bulunur:
+Terminal, ekran klavyesine yerel bir geçişli bağlantı kullanır: yazdıkça her karakter uzak kabuğa gönderilir; otomatik düzeltme ve tahmine dayalı öneriler kapalıdır; böylece klavye, giriş kabuğa ulaşmadan önce onu asla yeniden yazmaz. Bu; Vim, tmux, htop, less, alışılmadık tuş akorları kullanan kabuklar ve uzak parola istemlerini öngörülebilir tutar — devre dışı bırakılacak bir öneri arabelleği yoktur.
 
 - **Klavyeyi göstermek için terminale dokun:** etkinleştirildiğinde terminale dokunmak sistemden ekran klavyesini göstermesini ister.
-- **Keyboard suggestions:** etkinleştirildiğinde uyumlu klavyeler kabuk istemlerinde öneri gösterebilir. Öneriler terminal programlarıyla çakışıyorsa devre dışı bırakın.
 
-Öneriler etkinken Mobile SSH, oluşturulan metni bir sözcük sınırına kadar arabelleğe alır; böylece klavye düzeltmesi geçerli sözcüğü uzak kabuğa gönderilmeden önce değiştirebilir. Denetim tuşları ve terminal akorları bu arabelleği atlar; dolayısıyla tmux önek komutları gibi kısayollar anında iletilir.
+Ekran klavyesi sesli diktesi yine de çalışır: dikte edilen metin, yazılan diğer girdiler gibi doğrudan kabuğa iletilir.
 
-Android'de sesli giriş (Gboard mikrofon düğmesi) aynı oluşturma metni arabelleğinden geçer; bu nedenle dikte edilen metin karakter karakter değil, çözümlendikten sonra tek seferde gönderilir.
+## Donanım klavyeleri
+
+Harici ve Bluetooth klavyeler, hem Android hem iOS'ta terminali doğrudan sürer. Sıradan karakterlerin ötesinde Mobile SSH şu tuşları eşler: ok tuşları, `Home`/`End`, `PgUp`/`PgDn`, `Insert`, `Delete`, `Esc`, `F1`–`F12` işlev tuşları, `Ctrl`+tuş ve `Alt`/`Option`-Meta-olarak akorları ile `Shift`+`Tab`. Değiştirici tuşlar, ek tuş satırının yapışkan değiştiricileriyle birleşir.
+
+## Yapıştırma
+
+Bunu isteyen bir programa (bash, Vim ve diğer köşeli parantezli yapıştırma uygulamaları) yapıştırma, köşeli parantez işaretleriyle sarmalanır; böylece çok satırlı pano içeriği satır satır otomatik çalıştırılmak yerine metin olarak eklenir. Yalnızca gerçek yapıştırmalar sarmalanır; yazılan ve dikte edilen metne dokunulmaz.
 
 ## Seç, kopyala, paylaş
 
@@ -128,6 +133,6 @@ Agent alert kalıpları görünür terminal çıktısıyla eşleştirilir. Uzak 
 
 Vim, less, htop, ncurses araçları ve tmux bölmeleri gibi programlar için:
 
-- Klavye girişi programın beklemediği biçimde arabelleğe alınmaya başlarsa klavye önerilerini devre dışı bırakın.
+- Giriş doğrudan programa iletilir — araya girecek otomatik düzeltme veya öneri arabelleği yoktur.
 - `ESC`, ok tuşları, `PGUP` ve `PGDN` için ek tuş satırını kullanın.
 - Metin çok küçükse kıstırarak yakınlaştırma kullanın, ardından uzak terminal boyutunun oturması için kısaca bekleyin.

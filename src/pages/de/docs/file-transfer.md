@@ -54,6 +54,10 @@ Uploads nutzen die bestehende SSH/SFTP-Verbindung. Wenn die Verbindung abbricht,
 
 Große Downloads solltest du nach Möglichkeit in einem stabilen Netzwerk durchführen.
 
+## Ganze Ordner kopieren
+
+Uploads und Downloads sind nicht auf einzelne Dateien beschränkt. Wähle einen Ordner, und Mobile SSH kopiert den gesamten Unterbaum in beide Richtungen – vom Telefon zum entfernten Host und vom entfernten Host zum Telefon –, indem es zuerst die Zielverzeichnisse anlegt und dann jede Datei in die Warteschlange stellt. Ein nicht lesbares Unterverzeichnis wird übersprungen und gemeldet, ohne den Rest des Kopiervorgangs zu stoppen.
+
 ## Aktionen für entfernte Dateien
 
 Je nach ausgewähltem entferntem Element kann Mobile SSH Aktionen anzeigen wie:

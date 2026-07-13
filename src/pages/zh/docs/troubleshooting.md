@@ -43,9 +43,7 @@ description: "Mobile SSH 在连接、认证、键盘、tmux、文件传输和隧
 
 ## 键盘输入延迟或被更改
 
-如果你的屏幕键盘在文本到达 shell 之前对其进行了修改，请在 Mobile SSH 设置中关闭键盘建议。这对 Vim、tmux、htop、less、使用特殊组合键的 shell 以及远程密码提示很有用。
-
-使用额外按键行输入 `ESC`、`TAB`、`CTRL`、方向键、`HOME`、`END`、`PGUP` 和 `PGDN` 等终端按键。
+Mobile SSH 会在自动更正与预测建议均已关闭的情况下将按键直接发送到 shell，因此键盘不应在文本到达远程端之前改写它。如果你的键盘仍然改动了输入，请确认没有系统级的替换或剪贴板工具在拦截它，并使用额外按键行输入 `ESC`、`TAB`、`CTRL`、方向键、`HOME`、`END`、`PGUP` 和 `PGDN` 等终端按键。
 
 ## tmux 滚动与预期不符
 

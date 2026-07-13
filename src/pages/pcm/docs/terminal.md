@@ -41,14 +41,19 @@ For both Android and iOS, di extra key row dey show on top di on-screen keyboard
 
 ## Keyboard behavior
 
-Mobile SSH get two keyboard-related settings:
+Di terminal dey use native pass-through connection to di on-screen keyboard: every character dey go di remote shell as you dey type, wit autocorrect and predictive suggestions off so di keyboard no go rewrite input before e reach di shell. Dis dey keep Vim, tmux, htop, less, shells wit strange key chords, and remote password prompts predictable — no suggestion buffer dey to disable.
 
 - **Tap terminal to show keyboard:** wen e dey enabled, tapping di terminal dey ask di system to show di on-screen keyboard.
-- **Keyboard suggestions:** wen e dey enabled, compatible keyboards fit show suggestions for shell prompts. Disable am if suggestions dey disturb terminal programs.
 
-Wen suggestions dey enabled, Mobile SSH dey buffer composing text until word boundary so keyboard correction fit replace di current word before e reach di remote shell. Control keys and terminal chords dey bypass dat buffer, so shortcuts like tmux prefix commands still dey arrive sharp-sharp.
+Soft-keyboard voice dictation still dey work: di dictated text dey commit straight to di shell like any other typed input.
 
-For Android, voice input (di Gboard microphone button) dey pass through di same composing-text buffer, so dictated text dey go once e resolve instead of character by character.
+## Hardware keyboards
+
+External and Bluetooth keyboards dey drive di terminal directly for both Android and iOS. Pass ordinary characters, Mobile SSH dey map arrow keys, `Home`/`End`, `PgUp`/`PgDn`, `Insert`, `Delete`, `Esc`, function keys `F1`–`F12`, `Ctrl`+key and `Alt`/`Option`-as-Meta chords, and `Shift`+`Tab`. Modifier keys dey combine wit di extra key row sticky modifiers.
+
+## Paste
+
+Wen you paste enter program wey request am (bash, Vim, and other bracketed-paste apps), e dey wrap inside bracketed-paste markers, so multi-line clipboard content dey enter as text instead of make e run line by line by itself. Na only real paste dem dey wrap; typed and dictated text no dey touched.
 
 ## Select, copy, share
 
@@ -100,6 +105,6 @@ Agent alert patterns dey match against visible terminal output. If your remote t
 
 For programs like Vim, less, htop, ncurses tools, and tmux panes:
 
-- Disable keyboard suggestions if di keyboard start to buffer input for way wey di program no expect.
+- Input dey pass straight to di program — no autocorrect or suggestion buffer dey to disturb.
 - Use di extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
 - Use pinch zoom if text too small, then wait small make di remote terminal size settle.

@@ -41,14 +41,19 @@ Sur Android comme sur iOS, la rangée de touches supplémentaires apparaît au-d
 
 ## Comportement du clavier
 
-Mobile SSH propose deux réglages liés au clavier :
+Le terminal utilise une connexion native en pass-through vers le clavier à l'écran : chaque caractère est envoyé au shell distant au fur et à mesure de la frappe, avec l'autocorrection et les suggestions prédictives désactivées, de sorte que le clavier ne réécrit jamais l'entrée avant qu'elle n'atteigne le shell. Cela garde Vim, tmux, htop, less, les shells aux combinaisons de touches inhabituelles et les invites de mot de passe distantes prévisibles — il n'y a aucun tampon de suggestions à désactiver.
 
 - **Toucher le terminal pour afficher le clavier :** lorsqu'il est activé, toucher le terminal demande au système d'afficher le clavier à l'écran.
-- **Suggestions du clavier :** lorsqu'elles sont activées, les claviers compatibles peuvent afficher des suggestions aux invites du shell. Désactivez-les si les suggestions gênent les programmes de terminal.
 
-Lorsque les suggestions sont activées, Mobile SSH met en tampon le texte en cours de composition jusqu'à une limite de mot, afin que la correction du clavier puisse remplacer le mot actuel avant son envoi au shell distant. Les touches de contrôle et les combinaisons de terminal contournent ce tampon, de sorte que les raccourcis comme les commandes de préfixe tmux arrivent rapidement.
+La dictée vocale du clavier logiciel fonctionne toujours : le texte dicté est transmis directement au shell, comme toute autre saisie.
 
-Sur Android, la saisie vocale (le bouton micro de Gboard) passe par le même tampon de texte en composition ; le texte dicté est donc envoyé une fois résolu, et non caractère par caractère.
+## Claviers matériels
+
+Les claviers externes et Bluetooth pilotent le terminal directement sur Android comme sur iOS. Au-delà des caractères ordinaires, Mobile SSH gère les touches fléchées, `Home`/`End`, `PgUp`/`PgDn`, `Insert`, `Delete`, `Esc`, les touches de fonction `F1`–`F12`, les combinaisons `Ctrl`+touche et `Alt`/`Option` comme Meta, ainsi que `Shift`+`Tab`. Les touches de modification se combinent avec les modificateurs persistants de la rangée de touches supplémentaires.
+
+## Coller
+
+Le collage dans un programme qui le demande (bash, Vim et d'autres applications compatibles bracketed paste) est encadré par des marqueurs de bracketed paste, de sorte que le contenu multi-lignes du presse-papiers est inséré comme texte au lieu d'être exécuté automatiquement ligne par ligne. Seuls les vrais collages sont encadrés ; le texte saisi ou dicté n'est pas modifié.
 
 ## Sélectionner, copier, partager
 
@@ -100,6 +105,6 @@ Les motifs d'alerte d'agent sont comparés à la sortie visible du terminal. Si 
 
 Pour les programmes tels que Vim, less, htop, les outils ncurses et les volets tmux :
 
-- Désactivez les suggestions du clavier si le clavier commence à mettre l'entrée en tampon d'une manière que le programme n'attend pas.
+- L'entrée passe directement au programme — il n'y a aucun tampon d'autocorrection ou de suggestions pour interférer.
 - Utilisez la rangée de touches supplémentaires pour `ESC`, les flèches, `PGUP` et `PGDN`.
 - Utilisez le zoom par pincement si le texte est trop petit, puis attendez un instant que la taille du terminal distant se stabilise.

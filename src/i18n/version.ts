@@ -4,8 +4,8 @@ import { locales, type LocaleCode } from "./locales";
 // Bump these on app release; per-locale dicts only carry templates with
 // {count}, {version}, and {iosVersion} placeholders.
 export const VERSION_NAME = "2.0";
-export const VERSION_CODE = 21;
-export const IOS_VERSION_NAME = "1.0";
+export const VERSION_CODE = 29;
+export const IOS_VERSION_NAME = "1.1";
 export const LANGUAGE_COUNT = locales.length;
 
 export const PLAY_STORE_URL =

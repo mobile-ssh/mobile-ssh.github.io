@@ -54,6 +54,10 @@ Yüklemeler mevcut SSH/SFTP bağlantısını kullanır. Bağlantı kesilirse yen
 
 Büyük indirmeler mümkün olduğunda kararlı bir ağ bağlantısıyla yapılmalıdır.
 
+## Tüm klasörleri kopyalama
+
+Yüklemeler ve indirmeler tek dosyalarla sınırlı değildir. Bir klasör seçin; Mobile SSH tüm alt ağacı her iki yönde kopyalar — telefondan uzağa ve uzaktan telefona — önce hedef dizinleri oluşturur, ardından her dosyayı sıraya alır. Okunamayan bir alt dizin atlanır ve kopyalamanın geri kalanı durdurulmadan raporlanır.
+
 ## Uzak dosya işlemleri
 
 Seçili uzak öğeye bağlı olarak Mobile SSH şu işlemleri gösterebilir:

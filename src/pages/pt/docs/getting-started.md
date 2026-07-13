@@ -46,8 +46,13 @@ Os servidores salvos guardam o destino da conexão e a configuração opcional d
 - Nome de usuário.
 - Detalhes de senha ou chave privada.
 - Regras opcionais de encaminhamento de portas local.
+- Endereços adicionais opcionais para a mesma máquina (veja abaixo).
 
 Use servidores salvos para hosts que você acessa com frequência. Se um servidor salvo apontar para um host diferente da sua sessão ativa atual, o Mobile SSH inicia uma nova conexão para o destino selecionado.
+
+### Vários endereços (roaming entre LAN/VPN)
+
+A mesma máquina costuma estar acessível em endereços diferentes conforme o lugar onde você está — um IP de Wi-Fi de casa versus um IP de VPN. Adicione os endereços alternativos na caixa de diálogo de edição do servidor, cada um com a sua própria porta se necessário. Ao conectar, o Mobile SSH tenta os endereços em ordem até um responder, e lembra o endereço que funcionou por último para discá-lo primeiro na próxima vez. Uma mudança de rede (por exemplo, sair da VPN) dispara uma reconexão imediata ao endereço que estiver acessível no momento, em vez de esperar a rota inativa expirar por tempo limite.
 
 ## Salvar credenciais
 
@@ -87,7 +92,6 @@ Voltar à tela inicial não desconecta as sessões SSH ativas; fechar painéis o
 Abra **Settings** na tela inicial (ela tem sua própria página):
 
 - Ative tocar para mostrar o teclado se preferir que o teclado apareça ao tocar no terminal.
-- Desative as sugestões do IME se as sugestões do teclado atrapalharem programas de terminal como Vim, less, htop ou apps tmux em tela cheia.
 - Ative **Agent alerts** se você executa tarefas longas em segundo plano (Claude Code, Codex, scripts de shell) e quer receber uma notificação sonora ou vibração quando o agente precisar da sua entrada.
 - Desative a coleta anônima de dados de uso se preferir que nenhuma informação seja enviada.
 

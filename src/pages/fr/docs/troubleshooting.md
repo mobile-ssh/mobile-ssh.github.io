@@ -43,9 +43,7 @@ L'importation de la clé privée utilise le sélecteur de fichiers du système. 
 
 ## La saisie au clavier est retardée ou modifiée
 
-Si votre clavier à l'écran modifie le texte avant qu'il n'atteigne le shell, désactivez les suggestions du clavier dans les réglages de Mobile SSH. C'est utile pour Vim, tmux, htop, less, les shells utilisant des combinaisons de touches inhabituelles et les invites de mot de passe distantes.
-
-Utilisez la rangée de touches supplémentaires pour les touches de terminal comme `ESC`, `TAB`, `CTRL`, les flèches, `HOME`, `END`, `PGUP` et `PGDN`.
+Mobile SSH envoie les frappes directement au shell, avec l'autocorrection et les suggestions prédictives désactivées, de sorte que le clavier ne devrait pas réécrire le texte avant qu'il n'atteigne le côté distant. Si votre clavier modifie tout de même l'entrée, vérifiez qu'aucun outil système de remplacement ou de presse-papiers ne l'intercepte, et utilisez la rangée de touches supplémentaires pour les touches de terminal comme `ESC`, `TAB`, `CTRL`, les flèches, `HOME`, `END`, `PGUP` et `PGDN`.
 
 ## Le défilement de tmux n'est pas celui attendu
 

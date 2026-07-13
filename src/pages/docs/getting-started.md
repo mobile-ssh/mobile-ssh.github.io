@@ -46,8 +46,13 @@ Saved servers keep the connection target and optional tunnel configuration. A sa
 - Username.
 - Password or private key details.
 - Optional local port-forwarding rules.
+- Optional additional addresses for the same machine (see below).
 
 Use saved servers for hosts you access repeatedly. If a saved server points to a different host than your current active session, Mobile SSH starts a fresh connection for the selected target.
+
+### Multiple addresses (LAN/VPN roaming)
+
+The same machine is often reachable at different addresses depending on where you are — a home Wi-Fi IP versus a VPN IP. Add the alternates in the server's edit dialog, each with its own port if needed. When you connect, Mobile SSH tries the addresses in order until one answers, and it remembers the address that last worked and dials it first next time. A network change (for example leaving the VPN) triggers an immediate reconnect to whichever address is now reachable, instead of waiting for the dead route to time out.
 
 ## Save credentials
 
@@ -87,7 +92,6 @@ Going back to the start screen does not disconnect active SSH sessions; closing 
 Open **Settings** from the start screen (it has its own page):
 
 - Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Disable IME suggestions if your keyboard suggestions interfere with terminal programs such as Vim, less, htop, or full-screen tmux apps.
 - Enable **Agent alerts** if you run long background tasks (Claude Code, Codex, shell scripts) and want a sound or vibration notification when the agent needs your input.
 - Turn off anonymous usage analytics if you prefer no data to be sent.
 

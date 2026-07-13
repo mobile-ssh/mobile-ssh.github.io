@@ -39,8 +39,13 @@ Saved servers dey keep di connection target and optional tunnel configuration. O
 - Username.
 - Password or private key details.
 - Optional local port-forwarding rules.
+- Optional extra addresses for di same machine (see below).
 
 Use saved servers for hosts wey you dey access plenty times. If one saved server dey point to different host pass your current active session, Mobile SSH go start fresh connection for di selected target.
+
+### Multiple addresses (LAN/VPN roaming)
+
+Di same machine fit dey reachable for different addresses depending on where you dey — home Wi-Fi IP versus VPN IP. Add di alternates for di server edit dialog, each one wit im own port if e need. Wen you connect, Mobile SSH go try di addresses in order until one answer, and e go remember di address wey last work and dial am first next time. Network change (for example wen you comot for di VPN) go trigger immediate reconnect to whichever address dey reachable now, instead of waiting make di dead route time out.
 
 ## Save credentials
 
@@ -80,7 +85,6 @@ Going back to di start screen no go disconnect active SSH sessions; na only wen 
 Open **Settings** from di start screen (e get im own page):
 
 - Enable tap-to-show-keyboard if you prefer make di keyboard show wen you tap di terminal.
-- Disable IME suggestions if your keyboard suggestions dey disturb terminal programs like Vim, less, htop, or full-screen tmux apps.
 - Enable **Agent alerts** if you dey run long background tasks (Claude Code, Codex, shell scripts) and you wan receive sound or vibration notification wen di agent need your input.
 - Turn off anonymous usage analytics if you prefer say no data go dey sent.
 

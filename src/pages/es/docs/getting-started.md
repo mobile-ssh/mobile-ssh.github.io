@@ -39,8 +39,13 @@ Los servidores guardados conservan el destino de conexión y la configuración o
 - Nombre de usuario.
 - Datos de contraseña o clave privada.
 - Reglas opcionales de reenvío de puertos local.
+- Direcciones adicionales opcionales para la misma máquina (ver más abajo).
 
 Usa servidores guardados para hosts a los que accedes con frecuencia. Si un servidor guardado apunta a un host distinto de tu sesión activa actual, Mobile SSH inicia una conexión nueva para el destino seleccionado.
+
+### Varias direcciones (roaming entre LAN y VPN)
+
+A menudo se puede llegar a la misma máquina en distintas direcciones según dónde te encuentres — una IP de Wi-Fi doméstica frente a una IP de VPN. Añade las direcciones alternativas en el cuadro de diálogo de edición del servidor, cada una con su propio puerto si es necesario. Al conectarte, Mobile SSH prueba las direcciones en orden hasta que una responde, y recuerda la dirección que funcionó por última vez para marcarla primero la próxima vez. Un cambio de red (por ejemplo, salir de la VPN) desencadena una reconexión inmediata a la dirección que ahora sea accesible, en lugar de esperar a que la ruta muerta agote el tiempo de espera.
 
 ## Guardar credenciales
 
@@ -80,7 +85,6 @@ Volver a la pantalla de inicio no desconecta las sesiones SSH activas; cerrar pa
 Abre **Settings** desde la pantalla de inicio (tiene su propia página):
 
 - Activa "tap-to-show-keyboard" si prefieres que el teclado aparezca al tocar la terminal.
-- Desactiva las sugerencias del IME si las sugerencias del teclado interfieren con programas de terminal como Vim, less, htop o apps tmux a pantalla completa.
 - Activa **Agent alerts** si ejecutas tareas largas en segundo plano (Claude Code, Codex, scripts de shell) y quieres recibir una notificación sonora o de vibración cuando el agente necesite tu intervención.
 - Desactiva el envío de estadísticas de uso anónimas si prefieres que no se transmita ningún dato.
 

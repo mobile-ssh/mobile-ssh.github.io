@@ -43,9 +43,7 @@ description: "Mobile SSH 喺連線、驗證、鍵盤、tmux、檔案傳輸同通
 
 ## 鍵盤輸入延遲或被更改
 
-如果你嘅螢幕鍵盤喺文字到達 shell 之前更改咗佢，請喺 Mobile SSH 設定關閉鍵盤建議。呢個對 Vim、tmux、htop、less、用特殊組合鍵嘅 shell 同遠端密碼提示好有用。
-
-用額外按鍵列輸入 `ESC`、`TAB`、`CTRL`、方向鍵、`HOME`、`END`、`PGUP` 同 `PGDN` 等終端機按鍵。
+Mobile SSH 會將按鍵直接送去 shell，自動更正同預測建議都關咗，所以鍵盤唔應該喺文字到達遠端之前改寫佢。如果你嘅鍵盤仍然更改輸入，請確認冇任何系統層級嘅替換或者剪貼簿工具攔截緊佢，並用額外按鍵列輸入 `ESC`、`TAB`、`CTRL`、方向鍵、`HOME`、`END`、`PGUP` 同 `PGDN` 等終端機按鍵。
 
 ## tmux 捲動同預期唔同
 

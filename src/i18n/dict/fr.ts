@@ -45,7 +45,7 @@ export const fr: Dict = {
       { title: "Alertes agent", text: "Recevez une notification — avec son et vibration — au moment où Claude Code, Codex ou un autre agent distant a besoin de votre intervention. Fonctionne dans les écouteurs même pendant une vidéo." },
       { title: "Touches terminal au-dessus du clavier", text: "Rangée dédiée avec ESC, TAB, CTRL, ALT, FN, flèches, Home, End, PgUp/PgDn sur Android et iOS — des touches terminal sans lutter contre l'autocorrection." },
       { title: "Redirection de ports sans commandes", text: "Les tunnels sont liés au profil serveur et s'activent automatiquement à la connexion." },
-      { title: "Résiste au verrouillage et au changement de réseau", text: "Sur Android, un service de premier plan, des wake locks et la reconnexion automatique gardent les shells actifs malgré l'écran éteint et les changements de réseau ; sur iOS, la reconnexion automatique et le rattachement tmux automatique vous ramènent exactement là où vous étiez." },
+      { title: "Résiste au verrouillage et au changement de réseau", text: "Attribuez plusieurs adresses à un serveur enregistré — une IP LAN domestique et une IP VPN — et Mobile SSH compose celle qui répond, en essayant d'abord la dernière qui a fonctionné, et se reconnecte dès que le réseau change. Sur Android, un service de premier plan et des wake locks gardent les shells actifs malgré l'écran éteint ; sur iOS, la reconnexion automatique et le rattachement tmux automatique vous ramènent là où vous étiez." },
       { title: "Eternal Terminal", text: "Un transport ET optionnel garde le shell distant actif malgré les coupures réseau, la mise en veille et les changements d'IP. Pas d'etserver sur l'hôte ? Mobile SSH peut l'installer pour vous via SSH." },
       { title: "Extensible par plugins", text: "Parcourez un catalogue public et installez des plugins à la demande pour ajouter de nouveaux workflows. Chaque plugin est téléchargé et vérifié par SHA-256 dans le stockage privé de l'app." }
     ],
@@ -161,9 +161,10 @@ export const fr: Dict = {
           "Profils de serveur enregistrés avec hôte, port, utilisateur, identifiant, clé privée et tunnels optionnels",
           "Recherche de serveurs enregistrés par nom ou hôte",
           "Flux Ajouter une session avec recherche en premier : choisissez un serveur enregistré depuis une page de recherche dédiée et connectez-vous en un tap",
+          "Plusieurs adresses par serveur enregistré pour l'itinérance LAN/VPN — composées dans l'ordre, la dernière adresse fonctionnelle essayée en premier, avec reconnexion déclenchée lors d'un changement de réseau",
           "Enregistrements d'identifiants réutilisables sélectionnables lors de la configuration d'un serveur",
           "Historique des sessions récentes pour se reconnecter aux groupes de serveurs habituels",
-          "Journal des tentatives de connexion, réussies et échouées"
+          "Journal des tentatives de connexion, réussies et échouées, enregistrant l'adresse exacte composée"
         ]
       },
       {
@@ -176,7 +177,9 @@ export const fr: Dict = {
           "Pincement pour redimensionner le texte avec resize du terminal distant",
           "Mode plein écran d'un panneau au double-tap",
           "Sélection de texte avec actions Copier, Partager et Tout sélectionner",
-          "Suggestions/autocorrection Gboard et saisie vocale sur Android, avec mise en tampon du texte en composition pour les terminaux"
+          "Saisie clavier native en pass-through — pas d'autocorrection qui perturbe le shell ; la dictée vocale du clavier logiciel fonctionne toujours",
+          "Prise en charge des claviers externes et Bluetooth sur Android et iOS, y compris flèches, touches de fonction et combinaisons Ctrl/Alt",
+          "Collage entre crochets (bracketed paste) pour que le contenu multi-lignes du presse-papiers ne soit pas exécuté automatiquement"
         ]
       },
       {
@@ -198,6 +201,7 @@ export const fr: Dict = {
         items: [
           "Explorateur SFTP à deux panneaux pour fichiers locaux et distants",
           "Files d'attente d'envois et de téléchargements",
+          "Envoi et téléchargement récursifs de dossiers entre le téléphone et l'hôte distant",
           "Actions distantes renommer, supprimer, créer, éditer et détails",
           "Tri par nom ou par date avec persistance par hôte",
           "Redirection locale de ports enregistrée avec le profil du serveur",
@@ -263,7 +267,7 @@ export const fr: Dict = {
       },
       {
         need: "Contrôles terminal mobiles",
-        mobileSsh: "Rangée de touches supplémentaires intégrée, sessions en grille, panneaux plein écran, zoom au pincement, sélection avec copier/partager et défilement compatible tmux — plus suggestions Gboard et saisie vocale sur Android.",
+        mobileSsh: "Rangée de touches supplémentaires intégrée, sessions en grille, panneaux plein écran, zoom au pincement, sélection avec copier/partager et défilement compatible tmux — avec saisie native en pass-through et prise en charge des claviers externes sur les deux plateformes.",
         termux: "Environnement de terminal puissant ; le comportement dépend des outils et de la configuration installés.",
         termius: "Module clavier mobile, gestes, onglets, autocomplétion, snippets et UX de terminal soignée."
       },
@@ -323,7 +327,7 @@ export const fr: Dict = {
       { category: "Terminal",           feature: "Double-tap pour passer un panneau en plein écran",    mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Terminal",           feature: "URL tapotables dans la sortie terminal",              mobile: "yes",     termux: "partiel",       termius: "yes" },
       { category: "Terminal",           feature: "Sélection de texte : copier / partager / tout sélectionner", mobile: "yes", termux: "yes",       termius: "yes" },
-      { category: "Terminal",           feature: "Suggestions Gboard et saisie vocale",                 mobile: "Android", termux: "no",            termius: "yes" },
+      { category: "Terminal",           feature: "Prise en charge clavier matériel / Bluetooth",        mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Sessions",           feature: "Sessions SSH simultanées multiples",                  mobile: "jusqu'à 8", termux: "jusqu'à 8",   termius: "yes" },
       { category: "Sessions",           feature: "Disposition en grille",                               mobile: "yes",     termux: "via tmux",      termius: "onglets" },
       { category: "Sessions",           feature: "Défilement compatible tmux",                          mobile: "yes",     termux: "yes",           termius: "no" },

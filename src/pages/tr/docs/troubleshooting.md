@@ -43,9 +43,7 @@ Denetleyin:
 
 ## Klavye Girişi Gecikiyor veya Değişiyor
 
-Ekran klavyeniz metni kabuğa ulaşmadan değiştiriyorsa Mobile SSH ayarlarında klavye önerilerini devre dışı bırakın. Bu; Vim, tmux, htop, less, alışılmadık tuş akorları kullanan kabuklar ve uzak parola istemleri için yararlıdır.
-
-`ESC`, `TAB`, `CTRL`, oklar, `HOME`, `END`, `PGUP` ve `PGDN` gibi terminal tuşları için ek tuş satırını kullanın.
+Mobile SSH tuş vuruşlarını, otomatik düzeltme ve tahmine dayalı öneriler kapalı olarak doğrudan kabuğa gönderir; bu yüzden klavye, metni uzak tarafa ulaşmadan önce yeniden yazmamalıdır (devre dışı bırakılacak bir öneri ayarı yoktur). Klavyeniz girişi yine de değiştiriyorsa, sistem düzeyinde bir değiştirme veya pano aracının araya girmediğinden emin olun ve `ESC`, `TAB`, `CTRL`, oklar, `HOME`, `END`, `PGUP` ve `PGDN` gibi terminal tuşları için ek tuş satırını kullanın.
 
 ## tmux Kaydırması Beklediğiniz Gibi Değil
 

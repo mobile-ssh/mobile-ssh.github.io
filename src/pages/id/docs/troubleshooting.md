@@ -43,9 +43,7 @@ Impor kunci privat menggunakan pemilih berkas sistem. Jika impor gagal:
 
 ## Input keyboard tertunda atau berubah
 
-Jika keyboard di layar Anda mengubah teks sebelum mencapai shell, nonaktifkan saran keyboard di pengaturan Mobile SSH. Ini berguna untuk Vim, tmux, htop, less, shell dengan kord tombol tak lazim, dan prompt kata sandi jarak jauh.
-
-Gunakan baris tombol tambahan untuk tombol terminal seperti `ESC`, `TAB`, `CTRL`, panah, `HOME`, `END`, `PGUP`, dan `PGDN`.
+Mobile SSH mengirim ketikan langsung ke shell dengan koreksi otomatis dan saran prediktif dimatikan, sehingga keyboard seharusnya tidak menulis ulang teks sebelum mencapai sisi jarak jauh. Jika keyboard Anda masih mengubah input, pastikan tidak ada alat penggantian atau clipboard tingkat sistem yang mencegatnya, dan gunakan baris tombol tambahan untuk tombol terminal seperti `ESC`, `TAB`, `CTRL`, panah, `HOME`, `END`, `PGUP`, dan `PGDN`.
 
 ## Gulir tmux tidak seperti yang diharapkan
 

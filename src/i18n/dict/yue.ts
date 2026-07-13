@@ -45,7 +45,7 @@ export const yue: Dict = {
       { title: "Agent 提示", text: "當 Claude Code、Codex 或者其他遠端 agent 需要你輸入時，即刻收到通知 —— 有聲音同震動。就算係播緊視頻都會響耳機。" },
       { title: "鍵盤上面嘅終端機按鍵", text: "ESC、TAB、CTRL、ALT、FN、方向鍵、Home、End、PgUp/PgDn 專屬一行，Android 同 iOS 都有 —— 終端機按鍵唔會同自動更正打交。" },
       { title: "唔使打指令嘅端口轉發", text: "Tunnel 黐喺伺服器 profile 度，連線即自動開。" },
-      { title: "熄屏漫遊都頂得住", text: "喺 Android，前景服務、wake lock 同自動重連等住 shell 喺熄屏同轉網絡之間都唔斷；喺 iOS，自動重連加 tmux 自動 attach 令你返返去頭先停低嘅位置。" },
+      { title: "熄屏漫遊都頂得住", text: "俾一個已儲存嘅伺服器設幾個地址 —— 譬如屋企 LAN IP 同 VPN IP —— Mobile SSH 會撥邊個有回應就用邊個，仲會優先試上次連得通嗰個，網絡一變就即刻重連。喺 Android，前景服務同 wake lock 令 shell 喺熄屏時都唔斷；喺 iOS，自動重連加 tmux 自動 attach 令你返返去頭先停低嘅位置。" },
       { title: "Eternal Terminal", text: "可選嘅 ET 傳輸令遠端 shell 喺斷網、休眠同 IP 轉變之間都唔斷。主機上冇 etserver？Mobile SSH 可以經 SSH 幫你裝好。" },
       { title: "用插件擴充", text: "瀏覽公開目錄，按需要安裝插件嚟加入新工作流。每個插件都會下載並經 SHA-256 驗證後放入 App 專屬儲存。" }
     ],
@@ -161,9 +161,10 @@ export const yue: Dict = {
           "儲存嘅伺服器設定檔，包括 host、port、用戶、憑證、私鑰同可選隧道規格",
           "按名稱或 host 搜索已儲存嘅伺服器",
           "搜索優先嘅「新增會話」流程：喺專屬搜索頁揀已儲存嘅伺服器，一㩒就連",
+          "每個已儲存伺服器可設多個地址，方便 LAN/VPN 漫遊 —— 按次序逐個撥，優先試上次連得通嗰個，網絡一變就自動重連",
           "可由伺服器設定畫面揀返用嘅可重用憑證紀錄",
           "用嚟重連常見伺服器組合嘅最近會話歷史",
-          "成功同失敗嘅登入嘗試日誌"
+          "成功同失敗嘅登入嘗試日誌，仲會記低實際撥咗嘅地址"
         ]
       },
       {
@@ -176,7 +177,9 @@ export const yue: Dict = {
           "揑住調文字大細，連同遠端終端機重設大細",
           "雙擊面板入全螢幕模式",
           "終端機文字選擇連 Copy、Share、Select all",
-          "Android 上支援 Gboard 建議／自動更正同語音輸入，加埋終端機用嘅輸入文字緩衝"
+          "原生直通鍵盤輸入 —— 冇自動更正同 shell 打交；螢幕鍵盤嘅語音聽寫照樣用得",
+          "Android 同 iOS 都支援外接同 Bluetooth 鍵盤，包括方向鍵、功能鍵同 Ctrl/Alt 組合鍵",
+          "括號貼上（bracketed paste），令多行剪貼簿內容唔會被自動執行"
         ]
       },
       {
@@ -198,6 +201,7 @@ export const yue: Dict = {
         items: [
           "本機同遠端雙面板 SFTP 瀏覽器",
           "上載同下載排隊操作",
+          "喺手機同遠端主機之間遞迴上載同下載成個資料夾",
           "遠端重新命名、刪除、新增、編輯同詳細資料",
           "每個 host 個別記住按名或日期排序",
           "本機端口轉發隨伺服器設定檔一齊儲存",
@@ -263,7 +267,7 @@ export const yue: Dict = {
       },
       {
         need: "流動終端機控制",
-        mobileSsh: "內建附加按鍵列、格仔會話、全螢幕面板、揑捏縮放、帶複製／分享嘅文字選擇，仲有識 tmux 嘅滾動 —— Android 上再加 Gboard 建議同語音輸入。",
+        mobileSsh: "內建附加按鍵列、格仔會話、全螢幕面板、揑捏縮放、帶複製／分享嘅文字選擇，仲有識 tmux 嘅滾動 —— 兩個平台都有原生直通輸入同外接鍵盤支援。",
         termux: "終端機環境好強大；行為睇你裝咗咩工具同點配置。",
         termius: "手機鍵盤插件、手勢、分頁、自動完成、snippet，仲有打磨過嘅終端機 UX。"
       },
@@ -323,7 +327,7 @@ export const yue: Dict = {
       { category: "終端機", feature: "雙擊面板入全螢幕",                  mobile: "yes",    termux: "no",           termius: "no" },
       { category: "終端機", feature: "終端機輸出入面嘅可點擊 URL",        mobile: "yes",    termux: "部分",         termius: "yes" },
       { category: "終端機", feature: "文字選擇：複製／分享／全選",        mobile: "yes",    termux: "yes",          termius: "yes" },
-      { category: "終端機", feature: "Gboard 建議同語音輸入",             mobile: "Android", termux: "no",          termius: "yes" },
+      { category: "終端機", feature: "硬件／Bluetooth 鍵盤支援",         mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "會話", feature: "多個同時 SSH 會話",                   mobile: "最多 8 個", termux: "最多 8 個",  termius: "yes" },
       { category: "會話", feature: "格仔面板佈局",                        mobile: "yes",    termux: "經由 tmux",    termius: "標籤頁" },
       { category: "會話", feature: "識 tmux 嘅滾動",                      mobile: "yes",    termux: "yes",          termius: "no" },

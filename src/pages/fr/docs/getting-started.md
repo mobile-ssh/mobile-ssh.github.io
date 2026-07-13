@@ -39,8 +39,13 @@ Les serveurs enregistrés conservent la cible de connexion et la configuration d
 - Le nom d'utilisateur.
 - Les informations de mot de passe ou de clé privée.
 - Des règles facultatives de redirection de ports locale.
+- Des adresses supplémentaires facultatives pour la même machine (voir ci-dessous).
 
 Utilisez les serveurs enregistrés pour les hôtes auxquels vous accédez régulièrement. Si un serveur enregistré pointe vers un hôte différent de votre session active actuelle, Mobile SSH démarre une nouvelle connexion pour la cible sélectionnée.
+
+### Plusieurs adresses (itinérance LAN/VPN)
+
+La même machine est souvent joignable à différentes adresses selon l'endroit où vous vous trouvez — une IP Wi-Fi domestique ou une IP VPN. Ajoutez les alternatives dans la boîte de dialogue d'édition du serveur, chacune avec son propre port si nécessaire. Lors de la connexion, Mobile SSH essaie les adresses dans l'ordre jusqu'à ce que l'une réponde, et il mémorise l'adresse qui a fonctionné en dernier pour la composer en premier la fois suivante. Un changement de réseau (par exemple en quittant le VPN) déclenche une reconnexion immédiate vers l'adresse désormais joignable, au lieu d'attendre l'expiration de la route morte.
 
 ## Enregistrer des identifiants
 
@@ -80,7 +85,6 @@ Revenir à l'écran d'accueil ne déconnecte pas les sessions SSH actives ; ferm
 Ouvrez **Settings** depuis l'écran d'accueil (il dispose de sa propre page) :
 
 - Activez l'affichage du clavier au toucher si vous préférez que le clavier apparaisse en touchant le terminal.
-- Désactivez les suggestions de l'IME si les suggestions du clavier gênent les programmes de terminal comme Vim, less, htop ou les apps tmux en plein écran.
 - Activez **Agent alerts** si vous exécutez de longues tâches en arrière-plan (Claude Code, Codex, scripts shell) et souhaitez recevoir une notification sonore ou une vibration lorsque l'agent a besoin de votre intervention.
 - Désactivez l'envoi d'analyses d'utilisation anonymes si vous préférez qu'aucune donnée ne soit transmise.
 

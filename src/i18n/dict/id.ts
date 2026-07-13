@@ -45,7 +45,7 @@ export const id: Dict = {
       { title: "Peringatan agen", text: "Dapatkan notifikasi — dengan suara dan getaran — saat Claude Code, Codex, atau agen jarak jauh lain memerlukan masukan Anda. Berbunyi di headphone bahkan saat video sedang berjalan." },
       { title: "Tombol terminal di atas keyboard", text: "Baris khusus berisi ESC, TAB, CTRL, ALT, FN, panah, Home, End, PgUp/PgDn di Android dan iOS — tombol terminal tanpa berebut dengan koreksi otomatis." },
       { title: "Penerusan port tanpa perintah", text: "Tunnel melekat pada profil server dan otomatis aktif saat tersambung." },
-      { title: "Bertahan saat layar terkunci dan roaming", text: "Di Android, layanan foreground, wake lock, dan koneksi ulang otomatis menjaga shell tetap hidup saat layar mati dan ganti jaringan; di iOS, koneksi ulang otomatis plus attach otomatis tmux mengembalikan Anda tepat ke tempat terakhir Anda bekerja." },
+      { title: "Bertahan saat layar terkunci dan roaming", text: "Beri satu server tersimpan beberapa alamat — IP LAN rumah dan IP VPN — dan Mobile SSH menghubungi mana pun yang merespons, mencoba alamat terakhir yang berhasil lebih dulu, lalu menyambung ulang begitu jaringan berubah. Di Android, layanan foreground dan wake lock menjaga shell tetap hidup saat layar mati; di iOS, koneksi ulang otomatis plus attach otomatis tmux mengembalikan Anda ke tempat terakhir Anda bekerja." },
       { title: "Eternal Terminal", text: "Transport ET opsional menjaga shell jarak jauh tetap hidup saat koneksi jaringan terputus, perangkat tidur, dan IP berubah. Tidak ada etserver di host? Mobile SSH dapat memasangnya untuk Anda melalui SSH." },
       { title: "Perluas dengan plugin", text: "Telusuri katalog publik dan pasang plugin sesuai kebutuhan untuk menambah alur kerja baru. Setiap plugin diunduh dan diverifikasi SHA-256 ke penyimpanan privat aplikasi." }
     ],
@@ -161,9 +161,10 @@ export const id: Dict = {
           "Profil server tersimpan dengan host, port, pengguna, kredensial, kunci pribadi, dan spesifikasi tunnel opsional",
           "Cari server tersimpan berdasarkan nama atau host",
           "Alur Tambah Sesi berbasis pencarian: pilih server tersimpan dari halaman pencarian khusus dan sambung dengan satu tap",
+          "Beberapa alamat per server tersimpan untuk roaming LAN/VPN — dihubungi berurutan dengan alamat terakhir yang berhasil dicoba lebih dulu, dan penyambungan ulang aktif saat jaringan berubah",
           "Catatan kredensial yang dapat dipakai ulang dan dipilih dari penyetelan server",
           "Riwayat sesi terkini untuk menyambung ulang ke set server umum",
-          "Log upaya masuk berhasil dan gagal"
+          "Log upaya masuk berhasil dan gagal, mencatat alamat persis yang dihubungi"
         ]
       },
       {
@@ -176,7 +177,9 @@ export const id: Dict = {
           "Cubit untuk ukuran teks dengan resize terminal jarak jauh",
           "Mode layar penuh panel dengan ketuk ganda",
           "Seleksi teks terminal dengan Salin, Bagikan, dan Pilih semua",
-          "Saran/koreksi Gboard dan input suara di Android, dengan buffer teks yang sedang disusun untuk terminal"
+          "Input keyboard pass-through native — tanpa koreksi otomatis yang berebut dengan shell; dikte suara keyboard di layar tetap berfungsi",
+          "Dukungan keyboard eksternal dan Bluetooth di Android dan iOS, termasuk panah, tombol fungsi, dan kombinasi Ctrl/Alt",
+          "Bracketed paste agar konten clipboard multi-baris tidak dieksekusi otomatis"
         ]
       },
       {
@@ -198,6 +201,7 @@ export const id: Dict = {
         items: [
           "Penjelajah SFTP dua panel untuk berkas lokal dan jarak jauh",
           "Operasi unggah dan unduh yang diantre",
+          "Unggah dan unduh folder rekursif antara ponsel dan host jarak jauh",
           "Aksi jarak jauh: ganti nama, hapus, buat, edit, dan detail",
           "Urutkan berdasarkan nama atau tanggal dengan persistensi per host",
           "Penerusan port lokal yang disimpan bersama profil server",
@@ -263,7 +267,7 @@ export const id: Dict = {
       },
       {
         need: "Kontrol terminal seluler",
-        mobileSsh: "Baris tombol tambahan bawaan, sesi kisi, panel layar penuh, zoom cubit, seleksi dengan salin/bagikan, dan gulir ramah tmux — plus saran Gboard dan input suara di Android.",
+        mobileSsh: "Baris tombol tambahan bawaan, sesi kisi, panel layar penuh, zoom cubit, seleksi dengan salin/bagikan, dan gulir ramah tmux — dengan pengetikan pass-through native dan dukungan keyboard eksternal di kedua platform.",
         termux: "Lingkungan terminal yang kuat; perilakunya tergantung pada alat dan konfigurasi terpasang.",
         termius: "Add-on keyboard seluler, gestur, tab, autocomplete, snippet, dan UX terminal yang rapi."
       },
@@ -323,7 +327,7 @@ export const id: Dict = {
       { category: "Terminal",         feature: "Ketuk ganda panel ke layar penuh",               mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Terminal",         feature: "URL yang dapat diklik di output terminal",       mobile: "yes",     termux: "sebagian",      termius: "yes" },
       { category: "Terminal",         feature: "Seleksi teks: salin / bagikan / pilih semua",   mobile: "yes",     termux: "yes",           termius: "yes" },
-      { category: "Terminal",         feature: "Saran Gboard & input suara",                     mobile: "Android", termux: "no",            termius: "yes" },
+      { category: "Terminal",         feature: "Dukungan keyboard hardware / Bluetooth",         mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Sesi",             feature: "Beberapa sesi SSH bersamaan",                    mobile: "hingga 8", termux: "hingga 8",     termius: "yes" },
       { category: "Sesi",             feature: "Tata letak panel kisi",                          mobile: "yes",     termux: "melalui tmux",  termius: "tab" },
       { category: "Sesi",             feature: "Gulir ramah tmux",                               mobile: "yes",     termux: "yes",           termius: "no" },

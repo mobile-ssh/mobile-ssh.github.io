@@ -41,14 +41,19 @@ Sowohl auf Android als auch auf iOS erscheint die Zusatztastenreihe über der Bi
 
 ## Tastaturverhalten
 
-Mobile SSH hat zwei tastaturbezogene Einstellungen:
+Das Terminal nutzt eine native durchgereichte Verbindung zur Bildschirmtastatur: Jedes Zeichen wird während des Tippens an die entfernte Shell gesendet, wobei Autokorrektur und Vorschläge deaktiviert sind, sodass die Tastatur die Eingabe niemals umschreibt, bevor sie die Shell erreicht. Das hält Vim, tmux, htop, less, Shells mit ungewöhnlichen Tastenfolgen und entfernte Passwortabfragen vorhersehbar – es gibt keinen Vorschlagspuffer, den man deaktivieren müsste.
 
 - **Terminal antippen, um die Tastatur anzuzeigen:** wenn aktiviert, bittet ein Tippen auf das Terminal das System, die Bildschirmtastatur anzuzeigen.
-- **Tastaturvorschläge:** wenn aktiviert, können kompatible Tastaturen Vorschläge an Shell-Prompts anzeigen. Deaktiviere dies, wenn Vorschläge Terminalprogramme stören.
 
-Wenn Vorschläge aktiviert sind, puffert Mobile SSH den in Komposition befindlichen Text bis zu einer Wortgrenze, damit die Tastaturkorrektur das aktuelle Wort ersetzen kann, bevor es an die entfernte Shell gesendet wird. Steuertasten und Terminal-Tastenfolgen umgehen diesen Puffer, sodass Kürzel wie tmux-Präfixbefehle prompt ankommen.
+Die Spracheingabe der Bildschirmtastatur funktioniert weiterhin: Der diktierte Text wird wie jede andere getippte Eingabe direkt an die Shell übergeben.
 
-Auf Android läuft die Spracheingabe (die Mikrofontaste von Gboard) durch denselben Kompositionspuffer, sodass diktierter Text gesendet wird, sobald er erkannt ist, und nicht Zeichen für Zeichen.
+## Hardware-Tastaturen
+
+Externe und Bluetooth-Tastaturen steuern das Terminal direkt, sowohl auf Android als auch auf iOS. Über gewöhnliche Zeichen hinaus bildet Mobile SSH Pfeiltasten, `Home`/`End`, `PgUp`/`PgDn`, `Insert`, `Delete`, `Esc`, die Funktionstasten `F1`–`F12`, `Ctrl`+Taste und `Alt`/`Option`-als-Meta-Tastenkombinationen sowie `Shift`+`Tab` ab. Modifikatortasten lassen sich mit den festen Modifikatoren der Zusatztastenreihe kombinieren.
+
+## Einfügen
+
+Das Einfügen in ein Programm, das es anfordert (bash, Vim und andere Bracketed-Paste-Apps), wird in Bracketed-Paste-Markierungen eingeschlossen, sodass mehrzeiliger Zwischenablage-Inhalt als Text eingefügt statt Zeile für Zeile automatisch ausgeführt wird. Nur echte Einfügevorgänge werden eingeschlossen; getippter und diktierter Text bleibt unberührt.
 
 ## Auswählen, kopieren, teilen
 
@@ -100,6 +105,6 @@ Agent-Alert-Muster werden mit der sichtbaren Terminalausgabe abgeglichen. Wenn d
 
 Für Programme wie Vim, less, htop, ncurses-Tools und tmux-Bereiche:
 
-- Deaktiviere Tastaturvorschläge, wenn die Tastatur beginnt, die Eingabe auf eine Weise zu puffern, die das Programm nicht erwartet.
+- Die Eingabe wird direkt an das Programm durchgereicht – es gibt keine Autokorrektur und keinen Vorschlagspuffer, der stören könnte.
 - Nutze die Zusatztastenreihe für `ESC`, Pfeile, `PGUP` und `PGDN`.
 - Nutze den Pinch-Zoom, wenn der Text zu klein ist, und warte dann kurz, bis sich die entfernte Terminalgröße einpendelt.

@@ -43,9 +43,7 @@ A importação de chave privada usa o seletor de arquivos do sistema. Se a impor
 
 ## A entrada do teclado atrasa ou muda
 
-Se o seu teclado na tela altera o texto antes de ele chegar ao shell, desative as sugestões do teclado nas configurações do Mobile SSH. Isso é útil para Vim, tmux, htop, less, shells que usam combinações de teclas incomuns e prompts de senha remotos.
-
-Use a linha de teclas extras para teclas de terminal como `ESC`, `TAB`, `CTRL`, setas, `HOME`, `END`, `PGUP` e `PGDN`.
+O Mobile SSH envia as teclas diretamente ao shell com a autocorreção e as sugestões preditivas desativadas, de modo que o teclado não deve reescrever o texto antes de ele chegar ao lado remoto. Se o seu teclado ainda assim alterar a entrada, confirme que nenhuma ferramenta de substituição ou de área de transferência de nível de sistema esteja interceptando-a, e use a linha de teclas extras para teclas de terminal como `ESC`, `TAB`, `CTRL`, setas, `HOME`, `END`, `PGUP` e `PGDN`.
 
 ## A rolagem do tmux não é o que você espera
 

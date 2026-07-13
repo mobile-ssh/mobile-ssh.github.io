@@ -39,8 +39,13 @@ Server tersimpan menyimpan tujuan koneksi dan konfigurasi tunnel opsional. Serve
 - Nama pengguna.
 - Detail kata sandi atau kunci privat.
 - Aturan penerusan port lokal opsional.
+- Alamat tambahan opsional untuk mesin yang sama (lihat di bawah).
 
 Gunakan server tersimpan untuk host yang sering Anda akses. Jika server tersimpan menunjuk ke host yang berbeda dari sesi aktif Anda saat ini, Mobile SSH memulai koneksi baru untuk tujuan yang dipilih.
+
+### Beberapa alamat (roaming LAN/VPN)
+
+Mesin yang sama sering dapat dijangkau di alamat berbeda tergantung lokasi Anda — IP Wi-Fi rumah versus IP VPN. Tambahkan alamat alternatif di dialog edit server, masing-masing dengan portnya sendiri bila perlu. Saat Anda menyambung, Mobile SSH mencoba alamat-alamat itu secara berurutan hingga salah satu merespons, dan mengingat alamat yang terakhir berhasil lalu menghubunginya lebih dulu di lain waktu. Perubahan jaringan (misalnya keluar dari VPN) memicu penyambungan ulang langsung ke alamat mana pun yang kini dapat dijangkau, alih-alih menunggu rute mati kehabisan waktu.
 
 ## Menyimpan kredensial
 
@@ -80,7 +85,6 @@ Kembali ke layar awal tidak memutus sesi SSH aktif; menutup panel atau mengakhir
 Buka **Settings** dari layar awal (tersedia di halamannya sendiri):
 
 - Aktifkan ketuk untuk menampilkan keyboard jika Anda ingin keyboard muncul saat mengetuk terminal.
-- Nonaktifkan saran IME jika saran keyboard mengganggu program terminal seperti Vim, less, htop, atau aplikasi tmux layar penuh.
 - Aktifkan **Agent alerts** jika Anda menjalankan tugas latar belakang yang lama (Claude Code, Codex, skrip shell) dan ingin mendapat notifikasi suara atau getaran saat agen membutuhkan masukan Anda.
 - Matikan analitik penggunaan anonim jika Anda tidak ingin data apa pun dikirimkan.
 

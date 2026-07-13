@@ -56,6 +56,10 @@ Os uploads usam a conexão SSH/SFTP existente. Se a conexão cair, tente novamen
 
 Downloads grandes devem ser feitos em uma rede estável quando possível.
 
+## Copiar pastas inteiras
+
+Os uploads e downloads não se limitam a arquivos individuais. Escolha uma pasta e o Mobile SSH copia toda a subárvore nas duas direções — do telefone para o remoto e do remoto para o telefone — criando primeiro os diretórios de destino e depois enfileirando cada arquivo. Um subdiretório ilegível é ignorado e relatado sem interromper o restante da cópia.
+
 ## Ações em arquivos remotos
 
 Dependendo do item remoto selecionado, o Mobile SSH pode mostrar ações como:

@@ -45,7 +45,7 @@ export const pt: Dict = {
       { title: "Alertas de agente", text: "Receba uma notificação — com som e vibração — no momento em que Claude Code, Codex ou outro agente remoto precisar da sua atenção. Toca no fone de ouvido mesmo durante vídeo." },
       { title: "Teclas de terminal sobre o teclado", text: "Linha dedicada com ESC, TAB, CTRL, ALT, FN, setas, Home, End, PgUp/PgDn no Android e no iOS — teclas de terminal sem brigar com a autocorreção." },
       { title: "Encaminhamento de portas sem comandos", text: "Os túneis ficam vinculados ao perfil do servidor e sobem automaticamente ao conectar." },
-      { title: "Sobrevive a bloqueio e mudança de rede", text: "No Android, um serviço em primeiro plano, wake locks e reconexão automática mantêm as shells vivas com a tela apagada e em mudanças de rede; no iOS, a reconexão automática mais o auto-attach do tmux devolvem você exatamente onde parou." },
+      { title: "Sobrevive a bloqueio e mudança de rede", text: "Dê a um servidor salvo vários endereços — um IP na LAN de casa e um IP na VPN — e o Mobile SSH disca o que responder, tentando primeiro o último que funcionou, e reconecta assim que a rede muda. No Android, um serviço em primeiro plano e wake locks mantêm as shells vivas com a tela apagada; no iOS, a reconexão automática mais o auto-attach do tmux devolvem você exatamente onde parou." },
       { title: "Eternal Terminal", text: "Um transporte ET opcional mantém a shell remota viva mesmo com quedas de rede, suspensão e mudanças de IP. Sem etserver no host? O Mobile SSH pode instalá-lo por SSH para você." },
       { title: "Estenda com plugins", text: "Navegue por um catálogo público e instale plugins sob demanda para adicionar novos fluxos. Cada plugin é baixado e verificado por SHA-256 no armazenamento privado do app." }
     ],
@@ -162,9 +162,10 @@ export const pt: Dict = {
           "Perfis de servidor salvos com host, porta, usuário, credencial, chave privada e especificações de túnel opcionais",
           "Pesquisar servidores salvos por nome ou host",
           "Fluxo de Adicionar sessão com pesquisa: selecione um servidor salvo em uma página de pesquisa dedicada e conecte com um toque",
+          "Vários endereços por servidor salvo para roaming entre LAN e VPN — discados em ordem, com o último endereço que funcionou testado primeiro, e a reconexão entra em ação em mudanças de rede",
           "Registros de credenciais reutilizáveis selecionáveis no setup do servidor",
           "Histórico de sessões recentes para reconectar a conjuntos comuns de servidores",
-          "Log de tentativas de login bem-sucedidas e falhas"
+          "Log de tentativas de login bem-sucedidas e falhas, registrando o endereço exato discado"
         ]
       },
       {
@@ -177,7 +178,9 @@ export const pt: Dict = {
           "Pinça para zoom de texto com redimensionamento do terminal remoto",
           "Modo tela cheia de painel por toque duplo",
           "Seleção de texto do terminal com Copiar, Compartilhar e Selecionar tudo",
-          "Sugestões/autocorreção do Gboard e entrada por voz no Android, com buffer de texto em composição para terminais"
+          "Entrada de teclado nativa e direta (pass-through) — sem autocorreção brigando com a shell; o ditado por voz do teclado virtual continua funcionando",
+          "Suporte a teclados externos e Bluetooth no Android e no iOS, incluindo setas, teclas de função e combinações Ctrl/Alt",
+          "Colagem entre colchetes (bracketed paste) para que conteúdo de várias linhas da área de transferência não seja executado automaticamente"
         ]
       },
       {
@@ -199,6 +202,7 @@ export const pt: Dict = {
         items: [
           "Navegador SFTP de painel duplo para arquivos locais e remotos",
           "Operações de envio e download em fila",
+          "Envio e download recursivo de pastas entre o celular e o host remoto",
           "Renomear, apagar, criar, editar e detalhes remotos",
           "Ordenar por nome ou data com persistência por host",
           "Redirecionamento local de portas salvo com perfis de servidor",
@@ -264,7 +268,7 @@ export const pt: Dict = {
       },
       {
         need: "Controles de terminal no celular",
-        mobileSsh: "Linha extra de teclas embutida, sessões em grade, painéis em tela cheia, zoom por pinça, seleção com copiar/compartilhar e rolagem compatível com tmux — além de sugestões do Gboard e entrada por voz no Android.",
+        mobileSsh: "Linha extra de teclas embutida, sessões em grade, painéis em tela cheia, zoom por pinça, seleção com copiar/compartilhar e rolagem compatível com tmux — com digitação nativa direta (pass-through) e suporte a teclado externo nas duas plataformas.",
         termux: "Ambiente de terminal poderoso; o comportamento depende das ferramentas e configuração instaladas.",
         termius: "Complemento de teclado móvel, gestos, abas, autocompletar, snippets e UX de terminal polida."
       },
@@ -324,7 +328,7 @@ export const pt: Dict = {
       { category: "Terminal",           feature: "Toque duplo para tela cheia",                        mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Terminal",           feature: "URLs tocáveis na saída do terminal",                 mobile: "yes",     termux: "parcial",      termius: "yes" },
       { category: "Terminal",           feature: "Seleção de texto: copiar / compartilhar / selecionar tudo", mobile: "yes", termux: "yes",   termius: "yes" },
-      { category: "Terminal",           feature: "Sugestões Gboard e entrada por voz",                 mobile: "Android", termux: "no",           termius: "yes" },
+      { category: "Terminal",           feature: "Suporte a teclado físico / Bluetooth",               mobile: "yes",     termux: "yes",          termius: "yes" },
       { category: "Sessões",            feature: "Múltiplas sessões SSH simultâneas",                  mobile: "até 8", termux: "até 8",        termius: "yes" },
       { category: "Sessões",            feature: "Layout de painéis em grade",                         mobile: "yes",     termux: "via tmux",     termius: "abas" },
       { category: "Sessões",            feature: "Rolagem compatível com tmux",                        mobile: "yes",     termux: "yes",          termius: "no" },

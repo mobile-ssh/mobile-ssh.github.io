@@ -52,14 +52,19 @@ Tanto no Android quanto no iOS, a linha de teclas extras aparece acima do teclad
 
 ## Comportamento do teclado
 
-O Mobile SSH tem duas configurações relacionadas ao teclado:
+O terminal usa uma conexão nativa e direta (pass-through) com o teclado na tela: cada caractere é enviado ao shell remoto conforme você digita, com a autocorreção e as sugestões preditivas desativadas, de modo que o teclado nunca reescreve a entrada antes de ela chegar ao shell. Isso mantém previsíveis o Vim, o tmux, o htop, o less, shells com combinações de teclas incomuns e prompts remotos de senha — não há buffer de sugestões para desativar.
 
 - **Tocar no terminal para mostrar o teclado:** quando ativado, tocar no terminal pede ao sistema que exiba o teclado na tela.
-- **Sugestões do teclado:** quando ativado, teclados compatíveis podem mostrar sugestões nos prompts do shell. Desative essa opção se as sugestões interferirem com programas de terminal.
 
-Quando as sugestões estão ativadas, o Mobile SSH mantém o texto em composição em buffer até o limite de uma palavra, para que a correção do teclado possa substituir a palavra atual antes de ela ser enviada ao shell remoto. Teclas de controle e combinações de terminal ignoram esse buffer, de modo que atalhos como os comandos de prefixo do tmux chegam prontamente.
+O ditado por voz do teclado virtual continua funcionando: o texto ditado é enviado diretamente ao shell como qualquer outra entrada digitada.
 
-No Android, a entrada por voz (o botão de microfone do Gboard) passa pelo mesmo buffer de texto em composição, então o texto ditado é enviado após ser resolvido, e não caractere por caractere.
+## Teclados físicos
+
+Teclados externos e Bluetooth controlam o terminal diretamente no Android e no iOS. Além dos caracteres comuns, o Mobile SSH mapeia as teclas de seta, `Home`/`End`, `PgUp`/`PgDn`, `Insert`, `Delete`, `Esc`, as teclas de função `F1`–`F12`, combinações `Ctrl`+tecla e `Alt`/`Option` como Meta, e `Shift`+`Tab`. As teclas modificadoras se combinam com os modificadores fixos da linha de teclas extras.
+
+## Colar
+
+A colagem em um programa que a solicita (bash, Vim e outros aplicativos com bracketed paste) é envolvida em marcadores de bracketed paste, para que o conteúdo de várias linhas da área de transferência seja inserido como texto em vez de ser executado automaticamente linha por linha. Apenas colagens reais são envolvidas; o texto digitado e ditado não é afetado.
 
 ## Selecionar, copiar, compartilhar
 
@@ -128,6 +133,6 @@ Os padrões de Agent alerts são verificados contra a saída visível do termina
 
 Para programas como Vim, less, htop, ferramentas ncurses e painéis tmux:
 
-- Desative as sugestões do teclado se o teclado começar a fazer buffer da entrada de uma forma que o programa não espera.
+- A entrada passa direto para o programa — não há autocorreção nem buffer de sugestões para interferir.
 - Use a linha de teclas extras para `ESC`, setas, `PGUP` e `PGDN`.
 - Use o zoom por pinça se o texto estiver pequeno demais e aguarde um instante para o tamanho do terminal remoto se estabilizar.

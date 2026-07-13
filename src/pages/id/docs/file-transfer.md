@@ -54,6 +54,10 @@ Unggahan menggunakan koneksi SSH/SFTP yang ada. Jika koneksi putus, coba lagi se
 
 Unduhan berukuran besar sebaiknya dilakukan di jaringan yang stabil bila memungkinkan.
 
+## Menyalin seluruh folder
+
+Unggahan dan unduhan tidak terbatas pada satu berkas. Pilih sebuah folder dan Mobile SSH menyalin seluruh subpohon ke kedua arah — dari ponsel ke jarak jauh dan dari jarak jauh ke ponsel — membuat direktori tujuan terlebih dahulu lalu mengantrekan setiap berkas. Subdirektori yang tidak dapat dibaca akan dilewati dan dilaporkan tanpa menghentikan sisa penyalinan.
+
 ## Tindakan berkas jarak jauh
 
 Bergantung pada item jarak jauh yang dipilih, Mobile SSH dapat menampilkan tindakan seperti:
