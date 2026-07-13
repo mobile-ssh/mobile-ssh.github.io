@@ -101,7 +101,7 @@ export const en: Dict = {
     betaWantedTitle: "Android & iOS SSH users wanted",
     betaWantedText: "Join the closed beta and help shape Mobile SSH.",
     betaWantedCta: "See how to join →",
-    betaPlayNote: "Tip: open the Google Play link in your mobile browser — the closed test may not be visible inside the Google Play app.",
+    betaPlayNote: "Open the Google Play link in your mobile browser, not the Google Play app — the closed test may not be visible inside the app.",
     galleryAlts: [
       "Mobile SSH start screen on a phone with Servers, Credentials, Logs, Settings, Debug, and About tiles.",
       "Add Server dialog on a phone showing host, port, credentials, private key, and port forward fields.",

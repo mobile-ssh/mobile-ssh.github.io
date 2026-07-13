@@ -66,6 +66,10 @@ const galleries = [
             <a class="button secondary" href={PLAY_STORE_URL} rel="noopener">{t.home.ctaPlay}</a>
             <a class="button secondary" href={TESTFLIGHT_URL} rel="noopener">{t.home.ctaIos}</a>
           </div>
+          <p class="play-note">
+            <span class="play-note-flag">Android</span>
+            <span>{t.home.betaPlayNote ?? "Open the Google Play link in your mobile browser, not the Google Play app — the closed test may not be visible inside the app."}</span>
+          </p>
           <a class="beta-banner" href="/beta/">
             <span class="beta-banner-flag">Beta</span>
             <span class="beta-banner-text">
@@ -75,7 +79,6 @@ const galleries = [
             <span class="beta-banner-cta">{t.home.betaWantedCta ?? "See how to join →"}</span>
           </a>
           <p class="beta-link"><a href={PLAY_STORE_BETA_URL} rel="noopener">{t.home.betaJoin}</a> · {t.home.betaOr} <a href="mailto:mobile.ssh.info@gmail.com">mobile.ssh.info@gmail.com</a> {t.home.betaRequest}</p>
-          <p class="beta-link">{t.home.betaPlayNote ?? "Tip: open the Google Play link in your mobile browser — the closed test may not be visible inside the Google Play app."}</p>
           <div class="hero-shot">
             <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="480" height="1077" />
           </div>
@@ -359,6 +362,37 @@ const galleries = [
   @media (max-width: 600px) {
     .beta-banner { flex-wrap: wrap; gap: 0.5rem 0.85rem; }
     .beta-banner-cta { margin-left: 0; }
+  }
+  /* Amber "heads-up" note under the install buttons: opening the Play link in
+     the Google Play app can hide the closed test, so steer users to a browser.
+     Amber (not the green beta accent) marks it as an advisory, not an invite. */
+  .play-note {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+    max-width: 520px;
+    margin: 0.85rem auto 0;
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #ffe6bf;
+    background: rgba(245, 179, 66, 0.12);
+    border: 1px solid rgba(245, 179, 66, 0.55);
+    border-radius: 12px;
+  }
+  .play-note-flag {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background: #f5b342;
+    color: #101820;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
   .beta-link {
     margin-top: 0.75rem;
