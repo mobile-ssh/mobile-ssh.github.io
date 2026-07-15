@@ -68,9 +68,11 @@ const galleries = [
           </div>
           <p class="play-note">
             <span class="play-note-flag">Android</span>
-            <span>{t.home.betaPlayNote ?? "Open the Google Play link in your mobile browser, not the Google Play app — the closed test may not be visible inside the app."}</span>
+            <span class="play-note-body">
+              <span>{t.home.betaPlayNote ?? "Open the Google Play link in your mobile browser, not the Google Play app — the closed test may not be visible inside the app."}</span>
+              <span class="play-note-join"><a href={PLAY_STORE_BETA_URL} rel="noopener">{t.home.betaJoin}</a> · {t.home.betaOr} <a href="mailto:mobile.ssh.info@gmail.com">mobile.ssh.info@gmail.com</a> {t.home.betaRequest}</span>
+            </span>
           </p>
-          <p class="beta-link"><a href={PLAY_STORE_BETA_URL} rel="noopener">{t.home.betaJoin}</a> · {t.home.betaOr} <a href="mailto:mobile.ssh.info@gmail.com">mobile.ssh.info@gmail.com</a> {t.home.betaRequest}</p>
           <a class="beta-banner" href="/beta/">
             <span class="beta-banner-flag">Beta</span>
             <span class="beta-banner-text">
@@ -394,6 +396,22 @@ const galleries = [
     text-transform: uppercase;
     letter-spacing: 0.03em;
   }
+  .play-note-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+  .play-note-join {
+    font-size: 0.85rem;
+    opacity: 0.9;
+  }
+  .play-note-join a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .play-note-join a:hover { opacity: 0.85; }
   .beta-link {
     margin-top: 0.75rem;
     font-size: 0.9rem;
