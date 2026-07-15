@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { defaultLocale, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
-import { renderVersionLine, PLAY_STORE_URL, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
+import { renderVersionLine, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
@@ -63,13 +63,14 @@ const galleries = [
           <p class="hero-meta" style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.78;">{versionLine}</p>
           <div class="cta-row">
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
-            <a class="button secondary" href={PLAY_STORE_URL} rel="noopener">{t.home.ctaPlay}</a>
+            <a class="button secondary" href={PLAY_STORE_BETA_URL} rel="noopener">{t.home.ctaPlay}</a>
             <a class="button secondary" href={TESTFLIGHT_URL} rel="noopener">{t.home.ctaIos}</a>
           </div>
           <p class="play-note">
             <span class="play-note-flag">Android</span>
             <span>{t.home.betaPlayNote ?? "Open the Google Play link in your mobile browser, not the Google Play app — the closed test may not be visible inside the app."}</span>
           </p>
+          <p class="beta-link"><a href={PLAY_STORE_BETA_URL} rel="noopener">{t.home.betaJoin}</a> · {t.home.betaOr} <a href="mailto:mobile.ssh.info@gmail.com">mobile.ssh.info@gmail.com</a> {t.home.betaRequest}</p>
           <a class="beta-banner" href="/beta/">
             <span class="beta-banner-flag">Beta</span>
             <span class="beta-banner-text">
@@ -78,7 +79,6 @@ const galleries = [
             </span>
             <span class="beta-banner-cta">{t.home.betaWantedCta ?? "See how to join →"}</span>
           </a>
-          <p class="beta-link"><a href={PLAY_STORE_BETA_URL} rel="noopener">{t.home.betaJoin}</a> · {t.home.betaOr} <a href="mailto:mobile.ssh.info@gmail.com">mobile.ssh.info@gmail.com</a> {t.home.betaRequest}</p>
           <div class="hero-shot">
             <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="480" height="1077" />
           </div>

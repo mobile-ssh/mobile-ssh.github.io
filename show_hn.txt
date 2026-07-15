@@ -1,0 +1,65 @@
+SHOW HN — DRAFT (not part of the site; delete or keep out of commits)
+=====================================================================
+
+Submit at: https://news.ycombinator.com/submit
+URL field:  https://mobile-ssh.github.io/
+
+
+TITLE (pick one — no trailing period, keep under ~80 chars)
+-----------------------------------------------------------
+1. Show HN: Mobile SSH – an SSH/SFTP client for Android and iOS, no account, no ads
+2. Show HN: Mobile SSH – phone SSH client with a tmux manager and sessions that survive roaming
+3. Show HN: Mobile SSH – SSH/SFTP/terminal for phones, local-only, no Pro paywall
+
+Recommended: #1 (leads with the platforms and the "no account/no ads" hook that
+HN responds well to).
+
+
+FIRST COMMENT (post this immediately after submitting, as the top comment)
+--------------------------------------------------------------------------
+I built Mobile SSH because every time I had to touch a server from my phone the
+existing options felt wrong: either a full Linux environment I didn't want to set
+up, or a polished client that wanted an account and a subscription to do basic
+things. I wanted the narrow thing — save a host, open a terminal, move a file,
+keep the session alive — and nothing else.
+
+What it is: a focused SSH, SFTP, and terminal client for Android and iOS. It is
+deliberately not a Linux environment (Termux) and not a cross-platform team vault
+(Termius). Everything is local — no Mobile SSH account, no cloud sync, no ads, no
+"Pro" tier gating the useful features.
+
+A few things that turned out to be more interesting to build than expected:
+
+- Sessions that survive roaming. A saved server can hold several addresses (home
+  LAN IP + VPN IP); it dials whichever answers, remembers the last one that
+  worked, and reconnects the moment the network changes instead of waiting for a
+  dead route to time out. There's also an optional Eternal Terminal transport,
+  and the app can install etserver over SSH for you.
+
+- A real tmux manager — list/attach/rename/split/kill sessions, windows and
+  panes across servers, with a bell flag when a remote agent (Claude Code, Codex,
+  etc.) is waiting on input. Agent alerts ring in your headphones even during a
+  video call.
+
+- Native pass-through keyboard input (no autocorrect fighting the shell),
+  external/Bluetooth keyboard support, bracketed paste, an extra key row for
+  ESC/TAB/CTRL/arrows, and up to 8 sessions in a grid.
+
+Honest limitations, up front:
+- The apps are closed source right now (only the website repo is public). Happy
+  to talk about that in the comments.
+- It's a closed beta. Android is a Google Play closed test — you have to open the
+  opt-in link in a mobile browser, because the closed test often isn't visible
+  inside the Play app itself. iOS is a TestFlight public beta; there's no App
+  Store listing yet.
+- iOS uses swift-nio-ssh, so no RSA/DSA keys (Ed25519 + ECDSA only) and no true
+  background execution — resilience there comes from auto-reconnect + tmux
+  auto-attach rather than a background service like on Android.
+
+How to try it: links are on https://mobile-ssh.github.io/ (Google Play closed
+test for Android, TestFlight for iOS).
+
+What I'd most like feedback on: the connection-resilience model (multi-address +
+ET + tmux auto-attach) versus how you actually keep phone SSH sessions alive
+today, and anything that feels missing for real server work from a phone. Thanks
+for taking a look.
