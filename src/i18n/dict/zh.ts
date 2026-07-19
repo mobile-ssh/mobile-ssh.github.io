@@ -53,7 +53,7 @@ export const zh: Dict = {
     sectionAIntro:
       "Mobile SSH 缩短了常见的运维路径：保存服务器、连接、保持会话存活、必要时移动文件，并快速回到正在使用的终端。",
     features: [
-      { title: "SSH 终端", text: "xterm-256color 终端仿真，支持 5000 行回滚、彩色、光标键、复制/分享以及捏合缩放文字大小。" },
+      { title: "SSH 终端", text: "xterm-256color 终端，支持 24-bit 真彩色与斜体、5000 行回滚、终端内查找、复制/分享以及捏合缩放文字大小——Nerd Font powerline、图标字形与 emoji 在 Android 上都能正确渲染。" },
       { title: "多会话网格", text: "在可调整大小的网格中同时运行多达八个 SSH 会话——点击面板聚焦，双击进入全屏，捏合调整文字大小。" },
       { title: "可点击链接", text: "终端输出中的 URL 会带下划线，点击即可在浏览器中打开——无需复制或切换应用。" },
       { title: "服务器文件夹", text: "将保存的服务器整理到可折叠的分组中。点击分组标题折叠；文件夹结构同步显示在快速连接选择器中。" },
@@ -170,16 +170,20 @@ export const zh: Dict = {
       {
         title: "终端",
         items: [
-          "VT100/xterm-256color 风格的终端行为",
+          "VT100/xterm-256color 风格的终端行为，支持 24-bit 真彩色与斜体",
           "5000 行的回滚缓冲",
+          "在终端中查找——搜索回滚缓冲与可见屏幕，并在匹配项之间跳转（Android 与 iOS）",
           "用于 ESC、TAB、CTRL、Shift、方向键、Home、End、PgUp、PgDn 与键盘切换的拓展按键栏",
           "点击聚焦、可选的「点击显示键盘」设置、复制与全部复制操作",
           "捏合缩放文字大小并触发远程终端 resize",
           "面板双击全屏",
-          "终端文本选择：复制、分享与全选操作",
+          "终端文本选择：复制、分享与全选操作——长按选中单词，复制后仍保留所选内容，方便分享或再次复制",
+          "OSC 52 剪贴板——将远程 tmux 或 vim 会话中的文本直接复制到手机剪贴板",
           "原生直通键盘输入——自动更正不会再与 shell 冲突；软键盘语音听写仍然可用",
           "Android 和 iOS 上支持外接与 Bluetooth 键盘，包括方向键、功能键以及 Ctrl/Alt 组合键",
-          "括号粘贴（bracketed paste），使多行剪贴板内容不会被自动执行"
+          "括号粘贴（bracketed paste），使多行剪贴板内容不会被自动执行",
+          "内置的 Nerd Font 可在 Android 上渲染 powerline、starship、devicon 与 Material Design 图标字形，否则系统字体只会将其显示为空白方框",
+          "宽 CJK、emoji 与组合字符在 Android 上都能被正确测量和绘制，包括字素簇（grapheme cluster）与零宽连接符（zero-width joiner）"
         ]
       },
       {
@@ -191,7 +195,7 @@ export const zh: Dict = {
           "Keepalive 与带指数退避的重连尝试",
           "起始界面的「活跃会话」入口；持续通知列出会话——点击即可打开",
           "tmux 命令跟踪与中断作业的 reattach 提示",
-          "智能体提醒：当远程智能体（Claude Code、Codex 等）需要输入时发出通知（可选声音和振动）；视频通话期间也会通过耳机播放",
+          "智能体提醒：当远程智能体（Claude Code、Codex 等）需要输入时发出通知（可选声音和振动）——通过 OSC 9/777 通知携带智能体自己的标题和消息；播放视频时也会通过耳机播放",
           "Eternal Terminal（ET）传输，使会话在网络中断、休眠和 IP 变化后仍能存活，可选择通过 SSH 自动部署 etserver",
           "Tmux 管理器：列出并切换会话、窗口与窗格——附加、重命名、创建、拆分、缩放或结束，支持按名称/日期排序，🔔 标记等待输入的智能体"
         ]
@@ -224,6 +228,14 @@ export const zh: Dict = {
           "将已保存的服务器和凭据导出为备份文件",
           "可选密码短语会加密备份；导入时可合并或替换",
           "未加密的备份以明文存储密码和密钥——请保护或删除该文件"
+        ]
+      },
+      {
+        title: "安全",
+        items: [
+          "安全屏幕（Android）：阻止截图与屏幕录制，并在最近任务缩略图中隐藏应用——在密码、密钥或令牌显示在屏幕上时可选择开启的设置",
+          "保存的服务器、凭据和密钥都留在设备上——机密保存在 Android Keystore 和 iOS Keychain 中，没有云端账户或同步",
+          "仅收集匿名、可退出的使用分析——绝不包含你的服务器、凭据、命令或文件内容"
         ]
       },
       {
@@ -328,6 +340,7 @@ export const zh: Dict = {
       { category: "终端", feature: "终端输出中的可点击 URL",          mobile: "yes",    termux: "部分",         termius: "yes" },
       { category: "终端", feature: "文本选择：复制/分享/全选",        mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "终端", feature: "硬件 / Bluetooth 键盘支持",       mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "终端", feature: "Nerd Font / powerline 字形渲染",   mobile: "Android", termux: "可配置",      termius: "部分" },
       { category: "会话", feature: "多个并发 SSH 会话",               mobile: "最多 8 个", termux: "最多 8 个",  termius: "yes" },
       { category: "会话", feature: "网格面板布局",                    mobile: "yes",    termux: "通过 tmux",    termius: "标签页" },
       { category: "会话", feature: "tmux 友好滚动",                   mobile: "yes",    termux: "yes",          termius: "no" },
@@ -356,6 +369,7 @@ export const zh: Dict = {
       { category: "隐私与费用", feature: "无广告",                    mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "隐私与费用", feature: "分析数据退出选项",          mobile: "Android", termux: "无分析",      termius: "no" },
       { category: "隐私与费用", feature: "仅本地数据（无云同步）",    mobile: "yes",    termux: "yes",          termius: "部分" },
+      { category: "隐私与费用", feature: "安全屏幕（阻止截图）",      mobile: "Android", termux: "no",          termius: "no" },
       { category: "会话", feature: "Eternal Terminal（抗断线会话）",  mobile: "yes",    termux: "通过 CLI",      termius: "no" },
       { category: "会话", feature: "通过 SSH 自动安装 etserver",      mobile: "yes",    termux: "no",           termius: "no" },
       { category: "会话", feature: "tmux 会话管理器",                 mobile: "yes",    termux: "通过 CLI",      termius: "no" },
@@ -399,7 +413,7 @@ export const zh: Dict = {
     ],
     securityHeading: "安全责任",
     securityBody:
-      "如果保存凭据或私钥，请使用强锁屏保护设备；仅连接可信的服务器。当前实现使用应用本地存储（以及 iOS Keychain），而非单独的加密云保险库。",
+      "如果保存凭据或私钥，请使用强锁屏保护设备；仅连接可信的服务器。当前实现使用应用本地存储（以及 iOS Keychain），而非单独的加密云保险库。在 Android 上，可选的安全屏幕设置会阻止截图与屏幕录制，并在最近任务视图中隐藏应用。",
     contactHeading: "联系",
     contactBody: "支持联系方式：[mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)。"
   },

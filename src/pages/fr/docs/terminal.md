@@ -57,11 +57,21 @@ Le collage dans un programme qui le demande (bash, Vim et d'autres applications 
 
 ## Sélectionner, copier, partager
 
-Appuyez longuement dans le terminal pour entrer en mode sélection. La barre de sélection propose trois actions :
+Appuyez longuement dans le terminal pour sélectionner le mot sous votre doigt, puis faites glisser les poignées pour ajuster. La barre de sélection propose trois actions :
 
-- **Copier** — place le texte sélectionné dans le presse-papiers du système.
+- **Copier** — place le texte sélectionné dans le presse-papiers du système. La sélection reste surlignée ensuite, pour que vous puissiez la partager, la recopier ou l'étendre.
 - **Partager** — transmet le texte sélectionné à la feuille de partage du système (mail, notes, messagerie, etc.).
 - **Tout sélectionner** — étend la sélection à tout le tampon visible du terminal, puis Copier ou Partager.
+
+## Rechercher dans le terminal
+
+Recherchez dans tout le tampon du terminal — le scrollback et l'écran visible — et sautez d'une occurrence à l'autre. Ouvrez la recherche depuis les contrôles du terminal, tapez une requête et parcourez les correspondances. Cela fonctionne à la fois sur Android et iOS.
+
+## Couleur, italiques et presse-papiers distant
+
+- Le terminal affiche les **couleurs vraies 24 bits** et les **italiques**, si bien que les invites thématisées, la coloration syntaxique et les TUI s'affichent comme sur le bureau.
+- **Presse-papiers OSC 52 :** quand un programme distant copie du texte (tmux `set-clipboard`, un yank OSC 52 de Vim/Neovim), il arrive dans le presse-papiers de votre téléphone — vous pouvez ainsi copier depuis le serveur et coller dans une application locale.
+- Sur Android, une **Nerd Font** intégrée dessine les glyphes d'icônes powerline, starship, devicon et Material Design que la police système afficherait autrement comme des cases vides, et les caractères CJK larges, les emoji et les caractères combinants sont mesurés correctement.
 
 ## Défilement
 

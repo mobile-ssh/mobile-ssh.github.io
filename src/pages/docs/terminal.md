@@ -68,11 +68,21 @@ Pasting into a program that requests it (bash, Vim, and other bracketed-paste ap
 
 ## Select, copy, share
 
-Long-press inside the terminal to enter selection mode. The selection toolbar offers three actions:
+Long-press inside the terminal to select the word under your finger, then drag the handles to adjust. The selection toolbar offers three actions:
 
-- **Copy** -- place the selected text on the system clipboard.
+- **Copy** -- place the selected text on the system clipboard. The selection stays highlighted afterward, so you can share it, re-copy, or extend it.
 - **Share** -- pass the selected text to the system share sheet (mail, notes, messaging, etc.).
 - **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+
+## Find in the terminal
+
+Search the whole terminal buffer — scrollback and the visible screen — and jump between matches. Open search from the terminal controls, type a query, and step through hits. This works on both Android and iOS.
+
+## Color, italics, and remote clipboard
+
+- The terminal renders **24-bit true color** and **italics**, so themed prompts, syntax highlighting, and TUIs look the way they do on the desktop.
+- **OSC 52 clipboard:** when a remote program copies text (tmux `set-clipboard`, a Vim/Neovim OSC 52 yank), it lands on your phone's clipboard — so you can copy from the server and paste into a local app.
+- On Android, a bundled **Nerd Font** draws powerline, starship, devicon, and Material Design icon glyphs that the system font would otherwise show as empty boxes, and wide CJK, emoji, and combining characters are measured correctly.
 
 ## Scrolling
 

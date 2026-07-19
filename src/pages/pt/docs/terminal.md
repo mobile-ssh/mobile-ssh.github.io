@@ -68,11 +68,21 @@ A colagem em um programa que a solicita (bash, Vim e outros aplicativos com brac
 
 ## Selecionar, copiar, compartilhar
 
-Pressione e segure dentro do terminal para entrar no modo de seleção. A barra de seleção oferece três ações:
+Pressione e segure dentro do terminal para selecionar a palavra sob o seu dedo e, em seguida, arraste as alças para ajustar. A barra de seleção oferece três ações:
 
-- **Copy** — coloca o texto selecionado na área de transferência do sistema.
+- **Copy** — coloca o texto selecionado na área de transferência do sistema. A seleção permanece destacada depois, para que você possa compartilhá-la, copiá-la de novo ou estendê-la.
 - **Share** — envia o texto selecionado para a folha de compartilhamento do sistema (e-mail, notas, mensagens etc.).
 - **Select all** — expande a seleção para todo o buffer visível do terminal; em seguida, use Copy ou Share.
+
+## Pesquisar no terminal
+
+Pesquise em todo o buffer do terminal — o scrollback e a tela visível — e pule entre as correspondências. Abra a pesquisa a partir dos controles do terminal, digite uma consulta e percorra os resultados. Isso funciona tanto no Android quanto no iOS.
+
+## Cor, itálicos e área de transferência remota
+
+- O terminal renderiza **cores reais de 24 bits** e **itálicos**, de modo que prompts com tema, realce de sintaxe e TUIs ficam com a aparência que têm no desktop.
+- **Área de transferência via OSC 52:** quando um programa remoto copia texto (o `set-clipboard` do tmux, um yank OSC 52 do Vim/Neovim), ele vai parar na área de transferência do seu celular — assim você pode copiar do servidor e colar em um app local.
+- No Android, uma **Nerd Font** incluída desenha glifos de ícones powerline, starship, devicon e Material Design que a fonte do sistema mostraria como quadrados vazios, e caracteres CJK largos, emojis e caracteres combinantes são medidos corretamente.
 
 ## Rolagem
 

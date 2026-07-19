@@ -57,11 +57,21 @@ Wen you paste enter program wey request am (bash, Vim, and other bracketed-paste
 
 ## Select, copy, share
 
-Long-press inside di terminal to enter selection mode. Di selection toolbar dey offer three actions:
+Long-press inside di terminal to select di word wey dey under your finger, then drag di handles to adjust am. Di selection toolbar dey offer three actions:
 
-- **Copy** -- put di selected text for di system clipboard.
+- **Copy** -- put di selected text for di system clipboard. Di selection dey stay highlighted afterward, so you fit share am, re-copy, or extend am.
 - **Share** -- pass di selected text to di system share sheet (mail, notes, messaging, etc.).
 - **Select all** -- expand di selection to di full visible terminal buffer, then Copy or Share.
+
+## Find for di terminal
+
+Search di whole terminal buffer — scrollback and di visible screen — and jump between di matches. Open search from di terminal controls, type wetin you dey find, and step through di hits. Dis one dey work for both Android and iOS.
+
+## Color, italics, and remote clipboard
+
+- Di terminal dey render **24-bit true color** and **italics**, so themed prompts, syntax highlighting, and TUIs go look di way dem dey for desktop.
+- **OSC 52 clipboard:** wen remote program copy text (tmux `set-clipboard`, Vim/Neovim OSC 52 yank), e dey land for your phone clipboard — so you fit copy from di server and paste am enter local app.
+- For Android, bundled **Nerd Font** dey draw powerline, starship, devicon, and Material Design icon glyphs wey di system font for don show as empty boxes, and wide CJK, emoji, and combining characters dey measured correctly.
 
 ## Scrolling
 

@@ -53,7 +53,7 @@ export const id: Dict = {
     sectionAIntro:
       "Mobile SSH memendekkan jalur administrasi umum: simpan server, sambungkan, jaga sesi tetap hidup, pindahkan berkas saat diperlukan, dan kembali cepat ke terminal aktif.",
     features: [
-      { title: "Terminal SSH", text: "Emulasi terminal xterm-256color dengan scrollback 5000 baris, warna, tombol kursor, salin/bagikan, dan penyesuaian ukuran teks dengan cubit." },
+      { title: "Terminal SSH", text: "Terminal xterm-256color dengan warna sejati 24-bit dan huruf miring, scrollback 5000 baris, pencarian di dalam terminal, salin/bagikan, dan penyesuaian ukuran teks dengan cubit — glyph powerline dan ikon Nerd Font serta emoji ditampilkan dengan benar di Android." },
       { title: "Kisi multi-sesi", text: "Hingga delapan sesi SSH dalam kisi yang dapat diubah ukurannya — ketuk panel untuk fokus, ketuk ganda untuk layar penuh, cubit untuk ubah ukuran teks." },
       { title: "Tautan yang dapat diklik", text: "URL di terminal digarisbawahi dan terbuka di browser dengan satu tap — tanpa menyalin atau berpindah aplikasi." },
       { title: "Folder server", text: "Atur server tersimpan ke dalam grup yang dapat diciutkan. Ketuk tajuk grup untuk menciutkannya; struktur folder tersedia di pemilih sambungan cepat." },
@@ -170,16 +170,20 @@ export const id: Dict = {
       {
         title: "Terminal",
         items: [
-          "Perilaku terminal bergaya VT100/xterm-256color",
+          "Perilaku terminal bergaya VT100/xterm-256color dengan warna sejati 24-bit dan huruf miring",
           "Buffer scrollback 5000 baris",
+          "Cari di terminal — telusuri buffer scrollback dan layar yang terlihat serta lompat antar kecocokan (Android dan iOS)",
           "Baris tombol tambahan untuk ESC, TAB, CTRL, Shift, panah, Home, End, PgUp, PgDn, dan toggle keyboard",
           "Sentuh untuk fokus, opsi sentuh-untuk-tampilkan-keyboard, aksi salin dan salin semua",
           "Cubit untuk ukuran teks dengan resize terminal jarak jauh",
           "Mode layar penuh panel dengan ketuk ganda",
-          "Seleksi teks terminal dengan Salin, Bagikan, dan Pilih semua",
+          "Seleksi teks terminal dengan Salin, Bagikan, dan Pilih semua — tekan lama memilih kata, dan Salin mempertahankan pemilihan untuk dibagikan atau disalin ulang",
+          "Clipboard OSC 52 — salin teks dari sesi tmux atau vim jarak jauh langsung ke clipboard ponsel",
           "Input keyboard pass-through native — tanpa koreksi otomatis yang berebut dengan shell; dikte suara keyboard di layar tetap berfungsi",
           "Dukungan keyboard eksternal dan Bluetooth di Android dan iOS, termasuk panah, tombol fungsi, dan kombinasi Ctrl/Alt",
-          "Bracketed paste agar konten clipboard multi-baris tidak dieksekusi otomatis"
+          "Bracketed paste agar konten clipboard multi-baris tidak dieksekusi otomatis",
+          "Nerd Font bawaan menampilkan glyph ikon powerline, starship, devicon, dan Material Design di Android yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem",
+          "Karakter CJK lebar, emoji, dan karakter penggabung diukur dan digambar dengan benar di Android, termasuk klaster grafem dan zero-width joiner"
         ]
       },
       {
@@ -191,7 +195,7 @@ export const id: Dict = {
           "Keepalive dan upaya penyambungan ulang dengan backoff eksponensial",
           "Titik masuk Sesi Aktif dari layar awal; notifikasi berkelanjutan menampilkan daftar sesi — ketuk untuk membuka",
           "Pelacakan perintah tmux dan petunjuk reattach untuk pekerjaan terhenti",
-          "Peringatan agen: notifikasi dengan suara dan getaran opsional saat agen jarak jauh (Claude Code, Codex, dll.) memerlukan masukan; berbunyi di headphone saat video",
+          "Peringatan agen: notifikasi dengan suara dan getaran opsional saat agen jarak jauh (Claude Code, Codex, dll.) memerlukan masukan — membawa judul dan pesan milik agen itu sendiri melalui notifikasi OSC 9/777; berbunyi di headphone saat video",
           "Transport Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah, dengan opsi penyiapan etserver otomatis melalui SSH",
           "Pengelola tmux: lihat daftar dan beralih antar sesi, jendela, dan panel — attach, ganti nama, buat, pisah, zoom, atau kill, dengan pengurutan nama/tanggal dan 🔔 untuk agen yang menunggu masukan"
         ]
@@ -224,6 +228,14 @@ export const id: Dict = {
           "Ekspor server dan kredensial tersimpan ke file cadangan",
           "Frasa sandi opsional mengenkripsi cadangan; impor dengan gabung atau ganti",
           "Cadangan tanpa enkripsi menyimpan kata sandi dan kunci dalam teks biasa — lindungi atau hapus file"
+        ]
+      },
+      {
+        title: "Keamanan",
+        items: [
+          "Layar aman (Android): memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari thumbnail aplikasi terkini — pengaturan opt-in untuk saat kata sandi, kunci, atau token ada di layar",
+          "Server, kredensial, dan kunci yang disimpan tetap di perangkat — rahasia disimpan di Android Keystore dan iOS Keychain, tanpa akun cloud atau sinkronisasi",
+          "Hanya analitik penggunaan anonim yang dapat dinonaktifkan — tidak pernah server, kredensial, perintah, atau isi berkas Anda"
         ]
       },
       {
@@ -328,6 +340,7 @@ export const id: Dict = {
       { category: "Terminal",         feature: "URL yang dapat diklik di output terminal",       mobile: "yes",     termux: "sebagian",      termius: "yes" },
       { category: "Terminal",         feature: "Seleksi teks: salin / bagikan / pilih semua",   mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Dukungan keyboard hardware / Bluetooth",         mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Perenderan glyph Nerd Font / powerline",         mobile: "Android", termux: "dapat dikonfigurasi", termius: "sebagian" },
       { category: "Sesi",             feature: "Beberapa sesi SSH bersamaan",                    mobile: "hingga 8", termux: "hingga 8",     termius: "yes" },
       { category: "Sesi",             feature: "Tata letak panel kisi",                          mobile: "yes",     termux: "melalui tmux",  termius: "tab" },
       { category: "Sesi",             feature: "Gulir ramah tmux",                               mobile: "yes",     termux: "yes",           termius: "no" },
@@ -356,6 +369,7 @@ export const id: Dict = {
       { category: "Privasi & biaya",  feature: "Tanpa iklan",                                   mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Privasi & biaya",  feature: "Opsi keluar analitik",                           mobile: "Android", termux: "tanpa analitik", termius: "no" },
       { category: "Privasi & biaya",  feature: "Data hanya lokal (tanpa sinkronisasi awan)",     mobile: "yes",     termux: "yes",           termius: "sebagian" },
+      { category: "Privasi & biaya",  feature: "Layar aman (blokir tangkapan layar)",            mobile: "Android", termux: "no",            termius: "no" },
       { category: "Sesi",             feature: "Eternal Terminal (sesi tangguh)",                mobile: "yes",     termux: "melalui CLI",   termius: "no" },
       { category: "Sesi",             feature: "Pasang etserver otomatis melalui SSH",           mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sesi",             feature: "Pengelola sesi tmux",                            mobile: "yes",     termux: "melalui CLI",   termius: "no" },
@@ -399,7 +413,7 @@ export const id: Dict = {
     ],
     securityHeading: "Tanggung jawab keamanan",
     securityBody:
-      "Lindungi perangkat Anda dengan kunci layar kuat jika menyimpan kredensial atau kunci pribadi. Hanya sambungkan ke server yang Anda percayai. Implementasi saat ini menggunakan penyimpanan aplikasi lokal (dan Keychain iOS), bukan brankas awan terenkripsi terpisah.",
+      "Lindungi perangkat Anda dengan kunci layar kuat jika menyimpan kredensial atau kunci pribadi. Hanya sambungkan ke server yang Anda percayai. Implementasi saat ini menggunakan penyimpanan aplikasi lokal (dan Keychain iOS), bukan brankas awan terenkripsi terpisah. Di Android, pengaturan Layar aman opsional memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari tampilan aplikasi terkini.",
     contactHeading: "Kontak",
     contactBody: "Kontak dukungan: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },

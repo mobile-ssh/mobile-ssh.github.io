@@ -53,7 +53,7 @@ export const pt: Dict = {
     sectionAIntro:
       "O Mobile SSH encurta o caminho comum de administração: salve um servidor, conecte, mantenha as sessões vivas, mova arquivos quando precisar e volte rápido aos terminais ativos.",
     features: [
-      { title: "Terminal SSH", text: "Emulação de terminal xterm-256color com scrollback de 5000 linhas, cores, teclas de cursor, copiar/compartilhar e zoom por pinça." },
+      { title: "Terminal SSH", text: "Terminal xterm-256color com cores reais de 24 bits e itálicos, scrollback de 5000 linhas, pesquisa dentro do terminal, copiar/compartilhar e ajuste de tamanho do texto por pinça — glifos powerline e de ícones da Nerd Font e emojis são renderizados corretamente no Android." },
       { title: "Grade multi-sessão", text: "Até oito sessões SSH em uma grade redimensionável — toque em um painel para focar, toque duplo para tela cheia, faça pinça para redimensionar o texto." },
       { title: "Links clicáveis", text: "URLs na saída do terminal ficam sublinhados e abrem no navegador com um toque — sem precisar copiar ou trocar de app." },
       { title: "Pastas de servidores", text: "Organize servidores salvos em grupos recolhíveis. Toque no cabeçalho de um grupo para recolhê-lo; a estrutura de pastas aparece também no seletor de conexão rápida." },
@@ -171,16 +171,20 @@ export const pt: Dict = {
       {
         title: "Terminal",
         items: [
-          "Comportamento de terminal estilo VT100/xterm-256color",
+          "Comportamento de terminal estilo VT100/xterm-256color com cores reais de 24 bits e itálicos",
           "Buffer de scrollback de 5000 linhas",
+          "Pesquisar no terminal — busque no scrollback e na tela visível e pule entre as correspondências (Android e iOS)",
           "Linha extra de teclas para ESC, TAB, CTRL, Shift, setas, Home, End, PgUp, PgDn e alternar teclado",
           "Toque para focar, opção de mostrar teclado ao toque, ações de copiar e copiar tudo",
           "Pinça para zoom de texto com redimensionamento do terminal remoto",
           "Modo tela cheia de painel por toque duplo",
-          "Seleção de texto do terminal com Copiar, Compartilhar e Selecionar tudo",
+          "Seleção de texto do terminal com Copiar, Compartilhar e Selecionar tudo — pressionar e segurar seleciona a palavra, e Copiar mantém a seleção para compartilhar ou copiar de novo",
+          "Área de transferência via OSC 52 — copie texto de uma sessão remota de tmux ou vim direto para a área de transferência do celular",
           "Entrada de teclado nativa e direta (pass-through) — sem autocorreção brigando com a shell; o ditado por voz do teclado virtual continua funcionando",
           "Suporte a teclados externos e Bluetooth no Android e no iOS, incluindo setas, teclas de função e combinações Ctrl/Alt",
-          "Colagem entre colchetes (bracketed paste) para que conteúdo de várias linhas da área de transferência não seja executado automaticamente"
+          "Colagem entre colchetes (bracketed paste) para que conteúdo de várias linhas da área de transferência não seja executado automaticamente",
+          "A Nerd Font incluída renderiza glifos de ícones powerline, starship, devicon e Material Design no Android que a fonte do sistema mostraria como quadrados vazios",
+          "Caracteres CJK largos, emojis e caracteres combinantes são medidos e desenhados corretamente no Android, incluindo clusters de grafemas e juntores de largura zero (zero-width joiners)"
         ]
       },
       {
@@ -192,7 +196,7 @@ export const pt: Dict = {
           "Keepalives e tentativas de reconexão com backoff exponencial",
           "Entrada Sessões ativas a partir da tela inicial; notificação contínua lista as sessões — toque para abrir",
           "Acompanhamento de comandos tmux e sugestões de reattach para trabalho interrompido",
-          "Alertas de agente: notificação com som e vibração opcionais quando um agente remoto (Claude Code, Codex, etc.) precisa de entrada; toca no fone de ouvido durante vídeo",
+          "Alertas de agente: notificação com som e vibração opcionais quando um agente remoto (Claude Code, Codex, etc.) precisa de entrada — carregando o título e a mensagem do próprio agente via notificações OSC 9/777; toca no fone de ouvido durante vídeo",
           "Transporte Eternal Terminal (ET) para sessões que sobrevivem a quedas de rede, suspensão e mudanças de IP, com configuração automática opcional do etserver por SSH",
           "Gerenciador de tmux: liste e alterne sessões, janelas e painéis — anexe, renomeie, crie, divida, amplie ou encerre, com ordenação por nome/data e um 🔔 para agentes aguardando entrada"
         ]
@@ -225,6 +229,14 @@ export const pt: Dict = {
           "Exporte servidores e credenciais salvos para um arquivo de backup",
           "Uma frase-senha opcional criptografa o backup; importe com mesclar ou substituir",
           "Um backup sem criptografia guarda senhas e chaves em texto puro — proteja ou exclua o arquivo"
+        ]
+      },
+      {
+        title: "Segurança",
+        items: [
+          "Tela segura (Android): bloqueia capturas e gravação de tela e oculta o app da miniatura de recentes — uma opção que você ativa para quando senhas, chaves ou tokens estão na tela",
+          "Servidores, credenciais e chaves salvos permanecem no dispositivo — os segredos ficam no Android Keystore e no iOS Keychain, sem conta na nuvem nem sincronização",
+          "Apenas análises de uso anônimas, com opção de desativar — nunca seus servidores, credenciais, comandos ou conteúdo de arquivos"
         ]
       },
       {
@@ -329,6 +341,7 @@ export const pt: Dict = {
       { category: "Terminal",           feature: "URLs tocáveis na saída do terminal",                 mobile: "yes",     termux: "parcial",      termius: "yes" },
       { category: "Terminal",           feature: "Seleção de texto: copiar / compartilhar / selecionar tudo", mobile: "yes", termux: "yes",   termius: "yes" },
       { category: "Terminal",           feature: "Suporte a teclado físico / Bluetooth",               mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Terminal",           feature: "Renderização de glifos Nerd Font / powerline",       mobile: "Android", termux: "configurável", termius: "parcial" },
       { category: "Sessões",            feature: "Múltiplas sessões SSH simultâneas",                  mobile: "até 8", termux: "até 8",        termius: "yes" },
       { category: "Sessões",            feature: "Layout de painéis em grade",                         mobile: "yes",     termux: "via tmux",     termius: "abas" },
       { category: "Sessões",            feature: "Rolagem compatível com tmux",                        mobile: "yes",     termux: "yes",          termius: "no" },
@@ -357,6 +370,7 @@ export const pt: Dict = {
       { category: "Privacidade e custo", feature: "Sem anúncios",                                      mobile: "yes",     termux: "yes",          termius: "yes" },
       { category: "Privacidade e custo", feature: "Opção de desativar analytics",                      mobile: "Android", termux: "sem analytics", termius: "no" },
       { category: "Privacidade e custo", feature: "Dados apenas locais (sem sincronização em nuvem)",  mobile: "yes",     termux: "yes",          termius: "parcial" },
+      { category: "Privacidade e custo", feature: "Tela segura (bloquear capturas de tela)",           mobile: "Android", termux: "no",           termius: "no" },
       { category: "Sessões",            feature: "Eternal Terminal (sessões resilientes)",             mobile: "yes",     termux: "via CLI",      termius: "no" },
       { category: "Sessões",            feature: "Instalação automática do etserver via SSH",          mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Sessões",            feature: "Gerenciador de sessões tmux",                        mobile: "yes",     termux: "via CLI",      termius: "no" },
@@ -400,7 +414,7 @@ export const pt: Dict = {
     ],
     securityHeading: "Responsabilidades de segurança",
     securityBody:
-      "Proteja seu dispositivo com bloqueio de tela forte se salvar credenciais ou chaves privadas. Conecte-se apenas a servidores confiáveis. A implementação atual usa armazenamento local do app (e o Keychain no iOS) em vez de um cofre criptografado em nuvem.",
+      "Proteja seu dispositivo com bloqueio de tela forte se salvar credenciais ou chaves privadas. Conecte-se apenas a servidores confiáveis. A implementação atual usa armazenamento local do app (e o Keychain no iOS) em vez de um cofre criptografado em nuvem. No Android, uma opção de Tela segura bloqueia capturas e gravação de tela e oculta o app da tela de recentes.",
     contactHeading: "Contato",
     contactBody: "Contato de suporte: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },

@@ -53,7 +53,7 @@ export const yue: Dict = {
     sectionAIntro:
       "Mobile SSH 幫你縮短常見嘅管理路徑：儲存伺服器、連線、保持會話、需要嗰陣搬檔案、然後快速返去仲開緊嘅終端機。",
     features: [
-      { title: "SSH 終端機", text: "xterm-256color 終端機模擬，5000 行回滾、色彩、游標鍵、複製／分享，仲支援揑住調文字大細。" },
+      { title: "SSH 終端機", text: "xterm-256color 終端機，支援 24-bit 真彩色同斜體、5000 行回滾、終端機內搜索、複製／分享，仲有揑住調文字大細 —— Nerd Font powerline 同圖示字形以及 emoji 喺 Android 上正確顯示。" },
       { title: "多會話格", text: "同時最多八個 SSH 會話喺可調大小嘅格仔入面 —— 點面板聚焦、雙擊入全螢幕、揑住調文字大細。" },
       { title: "可點擊連結", text: "終端機輸出裡面嘅 URL 會有底線，㩒一下就喺瀏覽器打開 —— 唔使複製或者切換 App。" },
       { title: "伺服器資料夾", text: "將已儲存嘅伺服器整理入可摺疊嘅群組。㩒群組標題收起；資料夾結構亦會帶入快速連線選擇器。" },
@@ -170,16 +170,20 @@ export const yue: Dict = {
       {
         title: "終端機",
         items: [
-          "VT100/xterm-256color 風格嘅終端機行為",
+          "VT100/xterm-256color 終端機行為，支援 24-bit 真彩色同斜體",
           "5000 行嘅回滾緩衝",
+          "終端機內尋找 —— 搜索回滾緩衝同可見畫面，並喺各個匹配之間跳轉（Android 同 iOS）",
           "ESC、TAB、CTRL、Shift、方向鍵、Home、End、PgUp、PgDn 同鍵盤切換嘅附加按鍵列",
           "點擊聚焦、可選嘅「點擊顯示鍵盤」、複製同全部複製",
           "揑住調文字大細，連同遠端終端機重設大細",
           "雙擊面板入全螢幕模式",
-          "終端機文字選擇連 Copy、Share、Select all",
+          "終端機文字選擇連 Copy、Share、Select all —— 長撳選取詞語，Copy 之後仍會保留選取，方便分享或者重新複製",
+          "OSC 52 剪貼簿 —— 由遠端 tmux 或者 vim 會話直接將文字複製到電話剪貼簿",
           "原生直通鍵盤輸入 —— 冇自動更正同 shell 打交；螢幕鍵盤嘅語音聽寫照樣用得",
           "Android 同 iOS 都支援外接同 Bluetooth 鍵盤，包括方向鍵、功能鍵同 Ctrl/Alt 組合鍵",
-          "括號貼上（bracketed paste），令多行剪貼簿內容唔會被自動執行"
+          "括號貼上（bracketed paste），令多行剪貼簿內容唔會被自動執行",
+          "內置嘅 Nerd Font 喺 Android 上顯示 powerline、starship、devicon 同 Material Design 圖示字形 —— 系統字型本來會將佢哋顯示成空白方格",
+          "寬 CJK、emoji 同組合字元喺 Android 上會正確量度同繪製，包括字素叢集（grapheme clusters）同零寬連接符（zero-width joiners）"
         ]
       },
       {
@@ -191,7 +195,7 @@ export const yue: Dict = {
           "Keepalive 同帶指數退避嘅重連嘗試",
           "啟動畫面入面有「活躍會話」入口；持續通知列出會話 —— 㩒就開",
           "追蹤 tmux 指令，俾被中斷嘅工作 reattach 提示",
-          "Agent 提示：當遠端 agent（Claude Code、Codex 等）需要輸入時，有可選聲音同震動嘅通知；就算播緊視頻都會響耳機",
+          "Agent 提示：當遠端 agent（Claude Code、Codex 等）需要輸入時，有可選聲音同震動嘅通知 —— 經 OSC 9/777 通知帶埋 agent 本身嘅標題同訊息；就算播緊視頻都會響耳機",
           "Eternal Terminal（ET）傳輸令會話喺斷網、休眠同 IP 轉變之間都唔斷，仲可以選擇經 SSH 自動裝好 etserver",
           "Tmux 管理器：列出並切換會話、視窗同面板 —— attach、重新命名、新建、分割、放大或者 kill，可按名稱／日期排序，🔔 標示等緊輸入嘅 agent"
         ]
@@ -224,6 +228,14 @@ export const yue: Dict = {
           "將已儲存嘅伺服器同憑證匯出做備份檔案",
           "可選密碼短語會加密備份；匯入時可合併或取代",
           "未加密嘅備份會以明文儲存密碼同金鑰——請保護或刪除個檔案"
+        ]
+      },
+      {
+        title: "保安",
+        items: [
+          "Secure screen（Android）：阻止截圖同螢幕錄影，並喺最近應用程式縮圖入面收埋個 App —— 當畫面上有密碼、密鑰或者 token 嗰陣用嘅可選設定",
+          "已儲存嘅伺服器、憑證同密鑰都留喺裝置上 —— 秘密存放喺 Android Keystore 同 iOS Keychain，冇雲端帳號亦冇同步",
+          "淨係匿名、可退出嘅使用分析 —— 絕不包括你嘅伺服器、憑證、指令或者檔案內容"
         ]
       },
       {
@@ -328,6 +340,7 @@ export const yue: Dict = {
       { category: "終端機", feature: "終端機輸出入面嘅可點擊 URL",        mobile: "yes",    termux: "部分",         termius: "yes" },
       { category: "終端機", feature: "文字選擇：複製／分享／全選",        mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "終端機", feature: "硬件／Bluetooth 鍵盤支援",         mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "終端機", feature: "Nerd Font／powerline 字形顯示",     mobile: "Android", termux: "可設定",      termius: "部分" },
       { category: "會話", feature: "多個同時 SSH 會話",                   mobile: "最多 8 個", termux: "最多 8 個",  termius: "yes" },
       { category: "會話", feature: "格仔面板佈局",                        mobile: "yes",    termux: "經由 tmux",    termius: "標籤頁" },
       { category: "會話", feature: "識 tmux 嘅滾動",                      mobile: "yes",    termux: "yes",          termius: "no" },
@@ -356,6 +369,7 @@ export const yue: Dict = {
       { category: "私隱與費用", feature: "冇廣告",                        mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "私隱與費用", feature: "可選退出分析",                  mobile: "Android", termux: "冇分析",      termius: "no" },
       { category: "私隱與費用", feature: "只係本機資料（冇雲端同步）",    mobile: "yes",    termux: "yes",          termius: "部分" },
+      { category: "私隱與費用", feature: "Secure screen（阻止截圖）",       mobile: "Android", termux: "no",          termius: "no" },
       { category: "會話", feature: "Eternal Terminal（彈性會話）",         mobile: "yes",    termux: "經由 CLI",      termius: "no" },
       { category: "會話", feature: "經 SSH 自動安裝 etserver",             mobile: "yes",    termux: "no",           termius: "no" },
       { category: "會話", feature: "tmux 會話管理器",                      mobile: "yes",    termux: "經由 CLI",      termius: "no" },
@@ -399,7 +413,7 @@ export const yue: Dict = {
     ],
     securityHeading: "保安責任",
     securityBody:
-      "如果儲咗憑證或私鑰，請用強力螢幕鎖保護你嘅裝置；只連你信任嘅伺服器。而家嘅版本用 App 本機儲存（加埋 iOS 嘅 Keychain），唔係另外加密嘅雲端保險庫。",
+      "如果儲咗憑證或私鑰，請用強力螢幕鎖保護你嘅裝置；只連你信任嘅伺服器。而家嘅版本用 App 本機儲存（加埋 iOS 嘅 Keychain），唔係另外加密嘅雲端保險庫。喺 Android，可選嘅 Secure screen 設定會阻止截圖同螢幕錄影，並喺最近應用程式檢視入面收埋個 App。",
     contactHeading: "聯絡",
     contactBody: "客服聯絡：[mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)。"
   },

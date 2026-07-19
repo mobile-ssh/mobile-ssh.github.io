@@ -53,7 +53,7 @@ export const tr: Dict = {
     sectionAIntro:
       "Mobile SSH yaygın yönetim yolunu kısaltır: sunucuyu kaydet, bağlan, oturumları canlı tut, gerektiğinde dosya taşı ve hızlıca aktif terminallere geri dön.",
     features: [
-      { title: "SSH terminali", text: "5000 satırlık geri kaydırma, renk, imleç tuşları, kopyala/paylaş ve sıkıştırarak metin boyutlandırmayla xterm-256color terminal emülasyonu." },
+      { title: "SSH terminali", text: "24-bit gerçek renk ve italik, 5000 satırlık geri kaydırma, terminal içi arama, kopyala/paylaş ve sıkıştırarak metin boyutlandırmayla xterm-256color terminali — Nerd Font powerline ve simge glifleri ile emoji, Android'de doğru şekilde işlenir." },
       { title: "Çoklu oturum ızgarası", text: "Yeniden boyutlandırılabilir ızgarada sekiz SSH oturumuna kadar — odaklanmak için panele dokun, tam ekran için çift dokun, metni boyutlandırmak için sıkıştır." },
       { title: "Tıklanabilir bağlantılar", text: "Terminaldeki URL'ler altı çizili olur ve bir dokunuşla tarayıcıda açılır — kopyalamaya veya uygulama değiştirmeye gerek kalmaz." },
       { title: "Sunucu klasörleri", text: "Kaydedilen sunucuları daraltılabilir gruplara düzenle. Daraltmak için grup başlığına dokun; klasör yapısı hızlı bağlan seçicisine de yansır." },
@@ -170,16 +170,20 @@ export const tr: Dict = {
       {
         title: "Terminal",
         items: [
-          "VT100/xterm-256color tarzı terminal davranışı",
+          "24-bit gerçek renk ve italik ile VT100/xterm-256color terminal davranışı",
           "5000 satırlık geri kaydırma tamponu",
+          "Terminalde bul — geri kaydırmayı ve görünür ekranı ara, eşleşmeler arasında atla (Android ve iOS)",
           "ESC, TAB, CTRL, Shift, oklar, Home, End, PgUp, PgDn ve klavye geçişi için ek tuş satırı",
           "Dokunarak odaklan, isteğe bağlı «dokununca klavyeyi göster», kopyala ve tümünü kopyala eylemleri",
           "Sıkıştırarak metin boyutunu değiştir ve uzak terminali yeniden boyutlandır",
           "Çift dokunarak panel tam ekran modu",
-          "Kopyala, Paylaş ve Tümünü seç eylemleriyle terminal metni seçimi",
+          "Kopyala, Paylaş ve Tümünü seç eylemleriyle terminal metni seçimi — uzun basış kelimeyi seçer ve Kopyala, seçimi paylaşmak veya yeniden kopyalamak için korur",
+          "OSC 52 pano — uzak bir tmux veya vim oturumundaki metni doğrudan telefon panosuna kopyala",
           "Yerel geçişli klavye girişi — otomatik düzeltme kabukla çakışmaz; ekran klavyesi sesli diktesi yine de çalışır",
           "Android ve iOS'ta harici ve Bluetooth klavye desteği; oklar, işlev tuşları ve Ctrl/Alt akorları dahil",
-          "Köşeli parantezli yapıştırma (bracketed paste); böylece çok satırlı pano içeriği otomatik çalıştırılmaz"
+          "Köşeli parantezli yapıştırma (bracketed paste); böylece çok satırlı pano içeriği otomatik çalıştırılmaz",
+          "Yerleşik Nerd Font, sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini Android'de işler",
+          "Geniş CJK, emoji ve birleşen karakterler Android'de doğru şekilde ölçülür ve çizilir; grafem kümeleri ve sıfır genişlikli birleştiriciler dahil"
         ]
       },
       {
@@ -191,7 +195,7 @@ export const tr: Dict = {
           "Üstel gerilemeli keepalive ve yeniden bağlanma denemeleri",
           "Başlangıç ekranından Aktif Oturumlar girişi; süregelen bildirim oturumları listeler — açmak için dokunun",
           "Kesintiye uğrayan iş için tmux komut izleme ve reattach ipuçları",
-          "Ajan uyarıları: uzak bir ajan (Claude Code, Codex vb.) girdinizi beklediğinde isteğe bağlı ses ve titreşimli bildirim; video sırasında kulaklıktan çalar",
+          "Ajan uyarıları: uzak bir ajan (Claude Code, Codex vb.) girdinizi beklediğinde isteğe bağlı ses ve titreşimli bildirim — ajanın kendi başlığını ve mesajını OSC 9/777 bildirimleriyle taşır; video sırasında kulaklıktan çalar",
           "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) aktarımı; isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla",
           "Tmux yöneticisi: oturumları, pencereleri ve panelleri listele ve aralarında geçiş yap — bağlan, yeniden adlandır, oluştur, böl, yakınlaştır veya sonlandır; ada/tarihe göre sıralama ve girdi bekleyen ajanlar için 🔔"
         ]
@@ -224,6 +228,14 @@ export const tr: Dict = {
           "Kayıtlı sunucuları ve kimlik bilgilerini bir yedek dosyasına aktarın",
           "İsteğe bağlı parola yedeği şifreler; birleştir veya değiştir ile içe aktarın",
           "Şifrelenmemiş yedek, parolaları ve anahtarları düz metin olarak saklar — dosyayı koruyun veya silin"
+        ]
+      },
+      {
+        title: "Güvenlik",
+        items: [
+          "Güvenli ekran (Android): ekran görüntülerini ve ekran kaydını engelle, uygulamayı son kullanılanlar küçük resminden gizle — parolalar, anahtarlar veya belirteçler ekrandayken açılabilen bir ayar",
+          "Kaydedilen sunucular, kimlik bilgileri ve anahtarlar cihazda kalır — gizli veriler Android Keystore ve iOS Keychain'de tutulur, bulut hesabı veya eşitleme yoktur",
+          "Yalnızca anonim, kapatılabilir kullanım analizleri — asla sunucularınız, kimlik bilgileriniz, komutlarınız veya dosya içerikleriniz değil"
         ]
       },
       {
@@ -328,6 +340,7 @@ export const tr: Dict = {
       { category: "Terminal",  feature: "Terminaldeki tıklanabilir URL'ler",          mobile: "yes",    termux: "kısmi",        termius: "yes" },
       { category: "Terminal",  feature: "Metin seçimi: kopyala / paylaş / tümünü seç", mobile: "yes", termux: "yes",          termius: "yes" },
       { category: "Terminal",  feature: "Donanım / Bluetooth klavye desteği",         mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "Terminal",  feature: "Nerd Font / powerline glif oluşturma",       mobile: "Android", termux: "yapılandırılabilir", termius: "kısmi" },
       { category: "Oturumlar", feature: "Eşzamanlı birden çok SSH oturumu",          mobile: "en fazla 8", termux: "en fazla 8", termius: "yes" },
       { category: "Oturumlar", feature: "Izgara panel düzeni",                       mobile: "yes",    termux: "tmux ile",     termius: "sekmeler" },
       { category: "Oturumlar", feature: "tmux uyumlu kaydırma",                     mobile: "yes",    termux: "yes",          termius: "no" },
@@ -356,6 +369,7 @@ export const tr: Dict = {
       { category: "Gizlilik ve maliyet", feature: "Reklam yok",                      mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Gizlilik ve maliyet", feature: "Analitikten çıkma seçeneği",      mobile: "Android", termux: "analitik yok", termius: "no" },
       { category: "Gizlilik ve maliyet", feature: "Yalnızca yerel veriler (bulut eşitlemesi yok)", mobile: "yes", termux: "yes", termius: "kısmi" },
+      { category: "Gizlilik ve maliyet", feature: "Güvenli ekran (ekran görüntülerini engelle)", mobile: "Android", termux: "no",         termius: "no" },
       { category: "Oturumlar", feature: "Eternal Terminal (dayanıklı oturumlar)",  mobile: "yes",    termux: "CLI ile",      termius: "no" },
       { category: "Oturumlar", feature: "SSH üzerinden otomatik etserver kurulumu", mobile: "yes",   termux: "no",           termius: "no" },
       { category: "Oturumlar", feature: "tmux oturum yöneticisi",                  mobile: "yes",    termux: "CLI ile",      termius: "no" },
@@ -399,7 +413,7 @@ export const tr: Dict = {
     ],
     securityHeading: "Güvenlik sorumlulukları",
     securityBody:
-      "Kimlik bilgilerini veya özel anahtarları kaydederseniz cihazınızı güçlü bir ekran kilidiyle koruyun. Yalnızca güvendiğiniz sunuculara bağlanın. Mevcut uygulama, ayrı bir şifreli bulut kasası yerine yerel uygulama depolamasını (ve iOS'ta sistem Keychain'ini) kullanır.",
+      "Kimlik bilgilerini veya özel anahtarları kaydederseniz cihazınızı güçlü bir ekran kilidiyle koruyun. Yalnızca güvendiğiniz sunuculara bağlanın. Mevcut uygulama, ayrı bir şifreli bulut kasası yerine yerel uygulama depolamasını (ve iOS'ta sistem Keychain'ini) kullanır. Android'de isteğe bağlı bir Güvenli ekran ayarı, ekran görüntülerini ve ekran kaydını engeller ve uygulamayı son kullanılanlar görünümünden gizler.",
     contactHeading: "İletişim",
     contactBody: "Destek iletişimi: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },

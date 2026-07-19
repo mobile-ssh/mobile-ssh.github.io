@@ -68,11 +68,21 @@ Bunu isteyen bir programa (bash, Vim ve diğer köşeli parantezli yapıştırma
 
 ## Seç, kopyala, paylaş
 
-Seçim moduna girmek için terminalin içine uzun basın. Seçim araç çubuğu üç işlem sunar:
+Parmağınızın altındaki kelimeyi seçmek için terminalin içine uzun basın, ardından ayarlamak için tutamakları sürükleyin. Seçim araç çubuğu üç işlem sunar:
 
-- **Copy** — seçili metni sistem panosuna koyar.
+- **Copy** — seçili metni sistem panosuna koyar. Seçim daha sonra da vurgulu kalır; böylece paylaşabilir, yeniden kopyalayabilir veya genişletebilirsiniz.
 - **Share** — seçili metni sistem paylaşım sayfasına (e-posta, notlar, mesajlaşma vb.) iletir.
 - **Select all** — seçimi görünür terminal arabelleğinin tamamına genişletir, ardından Copy veya Share uygulanabilir.
+
+## Terminalde bul
+
+Tüm terminal arabelleğini — geri kaydırmayı ve görünür ekranı — arayın ve eşleşmeler arasında atlayın. Terminal denetimlerinden aramayı açın, bir sorgu yazın ve isabetler arasında ilerleyin. Bu, hem Android hem iOS'ta çalışır.
+
+## Renk, italik ve uzak pano
+
+- Terminal **24-bit gerçek renk** ve **italik** işler; böylece temalı istemler, sözdizimi vurgulaması ve TUI'ler masaüstündeki gibi görünür.
+- **OSC 52 panosu:** uzak bir program metni kopyaladığında (tmux `set-clipboard`, bir Vim/Neovim OSC 52 kopyalaması) bu, telefonunuzun panosuna düşer — böylece sunucudan kopyalayıp yerel bir uygulamaya yapıştırabilirsiniz.
+- Android'de yerleşik bir **Nerd Font**, sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini çizer; ayrıca geniş CJK, emoji ve birleşen karakterler doğru şekilde ölçülür.
 
 ## Kaydırma
 

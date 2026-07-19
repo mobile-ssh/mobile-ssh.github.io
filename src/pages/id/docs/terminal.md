@@ -57,11 +57,21 @@ Menempel ke program yang memintanya (bash, Vim, dan aplikasi bracketed-paste lai
 
 ## Pilih, salin, bagikan
 
-Tekan lama di dalam terminal untuk masuk mode pemilihan. Bilah pemilihan menawarkan tiga tindakan:
+Tekan lama di dalam terminal untuk memilih kata di bawah jari Anda, lalu seret pegangan untuk menyesuaikan. Bilah pemilihan menawarkan tiga tindakan:
 
-- **Copy** — menaruh teks terpilih ke papan klip sistem.
+- **Copy** — menaruh teks terpilih ke papan klip sistem. Pemilihan tetap tersorot setelahnya, sehingga Anda dapat membagikannya, menyalin ulang, atau memperluasnya.
 - **Share** — meneruskan teks terpilih ke lembar berbagi sistem (surel, catatan, perpesanan, dll.).
 - **Select all** — memperluas pemilihan ke seluruh buffer terminal yang terlihat, lalu Copy atau Share.
+
+## Cari di terminal
+
+Telusuri seluruh buffer terminal — scrollback dan layar yang terlihat — dan lompat antar kecocokan. Buka pencarian dari kontrol terminal, ketik kueri, dan telusuri hasil satu per satu. Ini berfungsi baik di Android maupun iOS.
+
+## Warna, huruf miring, dan clipboard jarak jauh
+
+- Terminal menampilkan **warna sejati 24-bit** dan **huruf miring**, sehingga prompt bertema, penyorotan sintaks, dan TUI tampil seperti di desktop.
+- **Clipboard OSC 52:** saat program jarak jauh menyalin teks (tmux `set-clipboard`, yank OSC 52 Vim/Neovim), teks itu mendarat di clipboard ponsel Anda — sehingga Anda dapat menyalin dari server dan menempel ke aplikasi lokal.
+- Di Android, **Nerd Font** bawaan menggambar glyph ikon powerline, starship, devicon, dan Material Design yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem, serta karakter CJK lebar, emoji, dan karakter penggabung diukur dengan benar.
 
 ## Menggulir
 

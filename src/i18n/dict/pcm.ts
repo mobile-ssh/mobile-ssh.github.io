@@ -53,7 +53,7 @@ export const pcm: Dict = {
     sectionAIntro:
       "Mobile SSH dey keep di admin road short: save server, connect, keep session dey alive, move file when you need am, and quick return to live terminal.",
     features: [
-      { title: "SSH terminal", text: "xterm-256color terminal emulation wit 5000-line scrollback, colour, cursor keys, copy/share, and pinch-to-zoom text sizing." },
+      { title: "SSH terminal", text: "xterm-256color terminal wit 24-bit true color and italics, 5000-line scrollback, in-terminal search, copy/share, and pinch-to-zoom text sizing — Nerd Font powerline and icon glyphs and emoji dey render correctly for Android." },
       { title: "Multi-session grid", text: "Up to eight SSH session for resizable grid — tap pane to focus, double-tap for fullscreen, pinch to resize text." },
       { title: "Clickable links", text: "URLs wey dey inside di terminal dey underline and go open for browser with one tap — no need to copy or switch app." },
       { title: "Server folders", text: "Arrange saved servers for collapsible groups. Tap group header to collapse am; di folder structure dey carry enter di quick-connect picker." },
@@ -170,16 +170,20 @@ export const pcm: Dict = {
       {
         title: "Terminal",
         items: [
-          "VT100/xterm-256color style terminal behaviour",
+          "VT100/xterm-256color style terminal behaviour wit 24-bit true color and italics",
           "5000-line scrollback buffer",
+          "Find for di terminal — search di scrollback and di visible screen and jump between di matches (Android and iOS)",
           "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn and keyboard toggle",
           "Tap to focus, optional tap-to-show-keyboard setting, copy and copy-all action",
           "Pinch-to-zoom text sizing wit remote terminal resize",
           "Double-tap pane fullscreen mode",
-          "Terminal text selection wit Copy, Share and Select all action",
+          "Terminal text selection wit Copy, Share and Select all — long-press dey select di word, and Copy dey keep di selection so you fit share or re-copy am",
+          "OSC 52 clipboard — copy text from remote tmux or vim session straight go di phone clipboard",
           "Native pass-through keyboard input — no autocorrect dey fight di shell; soft-keyboard voice dictation still dey work",
           "External and Bluetooth keyboard support for Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
-          "Bracketed paste so multi-line clipboard content no go run by itself"
+          "Bracketed paste so multi-line clipboard content no go run by itself",
+          "Bundled Nerd Font dey render powerline, starship, devicon, and Material Design icon glyphs for Android wey di system font for don show as empty boxes",
+          "Wide CJK, emoji, and combining characters dey measured and drawn correctly for Android, including grapheme clusters and zero-width joiners"
         ]
       },
       {
@@ -191,7 +195,7 @@ export const pcm: Dict = {
           "Keepalive and reconnect try wit exponential backoff",
           "Active Sessions entry from start screen; ongoing notification wey dey list session — tap to open",
           "tmux command tracking and reattach hint when work break",
-          "Agent alerts: notification wit optional sound and vibration when remote agent (Claude Code, Codex, etc.) need input; e dey play for headphones over video",
+          "Agent alerts: notification wit optional sound and vibration when remote agent (Claude Code, Codex, etc.) need input — e dey carry di agent im own title and message via OSC 9/777 notifications; e dey play for headphones over video",
           "Eternal Terminal (ET) transport for sessions wey dey survive network drop, sleep, and IP change, wit optional automatic etserver setup over SSH",
           "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, wit name/date sorting and 🔔 for agents wey dey wait for input"
         ]
@@ -224,6 +228,14 @@ export const pcm: Dict = {
           "Export saved servers and credentials to backup file",
           "Optional passphrase dey encrypt di backup; import with merge or replace",
           "Backup wey no get encryption dey store passwords and keys as plain text — protect or delete di file"
+        ]
+      },
+      {
+        title: "Security",
+        items: [
+          "Secure screen (Android): block screenshots and screen recording and hide di app from di recents thumbnail — na opt-in setting for wen password, key, or token dey for screen",
+          "Saved servers, credentials, and keys dey stay for di device — secrets dey live for di Android Keystore and di iOS Keychain, no cloud account or sync",
+          "Na anonymous, opt-out usage analytics only — e no dey ever touch your servers, credentials, commands, or file content"
         ]
       },
       {
@@ -328,6 +340,7 @@ export const pcm: Dict = {
       { category: "Terminal",         feature: "URL wey fit tap for terminal output",         mobile: "yes",     termux: "partial",       termius: "yes" },
       { category: "Terminal",         feature: "Text selection: copy / share / select all",   mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Hardware / Bluetooth keyboard support",       mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Nerd Font / powerline glyph rendering",       mobile: "Android", termux: "you fit configure am", termius: "partial" },
       { category: "Sessions",         feature: "Plenty SSH session same time",                mobile: "up to 8", termux: "up to 8",       termius: "yes" },
       { category: "Sessions",         feature: "Grid pane layout",                            mobile: "yes",     termux: "via tmux",      termius: "tabs" },
       { category: "Sessions",         feature: "tmux-friendly scroll",                        mobile: "yes",     termux: "yes",           termius: "no" },
@@ -356,6 +369,7 @@ export const pcm: Dict = {
       { category: "Privacy & cost",   feature: "No ads",                                      mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Privacy & cost",   feature: "Analytics opt-out",                           mobile: "Android", termux: "no analytics",  termius: "no" },
       { category: "Privacy & cost",   feature: "Local-only data (no cloud sync)",             mobile: "yes",     termux: "yes",           termius: "partial" },
+      { category: "Privacy & cost",   feature: "Secure screen (block screenshots)",           mobile: "Android", termux: "no",            termius: "no" },
       { category: "Sessions",         feature: "Eternal Terminal (sessions wey no dey die)",  mobile: "yes",     termux: "via CLI",       termius: "no" },
       { category: "Sessions",         feature: "Auto-install etserver over SSH",              mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sessions",         feature: "tmux session manager",                        mobile: "yes",     termux: "via CLI",       termius: "no" },
@@ -399,7 +413,7 @@ export const pcm: Dict = {
     ],
     securityHeading: "Security responsibilities",
     securityBody:
-      "Protect your device wit strong screen lock if you dey save credential or private key. Only connect to server wey you trust. Di current version use local app storage (and di iOS Keychain), no be separate encrypted cloud vault.",
+      "Protect your device wit strong screen lock if you dey save credential or private key. Only connect to server wey you trust. Di current version use local app storage (and di iOS Keychain), no be separate encrypted cloud vault. For Android, optional Secure screen setting dey block screenshots and screen recording and e dey hide di app from di recents view.",
     contactHeading: "Contact",
     contactBody: "Support contact: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },

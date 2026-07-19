@@ -57,11 +57,21 @@ Al pegar en un programa que lo solicita (bash, Vim y otras apps con soporte de b
 
 ## Seleccionar, copiar, compartir
 
-Mantén pulsado dentro de la terminal para entrar en modo de selección. La barra de selección ofrece tres acciones:
+Mantén pulsado dentro de la terminal para seleccionar la palabra bajo tu dedo; luego arrastra los tiradores para ajustarla. La barra de selección ofrece tres acciones:
 
-- **Copiar** — coloca el texto seleccionado en el portapapeles del sistema.
+- **Copiar** — coloca el texto seleccionado en el portapapeles del sistema. La selección permanece resaltada después, para que puedas compartirla, volver a copiarla o ampliarla.
 - **Compartir** — pasa el texto seleccionado al panel de compartir del sistema (correo, notas, mensajería, etc.).
 - **Seleccionar todo** — amplía la selección a todo el búfer visible de la terminal; luego usa Copiar o Compartir.
+
+## Buscar en la terminal
+
+Busca en todo el búfer de la terminal — el búfer de desplazamiento y la pantalla visible — y salta entre coincidencias. Abre la búsqueda desde los controles de la terminal, escribe una consulta y recorre los resultados. Funciona tanto en Android como en iOS.
+
+## Color, cursivas y portapapeles remoto
+
+- La terminal representa **color verdadero de 24 bits** y **cursivas**, de modo que los prompts con temas, el resaltado de sintaxis y las TUI se ven igual que en el escritorio.
+- **Portapapeles OSC 52:** cuando un programa remoto copia texto (el `set-clipboard` de tmux, un yank OSC 52 de Vim/Neovim), acaba en el portapapeles de tu teléfono — así puedes copiar desde el servidor y pegar en una app local.
+- En Android, una **Nerd Font** incluida dibuja glifos powerline, starship, devicon e iconos de Material Design que la fuente del sistema mostraría como cuadros vacíos, y los caracteres CJK anchos, los emoji y los caracteres combinantes se miden correctamente.
 
 ## Desplazamiento
 

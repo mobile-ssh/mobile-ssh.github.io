@@ -53,7 +53,7 @@ export const ja: Dict = {
     sectionAIntro:
       "Mobile SSH は管理者の定番ルートを短くします。サーバーを保存し、つなぎ、セッションを維持し、必要なときにファイルを動かし、すばやくアクティブな端末に戻れます。",
     features: [
-      { title: "SSH ターミナル", text: "xterm-256color 端末エミュレーション。5000 行スクロールバック、カラー、カーソルキー、コピー／共有、ピンチで文字サイズ変更に対応。" },
+      { title: "SSH ターミナル", text: "xterm-256color 端末。24-bit トゥルーカラーとイタリック、5000 行スクロールバック、ターミナル内検索、コピー／共有、ピンチで文字サイズ変更に対応。Nerd Font の powerline とアイコン グリフ、絵文字は Android で正しく表示されます。" },
       { title: "マルチセッション グリッド", text: "リサイズ可能なグリッドで最大 8 つの SSH セッション。ペインをタップしてフォーカス、ダブルタップでフルスクリーン、ピンチで文字サイズ変更。" },
       { title: "タップ可能なリンク", text: "ターミナル出力内の URL に下線が引かれ、タップするだけでブラウザで開きます。コピーやアプリ切替は不要。" },
       { title: "サーバー フォルダー", text: "保存済みサーバーを折りたたみ可能なグループに整理。グループのヘッダーをタップして折りたたみ。フォルダー構造はクイック接続ピッカーにも反映されます。" },
@@ -170,16 +170,20 @@ export const ja: Dict = {
       {
         title: "ターミナル",
         items: [
-          "VT100/xterm-256color 風のターミナル動作",
+          "VT100/xterm-256color 風のターミナル動作。24-bit トゥルーカラーとイタリックに対応",
           "5000 行のスクロールバック バッファ",
+          "ターミナル内検索 — スクロールバックと表示中の画面を検索し、一致箇所を移動（Android と iOS）",
           "ESC、TAB、CTRL、Shift、矢印、Home、End、PgUp、PgDn、キーボード切替の拡張キーバー",
           "タップでフォーカス、任意で「タップでキーボードを表示」、コピー／全コピー",
           "ピンチで文字サイズ変更（リモート端末リサイズ付き）",
           "ペインのダブルタップでフルスクリーン",
-          "端末テキスト選択（コピー、共有、すべて選択）",
+          "端末テキスト選択（コピー、共有、すべて選択）— 長押しで単語を選択し、コピー後も選択が保持されるため、共有や再コピーができる",
+          "OSC 52 クリップボード — リモートの tmux や vim セッションからテキストをスマホのクリップボードへ直接コピー",
           "ネイティブなパススルーのキーボード入力 — 自動修正がシェルと衝突せず、ソフトキーボードの音声入力も引き続き利用可能",
           "Android と iOS での外付けおよび Bluetooth キーボード対応（矢印キー、ファンクションキー、Ctrl／Alt の組み合わせを含む）",
-          "ブラケットペーストにより、複数行のクリップボード内容が自動実行されない"
+          "ブラケットペーストにより、複数行のクリップボード内容が自動実行されない",
+          "内蔵の Nerd Font が、システム フォントでは空の四角として表示されてしまう powerline、starship、devicon、Material Design のアイコン グリフを Android で描画",
+          "ワイド CJK、絵文字、結合文字を Android で正しく計測・描画。書記素クラスタやゼロ幅接合子にも対応"
         ]
       },
       {
@@ -191,7 +195,7 @@ export const ja: Dict = {
           "Keepalive と指数バックオフ付き再接続",
           "スタート画面からの「アクティブセッション」入口。進行中の通知にセッション一覧を表示 — タップで開く",
           "tmux コマンド追跡と中断した作業向けの reattach ヒント",
-          "エージェント アラート：リモート エージェント（Claude Code、Codex など）が入力を必要としたときに、任意の音とバイブレーション付きの通知。動画再生中もイヤホンで鳴る",
+          "エージェント アラート：リモート エージェント（Claude Code、Codex など）が入力を必要としたときに、任意の音とバイブレーション付きの通知 — OSC 9/777 通知でエージェント自身のタイトルとメッセージを表示。動画再生中もイヤホンで鳴る",
           "Eternal Terminal (ET) トランスポート：ネットワーク切断、スリープ、IP 変更を乗り越えるセッションを実現。SSH 経由のオプション自動 etserver セットアップ付き",
           "Tmux マネージャー：セッション、ウィンドウ、ペインを一覧表示して切り替え — アタッチ、名前変更、作成、分割、ズーム、強制終了が可能。名前または日付でソートでき、入力待ちのエージェントには 🔔 が付く"
         ]
@@ -224,6 +228,14 @@ export const ja: Dict = {
           "保存済みのサーバーと認証情報をバックアップファイルに書き出し",
           "任意のパスフレーズでバックアップを暗号化。インポートはマージまたは置換",
           "暗号化しないバックアップはパスワードや鍵を平文で保存します。ファイルを保護するか削除してください"
+        ]
+      },
+      {
+        title: "セキュリティ",
+        items: [
+          "セキュア スクリーン（Android）：スクリーンショットと画面録画をブロックし、最近のアプリのサムネイルからアプリを隠す — パスワード、鍵、トークンが画面に表示されているとき向けのオプトイン設定",
+          "保存済みのサーバー、認証情報、鍵は端末内に留まる — シークレットは Android の Keystore と iOS の Keychain に保管され、クラウド アカウントや同期は不要",
+          "使用状況分析は匿名かつオプトアウト可能なもののみ — サーバー、認証情報、コマンド、ファイルの内容を送ることは一切ない"
         ]
       },
       {
@@ -328,6 +340,7 @@ export const ja: Dict = {
       { category: "ターミナル", feature: "端末出力内のタップ可能な URL",         mobile: "yes",    termux: "一部対応",      termius: "yes" },
       { category: "ターミナル", feature: "テキスト選択：コピー／共有／全選択",   mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "ターミナル", feature: "ハードウェア／Bluetooth キーボード対応", mobile: "yes",   termux: "yes",          termius: "yes" },
+      { category: "ターミナル", feature: "Nerd Font／powerline グリフの描画",     mobile: "Android", termux: "設定可能",     termius: "一部対応" },
       { category: "セッション", feature: "複数の SSH 同時セッション",            mobile: "最大 8", termux: "最大 8",      termius: "yes" },
       { category: "セッション", feature: "グリッド ペイン レイアウト",           mobile: "yes",    termux: "tmux 経由",     termius: "タブ" },
       { category: "セッション", feature: "tmux に配慮したスクロール",            mobile: "yes",    termux: "yes",          termius: "no" },
@@ -356,6 +369,7 @@ export const ja: Dict = {
       { category: "プライバシーとコスト", feature: "広告なし",                   mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "プライバシーとコスト", feature: "分析のオプトアウト",         mobile: "Android", termux: "分析なし",     termius: "no" },
       { category: "プライバシーとコスト", feature: "ローカルのみのデータ（クラウド同期なし）", mobile: "yes", termux: "yes", termius: "一部対応" },
+      { category: "プライバシーとコスト", feature: "セキュア スクリーン（スクリーンショットをブロック）", mobile: "Android", termux: "no", termius: "no" },
       { category: "セッション", feature: "Eternal Terminal（耐障害性セッション）",    mobile: "yes",    termux: "CLI 経由",      termius: "no" },
       { category: "セッション", feature: "SSH 経由の etserver 自動インストール",      mobile: "yes",    termux: "no",            termius: "no" },
       { category: "セッション", feature: "tmux セッション マネージャー",              mobile: "yes",    termux: "CLI 経由",      termius: "no" },
@@ -399,7 +413,7 @@ export const ja: Dict = {
     ],
     securityHeading: "セキュリティ上の責任",
     securityBody:
-      "認証情報や秘密鍵を保存する場合は、強固な画面ロックで端末を保護してください。信頼できるサーバーにのみ接続してください。現行実装は、別建ての暗号化クラウド ボルトではなく、アプリのローカル ストレージ（および iOS の Keychain）を使用します。",
+      "認証情報や秘密鍵を保存する場合は、強固な画面ロックで端末を保護してください。信頼できるサーバーにのみ接続してください。現行実装は、別建ての暗号化クラウド ボルトではなく、アプリのローカル ストレージ（および iOS の Keychain）を使用します。Android では、オプションのセキュア スクリーン設定がスクリーンショットと画面録画をブロックし、最近のアプリ表示からアプリを隠します。",
     contactHeading: "お問い合わせ",
     contactBody: "サポート連絡先：[mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)。"
   },

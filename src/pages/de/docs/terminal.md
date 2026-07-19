@@ -57,11 +57,21 @@ Das Einfügen in ein Programm, das es anfordert (bash, Vim und andere Bracketed-
 
 ## Auswählen, kopieren, teilen
 
-Halte im Terminal gedrückt, um in den Auswahlmodus zu wechseln. Die Auswahlleiste bietet drei Aktionen:
+Halte im Terminal gedrückt, um das Wort unter deinem Finger auszuwählen, und ziehe dann die Griffe, um die Auswahl anzupassen. Die Auswahlleiste bietet drei Aktionen:
 
-- **Copy** -- legt den ausgewählten Text in die System-Zwischenablage.
+- **Copy** -- legt den ausgewählten Text in die System-Zwischenablage. Die Auswahl bleibt danach hervorgehoben, sodass du sie teilen, erneut kopieren oder erweitern kannst.
 - **Share** -- übergibt den ausgewählten Text an das System-Teilen-Menü (Mail, Notizen, Messaging usw.).
 - **Select all** -- erweitert die Auswahl auf den gesamten sichtbaren Terminalpuffer, danach Copy oder Share.
+
+## Im Terminal suchen
+
+Durchsuche den gesamten Terminalpuffer – den Scrollback und den sichtbaren Bildschirm – und springe zwischen den Treffern. Öffne die Suche über die Terminalsteuerung, gib eine Suchanfrage ein und gehe die Treffer durch. Das funktioniert sowohl auf Android als auch auf iOS.
+
+## Farbe, Kursivschrift und entfernte Zwischenablage
+
+- Das Terminal stellt **24-bit True Color** und **Kursivschrift** dar, sodass gestylte Prompts, Syntaxhervorhebung und TUIs so aussehen wie auf dem Desktop.
+- **OSC 52-Zwischenablage:** wenn ein entferntes Programm Text kopiert (tmux `set-clipboard`, ein OSC-52-Yank in Vim/Neovim), landet er in der Zwischenablage deines Telefons – so kannst du auf dem Server kopieren und in eine lokale App einfügen.
+- Auf Android stellt eine mitgelieferte **Nerd Font** Powerline-, Starship-, Devicon- und Material-Design-Icon-Glyphen dar, die die Systemschrift sonst als leere Kästchen zeigen würde, und breite CJK-, Emoji- und kombinierende Zeichen werden korrekt vermessen.
 
 ## Scrollen
 
