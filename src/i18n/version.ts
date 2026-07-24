@@ -5,7 +5,7 @@ import { locales, type LocaleCode } from "./locales";
 // {count}, {version}, and {iosVersion} placeholders.
 export const VERSION_NAME = "2.3";
 export const VERSION_CODE = 32;
-export const IOS_VERSION_NAME = "1.21";
+export const IOS_VERSION_NAME = "1.23";
 export const LANGUAGE_COUNT = locales.length;
 
 export const PLAY_STORE_URL =
