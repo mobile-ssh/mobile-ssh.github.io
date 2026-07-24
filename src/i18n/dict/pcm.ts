@@ -53,7 +53,7 @@ export const pcm: Dict = {
     sectionAIntro:
       "Mobile SSH dey keep di admin road short: save server, connect, keep session dey alive, move file when you need am, and quick return to live terminal.",
     features: [
-      { title: "SSH terminal", text: "xterm-256color terminal wit 24-bit true color and italics, 5000-line scrollback, in-terminal search, copy/share, and pinch-to-zoom text sizing — Nerd Font powerline and icon glyphs and emoji dey render correctly for Android." },
+      { title: "SSH terminal", text: "xterm-256color terminal wit 24-bit true color, italics, in-terminal search, OSC 133 shell integration, and pinch-to-zoom text sizing — plus font and color scheme wey you fit configure and Nerd Font powerline/icon glyphs for Android." },
       { title: "Multi-session grid", text: "Up to eight SSH session for resizable grid — tap pane to focus, double-tap for fullscreen, pinch to resize text." },
       { title: "Clickable links", text: "URLs wey dey inside di terminal dey underline and go open for browser with one tap — no need to copy or switch app." },
       { title: "Server folders", text: "Arrange saved servers for collapsible groups. Tap group header to collapse am; di folder structure dey carry enter di quick-connect picker." },
@@ -171,9 +171,11 @@ export const pcm: Dict = {
         title: "Terminal",
         items: [
           "VT100/xterm-256color style terminal behaviour wit 24-bit true color and italics",
-          "5000-line scrollback buffer",
+          "Scrollback buffer of 5000 lines, wit size wey you fit configure for Android",
           "Find for di terminal — search di scrollback and di visible screen and jump between di matches (Android and iOS)",
-          "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn and keyboard toggle",
+          "Shell integration (OSC 133): jump between prompts, copy di output of one command, and get alert wen long-running command finish (Android and iOS)",
+          "Inline images for di terminal via di Kitty graphics protocol (Android and iOS)",
+          "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn and keyboard toggle — you fit customize am for Android: add, remove, reorder, and define your own escape-sequence keys, wit reset-to-defaults",
           "Tap to focus, optional tap-to-show-keyboard setting, copy and copy-all action",
           "Pinch-to-zoom text sizing wit remote terminal resize",
           "Double-tap pane fullscreen mode",
@@ -183,7 +185,8 @@ export const pcm: Dict = {
           "External and Bluetooth keyboard support for Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
           "Bracketed paste so multi-line clipboard content no go run by itself",
           "Bundled Nerd Font dey render powerline, starship, devicon, and Material Design icon glyphs for Android wey di system font for don show as empty boxes",
-          "Wide CJK, emoji, and combining characters dey measured and drawn correctly for Android, including grapheme clusters and zero-width joiners"
+          "Wide CJK, emoji, and combining characters dey measured and drawn correctly for Android and iOS, including grapheme clusters and zero-width joiners",
+          "Terminal font wey you fit configure (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) for Android, wey dey apply live to open panes"
         ]
       },
       {
@@ -207,6 +210,7 @@ export const pcm: Dict = {
           "Upload and download queue",
           "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit and details",
+          "Open file wey you don download for another app for Android straight from di local pane",
           "Sort by name or date wit per-host memory",
           "Local port forwarding wey dey save with server profile",
           "Runtime tunnel add/remove view for connected session",
@@ -340,6 +344,8 @@ export const pcm: Dict = {
       { category: "Terminal",         feature: "URL wey fit tap for terminal output",         mobile: "yes",     termux: "partial",       termius: "yes" },
       { category: "Terminal",         feature: "Text selection: copy / share / select all",   mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Hardware / Bluetooth keyboard support",       mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Shell integration (OSC 133)",                 mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Terminal",         feature: "Inline images (Kitty graphics)",              mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Terminal",         feature: "Nerd Font / powerline glyph rendering",       mobile: "Android", termux: "you fit configure am", termius: "partial" },
       { category: "Sessions",         feature: "Plenty SSH session same time",                mobile: "up to 8", termux: "up to 8",       termius: "yes" },
       { category: "Sessions",         feature: "Grid pane layout",                            mobile: "yes",     termux: "via tmux",      termius: "tabs" },

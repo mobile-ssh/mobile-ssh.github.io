@@ -71,7 +71,21 @@ Busca en todo el búfer de la terminal — el búfer de desplazamiento y la pant
 
 - La terminal representa **color verdadero de 24 bits** y **cursivas**, de modo que los prompts con temas, el resaltado de sintaxis y las TUI se ven igual que en el escritorio.
 - **Portapapeles OSC 52:** cuando un programa remoto copia texto (el `set-clipboard` de tmux, un yank OSC 52 de Vim/Neovim), acaba en el portapapeles de tu teléfono — así puedes copiar desde el servidor y pegar en una app local.
-- En Android, una **Nerd Font** incluida dibuja glifos powerline, starship, devicon e iconos de Material Design que la fuente del sistema mostraría como cuadros vacíos, y los caracteres CJK anchos, los emoji y los caracteres combinantes se miden correctamente.
+- Tanto en Android como en iOS, los caracteres CJK anchos, los emoji y los caracteres combinantes (clústeres de grafemas y uniones de ancho cero) se miden y dibujan correctamente. En Android, una **Nerd Font** incluida también dibuja glifos powerline, starship, devicon e iconos de Material Design que la fuente del sistema mostraría como cuadros vacíos.
+
+## Integración con el shell e imágenes en línea
+
+- **Integración con el shell (OSC 133):** cuando tu shell emite marcadores de prompt OSC 133, Mobile SSH puede saltar entre prompts, copiar la salida de un solo comando y avisarte cuando termina un comando de larga duración. Funciona en Android e iOS.
+- **Imágenes en línea:** los programas que usan el protocolo de gráficos Kitty dibujan imágenes directamente en la terminal, en Android e iOS.
+
+## Apariencia y teclas (Android)
+
+En Android, Settings te permite personalizar la terminal:
+
+- **Fuente:** elige la fuente monoespaciada del sistema, JetBrains Mono o Source Code Pro.
+- **Esquema de colores:** Default, Solarized Dark o Light, Gruvbox, Dracula o Nord — aplicado en vivo a los paneles abiertos.
+- **Fila de teclas extra:** la pestaña Keys te permite añadir, quitar, reordenar y ocultar teclas, definir tus propias teclas de secuencia de escape y restablecer los valores predeterminados, con una vista previa en vivo.
+- **Tamaño del búfer de desplazamiento:** define cuántas líneas conserva la terminal.
 
 ## Desplazamiento
 

@@ -71,7 +71,21 @@ Recherchez dans tout le tampon du terminal — le scrollback et l'écran visible
 
 - Le terminal affiche les **couleurs vraies 24 bits** et les **italiques**, si bien que les invites thématisées, la coloration syntaxique et les TUI s'affichent comme sur le bureau.
 - **Presse-papiers OSC 52 :** quand un programme distant copie du texte (tmux `set-clipboard`, un yank OSC 52 de Vim/Neovim), il arrive dans le presse-papiers de votre téléphone — vous pouvez ainsi copier depuis le serveur et coller dans une application locale.
-- Sur Android, une **Nerd Font** intégrée dessine les glyphes d'icônes powerline, starship, devicon et Material Design que la police système afficherait autrement comme des cases vides, et les caractères CJK larges, les emoji et les caractères combinants sont mesurés correctement.
+- Sur Android et iOS, les caractères CJK larges, les emoji et les caractères combinants (grappes de graphèmes et liants de largeur nulle) sont mesurés et affichés correctement. Sur Android, une **Nerd Font** intégrée dessine en plus les glyphes d'icônes powerline, starship, devicon et Material Design que la police système afficherait autrement comme des cases vides.
+
+## Intégration shell et images en ligne
+
+- **Intégration shell (OSC 133) :** lorsque votre shell émet les marqueurs d'invite OSC 133, Mobile SSH peut sauter d'une invite à l'autre, copier la sortie d'une seule commande et vous alerter lorsqu'une commande longue se termine. Fonctionne sur Android et iOS.
+- **Images en ligne :** les programmes qui utilisent le protocole graphique Kitty dessinent des images directement dans le terminal, sur Android et iOS.
+
+## Apparence et touches (Android)
+
+Sur Android, Settings vous permet d'adapter le terminal :
+
+- **Police :** choisissez la police monospace du système, JetBrains Mono ou Source Code Pro.
+- **Jeu de couleurs :** Default, Solarized Dark ou Light, Gruvbox, Dracula ou Nord — appliqué en direct aux panneaux ouverts.
+- **Rangée de touches supplémentaires :** l'onglet Keys permet d'ajouter, de supprimer, de réorganiser et de masquer des touches, de définir vos propres touches de séquences d'échappement et de réinitialiser aux valeurs par défaut, avec un aperçu en direct.
+- **Taille du scrollback :** définissez combien de lignes le terminal conserve.
 
 ## Défilement
 

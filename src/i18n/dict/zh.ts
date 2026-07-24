@@ -53,7 +53,7 @@ export const zh: Dict = {
     sectionAIntro:
       "Mobile SSH 缩短了常见的运维路径：保存服务器、连接、保持会话存活、必要时移动文件，并快速回到正在使用的终端。",
     features: [
-      { title: "SSH 终端", text: "xterm-256color 终端，支持 24-bit 真彩色与斜体、5000 行回滚、终端内查找、复制/分享以及捏合缩放文字大小——Nerd Font powerline、图标字形与 emoji 在 Android 上都能正确渲染。" },
+      { title: "SSH 终端", text: "xterm-256color 终端，支持 24-bit 真彩色、斜体、终端内查找、OSC 133 shell 集成以及捏合缩放文字大小——此外在 Android 上还提供可配置的字体与配色方案，以及 Nerd Font powerline/图标字形。" },
       { title: "多会话网格", text: "在可调整大小的网格中同时运行多达八个 SSH 会话——点击面板聚焦，双击进入全屏，捏合调整文字大小。" },
       { title: "可点击链接", text: "终端输出中的 URL 会带下划线，点击即可在浏览器中打开——无需复制或切换应用。" },
       { title: "服务器文件夹", text: "将保存的服务器整理到可折叠的分组中。点击分组标题折叠；文件夹结构同步显示在快速连接选择器中。" },
@@ -171,9 +171,11 @@ export const zh: Dict = {
         title: "终端",
         items: [
           "VT100/xterm-256color 风格的终端行为，支持 24-bit 真彩色与斜体",
-          "5000 行的回滚缓冲",
+          "5000 行的回滚缓冲，在 Android 上大小可配置",
           "在终端中查找——搜索回滚缓冲与可见屏幕，并在匹配项之间跳转（Android 与 iOS）",
-          "用于 ESC、TAB、CTRL、Shift、方向键、Home、End、PgUp、PgDn 与键盘切换的拓展按键栏",
+          "Shell 集成（OSC 133）：在提示符之间跳转、复制某条命令的输出，并在长时间运行的命令完成时收到提醒（Android 与 iOS）",
+          "通过 Kitty graphics 协议在终端中内嵌显示图像（Android 与 iOS）",
+          "用于 ESC、TAB、CTRL、Shift、方向键、Home、End、PgUp、PgDn 与键盘切换的拓展按键栏——在 Android 上可自定义：添加、移除、重新排序，并定义你自己的转义序列按键，还可恢复默认",
           "点击聚焦、可选的「点击显示键盘」设置、复制与全部复制操作",
           "捏合缩放文字大小并触发远程终端 resize",
           "面板双击全屏",
@@ -183,7 +185,8 @@ export const zh: Dict = {
           "Android 和 iOS 上支持外接与 Bluetooth 键盘，包括方向键、功能键以及 Ctrl/Alt 组合键",
           "括号粘贴（bracketed paste），使多行剪贴板内容不会被自动执行",
           "内置的 Nerd Font 可在 Android 上渲染 powerline、starship、devicon 与 Material Design 图标字形，否则系统字体只会将其显示为空白方框",
-          "宽 CJK、emoji 与组合字符在 Android 上都能被正确测量和绘制，包括字素簇（grapheme cluster）与零宽连接符（zero-width joiner）"
+          "宽 CJK、emoji 与组合字符在 Android 与 iOS 上都能被正确测量和绘制，包括字素簇（grapheme cluster）与零宽连接符（zero-width joiner）",
+          "在 Android 上可配置终端字体（系统等宽字体、JetBrains Mono 或 Source Code Pro）与 ANSI 配色方案（Solarized、Gruvbox、Dracula、Nord），并实时应用到已打开的面板"
         ]
       },
       {
@@ -207,6 +210,7 @@ export const zh: Dict = {
           "上传与下载的队列操作",
           "在手机与远程主机之间递归上传和下载文件夹",
           "远程重命名、删除、创建、编辑与详情",
+          "在 Android 上直接从本地面板用其他应用打开已下载的文件",
           "按名称或日期排序，并按主机持久化",
           "随服务器档案保存的本地端口转发",
           "已连接会话的运行时隧道添加/移除视图",
@@ -340,6 +344,8 @@ export const zh: Dict = {
       { category: "终端", feature: "终端输出中的可点击 URL",          mobile: "yes",    termux: "部分",         termius: "yes" },
       { category: "终端", feature: "文本选择：复制/分享/全选",        mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "终端", feature: "硬件 / Bluetooth 键盘支持",       mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "终端", feature: "Shell 集成（OSC 133）",            mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "终端", feature: "内嵌图像（Kitty graphics）",       mobile: "yes",    termux: "no",           termius: "no" },
       { category: "终端", feature: "Nerd Font / powerline 字形渲染",   mobile: "Android", termux: "可配置",      termius: "部分" },
       { category: "会话", feature: "多个并发 SSH 会话",               mobile: "最多 8 个", termux: "最多 8 个",  termius: "yes" },
       { category: "会话", feature: "网格面板布局",                    mobile: "yes",    termux: "通过 tmux",    termius: "标签页" },

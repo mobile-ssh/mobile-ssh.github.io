@@ -71,7 +71,21 @@ Mobile SSH 最多可同时运行八个 SSH 会话。每个会话以窗格形式�
 
 - 终端可渲染 **24-bit 真彩色** 与 **斜体**，因此主题化提示符、语法高亮和 TUI 的显示效果与桌面端一致。
 - **OSC 52 剪贴板：** 当远程程序复制文本时（tmux `set-clipboard`、Vim/Neovim 的 OSC 52 yank），它会落入手机剪贴板——这样你就能从服务器复制并粘贴到本地应用中。
-- 在 Android 上，内置的 **Nerd Font** 可绘制 powerline、starship、devicon 与 Material Design 图标字形，否则系统字体只会将其显示为空白方框；同时宽 CJK、emoji 与组合字符也能被正确测量。
+- 在 Android 与 iOS 上，宽 CJK、emoji 与组合字符（字素簇与零宽连接符）都能被正确测量和绘制。在 Android 上，内置的 **Nerd Font** 还可绘制 powerline、starship、devicon 与 Material Design 图标字形，否则系统字体只会将其显示为空白方框。
+
+## Shell 集成与内嵌图像
+
+- **Shell 集成（OSC 133）：** 当你的 shell 发出 OSC 133 提示符标记时，Mobile SSH 可以在提示符之间跳转、复制单条命令的输出，并在长时间运行的命令完成时提醒你。在 Android 与 iOS 上均可用。
+- **内嵌图像：** 使用 Kitty graphics 协议的程序可直接在终端中绘制图像，在 Android 与 iOS 上均可用。
+
+## 外观与按键（Android）
+
+在 Android 上，Settings 让你可以定制终端：
+
+- **字体：** 选择系统等宽字体、JetBrains Mono 或 Source Code Pro。
+- **配色方案：** Default、Solarized Dark 或 Light、Gruvbox、Dracula 或 Nord——实时应用到已打开的面板。
+- **拓展按键栏：** Keys 标签页让你添加、移除、重新排序和隐藏按键，定义你自己的转义序列按键，并恢复默认，还带有实时预览。
+- **回滚缓冲大小：** 设置终端保留的行数。
 
 ## 滚动
 

@@ -53,7 +53,7 @@ export const fr: Dict = {
     sectionAIntro:
       "Mobile SSH raccourcit le chemin d'administration habituel : enregistrer un serveur, se connecter, garder les sessions vivantes, déplacer des fichiers au besoin et revenir vite aux terminaux actifs.",
     features: [
-      { title: "Terminal SSH", text: "Terminal xterm-256color avec couleurs vraies 24 bits et italiques, scrollback de 5000 lignes, recherche dans le terminal, copie/partage et zoom du texte par pincement — les glyphes powerline et d'icônes Nerd Font ainsi que les emoji s'affichent correctement sur Android." },
+      { title: "Terminal SSH", text: "Terminal xterm-256color avec couleurs vraies 24 bits, italiques, recherche dans le terminal, intégration shell OSC 133 et zoom du texte par pincement — plus une police et un jeu de couleurs configurables ainsi que les glyphes powerline/d'icônes Nerd Font sur Android." },
       { title: "Grille multi-sessions", text: "Jusqu'à huit sessions SSH dans une grille redimensionnable — tapotez un panneau pour le focaliser, double-tapez pour le plein écran, pincez pour redimensionner le texte." },
       { title: "Liens cliquables", text: "Les URL dans le terminal sont soulignées et s'ouvrent dans le navigateur d'un tapotement — pas besoin de copier ni de changer d'application." },
       { title: "Dossiers de serveurs", text: "Organisez les serveurs enregistrés en groupes repliables. Tapotez l'en-tête d'un groupe pour le replier ; la structure de dossiers se retrouve dans le sélecteur de connexion rapide." },
@@ -171,9 +171,11 @@ export const fr: Dict = {
         title: "Terminal",
         items: [
           "Comportement de terminal de type VT100/xterm-256color avec couleurs vraies 24 bits et italiques",
-          "Tampon de scrollback de 5000 lignes",
+          "Tampon de scrollback de 5000 lignes, dont la taille est configurable sur Android",
           "Recherche dans le terminal — cherchez dans le scrollback et l'écran visible et sautez d'une occurrence à l'autre (Android et iOS)",
-          "Rangée de touches supplémentaires pour ESC, TAB, CTRL, Maj, flèches, Home, End, PgUp, PgDn et bascule clavier",
+          "Intégration shell (OSC 133) : sautez d'une invite à l'autre, copiez la sortie d'une commande et soyez alerté lorsqu'une commande longue se termine (Android et iOS)",
+          "Images en ligne dans le terminal via le protocole graphique Kitty (Android et iOS)",
+          "Rangée de touches supplémentaires pour ESC, TAB, CTRL, Maj, flèches, Home, End, PgUp, PgDn et bascule clavier — personnalisable sur Android : ajoutez, supprimez, réorganisez et définissez vos propres touches de séquences d'échappement, avec réinitialisation aux valeurs par défaut",
           "Tap pour focus, option « tap pour afficher le clavier », actions de copie et tout copier",
           "Pincement pour redimensionner le texte avec resize du terminal distant",
           "Mode plein écran d'un panneau au double-tap",
@@ -183,7 +185,8 @@ export const fr: Dict = {
           "Prise en charge des claviers externes et Bluetooth sur Android et iOS, y compris flèches, touches de fonction et combinaisons Ctrl/Alt",
           "Collage entre crochets (bracketed paste) pour que le contenu multi-lignes du presse-papiers ne soit pas exécuté automatiquement",
           "La police Nerd Font intégrée affiche sur Android les glyphes d'icônes powerline, starship, devicon et Material Design que la police système afficherait autrement comme des cases vides",
-          "Les caractères CJK larges, les emoji et les caractères combinants sont mesurés et affichés correctement sur Android, y compris les grappes de graphèmes et les liants de largeur nulle (zero-width joiners)"
+          "Les caractères CJK larges, les emoji et les caractères combinants sont mesurés et affichés correctement sur Android et iOS, y compris les grappes de graphèmes et les liants de largeur nulle (zero-width joiners)",
+          "Police de terminal configurable (police monospace du système, JetBrains Mono ou Source Code Pro) et jeu de couleurs ANSI (Solarized, Gruvbox, Dracula, Nord) sur Android, appliqués en direct aux panneaux ouverts"
         ]
       },
       {
@@ -207,6 +210,7 @@ export const fr: Dict = {
           "Files d'attente d'envois et de téléchargements",
           "Envoi et téléchargement récursifs de dossiers entre le téléphone et l'hôte distant",
           "Actions distantes renommer, supprimer, créer, éditer et détails",
+          "Ouvrez un fichier téléchargé dans une autre application sur Android directement depuis le panneau local",
           "Tri par nom ou par date avec persistance par hôte",
           "Redirection locale de ports enregistrée avec le profil du serveur",
           "Vue d'ajout/suppression de tunnels à chaud pour les sessions connectées",
@@ -340,6 +344,8 @@ export const fr: Dict = {
       { category: "Terminal",           feature: "URL tapotables dans la sortie terminal",              mobile: "yes",     termux: "partiel",       termius: "yes" },
       { category: "Terminal",           feature: "Sélection de texte : copier / partager / tout sélectionner", mobile: "yes", termux: "yes",       termius: "yes" },
       { category: "Terminal",           feature: "Prise en charge clavier matériel / Bluetooth",        mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",           feature: "Intégration shell (OSC 133)",                         mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Terminal",           feature: "Images en ligne (graphiques Kitty)",                  mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Terminal",           feature: "Rendu des glyphes Nerd Font / powerline",             mobile: "Android", termux: "configurable",  termius: "partiel" },
       { category: "Sessions",           feature: "Sessions SSH simultanées multiples",                  mobile: "jusqu'à 8", termux: "jusqu'à 8",   termius: "yes" },
       { category: "Sessions",           feature: "Disposition en grille",                               mobile: "yes",     termux: "via tmux",      termius: "onglets" },

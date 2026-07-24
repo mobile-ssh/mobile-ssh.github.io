@@ -53,7 +53,7 @@ export const tr: Dict = {
     sectionAIntro:
       "Mobile SSH yaygın yönetim yolunu kısaltır: sunucuyu kaydet, bağlan, oturumları canlı tut, gerektiğinde dosya taşı ve hızlıca aktif terminallere geri dön.",
     features: [
-      { title: "SSH terminali", text: "24-bit gerçek renk ve italik, 5000 satırlık geri kaydırma, terminal içi arama, kopyala/paylaş ve sıkıştırarak metin boyutlandırmayla xterm-256color terminali — Nerd Font powerline ve simge glifleri ile emoji, Android'de doğru şekilde işlenir." },
+      { title: "SSH terminali", text: "24-bit gerçek renk, italik, terminal içi arama, OSC 133 kabuk entegrasyonu ve sıkıştırarak metin boyutlandırmayla xterm-256color terminali — ayrıca Android'de yapılandırılabilir yazı tipi ve renk şeması ile Nerd Font powerline/simge glifleri." },
       { title: "Çoklu oturum ızgarası", text: "Yeniden boyutlandırılabilir ızgarada sekiz SSH oturumuna kadar — odaklanmak için panele dokun, tam ekran için çift dokun, metni boyutlandırmak için sıkıştır." },
       { title: "Tıklanabilir bağlantılar", text: "Terminaldeki URL'ler altı çizili olur ve bir dokunuşla tarayıcıda açılır — kopyalamaya veya uygulama değiştirmeye gerek kalmaz." },
       { title: "Sunucu klasörleri", text: "Kaydedilen sunucuları daraltılabilir gruplara düzenle. Daraltmak için grup başlığına dokun; klasör yapısı hızlı bağlan seçicisine de yansır." },
@@ -171,9 +171,11 @@ export const tr: Dict = {
         title: "Terminal",
         items: [
           "24-bit gerçek renk ve italik ile VT100/xterm-256color terminal davranışı",
-          "5000 satırlık geri kaydırma tamponu",
+          "5000 satırlık geri kaydırma tamponu; Android'de boyutu yapılandırılabilir",
           "Terminalde bul — geri kaydırmayı ve görünür ekranı ara, eşleşmeler arasında atla (Android ve iOS)",
-          "ESC, TAB, CTRL, Shift, oklar, Home, End, PgUp, PgDn ve klavye geçişi için ek tuş satırı",
+          "Kabuk entegrasyonu (OSC 133): istemler arasında atla, bir komutun çıktısını kopyala ve uzun süren bir komut bittiğinde uyarı al (Android ve iOS)",
+          "Kitty grafik protokolü aracılığıyla terminalde satır içi görüntüler (Android ve iOS)",
+          "ESC, TAB, CTRL, Shift, oklar, Home, End, PgUp, PgDn ve klavye geçişi için ek tuş satırı — Android'de özelleştirilebilir: tuş ekle, kaldır, yeniden sırala ve kendi kaçış dizisi tuşlarını tanımla, varsayılanlara sıfırlamayla",
           "Dokunarak odaklan, isteğe bağlı «dokununca klavyeyi göster», kopyala ve tümünü kopyala eylemleri",
           "Sıkıştırarak metin boyutunu değiştir ve uzak terminali yeniden boyutlandır",
           "Çift dokunarak panel tam ekran modu",
@@ -183,7 +185,8 @@ export const tr: Dict = {
           "Android ve iOS'ta harici ve Bluetooth klavye desteği; oklar, işlev tuşları ve Ctrl/Alt akorları dahil",
           "Köşeli parantezli yapıştırma (bracketed paste); böylece çok satırlı pano içeriği otomatik çalıştırılmaz",
           "Yerleşik Nerd Font, sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini Android'de işler",
-          "Geniş CJK, emoji ve birleşen karakterler Android'de doğru şekilde ölçülür ve çizilir; grafem kümeleri ve sıfır genişlikli birleştiriciler dahil"
+          "Geniş CJK, emoji ve birleşen karakterler Android ve iOS'ta doğru şekilde ölçülür ve çizilir; grafem kümeleri ve sıfır genişlikli birleştiriciler dahil",
+          "Android'de yapılandırılabilir terminal yazı tipi (sistem tek aralıklı, JetBrains Mono veya Source Code Pro) ve ANSI renk şeması (Solarized, Gruvbox, Dracula, Nord); açık panellere anında uygulanır"
         ]
       },
       {
@@ -207,6 +210,7 @@ export const tr: Dict = {
           "Sıraya alınmış yükleme ve indirme işlemleri",
           "Telefon ve uzak ana bilgisayar arasında özyinelemeli klasör yükleme ve indirme",
           "Uzak yeniden adlandırma, silme, oluşturma, düzenleme ve ayrıntılar",
+          "İndirilen bir dosyayı Android'de yerel panelden doğrudan başka bir uygulamada aç",
           "Her ana bilgisayar için kalıcı, ada veya tarihe göre sıralama",
           "Sunucu profilleriyle kaydedilen yerel port yönlendirme",
           "Bağlı oturumlar için çalışma zamanı tünel ekle/kaldır görünümü",
@@ -340,6 +344,8 @@ export const tr: Dict = {
       { category: "Terminal",  feature: "Terminaldeki tıklanabilir URL'ler",          mobile: "yes",    termux: "kısmi",        termius: "yes" },
       { category: "Terminal",  feature: "Metin seçimi: kopyala / paylaş / tümünü seç", mobile: "yes", termux: "yes",          termius: "yes" },
       { category: "Terminal",  feature: "Donanım / Bluetooth klavye desteği",         mobile: "yes",    termux: "yes",          termius: "yes" },
+      { category: "Terminal",  feature: "Kabuk entegrasyonu (OSC 133)",               mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Terminal",  feature: "Satır içi görüntüler (Kitty grafikleri)",     mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",  feature: "Nerd Font / powerline glif oluşturma",       mobile: "Android", termux: "yapılandırılabilir", termius: "kısmi" },
       { category: "Oturumlar", feature: "Eşzamanlı birden çok SSH oturumu",          mobile: "en fazla 8", termux: "en fazla 8", termius: "yes" },
       { category: "Oturumlar", feature: "Izgara panel düzeni",                       mobile: "yes",    termux: "tmux ile",     termius: "sekmeler" },

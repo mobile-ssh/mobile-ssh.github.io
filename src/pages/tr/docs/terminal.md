@@ -82,7 +82,21 @@ Tüm terminal arabelleğini — geri kaydırmayı ve görünür ekranı — aray
 
 - Terminal **24-bit gerçek renk** ve **italik** işler; böylece temalı istemler, sözdizimi vurgulaması ve TUI'ler masaüstündeki gibi görünür.
 - **OSC 52 panosu:** uzak bir program metni kopyaladığında (tmux `set-clipboard`, bir Vim/Neovim OSC 52 kopyalaması) bu, telefonunuzun panosuna düşer — böylece sunucudan kopyalayıp yerel bir uygulamaya yapıştırabilirsiniz.
-- Android'de yerleşik bir **Nerd Font**, sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini çizer; ayrıca geniş CJK, emoji ve birleşen karakterler doğru şekilde ölçülür.
+- Hem Android hem de iOS'ta geniş CJK, emoji ve birleşen karakterler (grafem kümeleri ve sıfır genişlikli birleştiriciler) doğru şekilde ölçülür ve çizilir. Android'de yerleşik bir **Nerd Font** ayrıca sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini çizer.
+
+## Kabuk entegrasyonu ve satır içi görüntüler
+
+- **Kabuk entegrasyonu (OSC 133):** kabuğunuz OSC 133 istem işaretleri yaydığında Mobile SSH istemler arasında atlayabilir, tek bir komutun çıktısını kopyalayabilir ve uzun süren bir komut bittiğinde sizi uyarabilir. Android ve iOS'ta çalışır.
+- **Satır içi görüntüler:** Kitty grafik protokolünü kullanan programlar görüntüleri doğrudan terminalde çizer; Android ve iOS'ta.
+
+## Görünüm ve tuşlar (Android)
+
+Android'de Ayarlar, terminali özelleştirmenize olanak tanır:
+
+- **Yazı tipi:** sistem tek aralıklı yazı tipini, JetBrains Mono veya Source Code Pro'yu seçin.
+- **Renk şeması:** Varsayılan, Solarized Koyu veya Açık, Gruvbox, Dracula ya da Nord — açık panellere anında uygulanır.
+- **Ek tuş satırı:** Tuşlar sekmesi; canlı bir önizlemeyle tuş eklemenize, kaldırmanıza, yeniden sıralamanıza ve gizlemenize, kendi kaçış dizisi tuşlarınızı tanımlamanıza ve varsayılanlara sıfırlamanıza olanak tanır.
+- **Geri kaydırma boyutu:** terminalin kaç satır tuttuğunu ayarlayın.
 
 ## Kaydırma
 

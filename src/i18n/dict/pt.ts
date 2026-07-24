@@ -53,7 +53,7 @@ export const pt: Dict = {
     sectionAIntro:
       "O Mobile SSH encurta o caminho comum de administração: salve um servidor, conecte, mantenha as sessões vivas, mova arquivos quando precisar e volte rápido aos terminais ativos.",
     features: [
-      { title: "Terminal SSH", text: "Terminal xterm-256color com cores reais de 24 bits e itálicos, scrollback de 5000 linhas, pesquisa dentro do terminal, copiar/compartilhar e ajuste de tamanho do texto por pinça — glifos powerline e de ícones da Nerd Font e emojis são renderizados corretamente no Android." },
+      { title: "Terminal SSH", text: "Terminal xterm-256color com cores reais de 24 bits, itálicos, pesquisa dentro do terminal, integração de shell via OSC 133 e ajuste de tamanho do texto por pinça — além de fonte e esquema de cores configuráveis e glifos powerline/de ícones da Nerd Font no Android." },
       { title: "Grade multi-sessão", text: "Até oito sessões SSH em uma grade redimensionável — toque em um painel para focar, toque duplo para tela cheia, faça pinça para redimensionar o texto." },
       { title: "Links clicáveis", text: "URLs na saída do terminal ficam sublinhados e abrem no navegador com um toque — sem precisar copiar ou trocar de app." },
       { title: "Pastas de servidores", text: "Organize servidores salvos em grupos recolhíveis. Toque no cabeçalho de um grupo para recolhê-lo; a estrutura de pastas aparece também no seletor de conexão rápida." },
@@ -172,9 +172,11 @@ export const pt: Dict = {
         title: "Terminal",
         items: [
           "Comportamento de terminal estilo VT100/xterm-256color com cores reais de 24 bits e itálicos",
-          "Buffer de scrollback de 5000 linhas",
+          "Buffer de scrollback de 5000 linhas, com tamanho configurável no Android",
           "Pesquisar no terminal — busque no scrollback e na tela visível e pule entre as correspondências (Android e iOS)",
-          "Linha extra de teclas para ESC, TAB, CTRL, Shift, setas, Home, End, PgUp, PgDn e alternar teclado",
+          "Integração de shell (OSC 133): pule entre prompts, copie a saída de um comando e receba um alerta quando um comando de longa duração termina (Android e iOS)",
+          "Imagens em linha no terminal via o protocolo gráfico Kitty (Android e iOS)",
+          "Linha extra de teclas para ESC, TAB, CTRL, Shift, setas, Home, End, PgUp, PgDn e alternar teclado — personalizável no Android: adicione, remova, reordene e defina suas próprias teclas de sequência de escape, com redefinição para os padrões",
           "Toque para focar, opção de mostrar teclado ao toque, ações de copiar e copiar tudo",
           "Pinça para zoom de texto com redimensionamento do terminal remoto",
           "Modo tela cheia de painel por toque duplo",
@@ -184,7 +186,8 @@ export const pt: Dict = {
           "Suporte a teclados externos e Bluetooth no Android e no iOS, incluindo setas, teclas de função e combinações Ctrl/Alt",
           "Colagem entre colchetes (bracketed paste) para que conteúdo de várias linhas da área de transferência não seja executado automaticamente",
           "A Nerd Font incluída renderiza glifos de ícones powerline, starship, devicon e Material Design no Android que a fonte do sistema mostraria como quadrados vazios",
-          "Caracteres CJK largos, emojis e caracteres combinantes são medidos e desenhados corretamente no Android, incluindo clusters de grafemas e juntores de largura zero (zero-width joiners)"
+          "Caracteres CJK largos, emojis e caracteres combinantes são medidos e desenhados corretamente no Android e no iOS, incluindo clusters de grafemas e juntores de largura zero (zero-width joiners)",
+          "Fonte de terminal configurável (monoespaçada do sistema, JetBrains Mono ou Source Code Pro) e esquema de cores ANSI (Solarized, Gruvbox, Dracula, Nord) no Android, aplicados ao vivo aos painéis abertos"
         ]
       },
       {
@@ -208,6 +211,7 @@ export const pt: Dict = {
           "Operações de envio e download em fila",
           "Envio e download recursivo de pastas entre o celular e o host remoto",
           "Renomear, apagar, criar, editar e detalhes remotos",
+          "Abra um arquivo baixado em outro app no Android direto do painel local",
           "Ordenar por nome ou data com persistência por host",
           "Redirecionamento local de portas salvo com perfis de servidor",
           "Visualização de túneis em tempo de execução para sessões conectadas",
@@ -341,6 +345,8 @@ export const pt: Dict = {
       { category: "Terminal",           feature: "URLs tocáveis na saída do terminal",                 mobile: "yes",     termux: "parcial",      termius: "yes" },
       { category: "Terminal",           feature: "Seleção de texto: copiar / compartilhar / selecionar tudo", mobile: "yes", termux: "yes",   termius: "yes" },
       { category: "Terminal",           feature: "Suporte a teclado físico / Bluetooth",               mobile: "yes",     termux: "yes",          termius: "yes" },
+      { category: "Terminal",           feature: "Integração de shell (OSC 133)",                      mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Terminal",           feature: "Imagens em linha (gráficos Kitty)",                  mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Terminal",           feature: "Renderização de glifos Nerd Font / powerline",       mobile: "Android", termux: "configurável", termius: "parcial" },
       { category: "Sessões",            feature: "Múltiplas sessões SSH simultâneas",                  mobile: "até 8", termux: "até 8",        termius: "yes" },
       { category: "Sessões",            feature: "Layout de painéis em grade",                         mobile: "yes",     termux: "via tmux",     termius: "abas" },

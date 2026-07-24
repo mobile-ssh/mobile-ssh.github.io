@@ -54,7 +54,7 @@ export const en: Dict = {
     sectionAIntro:
       "Mobile SSH keeps the common admin path short: save a server, connect, keep sessions alive, move files when needed, and get back to active terminals quickly.",
     features: [
-      { title: "SSH terminal", text: "xterm-256color terminal with 24-bit true color and italics, 5000-line scrollback, in-terminal search, copy/share, and pinch-to-zoom text sizing — Nerd Font powerline and icon glyphs and emoji render correctly on Android." },
+      { title: "SSH terminal", text: "xterm-256color terminal with 24-bit true color, italics, in-terminal search, OSC 133 shell integration, and pinch-to-zoom text sizing — plus a configurable font and color scheme and Nerd Font powerline/icon glyphs on Android." },
       { title: "Multi-session grid", text: "Up to eight SSH sessions in a resizable grid — tap a pane to focus, double-tap for fullscreen, pinch to resize text." },
       { title: "Clickable links", text: "URLs in the terminal are underlined and open in the browser with a tap — no copying or switching apps needed." },
       { title: "Server folders", text: "Organize saved servers into collapsible groups. Tap a group header to collapse it; the folder structure carries into the quick-connect picker." },
@@ -177,9 +177,11 @@ export const en: Dict = {
         title: "Terminal",
         items: [
           "VT100/xterm-256color terminal behavior with 24-bit true color and italics",
-          "5000-line scrollback buffer",
+          "Scrollback buffer of 5000 lines, with configurable size on Android",
           "Find in the terminal — search the scrollback and visible screen and jump between matches (Android and iOS)",
-          "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn, and keyboard toggle",
+          "Shell integration (OSC 133): jump between prompts, copy a command's output, and get alerted when a long-running command finishes (Android and iOS)",
+          "Inline images in the terminal via the Kitty graphics protocol (Android and iOS)",
+          "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn, and keyboard toggle — customizable on Android: add, remove, reorder, and define your own escape-sequence keys, with reset-to-defaults",
           "Tap-to-focus, optional tap-to-show-keyboard setting, copy and copy-all actions",
           "Pinch-to-zoom text sizing with remote terminal resize",
           "Double-tap pane fullscreen mode",
@@ -189,7 +191,8 @@ export const en: Dict = {
           "External and Bluetooth keyboard support on Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
           "Bracketed paste so multi-line clipboard content is not auto-executed",
           "Bundled Nerd Font renders powerline, starship, devicon, and Material Design icon glyphs on Android that the system font would otherwise show as empty boxes",
-          "Wide CJK, emoji, and combining characters are measured and drawn correctly on Android, including grapheme clusters and zero-width joiners"
+          "Wide CJK, emoji, and combining characters are measured and drawn correctly on Android and iOS, including grapheme clusters and zero-width joiners",
+          "Configurable terminal font (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) on Android, applied live to open panes"
         ]
       },
       {
@@ -213,6 +216,7 @@ export const en: Dict = {
           "Queued upload and download operations",
           "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit, and details flows",
+          "Open a downloaded file in another app on Android straight from the local pane",
           "Sort by name or date with per-host persistence",
           "Local port forwarding saved with server profiles",
           "Runtime tunnel add/remove view for connected sessions",
@@ -346,6 +350,8 @@ export const en: Dict = {
       { category: "Terminal",   feature: "Tappable URLs in terminal output",    mobile: "yes",    termux: "partial",      termius: "yes" },
       { category: "Terminal",   feature: "Text selection: copy / share / select all", mobile: "yes", termux: "yes",      termius: "yes" },
       { category: "Terminal",   feature: "Hardware / Bluetooth keyboard support", mobile: "yes",   termux: "yes",         termius: "yes" },
+      { category: "Terminal",   feature: "Shell integration (OSC 133)",          mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Terminal",   feature: "Inline images (Kitty graphics)",       mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",   feature: "Nerd Font / powerline glyph rendering", mobile: "Android", termux: "configurable", termius: "partial" },
       { category: "Sessions",   feature: "Multiple concurrent SSH sessions",    mobile: "up to 8", termux: "up to 8",    termius: "yes" },
       { category: "Sessions",   feature: "Grid pane layout",                    mobile: "yes",    termux: "via tmux",     termius: "tabs" },

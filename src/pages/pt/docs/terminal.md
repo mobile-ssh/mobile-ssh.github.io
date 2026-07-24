@@ -82,7 +82,21 @@ Pesquise em todo o buffer do terminal — o scrollback e a tela visível — e p
 
 - O terminal renderiza **cores reais de 24 bits** e **itálicos**, de modo que prompts com tema, realce de sintaxe e TUIs ficam com a aparência que têm no desktop.
 - **Área de transferência via OSC 52:** quando um programa remoto copia texto (o `set-clipboard` do tmux, um yank OSC 52 do Vim/Neovim), ele vai parar na área de transferência do seu celular — assim você pode copiar do servidor e colar em um app local.
-- No Android, uma **Nerd Font** incluída desenha glifos de ícones powerline, starship, devicon e Material Design que a fonte do sistema mostraria como quadrados vazios, e caracteres CJK largos, emojis e caracteres combinantes são medidos corretamente.
+- Tanto no Android quanto no iOS, caracteres CJK largos, emojis e caracteres combinantes (clusters de grafemas e juntores de largura zero) são medidos e desenhados corretamente. No Android, uma **Nerd Font** incluída também desenha glifos de ícones powerline, starship, devicon e Material Design que a fonte do sistema mostraria como quadrados vazios.
+
+## Integração de shell e imagens em linha
+
+- **Integração de shell (OSC 133):** quando sua shell emite marcadores de prompt OSC 133, o Mobile SSH pode pular entre prompts, copiar a saída de um único comando e alertá-lo quando um comando de longa duração termina. Funciona no Android e no iOS.
+- **Imagens em linha:** programas que usam o protocolo gráfico Kitty desenham imagens diretamente no terminal, no Android e no iOS.
+
+## Aparência e teclas (Android)
+
+No Android, as Configurações permitem personalizar o terminal:
+
+- **Fonte:** escolha a fonte monoespaçada do sistema, JetBrains Mono ou Source Code Pro.
+- **Esquema de cores:** Padrão, Solarized Dark ou Light, Gruvbox, Dracula ou Nord — aplicado ao vivo aos painéis abertos.
+- **Linha extra de teclas:** a aba Teclas permite adicionar, remover, reordenar e ocultar teclas, definir suas próprias teclas de sequência de escape e redefinir para os padrões, com uma pré-visualização ao vivo.
+- **Tamanho do scrollback:** defina quantas linhas o terminal mantém.
 
 ## Rolagem
 

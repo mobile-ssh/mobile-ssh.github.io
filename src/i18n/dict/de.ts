@@ -53,7 +53,7 @@ export const de: Dict = {
     sectionAIntro:
       "Mobile SSH hält den üblichen Admin-Weg kurz: Server speichern, verbinden, Sitzungen am Leben halten, bei Bedarf Dateien bewegen und schnell zu aktiven Terminals zurückkehren.",
     features: [
-      { title: "SSH-Terminal", text: "xterm-256color-Terminal mit 24-bit True Color und Kursivschrift, 5000-Zeilen-Scrollback, Suche im Terminal, Kopieren/Teilen und Pinch-to-Zoom-Textgröße – Nerd-Font-Powerline- und -Icon-Glyphen sowie Emoji werden auf Android korrekt dargestellt." },
+      { title: "SSH-Terminal", text: "xterm-256color-Terminal mit 24-bit True Color, Kursivschrift, Suche im Terminal, OSC 133-Shell-Integration und Pinch-to-Zoom-Textgröße – plus konfigurierbarer Schriftart und konfigurierbarem Farbschema sowie Nerd-Font-Powerline-/-Icon-Glyphen auf Android." },
       { title: "Multi-Session-Raster", text: "Bis zu acht SSH-Sitzungen in einem veränderbaren Raster – Tippen auf ein Panel für Fokus, Doppeltippen für Vollbild, Pinch zum Textgrößen-Anpassen." },
       { title: "Anklickbare Links", text: "URLs im Terminal sind unterstrichen und öffnen sich mit einem Tippen im Browser – kein Kopieren oder Wechseln der App nötig." },
       { title: "Serverordner", text: "Gespeicherte Server in einklappbare Gruppen organisieren. Tippe auf eine Gruppen-Kopfzeile zum Einklappen; die Ordnerstruktur erscheint auch in der Schnellverbindungsauswahl." },
@@ -172,9 +172,11 @@ export const de: Dict = {
         title: "Terminal",
         items: [
           "Terminalverhalten im Stil von VT100/xterm-256color mit 24-bit True Color und Kursivschrift",
-          "Scrollback-Puffer von 5000 Zeilen",
+          "Scrollback-Puffer von 5000 Zeilen, mit konfigurierbarer Größe auf Android",
           "Suche im Terminal – den Scrollback und den sichtbaren Bildschirm durchsuchen und zwischen Treffern springen (Android und iOS)",
-          "Zusatztastenreihe für ESC, TAB, CTRL, Umschalt, Pfeile, Home, End, PgUp, PgDn und Tastaturumschaltung",
+          "Shell-Integration (OSC 133): zwischen Prompts springen, die Ausgabe eines einzelnen Befehls kopieren und benachrichtigt werden, wenn ein lang laufender Befehl fertig ist (Android und iOS)",
+          "Inline-Bilder im Terminal über das Kitty-Grafikprotokoll (Android und iOS)",
+          "Zusatztastenreihe für ESC, TAB, CTRL, Umschalt, Pfeile, Home, End, PgUp, PgDn und Tastaturumschaltung – auf Android anpassbar: Tasten hinzufügen, entfernen, neu anordnen und eigene Escape-Sequenz-Tasten definieren, mit Zurücksetzen auf Standard",
           "Antippen für Fokus, optionales „Tippen zeigt Tastatur“, Aktionen Kopieren und Alles kopieren",
           "Pinch-Zoom-Textgröße mit Größenänderung des entfernten Terminals",
           "Vollbildmodus per Doppeltipp",
@@ -184,7 +186,8 @@ export const de: Dict = {
           "Unterstützung externer und Bluetooth-Tastaturen auf Android und iOS, einschließlich Pfeiltasten, Funktionstasten und Ctrl/Alt-Tastenkombinationen",
           "Bracketed Paste, damit mehrzeiliger Zwischenablage-Inhalt nicht automatisch ausgeführt wird",
           "Die mitgelieferte Nerd Font stellt auf Android Powerline-, Starship-, Devicon- und Material-Design-Icon-Glyphen dar, die die Systemschrift sonst als leere Kästchen zeigen würde",
-          "Breite CJK-, Emoji- und kombinierende Zeichen werden auf Android korrekt vermessen und gezeichnet, einschließlich Graphem-Cluster und Zero-Width-Joiner"
+          "Breite CJK-, Emoji- und kombinierende Zeichen werden auf Android und iOS korrekt vermessen und gezeichnet, einschließlich Graphem-Cluster und Zero-Width-Joiner",
+          "Konfigurierbare Terminalschrift (System-Monospace, JetBrains Mono oder Source Code Pro) und ANSI-Farbschema (Solarized, Gruvbox, Dracula, Nord) auf Android, live auf offene Panels angewendet"
         ]
       },
       {
@@ -208,6 +211,7 @@ export const de: Dict = {
           "Upload- und Download-Operationen in der Warteschlange",
           "Rekursiver Ordner-Upload und -Download zwischen Telefon und entferntem Host",
           "Entferntes Umbenennen, Löschen, Erstellen, Bearbeiten und Details",
+          "Eine heruntergeladene Datei direkt aus dem lokalen Panel in einer anderen App auf Android öffnen",
           "Sortieren nach Name oder Datum mit Persistenz pro Host",
           "Lokale Portweiterleitung im Serverprofil gespeichert",
           "Laufzeit-Tunnelansicht zum Hinzufügen/Entfernen bei verbundenen Sitzungen",
@@ -341,6 +345,8 @@ export const de: Dict = {
       { category: "Terminal",          feature: "Antippbare URLs in der Terminalausgabe",            mobile: "yes",      termux: "teilweise",      termius: "yes" },
       { category: "Terminal",          feature: "Textauswahl: Kopieren / Teilen / Alles auswählen",  mobile: "yes",      termux: "yes",            termius: "yes" },
       { category: "Terminal",          feature: "Hardware- / Bluetooth-Tastaturunterstützung",       mobile: "yes",      termux: "yes",            termius: "yes" },
+      { category: "Terminal",          feature: "Shell-Integration (OSC 133)",                       mobile: "yes",      termux: "no",             termius: "no" },
+      { category: "Terminal",          feature: "Inline-Bilder (Kitty-Grafik)",                      mobile: "yes",      termux: "no",             termius: "no" },
       { category: "Terminal",          feature: "Nerd-Font-/Powerline-Glyphen-Darstellung",          mobile: "Android",  termux: "konfigurierbar", termius: "teilweise" },
       { category: "Sitzungen",         feature: "Mehrere gleichzeitige SSH-Sitzungen",               mobile: "bis zu 8",  termux: "bis zu 8",       termius: "yes" },
       { category: "Sitzungen",         feature: "Raster-Panel-Anordnung",                            mobile: "yes",      termux: "über tmux",      termius: "Tabs" },

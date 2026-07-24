@@ -53,7 +53,7 @@ export const id: Dict = {
     sectionAIntro:
       "Mobile SSH memendekkan jalur administrasi umum: simpan server, sambungkan, jaga sesi tetap hidup, pindahkan berkas saat diperlukan, dan kembali cepat ke terminal aktif.",
     features: [
-      { title: "Terminal SSH", text: "Terminal xterm-256color dengan warna sejati 24-bit dan huruf miring, scrollback 5000 baris, pencarian di dalam terminal, salin/bagikan, dan penyesuaian ukuran teks dengan cubit — glyph powerline dan ikon Nerd Font serta emoji ditampilkan dengan benar di Android." },
+      { title: "Terminal SSH", text: "Terminal xterm-256color dengan warna sejati 24-bit, huruf miring, pencarian di dalam terminal, integrasi shell OSC 133, dan penyesuaian ukuran teks dengan cubit — plus font dan skema warna yang dapat dikonfigurasi serta glyph powerline/ikon Nerd Font di Android." },
       { title: "Kisi multi-sesi", text: "Hingga delapan sesi SSH dalam kisi yang dapat diubah ukurannya — ketuk panel untuk fokus, ketuk ganda untuk layar penuh, cubit untuk ubah ukuran teks." },
       { title: "Tautan yang dapat diklik", text: "URL di terminal digarisbawahi dan terbuka di browser dengan satu tap — tanpa menyalin atau berpindah aplikasi." },
       { title: "Folder server", text: "Atur server tersimpan ke dalam grup yang dapat diciutkan. Ketuk tajuk grup untuk menciutkannya; struktur folder tersedia di pemilih sambungan cepat." },
@@ -171,9 +171,11 @@ export const id: Dict = {
         title: "Terminal",
         items: [
           "Perilaku terminal bergaya VT100/xterm-256color dengan warna sejati 24-bit dan huruf miring",
-          "Buffer scrollback 5000 baris",
+          "Buffer scrollback 5000 baris, dengan ukuran yang dapat dikonfigurasi di Android",
           "Cari di terminal — telusuri buffer scrollback dan layar yang terlihat serta lompat antar kecocokan (Android dan iOS)",
-          "Baris tombol tambahan untuk ESC, TAB, CTRL, Shift, panah, Home, End, PgUp, PgDn, dan toggle keyboard",
+          "Integrasi shell (OSC 133): lompat antar prompt, salin output sebuah perintah, dan dapatkan peringatan saat perintah yang berjalan lama selesai (Android dan iOS)",
+          "Gambar inline di terminal melalui protokol grafis Kitty (Android dan iOS)",
+          "Baris tombol tambahan untuk ESC, TAB, CTRL, Shift, panah, Home, End, PgUp, PgDn, dan toggle keyboard — dapat disesuaikan di Android: tambah, hapus, susun ulang, dan tentukan tombol escape-sequence Anda sendiri, dengan reset ke default",
           "Sentuh untuk fokus, opsi sentuh-untuk-tampilkan-keyboard, aksi salin dan salin semua",
           "Cubit untuk ukuran teks dengan resize terminal jarak jauh",
           "Mode layar penuh panel dengan ketuk ganda",
@@ -183,7 +185,8 @@ export const id: Dict = {
           "Dukungan keyboard eksternal dan Bluetooth di Android dan iOS, termasuk panah, tombol fungsi, dan kombinasi Ctrl/Alt",
           "Bracketed paste agar konten clipboard multi-baris tidak dieksekusi otomatis",
           "Nerd Font bawaan menampilkan glyph ikon powerline, starship, devicon, dan Material Design di Android yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem",
-          "Karakter CJK lebar, emoji, dan karakter penggabung diukur dan digambar dengan benar di Android, termasuk klaster grafem dan zero-width joiner"
+          "Karakter CJK lebar, emoji, dan karakter penggabung diukur dan digambar dengan benar di Android dan iOS, termasuk klaster grafem dan zero-width joiner",
+          "Font terminal yang dapat dikonfigurasi (monospace sistem, JetBrains Mono, atau Source Code Pro) dan skema warna ANSI (Solarized, Gruvbox, Dracula, Nord) di Android, diterapkan secara langsung ke panel yang terbuka"
         ]
       },
       {
@@ -207,6 +210,7 @@ export const id: Dict = {
           "Operasi unggah dan unduh yang diantre",
           "Unggah dan unduh folder rekursif antara ponsel dan host jarak jauh",
           "Aksi jarak jauh: ganti nama, hapus, buat, edit, dan detail",
+          "Buka berkas yang diunduh di aplikasi lain di Android langsung dari panel lokal",
           "Urutkan berdasarkan nama atau tanggal dengan persistensi per host",
           "Penerusan port lokal yang disimpan bersama profil server",
           "Tampilan tambah/hapus tunnel runtime untuk sesi yang tersambung",
@@ -340,6 +344,8 @@ export const id: Dict = {
       { category: "Terminal",         feature: "URL yang dapat diklik di output terminal",       mobile: "yes",     termux: "sebagian",      termius: "yes" },
       { category: "Terminal",         feature: "Seleksi teks: salin / bagikan / pilih semua",   mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Dukungan keyboard hardware / Bluetooth",         mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Terminal",         feature: "Integrasi shell (OSC 133)",                      mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Terminal",         feature: "Gambar inline (grafis Kitty)",                   mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Terminal",         feature: "Perenderan glyph Nerd Font / powerline",         mobile: "Android", termux: "dapat dikonfigurasi", termius: "sebagian" },
       { category: "Sesi",             feature: "Beberapa sesi SSH bersamaan",                    mobile: "hingga 8", termux: "hingga 8",     termius: "yes" },
       { category: "Sesi",             feature: "Tata letak panel kisi",                          mobile: "yes",     termux: "melalui tmux",  termius: "tab" },

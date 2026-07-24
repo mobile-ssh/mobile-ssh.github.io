@@ -53,7 +53,7 @@ export const ja: Dict = {
     sectionAIntro:
       "Mobile SSH は管理者の定番ルートを短くします。サーバーを保存し、つなぎ、セッションを維持し、必要なときにファイルを動かし、すばやくアクティブな端末に戻れます。",
     features: [
-      { title: "SSH ターミナル", text: "xterm-256color 端末。24-bit トゥルーカラーとイタリック、5000 行スクロールバック、ターミナル内検索、コピー／共有、ピンチで文字サイズ変更に対応。Nerd Font の powerline とアイコン グリフ、絵文字は Android で正しく表示されます。" },
+      { title: "SSH ターミナル", text: "xterm-256color 端末。24-bit トゥルーカラー、イタリック、ターミナル内検索、OSC 133 シェル統合、ピンチで文字サイズ変更に対応。加えて Android では、設定可能なフォントとカラースキーム、Nerd Font の powerline／アイコン グリフに対応。" },
       { title: "マルチセッション グリッド", text: "リサイズ可能なグリッドで最大 8 つの SSH セッション。ペインをタップしてフォーカス、ダブルタップでフルスクリーン、ピンチで文字サイズ変更。" },
       { title: "タップ可能なリンク", text: "ターミナル出力内の URL に下線が引かれ、タップするだけでブラウザで開きます。コピーやアプリ切替は不要。" },
       { title: "サーバー フォルダー", text: "保存済みサーバーを折りたたみ可能なグループに整理。グループのヘッダーをタップして折りたたみ。フォルダー構造はクイック接続ピッカーにも反映されます。" },
@@ -171,9 +171,11 @@ export const ja: Dict = {
         title: "ターミナル",
         items: [
           "VT100/xterm-256color 風のターミナル動作。24-bit トゥルーカラーとイタリックに対応",
-          "5000 行のスクロールバック バッファ",
+          "5000 行のスクロールバック バッファ。Android ではサイズを設定可能",
           "ターミナル内検索 — スクロールバックと表示中の画面を検索し、一致箇所を移動（Android と iOS）",
-          "ESC、TAB、CTRL、Shift、矢印、Home、End、PgUp、PgDn、キーボード切替の拡張キーバー",
+          "シェル統合（OSC 133）：プロンプト間の移動、コマンド出力のコピー、長時間実行コマンドの完了時のアラート（Android と iOS）",
+          "Kitty グラフィックス プロトコルによるターミナル内のインライン画像（Android と iOS）",
+          "ESC、TAB、CTRL、Shift、矢印、Home、End、PgUp、PgDn、キーボード切替の拡張キーバー — Android ではカスタマイズ可能：キーの追加・削除・並べ替え、独自のエスケープシーケンス キーの定義、既定値へのリセット",
           "タップでフォーカス、任意で「タップでキーボードを表示」、コピー／全コピー",
           "ピンチで文字サイズ変更（リモート端末リサイズ付き）",
           "ペインのダブルタップでフルスクリーン",
@@ -183,7 +185,8 @@ export const ja: Dict = {
           "Android と iOS での外付けおよび Bluetooth キーボード対応（矢印キー、ファンクションキー、Ctrl／Alt の組み合わせを含む）",
           "ブラケットペーストにより、複数行のクリップボード内容が自動実行されない",
           "内蔵の Nerd Font が、システム フォントでは空の四角として表示されてしまう powerline、starship、devicon、Material Design のアイコン グリフを Android で描画",
-          "ワイド CJK、絵文字、結合文字を Android で正しく計測・描画。書記素クラスタやゼロ幅接合子にも対応"
+          "ワイド CJK、絵文字、結合文字を Android と iOS で正しく計測・描画。書記素クラスタやゼロ幅接合子にも対応",
+          "設定可能なターミナル フォント（システム等幅、JetBrains Mono、Source Code Pro）と ANSI カラースキーム（Solarized、Gruvbox、Dracula、Nord）を Android で提供し、開いているペインに即時反映"
         ]
       },
       {
@@ -207,6 +210,7 @@ export const ja: Dict = {
           "アップロード／ダウンロードのキュー",
           "スマホとリモートホスト間でのフォルダーの再帰的なアップロードとダウンロード",
           "リモートの名前変更、削除、作成、編集、詳細",
+          "ダウンロードしたファイルを、ローカル ペインから Android の別のアプリで直接開く",
           "名前または日付による並び替え（ホスト単位で記憶）",
           "サーバープロファイルに保存されるローカル ポートフォワード",
           "接続中セッション向けランタイム トンネル追加／削除ビュー",
@@ -340,6 +344,8 @@ export const ja: Dict = {
       { category: "ターミナル", feature: "端末出力内のタップ可能な URL",         mobile: "yes",    termux: "一部対応",      termius: "yes" },
       { category: "ターミナル", feature: "テキスト選択：コピー／共有／全選択",   mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "ターミナル", feature: "ハードウェア／Bluetooth キーボード対応", mobile: "yes",   termux: "yes",          termius: "yes" },
+      { category: "ターミナル", feature: "シェル統合（OSC 133）",                 mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "ターミナル", feature: "インライン画像（Kitty グラフィックス）", mobile: "yes",    termux: "no",           termius: "no" },
       { category: "ターミナル", feature: "Nerd Font／powerline グリフの描画",     mobile: "Android", termux: "設定可能",     termius: "一部対応" },
       { category: "セッション", feature: "複数の SSH 同時セッション",            mobile: "最大 8", termux: "最大 8",      termius: "yes" },
       { category: "セッション", feature: "グリッド ペイン レイアウト",           mobile: "yes",    termux: "tmux 経由",     termius: "タブ" },
