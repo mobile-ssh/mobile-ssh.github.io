@@ -385,25 +385,28 @@ export const ur: Dict = {
       { category: "پلگ انز", feature: "پلگ ان سپورٹ",                              mobile: "yes",    termux: "پیکجز کے ذریعے",   termius: "no" },
       { category: "پلگ انز", feature: "مطالبے پر انسٹال پلگ ان کیٹلاگ",           mobile: "yes",    termux: "no",           termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH بمقابلہ ریموٹ AI-ایجنٹ ایپس",
+    agentAppsHeading: "Mobile SSH بمقابلہ AI کوڈنگ-ایجنٹ ایپس",
     agentAppsIntro:
-      "ایپس کی ایک نئی قسم صرف اسی لیے موجود ہے کہ آپ کے فون سے کسی ریموٹ مشین پر Claude Code، Codex اور اسی طرح کے کوڈنگ ایجنٹ چلائے جا سکیں۔ Mobile SSH ان کے ساتھ اوورلیپ کرتی ہے — آپ ان ایجنٹس کو SSH کے ذریعے چلا سکتے ہیں اور جب انہیں آپ کی ضرورت ہو تو الرٹ حاصل کر سکتے ہیں — لیکن یہ کام کو دوسری طرف سے دیکھتی ہے: یہ پہلے ایک عمومی، براہِ راست SSH کلائنٹ ہے، اور ایجنٹ ساتھی بعد میں۔",
+      "ایپس کی ایک تیزی سے بڑھتی ہوئی قسم صرف اسی لیے موجود ہے کہ آپ کے فون سے کوڈنگ ایجنٹ — Claude Code، Codex اور ان کے ساتھی — چلائے جا سکیں۔ کچھ فریقِ ثالث SSH یا ریلے ایپس ہیں (Onepilot، Happy، Omnara)؛ اب OpenAI اور Anthropic بھی یہ سہولت مقامی طور پر فراہم کرتے ہیں، ChatGPT ایپ کے اندر Codex اور Claude ایپ کے اندر Claude Code کے ساتھ، اور دونوں وینڈر کے اپنے کلاؤڈ میں چلتے ہیں۔ Mobile SSH ان سب کے ساتھ اوورلیپ کرتی ہے — آپ ان ایجنٹس کو SSH کے ذریعے چلا سکتے ہیں اور جب انہیں آپ کی ضرورت ہو تو الرٹ حاصل کر سکتے ہیں — لیکن یہ کام کو دوسری طرف سے دیکھتی ہے: یہ پہلے ایک عمومی، براہِ راست SSH کلائنٹ ہے، اور ایجنٹ ساتھی بعد میں۔",
     agentAppsRows: [
-      { feature: "ریموٹ سرور پر Claude Code اور Codex چلاتا ہے", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "عمومی SSH ٹرمینل (کوئی بھی کمانڈ چلائیں)",       mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "جزوی" },
-      { feature: "براہِ راست SSH — کوئی کلاؤڈ ریلے نہیں",           mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "SFTP فائل منتقلی",                               mobile: "yes",    onepilot: "جزوی",     happy: "no",    omnara: "no" },
-      { feature: "مقامی پورٹ فارورڈنگ",                            mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "tmux سیشن مینیجر",                               mobile: "yes",    onepilot: "جزوی",     happy: "no",    omnara: "no" },
-      { feature: "ایجنٹ الرٹس (جب ایجنٹ کو ان پٹ درکار ہو تو پش)", mobile: "yes",  onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "ایجنٹ اشاروں کی ایک ٹیپ منظوری / انکار",         mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Android اور iOS",                               mobile: "yes",    onepilot: "صرف iOS", happy: "yes",   omnara: "yes" },
-      { feature: "اکاؤنٹ کی ضرورت نہیں",                          mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
-      { feature: "کوئی Pro پے وال نہیں (تمام فیچرز مفت)",          mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
-      { feature: "اوپن سورس",                                     mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+      { feature: "آپ کے فون سے کوڈنگ ایجنٹ چلاتا ہے",              mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "کسی بھی کوڈنگ ایجنٹ کے ساتھ کام کرتا ہے (صرف ایک وینڈر نہیں)", mobile: "yes", onepilot: "yes", happy: "Claude Code", omnara: "yes",     chatgpt: "صرف Codex",   claude: "صرف Claude Code" },
+      { feature: "آپ کی اپنی مشین پر چلتا ہے (وینڈر کلاؤڈ نہیں)",   mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "no",           claude: "جزوی" },
+      { feature: "براہِ راست SSH — کوئی کلاؤڈ ریلے نہیں",           mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "عمومی SSH ٹرمینل (کوئی بھی کمانڈ چلائیں)",       mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "جزوی",    chatgpt: "no",           claude: "no" },
+      { feature: "SFTP فائل منتقلی",                               mobile: "yes", onepilot: "جزوی",     happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "مقامی پورٹ فارورڈنگ",                            mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "tmux سیشن مینیجر",                               mobile: "yes", onepilot: "جزوی",     happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "ایجنٹ الرٹس (جب ایجنٹ کو ان پٹ درکار ہو تو پش)", mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "ایجنٹ اشاروں کی ایک ٹیپ منظوری / انکار",         mobile: "no",  onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "کوئی سرور یا SSH سیٹ اپ نہیں",                   mobile: "no",  onepilot: "no",       happy: "جزوی",       omnara: "جزوی",    chatgpt: "yes",          claude: "yes" },
+      { feature: "Android اور iOS",                               mobile: "yes", onepilot: "صرف iOS",  happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "اکاؤنٹ کی ضرورت نہیں",                          mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "کوئی Pro پے وال نہیں (تمام فیچرز مفت)",          mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "مفت درجہ",     claude: "no" },
+      { feature: "اوپن سورس",                                     mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
-      "توازن حقیقی ہے: مخصوص ایجنٹ ایپس اجازت کے اشاروں کے لیے ایک ٹیپ منظوری / انکار اسکرین شامل کرتی ہیں، جبکہ Mobile SSH میں آپ ایجنٹ کو ٹرمینل ہی میں جواب دیتے ہیں۔ بدلے میں، Mobile SSH ایک مکمل SSH/SFTP/ٹنل کلائنٹ ہے، بغیر کسی اکاؤنٹ یا وینڈر ریلے کے براہِ راست آپ کے اپنے سرور سے جڑتی ہے، اور ہر فیچر مفت ہے۔ Happy اور Omnara اوپن سورس ہیں لیکن ایک کلاؤڈ ریلے کے ذریعے روٹ ہوتی ہیں (Omnara کو اکاؤنٹ کی بھی ضرورت ہوتی ہے)؛ Onepilot سب سے قریب ہے — iOS پر براہِ راست SSH — لیکن صرف iOS اور ادائیگی والی۔",
+      "مقامی ChatGPT اور Claude ایپس کسی ایک وینڈر کے ایجنٹ کو بغیر کسی سیٹ اپ کے چلانے کا سب سے آسان طریقہ ہیں — کوئی سرور نہیں، صرف ایک اکاؤنٹ — اور یہ ایک شاندار ایک ٹیپ منظوری / انکار اسکرین شامل کرتی ہیں۔ رکاوٹ یہ ہے: یہ صرف اپنا ماڈل اپنے ہی کلاؤڈ میں چلاتی ہیں، کوئی عمومی ٹرمینل نہیں، کوئی SFTP یا ٹنل نہیں، اور اپنی مشین لانے کی سہولت نہیں، اور یہ ادائیگی والی یا اکاؤنٹ کی پابند ہیں۔ Onepilot، Happy اور Omnara ایجنٹ کو آپ کے زیرِ کنٹرول ہارڈ ویئر پر رکھتی ہیں (Onepilot براہِ راست SSH کے ذریعے؛ Happy اور Omnara ایک کلاؤڈ ریلے کے ذریعے، اور Omnara کو اکاؤنٹ کی ضرورت ہوتی ہے)۔ Mobile SSH بغیر کسی اکاؤنٹ یا وینڈر ریلے کے براہِ راست آپ کے اپنے سرور سے جڑتی ہے، ایک مکمل ٹرمینل، SFTP اور پورٹ فارورڈنگ کے ساتھ کوئی بھی ایجنٹ چلاتی ہے، اور ہر فیچر مفت ہے — توازن یہ ہے کہ آپ ایجنٹ کے اشاروں کا جواب کسی مخصوص منظوری / انکار اسکرین کے بجائے ٹرمینل ہی میں دیتے ہیں۔",
   },
   privacy: {
     metaTitle: "رازداری پالیسی | Mobile SSH",

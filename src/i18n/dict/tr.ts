@@ -385,25 +385,28 @@ export const tr: Dict = {
       { category: "Eklentiler", feature: "Eklenti desteği",                        mobile: "yes",    termux: "paketlerle",   termius: "no" },
       { category: "Eklentiler", feature: "İstek üzerine kurulan eklenti kataloğu", mobile: "yes",    termux: "no",           termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH ile uzak yapay zeka ajan uygulamaları",
+    agentAppsHeading: "Mobile SSH ile yapay zeka kodlama ajanı uygulamaları",
     agentAppsIntro:
-      "Yalnızca Claude Code, Codex ve benzeri kodlama ajanlarını telefonundan uzak bir makinede çalıştırmak için var olan daha yeni bir uygulama kategorisi mevcut. Mobile SSH bunlarla örtüşür — bu ajanları SSH üzerinden çalıştırabilir ve sana ihtiyaç duyduklarında uyarı alabilirsin — ancak işe diğer taraftan yaklaşır: önce genel, doğrudan bir SSH istemcisidir, sonra bir ajan yardımcısıdır.",
+      "Yalnızca kodlama ajanlarını — Claude Code, Codex ve benzerlerini — telefonundan yönetmek için var olan, hızla büyüyen bir uygulama kategorisi mevcut. Bazıları üçüncü taraf SSH veya aktarım uygulamalarıdır (Onepilot, Happy, Omnara); OpenAI ve Anthropic artık bunu yerel olarak da sunuyor: ChatGPT uygulamasının içinde Codex, Claude uygulamasının içinde Claude Code, her ikisi de sağlayıcının kendi bulutunda çalışıyor. Mobile SSH bunların hepsiyle örtüşür — bu ajanları SSH üzerinden çalıştırabilir ve sana ihtiyaç duyduklarında uyarı alabilirsin — ancak işe diğer taraftan yaklaşır: önce genel, doğrudan bir SSH istemcisidir, sonra bir ajan yardımcısıdır.",
     agentAppsRows: [
-      { feature: "Uzak sunucuda Claude Code ve Codex çalıştırır",         mobile: "yes",    onepilot: "yes",          happy: "yes",   omnara: "yes" },
-      { feature: "Genel SSH terminali (herhangi bir komutu çalıştır)",     mobile: "yes",    onepilot: "yes",          happy: "no",    omnara: "kısmi" },
-      { feature: "Doğrudan SSH — bulut aktarımı yok",                      mobile: "yes",    onepilot: "yes",          happy: "no",    omnara: "no" },
-      { feature: "SFTP dosya aktarımı",                                    mobile: "yes",    onepilot: "kısmi",        happy: "no",    omnara: "no" },
-      { feature: "Yerel port yönlendirme",                                 mobile: "yes",    onepilot: "yes",          happy: "no",    omnara: "no" },
-      { feature: "tmux oturum yöneticisi",                                 mobile: "yes",    onepilot: "kısmi",        happy: "no",    omnara: "no" },
-      { feature: "Ajan uyarıları (ajanın girdiye ihtiyacı olduğunda bildirim)", mobile: "yes", onepilot: "yes",     happy: "yes",   omnara: "yes" },
-      { feature: "Ajan istemlerini tek dokunuşla onayla/reddet",           mobile: "no",     onepilot: "yes",          happy: "yes",   omnara: "yes" },
-      { feature: "Android ve iOS",                                         mobile: "yes",    onepilot: "yalnızca iOS", happy: "yes",   omnara: "yes" },
-      { feature: "Hesap gerekmez",                                         mobile: "yes",    onepilot: "yes",          happy: "yes",   omnara: "no" },
-      { feature: "Pro paywall yok (tüm özellikler ücretsiz)",              mobile: "yes",    onepilot: "no",           happy: "no",    omnara: "no" },
-      { feature: "Açık kaynak",                                            mobile: "no",     onepilot: "no",           happy: "MIT",   omnara: "Apache" }
+      { feature: "Kodlama ajanlarını telefonundan çalıştırır",             mobile: "yes", onepilot: "yes",          happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "Herhangi bir kodlama ajanıyla çalışır (tek sağlayıcıyla değil)", mobile: "yes", onepilot: "yes", happy: "Claude Code", omnara: "yes",     chatgpt: "yalnızca Codex", claude: "yalnızca Claude Code" },
+      { feature: "Kendi makinende çalışır (sağlayıcı bulutunda değil)",     mobile: "yes", onepilot: "yes",          happy: "yes",         omnara: "yes",     chatgpt: "no",           claude: "kısmi" },
+      { feature: "Doğrudan SSH — bulut aktarımı yok",                      mobile: "yes", onepilot: "yes",          happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "Genel SSH terminali (herhangi bir komutu çalıştır)",     mobile: "yes", onepilot: "yes",          happy: "no",          omnara: "kısmi",   chatgpt: "no",           claude: "no" },
+      { feature: "SFTP dosya aktarımı",                                    mobile: "yes", onepilot: "kısmi",        happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "Yerel port yönlendirme",                                 mobile: "yes", onepilot: "yes",          happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "tmux oturum yöneticisi",                                 mobile: "yes", onepilot: "kısmi",        happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "Ajan uyarıları (ajanın girdiye ihtiyacı olduğunda bildirim)", mobile: "yes", onepilot: "yes",   happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "Ajan istemlerini tek dokunuşla onayla/reddet",           mobile: "no",  onepilot: "yes",          happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "Sıfır sunucu veya SSH kurulumu",                         mobile: "no",  onepilot: "no",           happy: "kısmi",       omnara: "kısmi",   chatgpt: "yes",          claude: "yes" },
+      { feature: "Android ve iOS",                                         mobile: "yes", onepilot: "yalnızca iOS", happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "Hesap gerekmez",                                         mobile: "yes", onepilot: "yes",          happy: "yes",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "Pro paywall yok (tüm özellikler ücretsiz)",              mobile: "yes", onepilot: "no",           happy: "no",          omnara: "no",      chatgpt: "ücretsiz katman", claude: "no" },
+      { feature: "Açık kaynak",                                            mobile: "no",  onepilot: "no",           happy: "MIT",         omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
-      "Ödünleşim gerçek: adanmış ajan uygulamaları izin istemleri için tek dokunuşla onayla/reddet ekranı ekler, Mobile SSH ise ajanı terminalde yanıtlamanı sağlar. Buna karşılık Mobile SSH tam bir SSH/SFTP/tünel istemcisidir, hesap veya sağlayıcı aktarımı olmadan doğrudan kendi sunucuna bağlanır ve her özellik ücretsizdir. Happy ve Omnara açık kaynaktır ama bir bulut aktarımı üzerinden geçer (Omnara ayrıca hesap gerektirir); Onepilot en yakın olanıdır — iOS'ta doğrudan SSH — ama yalnızca iOS'ta ve ücretlidir.",
+      "Yerel ChatGPT ve Claude uygulamaları, tek bir sağlayıcının ajanını sıfır kurulumla çalıştırmanın en sorunsuz yoludur — sunucu yok, yalnızca bir hesap — ve cilalı, tek dokunuşla onayla/reddet ekranı eklerler. İşin püf noktası: yalnızca kendi modellerini kendi bulutlarında çalıştırırlar, genel terminal yok, SFTP veya tünel yok, kendi makineni getirme yok ve ücretli ya da hesaba bağlıdırlar. Onepilot, Happy ve Omnara ajanı senin denetlediğin donanımda tutar (Onepilot doğrudan SSH ile; Happy ve Omnara bir bulut aktarımı ile ve Omnara bir hesap gerektirir). Mobile SSH hesap veya sağlayıcı aktarımı olmadan doğrudan kendi sunucuna bağlanır, tam bir terminal, SFTP ve port yönlendirmenin yanında herhangi bir ajanı çalıştırır ve her özellik ücretsizdir — ödünleşim, ajan istemlerini adanmış bir onayla/reddet ekranı yerine terminalde yanıtlamandır.",
   },
   privacy: {
     metaTitle: "Gizlilik Politikası | Mobile SSH",

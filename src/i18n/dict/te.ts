@@ -386,25 +386,28 @@ export const te: Dict = {
       { category: "ప్లగిన్‌లు", feature: "ప్లగిన్ మద్దతు",                             mobile: "yes",    termux: "ప్యాకేజీల ద్వారా", termius: "no" },
       { category: "ప్లగిన్‌లు", feature: "అవసరమైనప్పుడు ఇన్‌స్టాల్ చేసే ప్లగిన్ కేటలాగ్", mobile: "yes",  termux: "no",           termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH vs రిమోట్ AI-ఏజెంట్ యాప్‌లు",
+    agentAppsHeading: "Mobile SSH vs AI కోడింగ్-ఏజెంట్ యాప్‌లు",
     agentAppsIntro:
-      "మీ ఫోన్ నుండి రిమోట్ మెషీన్‌లో Claude Code, Codex మరియు సారూప్య కోడింగ్ ఏజెంట్‌లను నడపడానికి మాత్రమే ఉద్దేశించిన కొత్త రకం యాప్‌లు ఉన్నాయి. Mobile SSH వాటితో కొంత అతివ్యాప్తి చెందుతుంది — మీరు ఆ ఏజెంట్‌లను SSH ద్వారా నడపవచ్చు మరియు వాటికి మీ అవసరం ఉన్నప్పుడు హెచ్చరిక పొందవచ్చు — కానీ ఇది పనిని మరో వైపు నుండి సమీపిస్తుంది: ఇది మొదట సాధారణ, ప్రత్యక్ష SSH క్లయింట్, ఆ తర్వాత ఏజెంట్ సహచరుడు.",
+      "మీ ఫోన్ నుండి కోడింగ్ ఏజెంట్‌లను — Claude Code, Codex మరియు మిత్రులను — నడపడానికి మాత్రమే ఉద్దేశించిన వేగంగా పెరుగుతున్న రకం యాప్‌లు ఉన్నాయి. కొన్ని థర్డ్-పార్టీ SSH లేదా రిలే యాప్‌లు (Onepilot, Happy, Omnara); OpenAI మరియు Anthropic ఇప్పుడు దీన్ని స్థానికంగా కూడా అందిస్తున్నాయి — ChatGPT యాప్‌లో Codex మరియు Claude యాప్‌లో Claude Code, రెండూ విక్రేత స్వంత క్లౌడ్‌లో నడుస్తాయి. Mobile SSH వాటన్నింటితో అతివ్యాప్తి చెందుతుంది — మీరు ఆ ఏజెంట్‌లను SSH ద్వారా నడపవచ్చు మరియు వాటికి మీ అవసరం ఉన్నప్పుడు హెచ్చరిక పొందవచ్చు — కానీ ఇది పనిని మరో వైపు నుండి సమీపిస్తుంది: ఇది మొదట సాధారణ, ప్రత్యక్ష SSH క్లయింట్, ఆ తర్వాత ఏజెంట్ సహచరుడు.",
     agentAppsRows: [
-      { feature: "రిమోట్ సర్వర్‌లో Claude Code & Codex నడుపుతుంది", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "సాధారణ SSH టర్మినల్ (ఏదైనా కమాండ్ నడపండి)",       mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "పాక్షిక" },
-      { feature: "ప్రత్యక్ష SSH — క్లౌడ్ రిలే లేదు",                mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "SFTP ఫైల్ బదిలీ",                                 mobile: "yes",    onepilot: "పాక్షిక",  happy: "no",    omnara: "no" },
-      { feature: "స్థానిక పోర్ట్ ఫార్వార్డింగ్",                    mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "tmux సెషన్ మేనేజర్",                              mobile: "yes",    onepilot: "పాక్షిక",  happy: "no",    omnara: "no" },
-      { feature: "ఏజెంట్ హెచ్చరికలు (ఏజెంట్‌కు ఇన్‌పుట్ అవసరమైనప్పుడు పుష్)", mobile: "yes",  onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "ఏజెంట్ ప్రాంప్ట్‌లను ఒక-ట్యాప్‌తో ఆమోదించు/తిరస్కరించు", mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Android మరియు iOS",                              mobile: "yes",    onepilot: "iOS మాత్రమే", happy: "yes",   omnara: "yes" },
-      { feature: "ఖాతా అవసరం లేదు",                                mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
-      { feature: "Pro పేవాల్ లేదు (అన్ని ఫీచర్లు ఉచితం)",          mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
-      { feature: "ఓపెన్ సోర్స్",                                   mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+      { feature: "మీ ఫోన్ నుండి కోడింగ్ ఏజెంట్‌లను నడుపుతుంది",       mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",           claude: "yes" },
+      { feature: "ఏ కోడింగ్ ఏజెంట్‌తోనైనా పనిచేస్తుంది (ఒకే విక్రేత కాదు)", mobile: "yes", onepilot: "yes",      happy: "Claude Code", omnara: "yes",     chatgpt: "Codex మాత్రమే", claude: "Claude Code మాత్రమే" },
+      { feature: "మీ స్వంత మెషీన్‌లో నడుస్తుంది (విక్రేత క్లౌడ్ కాదు)",  mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "no",            claude: "పాక్షిక" },
+      { feature: "ప్రత్యక్ష SSH — క్లౌడ్ రిలే లేదు",                    mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "no",      chatgpt: "no",            claude: "no" },
+      { feature: "సాధారణ SSH టర్మినల్ (ఏదైనా కమాండ్ నడపండి)",         mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "పాక్షిక", chatgpt: "no",            claude: "no" },
+      { feature: "SFTP ఫైల్ బదిలీ",                                    mobile: "yes", onepilot: "పాక్షిక",  happy: "no",          omnara: "no",      chatgpt: "no",            claude: "no" },
+      { feature: "స్థానిక పోర్ట్ ఫార్వార్డింగ్",                       mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "no",      chatgpt: "no",            claude: "no" },
+      { feature: "tmux సెషన్ మేనేజర్",                                 mobile: "yes", onepilot: "పాక్షిక",  happy: "no",          omnara: "no",      chatgpt: "no",            claude: "no" },
+      { feature: "ఏజెంట్ హెచ్చరికలు (ఏజెంట్‌కు ఇన్‌పుట్ అవసరమైనప్పుడు పుష్)", mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",           claude: "yes" },
+      { feature: "ఏజెంట్ ప్రాంప్ట్‌లను ఒక-ట్యాప్‌తో ఆమోదించు/తిరస్కరించు", mobile: "no",  onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",           claude: "yes" },
+      { feature: "సర్వర్ లేదా SSH సెటప్ అవసరం లేదు",                   mobile: "no",  onepilot: "no",       happy: "పాక్షిక",     omnara: "పాక్షిక", chatgpt: "yes",           claude: "yes" },
+      { feature: "Android మరియు iOS",                                 mobile: "yes", onepilot: "iOS మాత్రమే", happy: "yes",         omnara: "yes",     chatgpt: "yes",           claude: "yes" },
+      { feature: "ఖాతా అవసరం లేదు",                                   mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "no",      chatgpt: "no",            claude: "no" },
+      { feature: "Pro పేవాల్ లేదు (అన్ని ఫీచర్లు ఉచితం)",             mobile: "yes", onepilot: "no",       happy: "no",          omnara: "no",      chatgpt: "ఉచిత శ్రేణి",   claude: "no" },
+      { feature: "ఓపెన్ సోర్స్",                                      mobile: "no",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",            claude: "no" }
     ],
     agentAppsNote:
-      "రాజీ నిజమైనది: అంకిత ఏజెంట్ యాప్‌లు అనుమతి ప్రాంప్ట్‌ల కోసం ఒక-ట్యాప్ ఆమోదించు/తిరస్కరించు స్క్రీన్‌ను జోడిస్తాయి, అయితే Mobile SSH లో మీరు టర్మినల్‌లో ఏజెంట్‌కు సమాధానం ఇవ్వాలి. బదులుగా, Mobile SSH పూర్తి SSH/SFTP/టన్నెల్ క్లయింట్, ఏ ఖాతా లేదా విక్రేత రిలే లేకుండా నేరుగా మీ స్వంత సర్వర్‌కు కనెక్ట్ అవుతుంది, మరియు ప్రతి ఫీచర్ ఉచితం. Happy మరియు Omnara ఓపెన్ సోర్స్, కానీ క్లౌడ్ రిలే ద్వారా మార్గం చేస్తాయి (Omnara కు ఖాతా కూడా అవసరం); Onepilot అత్యంత దగ్గరగా ఉంది — iOS లో ప్రత్యక్ష SSH — కానీ iOS-మాత్రమే మరియు చెల్లింపు.",
+      "స్థానిక ChatGPT మరియు Claude యాప్‌లు ఒక విక్రేత ఏజెంట్‌ను ఎలాంటి సెటప్ లేకుండా నడపడానికి అత్యంత సులభమైన మార్గం — సర్వర్ లేదు, కేవలం ఒక ఖాతా — మరియు అవి మెరుగుపెట్టిన ఒక-ట్యాప్ ఆమోదించు/తిరస్కరించు స్క్రీన్‌ను జోడిస్తాయి. లోపం: అవి తమ స్వంత మోడల్‌ను తమ స్వంత క్లౌడ్‌లో మాత్రమే నడుపుతాయి, సాధారణ టర్మినల్ లేదు, SFTP లేదా టన్నెల్‌లు లేవు, మరియు మీ స్వంత మెషీన్‌ను తీసుకురావడం లేదు, మరియు అవి చెల్లింపు లేదా ఖాతా-ఆధారితం. Onepilot, Happy మరియు Omnara ఏజెంట్‌ను మీరు నియంత్రించే హార్డ్‌వేర్‌లో ఉంచుతాయి (Onepilot ప్రత్యక్ష SSH ద్వారా; Happy మరియు Omnara క్లౌడ్ రిలే ద్వారా, మరియు Omnara కు ఖాతా అవసరం). Mobile SSH ఏ ఖాతా లేదా విక్రేత రిలే లేకుండా నేరుగా మీ స్వంత సర్వర్‌కు కనెక్ట్ అవుతుంది, పూర్తి టర్మినల్, SFTP మరియు పోర్ట్ ఫార్వార్డింగ్‌తో పాటు ఏ ఏజెంట్‌నైనా నడుపుతుంది, మరియు ప్రతి ఫీచర్ ఉచితం — రాజీ ఏమిటంటే మీరు అంకిత ఆమోదించు/తిరస్కరించు స్క్రీన్‌కు బదులుగా టర్మినల్‌లో ఏజెంట్ ప్రాంప్ట్‌లకు సమాధానం ఇస్తారు.",
   },
   privacy: {
     metaTitle: "గోప్యతా విధానం | Mobile SSH",

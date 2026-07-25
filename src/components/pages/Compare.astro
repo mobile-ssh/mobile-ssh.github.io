@@ -91,13 +91,15 @@ const categories = [...new Set(featureRows.map(r => r.category))];
               <th class="feat-col-app">Onepilot</th>
               <th class="feat-col-app">Happy</th>
               <th class="feat-col-app">Omnara</th>
+              <th class="feat-col-app">ChatGPT</th>
+              <th class="feat-col-app">Claude</th>
             </tr>
           </thead>
           <tbody>
             {t.compare.agentAppsRows.map((row) => (
               <tr>
                 <td class="feat-name">{row.feature}</td>
-                {[["mobile", row.mobile, true], ["onepilot", row.onepilot, false], ["happy", row.happy, false], ["omnara", row.omnara, false]].map(([, v, hi]) => (
+                {[["mobile", row.mobile, true], ["onepilot", row.onepilot, false], ["happy", row.happy, false], ["omnara", row.omnara, false], ["chatgpt", row.chatgpt, false], ["claude", row.claude, false]].map(([, v, hi]) => (
                   <td class={`feat-cell ${hi ? "highlight-col " : ""}${v === "yes" ? "yes" : v === "no" ? "no" : "partial"}`}>
                     {v === "yes" ? "✓" : v === "no" ? "✗" : v}
                   </td>
@@ -162,9 +164,9 @@ const categories = [...new Set(featureRows.map(r => r.category))];
   .agent-intro { margin: 0 0 1.25rem; }
   .agent-note { margin: 1rem 0 0; font-size: 0.9rem; color: var(--muted); }
   .feat-scroll { overflow-x: auto; }
-  .agent-table { min-width: 560px; }
-  .agent-table .feat-col-feature { width: 32%; }
-  .agent-table .feat-col-app     { width: 17%; }
+  .agent-table { min-width: 760px; }
+  .agent-table .feat-col-feature { width: 28%; }
+  .agent-table .feat-col-app     { width: 12%; }
 
   /* Category header rows */
   .cat-row td {

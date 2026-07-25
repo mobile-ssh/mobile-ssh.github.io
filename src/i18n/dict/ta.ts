@@ -385,25 +385,28 @@ export const ta: Dict = {
       { category: "சொருகிகள்", feature: "சொருகி ஆதரவு",                                       mobile: "yes",    termux: "தொகுப்புகள் வழியாக", termius: "no" },
       { category: "சொருகிகள்", feature: "தேவைக்கேற்ப நிறுவும் சொருகி பட்டியல்",              mobile: "yes",    termux: "no",           termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH vs தொலைநிலை AI-முகவர் ஆப்கள்",
+    agentAppsHeading: "Mobile SSH vs AI குறியீட்டு-முகவர் ஆப்கள்",
     agentAppsIntro:
-      "உங்கள் தொலைபேசியிலிருந்து ஒரு தொலைநிலை இயந்திரத்தில் Claude Code, Codex மற்றும் இதுபோன்ற குறியீட்டு முகவர்களை இயக்குவதற்காகவே உருவாக்கப்பட்ட ஒரு புதிய வகை ஆப்கள் உள்ளன. Mobile SSH இவற்றுடன் மேற்பொருந்துகிறது — அந்த முகவர்களை SSH வழியாக இயக்கலாம், அவை உங்கள் உதவி தேவைப்படும்போது விழிப்பூட்டல் பெறலாம் — ஆனால் இது வேலையை மறுபக்கத்திலிருந்து அணுகுகிறது: இது முதலில் ஒரு பொதுவான, நேரடி SSH கிளையன்ட், இரண்டாவதாகவே முகவர் துணை.",
+      "உங்கள் தொலைபேசியிலிருந்து குறியீட்டு முகவர்களை — Claude Code, Codex மற்றும் அது போன்றவற்றை — இயக்குவதற்காகவே உருவாக்கப்பட்ட வேகமாக வளர்ந்து வரும் ஒரு வகை ஆப்கள் உள்ளன. சில மூன்றாம் தரப்பு SSH அல்லது ரிலே ஆப்கள் (Onepilot, Happy, Omnara); OpenAI மற்றும் Anthropic இப்போது இதை இயல்பாகவே வழங்குகின்றன — ChatGPT ஆப்பினுள் Codex மற்றும் Claude ஆப்பினுள் Claude Code, இரண்டும் விற்பனையாளரின் சொந்த கிளவுட்டில் இயங்குகின்றன. Mobile SSH இவை அனைத்துடனும் மேற்பொருந்துகிறது — அந்த முகவர்களை SSH வழியாக இயக்கலாம், அவை உங்கள் உதவி தேவைப்படும்போது விழிப்பூட்டல் பெறலாம் — ஆனால் இது வேலையை மறுபக்கத்திலிருந்து அணுகுகிறது: இது முதலில் ஒரு பொதுவான, நேரடி SSH கிளையன்ட், இரண்டாவதாகவே முகவர் துணை.",
     agentAppsRows: [
-      { feature: "தொலைநிலை சர்வரில் Claude Code & Codex இயக்குகிறது", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "பொது SSH டெர்மினல் (எந்த கட்டளையையும் இயக்கு)",       mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "பகுதியளவு" },
-      { feature: "நேரடி SSH — கிளவுட் ரிலே இல்லை",                  mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "SFTP கோப்பு மாற்றம்",                           mobile: "yes",    onepilot: "பகுதியளவு",  happy: "no",    omnara: "no" },
-      { feature: "உள்ளக போர்ட் முன்னோடல்",                        mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "tmux அமர்வு மேலாளர்",                         mobile: "yes",    onepilot: "பகுதியளவு",  happy: "no",    omnara: "no" },
-      { feature: "முகவர் விழிப்பூட்டல்கள் (முகவருக்கு உள்ளீடு தேவைப்படும்போது புஷ்)", mobile: "yes",  onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "முகவர் கோரிக்கைகளை ஒரே தட்டில் அனுமதி/மறு",        mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Android மற்றும் iOS",                              mobile: "yes",    onepilot: "iOS மட்டும்", happy: "yes",   omnara: "yes" },
-      { feature: "கணக்கு தேவையில்லை",                          mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
-      { feature: "Pro பேவால் இல்லை (அனைத்து அம்சங்களும் இலவசம்)",           mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
-      { feature: "திறந்த மூலம்",                                  mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+      { feature: "உங்கள் தொலைபேசியிலிருந்து குறியீட்டு முகவர்களை இயக்குகிறது", mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "எந்த குறியீட்டு முகவருடனும் வேலை செய்கிறது (ஒரே விற்பனையாளர் அல்ல)", mobile: "yes", onepilot: "yes", happy: "Claude Code", omnara: "yes",     chatgpt: "Codex மட்டும்",   claude: "Claude Code மட்டும்" },
+      { feature: "உங்கள் சொந்த இயந்திரத்தில் இயங்குகிறது (விற்பனையாளர் கிளவுட் அல்ல)", mobile: "yes", onepilot: "yes", happy: "yes",        omnara: "yes",     chatgpt: "no",           claude: "பகுதியளவு" },
+      { feature: "நேரடி SSH — கிளவுட் ரிலே இல்லை",                    mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "பொது SSH டெர்மினல் (எந்த கட்டளையையும் இயக்கு)",         mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "பகுதியளவு", chatgpt: "no",           claude: "no" },
+      { feature: "SFTP கோப்பு மாற்றம்",                             mobile: "yes", onepilot: "பகுதியளவு",  happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "உள்ளக போர்ட் முன்னோடல்",                          mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "tmux அமர்வு மேலாளர்",                           mobile: "yes", onepilot: "பகுதியளவு",  happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "முகவர் விழிப்பூட்டல்கள் (முகவருக்கு உள்ளீடு தேவைப்படும்போது புஷ்)", mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "முகவர் கோரிக்கைகளை ஒரே தட்டில் அனுமதி/மறு",          mobile: "no",  onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "சர்வர் அல்லது SSH அமைப்பு தேவையில்லை",                mobile: "no",  onepilot: "no",       happy: "பகுதியளவு",    omnara: "பகுதியளவு", chatgpt: "yes",          claude: "yes" },
+      { feature: "Android மற்றும் iOS",                                mobile: "yes", onepilot: "iOS மட்டும்", happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "கணக்கு தேவையில்லை",                            mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "Pro பேவால் இல்லை (அனைத்து அம்சங்களும் இலவசம்)",             mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "இலவச அடுக்கு",    claude: "no" },
+      { feature: "திறந்த மூலம்",                                    mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
-      "சமரசம் உண்மையானது: அர்ப்பணிக்கப்பட்ட முகவர் ஆப்கள் அனுமதி கோரிக்கைகளுக்கு ஒரே தட்டில் அனுமதி/மறு திரையைச் சேர்க்கின்றன, அதேசமயம் Mobile SSH-இல் நீங்கள் டெர்மினலில் முகவருக்குப் பதிலளிக்க வேண்டும். பதிலுக்கு, Mobile SSH ஒரு முழுமையான SSH/SFTP/டன்னல் கிளையன்ட், கணக்கு அல்லது விற்பனையாளர் ரிலே இல்லாமல் நேரடியாக உங்கள் சொந்த சர்வருடன் இணைகிறது, மேலும் ஒவ்வொரு அம்சமும் இலவசம். Happy மற்றும் Omnara திறந்த மூலம், ஆனால் ஒரு கிளவுட் ரிலே வழியாக செல்கின்றன (Omnara-க்கு கணக்கும் தேவை); Onepilot மிக நெருக்கமானது — iOS-இல் நேரடி SSH — ஆனால் iOS-மட்டும் மற்றும் கட்டணம்.",
+      "இயல்பான ChatGPT மற்றும் Claude ஆப்கள், ஒரு விற்பனையாளரின் முகவரை எந்த அமைப்பும் இல்லாமல் இயக்குவதற்கான மிக மென்மையான வழி — சர்வர் இல்லை, ஒரு கணக்கு மட்டுமே — மேலும் அவை ஒரு நேர்த்தியான ஒரே தட்டில் அனுமதி/மறு திரையைச் சேர்க்கின்றன. சிக்கல்: அவை தங்கள் சொந்த மாதிரியை மட்டுமே தங்கள் சொந்த கிளவுட்டில் இயக்குகின்றன, பொது டெர்மினல் இல்லை, SFTP அல்லது டன்னல்கள் இல்லை, உங்கள் சொந்த இயந்திரத்தைக் கொண்டுவரும் வசதியும் இல்லை, மேலும் அவை கட்டணம் அல்லது கணக்கு-கட்டுப்பாட்டுக்கு உட்பட்டவை. Onepilot, Happy மற்றும் Omnara முகவரை நீங்கள் கட்டுப்படுத்தும் வன்பொருளில் வைத்திருக்கின்றன (Onepilot நேரடி SSH வழியாக; Happy மற்றும் Omnara ஒரு கிளவுட் ரிலே வழியாக, மேலும் Omnara-க்கு கணக்கு தேவை). Mobile SSH கணக்கு அல்லது விற்பனையாளர் ரிலே இல்லாமல் நேரடியாக உங்கள் சொந்த சர்வருடன் இணைகிறது, ஒரு முழுமையான டெர்மினல், SFTP மற்றும் போர்ட் முன்னோடல் ஆகியவற்றுடன் எந்த முகவரையும் இயக்குகிறது, மேலும் ஒவ்வொரு அம்சமும் இலவசம் — சமரசம் என்னவென்றால், அர்ப்பணிக்கப்பட்ட அனுமதி/மறு திரைக்கு பதிலாக டெர்மினலில் முகவர் கோரிக்கைகளுக்கு நீங்கள் பதிலளிக்கிறீர்கள்.",
   },
   privacy: {
     metaTitle: "தனியுரிமை கொள்கை | Mobile SSH",

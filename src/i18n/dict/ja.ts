@@ -385,25 +385,28 @@ export const ja: Dict = {
       { category: "プラグイン", feature: "プラグイン サポート",                       mobile: "yes",    termux: "パッケージ経由", termius: "no" },
       { category: "プラグイン", feature: "オンデマンド インストールのプラグイン カタログ", mobile: "yes", termux: "no",           termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH とリモート AI エージェント アプリの比較",
+    agentAppsHeading: "Mobile SSH と AI コーディング エージェント アプリの比較",
     agentAppsIntro:
-      "スマホからリモートマシン上で Claude Code や Codex などのコーディング エージェントを実行することだけを目的とした、新しいカテゴリーのアプリが登場しています。Mobile SSH はそれらと重なる部分があり — SSH 経由でそうしたエージェントを実行し、対応が必要になったときに通知を受け取れます — が、逆の側からこの課題に取り組みます。まず汎用の直接 SSH クライアントであり、エージェントのコンパニオンはその次です。",
+      "スマホからコーディング エージェント — Claude Code、Codex、そして類似のもの — を操作することだけを目的とした、急成長中のカテゴリーのアプリが登場しています。一部はサードパーティの SSH または中継アプリ（Onepilot、Happy、Omnara）です。OpenAI と Anthropic も現在はこれをネイティブに提供しており、Codex は ChatGPT アプリ内で、Claude Code は Claude アプリ内で動作し、いずれもベンダー自身のクラウドで実行されます。Mobile SSH はそれらすべてと重なる部分があり — SSH 経由でそうしたエージェントを実行し、対応が必要になったときに通知を受け取れます — が、逆の側からこの課題に取り組みます。まず汎用の直接 SSH クライアントであり、エージェントのコンパニオンはその次です。",
     agentAppsRows: [
-      { feature: "リモートサーバーで Claude Code と Codex を実行",       mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "汎用 SSH ターミナル（任意のコマンドを実行）",           mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "一部対応" },
-      { feature: "ダイレクト SSH — クラウド中継なし",                     mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "SFTP ファイル転送",                                     mobile: "yes",    onepilot: "一部対応",  happy: "no",    omnara: "no" },
-      { feature: "ローカル ポートフォワード",                             mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "tmux セッション マネージャー",                          mobile: "yes",    onepilot: "一部対応",  happy: "no",    omnara: "no" },
-      { feature: "エージェント アラート（エージェントが入力を必要とするときにプッシュ）", mobile: "yes", onepilot: "yes", happy: "yes", omnara: "yes" },
-      { feature: "エージェントのプロンプトをワンタップで承認／拒否",       mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Android と iOS",                                        mobile: "yes",    onepilot: "iOS のみ", happy: "yes",   omnara: "yes" },
-      { feature: "アカウント不要",                                        mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
-      { feature: "Pro ペイウォールなし（全機能無料）",                    mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
-      { feature: "オープンソース",                                        mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+      { feature: "スマホからコーディング エージェントを実行",             mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "任意のコーディング エージェントに対応（単一ベンダーに限らない）", mobile: "yes", onepilot: "yes", happy: "Claude Code", omnara: "yes",     chatgpt: "Codex のみ",    claude: "Claude Code のみ" },
+      { feature: "自分のマシンで実行（ベンダーのクラウドではない）",       mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "no",           claude: "一部対応" },
+      { feature: "ダイレクト SSH — クラウド中継なし",                     mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "汎用 SSH ターミナル（任意のコマンドを実行）",           mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "一部対応", chatgpt: "no",           claude: "no" },
+      { feature: "SFTP ファイル転送",                                     mobile: "yes", onepilot: "一部対応",  happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "ローカル ポートフォワード",                             mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "tmux セッション マネージャー",                          mobile: "yes", onepilot: "一部対応",  happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "エージェント アラート（エージェントが入力を必要とするときにプッシュ）", mobile: "yes", onepilot: "yes", happy: "yes", omnara: "yes", chatgpt: "yes", claude: "yes" },
+      { feature: "エージェントのプロンプトをワンタップで承認／拒否",       mobile: "no",  onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "サーバーや SSH のセットアップ不要",                     mobile: "no",  onepilot: "no",       happy: "一部対応",    omnara: "一部対応", chatgpt: "yes",          claude: "yes" },
+      { feature: "Android と iOS",                                        mobile: "yes", onepilot: "iOS のみ", happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "アカウント不要",                                        mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "Pro ペイウォールなし（全機能無料）",                    mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "無料プランあり", claude: "no" },
+      { feature: "オープンソース",                                        mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
-      "トレードオフは確かにあります。専用のエージェント アプリはパーミッション プロンプト用にワンタップの承認／拒否画面を追加しますが、Mobile SSH ではターミナルでエージェントに応答します。その代わり、Mobile SSH は完全な SSH／SFTP／トンネル クライアントであり、アカウントやベンダーの中継なしで自分のサーバーに直接接続でき、すべての機能が無料です。Happy と Omnara はオープンソースですがクラウド中継を経由します（Omnara はアカウントも必要）。Onepilot が最も近く — iOS でのダイレクト SSH — ですが iOS 専用かつ有料です。",
+      "ネイティブの ChatGPT アプリと Claude アプリは、セットアップ不要で単一ベンダーのエージェントを実行する最もスムーズな方法です — サーバーは不要で、アカウントだけで済みます — さらに洗練されたワンタップの承認／拒否画面も備えています。ただし難点として、これらは自社のモデルを自社のクラウドでのみ実行し、汎用ターミナルも、SFTP やトンネルも、自分のマシンの持ち込みもできず、有料またはアカウント必須です。Onepilot、Happy、Omnara は、あなたが管理するハードウェア上にエージェントを置きます（Onepilot はダイレクト SSH 経由、Happy と Omnara はクラウド中継経由で、Omnara はアカウントが必要）。Mobile SSH はアカウントやベンダーの中継なしで自分のサーバーに直接接続し、完全なターミナル、SFTP、ポートフォワードとともに任意のエージェントを実行でき、すべての機能が無料です — トレードオフは、専用の承認／拒否画面ではなくターミナルでエージェントのプロンプトに応答することです。",
   },
   privacy: {
     metaTitle: "プライバシーポリシー | Mobile SSH",

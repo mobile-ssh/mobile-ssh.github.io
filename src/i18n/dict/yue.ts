@@ -385,25 +385,28 @@ export const yue: Dict = {
       { category: "插件", feature: "插件支援",                             mobile: "yes",    termux: "經由套件",      termius: "no" },
       { category: "插件", feature: "按需安裝嘅插件目錄",                   mobile: "yes",    termux: "no",           termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH 同遠端 AI agent App 嘅對比",
+    agentAppsHeading: "Mobile SSH 同 AI 編碼 agent App 嘅對比",
     agentAppsIntro:
-      "有一類較新嘅 App，專門用嚟由你部電話喺遠端機器上運行 Claude Code、Codex 同類似嘅編碼 agent。Mobile SSH 同佢哋有重疊 —— 你可以經 SSH 運行呢啲 agent，喺佢哋需要你嗰陣收到提示 —— 但佢係由另一邊入手：佢首先係一個通用、直連嘅 SSH 客戶端，其次先至係 agent 夥伴。",
+      "有一類快速增長嘅 App，專門用嚟由你部電話驅動編碼 agent —— Claude Code、Codex 之類。有啲係第三方 SSH 或者中繼 App（Onepilot、Happy、Omnara）；而家 OpenAI 同 Anthropic 都原生內建咗呢個功能，ChatGPT App 入面有 Codex，Claude App 入面有 Claude Code，兩者都喺供應商自己嘅雲端運行。Mobile SSH 同佢哋全部都有重疊 —— 你可以經 SSH 運行呢啲 agent，喺佢哋需要你嗰陣收到提示 —— 但佢係由另一邊入手：佢首先係一個通用、直連嘅 SSH 客戶端，其次先至係 agent 夥伴。",
     agentAppsRows: [
-      { feature: "喺遠端伺服器上運行 Claude Code 同 Codex", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "通用 SSH 終端機（運行任何命令）",         mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "部分" },
-      { feature: "直連 SSH —— 冇雲端中繼",                  mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "SFTP 檔案傳輸",                           mobile: "yes",    onepilot: "部分",     happy: "no",    omnara: "no" },
-      { feature: "本機端口轉發",                            mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "tmux 會話管理器",                         mobile: "yes",    onepilot: "部分",     happy: "no",    omnara: "no" },
-      { feature: "Agent 提示（agent 需要輸入時推送通知）",  mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "一撳批准／拒絕 agent 提示",               mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Android 同 iOS",                          mobile: "yes",    onepilot: "淨係 iOS", happy: "yes",   omnara: "yes" },
-      { feature: "唔需要帳號",                              mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
-      { feature: "冇 Pro paywall（所有功能免費）",          mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
-      { feature: "開源",                                    mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+      { feature: "由你部電話運行編碼 agent",                mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",         claude: "yes" },
+      { feature: "適用於任何編碼 agent（唔限於單一供應商）", mobile: "yes", onepilot: "yes",      happy: "Claude Code", omnara: "yes",     chatgpt: "淨係 Codex",  claude: "淨係 Claude Code" },
+      { feature: "喺你自己嘅機器上運行（唔係供應商雲端）",   mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "no",          claude: "部分" },
+      { feature: "直連 SSH —— 冇雲端中繼",                  mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "no",      chatgpt: "no",          claude: "no" },
+      { feature: "通用 SSH 終端機（運行任何命令）",         mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "部分",    chatgpt: "no",          claude: "no" },
+      { feature: "SFTP 檔案傳輸",                           mobile: "yes", onepilot: "部分",     happy: "no",          omnara: "no",      chatgpt: "no",          claude: "no" },
+      { feature: "本機端口轉發",                            mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "no",      chatgpt: "no",          claude: "no" },
+      { feature: "tmux 會話管理器",                         mobile: "yes", onepilot: "部分",     happy: "no",          omnara: "no",      chatgpt: "no",          claude: "no" },
+      { feature: "Agent 提示（agent 需要輸入時推送通知）",  mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",         claude: "yes" },
+      { feature: "一撳批准／拒絕 agent 提示",               mobile: "no",  onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",         claude: "yes" },
+      { feature: "零伺服器或 SSH 設定",                     mobile: "no",  onepilot: "no",       happy: "部分",        omnara: "部分",    chatgpt: "yes",         claude: "yes" },
+      { feature: "Android 同 iOS",                          mobile: "yes", onepilot: "淨係 iOS", happy: "yes",         omnara: "yes",     chatgpt: "yes",         claude: "yes" },
+      { feature: "唔需要帳號",                              mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "no",      chatgpt: "no",          claude: "no" },
+      { feature: "冇 Pro paywall（所有功能免費）",          mobile: "yes", onepilot: "no",       happy: "no",          omnara: "no",      chatgpt: "免費版",      claude: "no" },
+      { feature: "開源",                                    mobile: "no",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",          claude: "no" }
     ],
     agentAppsNote:
-      "取捨係實在嘅：專門嘅 agent App 為權限提示加咗一個一撳批准／拒絕嘅畫面，而 Mobile SSH 就要你喺終端機入面回覆 agent。作為回報，Mobile SSH 係一個完整嘅 SSH／SFTP／隧道客戶端，直接連去你自己嘅伺服器，唔使帳號亦冇供應商中繼，而且每個功能都免費。Happy 同 Omnara 係開源，但會經雲端中繼路由（Omnara 仲要帳號）；Onepilot 最接近 —— 喺 iOS 上直連 SSH —— 但淨係 iOS 又要俾錢。",
+      "原生嘅 ChatGPT 同 Claude App 係零設定運行單一供應商 agent 最順滑嘅方法 —— 唔使伺服器，淨係要個帳號 —— 而且佢哋加咗一個精緻嘅一撳批准／拒絕畫面。但問題係：佢哋淨係喺自己嘅雲端運行自己嘅模型，冇通用終端機、冇 SFTP 或者隧道，亦唔可以用你自己嘅機器，而且要俾錢或者要帳號。Onepilot、Happy 同 Omnara 就將 agent 保留喺你控制嘅硬件上（Onepilot 經直連 SSH；Happy 同 Omnara 經雲端中繼，而 Omnara 仲要帳號）。Mobile SSH 直接連去你自己嘅伺服器，唔使帳號亦冇供應商中繼，可以喺完整終端機、SFTP 同端口轉發旁邊運行任何 agent，而且每個功能都免費 —— 取捨就係你要喺終端機入面回覆 agent 提示，而唔係喺專門嘅批准／拒絕畫面上。",
   },
   privacy: {
     metaTitle: "私隱政策 | Mobile SSH",

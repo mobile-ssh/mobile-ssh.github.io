@@ -385,25 +385,28 @@ export const pcm: Dict = {
       { category: "Plugins",          feature: "Plugin support",                              mobile: "yes",     termux: "via packages",  termius: "no" },
       { category: "Plugins",          feature: "Plugin catalog wey dey install on demand",    mobile: "yes",     termux: "no",            termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH vs remote AI-agent app dem",
+    agentAppsHeading: "Mobile SSH vs AI coding-agent app dem",
     agentAppsIntro:
-      "New kind app dey now wey dem build just to run Claude Code, Codex, and similar coding agent for remote machine from your phone. Mobile SSH dey overlap wit dem — you fit run those agent over SSH and get alert when dem need you — but e dey approach di work from di oda side: e be general, direct SSH client first, and agent companion second.",
+      "One kind app dey grow fast now wey dem build just to drive coding agent — Claude Code, Codex, and dem friend — from your phone. Some na third-party SSH or relay app (Onepilot, Happy, Omnara); OpenAI and Anthropic don begin ship am natively too, wit Codex inside di ChatGPT app and Claude Code inside di Claude app, di two of dem dey run for di vendor own cloud. Mobile SSH dey overlap wit all of dem — you fit run those agent over SSH and get alert when dem need you — but e dey approach di work from di oda side: e be general, direct SSH client first, and agent companion second.",
     agentAppsRows: [
-      { feature: "E dey run Claude Code & Codex for remote server", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "General SSH terminal (run any command)",          mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "partial" },
-      { feature: "Direct SSH — no cloud relay",                     mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "SFTP file transfer",                              mobile: "yes",    onepilot: "partial",  happy: "no",    omnara: "no" },
-      { feature: "Local port forwarding",                           mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "tmux session manager",                            mobile: "yes",    onepilot: "partial",  happy: "no",    omnara: "no" },
-      { feature: "Agent alert (push when di agent need input)",     mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "One-tap approve/deny for agent prompt",           mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Android and iOS",                                 mobile: "yes",    onepilot: "iOS just", happy: "yes",   omnara: "yes" },
-      { feature: "No need account",                                 mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
-      { feature: "No Pro paywall (all feature free)",               mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
-      { feature: "Open source",                                     mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+      { feature: "E dey run coding agent from your phone",          mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "E dey work wit any coding agent (no be one vendor)", mobile: "yes", onepilot: "yes",   happy: "Claude Code", omnara: "yes",     chatgpt: "Codex just",   claude: "Claude Code just" },
+      { feature: "E dey run for your own machine (no be vendor cloud)", mobile: "yes", onepilot: "yes",  happy: "yes",         omnara: "yes",     chatgpt: "no",           claude: "partial" },
+      { feature: "Direct SSH — no cloud relay",                     mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "General SSH terminal (run any command)",          mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "partial", chatgpt: "no",           claude: "no" },
+      { feature: "SFTP file transfer",                              mobile: "yes", onepilot: "partial",  happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "Local port forwarding",                           mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "tmux session manager",                            mobile: "yes", onepilot: "partial",  happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "Agent alert (push when di agent need input)",     mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "One-tap approve/deny for agent prompt",           mobile: "no",  onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "No server or SSH setup at all",                   mobile: "no",  onepilot: "no",       happy: "partial",     omnara: "partial", chatgpt: "yes",          claude: "yes" },
+      { feature: "Android and iOS",                                 mobile: "yes", onepilot: "iOS just", happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "No need account",                                 mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "No Pro paywall (all feature free)",               mobile: "yes", onepilot: "no",       happy: "no",          omnara: "no",      chatgpt: "free level",   claude: "no" },
+      { feature: "Open source",                                     mobile: "no",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
-      "Di trade-off dey real: di dedicated agent app dem dey add one-tap approve/deny screen for permission prompt, while Mobile SSH make you answer di agent inside di terminal. For return, Mobile SSH na full SSH/SFTP/tunnel client, e dey connect straight to your own server witout account or vendor relay, and every feature dey free. Happy and Omnara na open source but dem dey pass through cloud relay (Omnara sef need account); Onepilot na di closest — direct SSH for iOS — but e dey for iOS just and you go pay.",
+      "Di native ChatGPT and Claude app dem na di smoothest way to run one vendor own agent witout any setup — no server, na just account — and dem dey add polished one-tap approve/deny screen. Di catch be say: dem dey run only dem own model for dem own cloud, witout general terminal, no SFTP or tunnel, and you no fit bring your own machine, and dem dey charge money or lock am for account. Onepilot, Happy, and Omnara dey keep di agent for hardware wey you control (Onepilot na direct SSH; Happy and Omnara na cloud relay, and Omnara need account). Mobile SSH dey connect straight to your own server witout account or vendor relay, e dey run any agent along wit full terminal, SFTP, and port forwarding, and every feature dey free — di trade-off be say you go answer agent prompt inside di terminal instead of dedicated approve/deny screen.",
   },
   privacy: {
     metaTitle: "Privacy Policy | Mobile SSH",

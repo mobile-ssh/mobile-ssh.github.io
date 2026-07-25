@@ -386,25 +386,28 @@ export const ru: Dict = {
       { category: "Плагины",     feature: "Поддержка плагинов",                           mobile: "yes",    termux: "через пакеты",   termius: "no" },
       { category: "Плагины",     feature: "Каталог плагинов с установкой по требованию", mobile: "yes",    termux: "no",           termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH против приложений для удалённых ИИ-агентов",
+    agentAppsHeading: "Mobile SSH против приложений с ИИ-агентами для кодинга",
     agentAppsIntro:
-      "Появилась новая категория приложений, созданных исключительно для запуска Claude Code, Codex и подобных кодинг-агентов на удалённой машине прямо с телефона. Mobile SSH пересекается с ними — вы можете запускать этих агентов по SSH и получать уведомления, когда им нужен ваш ответ, — но подходит к задаче с другой стороны: это в первую очередь универсальный прямой SSH-клиент, а во вторую — компаньон для агентов.",
+      "Стремительно растущая категория приложений создана исключительно для управления кодинг-агентами — Claude Code, Codex и им подобными — прямо с телефона. Некоторые из них — сторонние приложения для SSH или релея (Onepilot, Happy, Omnara); теперь это предлагают и сами OpenAI с Anthropic: Codex встроен в приложение ChatGPT, а Claude Code — в приложение Claude, и оба работают в собственном облаке поставщика. Mobile SSH пересекается со всеми ними — вы можете запускать этих агентов по SSH и получать уведомления, когда им нужен ваш ответ, — но подходит к задаче с другой стороны: это в первую очередь универсальный прямой SSH-клиент, а во вторую — компаньон для агентов.",
     agentAppsRows: [
-      { feature: "Запускает Claude Code и Codex на удалённом сервере", mobile: "yes",    onepilot: "yes",       happy: "yes",   omnara: "yes" },
-      { feature: "Универсальный SSH-терминал (любые команды)",         mobile: "yes",    onepilot: "yes",       happy: "no",    omnara: "частично" },
-      { feature: "Прямой SSH — без облачного релея",                   mobile: "yes",    onepilot: "yes",       happy: "no",    omnara: "no" },
-      { feature: "Передача файлов по SFTP",                            mobile: "yes",    onepilot: "частично",  happy: "no",    omnara: "no" },
-      { feature: "Локальный проброс портов",                           mobile: "yes",    onepilot: "yes",       happy: "no",    omnara: "no" },
-      { feature: "Менеджер сессий tmux",                               mobile: "yes",    onepilot: "частично",  happy: "no",    omnara: "no" },
-      { feature: "Уведомления агентов (push, когда агенту нужен ввод)", mobile: "yes",   onepilot: "yes",       happy: "yes",   omnara: "yes" },
-      { feature: "Одобрение/отклонение запросов агента одним касанием", mobile: "no",    onepilot: "yes",       happy: "yes",   omnara: "yes" },
-      { feature: "Android и iOS",                                      mobile: "yes",    onepilot: "только iOS", happy: "yes",   omnara: "yes" },
-      { feature: "Аккаунт не требуется",                               mobile: "yes",    onepilot: "yes",       happy: "yes",   omnara: "no" },
-      { feature: "Без Pro-paywall (все функции бесплатны)",            mobile: "yes",    onepilot: "no",        happy: "no",    omnara: "no" },
-      { feature: "Открытый исходный код",                              mobile: "no",     onepilot: "no",        happy: "MIT",   omnara: "Apache" }
+      { feature: "Запускает кодинг-агентов с телефона",                      mobile: "yes", onepilot: "yes",       happy: "yes",         omnara: "yes",       chatgpt: "yes",              claude: "yes" },
+      { feature: "Работает с любым кодинг-агентом (не одного поставщика)",    mobile: "yes", onepilot: "yes",       happy: "Claude Code", omnara: "yes",       chatgpt: "только Codex",     claude: "только Claude Code" },
+      { feature: "Работает на вашей собственной машине (не в облаке поставщика)", mobile: "yes", onepilot: "yes",   happy: "yes",         omnara: "yes",       chatgpt: "no",               claude: "частично" },
+      { feature: "Прямой SSH — без облачного релея",                         mobile: "yes", onepilot: "yes",       happy: "no",          omnara: "no",        chatgpt: "no",               claude: "no" },
+      { feature: "Универсальный SSH-терминал (любые команды)",               mobile: "yes", onepilot: "yes",       happy: "no",          omnara: "частично",  chatgpt: "no",               claude: "no" },
+      { feature: "Передача файлов по SFTP",                                  mobile: "yes", onepilot: "частично",  happy: "no",          omnara: "no",        chatgpt: "no",               claude: "no" },
+      { feature: "Локальный проброс портов",                                 mobile: "yes", onepilot: "yes",       happy: "no",          omnara: "no",        chatgpt: "no",               claude: "no" },
+      { feature: "Менеджер сессий tmux",                                     mobile: "yes", onepilot: "частично",  happy: "no",          omnara: "no",        chatgpt: "no",               claude: "no" },
+      { feature: "Уведомления агентов (push, когда агенту нужен ввод)",       mobile: "yes", onepilot: "yes",       happy: "yes",         omnara: "yes",       chatgpt: "yes",              claude: "yes" },
+      { feature: "Одобрение/отклонение запросов агента одним касанием",       mobile: "no",  onepilot: "yes",       happy: "yes",         omnara: "yes",       chatgpt: "yes",              claude: "yes" },
+      { feature: "Без настройки сервера или SSH",                            mobile: "no",  onepilot: "no",        happy: "частично",    omnara: "частично",  chatgpt: "yes",              claude: "yes" },
+      { feature: "Android и iOS",                                            mobile: "yes", onepilot: "только iOS", happy: "yes",         omnara: "yes",       chatgpt: "yes",              claude: "yes" },
+      { feature: "Аккаунт не требуется",                                     mobile: "yes", onepilot: "yes",       happy: "yes",         omnara: "no",        chatgpt: "no",               claude: "no" },
+      { feature: "Без Pro-paywall (все функции бесплатны)",                  mobile: "yes", onepilot: "no",        happy: "no",          omnara: "no",        chatgpt: "бесплатный тариф", claude: "no" },
+      { feature: "Открытый исходный код",                                    mobile: "no",  onepilot: "no",        happy: "MIT",         omnara: "Apache",    chatgpt: "no",               claude: "no" }
     ],
     agentAppsNote:
-      "Компромисс реален: специализированные приложения для агентов добавляют экран одобрения/отклонения запросов разрешений одним касанием, тогда как в Mobile SSH вы отвечаете агенту прямо в терминале. Взамен Mobile SSH — это полноценный клиент SSH/SFTP/туннелей, который подключается напрямую к вашему собственному серверу без аккаунта или релея поставщика, и все функции бесплатны. Happy и Omnara имеют открытый исходный код, но работают через облачный релей (Omnara также требует аккаунт); Onepilot ближе всего — прямой SSH на iOS, — но только для iOS и платный.",
+      "Нативные приложения ChatGPT и Claude — самый простой способ запустить агента одного поставщика без всякой настройки: не нужен сервер, только аккаунт, — и они добавляют отточенный экран одобрения/отклонения одним касанием. Загвоздка в том, что они запускают только собственную модель в собственном облаке, без универсального терминала, без SFTP и туннелей, без возможности использовать свою машину, и при этом они платные или требуют аккаунт. Onepilot, Happy и Omnara держат агента на оборудовании, которое контролируете вы (Onepilot — через прямой SSH; Happy и Omnara — через облачный релей, а Omnara ещё и требует аккаунт). Mobile SSH подключается напрямую к вашему собственному серверу без аккаунта или релея поставщика, запускает любого агента вместе с полноценным терминалом, SFTP и пробросом портов, и все функции бесплатны — компромисс лишь в том, что на запросы агента вы отвечаете в терминале, а не на отдельном экране одобрения/отклонения.",
   },
   privacy: {
     metaTitle: "Политика конфиденциальности | Mobile SSH",

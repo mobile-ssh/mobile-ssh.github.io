@@ -385,25 +385,28 @@ export const ar: Dict = {
       { category: "الإضافات", feature: "دعم الإضافات",                                  mobile: "yes",     termux: "عبر الحِزَم",    termius: "no" },
       { category: "الإضافات", feature: "كتالوج إضافات بالتثبيت عند الطلب",             mobile: "yes",     termux: "no",            termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH مقابل تطبيقات وكلاء الذكاء الاصطناعي عن بُعد",
+    agentAppsHeading: "Mobile SSH مقابل تطبيقات وكلاء البرمجة بالذكاء الاصطناعي",
     agentAppsIntro:
-      "ظهرت فئة أحدث من التطبيقات مُخصَّصة فقط لتشغيل Claude Code وCodex ووكلاء البرمجة المشابهة على جهاز بعيد من هاتفك. يتقاطع Mobile SSH معها — إذ يمكنك تشغيل هذه الوكلاء عبر SSH وتلقّي تنبيه عندما يحتاجون إليك — لكنّه يتناول المهمة من الجهة الأخرى: فهو أولًا عميل SSH عام ومباشر، وثانيًا رفيق للوكلاء.",
+      "تنمو بسرعة فئة من التطبيقات مُخصَّصة فقط لتشغيل وكلاء البرمجة — Claude Code وCodex وأمثالها — من هاتفك. بعضها تطبيقات SSH أو تمرير من طرف ثالث (Onepilot وHappy وOmnara)؛ كما تقدّم OpenAI وAnthropic هذا الآن بشكل أصيل، مع Codex داخل تطبيق ChatGPT وClaude Code داخل تطبيق Claude، ويعمل كلاهما في سحابة المزوّد الخاصة. يتقاطع Mobile SSH معها جميعًا — إذ يمكنك تشغيل هذه الوكلاء عبر SSH وتلقّي تنبيه عندما يحتاجون إليك — لكنّه يتناول المهمة من الجهة الأخرى: فهو أولًا عميل SSH عام ومباشر، وثانيًا رفيق للوكلاء.",
     agentAppsRows: [
-      { feature: "تشغيل Claude Code وCodex على خادم بعيد",        mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "طرفية SSH عامة (تشغيل أيّ أمر)",                mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "جزئي" },
-      { feature: "SSH مباشر — بدون تمرير سحابي",                 mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "نقل ملفات SFTP",                                mobile: "yes",    onepilot: "جزئي",     happy: "no",    omnara: "no" },
-      { feature: "إعادة توجيه المنافذ المحلية",                  mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "مدير جلسات tmux",                               mobile: "yes",    onepilot: "جزئي",     happy: "no",    omnara: "no" },
-      { feature: "تنبيهات الوكيل (إشعار عندما يحتاج الوكيل إلى مدخلات)", mobile: "yes", onepilot: "yes",  happy: "yes",   omnara: "yes" },
-      { feature: "موافقة/رفض مطالبات الوكيل بنقرة واحدة",        mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Android وiOS",                                  mobile: "yes",    onepilot: "iOS فقط",  happy: "yes",   omnara: "yes" },
-      { feature: "لا يلزم حساب",                                  mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
-      { feature: "بدون جدار دفع Pro (جميع الميزات مجانية)",       mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
-      { feature: "مفتوح المصدر",                                  mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+      { feature: "تشغيل وكلاء البرمجة من هاتفك",                  mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "يعمل مع أيّ وكيل برمجة (وليس مزوّدًا واحدًا)",   mobile: "yes", onepilot: "yes",      happy: "Claude Code", omnara: "yes",     chatgpt: "Codex فقط",   claude: "Claude Code فقط" },
+      { feature: "يعمل على جهازك الخاص (وليس سحابة مزوّد)",       mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "no",           claude: "جزئي" },
+      { feature: "SSH مباشر — بدون تمرير سحابي",                 mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "طرفية SSH عامة (تشغيل أيّ أمر)",                mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "جزئي",    chatgpt: "no",           claude: "no" },
+      { feature: "نقل ملفات SFTP",                                mobile: "yes", onepilot: "جزئي",     happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "إعادة توجيه المنافذ المحلية",                  mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "مدير جلسات tmux",                               mobile: "yes", onepilot: "جزئي",     happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "تنبيهات الوكيل (إشعار عندما يحتاج الوكيل إلى مدخلات)", mobile: "yes", onepilot: "yes", happy: "yes",       omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "موافقة/رفض مطالبات الوكيل بنقرة واحدة",        mobile: "no",  onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "بدون أيّ إعداد للخادم أو SSH",                 mobile: "no",  onepilot: "no",       happy: "جزئي",       omnara: "جزئي",    chatgpt: "yes",          claude: "yes" },
+      { feature: "Android وiOS",                                  mobile: "yes", onepilot: "iOS فقط",  happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "لا يلزم حساب",                                  mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "بدون جدار دفع Pro (جميع الميزات مجانية)",       mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "باقة مجانية",  claude: "no" },
+      { feature: "مفتوح المصدر",                                  mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
-      "المفاضلة حقيقية: تُضيف تطبيقات الوكلاء المخصّصة شاشة موافقة/رفض بنقرة واحدة لمطالبات الأذونات، بينما يجعلك Mobile SSH تردّ على الوكيل داخل الطرفية. في المقابل، Mobile SSH عميل SSH/SFTP وأنفاق كامل، يتّصل مباشرة بخادمك الخاص دون حساب أو تمرير عبر مزوّد، وكلّ ميزاته مجانية. Happy وOmnara مفتوحا المصدر لكنّهما يمرّران عبر تمرير سحابي (كما يتطلّب Omnara حسابًا)؛ أمّا Onepilot فهو الأقرب — SSH مباشر على iOS — لكنّه حصريّ لـ iOS ومدفوع.",
+      "تطبيقا ChatGPT وClaude الأصيلان هما أسلس طريقة لتشغيل وكيل مزوّد واحد دون أيّ إعداد — بلا خادم، مجرّد حساب — ويُضيفان شاشة موافقة/رفض أنيقة بنقرة واحدة. لكن المقابل: لا يشغّلان إلا نموذجهما الخاص في سحابتهما الخاصة، بلا طرفية عامة، وبلا SFTP أو أنفاق، وبلا إمكانية إحضار جهازك الخاص، وهما مدفوعان أو مقيّدان بحساب. يُبقي Onepilot وHappy وOmnara الوكيل على عتاد تتحكّم فيه (Onepilot عبر SSH مباشر؛ وHappy وOmnara عبر تمرير سحابي، ويتطلّب Omnara حسابًا). يتّصل Mobile SSH مباشرة بخادمك الخاص دون حساب أو تمرير عبر مزوّد، ويشغّل أيّ وكيل جنبًا إلى جنب مع طرفية كاملة وSFTP وإعادة توجيه المنافذ، وكلّ ميزاته مجانية — والمفاضلة هي أنّك تردّ على مطالبات الوكيل داخل الطرفية بدلًا من شاشة موافقة/رفض مخصّصة.",
   },
   privacy: {
     metaTitle: "سياسة الخصوصية | Mobile SSH",

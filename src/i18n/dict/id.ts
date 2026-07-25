@@ -385,25 +385,28 @@ export const id: Dict = {
       { category: "Plugin",           feature: "Dukungan plugin",                                mobile: "yes",     termux: "melalui paket", termius: "no" },
       { category: "Plugin",           feature: "Katalog plugin pasang-sesuai-kebutuhan",         mobile: "yes",     termux: "no",            termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH vs aplikasi agen AI jarak jauh",
+    agentAppsHeading: "Mobile SSH vs aplikasi agen pemrograman AI",
     agentAppsIntro:
-      "Ada kategori aplikasi yang lebih baru yang khusus untuk menjalankan Claude Code, Codex, dan agen pemrograman serupa di mesin jarak jauh dari ponsel Anda. Mobile SSH beririsan dengan mereka — Anda dapat menjalankan agen tersebut melalui SSH dan mendapat peringatan saat mereka membutuhkan Anda — tetapi ia menghampiri tugas ini dari sisi lain: ia adalah klien SSH langsung yang serbaguna terlebih dahulu, dan pendamping agen setelahnya.",
+      "Ada kategori aplikasi yang berkembang pesat yang khusus untuk mengendalikan agen pemrograman — Claude Code, Codex, dan sejenisnya — dari ponsel Anda. Beberapa adalah aplikasi SSH atau relay pihak ketiga (Onepilot, Happy, Omnara); OpenAI dan Anthropic kini juga menyediakannya secara native, dengan Codex di dalam aplikasi ChatGPT dan Claude Code di dalam aplikasi Claude, keduanya berjalan di awan milik vendor sendiri. Mobile SSH beririsan dengan semuanya — Anda dapat menjalankan agen tersebut melalui SSH dan mendapat peringatan saat mereka membutuhkan Anda — tetapi ia menghampiri tugas ini dari sisi lain: ia adalah klien SSH langsung yang serbaguna terlebih dahulu, dan pendamping agen setelahnya.",
     agentAppsRows: [
-      { feature: "Menjalankan Claude Code & Codex di server jarak jauh", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Terminal SSH umum (jalankan perintah apa pun)",        mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "sebagian" },
-      { feature: "SSH langsung — tanpa relay awan",                      mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "Transfer berkas SFTP",                                 mobile: "yes",    onepilot: "sebagian", happy: "no",    omnara: "no" },
-      { feature: "Penerusan port lokal",                                 mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "Pengelola sesi tmux",                                  mobile: "yes",    onepilot: "sebagian", happy: "no",    omnara: "no" },
-      { feature: "Peringatan agen (push saat agen butuh input)",         mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Setujui/tolak prompt agen dengan satu ketuk",          mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Android dan iOS",                                      mobile: "yes",    onepilot: "iOS saja", happy: "yes",   omnara: "yes" },
-      { feature: "Tidak perlu akun",                                     mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
-      { feature: "Tanpa paywall Pro (semua fitur gratis)",               mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
-      { feature: "Sumber terbuka",                                       mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+      { feature: "Menjalankan agen pemrograman dari ponsel Anda",         mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",      chatgpt: "yes",          claude: "yes" },
+      { feature: "Bekerja dengan agen pemrograman apa pun (bukan satu vendor)", mobile: "yes", onepilot: "yes", happy: "Claude Code", omnara: "yes",   chatgpt: "Codex saja",   claude: "Claude Code saja" },
+      { feature: "Berjalan di mesin Anda sendiri (bukan awan vendor)",     mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",      chatgpt: "no",           claude: "sebagian" },
+      { feature: "SSH langsung — tanpa relay awan",                        mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",       chatgpt: "no",           claude: "no" },
+      { feature: "Terminal SSH umum (jalankan perintah apa pun)",          mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "sebagian", chatgpt: "no",           claude: "no" },
+      { feature: "Transfer berkas SFTP",                                   mobile: "yes", onepilot: "sebagian", happy: "no",         omnara: "no",       chatgpt: "no",           claude: "no" },
+      { feature: "Penerusan port lokal",                                   mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",       chatgpt: "no",           claude: "no" },
+      { feature: "Pengelola sesi tmux",                                    mobile: "yes", onepilot: "sebagian", happy: "no",         omnara: "no",       chatgpt: "no",           claude: "no" },
+      { feature: "Peringatan agen (push saat agen butuh input)",           mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",      chatgpt: "yes",          claude: "yes" },
+      { feature: "Setujui/tolak prompt agen dengan satu ketuk",            mobile: "no",  onepilot: "yes",      happy: "yes",        omnara: "yes",      chatgpt: "yes",          claude: "yes" },
+      { feature: "Tanpa penyiapan server atau SSH",                        mobile: "no",  onepilot: "no",       happy: "sebagian",   omnara: "sebagian", chatgpt: "yes",          claude: "yes" },
+      { feature: "Android dan iOS",                                        mobile: "yes", onepilot: "iOS saja", happy: "yes",        omnara: "yes",      chatgpt: "yes",          claude: "yes" },
+      { feature: "Tidak perlu akun",                                       mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",       chatgpt: "no",           claude: "no" },
+      { feature: "Tanpa paywall Pro (semua fitur gratis)",                 mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",       chatgpt: "paket gratis", claude: "no" },
+      { feature: "Sumber terbuka",                                         mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",   chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
-      "Ada kompromi yang nyata: aplikasi agen khusus menambahkan layar setuju/tolak satu ketuk untuk prompt izin, sementara Mobile SSH mengharuskan Anda menjawab agen di terminal. Sebagai gantinya, Mobile SSH adalah klien SSH/SFTP/tunnel lengkap, terhubung langsung ke server Anda sendiri tanpa akun atau relay vendor, dan setiap fitur gratis. Happy dan Omnara bersumber terbuka tetapi merutekan melalui relay awan (Omnara juga memerlukan akun); Onepilot yang paling mirip — SSH langsung di iOS — tetapi hanya iOS dan berbayar.",
+      "Aplikasi ChatGPT dan Claude native adalah cara termulus untuk menjalankan agen satu vendor tanpa penyiapan apa pun — tanpa server, cukup sebuah akun — dan keduanya menambahkan layar setuju/tolak satu ketuk yang rapi. Kekurangannya: keduanya hanya menjalankan model mereka sendiri di awan mereka sendiri, tanpa terminal umum, tanpa SFTP atau tunnel, dan tanpa opsi menggunakan mesin Anda sendiri, serta berbayar atau memerlukan akun. Onepilot, Happy, dan Omnara menyimpan agen di perangkat keras yang Anda kendalikan (Onepilot melalui SSH langsung; Happy dan Omnara melalui relay awan, dan Omnara memerlukan akun). Mobile SSH terhubung langsung ke server Anda sendiri tanpa akun atau relay vendor, menjalankan agen apa pun berdampingan dengan terminal lengkap, SFTP, dan penerusan port, dan setiap fitur gratis — komprominya adalah Anda menjawab prompt agen di terminal alih-alih di layar setuju/tolak khusus.",
   },
   privacy: {
     metaTitle: "Kebijakan Privasi | Mobile SSH",

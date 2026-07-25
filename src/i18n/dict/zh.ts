@@ -385,25 +385,28 @@ export const zh: Dict = {
       { category: "插件", feature: "插件支持",                        mobile: "yes",    termux: "通过软件包",    termius: "no" },
       { category: "插件", feature: "按需安装的插件目录",              mobile: "yes",    termux: "no",           termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH 与远程 AI 智能体应用对比",
+    agentAppsHeading: "Mobile SSH 与 AI 编码智能体应用对比",
     agentAppsIntro:
-      "有一类较新的应用专门用来从手机在远程机器上运行 Claude Code、Codex 及类似的编码智能体。Mobile SSH 与它们有重叠——你可以通过 SSH 运行这些智能体，并在它们需要你时收到提醒——但它从另一个方向切入：它首先是一款通用的直连 SSH 客户端，其次才是智能体伴侣。",
+      "有一类快速增长的应用专门用来从手机驱动编码智能体——Claude Code、Codex 及同类产品。其中一些是第三方 SSH 或中继应用（Onepilot、Happy、Omnara）；OpenAI 和 Anthropic 现在也原生提供这类功能，Codex 内置于 ChatGPT 应用，Claude Code 内置于 Claude 应用，两者都运行在厂商自己的云端。Mobile SSH 与它们全都有重叠——你可以通过 SSH 运行这些智能体，并在它们需要你时收到提醒——但它从另一个方向切入：它首先是一款通用的直连 SSH 客户端，其次才是智能体伴侣。",
     agentAppsRows: [
-      { feature: "在远程服务器上运行 Claude Code 和 Codex", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "通用 SSH 终端（运行任意命令）",           mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "部分" },
-      { feature: "直连 SSH——无云端中继",                   mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "SFTP 文件传输",                          mobile: "yes",    onepilot: "部分",     happy: "no",    omnara: "no" },
-      { feature: "本地端口转发",                            mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
-      { feature: "tmux 会话管理器",                         mobile: "yes",    onepilot: "部分",     happy: "no",    omnara: "no" },
-      { feature: "智能体提醒（智能体需要输入时推送）",       mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "一键批准/拒绝智能体提示",                 mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
-      { feature: "Android 和 iOS",                         mobile: "yes",    onepilot: "仅 iOS",   happy: "yes",   omnara: "yes" },
-      { feature: "无需账户",                                mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
-      { feature: "无 Pro 付费墙（所有功能免费）",           mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
-      { feature: "开源",                                    mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+      { feature: "从手机运行编码智能体",                     mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "支持任意编码智能体（不限单一厂商）",       mobile: "yes", onepilot: "yes",      happy: "Claude Code", omnara: "yes",     chatgpt: "仅 Codex",     claude: "仅 Claude Code" },
+      { feature: "在你自己的机器上运行（而非厂商云端）",     mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "no",           claude: "部分" },
+      { feature: "直连 SSH——无云端中继",                   mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "通用 SSH 终端（运行任意命令）",           mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "部分",    chatgpt: "no",           claude: "no" },
+      { feature: "SFTP 文件传输",                          mobile: "yes", onepilot: "部分",     happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "本地端口转发",                            mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "tmux 会话管理器",                         mobile: "yes", onepilot: "部分",     happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "智能体提醒（智能体需要输入时推送）",       mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "一键批准/拒绝智能体提示",                 mobile: "no",  onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "无需服务器或 SSH 配置",                   mobile: "no",  onepilot: "no",       happy: "部分",        omnara: "部分",    chatgpt: "yes",          claude: "yes" },
+      { feature: "Android 和 iOS",                         mobile: "yes", onepilot: "仅 iOS",   happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "无需账户",                                mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "无 Pro 付费墙（所有功能免费）",           mobile: "yes", onepilot: "no",       happy: "no",          omnara: "no",      chatgpt: "免费套餐",     claude: "no" },
+      { feature: "开源",                                    mobile: "no",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
-      "取舍是真实存在的：专用智能体应用为权限提示增加了一键批准/拒绝的界面，而 Mobile SSH 需要你在终端里回应智能体。作为回报，Mobile SSH 是一款完整的 SSH/SFTP/隧道客户端，直接连接到你自己的服务器，无需账户或厂商中继，并且每一项功能都免费。Happy 和 Omnara 是开源的，但会经由云端中继（Omnara 还需要账户）；Onepilot 最为接近——在 iOS 上直连 SSH——但仅限 iOS 且需付费。",
+      "原生的 ChatGPT 和 Claude 应用是零配置运行单一厂商智能体的最顺畅方式——无需服务器，只需一个账户——并且它们提供了精致的一键批准/拒绝界面。代价在于：它们只在自己的云端运行自家模型，没有通用终端，没有 SFTP 或隧道，也无法自带机器，而且需付费或需登录账户。Onepilot、Happy 和 Omnara 让智能体保留在你掌控的硬件上（Onepilot 通过直连 SSH；Happy 和 Omnara 通过云端中继，Omnara 还需要账户）。Mobile SSH 直接连接到你自己的服务器，无需账户或厂商中继，可运行任意智能体，同时提供完整的终端、SFTP 和端口转发，并且每一项功能都免费——取舍在于你需要在终端里回应智能体提示，而不是在专用的批准/拒绝界面上。",
   },
   privacy: {
     metaTitle: "隐私政策 | Mobile SSH",

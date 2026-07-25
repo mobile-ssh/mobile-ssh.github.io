@@ -386,25 +386,28 @@ export const pt: Dict = {
       { category: "Plugins",            feature: "Suporte a plugins",                                  mobile: "yes",     termux: "via pacotes",  termius: "no" },
       { category: "Plugins",            feature: "Catálogo de plugins com instalação sob demanda",     mobile: "yes",     termux: "no",           termius: "no" }
     ],
-    agentAppsHeading: "Mobile SSH vs apps de agentes de IA remotos",
+    agentAppsHeading: "Mobile SSH vs apps de agentes de programação de IA",
     agentAppsIntro:
-      "Existe uma categoria mais recente de apps criada apenas para executar o Claude Code, o Codex e agentes de programação semelhantes em uma máquina remota a partir do seu celular. O Mobile SSH se sobrepõe a eles — você pode executar esses agentes por SSH e receber alertas quando precisarem de você —, mas aborda a tarefa pelo outro lado: é primeiro um cliente SSH direto e de uso geral, e um complemento para agentes em segundo lugar.",
+      "Existe uma categoria em rápido crescimento de apps criada apenas para conduzir agentes de programação — Claude Code, Codex e afins — a partir do seu celular. Alguns são apps SSH ou de retransmissão de terceiros (Onepilot, Happy, Omnara); a OpenAI e a Anthropic agora também oferecem isso de forma nativa, com o Codex dentro do app ChatGPT e o Claude Code dentro do app Claude, ambos executando na nuvem do próprio fornecedor. O Mobile SSH se sobrepõe a todos eles — você pode executar esses agentes por SSH e receber alertas quando precisarem de você —, mas aborda a tarefa pelo outro lado: é primeiro um cliente SSH direto e de uso geral, e um complemento para agentes em segundo lugar.",
     agentAppsRows: [
-      { feature: "Executa Claude Code e Codex em um servidor remoto",     mobile: "yes",    onepilot: "yes",       happy: "yes",   omnara: "yes" },
-      { feature: "Terminal SSH de uso geral (executa qualquer comando)",   mobile: "yes",    onepilot: "yes",       happy: "no",    omnara: "parcial" },
-      { feature: "SSH direto — sem retransmissão na nuvem",                mobile: "yes",    onepilot: "yes",       happy: "no",    omnara: "no" },
-      { feature: "Transferência de arquivos SFTP",                         mobile: "yes",    onepilot: "parcial",   happy: "no",    omnara: "no" },
-      { feature: "Redirecionamento local de portas",                       mobile: "yes",    onepilot: "yes",       happy: "no",    omnara: "no" },
-      { feature: "Gerenciador de sessões tmux",                            mobile: "yes",    onepilot: "parcial",   happy: "no",    omnara: "no" },
-      { feature: "Alertas de agente (push quando o agente precisa de entrada)", mobile: "yes", onepilot: "yes",    happy: "yes",   omnara: "yes" },
-      { feature: "Aprovar/negar prompts do agente com um toque",           mobile: "no",     onepilot: "yes",       happy: "yes",   omnara: "yes" },
-      { feature: "Android e iOS",                                          mobile: "yes",    onepilot: "Apenas iOS", happy: "yes",  omnara: "yes" },
-      { feature: "Sem conta obrigatória",                                  mobile: "yes",    onepilot: "yes",       happy: "yes",   omnara: "no" },
-      { feature: "Sem paywall Pro (todos os recursos gratuitos)",          mobile: "yes",    onepilot: "no",        happy: "no",    omnara: "no" },
-      { feature: "Código aberto",                                          mobile: "no",     onepilot: "no",        happy: "MIT",   omnara: "Apache" }
+      { feature: "Executa agentes de programação a partir do seu celular",         mobile: "yes", onepilot: "yes",        happy: "yes",         omnara: "yes",     chatgpt: "yes",             claude: "yes" },
+      { feature: "Funciona com qualquer agente de programação (não só um fornecedor)", mobile: "yes", onepilot: "yes",     happy: "Claude Code", omnara: "yes",     chatgpt: "Apenas Codex",    claude: "Apenas Claude Code" },
+      { feature: "Executa na sua própria máquina (não na nuvem de um fornecedor)",  mobile: "yes", onepilot: "yes",        happy: "yes",         omnara: "yes",     chatgpt: "no",              claude: "parcial" },
+      { feature: "SSH direto — sem retransmissão na nuvem",                         mobile: "yes", onepilot: "yes",        happy: "no",          omnara: "no",      chatgpt: "no",              claude: "no" },
+      { feature: "Terminal SSH de uso geral (executa qualquer comando)",           mobile: "yes", onepilot: "yes",        happy: "no",          omnara: "parcial", chatgpt: "no",              claude: "no" },
+      { feature: "Transferência de arquivos SFTP",                                 mobile: "yes", onepilot: "parcial",    happy: "no",          omnara: "no",      chatgpt: "no",              claude: "no" },
+      { feature: "Redirecionamento local de portas",                               mobile: "yes", onepilot: "yes",        happy: "no",          omnara: "no",      chatgpt: "no",              claude: "no" },
+      { feature: "Gerenciador de sessões tmux",                                    mobile: "yes", onepilot: "parcial",    happy: "no",          omnara: "no",      chatgpt: "no",              claude: "no" },
+      { feature: "Alertas de agente (push quando o agente precisa de entrada)",    mobile: "yes", onepilot: "yes",        happy: "yes",         omnara: "yes",     chatgpt: "yes",             claude: "yes" },
+      { feature: "Aprovar/negar prompts do agente com um toque",                   mobile: "no",  onepilot: "yes",        happy: "yes",         omnara: "yes",     chatgpt: "yes",             claude: "yes" },
+      { feature: "Zero configuração de servidor ou SSH",                           mobile: "no",  onepilot: "no",         happy: "parcial",     omnara: "parcial", chatgpt: "yes",             claude: "yes" },
+      { feature: "Android e iOS",                                                  mobile: "yes", onepilot: "Apenas iOS", happy: "yes",         omnara: "yes",     chatgpt: "yes",             claude: "yes" },
+      { feature: "Sem conta obrigatória",                                          mobile: "yes", onepilot: "yes",        happy: "yes",         omnara: "no",      chatgpt: "no",              claude: "no" },
+      { feature: "Sem paywall Pro (todos os recursos gratuitos)",                  mobile: "yes", onepilot: "no",         happy: "no",          omnara: "no",      chatgpt: "nível gratuito",  claude: "no" },
+      { feature: "Código aberto",                                                  mobile: "no",  onepilot: "no",         happy: "MIT",         omnara: "Apache",  chatgpt: "no",              claude: "no" }
     ],
     agentAppsNote:
-      "A troca é real: os apps dedicados a agentes adicionam uma tela de aprovar/negar com um toque para os prompts de permissão, enquanto o Mobile SSH faz você responder ao agente no terminal. Em troca, o Mobile SSH é um cliente completo de SSH/SFTP/túnel, conecta-se direto ao seu próprio servidor sem conta nem retransmissão de fornecedor, e todos os recursos são gratuitos. Happy e Omnara são de código aberto, mas passam por uma retransmissão na nuvem (o Omnara também exige uma conta); o Onepilot é o mais próximo — SSH direto no iOS —, mas apenas para iOS e pago.",
+      "Os apps nativos do ChatGPT e do Claude são a forma mais tranquila de executar o agente de um único fornecedor com zero configuração — sem servidor, apenas uma conta — e adicionam uma tela refinada de aprovar/negar com um toque. O problema: eles executam apenas o próprio modelo na própria nuvem, sem terminal de uso geral, sem SFTP nem túneis, e sem usar a sua própria máquina, além de serem pagos ou restritos a conta. Onepilot, Happy e Omnara mantêm o agente em hardware que você controla (o Onepilot via SSH direto; o Happy e o Omnara via retransmissão na nuvem, e o Omnara exige uma conta). O Mobile SSH conecta-se direto ao seu próprio servidor sem conta nem retransmissão de fornecedor, executa qualquer agente junto com um terminal completo, SFTP e redirecionamento de portas, e todos os recursos são gratuitos — a troca é que você responde aos prompts do agente no terminal em vez de em uma tela dedicada de aprovar/negar.",
   },
   privacy: {
     metaTitle: "Política de Privacidade | Mobile SSH",
