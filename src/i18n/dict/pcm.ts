@@ -384,7 +384,26 @@ export const pcm: Dict = {
       { category: "Sessions",         feature: "tmux session manager",                        mobile: "yes",     termux: "via CLI",       termius: "no" },
       { category: "Plugins",          feature: "Plugin support",                              mobile: "yes",     termux: "via packages",  termius: "no" },
       { category: "Plugins",          feature: "Plugin catalog wey dey install on demand",    mobile: "yes",     termux: "no",            termius: "no" }
-    ]
+    ],
+    agentAppsHeading: "Mobile SSH vs remote AI-agent app dem",
+    agentAppsIntro:
+      "New kind app dey now wey dem build just to run Claude Code, Codex, and similar coding agent for remote machine from your phone. Mobile SSH dey overlap wit dem — you fit run those agent over SSH and get alert when dem need you — but e dey approach di work from di oda side: e be general, direct SSH client first, and agent companion second.",
+    agentAppsRows: [
+      { feature: "E dey run Claude Code & Codex for remote server", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "General SSH terminal (run any command)",          mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "partial" },
+      { feature: "Direct SSH — no cloud relay",                     mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "SFTP file transfer",                              mobile: "yes",    onepilot: "partial",  happy: "no",    omnara: "no" },
+      { feature: "Local port forwarding",                           mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "tmux session manager",                            mobile: "yes",    onepilot: "partial",  happy: "no",    omnara: "no" },
+      { feature: "Agent alert (push when di agent need input)",     mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "One-tap approve/deny for agent prompt",           mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "Android and iOS",                                 mobile: "yes",    onepilot: "iOS just", happy: "yes",   omnara: "yes" },
+      { feature: "No need account",                                 mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
+      { feature: "No Pro paywall (all feature free)",               mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
+      { feature: "Open source",                                     mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+    ],
+    agentAppsNote:
+      "Di trade-off dey real: di dedicated agent app dem dey add one-tap approve/deny screen for permission prompt, while Mobile SSH make you answer di agent inside di terminal. For return, Mobile SSH na full SSH/SFTP/tunnel client, e dey connect straight to your own server witout account or vendor relay, and every feature dey free. Happy and Omnara na open source but dem dey pass through cloud relay (Omnara sef need account); Onepilot na di closest — direct SSH for iOS — but e dey for iOS just and you go pay.",
   },
   privacy: {
     metaTitle: "Privacy Policy | Mobile SSH",

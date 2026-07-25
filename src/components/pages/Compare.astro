@@ -43,6 +43,7 @@ const categories = [...new Set(featureRows.map(r => r.category))];
 
       <h2 class="feat-heading">{t.compare.featureHeading}</h2>
 
+      <div class="feat-scroll">
       <table class="feat-table">
         <thead>
           <tr>
@@ -76,6 +77,37 @@ const categories = [...new Set(featureRows.map(r => r.category))];
           ))}
         </tbody>
       </table>
+      </div>
+
+      <h2 class="feat-heading">{t.compare.agentAppsHeading}</h2>
+      <p class="agent-intro">{t.compare.agentAppsIntro}</p>
+
+      <div class="feat-scroll">
+        <table class="feat-table agent-table">
+          <thead>
+            <tr>
+              <th class="feat-col-feature">{t.compare.columns.need}</th>
+              <th class="feat-col-app highlight-col">Mobile SSH</th>
+              <th class="feat-col-app">Onepilot</th>
+              <th class="feat-col-app">Happy</th>
+              <th class="feat-col-app">Omnara</th>
+            </tr>
+          </thead>
+          <tbody>
+            {t.compare.agentAppsRows.map((row) => (
+              <tr>
+                <td class="feat-name">{row.feature}</td>
+                {[["mobile", row.mobile, true], ["onepilot", row.onepilot, false], ["happy", row.happy, false], ["omnara", row.omnara, false]].map(([, v, hi]) => (
+                  <td class={`feat-cell ${hi ? "highlight-col " : ""}${v === "yes" ? "yes" : v === "no" ? "no" : "partial"}`}>
+                    {v === "yes" ? "✓" : v === "no" ? "✗" : v}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="agent-note">{t.compare.agentAppsNote}</p>
     </section>
   </main>
 
@@ -125,6 +157,14 @@ const categories = [...new Set(featureRows.map(r => r.category))];
 
   .feat-col-feature { width: 38%; }
   .feat-col-app     { width: 20.5%; }
+
+  /* Agent-apps comparison (5 columns) */
+  .agent-intro { margin: 0 0 1.25rem; }
+  .agent-note { margin: 1rem 0 0; font-size: 0.9rem; color: var(--muted); }
+  .feat-scroll { overflow-x: auto; }
+  .agent-table { min-width: 560px; }
+  .agent-table .feat-col-feature { width: 32%; }
+  .agent-table .feat-col-app     { width: 17%; }
 
   /* Category header rows */
   .cat-row td {

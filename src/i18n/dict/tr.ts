@@ -384,7 +384,26 @@ export const tr: Dict = {
       { category: "Oturumlar", feature: "tmux oturum yöneticisi",                  mobile: "yes",    termux: "CLI ile",      termius: "no" },
       { category: "Eklentiler", feature: "Eklenti desteği",                        mobile: "yes",    termux: "paketlerle",   termius: "no" },
       { category: "Eklentiler", feature: "İstek üzerine kurulan eklenti kataloğu", mobile: "yes",    termux: "no",           termius: "no" }
-    ]
+    ],
+    agentAppsHeading: "Mobile SSH ile uzak yapay zeka ajan uygulamaları",
+    agentAppsIntro:
+      "Yalnızca Claude Code, Codex ve benzeri kodlama ajanlarını telefonundan uzak bir makinede çalıştırmak için var olan daha yeni bir uygulama kategorisi mevcut. Mobile SSH bunlarla örtüşür — bu ajanları SSH üzerinden çalıştırabilir ve sana ihtiyaç duyduklarında uyarı alabilirsin — ancak işe diğer taraftan yaklaşır: önce genel, doğrudan bir SSH istemcisidir, sonra bir ajan yardımcısıdır.",
+    agentAppsRows: [
+      { feature: "Uzak sunucuda Claude Code ve Codex çalıştırır",         mobile: "yes",    onepilot: "yes",          happy: "yes",   omnara: "yes" },
+      { feature: "Genel SSH terminali (herhangi bir komutu çalıştır)",     mobile: "yes",    onepilot: "yes",          happy: "no",    omnara: "kısmi" },
+      { feature: "Doğrudan SSH — bulut aktarımı yok",                      mobile: "yes",    onepilot: "yes",          happy: "no",    omnara: "no" },
+      { feature: "SFTP dosya aktarımı",                                    mobile: "yes",    onepilot: "kısmi",        happy: "no",    omnara: "no" },
+      { feature: "Yerel port yönlendirme",                                 mobile: "yes",    onepilot: "yes",          happy: "no",    omnara: "no" },
+      { feature: "tmux oturum yöneticisi",                                 mobile: "yes",    onepilot: "kısmi",        happy: "no",    omnara: "no" },
+      { feature: "Ajan uyarıları (ajanın girdiye ihtiyacı olduğunda bildirim)", mobile: "yes", onepilot: "yes",     happy: "yes",   omnara: "yes" },
+      { feature: "Ajan istemlerini tek dokunuşla onayla/reddet",           mobile: "no",     onepilot: "yes",          happy: "yes",   omnara: "yes" },
+      { feature: "Android ve iOS",                                         mobile: "yes",    onepilot: "yalnızca iOS", happy: "yes",   omnara: "yes" },
+      { feature: "Hesap gerekmez",                                         mobile: "yes",    onepilot: "yes",          happy: "yes",   omnara: "no" },
+      { feature: "Pro paywall yok (tüm özellikler ücretsiz)",              mobile: "yes",    onepilot: "no",           happy: "no",    omnara: "no" },
+      { feature: "Açık kaynak",                                            mobile: "no",     onepilot: "no",           happy: "MIT",   omnara: "Apache" }
+    ],
+    agentAppsNote:
+      "Ödünleşim gerçek: adanmış ajan uygulamaları izin istemleri için tek dokunuşla onayla/reddet ekranı ekler, Mobile SSH ise ajanı terminalde yanıtlamanı sağlar. Buna karşılık Mobile SSH tam bir SSH/SFTP/tünel istemcisidir, hesap veya sağlayıcı aktarımı olmadan doğrudan kendi sunucuna bağlanır ve her özellik ücretsizdir. Happy ve Omnara açık kaynaktır ama bir bulut aktarımı üzerinden geçer (Omnara ayrıca hesap gerektirir); Onepilot en yakın olanıdır — iOS'ta doğrudan SSH — ama yalnızca iOS'ta ve ücretlidir.",
   },
   privacy: {
     metaTitle: "Gizlilik Politikası | Mobile SSH",

@@ -384,7 +384,26 @@ export const es: Dict = {
       { category: "Sesiones",          feature: "Gestor de sesiones de tmux",                          mobile: "yes",     termux: "mediante CLI",      termius: "no" },
       { category: "Complementos",      feature: "Compatibilidad con complementos",                     mobile: "yes",     termux: "mediante paquetes", termius: "no" },
       { category: "Complementos",      feature: "Catálogo de complementos bajo demanda",               mobile: "yes",     termux: "no",           termius: "no" }
-    ]
+    ],
+    agentAppsHeading: "Mobile SSH vs apps de agentes de IA remotos",
+    agentAppsIntro:
+      "Existe una categoría más reciente de apps creadas solo para ejecutar Claude Code, Codex y agentes de programación similares en una máquina remota desde tu teléfono. Mobile SSH se solapa con ellas — puedes ejecutar esos agentes por SSH y recibir alertas cuando te necesitan — pero aborda la tarea desde el otro lado: es ante todo un cliente SSH general y directo, y en segundo lugar un compañero para agentes.",
+    agentAppsRows: [
+      { feature: "Ejecuta Claude Code y Codex en un servidor remoto",        mobile: "yes",    onepilot: "yes",       happy: "yes",   omnara: "yes" },
+      { feature: "Terminal SSH general (ejecuta cualquier comando)",          mobile: "yes",    onepilot: "yes",       happy: "no",    omnara: "parcial" },
+      { feature: "SSH directo — sin relé en la nube",                         mobile: "yes",    onepilot: "yes",       happy: "no",    omnara: "no" },
+      { feature: "Transferencia de archivos SFTP",                            mobile: "yes",    onepilot: "parcial",   happy: "no",    omnara: "no" },
+      { feature: "Reenvío local de puertos",                                  mobile: "yes",    onepilot: "yes",       happy: "no",    omnara: "no" },
+      { feature: "Gestor de sesiones de tmux",                                mobile: "yes",    onepilot: "parcial",   happy: "no",    omnara: "no" },
+      { feature: "Alertas de agente (aviso push cuando el agente necesita entrada)", mobile: "yes", onepilot: "yes",  happy: "yes",   omnara: "yes" },
+      { feature: "Aprobar/denegar las solicitudes del agente con un toque",   mobile: "no",     onepilot: "yes",       happy: "yes",   omnara: "yes" },
+      { feature: "Android e iOS",                                             mobile: "yes",    onepilot: "Solo iOS",  happy: "yes",   omnara: "yes" },
+      { feature: "Sin cuenta requerida",                                      mobile: "yes",    onepilot: "yes",       happy: "yes",   omnara: "no" },
+      { feature: "Sin muro de pago Pro (todas las funciones gratis)",         mobile: "yes",    onepilot: "no",        happy: "no",    omnara: "no" },
+      { feature: "Código abierto",                                            mobile: "no",     onepilot: "no",        happy: "MIT",   omnara: "Apache" }
+    ],
+    agentAppsNote:
+      "El equilibrio es real: las apps dedicadas de agentes añaden una pantalla de aprobar/denegar con un toque para las solicitudes de permiso, mientras que Mobile SSH te hace responder al agente en el terminal. A cambio, Mobile SSH es un cliente completo de SSH/SFTP/túnel, se conecta directamente a tu propio servidor sin cuenta ni relé del proveedor, y todas las funciones son gratis. Happy y Omnara son de código abierto pero pasan por un relé en la nube (Omnara también requiere una cuenta); Onepilot es el más cercano — SSH directo en iOS — pero solo para iOS y de pago.",
   },
   privacy: {
     metaTitle: "Política de privacidad | Mobile SSH",

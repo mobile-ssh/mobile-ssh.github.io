@@ -384,7 +384,26 @@ export const ja: Dict = {
       { category: "セッション", feature: "tmux セッション マネージャー",              mobile: "yes",    termux: "CLI 経由",      termius: "no" },
       { category: "プラグイン", feature: "プラグイン サポート",                       mobile: "yes",    termux: "パッケージ経由", termius: "no" },
       { category: "プラグイン", feature: "オンデマンド インストールのプラグイン カタログ", mobile: "yes", termux: "no",           termius: "no" }
-    ]
+    ],
+    agentAppsHeading: "Mobile SSH とリモート AI エージェント アプリの比較",
+    agentAppsIntro:
+      "スマホからリモートマシン上で Claude Code や Codex などのコーディング エージェントを実行することだけを目的とした、新しいカテゴリーのアプリが登場しています。Mobile SSH はそれらと重なる部分があり — SSH 経由でそうしたエージェントを実行し、対応が必要になったときに通知を受け取れます — が、逆の側からこの課題に取り組みます。まず汎用の直接 SSH クライアントであり、エージェントのコンパニオンはその次です。",
+    agentAppsRows: [
+      { feature: "リモートサーバーで Claude Code と Codex を実行",       mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "汎用 SSH ターミナル（任意のコマンドを実行）",           mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "一部対応" },
+      { feature: "ダイレクト SSH — クラウド中継なし",                     mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "SFTP ファイル転送",                                     mobile: "yes",    onepilot: "一部対応",  happy: "no",    omnara: "no" },
+      { feature: "ローカル ポートフォワード",                             mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "tmux セッション マネージャー",                          mobile: "yes",    onepilot: "一部対応",  happy: "no",    omnara: "no" },
+      { feature: "エージェント アラート（エージェントが入力を必要とするときにプッシュ）", mobile: "yes", onepilot: "yes", happy: "yes", omnara: "yes" },
+      { feature: "エージェントのプロンプトをワンタップで承認／拒否",       mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "Android と iOS",                                        mobile: "yes",    onepilot: "iOS のみ", happy: "yes",   omnara: "yes" },
+      { feature: "アカウント不要",                                        mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
+      { feature: "Pro ペイウォールなし（全機能無料）",                    mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
+      { feature: "オープンソース",                                        mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+    ],
+    agentAppsNote:
+      "トレードオフは確かにあります。専用のエージェント アプリはパーミッション プロンプト用にワンタップの承認／拒否画面を追加しますが、Mobile SSH ではターミナルでエージェントに応答します。その代わり、Mobile SSH は完全な SSH／SFTP／トンネル クライアントであり、アカウントやベンダーの中継なしで自分のサーバーに直接接続でき、すべての機能が無料です。Happy と Omnara はオープンソースですがクラウド中継を経由します（Omnara はアカウントも必要）。Onepilot が最も近く — iOS でのダイレクト SSH — ですが iOS 専用かつ有料です。",
   },
   privacy: {
     metaTitle: "プライバシーポリシー | Mobile SSH",

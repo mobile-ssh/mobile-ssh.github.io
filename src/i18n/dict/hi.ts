@@ -384,7 +384,26 @@ export const hi: Dict = {
       { category: "सेशन",    feature: "tmux सेशन मैनेजर",                           mobile: "yes",    termux: "CLI के ज़रिए",   termius: "no" },
       { category: "प्लगइन",  feature: "प्लगइन समर्थन",                              mobile: "yes",    termux: "पैकेजों के ज़रिए", termius: "no" },
       { category: "प्लगइन",  feature: "मांग पर स्थापित होने वाला प्लगइन कैटलॉग",   mobile: "yes",    termux: "no",           termius: "no" }
-    ]
+    ],
+    agentAppsHeading: "Mobile SSH बनाम रिमोट AI-एजेंट ऐप्स",
+    agentAppsIntro:
+      "ऐप्स की एक नई श्रेणी सिर्फ़ इसलिए मौजूद है कि आप अपने फ़ोन से किसी रिमोट मशीन पर Claude Code, Codex और उनके जैसे कोडिंग एजेंट चला सकें। Mobile SSH इनसे मिलता-जुलता है — आप उन एजेंट को SSH पर चला सकते हैं और जब उन्हें आपकी ज़रूरत हो तब अलर्ट पा सकते हैं — पर यह काम को दूसरी ओर से देखता है: यह पहले एक सामान्य, प्रत्यक्ष SSH क्लाइंट है और दूसरे नंबर पर एक एजेंट साथी।",
+    agentAppsRows: [
+      { feature: "रिमोट सर्वर पर Claude Code और Codex चलाता है",   mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "सामान्य SSH टर्मिनल (कोई भी कमांड चलाएँ)",         mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "आंशिक" },
+      { feature: "प्रत्यक्ष SSH — कोई क्लाउड रिले नहीं",             mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "SFTP फ़ाइल ट्रांसफ़र",                             mobile: "yes",    onepilot: "आंशिक",    happy: "no",    omnara: "no" },
+      { feature: "स्थानीय पोर्ट फ़ॉरवर्डिंग",                        mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "tmux सेशन मैनेजर",                                 mobile: "yes",    onepilot: "आंशिक",    happy: "no",    omnara: "no" },
+      { feature: "Agent अलर्ट (जब एजेंट को इनपुट चाहिए तब पुश)",    mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "एजेंट प्रॉम्प्ट्स को एक-टैप स्वीकृत/अस्वीकृत करना", mobile: "no",   onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "Android और iOS",                                   mobile: "yes",    onepilot: "केवल iOS", happy: "yes",   omnara: "yes" },
+      { feature: "कोई खाता आवश्यक नहीं",                             mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
+      { feature: "कोई Pro पेवॉल नहीं (सभी फ़ीचर मुफ़्त)",           mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
+      { feature: "ओपन सोर्स",                                        mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+    ],
+    agentAppsNote:
+      "समझौता वास्तविक है: समर्पित एजेंट ऐप्स अनुमति प्रॉम्प्ट्स के लिए एक-टैप स्वीकृत/अस्वीकृत स्क्रीन जोड़ते हैं, जबकि Mobile SSH में आप एजेंट को टर्मिनल में जवाब देते हैं। बदले में, Mobile SSH एक पूर्ण SSH/SFTP/टनल क्लाइंट है, बिना किसी खाते या वेंडर रिले के सीधे आपके अपने सर्वर से जुड़ता है, और इसका हर फ़ीचर मुफ़्त है। Happy और Omnara ओपन सोर्स हैं पर एक क्लाउड रिले के ज़रिए मार्ग बनाते हैं (Omnara को खाता भी चाहिए); Onepilot सबसे निकट है — iOS पर प्रत्यक्ष SSH — पर केवल iOS के लिए और सशुल्क।",
   },
   privacy: {
     metaTitle: "गोपनीयता नीति | Mobile SSH",

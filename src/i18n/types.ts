@@ -141,6 +141,13 @@ export interface Dict {
     cards: CompareCard[];
     featureHeading: string;
     featureRows: { category: string; feature: string; mobile: string; termux: string; termius: string }[];
+    // Second comparison: Mobile SSH vs purpose-built "run Claude Code / Codex on
+    // a remote server from your phone" apps. App names (Onepilot/Happy/Omnara)
+    // are proper nouns rendered in the component; values are yes/no/short text.
+    agentAppsHeading: string;
+    agentAppsIntro: string;
+    agentAppsRows: { feature: string; mobile: string; onepilot: string; happy: string; omnara: string }[];
+    agentAppsNote: string;
   };
   privacy: {
     metaTitle: string;

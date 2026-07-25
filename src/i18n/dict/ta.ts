@@ -384,7 +384,26 @@ export const ta: Dict = {
       { category: "அமர்வுகள்", feature: "tmux அமர்வு மேலாளர்",                                mobile: "yes",    termux: "CLI வழியாக",      termius: "no" },
       { category: "சொருகிகள்", feature: "சொருகி ஆதரவு",                                       mobile: "yes",    termux: "தொகுப்புகள் வழியாக", termius: "no" },
       { category: "சொருகிகள்", feature: "தேவைக்கேற்ப நிறுவும் சொருகி பட்டியல்",              mobile: "yes",    termux: "no",           termius: "no" }
-    ]
+    ],
+    agentAppsHeading: "Mobile SSH vs தொலைநிலை AI-முகவர் ஆப்கள்",
+    agentAppsIntro:
+      "உங்கள் தொலைபேசியிலிருந்து ஒரு தொலைநிலை இயந்திரத்தில் Claude Code, Codex மற்றும் இதுபோன்ற குறியீட்டு முகவர்களை இயக்குவதற்காகவே உருவாக்கப்பட்ட ஒரு புதிய வகை ஆப்கள் உள்ளன. Mobile SSH இவற்றுடன் மேற்பொருந்துகிறது — அந்த முகவர்களை SSH வழியாக இயக்கலாம், அவை உங்கள் உதவி தேவைப்படும்போது விழிப்பூட்டல் பெறலாம் — ஆனால் இது வேலையை மறுபக்கத்திலிருந்து அணுகுகிறது: இது முதலில் ஒரு பொதுவான, நேரடி SSH கிளையன்ட், இரண்டாவதாகவே முகவர் துணை.",
+    agentAppsRows: [
+      { feature: "தொலைநிலை சர்வரில் Claude Code & Codex இயக்குகிறது", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "பொது SSH டெர்மினல் (எந்த கட்டளையையும் இயக்கு)",       mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "பகுதியளவு" },
+      { feature: "நேரடி SSH — கிளவுட் ரிலே இல்லை",                  mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "SFTP கோப்பு மாற்றம்",                           mobile: "yes",    onepilot: "பகுதியளவு",  happy: "no",    omnara: "no" },
+      { feature: "உள்ளக போர்ட் முன்னோடல்",                        mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "tmux அமர்வு மேலாளர்",                         mobile: "yes",    onepilot: "பகுதியளவு",  happy: "no",    omnara: "no" },
+      { feature: "முகவர் விழிப்பூட்டல்கள் (முகவருக்கு உள்ளீடு தேவைப்படும்போது புஷ்)", mobile: "yes",  onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "முகவர் கோரிக்கைகளை ஒரே தட்டில் அனுமதி/மறு",        mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "Android மற்றும் iOS",                              mobile: "yes",    onepilot: "iOS மட்டும்", happy: "yes",   omnara: "yes" },
+      { feature: "கணக்கு தேவையில்லை",                          mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
+      { feature: "Pro பேவால் இல்லை (அனைத்து அம்சங்களும் இலவசம்)",           mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
+      { feature: "திறந்த மூலம்",                                  mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+    ],
+    agentAppsNote:
+      "சமரசம் உண்மையானது: அர்ப்பணிக்கப்பட்ட முகவர் ஆப்கள் அனுமதி கோரிக்கைகளுக்கு ஒரே தட்டில் அனுமதி/மறு திரையைச் சேர்க்கின்றன, அதேசமயம் Mobile SSH-இல் நீங்கள் டெர்மினலில் முகவருக்குப் பதிலளிக்க வேண்டும். பதிலுக்கு, Mobile SSH ஒரு முழுமையான SSH/SFTP/டன்னல் கிளையன்ட், கணக்கு அல்லது விற்பனையாளர் ரிலே இல்லாமல் நேரடியாக உங்கள் சொந்த சர்வருடன் இணைகிறது, மேலும் ஒவ்வொரு அம்சமும் இலவசம். Happy மற்றும் Omnara திறந்த மூலம், ஆனால் ஒரு கிளவுட் ரிலே வழியாக செல்கின்றன (Omnara-க்கு கணக்கும் தேவை); Onepilot மிக நெருக்கமானது — iOS-இல் நேரடி SSH — ஆனால் iOS-மட்டும் மற்றும் கட்டணம்.",
   },
   privacy: {
     metaTitle: "தனியுரிமை கொள்கை | Mobile SSH",

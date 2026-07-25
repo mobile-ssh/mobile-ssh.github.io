@@ -384,7 +384,26 @@ export const yue: Dict = {
       { category: "會話", feature: "tmux 會話管理器",                      mobile: "yes",    termux: "經由 CLI",      termius: "no" },
       { category: "插件", feature: "插件支援",                             mobile: "yes",    termux: "經由套件",      termius: "no" },
       { category: "插件", feature: "按需安裝嘅插件目錄",                   mobile: "yes",    termux: "no",           termius: "no" }
-    ]
+    ],
+    agentAppsHeading: "Mobile SSH 同遠端 AI agent App 嘅對比",
+    agentAppsIntro:
+      "有一類較新嘅 App，專門用嚟由你部電話喺遠端機器上運行 Claude Code、Codex 同類似嘅編碼 agent。Mobile SSH 同佢哋有重疊 —— 你可以經 SSH 運行呢啲 agent，喺佢哋需要你嗰陣收到提示 —— 但佢係由另一邊入手：佢首先係一個通用、直連嘅 SSH 客戶端，其次先至係 agent 夥伴。",
+    agentAppsRows: [
+      { feature: "喺遠端伺服器上運行 Claude Code 同 Codex", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "通用 SSH 終端機（運行任何命令）",         mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "部分" },
+      { feature: "直連 SSH —— 冇雲端中繼",                  mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "SFTP 檔案傳輸",                           mobile: "yes",    onepilot: "部分",     happy: "no",    omnara: "no" },
+      { feature: "本機端口轉發",                            mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "tmux 會話管理器",                         mobile: "yes",    onepilot: "部分",     happy: "no",    omnara: "no" },
+      { feature: "Agent 提示（agent 需要輸入時推送通知）",  mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "一撳批准／拒絕 agent 提示",               mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "Android 同 iOS",                          mobile: "yes",    onepilot: "淨係 iOS", happy: "yes",   omnara: "yes" },
+      { feature: "唔需要帳號",                              mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
+      { feature: "冇 Pro paywall（所有功能免費）",          mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
+      { feature: "開源",                                    mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+    ],
+    agentAppsNote:
+      "取捨係實在嘅：專門嘅 agent App 為權限提示加咗一個一撳批准／拒絕嘅畫面，而 Mobile SSH 就要你喺終端機入面回覆 agent。作為回報，Mobile SSH 係一個完整嘅 SSH／SFTP／隧道客戶端，直接連去你自己嘅伺服器，唔使帳號亦冇供應商中繼，而且每個功能都免費。Happy 同 Omnara 係開源，但會經雲端中繼路由（Omnara 仲要帳號）；Onepilot 最接近 —— 喺 iOS 上直連 SSH —— 但淨係 iOS 又要俾錢。",
   },
   privacy: {
     metaTitle: "私隱政策 | Mobile SSH",

@@ -89,6 +89,18 @@ describe("locale dicts – structure", () => {
       expect(t.compare.featureHeading).toBeTruthy();
     });
 
+    it(`${locale}: agentAppsRows has ${en.compare.agentAppsRows.length} rows`, () => {
+      const t = getDict(locale);
+      expect(t.compare.agentAppsRows).toHaveLength(en.compare.agentAppsRows.length);
+    });
+
+    it(`${locale}: agentApps heading/intro/note are set`, () => {
+      const t = getDict(locale);
+      expect(t.compare.agentAppsHeading).toBeTruthy();
+      expect(t.compare.agentAppsIntro).toBeTruthy();
+      expect(t.compare.agentAppsNote).toBeTruthy();
+    });
+
     it(`${locale}: compare rows has ${en.compare.rows.length} rows`, () => {
       const t = getDict(locale);
       expect(t.compare.rows).toHaveLength(en.compare.rows.length);

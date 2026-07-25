@@ -384,7 +384,26 @@ export const id: Dict = {
       { category: "Sesi",             feature: "Pengelola sesi tmux",                            mobile: "yes",     termux: "melalui CLI",   termius: "no" },
       { category: "Plugin",           feature: "Dukungan plugin",                                mobile: "yes",     termux: "melalui paket", termius: "no" },
       { category: "Plugin",           feature: "Katalog plugin pasang-sesuai-kebutuhan",         mobile: "yes",     termux: "no",            termius: "no" }
-    ]
+    ],
+    agentAppsHeading: "Mobile SSH vs aplikasi agen AI jarak jauh",
+    agentAppsIntro:
+      "Ada kategori aplikasi yang lebih baru yang khusus untuk menjalankan Claude Code, Codex, dan agen pemrograman serupa di mesin jarak jauh dari ponsel Anda. Mobile SSH beririsan dengan mereka — Anda dapat menjalankan agen tersebut melalui SSH dan mendapat peringatan saat mereka membutuhkan Anda — tetapi ia menghampiri tugas ini dari sisi lain: ia adalah klien SSH langsung yang serbaguna terlebih dahulu, dan pendamping agen setelahnya.",
+    agentAppsRows: [
+      { feature: "Menjalankan Claude Code & Codex di server jarak jauh", mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "Terminal SSH umum (jalankan perintah apa pun)",        mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "sebagian" },
+      { feature: "SSH langsung — tanpa relay awan",                      mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "Transfer berkas SFTP",                                 mobile: "yes",    onepilot: "sebagian", happy: "no",    omnara: "no" },
+      { feature: "Penerusan port lokal",                                 mobile: "yes",    onepilot: "yes",      happy: "no",    omnara: "no" },
+      { feature: "Pengelola sesi tmux",                                  mobile: "yes",    onepilot: "sebagian", happy: "no",    omnara: "no" },
+      { feature: "Peringatan agen (push saat agen butuh input)",         mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "Setujui/tolak prompt agen dengan satu ketuk",          mobile: "no",     onepilot: "yes",      happy: "yes",   omnara: "yes" },
+      { feature: "Android dan iOS",                                      mobile: "yes",    onepilot: "iOS saja", happy: "yes",   omnara: "yes" },
+      { feature: "Tidak perlu akun",                                     mobile: "yes",    onepilot: "yes",      happy: "yes",   omnara: "no" },
+      { feature: "Tanpa paywall Pro (semua fitur gratis)",               mobile: "yes",    onepilot: "no",       happy: "no",    omnara: "no" },
+      { feature: "Sumber terbuka",                                       mobile: "no",     onepilot: "no",       happy: "MIT",   omnara: "Apache" }
+    ],
+    agentAppsNote:
+      "Ada kompromi yang nyata: aplikasi agen khusus menambahkan layar setuju/tolak satu ketuk untuk prompt izin, sementara Mobile SSH mengharuskan Anda menjawab agen di terminal. Sebagai gantinya, Mobile SSH adalah klien SSH/SFTP/tunnel lengkap, terhubung langsung ke server Anda sendiri tanpa akun atau relay vendor, dan setiap fitur gratis. Happy dan Omnara bersumber terbuka tetapi merutekan melalui relay awan (Omnara juga memerlukan akun); Onepilot yang paling mirip — SSH langsung di iOS — tetapi hanya iOS dan berbayar.",
   },
   privacy: {
     metaTitle: "Kebijakan Privasi | Mobile SSH",
