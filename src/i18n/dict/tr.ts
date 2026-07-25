@@ -403,7 +403,7 @@ export const tr: Dict = {
       { feature: "Android ve iOS",                                         mobile: "yes", onepilot: "yalnızca iOS", happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "Hesap gerekmez",                                         mobile: "yes", onepilot: "yes",          happy: "yes",         omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "Pro paywall yok (tüm özellikler ücretsiz)",              mobile: "yes", onepilot: "no",           happy: "no",          omnara: "no",      chatgpt: "ücretsiz katman", claude: "no" },
-      { feature: "Açık kaynak",                                            mobile: "no",  onepilot: "no",           happy: "MIT",         omnara: "Apache",  chatgpt: "no",           claude: "no" }
+      { feature: "Açık kaynak",                                            mobile: "Apache 2.0",  onepilot: "no",           happy: "MIT",         omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "Yerel ChatGPT ve Claude uygulamaları, tek bir sağlayıcının ajanını sıfır kurulumla çalıştırmanın en sorunsuz yoludur — sunucu yok, yalnızca bir hesap — ve cilalı, tek dokunuşla onayla/reddet ekranı eklerler. İşin püf noktası: yalnızca kendi modellerini kendi bulutlarında çalıştırırlar, genel terminal yok, SFTP veya tünel yok, kendi makineni getirme yok ve ücretli ya da hesaba bağlıdırlar. Onepilot, Happy ve Omnara ajanı senin denetlediğin donanımda tutar (Onepilot doğrudan SSH ile; Happy ve Omnara bir bulut aktarımı ile ve Omnara bir hesap gerektirir). Mobile SSH hesap veya sağlayıcı aktarımı olmadan doğrudan kendi sunucuna bağlanır, tam bir terminal, SFTP ve port yönlendirmenin yanında herhangi bir ajanı çalıştırır ve her özellik ücretsizdir — ödünleşim, ajan istemlerini adanmış bir onayla/reddet ekranı yerine terminalde yanıtlamandır.",
@@ -482,7 +482,7 @@ export const tr: Dict = {
     authorLabel: "Yazar",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "Lisans",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "Web sitesi",
     privacyLabel: "Gizlilik politikası",
     privacyLinkText: "Gizlilik politikası",

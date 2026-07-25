@@ -404,7 +404,7 @@ export const te: Dict = {
       { feature: "Android మరియు iOS",                                 mobile: "yes", onepilot: "iOS మాత్రమే", happy: "yes",         omnara: "yes",     chatgpt: "yes",           claude: "yes" },
       { feature: "ఖాతా అవసరం లేదు",                                   mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "no",      chatgpt: "no",            claude: "no" },
       { feature: "Pro పేవాల్ లేదు (అన్ని ఫీచర్లు ఉచితం)",             mobile: "yes", onepilot: "no",       happy: "no",          omnara: "no",      chatgpt: "ఉచిత శ్రేణి",   claude: "no" },
-      { feature: "ఓపెన్ సోర్స్",                                      mobile: "no",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",            claude: "no" }
+      { feature: "ఓపెన్ సోర్స్",                                      mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",            claude: "no" }
     ],
     agentAppsNote:
       "స్థానిక ChatGPT మరియు Claude యాప్‌లు ఒక విక్రేత ఏజెంట్‌ను ఎలాంటి సెటప్ లేకుండా నడపడానికి అత్యంత సులభమైన మార్గం — సర్వర్ లేదు, కేవలం ఒక ఖాతా — మరియు అవి మెరుగుపెట్టిన ఒక-ట్యాప్ ఆమోదించు/తిరస్కరించు స్క్రీన్‌ను జోడిస్తాయి. లోపం: అవి తమ స్వంత మోడల్‌ను తమ స్వంత క్లౌడ్‌లో మాత్రమే నడుపుతాయి, సాధారణ టర్మినల్ లేదు, SFTP లేదా టన్నెల్‌లు లేవు, మరియు మీ స్వంత మెషీన్‌ను తీసుకురావడం లేదు, మరియు అవి చెల్లింపు లేదా ఖాతా-ఆధారితం. Onepilot, Happy మరియు Omnara ఏజెంట్‌ను మీరు నియంత్రించే హార్డ్‌వేర్‌లో ఉంచుతాయి (Onepilot ప్రత్యక్ష SSH ద్వారా; Happy మరియు Omnara క్లౌడ్ రిలే ద్వారా, మరియు Omnara కు ఖాతా అవసరం). Mobile SSH ఏ ఖాతా లేదా విక్రేత రిలే లేకుండా నేరుగా మీ స్వంత సర్వర్‌కు కనెక్ట్ అవుతుంది, పూర్తి టర్మినల్, SFTP మరియు పోర్ట్ ఫార్వార్డింగ్‌తో పాటు ఏ ఏజెంట్‌నైనా నడుపుతుంది, మరియు ప్రతి ఫీచర్ ఉచితం — రాజీ ఏమిటంటే మీరు అంకిత ఆమోదించు/తిరస్కరించు స్క్రీన్‌కు బదులుగా టర్మినల్‌లో ఏజెంట్ ప్రాంప్ట్‌లకు సమాధానం ఇస్తారు.",
@@ -483,7 +483,7 @@ export const te: Dict = {
     authorLabel: "రచయిత",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "లైసెన్స్",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "వెబ్‌సైట్",
     privacyLabel: "గోప్యతా విధానం",
     privacyLinkText: "గోప్యతా విధానం",

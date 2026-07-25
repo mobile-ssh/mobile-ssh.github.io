@@ -403,7 +403,7 @@ export const pcm: Dict = {
       { feature: "Android and iOS",                                 mobile: "yes", onepilot: "iOS just", happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "No need account",                                 mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "No Pro paywall (all feature free)",               mobile: "yes", onepilot: "no",       happy: "no",          omnara: "no",      chatgpt: "free level",   claude: "no" },
-      { feature: "Open source",                                     mobile: "no",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",           claude: "no" }
+      { feature: "Open source",                                     mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "Di native ChatGPT and Claude app dem na di smoothest way to run one vendor own agent witout any setup — no server, na just account — and dem dey add polished one-tap approve/deny screen. Di catch be say: dem dey run only dem own model for dem own cloud, witout general terminal, no SFTP or tunnel, and you no fit bring your own machine, and dem dey charge money or lock am for account. Onepilot, Happy, and Omnara dey keep di agent for hardware wey you control (Onepilot na direct SSH; Happy and Omnara na cloud relay, and Omnara need account). Mobile SSH dey connect straight to your own server witout account or vendor relay, e dey run any agent along wit full terminal, SFTP, and port forwarding, and every feature dey free — di trade-off be say you go answer agent prompt inside di terminal instead of dedicated approve/deny screen.",
@@ -482,7 +482,7 @@ export const pcm: Dict = {
     authorLabel: "Author",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "License",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "Website",
     privacyLabel: "Privacy policy",
     privacyLinkText: "Privacy policy",

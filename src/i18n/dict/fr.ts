@@ -403,7 +403,7 @@ export const fr: Dict = {
       { feature: "Android et iOS",                                               mobile: "yes", onepilot: "iOS uniquement", happy: "yes",        omnara: "yes",     chatgpt: "yes",              claude: "yes" },
       { feature: "Aucun compte requis",                                          mobile: "yes", onepilot: "yes",           happy: "yes",         omnara: "no",      chatgpt: "no",               claude: "no" },
       { feature: "Pas de paywall Pro (toutes les fonctionnalités gratuites)",    mobile: "yes", onepilot: "no",            happy: "no",          omnara: "no",      chatgpt: "offre gratuite",   claude: "no" },
-      { feature: "Open source",                                                  mobile: "no",  onepilot: "no",            happy: "MIT",         omnara: "Apache",  chatgpt: "no",               claude: "no" }
+      { feature: "Open source",                                                  mobile: "Apache 2.0",  onepilot: "no",            happy: "MIT",         omnara: "Apache",  chatgpt: "no",               claude: "no" }
     ],
     agentAppsNote:
       "Les applications natives ChatGPT et Claude sont le moyen le plus fluide d'exécuter l'agent d'un seul fournisseur sans aucune configuration — pas de serveur, juste un compte — et elles ajoutent un écran soigné d'approbation/refus en un tap. Le hic : elles n'exécutent que leur propre modèle dans leur propre cloud, sans terminal généraliste, sans SFTP ni tunnels, et sans possibilité d'utiliser votre propre machine, et elles sont payantes ou nécessitent un compte. Onepilot, Happy et Omnara gardent l'agent sur du matériel que vous contrôlez (Onepilot via SSH direct ; Happy et Omnara via un relais cloud, et Omnara nécessite un compte). Mobile SSH se connecte directement à votre propre serveur sans compte ni relais du fournisseur, exécute n'importe quel agent aux côtés d'un terminal complet, du SFTP et de la redirection de ports, et toutes les fonctionnalités sont gratuites — le compromis étant que vous répondez aux invites de l'agent dans le terminal plutôt que sur un écran dédié d'approbation/refus.",
@@ -482,7 +482,7 @@ export const fr: Dict = {
     authorLabel: "Auteur",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "Licence",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "Site web",
     privacyLabel: "Politique de confidentialité",
     privacyLinkText: "Politique de confidentialité",

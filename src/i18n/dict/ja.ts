@@ -403,7 +403,7 @@ export const ja: Dict = {
       { feature: "Android と iOS",                                        mobile: "yes", onepilot: "iOS のみ", happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "アカウント不要",                                        mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "Pro ペイウォールなし（全機能無料）",                    mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "無料プランあり", claude: "no" },
-      { feature: "オープンソース",                                        mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
+      { feature: "オープンソース",                                        mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "ネイティブの ChatGPT アプリと Claude アプリは、セットアップ不要で単一ベンダーのエージェントを実行する最もスムーズな方法です — サーバーは不要で、アカウントだけで済みます — さらに洗練されたワンタップの承認／拒否画面も備えています。ただし難点として、これらは自社のモデルを自社のクラウドでのみ実行し、汎用ターミナルも、SFTP やトンネルも、自分のマシンの持ち込みもできず、有料またはアカウント必須です。Onepilot、Happy、Omnara は、あなたが管理するハードウェア上にエージェントを置きます（Onepilot はダイレクト SSH 経由、Happy と Omnara はクラウド中継経由で、Omnara はアカウントが必要）。Mobile SSH はアカウントやベンダーの中継なしで自分のサーバーに直接接続し、完全なターミナル、SFTP、ポートフォワードとともに任意のエージェントを実行でき、すべての機能が無料です — トレードオフは、専用の承認／拒否画面ではなくターミナルでエージェントのプロンプトに応答することです。",
@@ -482,7 +482,7 @@ export const ja: Dict = {
     authorLabel: "作者",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "ライセンス",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "ウェブサイト",
     privacyLabel: "プライバシーポリシー",
     privacyLinkText: "プライバシーポリシー",

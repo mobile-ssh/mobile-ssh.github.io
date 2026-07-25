@@ -404,7 +404,7 @@ export const ru: Dict = {
       { feature: "Android и iOS",                                            mobile: "yes", onepilot: "только iOS", happy: "yes",         omnara: "yes",       chatgpt: "yes",              claude: "yes" },
       { feature: "Аккаунт не требуется",                                     mobile: "yes", onepilot: "yes",       happy: "yes",         omnara: "no",        chatgpt: "no",               claude: "no" },
       { feature: "Без Pro-paywall (все функции бесплатны)",                  mobile: "yes", onepilot: "no",        happy: "no",          omnara: "no",        chatgpt: "бесплатный тариф", claude: "no" },
-      { feature: "Открытый исходный код",                                    mobile: "no",  onepilot: "no",        happy: "MIT",         omnara: "Apache",    chatgpt: "no",               claude: "no" }
+      { feature: "Открытый исходный код",                                    mobile: "Apache 2.0",  onepilot: "no",        happy: "MIT",         omnara: "Apache",    chatgpt: "no",               claude: "no" }
     ],
     agentAppsNote:
       "Нативные приложения ChatGPT и Claude — самый простой способ запустить агента одного поставщика без всякой настройки: не нужен сервер, только аккаунт, — и они добавляют отточенный экран одобрения/отклонения одним касанием. Загвоздка в том, что они запускают только собственную модель в собственном облаке, без универсального терминала, без SFTP и туннелей, без возможности использовать свою машину, и при этом они платные или требуют аккаунт. Onepilot, Happy и Omnara держат агента на оборудовании, которое контролируете вы (Onepilot — через прямой SSH; Happy и Omnara — через облачный релей, а Omnara ещё и требует аккаунт). Mobile SSH подключается напрямую к вашему собственному серверу без аккаунта или релея поставщика, запускает любого агента вместе с полноценным терминалом, SFTP и пробросом портов, и все функции бесплатны — компромисс лишь в том, что на запросы агента вы отвечаете в терминале, а не на отдельном экране одобрения/отклонения.",
@@ -483,7 +483,7 @@ export const ru: Dict = {
     authorLabel: "Автор",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "Лицензия",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "Сайт",
     privacyLabel: "Политика конфиденциальности",
     privacyLinkText: "Политика конфиденциальности",

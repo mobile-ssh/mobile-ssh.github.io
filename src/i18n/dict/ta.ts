@@ -403,7 +403,7 @@ export const ta: Dict = {
       { feature: "Android மற்றும் iOS",                                mobile: "yes", onepilot: "iOS மட்டும்", happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "கணக்கு தேவையில்லை",                            mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "Pro பேவால் இல்லை (அனைத்து அம்சங்களும் இலவசம்)",             mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "இலவச அடுக்கு",    claude: "no" },
-      { feature: "திறந்த மூலம்",                                    mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
+      { feature: "திறந்த மூலம்",                                    mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "இயல்பான ChatGPT மற்றும் Claude ஆப்கள், ஒரு விற்பனையாளரின் முகவரை எந்த அமைப்பும் இல்லாமல் இயக்குவதற்கான மிக மென்மையான வழி — சர்வர் இல்லை, ஒரு கணக்கு மட்டுமே — மேலும் அவை ஒரு நேர்த்தியான ஒரே தட்டில் அனுமதி/மறு திரையைச் சேர்க்கின்றன. சிக்கல்: அவை தங்கள் சொந்த மாதிரியை மட்டுமே தங்கள் சொந்த கிளவுட்டில் இயக்குகின்றன, பொது டெர்மினல் இல்லை, SFTP அல்லது டன்னல்கள் இல்லை, உங்கள் சொந்த இயந்திரத்தைக் கொண்டுவரும் வசதியும் இல்லை, மேலும் அவை கட்டணம் அல்லது கணக்கு-கட்டுப்பாட்டுக்கு உட்பட்டவை. Onepilot, Happy மற்றும் Omnara முகவரை நீங்கள் கட்டுப்படுத்தும் வன்பொருளில் வைத்திருக்கின்றன (Onepilot நேரடி SSH வழியாக; Happy மற்றும் Omnara ஒரு கிளவுட் ரிலே வழியாக, மேலும் Omnara-க்கு கணக்கு தேவை). Mobile SSH கணக்கு அல்லது விற்பனையாளர் ரிலே இல்லாமல் நேரடியாக உங்கள் சொந்த சர்வருடன் இணைகிறது, ஒரு முழுமையான டெர்மினல், SFTP மற்றும் போர்ட் முன்னோடல் ஆகியவற்றுடன் எந்த முகவரையும் இயக்குகிறது, மேலும் ஒவ்வொரு அம்சமும் இலவசம் — சமரசம் என்னவென்றால், அர்ப்பணிக்கப்பட்ட அனுமதி/மறு திரைக்கு பதிலாக டெர்மினலில் முகவர் கோரிக்கைகளுக்கு நீங்கள் பதிலளிக்கிறீர்கள்.",
@@ -482,7 +482,7 @@ export const ta: Dict = {
     authorLabel: "ஆசிரியர்",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "உரிமம்",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "வலைத்தளம்",
     privacyLabel: "தனியுரிமை கொள்கை",
     privacyLinkText: "தனியுரிமை கொள்கை",

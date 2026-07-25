@@ -403,7 +403,7 @@ export const hi: Dict = {
       { feature: "Android और iOS",                                   mobile: "yes", onepilot: "केवल iOS", happy: "yes",         omnara: "yes",     chatgpt: "yes",        claude: "yes" },
       { feature: "कोई खाता आवश्यक नहीं",                             mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "no",      chatgpt: "no",         claude: "no" },
       { feature: "कोई Pro पेवॉल नहीं (सभी फ़ीचर मुफ़्त)",           mobile: "yes", onepilot: "no",       happy: "no",          omnara: "no",      chatgpt: "मुफ़्त टियर", claude: "no" },
-      { feature: "ओपन सोर्स",                                        mobile: "no",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",         claude: "no" }
+      { feature: "ओपन सोर्स",                                        mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",         claude: "no" }
     ],
     agentAppsNote:
       "मूल ChatGPT और Claude ऐप्स किसी एक वेंडर के एजेंट को शून्य सेटअप के साथ चलाने का सबसे सहज तरीका हैं — कोई सर्वर नहीं, बस एक खाता — और वे एक परिष्कृत एक-टैप स्वीकृत/अस्वीकृत स्क्रीन जोड़ते हैं। पर पेच यह है: वे केवल अपना ही मॉडल अपने ही क्लाउड में चलाते हैं, बिना किसी सामान्य टर्मिनल, बिना SFTP या टनल, और बिना अपनी-खुद-की-मशीन लाने की सुविधा के, और वे सशुल्क या खाता-आधारित हैं। Onepilot, Happy और Omnara एजेंट को आपके नियंत्रण वाले हार्डवेयर पर रखते हैं (Onepilot प्रत्यक्ष SSH के ज़रिए; Happy और Omnara एक क्लाउड रिले के ज़रिए, और Omnara को एक खाता चाहिए)। Mobile SSH बिना किसी खाते या वेंडर रिले के सीधे आपके अपने सर्वर से जुड़ता है, किसी भी एजेंट को एक पूर्ण टर्मिनल, SFTP और पोर्ट फ़ॉरवर्डिंग के साथ चलाता है, और इसका हर फ़ीचर मुफ़्त है — समझौता यह है कि आप एजेंट प्रॉम्प्ट्स का जवाब एक समर्पित स्वीकृत/अस्वीकृत स्क्रीन के बजाय टर्मिनल में देते हैं।",
@@ -482,7 +482,7 @@ export const hi: Dict = {
     authorLabel: "लेखक",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "लाइसेंस",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "वेबसाइट",
     privacyLabel: "गोपनीयता नीति",
     privacyLinkText: "गोपनीयता नीति",

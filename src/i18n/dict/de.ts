@@ -404,7 +404,7 @@ export const de: Dict = {
       { feature: "Android und iOS",                                           mobile: "yes", onepilot: "nur iOS",  happy: "yes",        omnara: "yes",       chatgpt: "yes",             claude: "yes" },
       { feature: "Kein Konto erforderlich",                                   mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",        chatgpt: "no",              claude: "no" },
       { feature: "Keine Pro-Paywall (alle Funktionen kostenlos)",            mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",        chatgpt: "kostenlose Stufe", claude: "no" },
-      { feature: "Open Source",                                               mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",    chatgpt: "no",              claude: "no" }
+      { feature: "Open Source",                                               mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",    chatgpt: "no",              claude: "no" }
     ],
     agentAppsNote:
       "Die nativen ChatGPT- und Claude-Apps sind der reibungsloseste Weg, den Agenten eines Anbieters ganz ohne Einrichtung auszuführen – kein Server, nur ein Konto – und sie bieten einen ausgefeilten Ein-Tipp-Freigabe-/Ablehnungsbildschirm. Der Haken: Sie führen ausschließlich ihr eigenes Modell in ihrer eigenen Cloud aus, ohne allgemeines Terminal, ohne SFTP oder Tunnel und ohne eigenen Rechner, und sie sind kostenpflichtig oder an ein Konto gebunden. Onepilot, Happy und Omnara halten den Agenten auf Hardware, die du kontrollierst (Onepilot per direktem SSH; Happy und Omnara über ein Cloud-Relay, und Omnara benötigt ein Konto). Mobile SSH verbindet sich direkt mit deinem eigenen Server ohne Konto oder Anbieter-Relay, führt jeden Agenten neben einem vollwertigen Terminal, SFTP und Portweiterleitung aus, und jede Funktion ist kostenlos – der Kompromiss besteht darin, dass du Agenten-Anfragen im Terminal beantwortest statt auf einem speziellen Freigabe-/Ablehnungsbildschirm.",
@@ -486,7 +486,7 @@ export const de: Dict = {
     authorLabel: "Autor",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "Lizenz",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "Website",
     privacyLabel: "Datenschutzerklärung",
     privacyLinkText: "Datenschutzerklärung",

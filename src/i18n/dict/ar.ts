@@ -403,7 +403,7 @@ export const ar: Dict = {
       { feature: "Android وiOS",                                  mobile: "yes", onepilot: "iOS فقط",  happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "لا يلزم حساب",                                  mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "بدون جدار دفع Pro (جميع الميزات مجانية)",       mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "باقة مجانية",  claude: "no" },
-      { feature: "مفتوح المصدر",                                  mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
+      { feature: "مفتوح المصدر",                                  mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "تطبيقا ChatGPT وClaude الأصيلان هما أسلس طريقة لتشغيل وكيل مزوّد واحد دون أيّ إعداد — بلا خادم، مجرّد حساب — ويُضيفان شاشة موافقة/رفض أنيقة بنقرة واحدة. لكن المقابل: لا يشغّلان إلا نموذجهما الخاص في سحابتهما الخاصة، بلا طرفية عامة، وبلا SFTP أو أنفاق، وبلا إمكانية إحضار جهازك الخاص، وهما مدفوعان أو مقيّدان بحساب. يُبقي Onepilot وHappy وOmnara الوكيل على عتاد تتحكّم فيه (Onepilot عبر SSH مباشر؛ وHappy وOmnara عبر تمرير سحابي، ويتطلّب Omnara حسابًا). يتّصل Mobile SSH مباشرة بخادمك الخاص دون حساب أو تمرير عبر مزوّد، ويشغّل أيّ وكيل جنبًا إلى جنب مع طرفية كاملة وSFTP وإعادة توجيه المنافذ، وكلّ ميزاته مجانية — والمفاضلة هي أنّك تردّ على مطالبات الوكيل داخل الطرفية بدلًا من شاشة موافقة/رفض مخصّصة.",
@@ -482,7 +482,7 @@ export const ar: Dict = {
     authorLabel: "المؤلف",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "الترخيص",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "الموقع",
     privacyLabel: "سياسة الخصوصية",
     privacyLinkText: "سياسة الخصوصية",

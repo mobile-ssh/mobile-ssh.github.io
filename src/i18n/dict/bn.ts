@@ -404,7 +404,7 @@ export const bn: Dict = {
       { feature: "Android ও iOS",                                mobile: "yes", onepilot: "শুধু iOS", happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "কোনো অ্যাকাউন্ট প্রয়োজন নেই",                   mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "কোনো Pro পেওয়াল নেই (সব বৈশিষ্ট্য ফ্রি)",         mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "ফ্রি টিয়ার",  claude: "no" },
-      { feature: "ওপেন সোর্স",                                    mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
+      { feature: "ওপেন সোর্স",                                    mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "নেটিভ ChatGPT ও Claude অ্যাপগুলো শূন্য সেটআপে একটি ভেন্ডরের এজেন্ট চালানোর সবচেয়ে মসৃণ উপায় — কোনো সার্ভার নয়, শুধু একটি অ্যাকাউন্ট — এবং এগুলো একটি পরিমার্জিত এক-ট্যাপে অনুমোদন/প্রত্যাখ্যান স্ক্রিন যোগ করে। তবে সমস্যা: এগুলো শুধু তাদের নিজস্ব মডেল তাদের নিজস্ব ক্লাউডে চালায়, কোনো সাধারণ টার্মিনাল নেই, কোনো SFTP বা টানেল নেই, এবং নিজের মেশিন আনার সুযোগ নেই, আর এগুলো পেইড বা অ্যাকাউন্ট-নির্ভর। Onepilot, Happy ও Omnara এজেন্টকে আপনার নিয়ন্ত্রিত হার্ডওয়্যারে রাখে (Onepilot সরাসরি SSH-এর মাধ্যমে; Happy ও Omnara একটি ক্লাউড রিলের মাধ্যমে, এবং Omnara-এর একটি অ্যাকাউন্ট প্রয়োজন)। Mobile SSH কোনো অ্যাকাউন্ট বা ভেন্ডর রিলে ছাড়াই সরাসরি আপনার নিজের সার্ভারে সংযোগ করে, একটি পূর্ণাঙ্গ টার্মিনাল, SFTP ও পোর্ট ফরওয়ার্ডিং-এর পাশাপাশি যেকোনো এজেন্ট চালায়, এবং প্রতিটি বৈশিষ্ট্য ফ্রি — সমঝোতা হলো আপনি একটি নিবেদিত অনুমোদন/প্রত্যাখ্যান স্ক্রিনের পরিবর্তে টার্মিনালে এজেন্ট প্রম্পটের উত্তর দেন।",
@@ -486,7 +486,7 @@ export const bn: Dict = {
     authorLabel: "লেখক",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "লাইসেন্স",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "ওয়েবসাইট",
     privacyLabel: "গোপনীয়তা নীতি",
     privacyLinkText: "গোপনীয়তা নীতি",

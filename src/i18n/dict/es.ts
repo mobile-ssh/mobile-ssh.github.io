@@ -403,7 +403,7 @@ export const es: Dict = {
       { feature: "Android e iOS",                                                 mobile: "yes", onepilot: "Solo iOS",  happy: "yes",        omnara: "yes",       chatgpt: "yes",              claude: "yes" },
       { feature: "Sin cuenta requerida",                                          mobile: "yes", onepilot: "yes",       happy: "yes",        omnara: "no",        chatgpt: "no",               claude: "no" },
       { feature: "Sin muro de pago Pro (todas las funciones gratis)",             mobile: "yes", onepilot: "no",        happy: "no",         omnara: "no",        chatgpt: "plan gratuito",    claude: "no" },
-      { feature: "Código abierto",                                                mobile: "no",  onepilot: "no",        happy: "MIT",        omnara: "Apache",    chatgpt: "no",               claude: "no" }
+      { feature: "Código abierto",                                                mobile: "Apache 2.0",  onepilot: "no",        happy: "MIT",        omnara: "Apache",    chatgpt: "no",               claude: "no" }
     ],
     agentAppsNote:
       "Las apps nativas de ChatGPT y Claude son la forma más fluida de ejecutar el agente de un solo proveedor sin ninguna configuración — sin servidor, solo una cuenta — y añaden una pulida pantalla de aprobar/denegar con un toque. La pega: ejecutan únicamente su propio modelo en su propia nube, sin terminal general, sin SFTP ni túneles, y sin la opción de usar tu propia máquina, y son de pago o requieren cuenta. Onepilot, Happy y Omnara mantienen el agente en hardware que tú controlas (Onepilot mediante SSH directo; Happy y Omnara mediante un relé en la nube, y Omnara necesita una cuenta). Mobile SSH se conecta directamente a tu propio servidor sin cuenta ni relé del proveedor, ejecuta cualquier agente junto a un terminal completo, SFTP y reenvío de puertos, y todas las funciones son gratis — el equilibrio es que respondes a las solicitudes del agente en el terminal en lugar de en una pantalla dedicada de aprobar/denegar.",
@@ -482,7 +482,7 @@ export const es: Dict = {
     authorLabel: "Autor",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "Licencia",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "Sitio web",
     privacyLabel: "Política de privacidad",
     privacyLinkText: "Política de privacidad",

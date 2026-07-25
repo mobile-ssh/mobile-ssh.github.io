@@ -403,7 +403,7 @@ export const mr: Dict = {
       { feature: "Android आणि iOS",                                    mobile: "yes", onepilot: "फक्त iOS", happy: "yes",        omnara: "yes",     chatgpt: "yes",       claude: "yes" },
       { feature: "कोणतेही खाते आवश्यक नाही",                           mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",        claude: "no" },
       { feature: "Pro पेवॉल नाही (सर्व वैशिष्ट्ये मोफत)",              mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "मोफत स्तर", claude: "no" },
-      { feature: "खुला स्रोत",                                         mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",        claude: "no" }
+      { feature: "खुला स्रोत",                                         mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",        claude: "no" }
     ],
     agentAppsNote:
       "मूळ ChatGPT आणि Claude ॲप्स हे शून्य सेटअपसह एका विक्रेत्याचा एजंट चालवण्याचा सर्वात सुरळीत मार्ग आहेत — कोणताही सर्व्हर नाही, फक्त एक खाते — आणि ते एक सुबक एका-टॅप मंजूर/नकार स्क्रीन जोडतात. अडचण अशी: ते फक्त त्यांच्या स्वतःच्या क्लाउडमध्ये त्यांचे स्वतःचे मॉडेल चालवतात, सामान्य टर्मिनल नाही, SFTP किंवा टनेल नाही आणि स्वतःची मशीन आणण्याची सोय नाही, आणि ते सशुल्क किंवा खाते-बंधित आहेत. Onepilot, Happy आणि Omnara एजंटला आपल्या नियंत्रणातील हार्डवेअरवर ठेवतात (Onepilot थेट SSH द्वारे; Happy आणि Omnara क्लाउड रिलेद्वारे, आणि Omnara ला खाते आवश्यक आहे). Mobile SSH कोणत्याही खात्याशिवाय किंवा विक्रेता रिलेशिवाय थेट आपल्या स्वतःच्या सर्व्हरला जोडते, पूर्ण टर्मिनल, SFTP आणि पोर्ट फॉरवर्डिंगसह कोणताही एजंट चालवते आणि प्रत्येक वैशिष्ट्य मोफत आहे — तडजोड अशी की आपण समर्पित मंजूर/नकार स्क्रीनऐवजी टर्मिनलमध्ये एजंट प्रॉम्प्ट्सना उत्तर देता.",
@@ -485,7 +485,7 @@ export const mr: Dict = {
     authorLabel: "लेखक",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "परवाना",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "वेबसाइट",
     privacyLabel: "गोपनीयता धोरण",
     privacyLinkText: "गोपनीयता धोरण",

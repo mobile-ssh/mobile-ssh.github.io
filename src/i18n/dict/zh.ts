@@ -403,7 +403,7 @@ export const zh: Dict = {
       { feature: "Android 和 iOS",                         mobile: "yes", onepilot: "仅 iOS",   happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "无需账户",                                mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "无 Pro 付费墙（所有功能免费）",           mobile: "yes", onepilot: "no",       happy: "no",          omnara: "no",      chatgpt: "免费套餐",     claude: "no" },
-      { feature: "开源",                                    mobile: "no",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",           claude: "no" }
+      { feature: "开源",                                    mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "原生的 ChatGPT 和 Claude 应用是零配置运行单一厂商智能体的最顺畅方式——无需服务器，只需一个账户——并且它们提供了精致的一键批准/拒绝界面。代价在于：它们只在自己的云端运行自家模型，没有通用终端，没有 SFTP 或隧道，也无法自带机器，而且需付费或需登录账户。Onepilot、Happy 和 Omnara 让智能体保留在你掌控的硬件上（Onepilot 通过直连 SSH；Happy 和 Omnara 通过云端中继，Omnara 还需要账户）。Mobile SSH 直接连接到你自己的服务器，无需账户或厂商中继，可运行任意智能体，同时提供完整的终端、SFTP 和端口转发，并且每一项功能都免费——取舍在于你需要在终端里回应智能体提示，而不是在专用的批准/拒绝界面上。",
@@ -482,7 +482,7 @@ export const zh: Dict = {
     authorLabel: "作者",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "许可证",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "网站",
     privacyLabel: "隐私政策",
     privacyLinkText: "隐私政策",

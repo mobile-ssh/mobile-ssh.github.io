@@ -403,7 +403,7 @@ export const id: Dict = {
       { feature: "Android dan iOS",                                        mobile: "yes", onepilot: "iOS saja", happy: "yes",        omnara: "yes",      chatgpt: "yes",          claude: "yes" },
       { feature: "Tidak perlu akun",                                       mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",       chatgpt: "no",           claude: "no" },
       { feature: "Tanpa paywall Pro (semua fitur gratis)",                 mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",       chatgpt: "paket gratis", claude: "no" },
-      { feature: "Sumber terbuka",                                         mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",   chatgpt: "no",           claude: "no" }
+      { feature: "Sumber terbuka",                                         mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",   chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "Aplikasi ChatGPT dan Claude native adalah cara termulus untuk menjalankan agen satu vendor tanpa penyiapan apa pun — tanpa server, cukup sebuah akun — dan keduanya menambahkan layar setuju/tolak satu ketuk yang rapi. Kekurangannya: keduanya hanya menjalankan model mereka sendiri di awan mereka sendiri, tanpa terminal umum, tanpa SFTP atau tunnel, dan tanpa opsi menggunakan mesin Anda sendiri, serta berbayar atau memerlukan akun. Onepilot, Happy, dan Omnara menyimpan agen di perangkat keras yang Anda kendalikan (Onepilot melalui SSH langsung; Happy dan Omnara melalui relay awan, dan Omnara memerlukan akun). Mobile SSH terhubung langsung ke server Anda sendiri tanpa akun atau relay vendor, menjalankan agen apa pun berdampingan dengan terminal lengkap, SFTP, dan penerusan port, dan setiap fitur gratis — komprominya adalah Anda menjawab prompt agen di terminal alih-alih di layar setuju/tolak khusus.",
@@ -482,7 +482,7 @@ export const id: Dict = {
     authorLabel: "Penulis",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "Lisensi",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "Situs",
     privacyLabel: "Kebijakan privasi",
     privacyLinkText: "Kebijakan privasi",

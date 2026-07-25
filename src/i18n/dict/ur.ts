@@ -403,7 +403,7 @@ export const ur: Dict = {
       { feature: "Android اور iOS",                               mobile: "yes", onepilot: "صرف iOS",  happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "اکاؤنٹ کی ضرورت نہیں",                          mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "کوئی Pro پے وال نہیں (تمام فیچرز مفت)",          mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "مفت درجہ",     claude: "no" },
-      { feature: "اوپن سورس",                                     mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
+      { feature: "اوپن سورس",                                     mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "مقامی ChatGPT اور Claude ایپس کسی ایک وینڈر کے ایجنٹ کو بغیر کسی سیٹ اپ کے چلانے کا سب سے آسان طریقہ ہیں — کوئی سرور نہیں، صرف ایک اکاؤنٹ — اور یہ ایک شاندار ایک ٹیپ منظوری / انکار اسکرین شامل کرتی ہیں۔ رکاوٹ یہ ہے: یہ صرف اپنا ماڈل اپنے ہی کلاؤڈ میں چلاتی ہیں، کوئی عمومی ٹرمینل نہیں، کوئی SFTP یا ٹنل نہیں، اور اپنی مشین لانے کی سہولت نہیں، اور یہ ادائیگی والی یا اکاؤنٹ کی پابند ہیں۔ Onepilot، Happy اور Omnara ایجنٹ کو آپ کے زیرِ کنٹرول ہارڈ ویئر پر رکھتی ہیں (Onepilot براہِ راست SSH کے ذریعے؛ Happy اور Omnara ایک کلاؤڈ ریلے کے ذریعے، اور Omnara کو اکاؤنٹ کی ضرورت ہوتی ہے)۔ Mobile SSH بغیر کسی اکاؤنٹ یا وینڈر ریلے کے براہِ راست آپ کے اپنے سرور سے جڑتی ہے، ایک مکمل ٹرمینل، SFTP اور پورٹ فارورڈنگ کے ساتھ کوئی بھی ایجنٹ چلاتی ہے، اور ہر فیچر مفت ہے — توازن یہ ہے کہ آپ ایجنٹ کے اشاروں کا جواب کسی مخصوص منظوری / انکار اسکرین کے بجائے ٹرمینل ہی میں دیتے ہیں۔",
@@ -482,7 +482,7 @@ export const ur: Dict = {
     authorLabel: "مصنف",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "لائسنس",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "ویب سائٹ",
     privacyLabel: "رازداری پالیسی",
     privacyLinkText: "رازداری پالیسی",

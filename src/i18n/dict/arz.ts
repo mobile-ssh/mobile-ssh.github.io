@@ -403,7 +403,7 @@ export const arz: Dict = {
       { feature: "Android و iOS",                                  mobile: "yes", onepilot: "iOS بس",   happy: "yes",        omnara: "yes",     chatgpt: "yes",         claude: "yes" },
       { feature: "لا يحتاج حساب",                                  mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",          claude: "no" },
       { feature: "بدون جدار دفع Pro (كل المميزات مجانية)",         mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "باقة مجانية", claude: "no" },
-      { feature: "مفتوح المصدر",                                   mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",          claude: "no" }
+      { feature: "مفتوح المصدر",                                   mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",          claude: "no" }
     ],
     agentAppsNote:
       "تطبيقات ChatGPT و Claude الأصلية هي أسهل طريقة عشان تشغّل وكيل مورّد واحد من غير أي إعداد — من غير سيرفر، بس حساب — وبيضيفوا شاشة موافقة/رفض بضغطة واحدة ومصقولة. المشكلة: بيشغّلوا موديلهم بس في سحابتهم بس، من غير ترمنال عام، من غير SFTP أو أنفاق، ومن غير إمكانية استخدام جهازك أنت، وهما مدفوعين أو محتاجين حساب. Onepilot و Happy و Omnara بيخلّوا الوكيل على جهاز إنت متحكّم فيه (Onepilot عن طريق SSH مباشر؛ Happy و Omnara عن طريق ريلاي سحابي، و Omnara بيحتاج حساب). Mobile SSH بيتصل على طول بالسيرفر بتاعك من غير حساب أو ريلاي تابع لمورّد، بيشغّل أي وكيل جنب ترمنال كامل و SFTP وتحويل بورتات، وكل ميزة مجانية — المقايضة إنك بترد على طلبات الوكيل في الترمنال بدل شاشة موافقة/رفض مخصصة.",
@@ -482,7 +482,7 @@ export const arz: Dict = {
     authorLabel: "المؤلف",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "الترخيص",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "الموقع",
     privacyLabel: "سياسة الخصوصية",
     privacyLinkText: "سياسة الخصوصية",

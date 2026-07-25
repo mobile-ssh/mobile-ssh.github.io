@@ -403,7 +403,7 @@ export const yue: Dict = {
       { feature: "Android 同 iOS",                          mobile: "yes", onepilot: "淨係 iOS", happy: "yes",         omnara: "yes",     chatgpt: "yes",         claude: "yes" },
       { feature: "唔需要帳號",                              mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "no",      chatgpt: "no",          claude: "no" },
       { feature: "冇 Pro paywall（所有功能免費）",          mobile: "yes", onepilot: "no",       happy: "no",          omnara: "no",      chatgpt: "免費版",      claude: "no" },
-      { feature: "開源",                                    mobile: "no",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",          claude: "no" }
+      { feature: "開源",                                    mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",         omnara: "Apache",  chatgpt: "no",          claude: "no" }
     ],
     agentAppsNote:
       "原生嘅 ChatGPT 同 Claude App 係零設定運行單一供應商 agent 最順滑嘅方法 —— 唔使伺服器，淨係要個帳號 —— 而且佢哋加咗一個精緻嘅一撳批准／拒絕畫面。但問題係：佢哋淨係喺自己嘅雲端運行自己嘅模型，冇通用終端機、冇 SFTP 或者隧道，亦唔可以用你自己嘅機器，而且要俾錢或者要帳號。Onepilot、Happy 同 Omnara 就將 agent 保留喺你控制嘅硬件上（Onepilot 經直連 SSH；Happy 同 Omnara 經雲端中繼，而 Omnara 仲要帳號）。Mobile SSH 直接連去你自己嘅伺服器，唔使帳號亦冇供應商中繼，可以喺完整終端機、SFTP 同端口轉發旁邊運行任何 agent，而且每個功能都免費 —— 取捨就係你要喺終端機入面回覆 agent 提示，而唔係喺專門嘅批准／拒絕畫面上。",
@@ -482,7 +482,7 @@ export const yue: Dict = {
     authorLabel: "作者",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "授權",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "網站",
     privacyLabel: "私隱政策",
     privacyLinkText: "私隱政策",

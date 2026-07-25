@@ -409,7 +409,7 @@ export const en: Dict = {
       { feature: "Android and iOS",                                mobile: "yes", onepilot: "iOS only", happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "No account required",                            mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "No Pro paywall (all features free)",             mobile: "yes", onepilot: "no",       happy: "no",         omnara: "no",      chatgpt: "free tier",    claude: "no" },
-      { feature: "Open source",                                    mobile: "no",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
+      { feature: "Open source",                                    mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
       "The native ChatGPT and Claude apps are the smoothest way to run one vendor's agent with zero setup — no server, just an account — and they add a polished one-tap approve/deny screen. The catch: they run only their own model in their own cloud, with no general terminal, no SFTP or tunnels, and no bring-your-own machine, and they are paid or account-gated. Onepilot, Happy, and Omnara keep the agent on hardware you control (Onepilot via direct SSH; Happy and Omnara via a cloud relay, and Omnara needs an account). Mobile SSH connects straight to your own server with no account or vendor relay, runs any agent alongside a full terminal, SFTP, and port forwarding, and every feature is free — the trade-off is that you answer agent prompts in the terminal instead of on a dedicated approve/deny screen.",
@@ -489,7 +489,7 @@ export const en: Dict = {
     authorLabel: "Author",
     authorValue: "Dmitry Kozlov",
     licenseLabel: "License",
-    licenseValue: "MIT",
+    licenseValue: "Apache 2.0",
     websiteLabel: "Website",
     privacyLabel: "Privacy policy",
     privacyLinkText: "Privacy policy",
