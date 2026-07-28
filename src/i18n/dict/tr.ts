@@ -7,6 +7,7 @@ export const tr: Dict = {
     languageSwitcher: "Dili değiştir"
   },
   nav: {
+    blog: "Blog",
     home: "Ana sayfa",
     features: "Özellikler",
     docs: "Belgeler",

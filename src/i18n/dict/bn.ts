@@ -7,6 +7,7 @@ export const bn: Dict = {
     languageSwitcher: "ভাষা পরিবর্তন করুন"
   },
   nav: {
+    blog: "ব্লগ",
     home: "হোম",
     features: "বৈশিষ্ট্য",
     docs: "ডকুমেন্টেশন",

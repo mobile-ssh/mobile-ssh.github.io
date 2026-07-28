@@ -7,6 +7,7 @@ export const es: Dict = {
     languageSwitcher: "Cambiar idioma"
   },
   nav: {
+    blog: "Blog",
     home: "Inicio",
     features: "Funciones",
     docs: "Documentación",

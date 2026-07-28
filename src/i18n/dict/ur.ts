@@ -7,6 +7,7 @@ export const ur: Dict = {
     languageSwitcher: "زبان تبدیل کریں"
   },
   nav: {
+    blog: "بلاگ",
     home: "ہوم",
     features: "خصوصیات",
     docs: "دستاویزات",

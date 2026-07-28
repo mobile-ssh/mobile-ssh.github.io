@@ -8,7 +8,7 @@ interface Props {
   title: string;
   description: string;
   locale?: LocaleCode;
-  pathKey?: "home" | "features" | "docs" | "compare" | "about" | "privacy";
+  pathKey?: "home" | "features" | "docs" | "compare" | "about" | "privacy" | "blog";
   // Set false for standalone, English-only pages (e.g. /beta) so we don't emit
   // hreflang alternates or a language switcher pointing at non-existent routes.
   localized?: boolean;
@@ -19,13 +19,15 @@ const info = localeMap[locale];
 const t = getDict(locale);
 const currentPath = Astro.url.pathname;
 
+// The blog is English-only, so its nav entry always points at the canonical
+// /blog/ route regardless of the active locale. About and Privacy moved to the
+// footer to keep the top nav focused on the product.
 const navItems: { key: NonNullable<Props["pathKey"]>; href: string; label: string }[] = [
   { key: "home",     href: localizedHref(locale, "/"),           label: t.nav.home },
   { key: "features", href: localizedHref(locale, "/features/"),  label: t.nav.features },
   { key: "docs",     href: localizedHref(locale, "/docs/"),      label: t.nav.docs },
   { key: "compare",  href: localizedHref(locale, "/compare/"),   label: t.nav.compare },
-  { key: "about",    href: localizedHref(locale, "/about/"),     label: t.nav.about },
-  { key: "privacy",  href: localizedHref(locale, "/privacy/"),   label: t.nav.privacy }
+  { key: "blog",     href: "/blog/",                             label: t.nav.blog }
 ];
 
 function localePath(targetCode: LocaleCode): string {
@@ -100,6 +102,7 @@ function localePath(targetCode: LocaleCode): string {
       <nav aria-label="Footer navigation">
         <a href={localizedHref(locale, "/docs/")}>{t.footer.documentation}</a>
         <a href={localizedHref(locale, "/compare/")}>{t.footer.comparison}</a>
+        <a href={localizedHref(locale, "/about/")}>{t.nav.about}</a>
         <a href={localizedHref(locale, "/privacy/")}>{t.footer.privacy}</a>
         <a href="/beta/">{t.footer.beta ?? "Beta testing"}</a>
         <a href="mailto:mobile.ssh.info@gmail.com">{t.footer.contact}</a>

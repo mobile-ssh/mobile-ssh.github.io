@@ -7,6 +7,7 @@ export const id: Dict = {
     languageSwitcher: "Ubah bahasa"
   },
   nav: {
+    blog: "Blog",
     home: "Beranda",
     features: "Fitur",
     docs: "Dokumentasi",

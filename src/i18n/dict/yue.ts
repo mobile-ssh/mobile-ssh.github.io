@@ -7,6 +7,7 @@ export const yue: Dict = {
     languageSwitcher: "切換語言"
   },
   nav: {
+    blog: "網誌",
     home: "首頁",
     features: "功能",
     docs: "文檔",

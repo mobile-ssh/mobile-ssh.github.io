@@ -7,6 +7,7 @@ export const te: Dict = {
     languageSwitcher: "భాష మార్చండి"
   },
   nav: {
+    blog: "బ్లాగ్",
     home: "హోమ్",
     features: "ఫీచర్లు",
     docs: "డాక్యుమెంటేషన్",

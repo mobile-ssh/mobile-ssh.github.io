@@ -7,6 +7,7 @@ export const zh: Dict = {
     languageSwitcher: "切换语言"
   },
   nav: {
+    blog: "博客",
     home: "首页",
     features: "功能",
     docs: "文档",

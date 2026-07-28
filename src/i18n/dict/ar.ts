@@ -7,6 +7,7 @@ export const ar: Dict = {
     languageSwitcher: "تغيير اللغة"
   },
   nav: {
+    blog: "المدونة",
     home: "الرئيسية",
     features: "المزايا",
     docs: "التوثيق",

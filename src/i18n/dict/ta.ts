@@ -7,6 +7,7 @@ export const ta: Dict = {
     languageSwitcher: "மொழியை மாற்று"
   },
   nav: {
+    blog: "வலைப்பதிவு",
     home: "முகப்பு",
     features: "அம்சங்கள்",
     docs: "ஆவணம்",

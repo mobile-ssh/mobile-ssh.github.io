@@ -7,6 +7,7 @@ export const mr: Dict = {
     languageSwitcher: "भाषा बदला"
   },
   nav: {
+    blog: "ब्लॉग",
     home: "मुख्यपृष्ठ",
     features: "वैशिष्ट्ये",
     docs: "दस्तऐवज",

@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Blog | Mobile SSH";
+const description =
+  "Notes, opinions and field reports from Mobile SSH — the native SSH, SFTP and terminal client for Android, iPhone and iPad.";
+
+// Newest first. Add new entries to the top of this list.
+const posts = [
+  {
+    href: "/blog/laptops-are-dead/",
+    title: "Laptops are dead. Long live your pocket.",
+    date: "2026-07-27",
+    dateLabel: "July 27, 2026",
+    readingTime: "4 min read",
+    tag: "Opinion",
+    excerpt:
+      "An affectionate eulogy for the laptop (1981–2026) — and the case for the terminal that quietly moved into the device already in your hand.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description} pathKey="blog" localized={false}>
+  <main class="blog-index">
+    <header class="blog-head">
+      <p class="eyebrow">Blog</p>
+      <h1>Notes from your pocket</h1>
+      <p class="intro">
+        Opinions, field reports and the occasional obituary — from the team behind Mobile SSH, the
+        native SSH, SFTP and terminal client for Android, iPhone and iPad.
+      </p>
+    </header>
+
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li class="post-card">
+          <a href={post.href} class="card-link" aria-label={post.title}></a>
+          <div class="meta">
+            <span class="tag">{post.tag}</span>
+            <time datetime={post.date}>{post.dateLabel}</time>
+            <span class="dot" aria-hidden="true">·</span>
+            <span>{post.readingTime}</span>
+          </div>
+          <h2>{post.title}</h2>
+          <p>{post.excerpt}</p>
+          <span class="more">Read the eulogy →</span>
+        </li>
+      ))}
+    </ul>
+  </main>
+
+  <style>
+    .blog-index { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    .blog-head { text-align: center; margin-bottom: 2.5rem; }
+    .eyebrow { text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; font-weight: 700; color: var(--green); margin: 0 0 0.8rem; }
+    .blog-head h1 { margin: 0; font-size: clamp(2rem, 5.5vw, 3rem); letter-spacing: -0.03em; color: var(--ink); }
+    .blog-head .intro { max-width: 52ch; margin: 1rem auto 0; color: var(--muted); font-size: 1.08rem; line-height: 1.55; }
+
+    .post-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; }
+    .post-card {
+      position: relative; background: var(--surface); border: 1px solid var(--line);
+      border-radius: 14px; padding: 1.6rem 1.6rem 1.5rem;
+      transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    }
+    .post-card:hover { border-color: var(--green); box-shadow: 0 16px 36px -22px rgba(20,26,45,.32); transform: translateY(-2px); }
+    .card-link { position: absolute; inset: 0; border-radius: 14px; z-index: 1; }
+    .card-link:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+    .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 0.6rem; color: var(--muted); font-size: 0.82rem; }
+    .tag { text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.68rem; color: var(--green); background: #eaf5f0; padding: 0.2rem 0.55rem; border-radius: 999px; }
+    .meta .dot { opacity: 0.5; }
+    .post-card h2 { margin: 0.7rem 0 0.4rem; font-size: clamp(1.3rem, 3.4vw, 1.7rem); letter-spacing: -0.02em; color: var(--ink); line-height: 1.15; }
+    .post-card p { margin: 0; color: var(--muted); font-size: 1.02rem; line-height: 1.6; }
+    .more { display: inline-block; margin-top: 1rem; color: var(--green); font-weight: 600; font-size: 0.92rem; }
+
+    @media (prefers-reduced-motion: reduce) { .post-card:hover { transform: none; } }
+  </style>
+</BaseLayout>

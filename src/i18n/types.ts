@@ -39,6 +39,7 @@ export interface Dict {
     compare: string;
     about: string;
     privacy: string;
+    blog: string;
   };
   footer: {
     tagline: string;

@@ -7,6 +7,7 @@ export const pcm: Dict = {
     languageSwitcher: "Change language"
   },
   nav: {
+    blog: "Blog",
     home: "Home",
     features: "Features",
     docs: "Docs",

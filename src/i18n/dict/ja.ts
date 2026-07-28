@@ -7,6 +7,7 @@ export const ja: Dict = {
     languageSwitcher: "言語を切り替える"
   },
   nav: {
+    blog: "ブログ",
     home: "ホーム",
     features: "機能",
     docs: "ドキュメント",

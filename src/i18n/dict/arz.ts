@@ -7,6 +7,7 @@ export const arz: Dict = {
     languageSwitcher: "غيّر اللغة"
   },
   nav: {
+    blog: "المدونة",
     home: "الرئيسية",
     features: "الميزات",
     docs: "التوثيق",

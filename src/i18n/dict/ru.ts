@@ -7,6 +7,7 @@ export const ru: Dict = {
     languageSwitcher: "Сменить язык"
   },
   nav: {
+    blog: "Блог",
     home: "Главная",
     features: "Возможности",
     docs: "Документация",
