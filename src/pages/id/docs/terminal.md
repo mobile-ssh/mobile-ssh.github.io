@@ -71,20 +71,20 @@ Telusuri seluruh buffer terminal — scrollback dan layar yang terlihat — dan 
 
 - Terminal menampilkan **warna sejati 24-bit** dan **huruf miring**, sehingga prompt bertema, penyorotan sintaks, dan TUI tampil seperti di desktop.
 - **Clipboard OSC 52:** saat program jarak jauh menyalin teks (tmux `set-clipboard`, yank OSC 52 Vim/Neovim), teks itu mendarat di clipboard ponsel Anda — sehingga Anda dapat menyalin dari server dan menempel ke aplikasi lokal.
-- Baik di Android maupun iOS, karakter CJK lebar, emoji, dan karakter penggabung (klaster grafem dan zero-width joiner) diukur dan digambar dengan benar. Di Android, **Nerd Font** bawaan juga menggambar glyph ikon powerline, starship, devicon, dan Material Design yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem.
+- Baik di Android maupun iOS, karakter CJK lebar, emoji, dan karakter penggabung (klaster grafem dan zero-width joiner) diukur dan digambar dengan benar, dan **Nerd Font** bawaan menggambar glyph ikon powerline, starship, devicon, dan Material Design yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem.
 
 ## Integrasi shell dan gambar inline
 
 - **Integrasi shell (OSC 133):** saat shell Anda memancarkan penanda prompt OSC 133, Mobile SSH dapat lompat antar prompt, menyalin output satu perintah, dan memberi peringatan saat perintah yang berjalan lama selesai. Berfungsi di Android dan iOS.
 - **Gambar inline:** program yang memakai protokol grafis Kitty menggambar gambar langsung di terminal, di Android dan iOS.
 
-## Tampilan dan tombol (Android)
+## Tampilan dan tombol
 
-Di Android, Settings memungkinkan Anda menyesuaikan terminal:
+Baik di Android maupun iOS, Settings memungkinkan Anda menyesuaikan terminal:
 
 - **Font:** pilih font monospace sistem, JetBrains Mono, atau Source Code Pro.
 - **Skema warna:** Default, Solarized Dark atau Light, Gruvbox, Dracula, atau Nord — diterapkan secara langsung ke panel yang terbuka.
-- **Baris tombol tambahan:** tab Keys memungkinkan Anda menambah, menghapus, menyusun ulang, dan menyembunyikan tombol, menentukan tombol escape-sequence Anda sendiri, dan mereset ke default, dengan pratinjau langsung.
+- **Baris tombol tambahan:** tambah, hapus, susun ulang, dan sembunyikan tombol, tentukan tombol escape-sequence Anda sendiri, dan reset ke default, dengan pratinjau langsung.
 - **Ukuran scrollback:** atur berapa banyak baris yang disimpan terminal.
 
 ## Menggulir

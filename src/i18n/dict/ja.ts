@@ -53,7 +53,7 @@ export const ja: Dict = {
     sectionAIntro:
       "Mobile SSH は管理者の定番ルートを短くします。サーバーを保存し、つなぎ、セッションを維持し、必要なときにファイルを動かし、すばやくアクティブな端末に戻れます。",
     features: [
-      { title: "SSH ターミナル", text: "xterm-256color 端末。24-bit トゥルーカラー、イタリック、ターミナル内検索、OSC 133 シェル統合、ピンチで文字サイズ変更に対応。加えて Android では、設定可能なフォントとカラースキーム、Nerd Font の powerline／アイコン グリフに対応。" },
+      { title: "SSH ターミナル", text: "xterm-256color 端末。24-bit トゥルーカラー、イタリック、ターミナル内検索、OSC 133 シェル統合、ピンチで文字サイズ変更に対応。加えて Android と iOS では、設定可能なフォントとカラースキーム、Nerd Font の powerline／アイコン グリフに対応。" },
       { title: "マルチセッション グリッド", text: "リサイズ可能なグリッドで最大 8 つの SSH セッション。ペインをタップしてフォーカス、ダブルタップでフルスクリーン、ピンチで文字サイズ変更。" },
       { title: "タップ可能なリンク", text: "ターミナル出力内の URL に下線が引かれ、タップするだけでブラウザで開きます。コピーやアプリ切替は不要。" },
       { title: "サーバー フォルダー", text: "保存済みサーバーを折りたたみ可能なグループに整理。グループのヘッダーをタップして折りたたみ。フォルダー構造はクイック接続ピッカーにも反映されます。" },
@@ -158,24 +158,25 @@ export const ja: Dict = {
         items: [
           "パスワード認証と秘密鍵認証",
           "Android では Ed25519、RSA、ECDSA、DSA の秘密鍵に対応。iOS では Ed25519 と ECDSA（P-256/384/521）",
-          "ホスト、ポート、ユーザー名、認証情報、秘密鍵、トンネル設定を含む保存済みサーバープロファイル",
+          "ホスト、ポート、ユーザー名、認証情報、秘密鍵、トンネル設定を含む保存済みサーバープロファイル — プロファイルを複製すると、その設定を新しいサーバーに引き継げる",
           "名前またはホストで保存済みサーバーを検索",
           "検索優先の「セッション追加」フロー：専用の検索ページで保存済みサーバーを選んでワンタップ接続",
           "保存済みサーバーごとに複数のアドレスを登録して LAN／VPN のローミングに対応 — 順番に接続を試み、前回つながったアドレスを最初に試行。ネットワーク変更時には再接続が働く",
           "サーバー設定で選べる再利用可能な認証情報レコード",
           "よく使うサーバー群へ再接続するための最近のセッション履歴",
-          "成功と失敗のログイン履歴。実際に接続したアドレスも記録"
+          "成功と失敗のログイン履歴。実際に接続したアドレスも記録",
+          "Teleport プロキシ トランスポート（ベータ、Android）：ユーザー名、パスワード、OTP でログインするか、Teleport の設定または identity ファイルをインポートし、クラスターのノードを閲覧して、ターミナル、SFTP、tmux、プラグインをプロキシ トンネル経由で実行"
         ]
       },
       {
         title: "ターミナル",
         items: [
           "VT100/xterm-256color 風のターミナル動作。24-bit トゥルーカラーとイタリックに対応",
-          "5000 行のスクロールバック バッファ。Android ではサイズを設定可能",
+          "5000 行のスクロールバック バッファ。Android と iOS ではサイズを設定可能",
           "ターミナル内検索 — スクロールバックと表示中の画面を検索し、一致箇所を移動（Android と iOS）",
           "シェル統合（OSC 133）：プロンプト間の移動、コマンド出力のコピー、長時間実行コマンドの完了時のアラート（Android と iOS）",
           "Kitty グラフィックス プロトコルによるターミナル内のインライン画像（Android と iOS）",
-          "ESC、TAB、CTRL、Shift、矢印、Home、End、PgUp、PgDn、キーボード切替の拡張キーバー — Android ではカスタマイズ可能：キーの追加・削除・並べ替え、独自のエスケープシーケンス キーの定義、既定値へのリセット",
+          "ESC、TAB、CTRL、Shift、矢印、Home、End、PgUp、PgDn、キーボード切替の拡張キーバー — Android と iOS ではカスタマイズ可能：キーの追加・削除・並べ替え、独自のエスケープシーケンス キーの定義、既定値へのリセット",
           "タップでフォーカス、任意で「タップでキーボードを表示」、コピー／全コピー",
           "ピンチで文字サイズ変更（リモート端末リサイズ付き）",
           "ペインのダブルタップでフルスクリーン",
@@ -184,9 +185,9 @@ export const ja: Dict = {
           "ネイティブなパススルーのキーボード入力 — 自動修正がシェルと衝突せず、ソフトキーボードの音声入力も引き続き利用可能",
           "Android と iOS での外付けおよび Bluetooth キーボード対応（矢印キー、ファンクションキー、Ctrl／Alt の組み合わせを含む）",
           "ブラケットペーストにより、複数行のクリップボード内容が自動実行されない",
-          "内蔵の Nerd Font が、システム フォントでは空の四角として表示されてしまう powerline、starship、devicon、Material Design のアイコン グリフを Android で描画",
+          "内蔵の Nerd Font が、システム フォントでは空の四角として表示されてしまう powerline、starship、devicon、Material Design のアイコン グリフを Android と iOS で描画",
           "ワイド CJK、絵文字、結合文字を Android と iOS で正しく計測・描画。書記素クラスタやゼロ幅接合子にも対応",
-          "設定可能なターミナル フォント（システム等幅、JetBrains Mono、Source Code Pro）と ANSI カラースキーム（Solarized、Gruvbox、Dracula、Nord）を Android で提供し、開いているペインに即時反映"
+          "設定可能なターミナル フォント（システム等幅、JetBrains Mono、Source Code Pro）と ANSI カラースキーム（Solarized、Gruvbox、Dracula、Nord）を Android と iOS で提供し、開いているペインに即時反映"
         ]
       },
       {
@@ -207,14 +208,14 @@ export const ja: Dict = {
         title: "ファイルとトンネル",
         items: [
           "ローカルとリモートの二画面 SFTP ブラウザ",
-          "アップロード／ダウンロードのキュー",
+          "アップロード／ダウンロードのキュー。Android では、他のアプリから任意の種類のファイルをリモート フォルダーへ直接共有することも含む",
           "スマホとリモートホスト間でのフォルダーの再帰的なアップロードとダウンロード",
           "リモートの名前変更、削除、作成、編集、詳細",
           "ダウンロードしたファイルを、ローカル ペインから Android の別のアプリで直接開く",
           "名前または日付による並び替え（ホスト単位で記憶）",
           "サーバープロファイルに保存されるローカル ポートフォワード",
           "接続中セッション向けランタイム トンネル追加／削除ビュー",
-          "ファイル転送はシステムのライト／ダーク テーマに追従"
+          "アプリ全体とファイル ブラウザがシステムのライト／ダーク テーマに追従 — Android では System／Light／Dark から選択"
         ]
       },
       {
@@ -237,7 +238,7 @@ export const ja: Dict = {
       {
         title: "セキュリティ",
         items: [
-          "セキュア スクリーン（Android）：スクリーンショットと画面録画をブロックし、最近のアプリのサムネイルからアプリを隠す — パスワード、鍵、トークンが画面に表示されているとき向けのオプトイン設定",
+          "セキュア スクリーン：Android ではスクリーンショットと画面録画をブロックし、最近のアプリのサムネイルからアプリを隠す。iOS ではアプリ切替時のプレビューを空白にし、画面録画とミラーリングをブロック（iOS では手動のスクリーンショットはブロックできない） — パスワード、鍵、トークンが画面に表示されているとき向けのオプトイン設定",
           "保存済みのサーバー、認証情報、鍵は端末内に留まる — シークレットは Android の Keystore と iOS の Keychain に保管され、クラウド アカウントや同期は不要",
           "使用状況分析は匿名かつオプトアウト可能なもののみ — サーバー、認証情報、コマンド、ファイルの内容を送ることは一切ない"
         ]
@@ -337,6 +338,7 @@ export const ja: Dict = {
       { category: "接続", feature: "再利用可能な認証情報レコード",               mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "接続", feature: "最近のセッション履歴",                       mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "接続", feature: "ログイン履歴",                               mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "接続", feature: "Teleport プロキシ トランスポート（ベータ）", mobile: "Android", termux: "no",          termius: "no" },
       { category: "ターミナル", feature: "SSH ターミナル",                       mobile: "yes",    termux: "OpenSSH 経由",  termius: "yes" },
       { category: "ターミナル", feature: "xterm-256color エミュレーション",      mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "ターミナル", feature: "5000 行スクロールバック バッファ",     mobile: "yes",    termux: "設定可能",      termius: "yes" },
@@ -349,7 +351,7 @@ export const ja: Dict = {
       { category: "ターミナル", feature: "ハードウェア／Bluetooth キーボード対応", mobile: "yes",   termux: "yes",          termius: "yes" },
       { category: "ターミナル", feature: "シェル統合（OSC 133）",                 mobile: "yes",    termux: "no",           termius: "no" },
       { category: "ターミナル", feature: "インライン画像（Kitty グラフィックス）", mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "ターミナル", feature: "Nerd Font／powerline グリフの描画",     mobile: "Android", termux: "設定可能",     termius: "一部対応" },
+      { category: "ターミナル", feature: "Nerd Font／powerline グリフの描画",     mobile: "yes",     termux: "設定可能",     termius: "一部対応" },
       { category: "セッション", feature: "複数の SSH 同時セッション",            mobile: "最大 8", termux: "最大 8",      termius: "yes" },
       { category: "セッション", feature: "グリッド ペイン レイアウト",           mobile: "yes",    termux: "tmux 経由",     termius: "タブ" },
       { category: "セッション", feature: "tmux に配慮したスクロール",            mobile: "yes",    termux: "yes",          termius: "no" },
@@ -378,7 +380,7 @@ export const ja: Dict = {
       { category: "プライバシーとコスト", feature: "広告なし",                   mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "プライバシーとコスト", feature: "分析のオプトアウト",         mobile: "Android", termux: "分析なし",     termius: "no" },
       { category: "プライバシーとコスト", feature: "ローカルのみのデータ（クラウド同期なし）", mobile: "yes", termux: "yes", termius: "一部対応" },
-      { category: "プライバシーとコスト", feature: "セキュア スクリーン（スクリーンショットをブロック）", mobile: "Android", termux: "no", termius: "no" },
+      { category: "プライバシーとコスト", feature: "セキュア スクリーン（画面キャプチャをブロック）", mobile: "yes",  termux: "no", termius: "no" },
       { category: "セッション", feature: "Eternal Terminal（耐障害性セッション）",    mobile: "yes",    termux: "CLI 経由",      termius: "no" },
       { category: "セッション", feature: "SSH 経由の etserver 自動インストール",      mobile: "yes",    termux: "no",            termius: "no" },
       { category: "セッション", feature: "tmux セッション マネージャー",              mobile: "yes",    termux: "CLI 経由",      termius: "no" },
@@ -444,7 +446,7 @@ export const ja: Dict = {
     ],
     securityHeading: "セキュリティ上の責任",
     securityBody:
-      "認証情報や秘密鍵を保存する場合は、強固な画面ロックで端末を保護してください。信頼できるサーバーにのみ接続してください。現行実装は、別建ての暗号化クラウド ボルトではなく、アプリのローカル ストレージ（および iOS の Keychain）を使用します。Android では、オプションのセキュア スクリーン設定がスクリーンショットと画面録画をブロックし、最近のアプリ表示からアプリを隠します。",
+      "認証情報や秘密鍵を保存する場合は、強固な画面ロックで端末を保護してください。信頼できるサーバーにのみ接続してください。現行実装は、別建ての暗号化クラウド ボルトではなく、アプリのローカル ストレージ（および iOS の Keychain）を使用します。オプションのセキュア スクリーン設定は、シークレットが画面に表示されているときに保護を追加します。Android ではスクリーンショットと画面録画をブロックし、最近のアプリ表示からアプリを隠します。iOS ではアプリ切替時のプレビューを空白にし、画面録画とミラーリングをブロックします（iOS では手動のスクリーンショットはブロックできません）。",
     contactHeading: "お問い合わせ",
     contactBody: "サポート連絡先：[mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)。"
   },

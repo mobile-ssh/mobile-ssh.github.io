@@ -54,7 +54,7 @@ export const en: Dict = {
     sectionAIntro:
       "Mobile SSH keeps the common admin path short: save a server, connect, keep sessions alive, move files when needed, and get back to active terminals quickly.",
     features: [
-      { title: "SSH terminal", text: "xterm-256color terminal with 24-bit true color, italics, in-terminal search, OSC 133 shell integration, and pinch-to-zoom text sizing — plus a configurable font and color scheme and Nerd Font powerline/icon glyphs on Android." },
+      { title: "SSH terminal", text: "xterm-256color terminal with 24-bit true color, italics, in-terminal search, OSC 133 shell integration, and pinch-to-zoom text sizing — plus a configurable font and color scheme and Nerd Font powerline/icon glyphs on Android and iOS." },
       { title: "Multi-session grid", text: "Up to eight SSH sessions in a resizable grid — tap a pane to focus, double-tap for fullscreen, pinch to resize text." },
       { title: "Clickable links", text: "URLs in the terminal are underlined and open in the browser with a tap — no copying or switching apps needed." },
       { title: "Server folders", text: "Organize saved servers into collapsible groups. Tap a group header to collapse it; the folder structure carries into the quick-connect picker." },
@@ -164,24 +164,25 @@ export const en: Dict = {
         items: [
           "Password authentication and private key authentication",
           "Ed25519, RSA, ECDSA, and DSA private keys on Android; Ed25519 and ECDSA (P-256/384/521) on iOS",
-          "Saved server profiles with host, port, username, credential, private key, and optional tunnel specs",
+          "Saved server profiles with host, port, username, credential, private key, and optional tunnel specs — clone a profile to duplicate its settings into a new server",
           "Search saved servers by name or host",
           "Search-first Add Session flow: pick a saved server from a dedicated search page and connect with one tap",
           "Multiple addresses per saved server for LAN/VPN roaming — dialed in order with the last working address tried first, and reconnection kicks in on network change",
           "Reusable credential records that can be selected from server setup",
           "Recent session history for reconnecting to common server sets",
-          "Login log for successful and failed attempts, recording the exact dialed address"
+          "Login log for successful and failed attempts, recording the exact dialed address",
+          "Teleport proxy transport (beta, Android): log in with username, password, and OTP or import a Teleport config or identity file, browse cluster nodes, then run terminals, SFTP, tmux, and plugins over the proxy tunnel"
         ]
       },
       {
         title: "Terminal",
         items: [
           "VT100/xterm-256color terminal behavior with 24-bit true color and italics",
-          "Scrollback buffer of 5000 lines, with configurable size on Android",
+          "Scrollback buffer of 5000 lines, with configurable size on Android and iOS",
           "Find in the terminal — search the scrollback and visible screen and jump between matches (Android and iOS)",
           "Shell integration (OSC 133): jump between prompts, copy a command's output, and get alerted when a long-running command finishes (Android and iOS)",
           "Inline images in the terminal via the Kitty graphics protocol (Android and iOS)",
-          "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn, and keyboard toggle — customizable on Android: add, remove, reorder, and define your own escape-sequence keys, with reset-to-defaults",
+          "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn, and keyboard toggle — customizable on Android and iOS: add, remove, reorder, and define your own escape-sequence keys, with reset-to-defaults",
           "Tap-to-focus, optional tap-to-show-keyboard setting, copy and copy-all actions",
           "Pinch-to-zoom text sizing with remote terminal resize",
           "Double-tap pane fullscreen mode",
@@ -190,9 +191,9 @@ export const en: Dict = {
           "Native pass-through keyboard input — no autocorrect fighting the shell; soft-keyboard voice dictation still works",
           "External and Bluetooth keyboard support on Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
           "Bracketed paste so multi-line clipboard content is not auto-executed",
-          "Bundled Nerd Font renders powerline, starship, devicon, and Material Design icon glyphs on Android that the system font would otherwise show as empty boxes",
+          "Bundled Nerd Font renders powerline, starship, devicon, and Material Design icon glyphs on Android and iOS that the system font would otherwise show as empty boxes",
           "Wide CJK, emoji, and combining characters are measured and drawn correctly on Android and iOS, including grapheme clusters and zero-width joiners",
-          "Configurable terminal font (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) on Android, applied live to open panes"
+          "Configurable terminal font (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) on Android and iOS, applied live to open panes"
         ]
       },
       {
@@ -213,14 +214,14 @@ export const en: Dict = {
         title: "Files and tunnels",
         items: [
           "Dual-pane SFTP browser for local and remote files",
-          "Queued upload and download operations",
+          "Queued upload and download operations, including sharing any file type from another app straight into a remote folder on Android",
           "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit, and details flows",
           "Open a downloaded file in another app on Android straight from the local pane",
           "Sort by name or date with per-host persistence",
           "Local port forwarding saved with server profiles",
           "Runtime tunnel add/remove view for connected sessions",
-          "File transfer follows the system light or dark theme"
+          "Follows the system light or dark theme across the app and file browser — choose System, Light, or Dark on Android"
         ]
       },
       {
@@ -243,7 +244,7 @@ export const en: Dict = {
       {
         title: "Security",
         items: [
-          "Secure screen (Android): block screenshots and screen recording and hide the app from the recents thumbnail — an opt-in setting for when passwords, keys, or tokens are on screen",
+          "Secure screen: on Android, block screenshots and screen recording and hide the app from the recents thumbnail; on iOS, blank the app-switcher preview and block screen recording and mirroring (a manual screenshot cannot be blocked on iOS) — an opt-in setting for when passwords, keys, or tokens are on screen",
           "Saved servers, credentials, and keys stay on the device — secrets live in the Android Keystore and the iOS Keychain, with no cloud account or sync",
           "Anonymous, opt-out usage analytics only — never your servers, credentials, commands, or file contents"
         ]
@@ -343,6 +344,7 @@ export const en: Dict = {
       { category: "Connection", feature: "Reusable credential records",         mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "Connection", feature: "Recent session history",              mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "Connection", feature: "Login log",                           mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Connection", feature: "Teleport proxy transport (beta)",     mobile: "Android", termux: "no",          termius: "no" },
       { category: "Terminal",   feature: "SSH terminal",                        mobile: "yes",    termux: "via OpenSSH",  termius: "yes" },
       { category: "Terminal",   feature: "xterm-256color emulation",            mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Terminal",   feature: "5 000-line scrollback buffer",        mobile: "yes",    termux: "configurable", termius: "yes" },
@@ -355,7 +357,7 @@ export const en: Dict = {
       { category: "Terminal",   feature: "Hardware / Bluetooth keyboard support", mobile: "yes",   termux: "yes",         termius: "yes" },
       { category: "Terminal",   feature: "Shell integration (OSC 133)",          mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",   feature: "Inline images (Kitty graphics)",       mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "Terminal",   feature: "Nerd Font / powerline glyph rendering", mobile: "Android", termux: "configurable", termius: "partial" },
+      { category: "Terminal",   feature: "Nerd Font / powerline glyph rendering", mobile: "yes",     termux: "configurable", termius: "partial" },
       { category: "Sessions",   feature: "Multiple concurrent SSH sessions",    mobile: "up to 8", termux: "up to 8",    termius: "yes" },
       { category: "Sessions",   feature: "Grid pane layout",                    mobile: "yes",    termux: "via tmux",     termius: "tabs" },
       { category: "Sessions",   feature: "tmux-aware scrolling",               mobile: "yes",    termux: "yes",          termius: "no" },
@@ -384,7 +386,7 @@ export const en: Dict = {
       { category: "Privacy & cost", feature: "No ads",                         mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Privacy & cost", feature: "Analytics opt-out",              mobile: "Android", termux: "no analytics", termius: "no" },
       { category: "Privacy & cost", feature: "Local-only data (no cloud sync)", mobile: "yes",  termux: "yes",          termius: "partial" },
-      { category: "Privacy & cost", feature: "Secure screen (block screenshots)", mobile: "Android", termux: "no",         termius: "no" },
+      { category: "Privacy & cost", feature: "Secure screen (block screen capture)", mobile: "yes",  termux: "no",         termius: "no" },
       { category: "Sessions",   feature: "Eternal Terminal (resilient sessions)", mobile: "yes", termux: "via CLI",   termius: "no" },
       { category: "Sessions",   feature: "Auto-install etserver over SSH",     mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Sessions",   feature: "tmux session manager",               mobile: "yes",    termux: "via CLI",      termius: "no" },
@@ -450,7 +452,7 @@ export const en: Dict = {
     ],
     securityHeading: "Security responsibilities",
     securityBody:
-      "Protect your device with a strong screen lock if you save credentials or private keys. Only connect to servers you trust. The current implementation uses local app storage (and the iOS Keychain) rather than a separate encrypted cloud vault. On Android, an optional Secure screen setting blocks screenshots and screen recording and hides the app from the recents view.",
+      "Protect your device with a strong screen lock if you save credentials or private keys. Only connect to servers you trust. The current implementation uses local app storage (and the iOS Keychain) rather than a separate encrypted cloud vault. An optional Secure screen setting adds protection when secrets are on screen: on Android it blocks screenshots and screen recording and hides the app from the recents view; on iOS it blanks the app-switcher preview and blocks screen recording and mirroring (a manual screenshot cannot be blocked on iOS).",
     contactHeading: "Contact",
     contactBody: "Support contact: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },

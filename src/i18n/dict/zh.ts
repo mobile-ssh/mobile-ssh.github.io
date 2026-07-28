@@ -53,7 +53,7 @@ export const zh: Dict = {
     sectionAIntro:
       "Mobile SSH 缩短了常见的运维路径：保存服务器、连接、保持会话存活、必要时移动文件，并快速回到正在使用的终端。",
     features: [
-      { title: "SSH 终端", text: "xterm-256color 终端，支持 24-bit 真彩色、斜体、终端内查找、OSC 133 shell 集成以及捏合缩放文字大小——此外在 Android 上还提供可配置的字体与配色方案，以及 Nerd Font powerline/图标字形。" },
+      { title: "SSH 终端", text: "xterm-256color 终端，支持 24-bit 真彩色、斜体、终端内查找、OSC 133 shell 集成以及捏合缩放文字大小——此外在 Android 和 iOS 上还提供可配置的字体与配色方案，以及 Nerd Font powerline/图标字形。" },
       { title: "多会话网格", text: "在可调整大小的网格中同时运行多达八个 SSH 会话——点击面板聚焦，双击进入全屏，捏合调整文字大小。" },
       { title: "可点击链接", text: "终端输出中的 URL 会带下划线，点击即可在浏览器中打开——无需复制或切换应用。" },
       { title: "服务器文件夹", text: "将保存的服务器整理到可折叠的分组中。点击分组标题折叠；文件夹结构同步显示在快速连接选择器中。" },
@@ -158,24 +158,25 @@ export const zh: Dict = {
         items: [
           "密码认证与私钥认证",
           "Android 上支持 Ed25519、RSA、ECDSA 与 DSA 私钥；iOS 上支持 Ed25519 与 ECDSA（P-256/384/521）",
-          "保存的服务器档案，包含主机、端口、用户名、凭据、私钥与可选的隧道描述",
+          "保存的服务器档案，包含主机、端口、用户名、凭据、私钥与可选的隧道描述——克隆某个档案即可将其设置复制到新服务器",
           "按名称或主机搜索已保存的服务器",
           "搜索优先的添加会话流程：从专用搜索页面选择已保存的服务器，一键连接",
           "每个已保存的服务器可设置多个地址，用于 LAN/VPN 漫游——按顺序拨号，优先尝试上次成功的地址，网络变化时自动重连",
           "可在服务器配置中选择的可复用凭据记录",
           "用于重新连接常见服务器集的最近会话历史",
-          "成功与失败的登录日志，并记录实际拨通的地址"
+          "成功与失败的登录日志，并记录实际拨通的地址",
+          "Teleport 代理传输（测试版，Android）：使用用户名、密码和 OTP 登录，或导入 Teleport 配置或身份文件，浏览集群节点，然后通过代理隧道运行终端、SFTP、tmux 与插件"
         ]
       },
       {
         title: "终端",
         items: [
           "VT100/xterm-256color 风格的终端行为，支持 24-bit 真彩色与斜体",
-          "5000 行的回滚缓冲，在 Android 上大小可配置",
+          "5000 行的回滚缓冲，在 Android 和 iOS 上大小可配置",
           "在终端中查找——搜索回滚缓冲与可见屏幕，并在匹配项之间跳转（Android 与 iOS）",
           "Shell 集成（OSC 133）：在提示符之间跳转、复制某条命令的输出，并在长时间运行的命令完成时收到提醒（Android 与 iOS）",
           "通过 Kitty graphics 协议在终端中内嵌显示图像（Android 与 iOS）",
-          "用于 ESC、TAB、CTRL、Shift、方向键、Home、End、PgUp、PgDn 与键盘切换的拓展按键栏——在 Android 上可自定义：添加、移除、重新排序，并定义你自己的转义序列按键，还可恢复默认",
+          "用于 ESC、TAB、CTRL、Shift、方向键、Home、End、PgUp、PgDn 与键盘切换的拓展按键栏——在 Android 和 iOS 上可自定义：添加、移除、重新排序，并定义你自己的转义序列按键，还可恢复默认",
           "点击聚焦、可选的「点击显示键盘」设置、复制与全部复制操作",
           "捏合缩放文字大小并触发远程终端 resize",
           "面板双击全屏",
@@ -184,9 +185,9 @@ export const zh: Dict = {
           "原生直通键盘输入——自动更正不会再与 shell 冲突；软键盘语音听写仍然可用",
           "Android 和 iOS 上支持外接与 Bluetooth 键盘，包括方向键、功能键以及 Ctrl/Alt 组合键",
           "括号粘贴（bracketed paste），使多行剪贴板内容不会被自动执行",
-          "内置的 Nerd Font 可在 Android 上渲染 powerline、starship、devicon 与 Material Design 图标字形，否则系统字体只会将其显示为空白方框",
+          "内置的 Nerd Font 可在 Android 和 iOS 上渲染 powerline、starship、devicon 与 Material Design 图标字形，否则系统字体只会将其显示为空白方框",
           "宽 CJK、emoji 与组合字符在 Android 与 iOS 上都能被正确测量和绘制，包括字素簇（grapheme cluster）与零宽连接符（zero-width joiner）",
-          "在 Android 上可配置终端字体（系统等宽字体、JetBrains Mono 或 Source Code Pro）与 ANSI 配色方案（Solarized、Gruvbox、Dracula、Nord），并实时应用到已打开的面板"
+          "在 Android 和 iOS 上可配置终端字体（系统等宽字体、JetBrains Mono 或 Source Code Pro）与 ANSI 配色方案（Solarized、Gruvbox、Dracula、Nord），并实时应用到已打开的面板"
         ]
       },
       {
@@ -207,14 +208,14 @@ export const zh: Dict = {
         title: "文件与隧道",
         items: [
           "本地与远程双面板 SFTP 浏览器",
-          "上传与下载的队列操作",
+          "上传与下载的队列操作，包括在 Android 上将其他应用中的任意类型文件直接分享到远程文件夹",
           "在手机与远程主机之间递归上传和下载文件夹",
           "远程重命名、删除、创建、编辑与详情",
           "在 Android 上直接从本地面板用其他应用打开已下载的文件",
           "按名称或日期排序，并按主机持久化",
           "随服务器档案保存的本地端口转发",
           "已连接会话的运行时隧道添加/移除视图",
-          "文件传输跟随系统的浅色或深色主题"
+          "整个应用与文件浏览器都跟随系统的浅色或深色主题——在 Android 上可选择「跟随系统」、「浅色」或「深色」"
         ]
       },
       {
@@ -237,7 +238,7 @@ export const zh: Dict = {
       {
         title: "安全",
         items: [
-          "安全屏幕（Android）：阻止截图与屏幕录制，并在最近任务缩略图中隐藏应用——在密码、密钥或令牌显示在屏幕上时可选择开启的设置",
+          "安全屏幕：在 Android 上，阻止截图与屏幕录制，并在最近任务缩略图中隐藏应用；在 iOS 上，遮盖应用切换器的预览并阻止屏幕录制与镜像（iOS 上无法阻止手动截图）——在密码、密钥或令牌显示在屏幕上时可选择开启的设置",
           "保存的服务器、凭据和密钥都留在设备上——机密保存在 Android Keystore 和 iOS Keychain 中，没有云端账户或同步",
           "仅收集匿名、可退出的使用分析——绝不包含你的服务器、凭据、命令或文件内容"
         ]
@@ -337,6 +338,7 @@ export const zh: Dict = {
       { category: "连接", feature: "可复用凭据记录",                  mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "连接", feature: "最近会话历史",                    mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "连接", feature: "登录日志",                        mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "连接", feature: "Teleport 代理传输（测试版）",      mobile: "Android", termux: "no",          termius: "no" },
       { category: "终端", feature: "SSH 终端",                        mobile: "yes",    termux: "通过 OpenSSH",  termius: "yes" },
       { category: "终端", feature: "xterm-256color 仿真",             mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "终端", feature: "5000 行回滚缓冲",                 mobile: "yes",    termux: "可配置",       termius: "yes" },
@@ -349,7 +351,7 @@ export const zh: Dict = {
       { category: "终端", feature: "硬件 / Bluetooth 键盘支持",       mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "终端", feature: "Shell 集成（OSC 133）",            mobile: "yes",    termux: "no",           termius: "no" },
       { category: "终端", feature: "内嵌图像（Kitty graphics）",       mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "终端", feature: "Nerd Font / powerline 字形渲染",   mobile: "Android", termux: "可配置",      termius: "部分" },
+      { category: "终端", feature: "Nerd Font / powerline 字形渲染",   mobile: "yes",     termux: "可配置",      termius: "部分" },
       { category: "会话", feature: "多个并发 SSH 会话",               mobile: "最多 8 个", termux: "最多 8 个",  termius: "yes" },
       { category: "会话", feature: "网格面板布局",                    mobile: "yes",    termux: "通过 tmux",    termius: "标签页" },
       { category: "会话", feature: "tmux 友好滚动",                   mobile: "yes",    termux: "yes",          termius: "no" },
@@ -378,7 +380,7 @@ export const zh: Dict = {
       { category: "隐私与费用", feature: "无广告",                    mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "隐私与费用", feature: "分析数据退出选项",          mobile: "Android", termux: "无分析",      termius: "no" },
       { category: "隐私与费用", feature: "仅本地数据（无云同步）",    mobile: "yes",    termux: "yes",          termius: "部分" },
-      { category: "隐私与费用", feature: "安全屏幕（阻止截图）",      mobile: "Android", termux: "no",          termius: "no" },
+      { category: "隐私与费用", feature: "安全屏幕（阻止屏幕捕获）",  mobile: "yes",     termux: "no",          termius: "no" },
       { category: "会话", feature: "Eternal Terminal（抗断线会话）",  mobile: "yes",    termux: "通过 CLI",      termius: "no" },
       { category: "会话", feature: "通过 SSH 自动安装 etserver",      mobile: "yes",    termux: "no",           termius: "no" },
       { category: "会话", feature: "tmux 会话管理器",                 mobile: "yes",    termux: "通过 CLI",      termius: "no" },
@@ -444,7 +446,7 @@ export const zh: Dict = {
     ],
     securityHeading: "安全责任",
     securityBody:
-      "如果保存凭据或私钥，请使用强锁屏保护设备；仅连接可信的服务器。当前实现使用应用本地存储（以及 iOS Keychain），而非单独的加密云保险库。在 Android 上，可选的安全屏幕设置会阻止截图与屏幕录制，并在最近任务视图中隐藏应用。",
+      "如果保存凭据或私钥，请使用强锁屏保护设备；仅连接可信的服务器。当前实现使用应用本地存储（以及 iOS Keychain），而非单独的加密云保险库。可选的安全屏幕设置会在机密显示在屏幕上时提供额外保护：在 Android 上，它会阻止截图与屏幕录制，并在最近任务视图中隐藏应用；在 iOS 上，它会遮盖应用切换器的预览并阻止屏幕录制与镜像（iOS 上无法阻止手动截图）。",
     contactHeading: "联系",
     contactBody: "支持联系方式：[mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)。"
   },

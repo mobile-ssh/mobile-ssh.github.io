@@ -53,7 +53,7 @@ export const id: Dict = {
     sectionAIntro:
       "Mobile SSH memendekkan jalur administrasi umum: simpan server, sambungkan, jaga sesi tetap hidup, pindahkan berkas saat diperlukan, dan kembali cepat ke terminal aktif.",
     features: [
-      { title: "Terminal SSH", text: "Terminal xterm-256color dengan warna sejati 24-bit, huruf miring, pencarian di dalam terminal, integrasi shell OSC 133, dan penyesuaian ukuran teks dengan cubit — plus font dan skema warna yang dapat dikonfigurasi serta glyph powerline/ikon Nerd Font di Android." },
+      { title: "Terminal SSH", text: "Terminal xterm-256color dengan warna sejati 24-bit, huruf miring, pencarian di dalam terminal, integrasi shell OSC 133, dan penyesuaian ukuran teks dengan cubit — plus font dan skema warna yang dapat dikonfigurasi serta glyph powerline/ikon Nerd Font di Android dan iOS." },
       { title: "Kisi multi-sesi", text: "Hingga delapan sesi SSH dalam kisi yang dapat diubah ukurannya — ketuk panel untuk fokus, ketuk ganda untuk layar penuh, cubit untuk ubah ukuran teks." },
       { title: "Tautan yang dapat diklik", text: "URL di terminal digarisbawahi dan terbuka di browser dengan satu tap — tanpa menyalin atau berpindah aplikasi." },
       { title: "Folder server", text: "Atur server tersimpan ke dalam grup yang dapat diciutkan. Ketuk tajuk grup untuk menciutkannya; struktur folder tersedia di pemilih sambungan cepat." },
@@ -158,24 +158,25 @@ export const id: Dict = {
         items: [
           "Autentikasi kata sandi dan kunci pribadi",
           "Kunci pribadi Ed25519, RSA, ECDSA, dan DSA di Android; Ed25519 dan ECDSA (P-256/384/521) di iOS",
-          "Profil server tersimpan dengan host, port, pengguna, kredensial, kunci pribadi, dan spesifikasi tunnel opsional",
+          "Profil server tersimpan dengan host, port, pengguna, kredensial, kunci pribadi, dan spesifikasi tunnel opsional — klon profil untuk menggandakan pengaturannya ke server baru",
           "Cari server tersimpan berdasarkan nama atau host",
           "Alur Tambah Sesi berbasis pencarian: pilih server tersimpan dari halaman pencarian khusus dan sambung dengan satu tap",
           "Beberapa alamat per server tersimpan untuk roaming LAN/VPN — dihubungi berurutan dengan alamat terakhir yang berhasil dicoba lebih dulu, dan penyambungan ulang aktif saat jaringan berubah",
           "Catatan kredensial yang dapat dipakai ulang dan dipilih dari penyetelan server",
           "Riwayat sesi terkini untuk menyambung ulang ke set server umum",
-          "Log upaya masuk berhasil dan gagal, mencatat alamat persis yang dihubungi"
+          "Log upaya masuk berhasil dan gagal, mencatat alamat persis yang dihubungi",
+          "Transport proxy Teleport (beta, Android): masuk dengan nama pengguna, kata sandi, dan OTP atau impor berkas konfigurasi atau identitas Teleport, telusuri node klaster, lalu jalankan terminal, SFTP, tmux, dan plugin melalui tunnel proxy"
         ]
       },
       {
         title: "Terminal",
         items: [
           "Perilaku terminal bergaya VT100/xterm-256color dengan warna sejati 24-bit dan huruf miring",
-          "Buffer scrollback 5000 baris, dengan ukuran yang dapat dikonfigurasi di Android",
+          "Buffer scrollback 5000 baris, dengan ukuran yang dapat dikonfigurasi di Android dan iOS",
           "Cari di terminal — telusuri buffer scrollback dan layar yang terlihat serta lompat antar kecocokan (Android dan iOS)",
           "Integrasi shell (OSC 133): lompat antar prompt, salin output sebuah perintah, dan dapatkan peringatan saat perintah yang berjalan lama selesai (Android dan iOS)",
           "Gambar inline di terminal melalui protokol grafis Kitty (Android dan iOS)",
-          "Baris tombol tambahan untuk ESC, TAB, CTRL, Shift, panah, Home, End, PgUp, PgDn, dan toggle keyboard — dapat disesuaikan di Android: tambah, hapus, susun ulang, dan tentukan tombol escape-sequence Anda sendiri, dengan reset ke default",
+          "Baris tombol tambahan untuk ESC, TAB, CTRL, Shift, panah, Home, End, PgUp, PgDn, dan toggle keyboard — dapat disesuaikan di Android dan iOS: tambah, hapus, susun ulang, dan tentukan tombol escape-sequence Anda sendiri, dengan reset ke default",
           "Sentuh untuk fokus, opsi sentuh-untuk-tampilkan-keyboard, aksi salin dan salin semua",
           "Cubit untuk ukuran teks dengan resize terminal jarak jauh",
           "Mode layar penuh panel dengan ketuk ganda",
@@ -184,9 +185,9 @@ export const id: Dict = {
           "Input keyboard pass-through native — tanpa koreksi otomatis yang berebut dengan shell; dikte suara keyboard di layar tetap berfungsi",
           "Dukungan keyboard eksternal dan Bluetooth di Android dan iOS, termasuk panah, tombol fungsi, dan kombinasi Ctrl/Alt",
           "Bracketed paste agar konten clipboard multi-baris tidak dieksekusi otomatis",
-          "Nerd Font bawaan menampilkan glyph ikon powerline, starship, devicon, dan Material Design di Android yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem",
+          "Nerd Font bawaan menampilkan glyph ikon powerline, starship, devicon, dan Material Design di Android dan iOS yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem",
           "Karakter CJK lebar, emoji, dan karakter penggabung diukur dan digambar dengan benar di Android dan iOS, termasuk klaster grafem dan zero-width joiner",
-          "Font terminal yang dapat dikonfigurasi (monospace sistem, JetBrains Mono, atau Source Code Pro) dan skema warna ANSI (Solarized, Gruvbox, Dracula, Nord) di Android, diterapkan secara langsung ke panel yang terbuka"
+          "Font terminal yang dapat dikonfigurasi (monospace sistem, JetBrains Mono, atau Source Code Pro) dan skema warna ANSI (Solarized, Gruvbox, Dracula, Nord) di Android dan iOS, diterapkan secara langsung ke panel yang terbuka"
         ]
       },
       {
@@ -207,14 +208,14 @@ export const id: Dict = {
         title: "Berkas dan tunnel",
         items: [
           "Penjelajah SFTP dua panel untuk berkas lokal dan jarak jauh",
-          "Operasi unggah dan unduh yang diantre",
+          "Operasi unggah dan unduh yang diantre, termasuk berbagi jenis berkas apa pun dari aplikasi lain langsung ke folder jarak jauh di Android",
           "Unggah dan unduh folder rekursif antara ponsel dan host jarak jauh",
           "Aksi jarak jauh: ganti nama, hapus, buat, edit, dan detail",
           "Buka berkas yang diunduh di aplikasi lain di Android langsung dari panel lokal",
           "Urutkan berdasarkan nama atau tanggal dengan persistensi per host",
           "Penerusan port lokal yang disimpan bersama profil server",
           "Tampilan tambah/hapus tunnel runtime untuk sesi yang tersambung",
-          "Transfer berkas mengikuti tema terang atau gelap sistem"
+          "Mengikuti tema terang atau gelap sistem di seluruh aplikasi dan penjelajah berkas — pilih Sistem, Terang, atau Gelap di Android"
         ]
       },
       {
@@ -237,7 +238,7 @@ export const id: Dict = {
       {
         title: "Keamanan",
         items: [
-          "Layar aman (Android): memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari thumbnail aplikasi terkini — pengaturan opt-in untuk saat kata sandi, kunci, atau token ada di layar",
+          "Layar aman: di Android, memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari thumbnail aplikasi terkini; di iOS, mengosongkan pratinjau pengalih aplikasi dan memblokir perekaman serta mirroring layar (tangkapan layar manual tidak dapat diblokir di iOS) — pengaturan opt-in untuk saat kata sandi, kunci, atau token ada di layar",
           "Server, kredensial, dan kunci yang disimpan tetap di perangkat — rahasia disimpan di Android Keystore dan iOS Keychain, tanpa akun cloud atau sinkronisasi",
           "Hanya analitik penggunaan anonim yang dapat dinonaktifkan — tidak pernah server, kredensial, perintah, atau isi berkas Anda"
         ]
@@ -337,6 +338,7 @@ export const id: Dict = {
       { category: "Koneksi",          feature: "Catatan kredensial yang dapat dipakai ulang",    mobile: "yes",     termux: "no",            termius: "yes" },
       { category: "Koneksi",          feature: "Riwayat sesi terkini",                           mobile: "yes",     termux: "no",            termius: "yes" },
       { category: "Koneksi",          feature: "Log masuk",                                      mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Koneksi",          feature: "Transport proxy Teleport (beta)",                mobile: "Android", termux: "no",            termius: "no" },
       { category: "Terminal",         feature: "Terminal SSH",                                   mobile: "yes",     termux: "melalui OpenSSH",   termius: "yes" },
       { category: "Terminal",         feature: "Emulasi xterm-256color",                         mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Buffer scrollback 5 000 baris",                  mobile: "yes",     termux: "dapat dikonfigurasi", termius: "yes" },
@@ -349,7 +351,7 @@ export const id: Dict = {
       { category: "Terminal",         feature: "Dukungan keyboard hardware / Bluetooth",         mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Integrasi shell (OSC 133)",                      mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Terminal",         feature: "Gambar inline (grafis Kitty)",                   mobile: "yes",     termux: "no",            termius: "no" },
-      { category: "Terminal",         feature: "Perenderan glyph Nerd Font / powerline",         mobile: "Android", termux: "dapat dikonfigurasi", termius: "sebagian" },
+      { category: "Terminal",         feature: "Perenderan glyph Nerd Font / powerline",         mobile: "yes",     termux: "dapat dikonfigurasi", termius: "sebagian" },
       { category: "Sesi",             feature: "Beberapa sesi SSH bersamaan",                    mobile: "hingga 8", termux: "hingga 8",     termius: "yes" },
       { category: "Sesi",             feature: "Tata letak panel kisi",                          mobile: "yes",     termux: "melalui tmux",  termius: "tab" },
       { category: "Sesi",             feature: "Gulir ramah tmux",                               mobile: "yes",     termux: "yes",           termius: "no" },
@@ -378,7 +380,7 @@ export const id: Dict = {
       { category: "Privasi & biaya",  feature: "Tanpa iklan",                                   mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Privasi & biaya",  feature: "Opsi keluar analitik",                           mobile: "Android", termux: "tanpa analitik", termius: "no" },
       { category: "Privasi & biaya",  feature: "Data hanya lokal (tanpa sinkronisasi awan)",     mobile: "yes",     termux: "yes",           termius: "sebagian" },
-      { category: "Privasi & biaya",  feature: "Layar aman (blokir tangkapan layar)",            mobile: "Android", termux: "no",            termius: "no" },
+      { category: "Privasi & biaya",  feature: "Layar aman (blokir penangkapan layar)",          mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sesi",             feature: "Eternal Terminal (sesi tangguh)",                mobile: "yes",     termux: "melalui CLI",   termius: "no" },
       { category: "Sesi",             feature: "Pasang etserver otomatis melalui SSH",           mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sesi",             feature: "Pengelola sesi tmux",                            mobile: "yes",     termux: "melalui CLI",   termius: "no" },
@@ -444,7 +446,7 @@ export const id: Dict = {
     ],
     securityHeading: "Tanggung jawab keamanan",
     securityBody:
-      "Lindungi perangkat Anda dengan kunci layar kuat jika menyimpan kredensial atau kunci pribadi. Hanya sambungkan ke server yang Anda percayai. Implementasi saat ini menggunakan penyimpanan aplikasi lokal (dan Keychain iOS), bukan brankas awan terenkripsi terpisah. Di Android, pengaturan Layar aman opsional memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari tampilan aplikasi terkini.",
+      "Lindungi perangkat Anda dengan kunci layar kuat jika menyimpan kredensial atau kunci pribadi. Hanya sambungkan ke server yang Anda percayai. Implementasi saat ini menggunakan penyimpanan aplikasi lokal (dan Keychain iOS), bukan brankas awan terenkripsi terpisah. Pengaturan Layar aman opsional menambah perlindungan saat rahasia ada di layar: di Android ia memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari tampilan aplikasi terkini; di iOS ia mengosongkan pratinjau pengalih aplikasi dan memblokir perekaman serta mirroring layar (tangkapan layar manual tidak dapat diblokir di iOS).",
     contactHeading: "Kontak",
     contactBody: "Kontak dukungan: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },

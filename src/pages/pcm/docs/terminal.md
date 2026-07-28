@@ -71,20 +71,20 @@ Search di whole terminal buffer — scrollback and di visible screen — and jum
 
 - Di terminal dey render **24-bit true color** and **italics**, so themed prompts, syntax highlighting, and TUIs go look di way dem dey for desktop.
 - **OSC 52 clipboard:** wen remote program copy text (tmux `set-clipboard`, Vim/Neovim OSC 52 yank), e dey land for your phone clipboard — so you fit copy from di server and paste am enter local app.
-- For both Android and iOS, wide CJK, emoji, and combining characters (grapheme clusters and zero-width joiners) dey measured and drawn correctly. For Android, bundled **Nerd Font** dey also draw powerline, starship, devicon, and Material Design icon glyphs wey di system font for don show as empty boxes.
+- For both Android and iOS, wide CJK, emoji, and combining characters (grapheme clusters and zero-width joiners) dey measured and drawn correctly, and bundled **Nerd Font** dey draw powerline, starship, devicon, and Material Design icon glyphs wey di system font for don show as empty boxes.
 
 ## Shell integration and inline images
 
 - **Shell integration (OSC 133):** wen your shell dey emit OSC 133 prompt markers, Mobile SSH fit jump between prompts, copy di output of one single command, and alert you wen long-running command finish. E dey work for Android and iOS.
 - **Inline images:** programs wey dey use di Kitty graphics protocol dey draw images straight for di terminal, for Android and iOS.
 
-## Appearance and keys (Android)
+## Appearance and keys
 
-For Android, Settings dey let you tailor di terminal:
+For both Android and iOS, Settings dey let you tailor di terminal:
 
 - **Font:** choose di system monospace font, JetBrains Mono, or Source Code Pro.
 - **Color scheme:** Default, Solarized Dark or Light, Gruvbox, Dracula, or Nord — dem dey apply live to open panes.
-- **Extra key row:** di Keys tab dey let you add, remove, reorder, and hide keys, define your own escape-sequence keys, and reset to defaults, wit live preview.
+- **Extra key row:** add, remove, reorder, and hide keys, define your own escape-sequence keys, and reset to defaults, wit live preview.
 - **Scrollback size:** set how many lines di terminal go keep.
 
 ## Scrolling

@@ -71,20 +71,20 @@ Mobile SSH 最多可以同時執行八個 SSH 工作階段。每個工作階段�
 
 - 終端機會顯示 **24-bit 真彩色** 同 **斜體**，令主題化嘅提示符、語法高亮同 TUI 睇落同桌面上一樣。
 - **OSC 52 剪貼簿：** 當遠端程式複製文字（tmux `set-clipboard`、Vim/Neovim 嘅 OSC 52 yank），佢會落到你電話嘅剪貼簿 —— 咁你就可以喺伺服器度複製，再貼到本機 App。
-- 喺 Android 同 iOS 上，寬 CJK、emoji 同組合字元（字素叢集同零寬連接符）都會正確量度同繪製。喺 Android，內置嘅 **Nerd Font** 仲會顯示 powerline、starship、devicon 同 Material Design 圖示字形 —— 系統字型本來會將佢哋顯示成空白方格。
+- 喺 Android 同 iOS 上，寬 CJK、emoji 同組合字元（字素叢集同零寬連接符）都會正確量度同繪製，而內置嘅 **Nerd Font** 仲會顯示 powerline、starship、devicon 同 Material Design 圖示字形 —— 系統字型本來會將佢哋顯示成空白方格。
 
 ## Shell 整合同內嵌圖片
 
 - **Shell 整合（OSC 133）：** 當你嘅 shell 送出 OSC 133 提示符標記時，Mobile SSH 可以喺各個提示符之間跳轉、複製單一指令嘅輸出，並喺長時間指令完成時提示你。Android 同 iOS 都用得。
 - **內嵌圖片：** 用 Kitty graphics protocol 嘅程式會直接喺終端機畫出圖片，Android 同 iOS 都得。
 
-## 外觀同按鍵（Android）
+## 外觀同按鍵
 
-喺 Android，Settings 可以俾你自訂終端機：
+喺 Android 同 iOS，Settings 可以俾你自訂終端機：
 
 - **字型：** 揀系統等寬字型、JetBrains Mono 或者 Source Code Pro。
 - **配色：** Default、Solarized Dark 或 Light、Gruvbox、Dracula，或者 Nord —— 即時套用到開住嘅面板。
-- **附加按鍵列：** Keys 分頁可以俾你新增、移除、重新排序同隱藏按鍵，自訂你自己嘅跳脫序列按鍵，並重設做預設，仲有即時預覽。
+- **附加按鍵列：** 新增、移除、重新排序同隱藏按鍵，自訂你自己嘅跳脫序列按鍵，並重設做預設，仲有即時預覽。
 - **回滾大細：** 設定終端機保留幾多行。
 
 ## 捲動

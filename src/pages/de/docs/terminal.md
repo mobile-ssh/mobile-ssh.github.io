@@ -71,20 +71,20 @@ Durchsuche den gesamten Terminalpuffer – den Scrollback und den sichtbaren Bil
 
 - Das Terminal stellt **24-bit True Color** und **Kursivschrift** dar, sodass gestylte Prompts, Syntaxhervorhebung und TUIs so aussehen wie auf dem Desktop.
 - **OSC 52-Zwischenablage:** wenn ein entferntes Programm Text kopiert (tmux `set-clipboard`, ein OSC-52-Yank in Vim/Neovim), landet er in der Zwischenablage deines Telefons – so kannst du auf dem Server kopieren und in eine lokale App einfügen.
-- Auf sowohl Android als auch iOS werden breite CJK-, Emoji- und kombinierende Zeichen (Graphem-Cluster und Zero-Width-Joiner) korrekt vermessen und gezeichnet. Auf Android stellt eine mitgelieferte **Nerd Font** außerdem Powerline-, Starship-, Devicon- und Material-Design-Icon-Glyphen dar, die die Systemschrift sonst als leere Kästchen zeigen würde.
+- Auf sowohl Android als auch iOS werden breite CJK-, Emoji- und kombinierende Zeichen (Graphem-Cluster und Zero-Width-Joiner) korrekt vermessen und gezeichnet, und eine mitgelieferte **Nerd Font** stellt Powerline-, Starship-, Devicon- und Material-Design-Icon-Glyphen dar, die die Systemschrift sonst als leere Kästchen zeigen würde.
 
 ## Shell-Integration und Inline-Bilder
 
 - **Shell-Integration (OSC 133):** wenn deine Shell OSC-133-Prompt-Markierungen ausgibt, kann Mobile SSH zwischen Prompts springen, die Ausgabe eines einzelnen Befehls kopieren und dich benachrichtigen, wenn ein lang laufender Befehl fertig ist. Funktioniert auf Android und iOS.
 - **Inline-Bilder:** Programme, die das Kitty-Grafikprotokoll verwenden, zeichnen Bilder direkt im Terminal, auf Android und iOS.
 
-## Aussehen und Tasten (Android)
+## Aussehen und Tasten
 
-Auf Android kannst du das Terminal in den Einstellungen anpassen:
+Auf sowohl Android als auch iOS kannst du das Terminal in den Einstellungen anpassen:
 
 - **Schrift:** wähle die System-Monospace-Schrift, JetBrains Mono oder Source Code Pro.
 - **Farbschema:** Standard, Solarized Dark oder Light, Gruvbox, Dracula oder Nord – live auf offene Bereiche angewendet.
-- **Zusatztastenreihe:** im Reiter „Tasten“ kannst du Tasten hinzufügen, entfernen, neu anordnen und ausblenden, eigene Escape-Sequenz-Tasten definieren und auf die Standardwerte zurücksetzen, mit Live-Vorschau.
+- **Zusatztastenreihe:** Tasten hinzufügen, entfernen, neu anordnen und ausblenden, eigene Escape-Sequenz-Tasten definieren und auf die Standardwerte zurücksetzen, mit Live-Vorschau.
 - **Scrollback-Größe:** lege fest, wie viele Zeilen das Terminal behält.
 
 ## Scrollen

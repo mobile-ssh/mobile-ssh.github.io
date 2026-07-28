@@ -53,7 +53,7 @@ export const pt: Dict = {
     sectionAIntro:
       "O Mobile SSH encurta o caminho comum de administração: salve um servidor, conecte, mantenha as sessões vivas, mova arquivos quando precisar e volte rápido aos terminais ativos.",
     features: [
-      { title: "Terminal SSH", text: "Terminal xterm-256color com cores reais de 24 bits, itálicos, pesquisa dentro do terminal, integração de shell via OSC 133 e ajuste de tamanho do texto por pinça — além de fonte e esquema de cores configuráveis e glifos powerline/de ícones da Nerd Font no Android." },
+      { title: "Terminal SSH", text: "Terminal xterm-256color com cores reais de 24 bits, itálicos, pesquisa dentro do terminal, integração de shell via OSC 133 e ajuste de tamanho do texto por pinça — além de fonte e esquema de cores configuráveis e glifos powerline/de ícones da Nerd Font no Android e no iOS." },
       { title: "Grade multi-sessão", text: "Até oito sessões SSH em uma grade redimensionável — toque em um painel para focar, toque duplo para tela cheia, faça pinça para redimensionar o texto." },
       { title: "Links clicáveis", text: "URLs na saída do terminal ficam sublinhados e abrem no navegador com um toque — sem precisar copiar ou trocar de app." },
       { title: "Pastas de servidores", text: "Organize servidores salvos em grupos recolhíveis. Toque no cabeçalho de um grupo para recolhê-lo; a estrutura de pastas aparece também no seletor de conexão rápida." },
@@ -159,24 +159,25 @@ export const pt: Dict = {
         items: [
           "Autenticação por senha e por chave privada",
           "Chaves privadas Ed25519, RSA, ECDSA e DSA no Android; Ed25519 e ECDSA (P-256/384/521) no iOS",
-          "Perfis de servidor salvos com host, porta, usuário, credencial, chave privada e especificações de túnel opcionais",
+          "Perfis de servidor salvos com host, porta, usuário, credencial, chave privada e especificações de túnel opcionais — clone um perfil para duplicar suas configurações em um novo servidor",
           "Pesquisar servidores salvos por nome ou host",
           "Fluxo de Adicionar sessão com pesquisa: selecione um servidor salvo em uma página de pesquisa dedicada e conecte com um toque",
           "Vários endereços por servidor salvo para roaming entre LAN e VPN — discados em ordem, com o último endereço que funcionou testado primeiro, e a reconexão entra em ação em mudanças de rede",
           "Registros de credenciais reutilizáveis selecionáveis no setup do servidor",
           "Histórico de sessões recentes para reconectar a conjuntos comuns de servidores",
-          "Log de tentativas de login bem-sucedidas e falhas, registrando o endereço exato discado"
+          "Log de tentativas de login bem-sucedidas e falhas, registrando o endereço exato discado",
+          "Transporte de proxy Teleport (beta, Android): faça login com usuário, senha e OTP ou importe um arquivo de configuração ou de identidade do Teleport, navegue pelos nós do cluster e execute terminais, SFTP, tmux e plugins pelo túnel do proxy"
         ]
       },
       {
         title: "Terminal",
         items: [
           "Comportamento de terminal estilo VT100/xterm-256color com cores reais de 24 bits e itálicos",
-          "Buffer de scrollback de 5000 linhas, com tamanho configurável no Android",
+          "Buffer de scrollback de 5000 linhas, com tamanho configurável no Android e no iOS",
           "Pesquisar no terminal — busque no scrollback e na tela visível e pule entre as correspondências (Android e iOS)",
           "Integração de shell (OSC 133): pule entre prompts, copie a saída de um comando e receba um alerta quando um comando de longa duração termina (Android e iOS)",
           "Imagens em linha no terminal via o protocolo gráfico Kitty (Android e iOS)",
-          "Linha extra de teclas para ESC, TAB, CTRL, Shift, setas, Home, End, PgUp, PgDn e alternar teclado — personalizável no Android: adicione, remova, reordene e defina suas próprias teclas de sequência de escape, com redefinição para os padrões",
+          "Linha extra de teclas para ESC, TAB, CTRL, Shift, setas, Home, End, PgUp, PgDn e alternar teclado — personalizável no Android e no iOS: adicione, remova, reordene e defina suas próprias teclas de sequência de escape, com redefinição para os padrões",
           "Toque para focar, opção de mostrar teclado ao toque, ações de copiar e copiar tudo",
           "Pinça para zoom de texto com redimensionamento do terminal remoto",
           "Modo tela cheia de painel por toque duplo",
@@ -185,9 +186,9 @@ export const pt: Dict = {
           "Entrada de teclado nativa e direta (pass-through) — sem autocorreção brigando com a shell; o ditado por voz do teclado virtual continua funcionando",
           "Suporte a teclados externos e Bluetooth no Android e no iOS, incluindo setas, teclas de função e combinações Ctrl/Alt",
           "Colagem entre colchetes (bracketed paste) para que conteúdo de várias linhas da área de transferência não seja executado automaticamente",
-          "A Nerd Font incluída renderiza glifos de ícones powerline, starship, devicon e Material Design no Android que a fonte do sistema mostraria como quadrados vazios",
+          "A Nerd Font incluída renderiza glifos de ícones powerline, starship, devicon e Material Design no Android e no iOS que a fonte do sistema mostraria como quadrados vazios",
           "Caracteres CJK largos, emojis e caracteres combinantes são medidos e desenhados corretamente no Android e no iOS, incluindo clusters de grafemas e juntores de largura zero (zero-width joiners)",
-          "Fonte de terminal configurável (monoespaçada do sistema, JetBrains Mono ou Source Code Pro) e esquema de cores ANSI (Solarized, Gruvbox, Dracula, Nord) no Android, aplicados ao vivo aos painéis abertos"
+          "Fonte de terminal configurável (monoespaçada do sistema, JetBrains Mono ou Source Code Pro) e esquema de cores ANSI (Solarized, Gruvbox, Dracula, Nord) no Android e no iOS, aplicados ao vivo aos painéis abertos"
         ]
       },
       {
@@ -208,14 +209,14 @@ export const pt: Dict = {
         title: "Arquivos e túneis",
         items: [
           "Navegador SFTP de painel duplo para arquivos locais e remotos",
-          "Operações de envio e download em fila",
+          "Operações de envio e download em fila, incluindo o compartilhamento de qualquer tipo de arquivo de outro app direto para uma pasta remota no Android",
           "Envio e download recursivo de pastas entre o celular e o host remoto",
           "Renomear, apagar, criar, editar e detalhes remotos",
           "Abra um arquivo baixado em outro app no Android direto do painel local",
           "Ordenar por nome ou data com persistência por host",
           "Redirecionamento local de portas salvo com perfis de servidor",
           "Visualização de túneis em tempo de execução para sessões conectadas",
-          "A transferência de arquivos segue o tema claro ou escuro do sistema"
+          "Segue o tema claro ou escuro do sistema em todo o app e no navegador de arquivos — escolha Sistema, Claro ou Escuro no Android"
         ]
       },
       {
@@ -238,7 +239,7 @@ export const pt: Dict = {
       {
         title: "Segurança",
         items: [
-          "Tela segura (Android): bloqueia capturas e gravação de tela e oculta o app da miniatura de recentes — uma opção que você ativa para quando senhas, chaves ou tokens estão na tela",
+          "Tela segura: no Android, bloqueia capturas e gravação de tela e oculta o app da miniatura de recentes; no iOS, deixa em branco a pré-visualização do alternador de apps e bloqueia a gravação e o espelhamento de tela (uma captura de tela manual não pode ser bloqueada no iOS) — uma opção que você ativa para quando senhas, chaves ou tokens estão na tela",
           "Servidores, credenciais e chaves salvos permanecem no dispositivo — os segredos ficam no Android Keystore e no iOS Keychain, sem conta na nuvem nem sincronização",
           "Apenas análises de uso anônimas, com opção de desativar — nunca seus servidores, credenciais, comandos ou conteúdo de arquivos"
         ]
@@ -338,6 +339,7 @@ export const pt: Dict = {
       { category: "Conexão",            feature: "Registros de credenciais reutilizáveis",             mobile: "yes",     termux: "no",           termius: "yes" },
       { category: "Conexão",            feature: "Histórico de sessões recentes",                      mobile: "yes",     termux: "no",           termius: "yes" },
       { category: "Conexão",            feature: "Log de logins",                                      mobile: "yes",     termux: "no",           termius: "no" },
+      { category: "Conexão",            feature: "Transporte de proxy Teleport (beta)",                mobile: "Android", termux: "no",           termius: "no" },
       { category: "Terminal",           feature: "Terminal SSH",                                        mobile: "yes",     termux: "via OpenSSH",  termius: "yes" },
       { category: "Terminal",           feature: "Emulação xterm-256color",                            mobile: "yes",     termux: "yes",          termius: "yes" },
       { category: "Terminal",           feature: "Buffer de scrollback de 5 000 linhas",               mobile: "yes",     termux: "configurável", termius: "yes" },
@@ -350,7 +352,7 @@ export const pt: Dict = {
       { category: "Terminal",           feature: "Suporte a teclado físico / Bluetooth",               mobile: "yes",     termux: "yes",          termius: "yes" },
       { category: "Terminal",           feature: "Integração de shell (OSC 133)",                      mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Terminal",           feature: "Imagens em linha (gráficos Kitty)",                  mobile: "yes",     termux: "no",           termius: "no" },
-      { category: "Terminal",           feature: "Renderização de glifos Nerd Font / powerline",       mobile: "Android", termux: "configurável", termius: "parcial" },
+      { category: "Terminal",           feature: "Renderização de glifos Nerd Font / powerline",       mobile: "yes",     termux: "configurável", termius: "parcial" },
       { category: "Sessões",            feature: "Múltiplas sessões SSH simultâneas",                  mobile: "até 8", termux: "até 8",        termius: "yes" },
       { category: "Sessões",            feature: "Layout de painéis em grade",                         mobile: "yes",     termux: "via tmux",     termius: "abas" },
       { category: "Sessões",            feature: "Rolagem compatível com tmux",                        mobile: "yes",     termux: "yes",          termius: "no" },
@@ -379,7 +381,7 @@ export const pt: Dict = {
       { category: "Privacidade e custo", feature: "Sem anúncios",                                      mobile: "yes",     termux: "yes",          termius: "yes" },
       { category: "Privacidade e custo", feature: "Opção de desativar analytics",                      mobile: "Android", termux: "sem analytics", termius: "no" },
       { category: "Privacidade e custo", feature: "Dados apenas locais (sem sincronização em nuvem)",  mobile: "yes",     termux: "yes",          termius: "parcial" },
-      { category: "Privacidade e custo", feature: "Tela segura (bloquear capturas de tela)",           mobile: "Android", termux: "no",           termius: "no" },
+      { category: "Privacidade e custo", feature: "Tela segura (bloquear captura de tela)",            mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Sessões",            feature: "Eternal Terminal (sessões resilientes)",             mobile: "yes",     termux: "via CLI",      termius: "no" },
       { category: "Sessões",            feature: "Instalação automática do etserver via SSH",          mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Sessões",            feature: "Gerenciador de sessões tmux",                        mobile: "yes",     termux: "via CLI",      termius: "no" },
@@ -445,7 +447,7 @@ export const pt: Dict = {
     ],
     securityHeading: "Responsabilidades de segurança",
     securityBody:
-      "Proteja seu dispositivo com bloqueio de tela forte se salvar credenciais ou chaves privadas. Conecte-se apenas a servidores confiáveis. A implementação atual usa armazenamento local do app (e o Keychain no iOS) em vez de um cofre criptografado em nuvem. No Android, uma opção de Tela segura bloqueia capturas e gravação de tela e oculta o app da tela de recentes.",
+      "Proteja seu dispositivo com bloqueio de tela forte se salvar credenciais ou chaves privadas. Conecte-se apenas a servidores confiáveis. A implementação atual usa armazenamento local do app (e o Keychain no iOS) em vez de um cofre criptografado em nuvem. Uma opção de Tela segura adiciona proteção quando há segredos na tela: no Android, bloqueia capturas e gravação de tela e oculta o app da tela de recentes; no iOS, deixa em branco a pré-visualização do alternador de apps e bloqueia a gravação e o espelhamento de tela (uma captura de tela manual não pode ser bloqueada no iOS).",
     contactHeading: "Contato",
     contactBody: "Contato de suporte: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },

@@ -53,7 +53,7 @@ export const tr: Dict = {
     sectionAIntro:
       "Mobile SSH yaygın yönetim yolunu kısaltır: sunucuyu kaydet, bağlan, oturumları canlı tut, gerektiğinde dosya taşı ve hızlıca aktif terminallere geri dön.",
     features: [
-      { title: "SSH terminali", text: "24-bit gerçek renk, italik, terminal içi arama, OSC 133 kabuk entegrasyonu ve sıkıştırarak metin boyutlandırmayla xterm-256color terminali — ayrıca Android'de yapılandırılabilir yazı tipi ve renk şeması ile Nerd Font powerline/simge glifleri." },
+      { title: "SSH terminali", text: "24-bit gerçek renk, italik, terminal içi arama, OSC 133 kabuk entegrasyonu ve sıkıştırarak metin boyutlandırmayla xterm-256color terminali — ayrıca Android ve iOS'ta yapılandırılabilir yazı tipi ve renk şeması ile Nerd Font powerline/simge glifleri." },
       { title: "Çoklu oturum ızgarası", text: "Yeniden boyutlandırılabilir ızgarada sekiz SSH oturumuna kadar — odaklanmak için panele dokun, tam ekran için çift dokun, metni boyutlandırmak için sıkıştır." },
       { title: "Tıklanabilir bağlantılar", text: "Terminaldeki URL'ler altı çizili olur ve bir dokunuşla tarayıcıda açılır — kopyalamaya veya uygulama değiştirmeye gerek kalmaz." },
       { title: "Sunucu klasörleri", text: "Kaydedilen sunucuları daraltılabilir gruplara düzenle. Daraltmak için grup başlığına dokun; klasör yapısı hızlı bağlan seçicisine de yansır." },
@@ -158,24 +158,25 @@ export const tr: Dict = {
         items: [
           "Parola ve özel anahtarla kimlik doğrulama",
           "Android'de Ed25519, RSA, ECDSA ve DSA özel anahtarları; iOS'ta Ed25519 ve ECDSA (P-256/384/521)",
-          "Ana bilgisayar, port, kullanıcı, kimlik bilgisi, özel anahtar ve isteğe bağlı tünel tanımlarıyla kaydedilmiş sunucu profilleri",
+          "Ana bilgisayar, port, kullanıcı, kimlik bilgisi, özel anahtar ve isteğe bağlı tünel tanımlarıyla kaydedilmiş sunucu profilleri — ayarlarını yeni bir sunucuya kopyalamak için bir profili klonlayın",
           "Kaydedilen sunucuları ada veya ana bilgisayara göre arama",
           "Arama öncelikli Oturum Ekle akışı: ayrılmış bir arama sayfasından kayıtlı sunucu seç ve tek dokunuşla bağlan",
           "LAN/VPN dolaşımı için kayıtlı sunucu başına birden çok adres — sırayla denenir, en son çalışan adres önce denenir ve ağ değişiminde yeniden bağlanma devreye girer",
           "Sunucu kurulumunda seçilebilen yeniden kullanılabilir kimlik bilgisi kayıtları",
           "Sık kullanılan sunucu setlerine yeniden bağlanmak için son oturum geçmişi",
-          "Başarılı ve başarısız giriş denemeleri günlüğü; tam olarak hangi adrese bağlanıldığını kaydeder"
+          "Başarılı ve başarısız giriş denemeleri günlüğü; tam olarak hangi adrese bağlanıldığını kaydeder",
+          "Teleport proxy taşıması (beta, Android): kullanıcı adı, parola ve OTP ile giriş yapın veya bir Teleport yapılandırma ya da kimlik dosyasını içe aktarın, küme düğümlerine göz atın, ardından proxy tüneli üzerinden terminaller, SFTP, tmux ve eklentiler çalıştırın"
         ]
       },
       {
         title: "Terminal",
         items: [
           "24-bit gerçek renk ve italik ile VT100/xterm-256color terminal davranışı",
-          "5000 satırlık geri kaydırma tamponu; Android'de boyutu yapılandırılabilir",
+          "5000 satırlık geri kaydırma tamponu; Android ve iOS'ta boyutu yapılandırılabilir",
           "Terminalde bul — geri kaydırmayı ve görünür ekranı ara, eşleşmeler arasında atla (Android ve iOS)",
           "Kabuk entegrasyonu (OSC 133): istemler arasında atla, bir komutun çıktısını kopyala ve uzun süren bir komut bittiğinde uyarı al (Android ve iOS)",
           "Kitty grafik protokolü aracılığıyla terminalde satır içi görüntüler (Android ve iOS)",
-          "ESC, TAB, CTRL, Shift, oklar, Home, End, PgUp, PgDn ve klavye geçişi için ek tuş satırı — Android'de özelleştirilebilir: tuş ekle, kaldır, yeniden sırala ve kendi kaçış dizisi tuşlarını tanımla, varsayılanlara sıfırlamayla",
+          "ESC, TAB, CTRL, Shift, oklar, Home, End, PgUp, PgDn ve klavye geçişi için ek tuş satırı — Android ve iOS'ta özelleştirilebilir: tuş ekle, kaldır, yeniden sırala ve kendi kaçış dizisi tuşlarını tanımla, varsayılanlara sıfırlamayla",
           "Dokunarak odaklan, isteğe bağlı «dokununca klavyeyi göster», kopyala ve tümünü kopyala eylemleri",
           "Sıkıştırarak metin boyutunu değiştir ve uzak terminali yeniden boyutlandır",
           "Çift dokunarak panel tam ekran modu",
@@ -184,9 +185,9 @@ export const tr: Dict = {
           "Yerel geçişli klavye girişi — otomatik düzeltme kabukla çakışmaz; ekran klavyesi sesli diktesi yine de çalışır",
           "Android ve iOS'ta harici ve Bluetooth klavye desteği; oklar, işlev tuşları ve Ctrl/Alt akorları dahil",
           "Köşeli parantezli yapıştırma (bracketed paste); böylece çok satırlı pano içeriği otomatik çalıştırılmaz",
-          "Yerleşik Nerd Font, sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini Android'de işler",
+          "Yerleşik Nerd Font, sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini Android ve iOS'ta işler",
           "Geniş CJK, emoji ve birleşen karakterler Android ve iOS'ta doğru şekilde ölçülür ve çizilir; grafem kümeleri ve sıfır genişlikli birleştiriciler dahil",
-          "Android'de yapılandırılabilir terminal yazı tipi (sistem tek aralıklı, JetBrains Mono veya Source Code Pro) ve ANSI renk şeması (Solarized, Gruvbox, Dracula, Nord); açık panellere anında uygulanır"
+          "Android ve iOS'ta yapılandırılabilir terminal yazı tipi (sistem tek aralıklı, JetBrains Mono veya Source Code Pro) ve ANSI renk şeması (Solarized, Gruvbox, Dracula, Nord); açık panellere anında uygulanır"
         ]
       },
       {
@@ -207,14 +208,14 @@ export const tr: Dict = {
         title: "Dosyalar ve tüneller",
         items: [
           "Yerel ve uzak dosyalar için çift panelli SFTP gezgini",
-          "Sıraya alınmış yükleme ve indirme işlemleri",
+          "Sıraya alınmış yükleme ve indirme işlemleri; Android'de başka bir uygulamadan herhangi bir dosya türünü doğrudan uzak bir klasöre paylaşma dahil",
           "Telefon ve uzak ana bilgisayar arasında özyinelemeli klasör yükleme ve indirme",
           "Uzak yeniden adlandırma, silme, oluşturma, düzenleme ve ayrıntılar",
           "İndirilen bir dosyayı Android'de yerel panelden doğrudan başka bir uygulamada aç",
           "Her ana bilgisayar için kalıcı, ada veya tarihe göre sıralama",
           "Sunucu profilleriyle kaydedilen yerel port yönlendirme",
           "Bağlı oturumlar için çalışma zamanı tünel ekle/kaldır görünümü",
-          "Dosya aktarımı sistemin açık veya koyu temasını takip eder"
+          "Uygulamanın tamamı ve dosya tarayıcısı sistemin açık veya koyu temasını takip eder — Android'de Sistem, Açık veya Koyu seçin"
         ]
       },
       {
@@ -237,7 +238,7 @@ export const tr: Dict = {
       {
         title: "Güvenlik",
         items: [
-          "Güvenli ekran (Android): ekran görüntülerini ve ekran kaydını engelle, uygulamayı son kullanılanlar küçük resminden gizle — parolalar, anahtarlar veya belirteçler ekrandayken açılabilen bir ayar",
+          "Güvenli ekran: Android'de ekran görüntülerini ve ekran kaydını engelle ve uygulamayı son kullanılanlar küçük resminden gizle; iOS'ta uygulama değiştirici önizlemesini boşalt ve ekran kaydını ve yansıtmayı engelle (iOS'ta elle alınan bir ekran görüntüsü engellenemez) — parolalar, anahtarlar veya belirteçler ekrandayken açılabilen bir ayar",
           "Kaydedilen sunucular, kimlik bilgileri ve anahtarlar cihazda kalır — gizli veriler Android Keystore ve iOS Keychain'de tutulur, bulut hesabı veya eşitleme yoktur",
           "Yalnızca anonim, kapatılabilir kullanım analizleri — asla sunucularınız, kimlik bilgileriniz, komutlarınız veya dosya içerikleriniz değil"
         ]
@@ -337,6 +338,7 @@ export const tr: Dict = {
       { category: "Bağlantı", feature: "Yeniden kullanılabilir kimlik bilgisi kayıtları", mobile: "yes", termux: "no",         termius: "yes" },
       { category: "Bağlantı", feature: "Son oturum geçmişi",                         mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "Bağlantı", feature: "Giriş günlüğü",                              mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Bağlantı", feature: "Teleport proxy taşıması (beta)",             mobile: "Android", termux: "no",          termius: "no" },
       { category: "Terminal",  feature: "SSH terminali",                              mobile: "yes",    termux: "OpenSSH ile",  termius: "yes" },
       { category: "Terminal",  feature: "xterm-256color emülasyonu",                  mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Terminal",  feature: "5.000 satırlık geri kaydırma tamponu",       mobile: "yes",    termux: "yapılandırılabilir", termius: "yes" },
@@ -349,7 +351,7 @@ export const tr: Dict = {
       { category: "Terminal",  feature: "Donanım / Bluetooth klavye desteği",         mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Terminal",  feature: "Kabuk entegrasyonu (OSC 133)",               mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",  feature: "Satır içi görüntüler (Kitty grafikleri)",     mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "Terminal",  feature: "Nerd Font / powerline glif oluşturma",       mobile: "Android", termux: "yapılandırılabilir", termius: "kısmi" },
+      { category: "Terminal",  feature: "Nerd Font / powerline glif oluşturma",       mobile: "yes",     termux: "yapılandırılabilir", termius: "kısmi" },
       { category: "Oturumlar", feature: "Eşzamanlı birden çok SSH oturumu",          mobile: "en fazla 8", termux: "en fazla 8", termius: "yes" },
       { category: "Oturumlar", feature: "Izgara panel düzeni",                       mobile: "yes",    termux: "tmux ile",     termius: "sekmeler" },
       { category: "Oturumlar", feature: "tmux uyumlu kaydırma",                     mobile: "yes",    termux: "yes",          termius: "no" },
@@ -378,7 +380,7 @@ export const tr: Dict = {
       { category: "Gizlilik ve maliyet", feature: "Reklam yok",                      mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Gizlilik ve maliyet", feature: "Analitikten çıkma seçeneği",      mobile: "Android", termux: "analitik yok", termius: "no" },
       { category: "Gizlilik ve maliyet", feature: "Yalnızca yerel veriler (bulut eşitlemesi yok)", mobile: "yes", termux: "yes", termius: "kısmi" },
-      { category: "Gizlilik ve maliyet", feature: "Güvenli ekran (ekran görüntülerini engelle)", mobile: "Android", termux: "no",         termius: "no" },
+      { category: "Gizlilik ve maliyet", feature: "Güvenli ekran (ekran yakalamayı engelle)", mobile: "yes",  termux: "no",         termius: "no" },
       { category: "Oturumlar", feature: "Eternal Terminal (dayanıklı oturumlar)",  mobile: "yes",    termux: "CLI ile",      termius: "no" },
       { category: "Oturumlar", feature: "SSH üzerinden otomatik etserver kurulumu", mobile: "yes",   termux: "no",           termius: "no" },
       { category: "Oturumlar", feature: "tmux oturum yöneticisi",                  mobile: "yes",    termux: "CLI ile",      termius: "no" },
@@ -444,7 +446,7 @@ export const tr: Dict = {
     ],
     securityHeading: "Güvenlik sorumlulukları",
     securityBody:
-      "Kimlik bilgilerini veya özel anahtarları kaydederseniz cihazınızı güçlü bir ekran kilidiyle koruyun. Yalnızca güvendiğiniz sunuculara bağlanın. Mevcut uygulama, ayrı bir şifreli bulut kasası yerine yerel uygulama depolamasını (ve iOS'ta sistem Keychain'ini) kullanır. Android'de isteğe bağlı bir Güvenli ekran ayarı, ekran görüntülerini ve ekran kaydını engeller ve uygulamayı son kullanılanlar görünümünden gizler.",
+      "Kimlik bilgilerini veya özel anahtarları kaydederseniz cihazınızı güçlü bir ekran kilidiyle koruyun. Yalnızca güvendiğiniz sunuculara bağlanın. Mevcut uygulama, ayrı bir şifreli bulut kasası yerine yerel uygulama depolamasını (ve iOS'ta sistem Keychain'ini) kullanır. İsteğe bağlı bir Güvenli ekran ayarı, gizli veriler ekrandayken koruma ekler: Android'de ekran görüntülerini ve ekran kaydını engeller ve uygulamayı son kullanılanlar görünümünden gizler; iOS'ta uygulama değiştirici önizlemesini boşaltır ve ekran kaydını ve yansıtmayı engeller (iOS'ta elle alınan bir ekran görüntüsü engellenemez).",
     contactHeading: "İletişim",
     contactBody: "Destek iletişimi: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },

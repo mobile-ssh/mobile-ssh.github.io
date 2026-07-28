@@ -53,7 +53,7 @@ export const pcm: Dict = {
     sectionAIntro:
       "Mobile SSH dey keep di admin road short: save server, connect, keep session dey alive, move file when you need am, and quick return to live terminal.",
     features: [
-      { title: "SSH terminal", text: "xterm-256color terminal wit 24-bit true color, italics, in-terminal search, OSC 133 shell integration, and pinch-to-zoom text sizing — plus font and color scheme wey you fit configure and Nerd Font powerline/icon glyphs for Android." },
+      { title: "SSH terminal", text: "xterm-256color terminal wit 24-bit true color, italics, in-terminal search, OSC 133 shell integration, and pinch-to-zoom text sizing — plus font and color scheme wey you fit configure and Nerd Font powerline/icon glyphs for Android and iOS." },
       { title: "Multi-session grid", text: "Up to eight SSH session for resizable grid — tap pane to focus, double-tap for fullscreen, pinch to resize text." },
       { title: "Clickable links", text: "URLs wey dey inside di terminal dey underline and go open for browser with one tap — no need to copy or switch app." },
       { title: "Server folders", text: "Arrange saved servers for collapsible groups. Tap group header to collapse am; di folder structure dey carry enter di quick-connect picker." },
@@ -158,24 +158,25 @@ export const pcm: Dict = {
         items: [
           "Password login and private key login",
           "Ed25519, RSA, ECDSA and DSA private keys for Android; Ed25519 and ECDSA (P-256/384/521) for iOS",
-          "Saved server profile wit host, port, username, credential, private key and optional tunnel spec",
+          "Saved server profile wit host, port, username, credential, private key and optional tunnel spec — clone one profile to copy im settings enter new server",
           "Search saved servers by name or host",
           "Search-first Add Session flow: pick saved server from dedicated search page and connect with one tap",
           "Plenty address for one saved server for LAN/VPN roaming — dem dey dial dem in order, di last address wey work go first, and reconnect go kick in when network change",
           "Reusable credential record wey you fit pick for server setup",
           "Recent session history to reconnect to common server set",
-          "Login log for successful and failed try, wey dey record di exact address wey dem dial"
+          "Login log for successful and failed try, wey dey record di exact address wey dem dial",
+          "Teleport proxy transport (beta, Android): log in wit username, password, and OTP or import Teleport config or identity file, browse cluster nodes, then run terminals, SFTP, tmux, and plugins over di proxy tunnel"
         ]
       },
       {
         title: "Terminal",
         items: [
           "VT100/xterm-256color style terminal behaviour wit 24-bit true color and italics",
-          "Scrollback buffer of 5000 lines, wit size wey you fit configure for Android",
+          "Scrollback buffer of 5000 lines, wit size wey you fit configure for Android and iOS",
           "Find for di terminal — search di scrollback and di visible screen and jump between di matches (Android and iOS)",
           "Shell integration (OSC 133): jump between prompts, copy di output of one command, and get alert wen long-running command finish (Android and iOS)",
           "Inline images for di terminal via di Kitty graphics protocol (Android and iOS)",
-          "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn and keyboard toggle — you fit customize am for Android: add, remove, reorder, and define your own escape-sequence keys, wit reset-to-defaults",
+          "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn and keyboard toggle — you fit customize am for Android and iOS: add, remove, reorder, and define your own escape-sequence keys, wit reset-to-defaults",
           "Tap to focus, optional tap-to-show-keyboard setting, copy and copy-all action",
           "Pinch-to-zoom text sizing wit remote terminal resize",
           "Double-tap pane fullscreen mode",
@@ -184,9 +185,9 @@ export const pcm: Dict = {
           "Native pass-through keyboard input — no autocorrect dey fight di shell; soft-keyboard voice dictation still dey work",
           "External and Bluetooth keyboard support for Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
           "Bracketed paste so multi-line clipboard content no go run by itself",
-          "Bundled Nerd Font dey render powerline, starship, devicon, and Material Design icon glyphs for Android wey di system font for don show as empty boxes",
+          "Bundled Nerd Font dey render powerline, starship, devicon, and Material Design icon glyphs for Android and iOS wey di system font for don show as empty boxes",
           "Wide CJK, emoji, and combining characters dey measured and drawn correctly for Android and iOS, including grapheme clusters and zero-width joiners",
-          "Terminal font wey you fit configure (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) for Android, wey dey apply live to open panes"
+          "Terminal font wey you fit configure (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) for Android and iOS, wey dey apply live to open panes"
         ]
       },
       {
@@ -207,14 +208,14 @@ export const pcm: Dict = {
         title: "Files and tunnels",
         items: [
           "Dual-pane SFTP browser for local and remote file",
-          "Upload and download queue",
+          "Upload and download queue, including sharing any file type from another app straight into a remote folder for Android",
           "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit and details",
           "Open file wey you don download for another app for Android straight from di local pane",
           "Sort by name or date wit per-host memory",
           "Local port forwarding wey dey save with server profile",
           "Runtime tunnel add/remove view for connected session",
-          "File transfer dey follow di system light or dark theme"
+          "Di whole app and file browser dey follow di system light or dark theme — choose System, Light, or Dark for Android"
         ]
       },
       {
@@ -237,7 +238,7 @@ export const pcm: Dict = {
       {
         title: "Security",
         items: [
-          "Secure screen (Android): block screenshots and screen recording and hide di app from di recents thumbnail — na opt-in setting for wen password, key, or token dey for screen",
+          "Secure screen: for Android, block screenshots and screen recording and hide di app from di recents thumbnail; for iOS, blank di app-switcher preview and block screen recording and mirroring (you no fit block manual screenshot for iOS) — na opt-in setting for wen password, key, or token dey for screen",
           "Saved servers, credentials, and keys dey stay for di device — secrets dey live for di Android Keystore and di iOS Keychain, no cloud account or sync",
           "Na anonymous, opt-out usage analytics only — e no dey ever touch your servers, credentials, commands, or file content"
         ]
@@ -337,6 +338,7 @@ export const pcm: Dict = {
       { category: "Connection",       feature: "Reusable credential record",                  mobile: "yes",     termux: "no",            termius: "yes" },
       { category: "Connection",       feature: "Recent session history",                      mobile: "yes",     termux: "no",            termius: "yes" },
       { category: "Connection",       feature: "Login log",                                   mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Connection",       feature: "Teleport proxy transport (beta)",             mobile: "Android", termux: "no",            termius: "no" },
       { category: "Terminal",         feature: "SSH terminal",                                mobile: "yes",     termux: "via OpenSSH",   termius: "yes" },
       { category: "Terminal",         feature: "xterm-256color emulation",                    mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "5 000-line scrollback buffer",                mobile: "yes",     termux: "you fit configure am", termius: "yes" },
@@ -349,7 +351,7 @@ export const pcm: Dict = {
       { category: "Terminal",         feature: "Hardware / Bluetooth keyboard support",       mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Shell integration (OSC 133)",                 mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Terminal",         feature: "Inline images (Kitty graphics)",              mobile: "yes",     termux: "no",            termius: "no" },
-      { category: "Terminal",         feature: "Nerd Font / powerline glyph rendering",       mobile: "Android", termux: "you fit configure am", termius: "partial" },
+      { category: "Terminal",         feature: "Nerd Font / powerline glyph rendering",       mobile: "yes",     termux: "you fit configure am", termius: "partial" },
       { category: "Sessions",         feature: "Plenty SSH session same time",                mobile: "up to 8", termux: "up to 8",       termius: "yes" },
       { category: "Sessions",         feature: "Grid pane layout",                            mobile: "yes",     termux: "via tmux",      termius: "tabs" },
       { category: "Sessions",         feature: "tmux-friendly scroll",                        mobile: "yes",     termux: "yes",           termius: "no" },
@@ -378,7 +380,7 @@ export const pcm: Dict = {
       { category: "Privacy & cost",   feature: "No ads",                                      mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Privacy & cost",   feature: "Analytics opt-out",                           mobile: "Android", termux: "no analytics",  termius: "no" },
       { category: "Privacy & cost",   feature: "Local-only data (no cloud sync)",             mobile: "yes",     termux: "yes",           termius: "partial" },
-      { category: "Privacy & cost",   feature: "Secure screen (block screenshots)",           mobile: "Android", termux: "no",            termius: "no" },
+      { category: "Privacy & cost",   feature: "Secure screen (block screen capture)",        mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sessions",         feature: "Eternal Terminal (sessions wey no dey die)",  mobile: "yes",     termux: "via CLI",       termius: "no" },
       { category: "Sessions",         feature: "Auto-install etserver over SSH",              mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sessions",         feature: "tmux session manager",                        mobile: "yes",     termux: "via CLI",       termius: "no" },
@@ -444,7 +446,7 @@ export const pcm: Dict = {
     ],
     securityHeading: "Security responsibilities",
     securityBody:
-      "Protect your device wit strong screen lock if you dey save credential or private key. Only connect to server wey you trust. Di current version use local app storage (and di iOS Keychain), no be separate encrypted cloud vault. For Android, optional Secure screen setting dey block screenshots and screen recording and e dey hide di app from di recents view.",
+      "Protect your device wit strong screen lock if you dey save credential or private key. Only connect to server wey you trust. Di current version use local app storage (and di iOS Keychain), no be separate encrypted cloud vault. Optional Secure screen setting dey add protection wen secrets dey for screen: for Android e dey block screenshots and screen recording and e dey hide di app from di recents view; for iOS e dey blank di app-switcher preview and block screen recording and mirroring (you no fit block manual screenshot for iOS).",
     contactHeading: "Contact",
     contactBody: "Support contact: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },
