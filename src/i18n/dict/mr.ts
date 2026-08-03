@@ -166,7 +166,7 @@ export const mr: Dict = {
           "सर्व्हर सेटअपमधून निवडण्यायोग्य पुन्हा वापरण्यायोग्य क्रेडेन्शियल नोंदी",
           "नेहमीच्या सर्व्हर संचांना पुन्हा जोडण्यासाठी अलीकडील सेशन इतिहास",
           "यशस्वी आणि अयशस्वी लॉगिन प्रयत्नांचा लॉग, जोडलेला नेमका पत्ता नोंदवत",
-          "Teleport proxy वाहतूक (बीटा, Android): वापरकर्तानाव, पासवर्ड आणि OTP ने लॉग इन करा किंवा Teleport कॉन्फिग किंवा आयडेंटिटी फाइल आयात करा, क्लस्टर नोड्स ब्राउझ करा, मग proxy टनेलवरून टर्मिनल, SFTP, tmux आणि प्लगइन चालवा"
+          "Teleport प्रॉक्सी वाहतूक (बीटा, Android): वापरकर्तानाव, पासवर्ड आणि OTP ने लॉग इन करा किंवा Teleport कॉन्फिग किंवा आयडेंटिटी फाइल आयात करा, क्लस्टर नोड्स ब्राउझ करा, मग प्रॉक्सी टनेलवरून टर्मिनल, SFTP, tmux आणि प्लगइन चालवा"
         ]
       },
       {
@@ -339,7 +339,7 @@ export const mr: Dict = {
       { category: "जोडणी", feature: "पुन्हा वापरण्यायोग्य क्रेडेन्शियल नोंदी",       mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "जोडणी", feature: "अलीकडील सेशन इतिहास",                           mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "जोडणी", feature: "लॉगिन लॉग",                                      mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "जोडणी", feature: "Teleport proxy वाहतूक (बीटा)",                   mobile: "Android", termux: "no",          termius: "no" },
+      { category: "जोडणी", feature: "Teleport प्रॉक्सी वाहतूक (बीटा)",                mobile: "Android", termux: "no",          termius: "no" },
       { category: "टर्मिनल", feature: "SSH टर्मिनल",                                   mobile: "yes",    termux: "OpenSSH द्वारे",  termius: "yes" },
       { category: "टर्मिनल", feature: "xterm-256color अनुकरण",                         mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "टर्मिनल", feature: "5 000-ओळींचा स्क्रोलबॅक बफर",                 mobile: "yes",    termux: "कॉन्फिगर करण्यायोग्य", termius: "yes" },

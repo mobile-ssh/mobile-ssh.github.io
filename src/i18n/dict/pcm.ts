@@ -209,7 +209,7 @@ export const pcm: Dict = {
         title: "Files and tunnels",
         items: [
           "Dual-pane SFTP browser for local and remote file",
-          "Upload and download queue, including sharing any file type from another app straight into a remote folder for Android",
+          "Upload and download queue wey dey line up, plus you fit share any file type from anoda app straight enter remote folder for Android",
           "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit and details",
           "Open file wey you don download for another app for Android straight from di local pane",

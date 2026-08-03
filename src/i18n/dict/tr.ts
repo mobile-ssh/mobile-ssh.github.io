@@ -166,7 +166,7 @@ export const tr: Dict = {
           "Sunucu kurulumunda seçilebilen yeniden kullanılabilir kimlik bilgisi kayıtları",
           "Sık kullanılan sunucu setlerine yeniden bağlanmak için son oturum geçmişi",
           "Başarılı ve başarısız giriş denemeleri günlüğü; tam olarak hangi adrese bağlanıldığını kaydeder",
-          "Teleport proxy taşıması (beta, Android): kullanıcı adı, parola ve OTP ile giriş yapın veya bir Teleport yapılandırma ya da kimlik dosyasını içe aktarın, küme düğümlerine göz atın, ardından proxy tüneli üzerinden terminaller, SFTP, tmux ve eklentiler çalıştırın"
+          "Teleport proxy aktarımı (beta, Android): kullanıcı adı, parola ve OTP ile giriş yapın veya bir Teleport yapılandırma ya da kimlik dosyasını içe aktarın, küme düğümlerine göz atın, ardından proxy tüneli üzerinden terminaller, SFTP, tmux ve eklentiler çalıştırın"
         ]
       },
       {
@@ -339,7 +339,7 @@ export const tr: Dict = {
       { category: "Bağlantı", feature: "Yeniden kullanılabilir kimlik bilgisi kayıtları", mobile: "yes", termux: "no",         termius: "yes" },
       { category: "Bağlantı", feature: "Son oturum geçmişi",                         mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "Bağlantı", feature: "Giriş günlüğü",                              mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "Bağlantı", feature: "Teleport proxy taşıması (beta)",             mobile: "Android", termux: "no",          termius: "no" },
+      { category: "Bağlantı", feature: "Teleport proxy aktarımı (beta)",             mobile: "Android", termux: "no",          termius: "no" },
       { category: "Terminal",  feature: "SSH terminali",                              mobile: "yes",    termux: "OpenSSH ile",  termius: "yes" },
       { category: "Terminal",  feature: "xterm-256color emülasyonu",                  mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Terminal",  feature: "5.000 satırlık geri kaydırma tamponu",       mobile: "yes",    termux: "yapılandırılabilir", termius: "yes" },
