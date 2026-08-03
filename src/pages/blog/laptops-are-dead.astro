@@ -2,9 +2,9 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { PLAY_STORE_URL, TESTFLIGHT_URL } from "../../i18n/version";
 
-const title = "Laptops are dead. Long live your pocket. | Mobile SSH";
+const title = "Laptops are dead, but SSH and TCP/IP survived | Mobile SSH";
 const description =
-  "An affectionate eulogy for the laptop (1981–2026) — and the case for the SSH, SFTP and terminal client that now lives in your pocket. Mobile SSH: native for Android, iPhone and iPad, free and open source.";
+  "An affectionate eulogy for the laptop (1981–2026). TCP/IP was designed in 1974 and SSH written in 1995; both outlived the hardware and carried on into the device already in your hand. The case for Mobile SSH — the SSH, SFTP and terminal client for Android, iPhone and iPad. Free, native and open source.";
 ---
 
 <BaseLayout title={title} description={description} pathKey="blog" localized={false}>
@@ -15,15 +15,15 @@ const description =
       <p class="eyebrow">Opinion</p>
       <h1>Laptops are dead. <span class="soft">Long live your pocket.</span></h1>
       <p class="standfirst">
-        An affectionate eulogy for a heavy, warm-bellied friend — and the case for the terminal
-        that quietly moved into the device already in your hand.
+        <b>But SSH and TCP/IP survived.</b> An affectionate eulogy for a heavy, warm-bellied friend —
+        and the case for the terminal that quietly moved into the device already in your hand.
       </p>
       <p class="byline">
         <span class="who"><span class="avatar" aria-hidden="true">MS</span> The Mobile SSH Editorial Board</span>
         <span class="sep">·</span>
         <time datetime="2026-07-27">July 27, 2026</time>
         <span class="sep">·</span>
-        <span>4 min read</span>
+        <span>7 min read</span>
       </p>
     </header>
 
@@ -73,14 +73,128 @@ const description =
 
       <h2>A heavy life, faithfully carried</h2>
       <p>
-        Born in 1981 to the Osborne&nbsp;1, the Laptop lived a full and — at roughly two-and-a-half kilograms
-        — an undeniably heavy life. We remember the keyboard. The warm underside. The whirring fans that
-        announced every act of thinking. The bag that was always a little too full, the charger brick the size
-        of a small novel, and the search — eternal, hopeful — for a free wall socket near the window.
+        Born in 1981 to the Osborne&nbsp;1 — eleven kilograms of luggable ambition, no battery, a five-inch
+        screen — the Laptop spent forty-five years getting lighter and never quite getting light. It died at
+        about a kilo and a half, which its parent would have considered witchcraft. We remember the keyboard.
+        The warm underside. The whirring fans that announced every act of thinking. The bag that was always a
+        little too full, the charger brick the size of a small novel, and the search — eternal, hopeful — for a
+        free wall socket near the window.
       </p>
       <p>
         It asked a lot of us, and we carried it anyway, from desk to gate to seat 24B, because for a long time
         it was the only thing that could hold a real terminal. That is no longer true.
+      </p>
+
+      <h2>Survived by its elders</h2>
+      <p>
+        The Laptop leaves no children. The successors it was promised — the tablet, the Chromebook, the thing
+        with the detachable keyboard — arrived, took a seat at the back, and turned out to be laptops with
+        fewer ports. It is survived
+        instead by two relatives who were already working when it was born, and who were working this morning.
+      </p>
+      <p>
+        <strong>TCP/IP</strong> is the elder. Vint Cerf, Bob Kahn and a long cast of collaborators published
+        the design in May 1974; RFC&nbsp;675 spelled it out that December and coined the word “internet” along
+        the way. The ARPANET began crossing over to it on 1 January 1983 and had finished by that June — by
+        which point the Laptop was a toddler with a floppy drive.
+      </p>
+      <p>
+        <strong>SSH</strong> is the nephew, thirty-one years old and the youngest of the pallbearers. Tatu
+        Ylönen wrote it at Helsinki University of Technology in the spring of 1995, after a sniffer on the
+        university network quietly collected thousands of passwords. He released <code>ssh-1.0.0</code> that
+        July, and he chose port 22 himself: the one free number between FTP on 21 and telnet on 23, on the
+        theory that sitting between the two protocols he intended to replace “might be one of those small
+        things that would give some aura of credibility.” He asked IANA on the Monday. They said yes on the
+        Tuesday. He shipped on the Wednesday.
+      </p>
+
+      <figure class="ledger">
+        <ol>
+          <li>
+            <span class="yr">1974</span>
+            <span class="ev">Cerf, Kahn and colleagues publish the design that becomes TCP/IP</span>
+            <span class="st st--on">still running</span>
+          </li>
+          <li>
+            <span class="yr">1978</span>
+            <span class="ev">DEC ships the VT100, its first ANSI-compatible terminal</span>
+            <span class="st st--on">sequences still in use</span>
+          </li>
+          <li>
+            <span class="yr">1981</span>
+            <span class="ev">The Osborne&nbsp;1 goes on sale: 11&nbsp;kg, $1,795, mains power only</span>
+            <span class="st">discontinued 1983</span>
+          </li>
+          <li>
+            <span class="yr">1983</span>
+            <span class="ev">The ARPANET finishes crossing from NCP to TCP/IP</span>
+            <span class="st st--on">still running</span>
+          </li>
+          <li>
+            <span class="yr">1995</span>
+            <span class="ev">SSH is written in Helsinki; IANA grants port 22 on 11 July</span>
+            <span class="st st--on">still running</span>
+          </li>
+          <li>
+            <span class="yr">2026</span>
+            <span class="ev">The Laptop, aged 45, in a café, at 6% and no charger</span>
+            <span class="st">survived by the above</span>
+          </li>
+        </ol>
+        <figcaption>Order of precedence, as read at the service. The oldest mourner is fifty-two.</figcaption>
+      </figure>
+
+      <h2>What the protocols never assumed</h2>
+      <p>
+        Their longevity is not mysterious. They lasted because they assumed almost nothing. TCP assumes
+        packets, some of which will be lost, duplicated, or turn up in the wrong order. SSH assumes a reliable
+        byte stream and a keypair. Absent from both lists: screen size, keyboard layout, chassis, hinge, wall
+        socket, and a vendor still in business.
+      </p>
+      <p>
+        SSH does not even assume how large your terminal is. It asks — and it will accept a different answer
+        later. That was a courtesy invented for people dragging the corner of a desktop window. It is also the
+        reason rotating a phone does not end a session.
+      </p>
+
+      <blockquote class="pull">
+        “Hardware is a body. A protocol is a habit. Only one of them can be dropped down a stairwell.”
+      </blockquote>
+
+      <p>
+        Everything bound to a chassis went first, and none of it died of bad engineering. The floppy drive, the
+        PC Card slot, the dock connector — each was well made for a set of conditions, and the conditions were
+        the mortal part. A protocol is not even bound to its owner. When the license on Ylönen’s later releases
+        tightened, the OpenBSD project went back to <code>ssh 1.2.12</code>, the last version free enough to
+        reuse, and shipped OpenSSH with OpenBSD&nbsp;2.6 on 1 December 1999. The protocol carried on regardless.
+        It had never belonged to anyone in particular, which is precisely why it is still here.
+      </p>
+
+      <h2>The one assumption that had to be patched</h2>
+      <p>
+        Honesty compels a correction. TCP did make one assumption, and it was wrong: it assumed the machine
+        stays put. A connection is named by four numbers — two addresses, two ports — which was a perfectly
+        sensible way to name a thing in 1981, when the thing was bolted to a room with a raised floor. Walk out
+        of a café holding a phone and one of those four numbers quietly becomes a lie.
+      </p>
+      <p>
+        There was no second funeral. The protocol was kept and the assumption was patched around it. The work
+        moved to the far end, out of reach of a client walking through a door: <code>screen</code>, then
+        <code>tmux</code>, holding the shell open while the terminal comes and goes. Eternal Terminal went
+        further and named the session rather than the address, so the session survives the address changing
+        underneath it.
+      </p>
+
+      <blockquote class="pull">
+        “Your servers were never loyal to the laptop. They were loyal to the port.”
+      </blockquote>
+
+      <p>
+        None of that was invented for phones. It was inherited by them. A client that carries an Eternal
+        Terminal transport, a tmux manager, keepalives with exponential-backoff reconnect and several addresses
+        per saved server can be walked out of a building mid-command and pick the thread back up on the
+        pavement. The far end is told your client’s version string and the size of your terminal. It is never
+        told whether there is a hinge.
       </p>
 
       <h2>The work quietly moved into a pocket</h2>
@@ -160,6 +274,9 @@ const description =
         side table, fan spinning gently, plugged in at last. But the day’s work has packed lighter and left the
         building. It fits in a pocket now. It answers on the first ring.
       </p>
+      <p>
+        SSH and TCP/IP sent no flowers. They were working.
+      </p>
     </div>
 
     <aside class="cta" aria-label="Get Mobile SSH">
@@ -192,9 +309,10 @@ const description =
     }
     .post-head h1 .soft { display: block; color: var(--muted); font-weight: 500; }
     .standfirst {
-      max-width: 40ch; margin: 1.1rem auto 0; color: var(--muted);
+      max-width: 42ch; margin: 1.1rem auto 0; color: var(--muted);
       font-size: clamp(1.05rem, 2.4vw, 1.25rem); line-height: 1.5;
     }
+    .standfirst b { color: var(--ink); font-weight: 600; }
     .byline {
       display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem 0.7rem;
       margin: 1.4rem 0 0; color: var(--muted); font-size: 0.85rem;
@@ -278,6 +396,30 @@ const description =
       color: var(--ink); font-weight: 500;
     }
 
+    /* order-of-service ledger */
+    .ledger { margin: 2rem 0; }
+    .ledger ol {
+      list-style: none; padding: 0.35rem 1.1rem; margin: 0;
+      background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    }
+    .ledger li {
+      display: grid; grid-template-columns: 3.6rem 1fr auto; align-items: baseline; gap: 0.2rem 0.9rem;
+      padding: 0.8rem 0; border-bottom: 1px solid var(--line);
+    }
+    .ledger li:last-child { border-bottom: 0; }
+    .ledger .yr {
+      font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.92rem;
+      font-weight: 700; color: var(--green); letter-spacing: -0.01em;
+    }
+    .ledger .ev { color: #333d47; font-size: 0.98rem; line-height: 1.5; }
+    .ledger .st {
+      justify-self: end; white-space: nowrap; font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted);
+      border: 1px solid var(--line); border-radius: 999px; padding: 0.24rem 0.6rem;
+    }
+    .ledger .st--on { color: var(--green); background: #eaf5f0; border-color: transparent; }
+    .ledger figcaption { margin-top: 0.9rem; }
+
     .estate { list-style: none; padding: 0; margin: 0.4rem 0 0; border-top: 1px solid var(--line); }
     .estate li { display: grid; grid-template-columns: auto 1fr; gap: 1rem; padding: 1.15rem 0.1rem; border-bottom: 1px solid var(--line); }
     .estate .mark { width: 40px; height: 40px; border-radius: 11px; flex: 0 0 auto; background: #eaf5f0; display: grid; place-items: center; font-size: 19px; }
@@ -307,6 +449,10 @@ const description =
     @media (max-width: 560px) {
       .prose p { font-size: 1.06rem; }
       .cta { padding: 2rem 1.1rem; }
+      .ledger ol { padding: 0.35rem 0.95rem; }
+      .ledger li { grid-template-columns: 3.2rem 1fr; gap: 0.45rem 0.8rem; }
+      .ledger .st { grid-column: 2; grid-row: 1; }
+      .ledger .ev { grid-column: 1 / -1; grid-row: 2; font-size: 0.95rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       .cursor { animation: none; }
