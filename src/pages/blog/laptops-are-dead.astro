@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { PLAY_STORE_URL, TESTFLIGHT_URL } from "../../i18n/version";
+import { PLAY_STORE_URL, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
 
 const title = "Laptops are dead, but SSH and TCP/IP survived | Mobile SSH";
 const description =
@@ -286,10 +286,14 @@ const description =
         <span>No ads</span><span>No account</span><span>On-device data</span><span>Apache-2.0</span>
       </div>
       <div class="cta-btns">
-        <a class="btn btn--primary" href={PLAY_STORE_URL}>Get it on Google Play</a>
-        <a class="btn btn--ghost" href={TESTFLIGHT_URL}>Join the iOS beta</a>
+        <a class="btn btn--primary" href={PLAY_STORE_BETA_URL} rel="noopener">Opt in on Google Play</a>
+        <a class="btn btn--ghost" href={TESTFLIGHT_URL} rel="noopener">Join the iOS beta</a>
       </div>
-      <p class="cta-note">Testing on Android? Open the Play link in your mobile browser, not the Play app — the closed test may not be visible inside it.</p>
+      <p class="cta-note">
+        Android is in closed testing: opt in with the Google account you’ll test with, and open the
+        opt-in link in your mobile browser — the closed test may not be visible inside the Google Play
+        app. Already opted in? Go straight to the <a href={PLAY_STORE_URL} rel="noopener">Play listing</a>.
+      </p>
     </aside>
   </main>
 
@@ -444,7 +448,8 @@ const description =
     .btn--primary:hover { background: #4ff0af; }
     .btn--ghost { background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.22); }
     .btn--ghost:hover { background: rgba(255,255,255,.15); }
-    .cta-note { position: relative; margin: 1.1rem auto 0; max-width: 48ch; font-size: 0.8rem; color: #9aa6b6; line-height: 1.5; }
+    .cta-note { position: relative; margin: 1.1rem auto 0; max-width: 52ch; font-size: 0.8rem; color: #9aa6b6; line-height: 1.5; }
+    .cta-note a { color: var(--green-bright); }
 
     @media (max-width: 560px) {
       .prose p { font-size: 1.06rem; }

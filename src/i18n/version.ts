@@ -8,9 +8,15 @@ export const VERSION_CODE = 34;
 export const IOS_VERSION_NAME = "1.34";
 export const LANGUAGE_COUNT = locales.length;
 
+// The Play listing. While Android is in closed testing this page only works for
+// accounts already opted in, so it is NOT the install link — use
+// PLAY_STORE_BETA_URL for any "get the app" call to action.
 export const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=io.github.mobile_ssh";
 
+// Closed-test opt-in link. This is the Android install path today: it must be
+// opened in a mobile browser (the closed test may not be visible inside the
+// Google Play app) with the Google account the tester will use.
 export const PLAY_STORE_BETA_URL =
   "https://play.google.com/apps/testing/io.github.mobile_ssh";
 
