@@ -8,6 +8,17 @@ const description =
 // Newest first. Add new entries to the top of this list.
 const posts = [
   {
+    href: "/blog/eleven-hours-over-the-atlantic/",
+    title: "Eleven hours over the Atlantic",
+    date: "2026-08-10",
+    dateLabel: "August 10, 2026",
+    readingTime: "8 min read",
+    tag: "Field report",
+    excerpt:
+      "Seat 24B is watching a film it has seen three times. Seat 24C is reviewing four servers on the same Wi-Fi. At 35,786 km light alone costs 477 ms round trip — here is what actually breaks when you work from a plane, and why it is not what you think.",
+    cta: "Read the field report",
+  },
+  {
     href: "/blog/laptops-are-dead/",
     title: "Laptops are dead. Long live your pocket.",
     date: "2026-07-27",
@@ -16,6 +27,7 @@ const posts = [
     tag: "Opinion",
     excerpt:
       "But SSH and TCP/IP survived. An affectionate eulogy for the laptop (1981–2026) and the elders who outlived it — TCP/IP, designed in 1974, and SSH, written in 1995, both still running in the device already in your hand.",
+    cta: "Read the eulogy",
   },
 ];
 ---
@@ -43,7 +55,7 @@ const posts = [
           </div>
           <h2>{post.title}</h2>
           <p>{post.excerpt}</p>
-          <span class="more">Read the eulogy →</span>
+          <span class="more">{post.cta} →</span>
         </li>
       ))}
     </ul>
