@@ -12,9 +12,15 @@ interface Props {
   // Set false for standalone, English-only pages (e.g. /beta) so we don't emit
   // hreflang alternates or a language switcher pointing at non-existent routes.
   localized?: boolean;
+  // Set false to drop the top nav bar. For immersive, full-bleed pages whose own
+  // design owns the viewport; the footer still carries the site navigation.
+  chrome?: boolean;
 }
 
-const { title, description, locale = defaultLocale, pathKey, localized = true } = Astro.props;
+const {
+  title, description, locale = defaultLocale, pathKey,
+  localized = true, chrome = true,
+} = Astro.props;
 const info = localeMap[locale];
 const t = getDict(locale);
 const currentPath = Astro.url.pathname;
@@ -67,32 +73,34 @@ function localePath(targetCode: LocaleCode): string {
     <title>{title}</title>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href={localizedHref(locale, "/")} aria-label={`${t.meta.siteName} home`}>
-        <img src="/assets/favicon.svg" alt="" width="32" height="32" />
-        <span>{t.meta.siteName}</span>
-      </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class:list={{ active: pathKey === item.key }}
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
-      {localized && (
-        <div class="lang-switch">
-          <label for="lang-select" class="sr-only">{t.meta.languageSwitcher}</label>
-          <select id="lang-select" aria-label={t.meta.languageSwitcher} data-current={locale}>
-            {locales.map((l) => (
-              <option value={localePath(l.code)} selected={l.code === locale}>{l.nativeName}</option>
-            ))}
-          </select>
-        </div>
-      )}
-    </header>
+    {chrome && (
+      <header class="site-header">
+        <a class="brand" href={localizedHref(locale, "/")} aria-label={`${t.meta.siteName} home`}>
+          <img src="/assets/favicon.svg" alt="" width="32" height="32" />
+          <span>{t.meta.siteName}</span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              class:list={{ active: pathKey === item.key }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        {localized && (
+          <div class="lang-switch">
+            <label for="lang-select" class="sr-only">{t.meta.languageSwitcher}</label>
+            <select id="lang-select" aria-label={t.meta.languageSwitcher} data-current={locale}>
+              {locales.map((l) => (
+                <option value={localePath(l.code)} selected={l.code === locale}>{l.nativeName}</option>
+              ))}
+            </select>
+          </div>
+        )}
+      </header>
+    )}
     <slot />
     <footer class="site-footer">
       <div>
