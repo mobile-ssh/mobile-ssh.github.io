@@ -63,6 +63,11 @@ function localePath(targetCode: LocaleCode): string {
     <meta name="google-site-verification" content="Jh51fxzMWaMnb_b-e7Mq7JzsrEh0KKvCvdOkN6A4LCk" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#101820" />
+    <!-- So links shared on X render a card attributed to the account. -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@mobile_ssh" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     {localized && locales.map((l) => (
       <link rel="alternate" hreflang={l.htmlLang} href={`https://mobile-ssh.github.io${localePath(l.code)}`} />
@@ -114,6 +119,7 @@ function localePath(targetCode: LocaleCode): string {
         <a href={localizedHref(locale, "/privacy/")}>{t.footer.privacy}</a>
         <a href="/beta/">{t.footer.beta ?? "Beta testing"}</a>
         <a href="mailto:mobile.ssh.info@gmail.com">{t.footer.contact}</a>
+        <a href="https://x.com/mobile_ssh" target="_blank" rel="noopener">@mobile_ssh</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuyl6-O-dPuSjoBqAu2sVPPSj7_170tMIHoAs7tFS-4iLtlA/viewform?usp=header" target="_blank" rel="noopener">{t.footer.feedback}</a>
       </nav>
     </footer>
