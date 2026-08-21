@@ -39,7 +39,7 @@ Impor kunci privat menggunakan pemilih berkas sistem. Jika impor gagal:
 - Pastikan berkas yang dipilih adalah kunci privat, bukan berkas publik `.pub`.
 - Buka berkas di editor teks tepercaya dan verifikasi berisi blok kunci lengkap.
 - Coba tempel kunci secara manual ke kolom kunci privat.
-- Pastikan tipe kunci didukung: Ed25519, RSA, ECDSA, atau DSA di Android; Ed25519 atau ECDSA (P-256/384/521) di iOS.
+- Pastikan tipe kunci didukung: Ed25519, ECDSA (P-256/384/521), atau RSA di Android; Ed25519 atau ECDSA di iOS. DSA (`ssh-dss`) tidak berfungsi di keduanya, dan iOS tidak mendukung RSA — buatlah kunci Ed25519 sebagai gantinya.
 
 ## Input keyboard tertunda atau berubah
 
@@ -65,17 +65,18 @@ Periksa:
 - Nonaktifkan optimisasi baterai untuk Mobile SSH jika perangkat Anda agresif menghentikan aplikasi latar belakang.
 - Jaga Wi-Fi atau data seluler tetap stabil selama sesi panjang.
 - Buka kembali Mobile SSH dan ketuk **Active Sessions** setelah membuka kunci.
-- Jika server memutus sesi SSH, sambung kembali dari sesi terbaru.
+- Pastikan **Keep sessions running in background** aktif di Settings jika Anda ingin shell bertahan setelah aplikasi digeser dari daftar terkini.
+- Jika server memutus sesi SSH, sambung kembali dari layar beranda — **Continue** mencantumkan apa yang masih aktif, dan **Tmux sessions** mencantumkan apa yang menunggu di server.
 
 Di iOS, sistem menangguhkan aplikasi di latar belakang, sehingga koneksi SSH mentah tidak dapat dibiarkan terbuka tanpa batas begitu Anda berpindah aplikasi atau mengunci layar. Masa tenggang singkat mencakup perpindahan aplikasi yang cepat; untuk durasi yang lebih lama, aktifkan **Auto-attach tmux session** pada profil server (atau gunakan transport **Eternal Terminal**) sehingga saat tersambung kembali Anda langsung berada di shell yang sama tempat Anda meninggalkannya.
 
 ## Transfer berkas tidak dapat menjelajahi berkas ponsel
 
-Pada versi Android yang lebih baru, penjelajahan berkas lokal mungkin memerlukan akses penyimpanan. Berikan akses penyimpanan di Pengaturan Android untuk Mobile SSH, lalu buka kembali layar transfer berkas.
+Mobile SSH tidak meminta izin penyimpanan apa pun di Android. Sebagai gantinya, panel lokal menampilkan satu folder yang Anda berikan izinnya melalui pemilih folder sistem — jika kosong, gunakan **Pick folder** untuk memilih satu. Izin itu bertahan, jadi ini hanya perlu dilakukan sekali.
 
-Jika berkas jarak jauh dimuat tetapi berkas lokal tidak, koneksi SSH kemungkinan baik-baik saja dan masalahnya pada akses penyimpanan lokal Android.
+Jika berkas jarak jauh dimuat tetapi berkas lokal tidak, koneksi SSH baik-baik saja dan Anda memang belum memberikan izin folder apa pun.
 
-Di iOS tidak ada izin penyimpanan: panel lokal menampilkan area dokumen aplikasi, dan Anda menambahkan berkas melalui pemilih dokumen dan foto sistem.
+Di iOS panel lokal menampilkan area dokumen aplikasi, dan Anda menambahkan berkas melalui pemilih dokumen dan foto sistem. Unduhan di sana juga terlihat di aplikasi Files di bawah **On My iPhone**.
 
 ## Unggah atau unduh gagal
 
@@ -100,6 +101,10 @@ Periksa:
 
 ## Log debug
 
-Layar awal menyertakan tombol **Debug**. Saat aktif, Mobile SSH merekam informasi diagnostik untuk peristiwa terminal, ukuran data SSH, input sentuh, perilaku ubah ukuran, dan siklus hidup tunnel. Hentikan perekaman untuk menyimpan arsip debug secara lokal.
+Kedua platform merekam hal yang berbeda, jadi pilih yang sesuai dengan masalah Anda.
 
-Tinjau arsip debug sebelum membagikannya. Arsip ini ditujukan untuk pemecahan masalah dan dapat mengungkap nama server, waktu, perilaku terminal, atau detail lingkungan lain.
+**Android — terminal dan perenderan.** Aktifkan **Settings → Debugging → Show Debug and Logs buttons**, lalu gunakan tombol **Debug** yang muncul di layar awal. Ia merekam peristiwa terminal, ukuran data SSH, input sentuh, perilaku ubah ukuran, dan siklus hidup tunnel. Memulai perekaman lebih dulu memperingatkan Anda bahwa ia menangkap setiap tombol yang Anda ketik, termasuk kata sandi. Menghentikannya akan menulis arsip ke folder Downloads Anda.
+
+**iOS — koneksi dan penyambungan ulang.** Aktifkan **Settings → Diagnostics → Record debug log**. Ia merekam setiap alamat yang dihubungi dan alasan kegagalannya, upaya penyambungan ulang beserta backoff-nya, koneksi yang putus, "peer stopped answering keepalives", perubahan jaringan, serta perintah tmux beserta galatnya. Settings menampilkan jumlah baris secara langsung sehingga Anda dapat memastikan ia sedang merekam, dan **Export Debug Log** membagikannya sebagai berkas teks. Log ini disimpan di memori dan hanya mencakup sesi aplikasi saat ini.
+
+Tinjau setiap log atau arsip debug sebelum membagikannya. Keduanya ditujukan untuk pemecahan masalah dan dapat mengungkap nama server, alamat, waktu, atau detail lingkungan lain — dan di Android, apa pun yang Anda ketik.

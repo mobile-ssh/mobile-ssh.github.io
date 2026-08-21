@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Penerusan port"
-description: "Sintaks penerusan port lokal Mobile SSH dan pengelolaan tunnel di Android dan iOS."
+description: "Sintaks penerusan port lokal Mobile SSH, tujuan IPv6, dan cara tunnel tersimpan aktif di Android dan iOS."
 ---
 
 # Penerusan port
@@ -49,9 +49,21 @@ Beberapa penerusan sekaligus:
 
 Aplikasi menerapkan penerusan tersimpan setelah sesi SSH terhubung.
 
-## Mengelola tunnel aktif
+## Tunnel adalah bagian dari profil server
 
-Saat terhubung, pilih sesi dan buka tampilan tunnel dari bilah alat terminal. Dari sana Anda dapat memeriksa penerusan lokal aktif, menambah tunnel baru, atau menghapus penerusan lokal.
+Penerusan dideklarasikan pada server tersimpan dan diaktifkan saat server itu tersambung. Tidak ada layar terpisah untuk menambah atau menghapus tunnel di tengah sesi, baik di Android maupun iOS: untuk mengubah penerusan Anda, edit profil server lalu sambung ulang.
+
+Ini adalah pertukaran yang disengaja — tunnel yang tinggal di dalam profil akan kembali setiap kali Anda menyambung, termasuk setelah penyambungan ulang di jaringan baru, tanpa perlu Anda bangun ulang secara manual.
+
+## Tujuan IPv6
+
+Tujuan IPv6 harus ditulis dalam kurung siku agar titik duanya tidak tertukar dengan pemisah port:
+
+```text
+8080:[2001:db8::1]:80
+```
+
+Alamat IPv6 telanjang tanpa kurung siku ditolak karena ambigu, alih-alih diam-diam salah dibaca. Bentuk kurung siku yang sama berlaku di kolom alamat sebuah server, dengan port opsional setelahnya (`[fe80::1]:22`).
 
 ## Pengikatan alamat
 
@@ -81,7 +93,7 @@ Mengakses basis data internal yang dapat dijangkau dari server SSH:
 
 ## Pemecahan masalah tunnel
 
-- Pastikan sesi SSH terhubung sebelum menambah tunnel saat berjalan.
+- Pastikan sesi SSH sudah terhubung — penerusan baru aktif setelah sesinya aktif.
 - Periksa bahwa port lokal belum dipakai.
 - Periksa bahwa host dan port jarak jauh dapat dijangkau dari server SSH.
 - Gunakan `localhost` ketika layanan tujuan ada di server SSH itu sendiri.

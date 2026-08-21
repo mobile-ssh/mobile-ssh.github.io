@@ -39,7 +39,7 @@ Denetleyin:
 - Seçilen dosyanın genel bir `.pub` dosyası değil, özel anahtar olduğunu doğrulayın.
 - Dosyayı güvenilir bir metin düzenleyicide açın ve tam anahtar bloğunu içerdiğini doğrulayın.
 - Anahtarı özel anahtar alanına elle yapıştırmayı deneyin.
-- Anahtar türünün desteklendiğini doğrulayın: Android'de Ed25519, RSA, ECDSA veya DSA; iOS'ta Ed25519 veya ECDSA (P-256/384/521).
+- Anahtar türünün desteklendiğini doğrulayın: Android'de Ed25519, ECDSA (P-256/384/521) veya RSA; iOS'ta Ed25519 veya ECDSA. DSA (`ssh-dss`) hiçbirinde çalışmaz ve iOS RSA'yı desteklemez — bunun yerine bir Ed25519 anahtarı oluşturun.
 
 ## Klavye Girişi Gecikiyor veya Değişiyor
 
@@ -65,17 +65,18 @@ Denetleyin:
 - Cihazınız arka plan uygulamalarını agresif biçimde durduruyorsa Mobile SSH için pil iyileştirmesini devre dışı bırakın.
 - Uzun oturumlar sırasında Wi-Fi veya mobil veriyi kararlı tutun.
 - Kilidi açtıktan sonra Mobile SSH'yi yeniden açın ve **Active Sessions** seçeneğine dokunun.
-- Sunucu SSH oturumunu kestiyse son oturumlardan yeniden bağlanın.
+- Uygulamayı kaydırıp kapattıktan sonra kabukların hayatta kalmasını istiyorsanız Ayarlar'da **Keep sessions running in background** seçeneğinin açık olduğunu denetleyin.
+- Sunucu SSH oturumunu kestiyse ana ekrandan yeniden bağlanın — **Continue** hâlâ canlı olanları, **Tmux sessions** ise sunucuda bekleyenleri listeler.
 
 iOS'ta sistem, arka plandaki uygulamaları askıya alır; bu yüzden başka bir uygulamaya geçtiğinizde veya ekranı kilitlediğinizde ham bir SSH bağlantısı süresiz açık tutulamaz. Kısa bir ek süre hızlı uygulama geçişlerini karşılar; daha uzun süreler için sunucu profilinde **Auto-attach tmux session** seçeneğini etkinleştirin (veya **Eternal Terminal** aktarımını kullanın); böylece yeniden bağlandığınızda kaldığınız kabuğa geri dönersiniz.
 
 ## Dosya Aktarımı Telefon Dosyalarını Tarayamıyor
 
-Daha yeni Android sürümlerinde yerel dosya tarama depolama erişimi gerektirebilir. Mobile SSH için Android Ayarları'nda depolama erişimi verin, ardından dosya aktarım ekranını yeniden açın.
+Mobile SSH, Android'de hiçbir depolama izni istemez. Bunun yerine yerel bölme, sistemin klasör seçicisiyle izin verdiğiniz tek bir klasörü gösterir — boşsa **Pick folder** ile bir klasör seçin. Verilen izin kalıcıdır, yani bu tek seferlik bir adımdır.
 
-Uzak dosyalar yükleniyor ama yerel dosyalar yüklenmiyorsa SSH bağlantısı büyük olasılıkla iyidir ve sorun yerel Android depolama erişimindedir.
+Uzak dosyalar yükleniyor ama yerel dosyalar yüklenmiyorsa SSH bağlantısı sorunsuzdur; yalnızca henüz izin verilmiş bir klasörünüz yoktur.
 
-iOS'ta depolama izni yoktur: yerel bölme uygulamanın belgeler alanını gösterir ve dosyaları sistemin belge ve fotoğraf seçicileri aracılığıyla eklersiniz.
+iOS'ta yerel bölme uygulamanın belgeler alanını gösterir ve dosyaları sistemin belge ve fotoğraf seçicileri aracılığıyla eklersiniz. Oradaki indirilenler ayrıca Dosyalar uygulamasında **iPhone'umda** altında görünür.
 
 ## Yükleme veya İndirme Başarısız
 
@@ -100,6 +101,10 @@ Denetleyin:
 
 ## Hata Ayıklama Günlükleri
 
-Başlangıç ekranında bir **Debug** düğmesi vardır. Etkinleştirildiğinde Mobile SSH; terminal olayları, SSH veri boyutları, dokunma girişi, yeniden boyutlandırma davranışı ve tünel yaşam döngüsü için tanılama bilgileri kaydeder. Bir hata ayıklama arşivini yerel olarak kaydetmek için kaydı durdurun.
+İki platform farklı şeyler kaydeder, bu yüzden sorununuza uyanı seçin.
 
-Hata ayıklama arşivlerini paylaşmadan önce gözden geçirin. Bunlar sorun giderme amaçlıdır ve sunucu adlarını, zamanlamaları, terminal davranışını veya diğer ortam ayrıntılarını açığa çıkarabilir.
+**Android — terminal ve çizim.** **Settings → Debugging → Show Debug and Logs buttons** seçeneğini etkinleştirin, ardından başlangıç ekranında beliren **Debug** düğmesini kullanın. Terminal olaylarını, SSH veri boyutlarını, dokunma girişini, yeniden boyutlandırma davranışını ve tünel yaşam döngüsünü kaydeder. Bir kayda başlamak, sizi önce parolalar dahil yazdığınız her tuşun yakalandığı konusunda uyarır. Kaydı durdurmak İndirilenler klasörünüze bir arşiv yazar.
+
+**iOS — bağlantılar ve yeniden bağlanmalar.** **Settings → Diagnostics → Record debug log** seçeneğini açın. Bağlanmayı denediği her adresi ve neden başarısız olduğunu, yeniden bağlanma denemelerini ve bekleme sürelerini, düşen bağlantıları, "peer stopped answering keepalives" durumunu, ağ değişikliklerini ve tmux komutlarını hatalarıyla birlikte kaydeder. Ayarlar, kaydın sürdüğünü doğrulayabilmeniz için canlı bir satır sayısı gösterir ve **Export Debug Log** günlüğü metin dosyası olarak paylaşır. Günlük bellekte tutulur ve yalnızca geçerli uygulama oturumunu kapsar.
+
+Herhangi bir hata ayıklama günlüğünü veya arşivini paylaşmadan önce gözden geçirin. Bunlar sorun giderme amaçlıdır ve sunucu adlarını, adresleri, zamanlamaları veya diğer ortam ayrıntılarını — Android'de ise yazdığınız her şeyi — açığa çıkarabilir.

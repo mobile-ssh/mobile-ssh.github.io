@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Bağlantı noktası yönlendirme"
-description: "Android ve iOS'ta Mobile SSH yerel bağlantı noktası yönlendirme söz dizimi ve tünel yönetimi."
+description: "Mobile SSH yerel bağlantı noktası yönlendirme söz dizimi, IPv6 hedefleri ve kaydedilen tünellerin Android ile iOS'ta nasıl açıldığı."
 ---
 
 # Bağlantı noktası yönlendirme
@@ -49,9 +49,21 @@ Birden çok yönlendirme:
 
 Uygulama, kaydedilen yönlendirmeleri SSH oturumu bağlandıktan sonra uygular.
 
-## Etkin tünelleri yönetme
+## Tüneller sunucu profiline aittir
 
-Bağlıyken oturumu seçin ve terminal araç çubuğundan tünel görünümünü açın. Oradan etkin yerel yönlendirmeleri inceleyebilir, yeni bir tünel ekleyebilir veya mevcut bir yerel yönlendirmeyi kaldırabilirsiniz.
+Yönlendirmeler kaydedilen sunucuda tanımlanır ve o sunucuya bağlanıldığında açılır. Hiçbir platformda oturum ortasında tünel eklemek ya da kaldırmak için ayrı bir ekran yoktur: yönlendirmelerinizi değiştirmek için sunucu profilini düzenleyin ve yeniden bağlanın.
+
+Bu bilinçli bir ödünleşimdir — profilde yaşayan bir tünel, siz elle yeniden kurmadan her bağlanışınızda geri gelir; yeni bir ağda yeniden bağlandıktan sonra bile.
+
+## IPv6 hedefleri
+
+Bir IPv6 hedefi, iki nokta üst üste işaretlerinin bağlantı noktası ayırıcısıyla karıştırılmaması için köşeli parantez içine alınmalıdır:
+
+```text
+8080:[2001:db8::1]:80
+```
+
+Köşeli parantezsiz, çıplak bir IPv6 adresi sessizce yanlış okunmak yerine belirsiz sayılarak reddedilir. Aynı köşeli parantez biçimi, sunucunun adres alanında da çalışır ve ardına isteğe bağlı bir bağlantı noktası eklenebilir (`[fe80::1]:22`).
 
 ## Adres bağlama
 
@@ -81,7 +93,7 @@ SSH sunucusundan erişilebilen bir iç veritabanına erişim:
 
 ## Tünel sorun giderme
 
-- Çalışma zamanı tünelleri eklemeden önce SSH oturumunun bağlı olduğundan emin olun.
+- SSH oturumunun bağlı olduğundan emin olun — yönlendirmeler oturumdan sonra açılır.
 - Yerel bağlantı noktasının zaten kullanımda olmadığını kontrol edin.
 - Uzak ana bilgisayarın ve bağlantı noktasının SSH sunucusundan erişilebilir olduğunu kontrol edin.
 - Hedef hizmet SSH sunucusunun kendisinde olduğunda `localhost` kullanın.

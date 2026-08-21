@@ -44,8 +44,8 @@ export const en: Dict = {
       { title: "No Pro tier, no ads", text: "Every feature is in the same app. No paywall splitting essential workflows behind a Pro upgrade, no ad banners on the terminal." },
       { title: "Your data stays local", text: "Saved servers, credentials, and keys live on the device. No cloud account; nothing to be sunset." },
       { title: "Saved hosts, search to connect", text: "Add a host once, then search and tap to connect — keys, ports, and tunnels come with it." },
-      { title: "Agent alerts", text: "Get a notification — with sound and vibration — the moment Claude Code, Codex, or another remote agent needs your input. Plays in headphones even over video." },
-      { title: "Terminal keys above the keyboard", text: "Dedicated row with ESC, TAB, CTRL, ALT, FN, arrows, Home, End, PgUp/PgDn on Android and iOS — terminal keys without fighting autocorrect." },
+      { title: "Agent alerts, and one tap to answer", text: "Know the moment Claude Code, Codex, or another agent needs you: the pane turns amber, a toolbar badge counts who is waiting, and the Agents list answers the prompt with one tap — no typing into the terminal." },
+      { title: "Terminal keys above the keyboard", text: "A thirteen-key row — ESC, TAB, CTRL, arrows, Home, End, PgUp, PgDn — that wraps to a second row instead of scrolling, so nothing is hidden off-screen. Add F1–F12, Ctrl combos, or your own escape sequences from a preset palette." },
       { title: "Port forwarding without commands", text: "Tunnels attach to the server profile and come up automatically when you connect." },
       { title: "Survives lock and roaming", text: "Give a saved server several addresses — a home LAN IP and a VPN IP — and Mobile SSH dials whichever answers, trying the last one that worked first, and reconnects the moment the network changes. On Android a foreground service and wake locks hold shells through screen-off; on iOS auto-reconnect plus tmux auto-attach put you back where you left off." },
       { title: "Eternal Terminal", text: "An optional ET transport keeps the remote shell alive across network drops, sleep, and IP changes. No etserver on the host? Mobile SSH can install it over SSH for you." },
@@ -58,27 +58,27 @@ export const en: Dict = {
       { title: "SSH terminal", text: "xterm-256color terminal with 24-bit true color, italics, in-terminal search, OSC 133 shell integration, and pinch-to-zoom text sizing — plus a configurable font and color scheme and Nerd Font powerline/icon glyphs on Android and iOS." },
       { title: "Multi-session grid", text: "Up to eight SSH sessions in a resizable grid — tap a pane to focus, double-tap for fullscreen, pinch to resize text." },
       { title: "Clickable links", text: "URLs in the terminal are underlined and open in the browser with a tap — no copying or switching apps needed." },
-      { title: "Server folders", text: "Organize saved servers into collapsible groups. Tap a group header to collapse it; the folder structure carries into the quick-connect picker." },
-      { title: "Agent alerts", text: "Notification with sound and vibration when a remote agent (Claude Code, Codex, etc.) needs your input. Plays in headphones even during video calls." },
+      { title: "Server folders and names", text: "Organize saved servers into collapsible groups, and give a server a name that shows instead of its address. The address comes back whenever a name would be ambiguous, so rows never blur together." },
+      { title: "Agent alerts", text: "Agents report through the terminal, so the app knows which one is blocked and on what. Answer from the Agents list with one tap; alerts replace rather than stack, and tapping one opens the pane that rang." },
       { title: "Private keys", text: "Password or private key auth. Generate Ed25519 or ECDSA keys on device (RSA too on Android); import or paste existing keys." },
       { title: "SFTP transfer", text: "Dual-pane file browser tied to an active SSH session. Queue uploads and downloads, rename, delete, and inspect remote permissions." },
-      { title: "Port forwarding", text: "Save local tunnel specs with a server profile — tunnels open automatically on connect, or add/remove them while connected." },
-      { title: "Reconnect workflow", text: "Keepalives and exponential-backoff reconnect keep sessions alive through screen-off and roaming — backed by a foreground service on Android and tmux auto-attach on iOS." },
+      { title: "Port forwarding", text: "Save local tunnel specs with a server profile and they open automatically on connect — including after a reconnect on a new network, without rebuilding them by hand." },
+      { title: "Reconnect workflow", text: "Change network and sessions re-dial at once instead of waiting out a dead route, and a session in backoff wakes the moment a usable network appears. On iOS a server that has silently stopped answering is noticed and reconnected." },
       { title: "Backup & restore", text: "Export saved servers and credentials to an encrypted backup file; import with merge or replace to move between devices — backups are interoperable between Android and iOS." },
       { title: "Eternal Terminal", text: "Connect over Eternal Terminal (ET) for sessions that survive network drops, sleep, and IP changes — with optional automatic etserver setup over SSH." },
-      { title: "Tmux manager", text: "List and switch tmux sessions, windows, and panes — attach, rename, create, split, zoom, or kill. Sort by name or date; a 🔔 flags agents awaiting input." },
+      { title: "Multiplexer managers", text: "Drive tmux without prefix chords — attach, rename, create, split, zoom, or kill. Android adds the same for herdr and Zellij, and a toolbar icon appears only once that program is found on the server." },
       { title: "Plugins", text: "Browse, install, and run plugins to extend Mobile SSH. Plugins download on demand from a public catalog and are SHA-256 verified into app-private storage." }
     ],
     multiHead: "One screen, several live shells",
     multiP1:
       "The terminal view can hold multiple active SSH sessions in a grid. Select a pane to type, use the extra key row for terminal controls, pinch to adjust text size, and double-tap a pane when you need fullscreen focus.",
     multiP2:
-      "Session history and active-session recovery help you return to current work after app switches, screen lock, or the system reclaiming the app.",
+      "The home screen answers \"what can I get back into?\" — the connections live right now, and the tmux sessions waiting on your saved servers, rebuilt from a stored snapshot so they appear with no network at all.",
     multiAlt:
       "Mobile SSH on a phone showing two live SSH terminal sessions in a side-by-side split view.",
     sftpHead: "SFTP when the terminal is not enough",
     sftpBody:
-      "Open file transfer from a connected session to browse phone storage and remote directories. Queue uploads and downloads, sort files, remember recent paths per host, and inspect remote file permissions when deciding what to move.",
+      "Open file transfer from a connected session to browse phone storage and remote directories. Queue uploads and downloads, sort files, jump back to recent remote paths, and inspect or change remote permissions when deciding what to move.",
     sftpCtaGuide: "File transfer guide",
     sftpCtaAll: "All features",
     sftpAlt:
@@ -155,7 +155,7 @@ export const en: Dict = {
       {
         title: "Platforms",
         items: [
-          "Android 8.0 or newer — install from Google Play",
+          "Android 8.0 or newer — currently a Google Play closed test: open the opt-in link in a mobile browser, then install from Play",
           "iOS 16 or newer on iPhone and iPad — join the public beta on TestFlight",
           "Encrypted backups are interoperable: export on one platform, import on the other"
         ]
@@ -164,37 +164,45 @@ export const en: Dict = {
         title: "Connections",
         items: [
           "Password authentication and private key authentication",
-          "Ed25519, RSA, ECDSA, and DSA private keys on Android; Ed25519 and ECDSA (P-256/384/521) on iOS",
+          "Ed25519, ECDSA (P-256/384/521), and RSA private keys on Android; Ed25519 and ECDSA on iOS. Both platforms open passphrase-encrypted keys",
           "Saved server profiles with host, port, username, credential, private key, and optional tunnel specs — clone a profile to duplicate its settings into a new server",
-          "Search saved servers by name or host",
+          "Give a server a name and the list shows that instead of its address — the address returns whenever two rows would otherwise look alike",
+          "Search saved servers by name, host, port, credential, or any of their alternate addresses",
+          "Connect twice to the same machine under two saved rows and the app notices — it fingerprints the host key and offers to merge them into one multi-address server",
           "Search-first Add Session flow: pick a saved server from a dedicated search page and connect with one tap",
           "Multiple addresses per saved server for LAN/VPN roaming — dialed in order with the last working address tried first, and reconnection kicks in on network change",
           "Reusable credential records that can be selected from server setup",
-          "Recent session history for reconnecting to common server sets",
-          "Login log for successful and failed attempts, recording the exact dialed address",
-          "Teleport proxy transport (beta, Android): log in with username, password, and OTP or import a Teleport config or identity file, browse cluster nodes, then run terminals, SFTP, tmux, and plugins over the proxy tunnel"
+          "A home screen built around resuming: the connections live right now, and the tmux sessions waiting on your servers — drawn from a stored snapshot, so they list with no network and each row is stamped with its age. iOS also keeps a Recent list",
+          "IPv6 end to end: bracketed literals with an optional port in the address fields, and bracketed IPv6 destinations in port-forward rules",
+          "Login log for successful and failed attempts, recording the exact dialed address and, on failure, the reason",
+          "Teleport proxy transport (experimental, Android): log in with username, password, and OTP or import a Teleport config or identity file, browse cluster nodes, then run terminals, SFTP, tmux, and plugins over the proxy tunnel"
         ]
       },
       {
         title: "Terminal",
         items: [
-          "VT100/xterm-256color terminal behavior with 24-bit true color and italics",
-          "Scrollback buffer of 5000 lines, with configurable size on Android and iOS",
+          "VT100/xterm-256color terminal behavior with 24-bit true color and italics — the shell is told TERM=xterm-256color and COLORTERM=truecolor",
+          "Scrollback buffer set to 1,000, 5,000, 10,000, or 50,000 lines on Android and iOS (5,000 by default)",
           "Find in the terminal — search the scrollback and visible screen and jump between matches (Android and iOS)",
-          "Shell integration (OSC 133): jump between prompts, copy a command's output, and get alerted when a long-running command finishes (Android and iOS)",
-          "Inline images in the terminal via the Kitty graphics protocol (Android and iOS)",
-          "Extra key row for ESC, TAB, CTRL, Shift, arrows, Home, End, PgUp, PgDn, and keyboard toggle — customizable on Android and iOS: add, remove, reorder, and define your own escape-sequence keys, with reset-to-defaults",
+          "Shell integration (OSC 133): step between prompts, select a whole command's output — the build error from 300 lines back, not just the last one — and get alerted when a long-running command finishes (Android and iOS)",
+          "Inline images in the terminal via the Kitty graphics protocol, surviving pinch-zoom and re-wrap instead of vanishing (Android and iOS)",
+          "Block, braille, and sextant mosaic glyphs drawn by the app itself, so chafa, timg, and ANSI art tile exactly instead of showing empty boxes (Android)",
+          "In a mouse-tracking TUI, a tap is a click — htop, vim, and pane selection work by touch (Android)",
+          "The pane header names the pane's real working directory, asked from tmux or reported by the shell over OSC 7 (Android)",
+          "Extra key row of thirteen keys — ESC, TAB, CTRL, arrows, Home, End, PgUp, PgDn, keyboard toggle — that wraps to a second row rather than scrolling, folding any remainder into an overflow menu so no key is off-screen",
+          "Customize the row on Android and iOS: add from a palette of about 45 presets including F1–F12, Ctrl combos, and symbols; remove, reorder, hide, define your own escape-sequence keys, and reset to defaults, with a live preview",
           "Tap-to-focus, optional tap-to-show-keyboard setting, copy and copy-all actions",
           "Pinch-to-zoom text sizing with remote terminal resize",
           "Double-tap pane fullscreen mode",
           "Terminal text selection with Copy, Share, and Select all — long-press selects the word, and Copy keeps the selection to share or re-copy",
-          "OSC 52 clipboard — copy text from a remote tmux or vim session straight to the phone clipboard",
+          "OSC 52 clipboard — copy text from a remote tmux or vim session straight to the phone clipboard (Android and iOS)",
           "Native pass-through keyboard input — no autocorrect fighting the shell; soft-keyboard voice dictation still works",
           "External and Bluetooth keyboard support on Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
           "Bracketed paste so multi-line clipboard content is not auto-executed",
           "Bundled Nerd Font renders powerline, starship, devicon, and Material Design icon glyphs on Android and iOS that the system font would otherwise show as empty boxes",
           "Wide CJK, emoji, and combining characters are measured and drawn correctly on Android and iOS, including grapheme clusters and zero-width joiners",
-          "Configurable terminal font (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) on Android and iOS, applied live to open panes"
+          "Configurable terminal font (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) on Android and iOS, applied live to open panes",
+          "A terminal text-size slider in Settings alongside pinch-to-zoom, and an app theme set to System, Light, or Dark"
         ]
       },
       {
@@ -202,34 +210,40 @@ export const en: Dict = {
         items: [
           "Up to eight concurrent SSH sessions",
           "Grid layout for active sessions",
-          "Background and screen-lock resilience: a foreground service on Android; tmux auto-attach re-attaches your shell on iOS",
-          "Keepalive and reconnect attempts with exponential backoff",
+          "Background and screen-lock resilience: on Android a foreground service keeps shells and agents running after you swipe the app away; on iOS tmux auto-attach re-attaches your shell",
+          "Keepalive and reconnect attempts with exponential backoff — up to ten tries, and failures against a network you have already left do not count toward the limit",
+          "Switching Wi-Fi, cellular, or VPN re-dials at once rather than waiting out the dead route, and a session already in backoff retries the moment a usable network appears",
+          "A server that has silently stopped answering — a suspended VM, a wedged jump host — is noticed through unanswered keepalive probes and reconnected instead of quietly eating your keystrokes (iOS)",
           "Active Sessions entry point from the start screen; ongoing notification lists sessions — tap to open",
-          "tmux command tracking and reattach hints for interrupted work",
-          "Agent alerts: notification with optional sound and vibration when a remote agent (Claude Code, Codex, etc.) needs input — carrying the agent's own title and message via OSC 9/777 notifications; plays in headphones over video",
+          "tmux command tracking and reattach hints for interrupted work, with a per-server choice of what to attach on connect: auto-detect, nothing, tmux, herdr, or Zellij (Android)",
+          "Agents report themselves through the terminal, so the app knows the agent, the tool it is running, and whether it is blocked on you — the pane turns amber, its header reads \"claude · needs you\", and a toolbar badge counts who is waiting",
+          "Answer an agent's question with one tap from the Agents list; the reply goes over a separate channel, so it never types into what is on screen",
+          "Install the agent hook onto a server from inside the app — a small shell script that any agent can call, not a vendor integration",
           "Eternal Terminal (ET) transport for sessions that survive network drops, sleep, and IP changes, with optional automatic etserver setup over SSH",
-          "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, with name/date sorting and a 🔔 for agents awaiting input"
+          "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, with name/date sorting and a 🔔 for agents awaiting input",
+          "Herdr and Zellij managers on Android, each with the same reach over its own sessions, tabs, and panes — the toolbar shows an icon only once that program is found on the server"
         ]
       },
       {
         title: "Files and tunnels",
         items: [
-          "Dual-pane SFTP browser for local and remote files",
-          "Queued upload and download operations, including sharing any file type from another app straight into a remote folder on Android",
+          "Dual-pane SFTP browser for local and remote files, with a transfer log that shows every transfer and scrolls",
+          "Queued upload and download operations; on Android, share any file from another app into the running session and its remote path is typed at the prompt",
           "Recursive folder upload and download between phone and remote host",
-          "Remote rename, delete, create, edit, and details flows",
-          "Open a downloaded file in another app on Android straight from the local pane",
-          "Sort by name or date with per-host persistence",
-          "Local port forwarding saved with server profiles",
-          "Runtime tunnel add/remove view for connected sessions",
-          "Follows the system light or dark theme across the app and file browser — choose System, Light, or Dark on Android"
+          "Remote rename, delete, create, edit, compress to .tar.gz, permissions (chmod/chown), and details flows",
+          "Open a downloaded file in another app on both platforms — on iOS downloads also appear in the Files app under \"On My iPhone\"",
+          "On Android, File Transfer reopens where that tmux session left off, naming the session in the pane header, and falls back to the directories you use most on that host when there is nothing to remember",
+          "Sort by name or date with per-host persistence, and jump back to recent remote paths",
+          "File sizes in binary units, matching what ls -h shows in the terminal one tab away",
+          "Local port forwarding saved with server profiles and brought up automatically on connect",
+          "Follows the system light or dark theme across the app and file browser — choose System, Light, or Dark on Android and iOS"
         ]
       },
       {
         title: "Localization",
         items: [
-          "App UI translations: Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, Urdu",
-          "Follows the system language on Android and iOS; no per-app picker required"
+          "App UI translations: Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu — twenty languages on Android, which adds Nigerian Pidgin and Egyptian Arabic, and eighteen on iOS",
+          "Follows the system language by default, and Settings has a language picker if you want the app in something other than the phone's language"
         ]
       },
       {
@@ -237,7 +251,7 @@ export const en: Dict = {
         items: [
           "Generate new Ed25519 or ECDSA keys on the device (RSA too on Android), with an optional passphrase",
           "Copy, share, or save a generated public key to add to the server's authorized_keys",
-          "Export saved servers and credentials to a backup file",
+          "Export saved servers and credentials to a backup file — all of them, or tick just the rows you want, where tapping a folder header takes the whole folder",
           "Optional passphrase encrypts the backup; import with merge or replace",
           "An unencrypted backup stores passwords and keys in plain text — protect or delete the file"
         ]
@@ -247,7 +261,7 @@ export const en: Dict = {
         items: [
           "Secure screen: on Android, block screenshots and screen recording and hide the app from the recents thumbnail; on iOS, blank the app-switcher preview and block screen recording and mirroring (a manual screenshot cannot be blocked on iOS) — an opt-in setting for when passwords, keys, or tokens are on screen",
           "Saved servers, credentials, and keys stay on the device — secrets live in the Android Keystore and the iOS Keychain, with no cloud account or sync",
-          "Anonymous, opt-out usage analytics only — never your servers, credentials, commands, or file contents"
+          "Anonymous usage analytics only — never your servers, credentials, commands, or file contents. Android has a switch to turn it off in Settings; iOS does not have one yet"
         ]
       },
       {
@@ -255,7 +269,9 @@ export const en: Dict = {
         items: [
           "Browse, install, and run plugins to extend Mobile SSH",
           "Plugins download on demand from a public catalog and are SHA-256 verified into app-private storage",
-          "Configure a custom or private catalog source when you need one"
+          "A plugin declares what it needs — SSH commands, a tunnel, storage — and the app refuses anything it did not ask for",
+          "When a plugin sets something up on your server, you see the exact commands first and approve them before they run",
+          "Configure a custom or private catalog source, or install from a folder on your own server"
         ]
       }
     ],
@@ -343,12 +359,15 @@ export const en: Dict = {
       { category: "Connection", feature: "Search-first Add Session picker",     mobile: "Android", termux: "no",          termius: "no" },
       { category: "Connection", feature: "Multiple addresses per server (LAN/VPN roaming)", mobile: "yes", termux: "no",     termius: "no" },
       { category: "Connection", feature: "Reusable credential records",         mobile: "yes",    termux: "no",           termius: "yes" },
-      { category: "Connection", feature: "Recent session history",              mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Connection", feature: "Home screen lists what to resume",    mobile: "yes",    termux: "no",           termius: "partial" },
+      { category: "Connection", feature: "Offline tmux session list (no connection needed)", mobile: "yes", termux: "no",  termius: "no" },
+      { category: "Connection", feature: "Named servers shown instead of the address", mobile: "yes", termux: "no",       termius: "yes" },
       { category: "Connection", feature: "Login log",                           mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "Connection", feature: "Teleport proxy transport (beta)",     mobile: "Android", termux: "no",          termius: "no" },
+      { category: "Connection", feature: "Teleport proxy transport (experimental)", mobile: "Android", termux: "no",      termius: "no" },
+      { category: "Connection", feature: "IPv6 hosts and forward destinations", mobile: "yes",    termux: "yes",          termius: "partial" },
       { category: "Terminal",   feature: "SSH terminal",                        mobile: "yes",    termux: "via OpenSSH",  termius: "yes" },
       { category: "Terminal",   feature: "xterm-256color emulation",            mobile: "yes",    termux: "yes",          termius: "yes" },
-      { category: "Terminal",   feature: "5 000-line scrollback buffer",        mobile: "yes",    termux: "configurable", termius: "yes" },
+      { category: "Terminal",   feature: "Configurable scrollback (1k–50k lines)", mobile: "yes", termux: "configurable", termius: "partial" },
       { category: "Terminal",   feature: "In-terminal search (scrollback)",    mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",   feature: "Extra key row (ESC/TAB/CTRL/…)",      mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Terminal",   feature: "Pinch-to-zoom text sizing",           mobile: "yes",    termux: "yes",          termius: "yes" },
@@ -358,6 +377,8 @@ export const en: Dict = {
       { category: "Terminal",   feature: "Hardware / Bluetooth keyboard support", mobile: "yes",   termux: "yes",         termius: "yes" },
       { category: "Terminal",   feature: "Shell integration (OSC 133)",          mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",   feature: "Inline images (Kitty graphics)",       mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Terminal",   feature: "App-drawn mosaic glyphs (chafa, ANSI art)", mobile: "Android", termux: "font-dependent", termius: "no" },
+      { category: "Terminal",   feature: "Tap acts as a click in mouse-mode TUIs", mobile: "Android", termux: "yes",       termius: "no" },
       { category: "Terminal",   feature: "Nerd Font / powerline glyph rendering", mobile: "yes",     termux: "configurable", termius: "partial" },
       { category: "Sessions",   feature: "Multiple concurrent SSH sessions",    mobile: "up to 8", termux: "up to 8",    termius: "yes" },
       { category: "Sessions",   feature: "Grid pane layout",                    mobile: "yes",    termux: "via tmux",     termius: "tabs" },
@@ -375,7 +396,7 @@ export const en: Dict = {
       { category: "Files",      feature: "Sort by name or date per host",      mobile: "yes",    termux: "no",           termius: "partial" },
       { category: "Tunnels",    feature: "Local port forwarding",              mobile: "yes",    termux: "via CLI",      termius: "yes" },
       { category: "Tunnels",    feature: "Saved tunnels with server profile",  mobile: "yes",    termux: "via ssh config", termius: "yes" },
-      { category: "Tunnels",    feature: "Runtime add / remove tunnels",       mobile: "Android", termux: "no",          termius: "yes" },
+      { category: "Tunnels",    feature: "Runtime add / remove tunnels",       mobile: "no",     termux: "no",           termius: "yes" },
       { category: "Keys",       feature: "Password authentication",            mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Keys",       feature: "Private key authentication",         mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Keys",       feature: "On-device key generation",           mobile: "yes",    termux: "via ssh-keygen", termius: "yes" },
@@ -391,6 +412,8 @@ export const en: Dict = {
       { category: "Sessions",   feature: "Eternal Terminal (resilient sessions)", mobile: "yes", termux: "via CLI",   termius: "no" },
       { category: "Sessions",   feature: "Auto-install etserver over SSH",     mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Sessions",   feature: "tmux session manager",               mobile: "yes",    termux: "via CLI",      termius: "no" },
+      { category: "Sessions",   feature: "herdr and Zellij session managers",  mobile: "Android", termux: "via CLI",     termius: "no" },
+      { category: "Sessions",   feature: "One-tap replies to a blocked agent", mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Plugins",    feature: "Plugin support",                     mobile: "yes",    termux: "via packages", termius: "no" },
       { category: "Plugins",    feature: "Install-on-demand plugin catalog",   mobile: "yes",    termux: "no",           termius: "no" }
     ],
@@ -406,8 +429,9 @@ export const en: Dict = {
       { feature: "SFTP file transfer",                             mobile: "yes", onepilot: "partial",  happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "Local port forwarding",                          mobile: "yes", onepilot: "yes",      happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "tmux session manager",                           mobile: "yes", onepilot: "partial",  happy: "no",         omnara: "no",      chatgpt: "no",           claude: "no" },
+      { feature: "Works with an agent you installed yourself",     mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "no",           claude: "no" },
       { feature: "Agent alerts (push when the agent needs input)", mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
-      { feature: "One-tap approve/deny of agent prompts",          mobile: "no",  onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "One-tap approve/deny of agent prompts",          mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "Zero server or SSH setup",                       mobile: "no",  onepilot: "no",       happy: "partial",    omnara: "partial", chatgpt: "yes",          claude: "yes" },
       { feature: "Android and iOS",                                mobile: "yes", onepilot: "iOS only", happy: "yes",        omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "No account required",                            mobile: "yes", onepilot: "yes",      happy: "yes",        omnara: "no",      chatgpt: "no",           claude: "no" },
@@ -415,7 +439,7 @@ export const en: Dict = {
       { feature: "Open source",                                    mobile: "Apache 2.0",  onepilot: "no",       happy: "MIT",        omnara: "Apache",  chatgpt: "no",           claude: "no" }
     ],
     agentAppsNote:
-      "The native ChatGPT and Claude apps are the smoothest way to run one vendor's agent with zero setup — no server, just an account — and they add a polished one-tap approve/deny screen. The catch: they run only their own model in their own cloud, with no general terminal, no SFTP or tunnels, and no bring-your-own machine, and they are paid or account-gated. Onepilot, Happy, and Omnara keep the agent on hardware you control (Onepilot via direct SSH; Happy and Omnara via a cloud relay, and Omnara needs an account). Mobile SSH connects straight to your own server with no account or vendor relay, runs any agent alongside a full terminal, SFTP, and port forwarding, and every feature is free — the trade-off is that you answer agent prompts in the terminal instead of on a dedicated approve/deny screen.",
+      "The native ChatGPT and Claude apps are the smoothest way to run one vendor's agent with zero setup — no server, just an account — and they add a polished one-tap approve/deny screen. The catch: they run only their own model in their own cloud, with no general terminal, no SFTP or tunnels, and no bring-your-own machine, and they are paid or account-gated. Onepilot, Happy, and Omnara keep the agent on hardware you control (Onepilot via direct SSH; Happy and Omnara via a cloud relay, and Omnara needs an account). Mobile SSH connects straight to your own server with no account or vendor relay, runs any agent alongside a full terminal, SFTP, and port forwarding, and every feature is free. It now answers agent prompts the same way they do — an Agents list showing every agent across every connection, with a button per choice — the difference being that the agent runs on your machine and the reply travels over your own SSH connection. The trade-off is the one it has always been: you bring the server, and the agent's hook has to be installed on it once.",
   },
   privacy: {
     metaTitle: "Privacy Policy | Mobile SSH",
@@ -428,7 +452,7 @@ export const en: Dict = {
     sections: [
       {
         heading: "Information stored on your device",
-        body: "If you choose to save app data, Mobile SSH stores it locally on the device — on iOS, secrets are kept in the system Keychain. This may include saved server profiles, usernames, ports, passwords, private keys, key passphrases, port-forwarding rules, recent sessions, login attempt history, file-transfer paths, file-sort preferences, tmux reattach hints, app settings, and debug logs when debug recording is enabled."
+        body: "If you choose to save app data, Mobile SSH stores it locally on the device. Secrets are kept in the system Keychain on iOS; on Android they are encrypted with a key held in the Android Keystore that cannot be exported off the device, and the app opts out of Android cloud backup. This may include saved server profiles, usernames, ports, passwords, private keys, key passphrases, port-forwarding rules, recent sessions, login attempt history, file-transfer paths, file-sort preferences, tmux session snapshots and reattach hints, app settings, and debug logs when debug recording is enabled."
       },
       {
         heading: "Information sent over the network",
@@ -436,20 +460,20 @@ export const en: Dict = {
       },
       {
         heading: "File transfer and storage access",
-        body: "The file transfer feature browses local phone storage and remote SFTP directories so you can upload and download files. On Android versions that require it, the app may ask for storage access so the local file browser can read and write selected files. On iOS, local files and photos are reached through the system document and photo pickers."
+        body: "The file transfer feature browses local phone storage and remote SFTP directories so you can upload and download files. Mobile SSH does not ask Android for broad storage permission: you pick one folder with the system folder picker and the app can read and write only inside it. On iOS, local files and photos are reached through the system document and photo pickers."
       },
       {
         heading: "Logs and troubleshooting",
-        body: "Login history and optional debug logs are stored locally for troubleshooting. Debug logs can include terminal events, SSH data sizes, touch input diagnostics, resize events, and tunnel lifecycle events. Review any debug archive before sharing it with support or another person."
+        body: "Login history and optional debug logs are stored locally for troubleshooting, and both are off or empty until you turn them on. Android's debug recorder captures terminal events, SSH data sizes, touch input diagnostics, resize events, and tunnel lifecycle events — it warns you before it starts that this includes every key you type, passwords included, and it writes an archive to your Downloads folder. iOS records a different, narrower log: the addresses it dialled and why each failed, reconnects and backoff, dropped connections, network changes, and tmux commands with their errors. Review any debug log or archive before sharing it with support or another person."
       },
-      { heading: "Anonymous usage analytics", body: "To understand how the app is used and improve it, Mobile SSH sends anonymous usage analytics to Aptabase, a privacy-focused analytics provider acting on our behalf. This is limited to anonymous events (such as app launches and which features are used) together with your app version, operating-system version, device model, and language. It uses a random session identifier that resets regularly and is not tied to you or your device. It never includes your SSH servers, hostnames, usernames, passwords, keys, commands, or file contents. Data is sent over an encrypted (HTTPS) connection. Analytics is on by default and can be turned off at any time in Settings; when off, nothing is sent." }
+      { heading: "Anonymous usage analytics", body: "To understand how the app is used and improve it, Mobile SSH sends anonymous usage analytics to Aptabase, a privacy-focused analytics provider acting on our behalf. This is limited to anonymous events (such as app launches and which features are used) together with your app version, operating-system version, device model, and language. It uses a random session identifier that resets regularly and is not tied to you or your device. It never includes your SSH servers, hostnames, usernames, passwords, keys, commands, or file contents. Data is sent over an encrypted (HTTPS) connection. Analytics is on by default. On Android you can turn it off at any time in Settings, and when off nothing is sent; the iOS app does not offer that switch yet, so on iOS these anonymous events are sent for as long as the app is installed. We intend to add the iOS switch — until then this page states the position as it actually is." }
     ],
     permissionsHeading: "Permissions",
     permissions: [
       { label: "Internet", body: "required to connect to SSH servers." },
       { label: "Wake lock and Wi-Fi lock", body: "used on Android to keep active SSH sessions alive while the device sleeps." },
       { label: "Foreground service and notifications", body: "used on Android for active connection handling in the background; on iOS, notifications are used for agent alerts." },
-      { label: "Storage access", body: "used by file transfer and key import workflows; on iOS this goes through the system document and photo pickers." }
+      { label: "File access", body: "granted per folder through the system picker on Android, and through the system document and photo pickers on iOS. Mobile SSH does not request blanket storage permission on either platform." }
     ],
     securityHeading: "Security responsibilities",
     securityBody:
@@ -468,7 +492,7 @@ export const en: Dict = {
       { slug: "getting-started",  title: "Getting started",    text: "Install, open the app, connect to your first server, and save common hosts." },
       { slug: "terminal",         title: "Terminal",           text: "Use panes, the extra key row, scrolling, copy actions, tmux behavior, and keyboard settings." },
       { slug: "file-transfer",    title: "File transfer",      text: "Browse phone and server files, upload, download, sort, and inspect remote file details." },
-      { slug: "port-forwarding",  title: "Port forwarding",    text: "Configure local tunnel strings and manage active forwards while connected." },
+      { slug: "port-forwarding",  title: "Port forwarding",    text: "Write local tunnel strings, forward to IPv6 destinations, and have them come up on connect." },
       { slug: "troubleshooting",  title: "Troubleshooting",    text: "Fix connection, authentication, keyboard, storage, and reconnect issues." }
     ]
   },

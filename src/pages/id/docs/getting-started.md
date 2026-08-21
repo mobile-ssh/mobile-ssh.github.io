@@ -17,7 +17,7 @@ Mobile SSH adalah klien SSH untuk Android dan iOS untuk terhubung ke server Linu
 
 ## Memasang aplikasi
 
-- **Android:** pasang Mobile SSH dari Google Play.
+- **Android:** Mobile SSH saat ini berupa uji tertutup (closed test) di Google Play. Buka tautan pendaftaran di peramban ponsel pada perangkat — bukan di dalam aplikasi Google Play, karena uji tersebut mungkin tidak terlihat di sana — lalu ikut serta dengan akun Google yang akan Anda pakai. Setelah itu aplikasi terpasang dan diperbarui dari Play seperti aplikasi lain.
 - **iOS:** aplikasi iOS hadir sebagai beta publik di TestFlight. Pasang aplikasi TestFlight dari Apple, lalu buka tautan undangan Mobile SSH dari halaman beranda situs untuk memasang dan menerima pembaruan.
 
 ## Terhubung ke server
@@ -29,6 +29,13 @@ Mobile SSH adalah klien SSH untuk Android dan iOS untuk terhubung ke server Linu
 5. Gunakan **Active Sessions** di layar awal untuk kembali ke sesi yang masih berjalan.
 
 Port SSH default adalah `22`. Jika server Anda memakai port lain, masukkan port itu di profil server.
+
+## Memilih transport
+
+Saat menambah atau mengedit server, pemilih **Transport** menentukan cara Mobile SSH menyambung:
+
+- **SSH** -- koneksi SSH standar (bawaan).
+- **Eternal Terminal** -- sesi tangguh yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah. Jika host belum punya `etserver`, Mobile SSH dapat memasangnya untuk Anda melalui SSH. Lihat panduan **Terminal** untuk detailnya.
 
 ## Menyimpan server
 
@@ -55,7 +62,7 @@ Catatan kredensial disimpan secara lokal di perangkat — di iOS, data rahasia d
 
 ## Menggunakan kunci privat
 
-Mobile SSH mendukung kunci privat yang ditempel dan impor kunci melalui pemilih berkas sistem. Di Android aplikasi mendukung kunci Ed25519, RSA, ECDSA, dan DSA; di iOS aplikasi mendukung kunci Ed25519 dan ECDSA (P-256/384/521).
+Mobile SSH mendukung kunci privat yang ditempel dan impor kunci melalui pemilih berkas sistem. Di Android aplikasi mendukung kunci Ed25519, ECDSA (P-256/384/521), dan RSA; di iOS aplikasi mendukung kunci Ed25519 dan ECDSA (P-256/384/521). DSA (`ssh-dss`) tidak didukung di kedua platform. Kedua platform dapat membuka kunci yang terenkripsi frasa sandi — masukkan frasa sandinya di kolom kata sandi/frasa sandi.
 
 Untuk menggunakan kunci privat:
 
@@ -66,13 +73,27 @@ Untuk menggunakan kunci privat:
 
 Impor kunci privat menggunakan pemilih berkas sistem untuk berkas kunci. Di Android, transfer berkas menggunakan peramban berkas lokal terpisah dan dapat meminta akses penyimpanan yang lebih luas pada versi Android yang lebih baru; di iOS, berkas masuk melalui pemilih dokumen dan foto sistem.
 
-## Sesi terbaru
+## Layar beranda
 
-Layar awal menampilkan sesi terbaru. Sesi terbaru dapat terhubung kembali ke kumpulan server yang sama. Jika sesi sebelumnya masih aktif, Mobile SSH kembali ke sesi itu alih-alih memulai koneksi ganda.
+Layar beranda dibangun untuk menjawab "apa yang bisa saya lanjutkan?", bukan untuk membuka formulir koneksi kosong:
 
-## Mencari server tersimpan
+- **Continue** mencantumkan koneksi yang aktif saat ini, lengkap dengan jumlah panel bila sebuah koneksi punya lebih dari satu. Mengetuk sebuah baris membawa Anda kembali ke sana.
+- **Tmux sessions** mencantumkan apa yang sedang berjalan di server tersimpan Anda. Daftar ini diambil dari snapshot yang sudah disimpan aplikasi, jadi muncul seketika bahkan tanpa jaringan sama sekali — setiap baris ditandai umur snapshot-nya, dan mengetuk salah satunya akan menyambung lalu meng-attach sesi itu. Snapshot meredup setelah beberapa jam dan dibuang setelah seminggu.
+- Di iOS ada daftar **Recent** di bawah keduanya; aplikasi Android menghapusnya, karena "apa yang bisa saya lanjutkan?" ternyata pertanyaan yang lebih berguna daripada "kapan terakhir saya menyambung?".
 
-Ketuk kolom pencarian di halaman **Saved Servers** untuk memfilter berdasarkan nama atau host. Layar **+ Add Session** juga terbuka dengan pencarian sehingga Anda dapat menemukan dan terhubung ke server tersimpan dalam satu langkah.
+Jika tidak ada yang aktif dan tidak ada yang tersimpan di cache, layar itu mengatakannya dan mengarahkan Anda ke **Servers**.
+
+## Memberi nama dan mencari server tersimpan
+
+Server tersimpan dapat memiliki nama — "NAS Rumah", "Web Produksi" — dan daftarnya menampilkan nama itu alih-alih alamatnya. Alamatnya muncul kembali dengan sendirinya setiap kali namanya menjadi ambigu: dua baris memakai nama yang sama, atau pencarian sedang berjalan, sehingga Anda selalu dapat membedakan baris.
+
+Ketuk kolom pencarian di halaman **Saved Servers** untuk memfilter. Pencarian mencocokkan nama, pengguna, host, port, kredensial, dan alamat alternatif mana pun. Layar **+ Add Session** juga terbuka dengan pencarian sehingga Anda dapat menemukan dan terhubung ke server tersimpan dalam satu langkah.
+
+Server dapat disusun ke dalam folder. Folder dapat diciutkan, mengingat bahwa ia diciutkan, serta dapat disusun ulang atau diganti namanya; menghapus folder memindahkan server-nya ke **Ungrouped**, bukan menghapusnya.
+
+## Mengekspor sebagian penyiapan Anda
+
+**Export selected…** di layar Servers dan Credentials mengubah daftar menjadi pemilih dengan kotak centang, sehingga Anda dapat menyerahkan tiga server tanpa mengekspor semuanya. Mengetuk header folder mengambil seluruh isi folder. Ekspor terenkripsi jika Anda memberinya frasa sandi — tanpa frasa sandi, berkasnya memuat kata sandi dan kunci privat dalam teks biasa, dan aplikasi menyatakan hal itu sebelum menulisnya.
 
 ## Sesi aktif
 
@@ -84,13 +105,27 @@ Kembali ke layar awal tidak memutus sesi SSH aktif; menutup panel atau mengakhir
 
 Buka **Settings** dari layar awal (tersedia di halamannya sendiri):
 
-- Aktifkan ketuk untuk menampilkan keyboard jika Anda ingin keyboard muncul saat mengetuk terminal.
-- Aktifkan **Agent alerts** jika Anda menjalankan tugas latar belakang yang lama (Claude Code, Codex, skrip shell) dan ingin mendapat notifikasi suara atau getaran saat agen membutuhkan masukan Anda.
-- Matikan analitik penggunaan anonim jika Anda tidak ingin data apa pun dikirimkan.
+- Tentukan apakah mengetuk terminal memunculkan keyboard. Kedua platform datang dengan bawaan yang berlawanan: di Android keyboard hanya muncul dari tombol ⌨, di iOS satu ketukan memunculkannya.
+- Atur **ukuran teks**, **font**, **skema warna**, dan ukuran **scrollback** terminal, lalu pilih **tema** aplikasi (Sistem, Terang, atau Gelap).
+- Aktifkan **Agent alerts** jika Anda menjalankan tugas latar belakang yang lama (Claude Code, Codex, skrip shell) dan ingin diberi tahu saat agen membutuhkan masukan Anda. Lihat panduan **Terminal** untuk cara agen melaporkan dirinya.
+- Di Android, **Keep sessions running in background** aktif secara bawaan, sehingga shell dan agen tetap bertahan setelah Anda menggeser aplikasi dari daftar terkini.
+- Di Android, matikan analitik penggunaan anonim jika Anda tidak ingin data apa pun dikirimkan. Aplikasi iOS belum memiliki sakelar itu.
+
+## Plugin
+
+Plugin memperluas Mobile SSH dengan alur kerja tambahan. Buka **Plugins** dari layar awal untuk:
+
+- Menelusuri katalog plugin yang tersedia.
+- Memasang yang Anda inginkan -- setiap plugin diunduh sesuai kebutuhan dan diverifikasi dengan checksum SHA-256 ke penyimpanan privat aplikasi.
+- Menjalankan plugin terpasang dari layar yang sama.
+
+Secara bawaan plugin diambil dari katalog publik. Jika Anda mengelola katalog sendiri, Anda dapat mengarahkan Mobile SSH ke sumber katalog khusus atau privat. Hanya pasang plugin dari sumber yang Anda percayai.
 
 ## Bahasa
 
-Mobile SSH mengikuti bahasa sistem. Aplikasi disertai terjemahan untuk bahasa Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Pidgin Nigeria, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, dan Urdu. Ubah bahasa di **Settings → System → Languages** Android, atau di iOS di **Settings → General → Language & Region**, bukan dari dalam aplikasi.
+Mobile SSH mengikuti bahasa sistem secara bawaan. Aplikasi disertai terjemahan untuk bahasa Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, dan Urdu — dua puluh bahasa di Android, yang menambahkan Pidgin Nigeria dan Arab Mesir, serta delapan belas di iOS.
+
+Jika Anda ingin aplikasi dalam bahasa selain bahasa ponsel, **Settings → Language** menyediakan pemilih dengan opsi "System default". Anda juga tetap dapat mengubahnya dari **Settings → System → Languages** di Android atau **Settings → General → Language & Region** di iOS.
 
 ## Catatan keamanan
 

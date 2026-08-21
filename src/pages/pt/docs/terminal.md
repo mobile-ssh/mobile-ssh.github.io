@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Terminal"
-description: "Controles do terminal do Mobile SSH, teclas extras, painéis, rolagem, comportamento do tmux, ações de cópia e configurações de teclado."
+description: "Controles do terminal do Mobile SSH, teclas extras, painéis, rolagem, tmux, gerenciadores herdr e Zellij, alertas de agente, ações de cópia e configurações de teclado."
 ---
 
 # Terminal
@@ -11,14 +11,16 @@ O terminal do Mobile SSH foi feito para operação em telefone e tablet. Ele com
 ## Noções básicas do terminal
 
 - O terminal usa comportamento no estilo xterm com suporte a cores e tratamento das teclas de cursor.
-- O buffer de rolagem mantém até 5000 linhas.
+- O buffer de rolagem mantém 5000 linhas por padrão, e pode ser definido em 1.000, 10.000 ou 50.000 nas Configurações.
 - Toque em um painel para selecioná-lo antes de digitar.
 - Pince um painel do terminal para mudar o tamanho do texto. O Mobile SSH redimensiona o PTY remoto após o gesto se estabilizar.
 - Toque duas vezes em um painel (ou use o seu controle de expansão) para entrar no modo de tela cheia. Use Voltar no Android, ou o controle de recolher no iOS, para retornar à grade.
 
 ## Grade de várias sessões
 
-O Mobile SSH pode executar até oito sessões SSH ao mesmo tempo. Cada sessão aparece como um painel na grade de terminais. O cabeçalho do painel mostra o destino ou título atual. Toque em um painel para selecioná-lo, ou use **+ Add Session** para iniciar outra conexão.
+O Mobile SSH pode executar até oito sessões SSH ao mesmo tempo. Cada sessão aparece como um painel na grade de terminais. Toque em um painel para selecioná-lo, ou use **+ Add Session** para iniciar outra conexão.
+
+O cabeçalho do painel diz onde você está. No Android, ele mostra o diretório de trabalho real do painel, obtido do tmux ou informado pela shell via OSC 7 e atualizado enquanto o app está aberto; no iOS, ele mostra o título definido pelo lado remoto, com `user@host:port` como alternativa.
 
 Fechar um painel desconecta aquela sessão SSH. Voltar à tela inicial mantém as sessões ativas disponíveis em **Active Sessions**.
 
@@ -35,20 +37,20 @@ O ET precisa de um processo `etserver` no host. Se o servidor não tiver um, o M
 
 ## Linha de teclas extras
 
-Tanto no Android quanto no iOS, a linha de teclas extras aparece acima do teclado na tela e fornece teclas de terminal difíceis de acionar em teclados de toque:
+As duas plataformas deixam ao alcance uma linha de treze teclas de terminal — justamente aquelas que são difíceis ou inexistentes em um teclado de toque. No Android, é uma faixa na parte de baixo da sessão (que se esconde sozinha quando há um teclado físico conectado); no iOS, ela fica acima do teclado virtual.
 
-- `ESC`
-- `TAB`
-- `CTRL`
-- `Shift`
-- Teclas de seta
-- `HOME`
-- `END`
-- `PGUP`
-- `PGDN`
-- Alternar teclado
+Os dois conjuntos padrão têm o mesmo tamanho, mas não são idênticos:
 
-`CTRL` e `Shift` agem como modificadores fixos para a próxima entrada compatível. Por exemplo, toque em `CTRL` e depois digite `C` para enviar Ctrl-C.
+| | Android | iOS |
+|---|---|---|
+| Padrões | `ESC` `TAB` `CTRL` setas `HOME` `PGUP` `END` `PGDN` `⌫` `⌨` | `ESC` `TAB` `CTRL` `⇧` setas `HOME` `END` `PGUP` `PGDN` `⌨` |
+| Diferença | tem tecla de retrocesso, não tem Shift | tem Shift fixo, não tem tecla de retrocesso |
+
+**A linha nunca rola.** Quando as teclas deixam de caber na largura, elas dividem o espaço por igual e quebram para uma segunda linha; o que ainda sobrar se recolhe em um menu de excedentes `⋯`. Nada fica escondido atrás de um deslize nem cortado na borda da tela, e um modificador armado continua valendo para uma tecla que você escolha no menu de excedentes.
+
+`CTRL` age como modificador fixo: toque em `CTRL` e depois digite `C` para enviar Ctrl-C. O `Shift` é mais "grudento" no iOS do que no Android — no iOS ele também deixa maiúsculo o próximo caractere que você digitar no teclado virtual, enquanto no Android ele vale apenas para as teclas da própria barra (`Shift`+`Tab`, `Shift`+setas).
+
+Segure uma tecla como uma seta ou `PGDN` e ela se repete.
 
 ## Comportamento do teclado
 
@@ -86,8 +88,11 @@ Pesquise em todo o buffer do terminal — o scrollback e a tela visível — e p
 
 ## Integração de shell e imagens em linha
 
-- **Integração de shell (OSC 133):** quando sua shell emite marcadores de prompt OSC 133, o Mobile SSH pode pular entre prompts, copiar a saída de um único comando e alertá-lo quando um comando de longa duração termina. Funciona no Android e no iOS.
-- **Imagens em linha:** programas que usam o protocolo gráfico Kitty desenham imagens diretamente no terminal, no Android e no iOS.
+- **Integração de shell (OSC 133):** quando sua shell emite marcadores de prompt OSC 133, o Mobile SSH pode avançar de um prompt a outro e alertá-lo quando um comando de longa duração termina. Funciona no Android e no iOS. Nenhum dos apps injeta os marcadores — sua shell precisa emiti-los (um hook `PROMPT_COMMAND`/`precmd`, ou o starship). No Android, a navegação entre prompts fica desligada até você ativá-la em **Settings → Shell integration**; no iOS, o menu aparece sozinho assim que as marcações começam a chegar.
+- **Selecionar a saída:** toque em qualquer ponto dentro da saída de um comando e selecione esse bloco inteiro — o erro de compilação de 300 linhas atrás, não só o do último comando — e depois copie, compartilhe ou estenda a seleção.
+- **Imagens em linha:** programas que usam o protocolo gráfico Kitty desenham imagens diretamente no terminal, no Android e no iOS. As imagens sobrevivem ao zoom por pinça e à reorganização das linhas: elas são medidas em células e acompanham a sua linha, em vez de serem descartadas deixando um buraco. Elas são um recurso da tela principal e são limpas quando uma TUI de tela cheia assume.
+- **Glifos de mosaico (Android):** os caracteres de bloco, braille, sextantes e octantes são desenhados pelo próprio app, em vez de serem pedidos a uma fonte, para que `chafa`, `timg` e arte ANSI preencham a grade com exatidão — sem emendas, sem quadrados vazios, qualquer que seja a fonte escolhida.
+- **Diretório de trabalho real (Android):** o cabeçalho do painel mostra onde o painel realmente está, obtido do tmux ou informado pela shell via OSC 7, em vez do que o último prompt tiver impresso.
 
 ## Aparência e teclas
 
@@ -95,8 +100,13 @@ Tanto no Android quanto no iOS, as Configurações permitem personalizar o termi
 
 - **Fonte:** escolha a fonte monoespaçada do sistema, JetBrains Mono ou Source Code Pro.
 - **Esquema de cores:** Padrão, Solarized Dark ou Light, Gruvbox, Dracula ou Nord — aplicado ao vivo aos painéis abertos.
-- **Linha extra de teclas:** adicione, remova, reordene e oculte teclas, defina suas próprias teclas de sequência de escape e redefina para os padrões, com uma pré-visualização ao vivo.
-- **Tamanho do scrollback:** defina quantas linhas o terminal mantém.
+- **Linha extra de teclas:** adicione, remova, reordene e oculte teclas, defina suas próprias teclas de sequência de escape e redefina para os padrões, com uma pré-visualização ao vivo que mostra exatamente como a linha será dividida. O Android coloca isso em uma aba **Keys**; o iOS, em **Extra keys → Customize keys**.
+- **Adicionar a partir de predefinições:** uma paleta de cerca de 45 teclas em seis grupos — `F1`–`F12`, combinações com Ctrl como `^C` `^D` `^Z` `^R` `^L`, símbolos como `|` `~` `/` `_` `:` e modificadores. `F1`–`F12` são enviadas como sequências de escape comuns, então não precisam de uma combinação com `FN`. O Android também oferece uma tecla 📎 **Attach a file**, que abre o seletor de arquivos e envia o arquivo para a sessão ativa; o iOS oferece `INS`, `DEL` e uma tecla `FN` que revela uma linha de dígitos.
+- **Tamanho do scrollback:** 1.000, 5.000, 10.000 ou 50.000 linhas (5.000 por padrão). Vale para os novos painéis.
+- **Tamanho do texto:** um controle deslizante, ao lado do zoom por pinça.
+- **Tema:** Sistema, Claro ou Escuro para todo o app.
+
+Redefinir restaura os padrões de fábrica em vez de congelar a lista de hoje, então as melhorias de uma versão futura continuam chegando até você. As alterações são aplicadas ao vivo aos painéis já abertos.
 
 ## Rolagem
 
@@ -105,6 +115,8 @@ O Mobile SSH direciona os gestos de rolagem conforme o estado do terminal:
 - Na saída normal do shell, deslizar rola o buffer de rolagem local.
 - Em aplicativos de terminal com modo de mouse, a rolagem envia sequências de escape de roda do mouse.
 - Em aplicativos de tela alternativa sem modo de mouse, como muitas sessões tmux, a rolagem entra no modo de cópia do tmux e envia comandos de rolagem por linha.
+
+No Android, um toque dentro de um programa com rastreamento de mouse é entregue como um clique com o botão esquerdo naquela célula, então o htop, o vim e os painéis com foco por clique respondem ao toque. No iOS, um toque no mesmo programa levanta o teclado em vez de clicar; apenas a rolagem por roda é reportada.
 
 Se você digitar enquanto está com o buffer rolado para trás, o Mobile SSH retorna à visão ao vivo do terminal.
 
@@ -139,19 +151,60 @@ A partir do gerenciador, você pode:
 
 Um 🔔 marca qualquer sessão cujo agente esteja aguardando entrada, para que você possa identificar de relance uma execução pausada do Claude Code ou do Codex e anexar a ela. Isso complementa as dicas de reanexação acima: a lógica de reanexação restaura automaticamente a sua última sessão ao reconectar, enquanto o gerenciador oferece controle manual completo.
 
+As duas plataformas também conseguem gerenciar mais de um servidor tmux (socket) no mesmo host e ordenar as sessões por nome ou data de criação.
+
+## Herdr e Zellij (Android)
+
+O Android traz a mesma ideia para outros dois multiplexadores. Cada um ganha o seu próprio ícone na barra de ferramentas, e **um ícone só aparece depois que o app realmente encontrou aquele programa no servidor** — então a barra de ferramentas informa o que está instalado lá sem que você precise rodar `which`.
+
+- **Herdr** usa o seu próprio vocabulário: sessões, workspaces, abas, painéis. Cada painel mostra o status do seu agente — trabalhando, precisa de você, ocioso — e um agente bloqueado pode ser respondido direto da lista. O próprio status do herdr alimenta o selo de agente do app, então isso funciona sem nenhum hook instalado no servidor.
+- **Zellij** lista sessões, abas e painéis com anexar, renomear, encerrar e dividir. As sessões encerradas continuam listadas, de modo que anexar as ressuscita, enquanto excluir as esquece de vez. O detalhe de abas e painéis exige o Zellij 0.44 ou mais novo; em uma versão mais antiga, a página mostra os nomes das abas e explica o porquê. As divisões exigem um cliente anexado à sessão, e a página explica isso em vez de oferecer um botão que falharia.
+
+Se o herdr ou o Zellij estiver instalado, mas fora do `PATH` da shell de login, a página oferece adicioná-lo.
+
+Cada servidor salvo tem uma opção **Attach on connect**: **Auto (detect)**, **Nothing**, **tmux**, **herdr** ou **Zellij**. O modo automático escolhe aquele que você usou por último naquele servidor, depois aquele que tiver sessões ativas, depois aquele que estiver instalado — e não anexa nada, em vez de adivinhar, quando ainda não sondou o servidor.
+
+O app iOS hoje funciona apenas com tmux.
+
 ## Agent alerts
 
-O Mobile SSH pode monitorar a saída do terminal da sessão ativa em busca de padrões que indicam que um agente remoto está aguardando entrada. Quando uma correspondência é detectada — por exemplo, Claude Code ou Codex pausando para um prompt — o app envia uma notificação com som e vibração opcionais.
+O Mobile SSH avisa você quando um agente remoto de programação com IA — Claude Code, Codex, Gemini — está bloqueado esperando por você. Ele não adivinha lendo a saída do seu terminal. Há dois caminhos, e eles funcionam com níveis diferentes de detalhe.
 
-Para configurar:
+### A campainha
 
-1. Abra **Settings** na tela inicial.
-2. Ative **Agent alerts**.
-3. Escolha um som de notificação e um padrão de vibração.
+Sem nenhuma configuração, uma campainha (bell) de terminal vinda de uma sessão que você não está olhando dispara um alerta, assim como as sequências de escape de notificação de desktop (OSC 9, OSC 777) que muitas ferramentas já emitem. Campainhas que chegam logo depois de você digitar são ignoradas, para que o barulho comum de autocompletar da shell não fique chamando você.
 
-O alerta é reproduzido pela saída de áudio ativa no momento, incluindo fones de ouvido, para que você possa ouvi-lo enquanto assiste a um vídeo ou com o telefone bloqueado. A notificação aparece mesmo quando o Mobile SSH está em segundo plano.
+Isso não exige preparo nenhum, mas o app só sabe que *alguma coisa* tocou.
 
-Os padrões de Agent alerts são verificados contra a saída visível do terminal. Se a ferramenta remota exibir uma linha de prompt reconhecível (um nome de usuário, um `?`, uma pergunta entre colchetes), o app pode identificá-la automaticamente. Se os alertas dispararem com muita frequência ou não dispararem, ajuste a sensibilidade em Settings.
+### O hook de agente
+
+Para que o app saiba *qual* agente está esperando e *o que* ele está fazendo, instale o hook de agente no servidor:
+
+- **iOS:** Settings → **Agent alerts** → **Install Agent Hook**. Se houver mais de um servidor conectado, ele pergunta qual.
+- **Android:** pressione e segure o cabeçalho do painel de uma sessão e escolha **Install agent hooks**.
+
+Isso grava um pequeno script de shell em `~/.mobile-ssh/agent-hook.sh` naquele servidor. Ele é agnóstico quanto ao agente — recebe argumentos de linha de comando em vez de interpretar o formato de um fornecedor específico — então qualquer coisa capaz de executar um comando pode se reportar por ele. Apagar o arquivo é uma desinstalação limpa.
+
+Assim que um agente se reporta pelo hook:
+
+- O cabeçalho do painel mostra `claude · needs you`, ou o nome da ferramenta que ele está executando.
+- Um painel cujo agente está bloqueado ganha uma borda âmbar. O painel que você já está olhando fica em paz — o prompt está bem ali.
+- Um selo na barra de ferramentas conta os agentes que esperam em todas as conexões, limitado a `9+`.
+- A tela **Agents** lista todos os agentes de todas as conexões, com o que cada um está fazendo e há quanto tempo está esperando.
+
+### Responder sem digitar
+
+Quando um agente faz uma pergunta com um conjunto fixo de respostas, o app mostra um botão por opção — até seis — na lista de Agentes. No Android, você também pode tocar no chip do agente no cabeçalho do painel.
+
+A sua resposta não é digitada na sessão. Ela é gravada em um arquivo por um canal separado e recolhida pelo hook, de modo que responder não pode estragar o que está na tela. O app se recusa a enviar uma opção que o prompt não tenha realmente oferecido e avisa com clareza se a conexão caiu nesse meio-tempo, em vez de falhar em silêncio.
+
+### Configurações
+
+Os alertas vêm ativados por padrão nas duas plataformas, com chaves individuais para a notificação, o som, a vibração e para decidir se a sessão que você está vendo no momento também deve alertar.
+
+Vale conhecer um padrão: **o som se limita aos fones de ouvido**. Sem nada conectado ou pareado, um alerta notifica e vibra, mas não toca nenhum som. Desative essa opção se quiser o alerta audível no alto-falante do celular.
+
+Não existe ajuste de sensibilidade nem seletor de som — os controles são apenas ligar/desligar.
 
 ## Programas de terminal em tela cheia
 

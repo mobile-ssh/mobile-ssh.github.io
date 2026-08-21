@@ -17,7 +17,7 @@ O Mobile SSH é um cliente SSH para Android e iOS para conectar aos seus própri
 
 ## Instalar o app
 
-- **Android:** instale o Mobile SSH pelo Google Play.
+- **Android:** o Mobile SSH está no momento em teste fechado no Google Play. Abra o link de adesão em um navegador do celular no aparelho — e não dentro do app Google Play, onde o teste pode não aparecer — e entre com a conta Google que você vai usar. Depois disso, ele instala e atualiza pelo Play como qualquer outro app.
 - **iOS:** o app para iOS é distribuído como beta público no TestFlight. Instale o app TestFlight da Apple e, em seguida, abra o link de convite do Mobile SSH na página inicial do site para instalar e receber atualizações.
 
 ## Conectar a um servidor
@@ -62,7 +62,7 @@ Os registros de credenciais são armazenados localmente no dispositivo — no iO
 
 ## Usar chaves privadas
 
-O Mobile SSH aceita chaves privadas coladas e a importação de chaves pelo seletor de arquivos do sistema. No Android, o app suporta chaves Ed25519, RSA, ECDSA e DSA; no iOS, ele suporta chaves Ed25519 e ECDSA (P-256/384/521).
+O Mobile SSH aceita chaves privadas coladas e a importação de chaves pelo seletor de arquivos do sistema. No Android, o app suporta chaves Ed25519, ECDSA (P-256/384/521) e RSA; no iOS, ele suporta chaves Ed25519 e ECDSA (P-256/384/521). DSA (`ssh-dss`) não é suportado em nenhuma das plataformas. As duas plataformas conseguem abrir uma chave criptografada com frase-senha — informe a frase-senha no campo de senha/frase-senha.
 
 Para usar uma chave privada:
 
@@ -73,13 +73,27 @@ Para usar uma chave privada:
 
 A importação de chave privada usa o seletor de arquivos do sistema para arquivos de chave. No Android, a transferência de arquivos usa um navegador de arquivos local separado e pode solicitar acesso mais amplo ao armazenamento em versões mais novas do Android; no iOS, os arquivos entram pelos seletores de documentos e fotos do sistema.
 
-## Sessões recentes
+## A tela inicial
 
-A tela inicial mostra as sessões recentes na parte superior para acesso rápido. Uma sessão recente pode reconectar ao mesmo conjunto de servidores. Se a sessão anterior ainda estiver ativa, o Mobile SSH retorna a ela em vez de iniciar uma conexão duplicada.
+A tela inicial foi feita para responder "ao que eu posso voltar?", em vez de abrir um formulário de conexão em branco:
 
-## Pesquisar servidores salvos
+- **Continue** lista as conexões que estão ativas neste momento, com a contagem de painéis quando uma conexão tem mais de um. Tocar em uma linha leva você de volta a ela.
+- **Tmux sessions** lista o que está em execução nos seus servidores salvos. Ela vem de um instantâneo que o app já armazenou, então aparece na hora, sem rede alguma — cada linha traz a idade do instantâneo, e tocar em uma delas conecta e anexa aquela sessão. Os instantâneos ficam esmaecidos depois de algumas horas e são descartados após uma semana.
+- No iOS, uma lista **Recent** fica abaixo dessas; o app Android abandonou essa lista, porque "ao que eu posso voltar?" se mostrou uma pergunta mais útil do que "quando foi a última vez que conectei?".
 
-Toque no campo de pesquisa na página **Saved Servers** para filtrar por nome ou host. A tela **+ Add Session** também abre com pesquisa, para que você possa encontrar e se conectar a um servidor salvo em uma única etapa.
+Se nada está ativo e nada está em cache, a tela informa isso e aponta você para **Servers**.
+
+## Nomear e pesquisar servidores salvos
+
+Um servidor salvo pode ter um nome — "NAS de casa", "Web de produção" — e a lista mostra esse nome no lugar do endereço. O endereço volta sozinho sempre que o nome ficaria ambíguo: duas linhas com o mesmo nome, ou uma pesquisa em andamento, para que você sempre consiga distinguir as linhas.
+
+Toque no campo de pesquisa na página **Saved Servers** para filtrar. A pesquisa considera o nome, o usuário, o host, a porta, a credencial e quaisquer endereços alternativos. A tela **+ Add Session** também abre com pesquisa, para que você possa encontrar e se conectar a um servidor salvo em uma única etapa.
+
+Os servidores podem ser organizados em pastas. Uma pasta se recolhe, lembra que foi recolhida e pode ser reordenada ou renomeada; excluir uma delas move os seus servidores para **Ungrouped**, em vez de apagá-los.
+
+## Exportar parte da sua configuração
+
+**Export selected…** nas telas Servers e Credentials transforma a lista em um seletor com caixas de marcação, para que você entregue três servidores sem exportar tudo. Tocar no cabeçalho de uma pasta leva a pasta inteira. As exportações são criptografadas se você definir uma frase-senha — sem ela, o arquivo guarda senhas e chaves privadas em texto puro, e o app avisa isso antes de gravar.
 
 ## Sessões ativas
 
@@ -91,9 +105,11 @@ Voltar à tela inicial não desconecta as sessões SSH ativas; fechar painéis o
 
 Abra **Settings** na tela inicial (ela tem sua própria página):
 
-- Ative tocar para mostrar o teclado se preferir que o teclado apareça ao tocar no terminal.
-- Ative **Agent alerts** se você executa tarefas longas em segundo plano (Claude Code, Codex, scripts de shell) e quer receber uma notificação sonora ou vibração quando o agente precisar da sua entrada.
-- Desative a coleta anônima de dados de uso se preferir que nenhuma informação seja enviada.
+- Decida se tocar no terminal levanta o teclado. As duas plataformas vêm com padrões opostos: no Android o teclado só aparece pelo botão ⌨; no iOS um toque o levanta.
+- Defina o **tamanho do texto**, a **fonte**, o **esquema de cores** e o tamanho do **scrollback** do terminal, e escolha um **tema** para o app (Sistema, Claro ou Escuro).
+- Ative **Agent alerts** se você executa tarefas longas em segundo plano (Claude Code, Codex, scripts de shell) e quer ser avisado quando o agente precisar da sua entrada. Veja no guia **Terminal** como os agentes se reportam.
+- No Android, **Keep sessions running in background** vem ativado, então shells e agentes sobrevivem a você fechar o app na lista de recentes.
+- No Android, desative a coleta anônima de dados de uso se preferir que nenhuma informação seja enviada. O app iOS ainda não tem essa opção.
 
 ## Plugins
 
@@ -107,7 +123,9 @@ Os plugins são obtidos de um catálogo público por padrão. Se você mantiver 
 
 ## Idiomas
 
-O Mobile SSH segue o idioma do sistema. O app vem com traduções para árabe, bengali, chinês (simplificado e tradicional), inglês, francês, alemão, hindi, indonésio, japonês, marata, pidgin nigeriano, português, russo, espanhol, tâmil, télugo, turco e urdu. Altere o idioma em **Settings → System → Languages** do Android ou, no iOS, em **Settings → General → Language & Region**, e não dentro do app.
+O Mobile SSH segue o idioma do sistema por padrão. O app vem com traduções para árabe, bengali, chinês (simplificado e tradicional), inglês, francês, alemão, hindi, indonésio, japonês, marata, português, russo, espanhol, tâmil, télugo, turco e urdu — vinte idiomas no Android, que acrescenta o pidgin nigeriano e o árabe egípcio, e dezoito no iOS.
+
+Se quiser o app em um idioma diferente do celular, **Settings → Language** tem um seletor com a opção "System default". Você também continua podendo alterá-lo em **Settings → System → Languages** do Android ou, no iOS, em **Settings → General → Language & Region**.
 
 ## Nota de segurança
 

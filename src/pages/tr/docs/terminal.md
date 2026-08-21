@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Terminal"
-description: "Mobile SSH terminal denetimleri, ek tuşlar, bölmeler, kaydırma, tmux davranışı, kopyalama işlemleri ve klavye ayarları."
+description: "Mobile SSH terminal denetimleri, ek tuşlar, bölmeler, kaydırma, tmux, herdr ve Zellij yöneticileri, ajan uyarıları, kopyalama işlemleri ve klavye ayarları."
 ---
 
 # Terminal
@@ -11,14 +11,16 @@ Mobile SSH terminali telefon ve tablet kullanımı için tasarlanmıştır. Bir 
 ## Terminal temelleri
 
 - Terminal, renk desteği ve imleç tuşu işleme ile xterm tarzı davranış kullanır.
-- Geri kaydırma arabelleği en fazla 5000 satır tutar.
+- Geri kaydırma arabelleği varsayılan olarak 5000 satır tutar ve Ayarlar'dan 1.000, 10.000 veya 50.000 olarak değiştirilebilir.
 - Yazmadan önce bir bölmeyi seçmek için dokunun.
 - Metin boyutunu değiştirmek için bir terminal bölmesini kıstırın. Hareket durulduktan sonra Mobile SSH uzak PTY'yi yeniden boyutlandırır.
 - Tam ekran moduna girmek için bir bölmeye çift dokunun (veya bölmenin genişletme denetimini kullanın). Izgaraya dönmek için Android'de Geri'yi, iOS'ta ise daraltma denetimini kullanın.
 
 ## Çoklu oturum ızgarası
 
-Mobile SSH aynı anda sekiz SSH oturumuna kadar çalıştırabilir. Her oturum terminal ızgarasında bir bölme olarak görünür. Bölme başlığı geçerli hedefi veya başlığı gösterir. Seçmek için bir bölmeye dokunun ya da başka bir bağlantı başlatmak için **+ Add Session** düğmesini kullanın.
+Mobile SSH aynı anda sekiz SSH oturumuna kadar çalıştırabilir. Her oturum terminal ızgarasında bir bölme olarak görünür. Seçmek için bir bölmeye dokunun ya da başka bir bağlantı başlatmak için **+ Add Session** düğmesini kullanın.
+
+Bölme başlığı nerede olduğunuzu adlandırır. Android'de bölmenin gerçek çalışma dizinini gösterir — tmux'tan sorulur ya da kabuk tarafından OSC 7 ile bildirilir ve uygulama açıkken tazelenir; iOS'ta ise uzak tarafın belirlediği başlığı, o yoksa `user@host:port` biçimini gösterir.
 
 Bir bölmeyi kapatmak o SSH oturumunu keser. Başlangıç ekranına dönmek etkin oturumları **Active Sessions** aracılığıyla erişilebilir tutar.
 
@@ -35,20 +37,20 @@ ET, ana bilgisayarda bir `etserver` süreci gerektirir. Sunucuda yoksa Mobile SS
 
 ## Ek tuş satırı
 
-Hem Android hem iOS'ta ek tuş satırı ekran klavyesinin üstünde görünür ve dokunmatik klavyelerde kullanımı güç olan terminal tuşlarını sağlar:
+Her iki platform da on üç terminal tuşunu elinizin altına koyar — dokunmatik klavyede kullanımı güç olan ya da hiç bulunmayan tuşları. Android'de bu, oturumun altındaki bir şerittir (donanım klavyesi takıldığında kendini gizler); iOS'ta ise yazılım klavyesinin üzerinde yer alır.
 
-- `ESC`
-- `TAB`
-- `CTRL`
-- `Shift`
-- Ok tuşları
-- `HOME`
-- `END`
-- `PGUP`
-- `PGDN`
-- Klavye geçişi
+İki varsayılan takım aynı büyüklüktedir ama birebir aynı değildir:
 
-`CTRL` ve `Shift` bir sonraki uyumlu giriş için yapışkan değiştirici olarak çalışır. Örneğin `CTRL`'ye dokunun, ardından Ctrl-C göndermek için `C` yazın.
+| | Android | iOS |
+|---|---|---|
+| Varsayılanlar | `ESC` `TAB` `CTRL` ok tuşları `HOME` `PGUP` `END` `PGDN` `⌫` `⌨` | `ESC` `TAB` `CTRL` `⇧` ok tuşları `HOME` `END` `PGUP` `PGDN` `⌨` |
+| Fark | geri silme tuşu var, Shift yok | yapışkan Shift var, geri silme tuşu yok |
+
+**Satır asla kaydırılmaz.** Tuşlar genişliğe sığmaz olduğunda alanı eşit paylaşır ve ikinci bir satıra sarar; geriye kalan varsa bir `⋯` taşma menüsüne katlanır. Hiçbir şey bir kaydırmanın arkasına gizlenmez ya da ekran kenarında kırpılmaz ve kurulu bir değiştirici, taşma menüsünden seçtiğiniz bir tuşa da uygulanır.
+
+`CTRL` yapışkan bir değiştirici olarak çalışır: `CTRL`'ye dokunun, ardından Ctrl-C göndermek için `C` yazın. `Shift`, iOS'ta Android'e göre daha yapışkandır — iOS'ta yazılım klavyesinde yazacağınız bir sonraki karakteri de büyük harfe çevirir, Android'de ise yalnızca çubuğun kendi tuşlarına uygulanır (`Shift`+`Tab`, `Shift`+ok tuşları).
+
+Ok tuşu veya `PGDN` gibi bir tuşu basılı tutarsanız yinelenir.
 
 ## Klavye davranışı
 
@@ -86,8 +88,11 @@ Tüm terminal arabelleğini — geri kaydırmayı ve görünür ekranı — aray
 
 ## Kabuk entegrasyonu ve satır içi görüntüler
 
-- **Kabuk entegrasyonu (OSC 133):** kabuğunuz OSC 133 istem işaretleri yaydığında Mobile SSH istemler arasında atlayabilir, tek bir komutun çıktısını kopyalayabilir ve uzun süren bir komut bittiğinde sizi uyarabilir. Android ve iOS'ta çalışır.
-- **Satır içi görüntüler:** Kitty grafik protokolünü kullanan programlar görüntüleri doğrudan terminalde çizer; Android ve iOS'ta.
+- **Kabuk entegrasyonu (OSC 133):** kabuğunuz OSC 133 istem işaretleri yaydığında Mobile SSH istemler arasında adım adım gezebilir ve uzun süren bir komut bittiğinde sizi uyarabilir. Android ve iOS'ta çalışır. Hiçbir uygulama bu işaretleri kendisi eklemez — kabuğunuzun yayması gerekir (bir `PROMPT_COMMAND`/`precmd` kancası ya da starship). Android'de istem gezinmesi, **Settings → Shell integration** altında etkinleştirene kadar kapalıdır; iOS'ta ise işaretler gelmeye başlayınca menü kendiliğinden görünür.
+- **Çıktıyı seçme:** bir komutun çıktısının herhangi bir yerine dokunun ve o bloğun tamamını seçin — yalnızca son komutu değil, 300 satır önceki derleme hatasını — sonra kopyalayın, paylaşın veya seçimi genişletin.
+- **Satır içi görüntüler:** Kitty grafik protokolünü kullanan programlar görüntüleri doğrudan terminalde çizer; Android ve iOS'ta. Görüntüler sıkıştırarak yakınlaştırmaya ve satırların yeniden sarılmasına dayanır: hücre cinsinden ölçülür ve satırlarıyla birlikte hareket ederler, düşürülüp yerlerinde boşluk bırakmazlar. Bunlar ana ekrana ait bir özelliktir ve tam ekran bir TUI devraldığında temizlenirler.
+- **Mozaik glifler (Android):** blok, braille, sekstant ve oktant karakterleri bir yazı tipinden istenmek yerine uygulamanın kendisi tarafından çizilir; böylece `chafa`, `timg` ve ANSI sanatı ızgarayı tam olarak döşer — hangi yazı tipini seçerseniz seçin, ne dikiş izi ne de boş kutu kalır.
+- **Gerçek çalışma dizini (Android):** bölme başlığı, son istemin ne yazdırdığına bakmaksızın bölmenin gerçekte nerede olduğunu gösterir — tmux'tan sorularak ya da kabuk tarafından OSC 7 ile bildirilerek.
 
 ## Görünüm ve tuşlar
 
@@ -95,8 +100,13 @@ Hem Android hem de iOS'ta Ayarlar, terminali özelleştirmenize olanak tanır:
 
 - **Yazı tipi:** sistem tek aralıklı yazı tipini, JetBrains Mono veya Source Code Pro'yu seçin.
 - **Renk şeması:** Varsayılan, Solarized Koyu veya Açık, Gruvbox, Dracula ya da Nord — açık panellere anında uygulanır.
-- **Ek tuş satırı:** canlı bir önizlemeyle tuş ekleyin, kaldırın, yeniden sıralayın ve gizleyin, kendi kaçış dizisi tuşlarınızı tanımlayın ve varsayılanlara sıfırlayın.
-- **Geri kaydırma boyutu:** terminalin kaç satır tuttuğunu ayarlayın.
+- **Ek tuş satırı:** tuş ekleyin, kaldırın, yeniden sıralayın ve gizleyin, kendi kaçış dizisi tuşlarınızı tanımlayın ve varsayılanlara sıfırlayın; canlı önizleme satırın tam olarak nasıl bölüneceğini gösterir. Android bunu bir **Keys** sekmesine koyar; iOS'ta **Extra keys → Customize keys** altındadır.
+- **Hazır tuşlardan ekleme:** altı grupta yaklaşık 45 tuşluk bir palet — `F1`–`F12`, `^C` `^D` `^Z` `^R` `^L` gibi Ctrl kombinasyonları, `|` `~` `/` `_` `:` gibi simgeler ve değiştiriciler. `F1`–`F12` sıradan kaçış dizileri olarak gönderilir, bu yüzden bir `FN` akoru gerektirmezler. Android ayrıca dosya seçicisini açıp canlı oturuma yükleme yapan bir 📎 **Attach a file** tuşu sunar; iOS ise `INS`, `DEL` ve bir rakam satırını açığa çıkaran bir `FN` tuşu sunar.
+- **Geri kaydırma boyutu:** 1.000, 5.000, 10.000 veya 50.000 satır (varsayılan 5.000). Yeni bölmelere uygulanır.
+- **Metin boyutu:** sıkıştırarak yakınlaştırmanın yanı sıra bir kaydırıcı.
+- **Tema:** uygulamanın tamamı için Sistem, Açık veya Koyu.
+
+Sıfırlama, bugünkü listeyi dondurmak yerine uygulamayla gelen varsayılanları geri getirir; böylece sonraki sürümlerin iyileştirmeleri size de ulaşır. Değişiklikler zaten açık olan bölmelere anında uygulanır.
 
 ## Kaydırma
 
@@ -105,6 +115,8 @@ Mobile SSH kaydırma hareketlerini terminal durumuna göre yönlendirir:
 - Normal kabuk çıktısında kaydırma, yerel geri kaydırma arabelleğini kaydırır.
 - Fare modlu terminal uygulamalarında kaydırma, fare tekerleği kaçış dizileri gönderir.
 - Fare modu olmayan alternatif ekran uygulamalarında, birçok tmux oturumu gibi, kaydırma tmux kopya moduna girer ve satır kaydırma komutları gönderir.
+
+Android'de, fare izleyen bir programın içindeki dokunuş o hücrede bir sol tıklama olarak iletilir; böylece htop, vim ve tıklayarak odaklanan bölmeler dokunuşa yanıt verir. iOS'ta aynı programda bir dokunuş tıklamak yerine klavyeyi açar; yalnızca tekerlek kaydırması bildirilir.
 
 Geriye kaydırılmışken yazarsanız Mobile SSH canlı terminal görünümüne döner.
 
@@ -139,19 +151,60 @@ Yöneticiden şunları yapabilirsiniz:
 
 🔔 simgesi, ajanı girdi bekleyen her oturumu işaretler; böylece duraklamış bir Claude Code veya Codex çalışmasını bir bakışta fark edip ona bağlanabilirsiniz. Bu, yukarıdaki reattach ipuçlarını tamamlar: reattach mantığı yeniden bağlanmada son oturumunuzu otomatik olarak geri yüklerken, yönetici size tam elle denetim sunar.
 
-## Agent alerts
+Her iki platform da aynı ana bilgisayarda birden çok tmux sunucusunu (soket) yönetebilir ve oturumları ada veya oluşturulma tarihine göre sıralayabilir.
 
-Mobile SSH, aktif oturumun terminal çıktısını izleyerek uzak bir aracın giriş beklediğini gösteren kalıpları arar. Bir eşleşme algılandığında — örneğin Claude Code veya Codex bir istem için duraksa — uygulama isteğe bağlı ses ve titreşimle bir bildirim gönderir.
+## Herdr ve Zellij (Android)
 
-Yapılandırmak için:
+Android aynı fikri iki çoğullayıcı için daha sunar. Her birinin kendi araç çubuğu simgesi vardır ve **bir simge yalnızca uygulama o programı sunucuda gerçekten bulduğunda belirir** — böylece araç çubuğu, siz `which` çalıştırmadan orada ne kurulu olduğunu söyler.
 
-1. Başlangıç ekranından **Settings** bölümünü açın.
-2. **Agent alerts** seçeneğini etkinleştirin.
-3. Bir bildirim sesi ve titreşim düzeni seçin.
+- **Herdr** kendi sözcük dağarcığını kullanır: oturumlar, çalışma alanları, sekmeler, bölmeler. Her bölme ajanının durumunu gösterir — çalışıyor, sizi bekliyor, boşta — ve takılmış bir ajan doğrudan listeden yanıtlanabilir. Herdr'in kendi durumu uygulamanın ajan rozetini besler, bu yüzden bu, sunucuya hiçbir kanca kurulmadan çalışır.
+- **Zellij** oturumları, sekmeleri ve bölmeleri bağlanma, yeniden adlandırma, sonlandırma ve bölme işlemleriyle listeler. Sonlandırılmış oturumlar listede kalır; böylece bağlanmak onları diriltir, silmek ise tamamen unutturur. Sekme ve bölme ayrıntısı Zellij 0.44 veya üzerini gerektirir; daha eski bir sürümde sayfa sekme adlarını gösterir ve nedenini açıklar. Bölmeler, oturuma bağlı bir istemci gerektirir ve sayfa bunu, başarısız olacak bir düğme sunmak yerine açıklar.
 
-Uyarı, kulaklık dahil o anda etkin olan ses çıkışından gelir; böylece video izlerken veya telefon kilitliyken bile duyabilirsiniz. Bildirim, Mobile SSH arka planda olsa bile görünür.
+Herdr veya Zellij kurulu ama giriş kabuğunun `PATH`'inde değilse sayfa bunu eklemeyi önerir.
 
-Agent alert kalıpları görünür terminal çıktısıyla eşleştirilir. Uzak aracınız tanınabilir bir istem satırı (kullanıcı adı, `?`, köşeli parantez içinde soru gibi) çıktılıyorsa uygulama bunu otomatik olarak yakalayabilir. Uyarılar çok sık veya hiç tetiklenmiyorsa Settings bölümünden hassasiyeti ayarlayın.
+Kaydedilen her sunucunun bir **Attach on connect** ayarı vardır: **Auto (detect)**, **Nothing**, **tmux**, **herdr** veya **Zellij**. Auto; önce o sunucuda en son kullandığınızı, sonra canlı oturumu olanı, sonra da kurulu olanı seçer — sunucuyu henüz yoklamadıysa tahmin yürütmek yerine hiçbir şeye bağlanmaz.
+
+iOS uygulaması bugün yalnızca tmux destekler.
+
+## Ajan uyarıları
+
+Mobile SSH, uzak bir yapay zeka kodlama ajanının — Claude Code, Codex, Gemini — sizi beklerken takıldığını size söyler. Bunu terminal çıktınızı okuyup tahmin ederek yapmaz. İki yol vardır ve farklı ayrıntı düzeylerinde çalışırlar.
+
+### Zil
+
+Kutudan çıktığı haliyle, izlemediğiniz bir oturumdan gelen terminal zili bir uyarı doğurur; birçok aracın zaten yaydığı masaüstü bildirim kaçış dizileri (OSC 9, OSC 777) de öyle. Siz bir şey yazdıktan hemen sonra gelen ziller yok sayılır, böylece sıradan kabuk tamamlama gürültüsü sizi rahatsız etmez.
+
+Bu hiçbir kurulum gerektirmez, ama uygulama yalnızca *bir şeyin* çaldığını bilir.
+
+### Ajan kancası
+
+Uygulamanın *hangi* ajanın beklediğini ve *ne yaptığını* bilmesi için sunucuya ajan kancasını kurun:
+
+- **iOS:** Settings → **Agent alerts** → **Install Agent Hook**. Birden çok sunucu bağlıysa hangisi olduğunu sorar.
+- **Android:** bir oturumun bölme başlığına uzun basın ve **Install agent hooks** seçeneğini seçin.
+
+Bu, o sunucuda `~/.mobile-ssh/agent-hook.sh` yoluna küçük bir kabuk betiği yazar. Ajandan bağımsızdır — herhangi bir sağlayıcının biçimini ayrıştırmak yerine komut satırı argümanları alır — bu yüzden komut çalıştırabilen her şey onun üzerinden bildirim yapabilir. Dosyayı silmek temiz bir kaldırma işlemidir.
+
+Bir ajan kanca üzerinden bildirim yapmaya başladığında:
+
+- Bölmenin başlığında `claude · sizi bekliyor` yazar ya da çalıştırdığı araç adlandırılır.
+- Ajanı takılmış olan bölme kehribar renginde bir kenarlık alır. Zaten baktığınız bölmeye dokunulmaz — istem zaten oradadır.
+- Araç çubuğundaki bir rozet, tüm bağlantılarda bekleyen ajanları sayar; en fazla `9+` gösterir.
+- **Agents** ekranı her bağlantıdaki her ajanı, ne yaptığı ve ne kadar süredir beklediğiyle birlikte listeler.
+
+### Yazmadan yanıtlama
+
+Bir ajan sabit bir yanıt kümesi olan bir soru sorduğunda uygulama, Ajanlar listesinde her seçenek için bir düğme gösterir — en fazla altı tane. Android'de ayrıca bir bölme başlığındaki ajan rozetine dokunabilirsiniz.
+
+Yanıtınız oturuma yazılmaz. Ayrı bir kanal üzerinden bir dosyaya yazılır ve kanca tarafından alınır; böylece yanıt vermek ekrandakini bozamaz. Uygulama, istemin gerçekte sunmadığı bir seçeneği göndermeyi reddeder ve bağlantı bu arada koptuysa sessizce başarısız olmak yerine size bunu açıkça söyler.
+
+### Ayarlar
+
+Uyarılar her iki platformda da varsayılan olarak açıktır; bildirim, ses, titreşim ve o an baktığınız oturumun da uyarı verip vermeyeceği için ayrı anahtarlar bulunur.
+
+Bilinmeye değer bir varsayılan var: **ses yalnızca kulaklıkla sınırlıdır**. Takılı veya eşleşmiş bir şey yoksa uyarı bildirir ve titreşir ama ses çalmaz. Uyarının telefon hoparlöründen duyulmasını istiyorsanız bunu kapatın.
+
+Hassasiyet ayarı ve ses seçici yoktur — denetimler açık/kapalıdır.
 
 ## Tam ekran terminal programları
 

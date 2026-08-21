@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Redirection de ports"
-description: "Syntaxe de redirection de ports local de Mobile SSH et gestion des tunnels sur Android et iOS."
+description: "Syntaxe de redirection de ports local de Mobile SSH, destinations IPv6 et activation des tunnels enregistrés sur Android et iOS."
 ---
 
 # Redirection de ports
@@ -49,9 +49,21 @@ Plusieurs redirections :
 
 L'application applique les redirections enregistrées une fois la session SSH établie.
 
-## Gérer les tunnels actifs
+## Les tunnels appartiennent au profil du serveur
 
-Une fois connecté, sélectionnez la session et ouvrez la vue des tunnels depuis la barre d'outils du terminal. De là, vous pouvez inspecter les redirections locales actives, ajouter un nouveau tunnel ou supprimer une redirection locale.
+Les redirections sont déclarées sur le serveur enregistré et activées quand ce serveur se connecte. Il n'existe pas d'écran séparé pour ajouter ou supprimer un tunnel en cours de session, sur aucune des deux plateformes : pour modifier vos redirections, modifiez le profil du serveur et reconnectez-vous.
+
+C'est un compromis délibéré — un tunnel qui vit dans le profil revient à chaque connexion, y compris après une reconnexion sur un nouveau réseau, sans que vous ayez à le reconstruire à la main.
+
+## Destinations IPv6
+
+Une destination IPv6 doit être entre crochets, pour que les deux-points ne soient pas confondus avec le séparateur de port :
+
+```text
+8080:[2001:db8::1]:80
+```
+
+Une adresse IPv6 nue, sans crochets, est rejetée comme ambiguë plutôt que mal interprétée en silence. La même forme entre crochets fonctionne dans le champ d'adresse d'un serveur, avec un port facultatif après elle (`[fe80::1]:22`).
 
 ## Liaison d'adresse
 
@@ -81,7 +93,7 @@ Accéder à une base de données interne joignable depuis le serveur SSH :
 
 ## Dépannage des tunnels
 
-- Assurez-vous que la session SSH est connectée avant d'ajouter des tunnels en cours d'exécution.
+- Assurez-vous que la session SSH est connectée — les redirections s'activent après la session.
 - Vérifiez que le port local n'est pas déjà utilisé.
 - Vérifiez que l'hôte et le port distants sont joignables depuis le serveur SSH.
 - Utilisez `localhost` lorsque le service de destination se trouve sur le serveur SSH lui-même.

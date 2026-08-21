@@ -17,7 +17,7 @@ Mobile SSH is an SSH client for Android and iOS for connecting to your own Linux
 
 ## Install the app
 
-- **Android:** install Mobile SSH from Google Play.
+- **Android:** Mobile SSH is currently a closed test on Google Play. Open the opt-in link in a mobile browser on the device — not inside the Google Play app, where the test may not be visible — and join with the Google account you will use. After that it installs and updates from Play like any other app.
 - **iOS:** the iOS app ships as a public beta on TestFlight. Install Apple's TestFlight app, then open the Mobile SSH invite link from the site's home page to install and receive updates.
 
 ## Connect to a server
@@ -62,7 +62,7 @@ Credential records are stored locally on the device — on iOS, secrets are kept
 
 ## Use private keys
 
-Mobile SSH supports pasted private keys and key import through the system file picker. On Android the app supports Ed25519, RSA, ECDSA, and DSA keys; on iOS it supports Ed25519 and ECDSA (P-256/384/521) keys.
+Mobile SSH supports pasted private keys and key import through the system file picker. On Android the app supports Ed25519, ECDSA (P-256/384/521), and RSA keys; on iOS it supports Ed25519 and ECDSA (P-256/384/521) keys. DSA (`ssh-dss`) is not supported on either platform. Both platforms can open a passphrase-encrypted key — enter the passphrase in the password/passphrase field.
 
 To use a private key:
 
@@ -73,13 +73,27 @@ To use a private key:
 
 Private key import uses the system file picker for key files. On Android, file transfer uses a separate local file browser and may request broader storage access on newer Android versions; on iOS, files come in through the system document and photo pickers.
 
-## Recent sessions
+## The home screen
 
-The start screen shows recent sessions at the top for quick access. A recent session can reconnect to the same server set. If the previous session is still active, Mobile SSH returns to it instead of starting a duplicate connection.
+The home screen is built to answer "what can I get back into?" rather than to open a blank connection form:
 
-## Search saved servers
+- **Continue** lists the connections that are live right now, with a pane count when a connection has more than one. Tapping a row takes you back to it.
+- **Tmux sessions** lists what is running on your saved servers. It is drawn from a snapshot the app already stored, so it appears instantly with no network at all — each row is stamped with the snapshot's age, and tapping one connects and attaches that session. Snapshots dim after a few hours and are dropped after a week.
+- On iOS a **Recent** list sits below these; the Android app dropped it, because "what can I get back into?" turned out to be the more useful question than "when did I last connect?".
 
-Tap the search field on the **Saved Servers** page to filter by name or host. The **+ Add Session** screen also opens with search so you can find and connect to a saved server in one step.
+If nothing is live and nothing is cached, the screen says so and points you at **Servers**.
+
+## Name and search saved servers
+
+A saved server can carry a name — "Home NAS", "Prod web" — and the list shows that instead of the address. The address comes back on its own whenever the name would be ambiguous: two rows sharing a name, or a search in progress, so you can always tell rows apart.
+
+Tap the search field on the **Saved Servers** page to filter. Search matches the name, the user, the host, the port, the credential, and any alternate addresses. The **+ Add Session** screen also opens with search so you can find and connect to a saved server in one step.
+
+Servers can be filed into folders. A folder collapses, remembers that it was collapsed, and can be reordered or renamed; deleting one moves its servers to **Ungrouped** rather than deleting them.
+
+## Export part of your setup
+
+**Export selected…** on the Servers and Credentials screens turns the list into a tick-box picker, so you can hand over three servers without exporting everything. Tapping a folder header takes the whole folder. Exports are encrypted if you give them a passphrase — without one, the file holds passwords and private keys in plain text, and the app says so before it writes.
 
 ## Active sessions
 
@@ -91,9 +105,11 @@ Going back to the start screen does not disconnect active SSH sessions; closing 
 
 Open **Settings** from the start screen (it has its own page):
 
-- Enable tap-to-show-keyboard if you prefer the keyboard to appear when tapping the terminal.
-- Enable **Agent alerts** if you run long background tasks (Claude Code, Codex, shell scripts) and want a sound or vibration notification when the agent needs your input.
-- Turn off anonymous usage analytics if you prefer no data to be sent.
+- Decide whether tapping the terminal raises the keyboard. The two platforms ship opposite defaults: on Android the keyboard appears only from the ⌨ button, on iOS a tap raises it.
+- Set the terminal **text size**, **font**, **color scheme**, and **scrollback** size, and pick an app **theme** (System, Light, or Dark).
+- Enable **Agent alerts** if you run long background tasks (Claude Code, Codex, shell scripts) and want to be told when the agent needs your input. See the **Terminal** guide for how agents report themselves.
+- On Android, **Keep sessions running in background** is on by default, so shells and agents survive swiping the app away.
+- On Android, turn off anonymous usage analytics if you prefer no data to be sent. The iOS app does not have that switch yet.
 
 ## Plugins
 
@@ -107,7 +123,9 @@ Plugins are fetched from a public catalog by default. If you maintain your own, 
 
 ## Languages
 
-Mobile SSH follows the system language. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages**, or on iOS from **Settings → General → Language & Region**, rather than from inside the app.
+Mobile SSH follows the system language by default. The app ships with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu — twenty languages on Android, which adds Nigerian Pidgin and Egyptian Arabic, and eighteen on iOS.
+
+If you want the app in a language other than the phone's, **Settings → Language** has a picker with a "System default" option. You can also still change it from Android **Settings → System → Languages** or iOS **Settings → General → Language & Region**.
 
 ## Security note
 

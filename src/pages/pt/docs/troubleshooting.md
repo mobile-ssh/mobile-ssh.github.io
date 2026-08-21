@@ -39,7 +39,7 @@ A importação de chave privada usa o seletor de arquivos do sistema. Se a impor
 - Confirme que o arquivo selecionado é uma chave privada, não um arquivo público `.pub`.
 - Abra o arquivo em um editor de texto confiável e verifique se ele contém o bloco completo da chave.
 - Tente colar a chave manualmente no campo de chave privada.
-- Confirme que o tipo de chave é suportado: Ed25519, RSA, ECDSA ou DSA no Android; Ed25519 ou ECDSA (P-256/384/521) no iOS.
+- Confirme que o tipo de chave é suportado: Ed25519, ECDSA (P-256/384/521) ou RSA no Android; Ed25519 ou ECDSA no iOS. DSA (`ssh-dss`) não funciona em nenhuma das duas, e o iOS não suporta RSA — gere uma chave Ed25519 no lugar.
 
 ## A entrada do teclado atrasa ou muda
 
@@ -65,17 +65,18 @@ Verifique:
 - Desative a otimização de bateria para o Mobile SSH se o seu aparelho interrompe agressivamente apps em segundo plano.
 - Mantenha o Wi-Fi ou os dados móveis estáveis durante sessões longas.
 - Reabra o Mobile SSH e toque em **Active Sessions** após desbloquear.
-- Se o servidor desconectou a sessão SSH, reconecte pelas sessões recentes.
+- Verifique se **Keep sessions running in background** está ativado nas Configurações, caso queira que as shells sobrevivam a fechar o app na lista de recentes.
+- Se o servidor desconectou a sessão SSH, reconecte pela tela inicial — **Continue** lista o que ainda está ativo e **Tmux sessions** lista o que está esperando no servidor.
 
 No iOS, o sistema suspende os apps em segundo plano, então uma conexão SSH pura não pode ser mantida aberta indefinidamente depois que você troca de app ou bloqueia a tela. Um curto período de tolerância cobre trocas rápidas de app; para qualquer coisa mais longa, ative **Auto-attach tmux session** no perfil do servidor (ou use o transporte **Eternal Terminal**) para que a reconexão devolva você ao mesmo shell onde parou.
 
 ## A transferência de arquivos não navega pelos arquivos do telefone
 
-Em versões mais novas do Android, a navegação de arquivos locais pode exigir acesso ao armazenamento. Conceda o acesso ao armazenamento nas Configurações do Android para o Mobile SSH e reabra a tela de transferência de arquivos.
+O Mobile SSH não pede nenhuma permissão de armazenamento no Android. Em vez disso, o painel local mostra uma pasta que você concede com o seletor de pastas do sistema — se ele estiver vazio, use **Pick folder** para escolher uma. A concessão continua valendo, então isso é uma etapa única.
 
-Se os arquivos remotos carregam mas os locais não, a conexão SSH provavelmente está bem e o problema é o acesso ao armazenamento local do Android.
+Se os arquivos remotos carregam mas os locais não, a conexão SSH está bem e você simplesmente ainda não concedeu nenhuma pasta.
 
-No iOS não há permissão de armazenamento: o painel local mostra a área de documentos do app, e você adiciona arquivos pelos seletores de documentos e fotos do sistema.
+No iOS, o painel local mostra a área de documentos do app, e você adiciona arquivos pelos seletores de documentos e fotos do sistema. Os downloads feitos ali também ficam visíveis no app Arquivos em **No meu iPhone**.
 
 ## Falha no upload ou download
 
@@ -100,6 +101,10 @@ Verifique:
 
 ## Logs de depuração
 
-A tela inicial inclui um botão **Debug**. Quando ativado, o Mobile SSH registra informações de diagnóstico sobre eventos do terminal, tamanhos de dados SSH, entrada por toque, comportamento de redimensionamento e ciclo de vida dos túneis. Pare a gravação para salvar um arquivo de depuração localmente.
+As duas plataformas registram coisas diferentes, então escolha a que corresponde ao seu problema.
 
-Revise os arquivos de depuração antes de compartilhá-los. Eles servem para solução de problemas e podem revelar nomes de servidores, tempos, comportamento do terminal ou outros detalhes do ambiente.
+**Android — terminal e renderização.** Ative **Settings → Debugging → Show Debug and Logs buttons** e depois use o botão **Debug** que aparece na tela inicial. Ele registra eventos do terminal, tamanhos de dados SSH, entrada por toque, comportamento de redimensionamento e ciclo de vida dos túneis. Ao iniciar uma gravação, ele avisa antes que isso captura cada tecla que você digita, senhas inclusive. Ao parar, ele grava um arquivo na sua pasta Downloads.
+
+**iOS — conexões e reconexões.** Ative **Settings → Diagnostics → Record debug log**. Ele registra cada endereço discado e por que ele falhou, tentativas de reconexão e o seu backoff, conexões perdidas, "peer stopped answering keepalives", mudanças de rede e comandos tmux com seus erros. As Configurações mostram uma contagem de linhas ao vivo, para você confirmar que está gravando, e **Export Debug Log** compartilha tudo como um arquivo de texto. Ele fica na memória e cobre apenas a sessão atual do app.
+
+Revise qualquer log ou arquivo de depuração antes de compartilhá-lo. Eles servem para solução de problemas e podem revelar nomes de servidores, endereços, tempos ou outros detalhes do ambiente — e, no Android, qualquer coisa que você tenha digitado.

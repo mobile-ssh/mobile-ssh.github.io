@@ -39,7 +39,7 @@ Private key import uses the system file picker. If import fails:
 - Confirm the selected file is a private key, not a public `.pub` file.
 - Open the file in a trusted text editor and verify it contains the full key block.
 - Try pasting the key manually into the private key field.
-- Confirm the key type is supported: Ed25519, RSA, ECDSA, or DSA on Android; Ed25519 or ECDSA (P-256/384/521) on iOS.
+- Confirm the key type is supported: Ed25519, ECDSA (P-256/384/521), or RSA on Android; Ed25519 or ECDSA on iOS. DSA (`ssh-dss`) works on neither, and iOS does not support RSA — generate an Ed25519 key instead.
 
 ## Keyboard input is delayed or changed
 
@@ -65,17 +65,18 @@ Check:
 - Disable battery optimization for Mobile SSH if your device aggressively stops background apps.
 - Keep Wi-Fi or mobile data stable during long sessions.
 - Reopen Mobile SSH and tap **Active Sessions** after unlocking.
-- If the server disconnected the SSH session, reconnect from recent sessions.
+- Check that **Keep sessions running in background** is on in Settings if you want shells to survive swiping the app away.
+- If the server disconnected the SSH session, reconnect from the home screen — **Continue** lists what is still live, and **Tmux sessions** lists what is waiting on the server.
 
 On iOS, the system suspends apps in the background, so a raw SSH connection cannot be kept open indefinitely once you switch away or lock the screen. A short grace period covers quick app switches; for anything longer, enable **Auto-attach tmux session** on the server profile (or use the **Eternal Terminal** transport) so reconnecting drops you back into the same shell where you left off.
 
 ## File transfer cannot browse phone files
 
-On newer Android versions, local file browsing may require storage access. Grant storage access in Android Settings for Mobile SSH, then reopen the file transfer screen.
+Mobile SSH asks for no storage permission on Android. Instead, the local pane shows one folder that you grant with the system folder picker — if it is empty, use **Pick folder** to choose one. The grant persists, so this is a one-time step.
 
-If remote files load but local files do not, the SSH connection is probably fine and the issue is local Android storage access.
+If remote files load but local files do not, the SSH connection is fine and you simply have no folder granted yet.
 
-On iOS there is no storage permission: the local pane shows the app's documents area, and you add files through the system document and photo pickers.
+On iOS the local pane shows the app's documents area, and you add files through the system document and photo pickers. Downloads there are also visible in the Files app under **On My iPhone**.
 
 ## Upload or download failed
 
@@ -100,6 +101,10 @@ Check:
 
 ## Debug logs
 
-The start screen includes a **Debug** button. When enabled, Mobile SSH records diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save a debug archive locally.
+The two platforms record different things, so pick the one that matches your problem.
 
-Review debug archives before sharing them. They are intended for troubleshooting and may reveal server names, timing, terminal behavior, or other environment details.
+**Android — terminal and rendering.** Enable **Settings → Debugging → Show Debug and Logs buttons**, then use the **Debug** button that appears on the start screen. It records terminal events, SSH data sizes, touch input, resize behaviour, and tunnel lifecycle. Starting a recording warns you first that it captures every key you type, passwords included. Stopping it writes an archive to your Downloads folder.
+
+**iOS — connections and reconnects.** Turn on **Settings → Diagnostics → Record debug log**. It records each address dialled and why it failed, reconnect attempts and their backoff, dropped connections, "peer stopped answering keepalives", network changes, and tmux commands with their errors. Settings shows a live line count so you can confirm it is recording, and **Export Debug Log** shares it as a text file. It is held in memory and covers the current app session only.
+
+Review any debug log or archive before sharing it. They are intended for troubleshooting and may reveal server names, addresses, timing, or other environment details — and on Android, anything you typed.

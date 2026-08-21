@@ -39,7 +39,7 @@ Private key import dey use di system file picker. If import fail:
 - Confirm say di file wey you select na private key, no be public `.pub` file.
 - Open di file for trusted text editor and verify say e get di full key block.
 - Try paste di key by hand inside di private key field.
-- Confirm say di key type dey supported: Ed25519, RSA, ECDSA, or DSA for Android; Ed25519 or ECDSA (P-256/384/521) for iOS.
+- Confirm say di key type dey supported: Ed25519, ECDSA (P-256/384/521), or RSA for Android; Ed25519 or ECDSA for iOS. DSA (`ssh-dss`) no dey work for any of dem, and iOS no dey support RSA — generate Ed25519 key instead.
 
 ## Keyboard input dey delay or dey change
 
@@ -65,17 +65,18 @@ Check:
 - Disable battery optimization for Mobile SSH if your device dey aggressively kill background apps.
 - Keep Wi-Fi or mobile data stable during long sessions.
 - Reopen Mobile SSH and tap **Active Sessions** after you unlock di screen.
-- If di server don already disconnect di SSH session, reconnect from recent sessions.
+- Check say **Keep sessions running in background** dey on for Settings if you want make shell survive wen you swipe di app comot.
+- If di server don already disconnect di SSH session, reconnect from di home screen — **Continue** dey list wetin still dey live, and **Tmux sessions** dey list wetin dey wait for di server.
 
 For iOS, di system dey suspend apps for background, so raw SSH connection no fit stay open forever once you switch comot or lock di screen. Short grace period dey cover quick app switches; for anything wey long pass dat, enable **Auto-attach tmux session** for di server profile (or use di **Eternal Terminal** transport) so when you reconnect, e go drop you back inside di same shell where you stop.
 
 ## File transfer no fit browse phone files
 
-For newer Android versions, local file browsing fit require storage access. Grant storage access for Android Settings for Mobile SSH, then reopen di file transfer screen.
+Mobile SSH no dey ask for any storage permission for Android. Instead, di local pane dey show one folder wey you grant wit di system folder picker — if e empty, use **Pick folder** to choose one. Di grant dey persist, so na one-time step.
 
-If remote files dey load but local files no dey load, di SSH connection probably dey fine and di problem na local Android storage access.
+If remote files dey load but local files no dey load, di SSH connection dey fine and na say you never grant any folder.
 
-For iOS, storage permission no dey: di local pane dey show di app own documents area, and you dey add files through di system document and photo pickers.
+For iOS, di local pane dey show di app own documents area, and you dey add files through di system document and photo pickers. Download wey dey dia dey also show inside di Files app under **On My iPhone**.
 
 ## Upload or download fail
 
@@ -100,6 +101,10 @@ Check:
 
 ## Debug logs
 
-Di start screen get **Debug** button. When e dey enabled, Mobile SSH dey record diagnostic information for terminal events, SSH data sizes, touch input, resize behavior, and tunnel lifecycle. Stop recording to save di debug archive for your device.
+Di two platforms dey record different thing, so pick di one wey match your problem.
 
-Review debug archives before you share dem. Dem na for troubleshooting and dem fit reveal server names, timing, terminal behavior, or other environment details.
+**Android — terminal and rendering.** Enable **Settings → Debugging → Show Debug and Logs buttons**, then use di **Debug** button wey go show for di start screen. E dey record terminal event, SSH data size, touch input, resize behaviour, and tunnel lifecycle. Wen you start recording e go first warn you say e dey capture every key wey you type, password join. Wen you stop am, e dey write archive enter your Downloads folder.
+
+**iOS — connection and reconnect.** Turn on **Settings → Diagnostics → Record debug log**. E dey record each address wey e dial and why e fail, reconnect try and dem backoff, connection wey drop, "peer stopped answering keepalives", network change, and tmux command wit dem error. Settings dey show live line count so you fit confirm say e dey record, and **Export Debug Log** dey share am as text file. E dey hold am for memory and e dey cover only di current app session.
+
+Review any debug log or archive before you share am. Dem na for troubleshooting and dem fit reveal server names, addresses, timing, or other environment details — and for Android, anything wey you type.

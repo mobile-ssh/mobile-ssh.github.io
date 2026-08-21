@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/DocLayout.astro
 title: Port forwarding
-description: Mobile SSH local port forwarding syntax and tunnel management on Android and iOS.
+description: Mobile SSH local port forwarding syntax, IPv6 destinations, and how saved tunnels come up on Android and iOS.
 ---
 
 # Port forwarding
@@ -49,9 +49,21 @@ Multiple forwards:
 
 The app applies saved forwards after the SSH session connects.
 
-## Manage active tunnels
+## Tunnels belong to the server profile
 
-While connected, select the session and open the tunnel view from the terminal toolbar. From there you can inspect active local forwards, add a new tunnel, or remove a local forward.
+Forwards are declared on the saved server and brought up when that server connects. There is no separate screen for adding or removing a tunnel mid-session on either platform: to change your forwards, edit the server profile and reconnect.
+
+This is a deliberate trade — a tunnel that lives in the profile comes back every time you connect, including after a reconnect on a new network, without you rebuilding it by hand.
+
+## IPv6 destinations
+
+An IPv6 destination must be bracketed so the colons cannot be confused with the port separator:
+
+```text
+8080:[2001:db8::1]:80
+```
+
+A bare, unbracketed IPv6 address is rejected as ambiguous rather than silently misread. The same bracket form works in a server's address field, with an optional port after it (`[fe80::1]:22`).
 
 ## Address binding
 
@@ -81,7 +93,7 @@ Access an internal database reachable from the SSH server:
 
 ## Troubleshooting tunnels
 
-- Make sure the SSH session is connected before adding runtime tunnels.
+- Make sure the SSH session is connected — forwards come up after the session does.
 - Check that the local port is not already in use.
 - Check that the remote host and port are reachable from the SSH server.
 - Use `localhost` when the destination service is on the SSH server itself.

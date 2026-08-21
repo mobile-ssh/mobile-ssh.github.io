@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Encaminhamento de portas"
-description: "Sintaxe de encaminhamento de portas local do Mobile SSH e gerenciamento de túneis no Android e no iOS."
+description: "Sintaxe de encaminhamento de portas local do Mobile SSH, destinos IPv6 e como os túneis salvos sobem no Android e no iOS."
 ---
 
 # Encaminhamento de portas
@@ -49,9 +49,21 @@ Vários encaminhamentos:
 
 O app aplica os encaminhamentos salvos após a sessão SSH ser estabelecida.
 
-## Gerenciar túneis ativos
+## Os túneis pertencem ao perfil do servidor
 
-Com a sessão conectada, selecione a sessão e abra a visualização de túneis na barra de ferramentas do terminal. A partir daí você pode inspecionar os encaminhamentos locais ativos, adicionar um novo túnel ou remover um encaminhamento local.
+Os encaminhamentos são declarados no servidor salvo e ativados quando aquele servidor conecta. Não existe uma tela separada para adicionar ou remover um túnel no meio da sessão em nenhuma das plataformas: para mudar os seus encaminhamentos, edite o perfil do servidor e reconecte.
+
+Essa é uma troca deliberada — um túnel que vive no perfil volta toda vez que você conecta, inclusive depois de uma reconexão em uma nova rede, sem que você precise reconstruí-lo à mão.
+
+## Destinos IPv6
+
+Um destino IPv6 precisa vir entre colchetes, para que os dois-pontos não se confundam com o separador de porta:
+
+```text
+8080:[2001:db8::1]:80
+```
+
+Um endereço IPv6 sem colchetes é rejeitado como ambíguo, em vez de ser lido errado em silêncio. A mesma forma com colchetes funciona no campo de endereço de um servidor, com uma porta opcional depois dela (`[fe80::1]:22`).
 
 ## Vinculação de endereço
 
@@ -81,7 +93,7 @@ Acessar um banco de dados interno alcançável a partir do servidor SSH:
 
 ## Solução de problemas de túneis
 
-- Verifique se a sessão SSH está conectada antes de adicionar túneis em tempo de execução.
+- Verifique se a sessão SSH está conectada — os encaminhamentos sobem depois que a sessão sobe.
 - Verifique se a porta local não está sendo usada por outro processo.
 - Verifique se o host e a porta remotos são alcançáveis a partir do servidor SSH.
 - Use `localhost` quando o serviço de destino estiver no próprio servidor SSH.

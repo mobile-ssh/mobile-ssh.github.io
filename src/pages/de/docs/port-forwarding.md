@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Portweiterleitung"
-description: "Syntax der lokalen Portweiterleitung von Mobile SSH und Tunnelverwaltung auf Android und iOS."
+description: "Syntax der lokalen Portweiterleitung von Mobile SSH, IPv6-Ziele und wie gespeicherte Tunnel auf Android und iOS hochkommen."
 ---
 
 # Portweiterleitung
@@ -49,9 +49,21 @@ Mehrere Weiterleitungen:
 
 Die App wendet gespeicherte Weiterleitungen an, nachdem die SSH-Sitzung verbunden ist.
 
-## Aktive Tunnel verwalten
+## Tunnel gehören zum Serverprofil
 
-Wähle im verbundenen Zustand die Sitzung aus und öffne die Tunnelansicht über die Terminal-Symbolleiste. Von dort kannst du aktive lokale Weiterleitungen einsehen, einen neuen Tunnel hinzufügen oder eine lokale Weiterleitung entfernen.
+Weiterleitungen werden am gespeicherten Server hinterlegt und aufgebaut, sobald sich dieser Server verbindet. Auf keiner der beiden Plattformen gibt es einen eigenen Bildschirm, um einen Tunnel mitten in der Sitzung hinzuzufügen oder zu entfernen: Um deine Weiterleitungen zu ändern, bearbeite das Serverprofil und verbinde dich neu.
+
+Das ist ein bewusster Handel – ein Tunnel, der im Profil steht, kommt bei jeder Verbindung wieder, auch nach einem Reconnect in einem neuen Netzwerk, ohne dass du ihn von Hand neu aufbaust.
+
+## IPv6-Ziele
+
+Ein IPv6-Ziel muss in eckigen Klammern stehen, damit die Doppelpunkte nicht mit dem Port-Trennzeichen verwechselt werden:
+
+```text
+8080:[2001:db8::1]:80
+```
+
+Eine nackte IPv6-Adresse ohne Klammern wird als mehrdeutig zurückgewiesen, statt stillschweigend falsch gelesen zu werden. Dieselbe Klammerform funktioniert im Adressfeld eines Servers, mit optionalem Port dahinter (`[fe80::1]:22`).
 
 ## Adressbindung
 
@@ -81,7 +93,7 @@ Zugriff auf eine interne Datenbank, die vom SSH-Server aus erreichbar ist:
 
 ## Tunnelprobleme beheben
 
-- Stelle sicher, dass die SSH-Sitzung verbunden ist, bevor du Tunnel zur Laufzeit hinzufügst.
+- Stelle sicher, dass die SSH-Sitzung verbunden ist – die Weiterleitungen kommen erst nach der Sitzung hoch.
 - Prüfe, ob der lokale Port nicht bereits belegt ist.
 - Prüfe, ob der entfernte Host und Port vom SSH-Server aus erreichbar sind.
 - Verwende `localhost`, wenn der Zieldienst auf dem SSH-Server selbst läuft.

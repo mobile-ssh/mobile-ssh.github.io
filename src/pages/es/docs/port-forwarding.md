@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Reenvío de puertos"
-description: "Sintaxis de reenvío de puertos local de Mobile SSH y gestión de túneles en Android e iOS."
+description: "Sintaxis de reenvío de puertos local de Mobile SSH, destinos IPv6 y cómo se levantan los túneles guardados en Android e iOS."
 ---
 
 # Reenvío de puertos
@@ -49,9 +49,21 @@ Varios reenvíos:
 
 La app aplica los reenvíos guardados después de que la sesión SSH se conecta.
 
-## Gestionar túneles activos
+## Los túneles pertenecen al perfil del servidor
 
-Mientras estás conectado, selecciona la sesión y abre la vista de túneles desde la barra de herramientas de la terminal. Desde ahí puedes inspeccionar los reenvíos locales activos, agregar un túnel nuevo o quitar un reenvío local.
+Los reenvíos se declaran en el servidor guardado y se levantan cuando ese servidor se conecta. No hay una pantalla aparte para agregar o quitar un túnel a mitad de sesión en ninguna de las dos plataformas: para cambiar tus reenvíos, edita el perfil del servidor y vuelve a conectar.
+
+Es un compromiso deliberado — un túnel que vive en el perfil vuelve cada vez que te conectas, incluso tras una reconexión en una red nueva, sin que tengas que rehacerlo a mano.
+
+## Destinos IPv6
+
+Un destino IPv6 debe ir entre corchetes para que los dos puntos no puedan confundirse con el separador de puerto:
+
+```text
+8080:[2001:db8::1]:80
+```
+
+Una dirección IPv6 desnuda, sin corchetes, se rechaza por ambigua en lugar de interpretarse mal en silencio. La misma forma con corchetes funciona en el campo de dirección de un servidor, con un puerto opcional detrás (`[fe80::1]:22`).
 
 ## Vinculación de dirección
 
@@ -81,7 +93,7 @@ Acceder a una base de datos interna accesible desde el servidor SSH:
 
 ## Solución de problemas de túneles
 
-- Asegúrate de que la sesión SSH esté conectada antes de agregar túneles en tiempo de ejecución.
+- Asegúrate de que la sesión SSH esté conectada — los reenvíos se levantan después de que lo haga la sesión.
 - Comprueba que el puerto local no esté ya en uso.
 - Comprueba que el host y el puerto remotos sean accesibles desde el servidor SSH.
 - Usa `localhost` cuando el servicio de destino esté en el propio servidor SSH.

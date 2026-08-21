@@ -17,7 +17,7 @@ Mobile SSH, kendi Linux, Unix, ağ, IoT veya geliştirme sunucularınıza bağla
 
 ## Uygulamayı yükleme
 
-- **Android:** Mobile SSH'yi Google Play'den yükleyin.
+- **Android:** Mobile SSH şu anda Google Play'de kapalı bir test olarak sunuluyor. Katılım bağlantısını cihazdaki bir mobil tarayıcıda açın — testin görünmeyebileceği Google Play uygulamasının içinde değil — ve kullanacağınız Google hesabıyla katılın. Bundan sonra diğer uygulamalar gibi Play üzerinden kurulur ve güncellenir.
 - **iOS:** iOS uygulaması TestFlight'ta herkese açık beta olarak sunulur. Apple'ın TestFlight uygulamasını yükleyin, ardından uygulamayı yüklemek ve güncellemeleri almak için sitenin ana sayfasındaki Mobile SSH davet bağlantısını açın.
 
 ## Bir sunucuya bağlanma
@@ -62,7 +62,7 @@ Kimlik bilgisi kayıtları cihazda yerel olarak saklanır — iOS'ta gizli veril
 
 ## Özel anahtarları kullanma
 
-Mobile SSH, yapıştırılan özel anahtarları ve sistem dosya seçicisi aracılığıyla anahtar içe aktarmayı destekler. Android'de uygulama Ed25519, RSA, ECDSA ve DSA anahtarlarını destekler; iOS'ta Ed25519 ve ECDSA (P-256/384/521) anahtarlarını destekler.
+Mobile SSH, yapıştırılan özel anahtarları ve sistem dosya seçicisi aracılığıyla anahtar içe aktarmayı destekler. Android'de uygulama Ed25519, ECDSA (P-256/384/521) ve RSA anahtarlarını destekler; iOS'ta Ed25519 ve ECDSA (P-256/384/521) anahtarlarını destekler. DSA (`ssh-dss`) hiçbir platformda desteklenmez. Her iki platform da parola tümcesiyle şifrelenmiş bir anahtarı açabilir — parola tümcesini parola/parola tümcesi alanına girin.
 
 Bir özel anahtar kullanmak için:
 
@@ -73,13 +73,27 @@ Bir özel anahtar kullanmak için:
 
 Özel anahtar içe aktarma işlemi, anahtar dosyaları için sistem dosya seçicisini kullanır. Android'de dosya aktarımı ayrı bir yerel dosya tarayıcısı kullanır ve daha yeni Android sürümlerinde daha geniş depolama erişimi isteyebilir; iOS'ta dosyalar sistemin belge ve fotoğraf seçicileri aracılığıyla gelir.
 
-## Son oturumlar
+## Ana ekran
 
-Başlangıç ekranı son oturumları gösterir. Son bir oturum aynı sunucu kümesine yeniden bağlanabilir. Önceki oturum hâlâ etkinse Mobile SSH yinelenen bir bağlantı başlatmak yerine mevcut oturuma döner.
+Ana ekran, boş bir bağlantı formu açmak yerine "neye geri dönebilirim?" sorusunu yanıtlamak üzere kurulmuştur:
 
-## Kayıtlı sunucularda arama
+- **Continue**, şu anda canlı olan bağlantıları listeler; bir bağlantının birden çok bölmesi varsa bölme sayısını da gösterir. Bir satıra dokunmak sizi oraya geri götürür.
+- **Tmux sessions**, kayıtlı sunucularınızda çalışanları listeler. Uygulamanın önceden sakladığı bir anlık görüntüden çizilir, bu yüzden hiç ağ olmadan bile anında görünür — her satırda anlık görüntünün yaşı yazar ve birine dokunmak bağlanıp o oturuma ekler. Anlık görüntüler birkaç saat sonra soluklaşır ve bir hafta sonra atılır.
+- iOS'ta bunların altında bir **Recent** listesi bulunur; Android uygulaması bunu kaldırdı, çünkü "neye geri dönebilirim?" sorusu "en son ne zaman bağlandım?" sorusundan daha yararlı çıktı.
 
-**Saved Servers** sayfasındaki arama alanına dokunarak ada veya ana bilgisayara göre filtreleme yapabilirsiniz. **+ Add Session** ekranı da arama özelliğiyle açılır; böylece kayıtlı bir sunucuyu tek adımda bulup bağlanabilirsiniz.
+Hiçbir şey canlı değilse ve önbellekte de bir şey yoksa ekran bunu söyler ve sizi **Servers** bölümüne yönlendirir.
+
+## Kayıtlı sunucuları adlandırma ve arama
+
+Kayıtlı bir sunucu bir ad taşıyabilir — "Ev NAS", "Prod web" — ve liste adres yerine bu adı gösterir. Ad belirsiz kalacak olduğunda adres kendiliğinden geri döner: aynı adı paylaşan iki satır ya da süren bir arama gibi durumlarda; böylece satırları her zaman birbirinden ayırabilirsiniz.
+
+Filtrelemek için **Saved Servers** sayfasındaki arama alanına dokunun. Arama; adı, kullanıcıyı, ana bilgisayarı, portu, kimlik bilgisini ve tüm alternatif adresleri eşleştirir. **+ Add Session** ekranı da arama özelliğiyle açılır; böylece kayıtlı bir sunucuyu tek adımda bulup bağlanabilirsiniz.
+
+Sunucular klasörlere ayrılabilir. Bir klasör daraltılabilir, daraltıldığını hatırlar, yeniden sıralanabilir veya yeniden adlandırılabilir; bir klasörü silmek içindeki sunucuları silmek yerine **Ungrouped** altına taşır.
+
+## Kurulumunuzun bir bölümünü dışa aktarma
+
+Servers ve Credentials ekranlarındaki **Export selected…**, listeyi onay kutulu bir seçiciye dönüştürür; böylece her şeyi dışa aktarmadan yalnızca üç sunucuyu paylaşabilirsiniz. Bir klasör başlığına dokunmak klasörün tamamını alır. Bir parola tümcesi verirseniz dışa aktarımlar şifrelenir — vermezseniz dosya parolaları ve özel anahtarları düz metin olarak tutar ve uygulama yazmadan önce bunu söyler.
 
 ## Etkin oturumlar
 
@@ -91,9 +105,11 @@ Başlangıç ekranına dönmek etkin SSH oturumlarını kesmez; bölmeleri kapat
 
 Başlangıç ekranından **Settings** sayfasını açın (kendi sayfası vardır):
 
-- Terminale dokunulduğunda klavyenin görünmesini istiyorsanız "dokununca klavyeyi göster" seçeneğini etkinleştirin.
-- Arka planda uzun süren görevler (Claude Code, Codex, kabuk betikleri) çalıştırıyorsanız ve ajanın girdinize ihtiyaç duyduğunda ses veya titreşim bildirimi almak istiyorsanız **Agent alerts** seçeneğini etkinleştirin.
-- Herhangi bir veri gönderilmesini istemiyorsanız anonim kullanım analitiğini kapatın.
+- Terminale dokunmanın klavyeyi açıp açmayacağına karar verin. İki platform zıt varsayılanlarla gelir: Android'de klavye yalnızca ⌨ düğmesinden açılır, iOS'ta ise bir dokunuş klavyeyi açar.
+- Terminalin **metin boyutunu**, **yazı tipini**, **renk şemasını** ve **geri kaydırma** boyutunu ayarlayın ve bir uygulama **teması** seçin (Sistem, Açık veya Koyu).
+- Arka planda uzun süren görevler (Claude Code, Codex, kabuk betikleri) çalıştırıyorsanız ve ajanın girdinize ihtiyaç duyduğunda haberdar olmak istiyorsanız **Agent alerts** seçeneğini etkinleştirin. Ajanların kendilerini nasıl bildirdiği için **Terminal** kılavuzuna bakın.
+- Android'de **Keep sessions running in background** varsayılan olarak açıktır; böylece uygulamayı kaydırıp kapatsanız bile kabuklar ve ajanlar çalışmayı sürdürür.
+- Android'de, herhangi bir veri gönderilmesini istemiyorsanız anonim kullanım analitiğini kapatın. iOS uygulamasında bu anahtar henüz yok.
 
 ## Eklentiler
 
@@ -107,7 +123,9 @@ Eklentiler varsayılan olarak herkese açık bir katalogdan alınır. Kendi kata
 
 ## Diller
 
-Mobile SSH, sistem dilini izler. Uygulama Arapça, Bengalce, Çince (Basitleştirilmiş ve Geleneksel), İngilizce, Fransızca, Almanca, Hintçe, Endonezce, Japonca, Marathi, Nijerya Pidgin'i, Portekizce, Rusça, İspanyolca, Tamilce, Telugu, Türkçe ve Urduca çevirileriyle birlikte gelir. Dili uygulama içinden değil, Android **Ayarlar → Sistem → Diller** bölümünden ya da iOS'ta **Ayarlar → Genel → Dil ve Bölge** bölümünden değiştirin.
+Mobile SSH varsayılan olarak sistem dilini izler. Uygulama Arapça, Bengalce, Çince (Basitleştirilmiş ve Geleneksel), İngilizce, Fransızca, Almanca, Hintçe, Endonezce, Japonca, Marathi, Portekizce, Rusça, İspanyolca, Tamilce, Telugu, Türkçe ve Urduca çevirileriyle birlikte gelir — Android'de yirmi dil (Nijerya Pidgin'i ve Mısır Arapçası da eklenir), iOS'ta on sekiz dil.
+
+Uygulamayı telefonunkinden başka bir dilde kullanmak isterseniz **Ayarlar → Dil** bölümünde "Sistem varsayılanı" seçeneği olan bir seçici bulunur. Dili yine Android **Ayarlar → Sistem → Diller** ya da iOS **Ayarlar → Genel → Dil ve Bölge** bölümünden de değiştirebilirsiniz.
 
 ## Güvenlik notu
 

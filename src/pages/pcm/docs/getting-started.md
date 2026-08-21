@@ -17,7 +17,7 @@ Mobile SSH na SSH client for Android and iOS wey you fit use connect to your own
 
 ## Install di app
 
-- **Android:** install Mobile SSH from Google Play.
+- **Android:** Mobile SSH na closed test for Google Play right now. Open di opt-in link inside mobile browser for di device — no be inside di Google Play app, where di test fit no dey visible — and join wit di Google account wey you go use. After dat, e go install and dey update from Play like any oda app.
 - **iOS:** di iOS app dey come as public beta for TestFlight. Install Apple TestFlight app, then open di Mobile SSH invite link from di site home page to install am and dey receive updates.
 
 ## Connect to one server
@@ -55,7 +55,7 @@ Credential records dey store local for di device — for iOS, di secrets dey sta
 
 ## Use private keys
 
-Mobile SSH dey support pasted private keys and key import through di system file picker. For Android di app dey support Ed25519, RSA, ECDSA, and DSA keys; for iOS e dey support Ed25519 and ECDSA (P-256/384/521) keys.
+Mobile SSH dey support pasted private keys and key import through di system file picker. For Android di app dey support Ed25519, ECDSA (P-256/384/521), and RSA keys; for iOS e dey support Ed25519 and ECDSA (P-256/384/521) keys. DSA (`ssh-dss`) no dey supported for any of di two platforms. Di two platforms fit open key wey passphrase don encrypt — enter di passphrase for di password/passphrase field.
 
 To use private key:
 
@@ -66,13 +66,27 @@ To use private key:
 
 Private key import dey use di system file picker for key files. For Android, file transfer dey use separate local file browser and fit request wider storage access for newer Android versions; for iOS, files dey enter through di system document and photo pickers.
 
-## Recent sessions
+## Di home screen
 
-Di start screen dey show recent sessions. One recent session fit reconnect to di same server set. If di previous session still dey active, Mobile SSH go return to am instead of starting duplicate connection.
+Dem build di home screen make e answer "wetin I fit enter back?" instead of opening empty connection form:
 
-## Search saved servers
+- **Continue** dey list di connections wey dey live right now, wit pane count wen one connection get pass one. If you tap one row e go carry you back go dia.
+- **Tmux sessions** dey list wetin dey run for your saved servers. E dey come from snapshot wey di app don already store, so e dey show sharp-sharp even wen no network dey at all — each row carry di age of di snapshot, and if you tap one e go connect and attach dat session. Snapshot dey dim after some hours and dem dey drop am after one week.
+- For iOS, **Recent** list dey sit under dis two; di Android app comot am, because "wetin I fit enter back?" na di question wey helep pass "wen I last connect?".
 
-Tap di search field for di **Saved Servers** page to filter by name or host. Di **+ Add Session** screen also dey open with search so you fit find and connect to one saved server in one step.
+If nothing dey live and nothing dey cached, di screen go tell you so and point you go **Servers**.
+
+## Name and search saved servers
+
+Saved server fit carry name — "Home NAS", "Prod web" — and di list go show dat one instead of di address. Di address dey come back by imsef wenever di name go confuse person: two rows wey share di same name, or search wey dey go on, so you fit always tell di rows apart.
+
+Tap di search field for di **Saved Servers** page to filter. Search dey match di name, di user, di host, di port, di credential, and any alternate address. Di **+ Add Session** screen also dey open with search so you fit find and connect to one saved server in one step.
+
+You fit file servers enter folder. Folder fit collapse, e dey remember say e collapse, and you fit reorder or rename am; if you delete one, im servers dey move go **Ungrouped**, dem no dey delete dem.
+
+## Export part of your setup
+
+**Export selected…** for di Servers and Credentials screens dey turn di list to tick-box picker, so you fit hand over three servers witout exporting everything. Wen you tap folder header e go carry di whole folder. Export dey encrypted if you give am passphrase — witout one, di file dey hold password and private key as plain text, and di app go tell you so before e write am.
 
 ## Active sessions
 
@@ -84,13 +98,17 @@ Going back to di start screen no go disconnect active SSH sessions; na only wen 
 
 Open **Settings** from di start screen (e get im own page):
 
-- Enable tap-to-show-keyboard if you prefer make di keyboard show wen you tap di terminal.
-- Enable **Agent alerts** if you dey run long background tasks (Claude Code, Codex, shell scripts) and you wan receive sound or vibration notification wen di agent need your input.
-- Turn off anonymous usage analytics if you prefer say no data go dey sent.
+- Decide whether tapping di terminal go raise di keyboard. Di two platforms ship opposite default: for Android di keyboard dey show only from di ⌨ button, for iOS one tap dey raise am.
+- Set di terminal **text size**, **font**, **color scheme**, and **scrollback** size, and pick app **theme** (System, Light, or Dark).
+- Enable **Agent alerts** if you dey run long background tasks (Claude Code, Codex, shell scripts) and you wan make dem tell you wen di agent need your input. Check di **Terminal** guide to see how agents dey report demsef.
+- For Android, **Keep sessions running in background** dey on by default, so shell and agent dey survive wen you swipe di app comot.
+- For Android, turn off anonymous usage analytics if you prefer say no data go dey sent. Di iOS app never get dat switch yet.
 
 ## Languages
 
-Mobile SSH dey follow di system language. Di app dey ship with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu. Change languages from Android **Settings → System → Languages**, or for iOS from **Settings → General → Language & Region**, instead of from inside di app.
+Mobile SSH dey follow di system language by default. Di app dey ship with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu — twenty language for Android, wey add Nigerian Pidgin and Egyptian Arabic, and eighteen for iOS.
+
+If you want di app for language wey no be di phone own, **Settings → Language** get picker wit "System default" option. You fit still change am from Android **Settings → System → Languages** or iOS **Settings → General → Language & Region**.
 
 ## Security note
 

@@ -39,7 +39,7 @@ Der Import des privaten Schlüssels nutzt die Dateiauswahl des Systems. Wenn der
 - Bestätige, dass die ausgewählte Datei ein privater Schlüssel ist und keine öffentliche `.pub`-Datei.
 - Öffne die Datei in einem vertrauenswürdigen Texteditor und prüfe, dass sie den vollständigen Schlüsselblock enthält.
 - Versuche, den Schlüssel manuell in das Feld für den privaten Schlüssel einzufügen.
-- Bestätige, dass der Schlüsseltyp unterstützt wird: Ed25519, RSA, ECDSA oder DSA auf Android; Ed25519 oder ECDSA (P-256/384/521) auf iOS.
+- Bestätige, dass der Schlüsseltyp unterstützt wird: Ed25519, ECDSA (P-256/384/521) oder RSA auf Android; Ed25519 oder ECDSA auf iOS. DSA (`ssh-dss`) funktioniert auf keiner von beiden, und iOS unterstützt kein RSA — erzeuge stattdessen einen Ed25519-Schlüssel.
 
 ## Tastatureingabe verzögert sich oder ändert sich
 
@@ -65,17 +65,18 @@ Prüfe:
 - Deaktiviere die Akku-Optimierung für Mobile SSH, wenn dein Gerät Hintergrund-Apps aggressiv stoppt.
 - Halte WLAN oder mobile Daten während langer Sitzungen stabil.
 - Öffne Mobile SSH erneut und tippe nach dem Entsperren auf **Active Sessions**.
-- Wenn der Server die SSH-Sitzung getrennt hat, verbinde dich erneut über die letzten Sitzungen.
+- Prüfe, ob **Sitzungen im Hintergrund weiterlaufen lassen** in den Einstellungen aktiv ist, wenn Shells das Wegwischen der App überstehen sollen.
+- Wenn der Server die SSH-Sitzung getrennt hat, verbinde dich erneut vom Startbildschirm aus — **Continue** listet auf, was noch läuft, und **Tmux sessions** listet auf, was auf dem Server wartet.
 
 Auf iOS hält das System Apps im Hintergrund an, daher kann eine reine SSH-Verbindung nicht unbegrenzt offen bleiben, sobald du zu einer anderen App wechselst oder den Bildschirm sperrst. Eine kurze Karenzzeit deckt schnelle App-Wechsel ab; für alles Längere aktiviere **Auto-attach tmux session** im Serverprofil (oder nutze den **Eternal Terminal**-Transport), damit du beim erneuten Verbinden wieder in derselben Shell landest, in der du aufgehört hast.
 
 ## Dateiübertragung kann Telefondateien nicht durchsuchen
 
-Auf neueren Android-Versionen kann das Durchsuchen lokaler Dateien Speicherzugriff erfordern. Erteile den Speicherzugriff in den Android-Einstellungen für Mobile SSH und öffne den Dateiübertragungsbildschirm erneut.
+Mobile SSH fordert auf Android keine Speicherberechtigung an. Stattdessen zeigt der lokale Bereich genau einen Ordner, den du mit der Ordnerauswahl des Systems freigibst — ist er leer, wähle mit **Pick folder** einen aus. Die Freigabe bleibt bestehen, das ist also ein einmaliger Schritt.
 
-Wenn entfernte Dateien laden, lokale aber nicht, ist die SSH-Verbindung wahrscheinlich in Ordnung und das Problem liegt beim lokalen Android-Speicherzugriff.
+Wenn entfernte Dateien laden, lokale aber nicht, ist die SSH-Verbindung in Ordnung und du hast schlicht noch keinen Ordner freigegeben.
 
-Auf iOS gibt es keine Speicherberechtigung: Der lokale Bereich zeigt den Dokumentenbereich der App, und Dateien fügst du über die Dokument- und Fotoauswahl des Systems hinzu.
+Auf iOS zeigt der lokale Bereich den Dokumentenbereich der App, und Dateien fügst du über die Dokument- und Fotoauswahl des Systems hinzu. Downloads von dort sind außerdem in der Dateien-App unter **Auf meinem iPhone** sichtbar.
 
 ## Hochladen oder Herunterladen fehlgeschlagen
 
@@ -100,6 +101,10 @@ Prüfe:
 
 ## Debug-Protokolle
 
-Der Startbildschirm enthält eine Schaltfläche **Debug**. Wenn aktiviert, zeichnet Mobile SSH Diagnoseinformationen zu Terminalereignissen, SSH-Datengrößen, Toucheingaben, Größenänderungsverhalten und Tunnel-Lebenszyklus auf. Stoppe die Aufzeichnung, um ein Debug-Archiv lokal zu speichern.
+Die beiden Plattformen zeichnen Unterschiedliches auf, wähle also die, die zu deinem Problem passt.
 
-Prüfe Debug-Archive, bevor du sie teilst. Sie sind für die Fehlerbehebung gedacht und können Servernamen, Zeitangaben, Terminalverhalten oder andere Umgebungsdetails offenlegen.
+**Android — Terminal und Darstellung.** Aktiviere **Settings → Debugging → Show Debug and Logs buttons** und nutze dann die Schaltfläche **Debug**, die auf dem Startbildschirm erscheint. Sie zeichnet Terminalereignisse, SSH-Datengrößen, Toucheingaben, Größenänderungsverhalten und den Tunnel-Lebenszyklus auf. Vor dem Start einer Aufzeichnung warnt sie dich, dass dabei jede Taste erfasst wird, die du drückst, Passwörter eingeschlossen. Beim Stoppen schreibt sie ein Archiv in deinen Downloads-Ordner.
+
+**iOS — Verbindungen und Reconnects.** Schalte **Settings → Diagnostics → Record debug log** ein. Es zeichnet jede gewählte Adresse und den Grund ihres Scheiterns auf, Wiederverbindungsversuche und deren Backoff, abgebrochene Verbindungen, „peer stopped answering keepalives“, Netzwechsel sowie tmux-Befehle mit ihren Fehlern. Die Einstellungen zeigen einen laufenden Zeilenzähler, damit du die Aufzeichnung bestätigen kannst, und **Export Debug Log** teilt sie als Textdatei. Das Log liegt im Arbeitsspeicher und umfasst nur die aktuelle App-Sitzung.
+
+Prüfe jedes Debug-Log und jedes Archiv, bevor du es teilst. Sie sind für die Fehlerbehebung gedacht und können Servernamen, Adressen, Zeitangaben oder andere Umgebungsdetails offenlegen — und auf Android alles, was du getippt hast.
