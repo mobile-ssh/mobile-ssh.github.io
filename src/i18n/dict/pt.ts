@@ -89,9 +89,9 @@ export const pt: Dict = {
     carouselNext: "Próxima captura",
     carouselDot: "Ir para a posição {n}",
     videoHead: "Veja em ação",
-    videoIntro: "Demonstrações rápidas nas duas plataformas. Android: uma troca de janela do tmux, uma transferência de arquivo por SFTP, instalar e conversar com o plugin AI Chat, Eternal Terminal e Sessões Recentes com um toque. iOS: servidores salvos em grupos, opções de conexão com auto-attach do tmux, uma sessão de terminal ao vivo e o gerenciador de tmux.",
-    videoAlt: "Demo no Android de uma troca de janela do tmux, um download de arquivo por SFTP, instalar e usar o plugin AI Chat, o transporte Eternal Terminal e Sessões Recentes",
-    videoIosAlt: "Demo no iOS de servidores salvos em grupos, opções de conexão com auto-attach do tmux e redirecionamento de portas, uma sessão de terminal SSH ao vivo e o gerenciador de tmux alternando janelas",
+    videoIntro: "Demonstrações rápidas nas duas plataformas. Android: a tela inicial mostrando ao que você pode voltar, uma barra de ferramentas de sessão que exibe apenas o que aquele servidor oferece, o envio de um arquivo direto para o prompt e os gerenciadores de tmux, herdr e Zellij. iOS: abrir o app direto em um terminal ao vivo e a tela inicial para onde você volta.",
+    videoAlt: "Demo no Android da tela inicial listando sessões do tmux para retomar, da barra de ferramentas da sessão, do envio de um arquivo para o prompt e dos gerenciadores de sessões do tmux, do herdr e do Zellij",
+    videoIosAlt: "Demo no iOS abrindo o Mobile SSH direto em uma sessão de terminal SSH ao vivo e voltando para a tela inicial, com Recentes e as demais telas do app",
     lightboxClose: "Fechar",
     lightboxPrev: "Anterior",
     lightboxNext: "Próximo",
@@ -99,7 +99,7 @@ export const pt: Dict = {
     betaOr: "ou envie um e-mail para",
     betaRequest: "para solicitar acesso à beta privada",
     galleryAlts: [
-      "Tela inicial do Mobile SSH em um celular com os botões Servidores, Credenciais, Logs, Configurações, Depuração e Sobre.",
+      "Tela inicial do Mobile SSH em um celular Android listando as sessões do tmux que aguardam em um servidor salvo, acima dos botões Servidores, Credenciais, Configurações, Sobre e Plugins.",
       "Diálogo Adicionar servidor em um celular mostrando os campos host, porta, credenciais, chave privada e encaminhamento de portas.",
       "Terminal SSH de sessão única em um celular com a linha extra de teclas embaixo.",
       "Duas sessões SSH em visualização dividida lado a lado em um celular.",
@@ -110,7 +110,7 @@ export const pt: Dict = {
       "Diálogo Chave pública em um celular mostrando a chave gerada com opções de copiar, compartilhar e salvar.",
       "Tela de Servidores salvos mostrando servidores organizados em grupos de pastas Trabalho e Pessoal recolhíveis.",
       "Terminal SSH em um celular com URLs https:// sublinhados como links clicáveis tocáveis.",
-      "Tela inicial do Mobile SSH em um celular mostrando uma lista de Sessões Recentes para retomar uma conexão SSH com um toque.",
+      "Gerenciador do Zellij em um celular Android listando sessões, abas e painéis com botões para anexar, renomear, encerrar e focar.",
       "Gerenciador de tmux em um celular listando sessões, janelas e painéis do tmux com botões para anexar, renomear e alternar.",
       "Tela de Plugins em um celular mostrando um catálogo de plugins instaláveis com Tailscale, WireGuard e VS Code.",
       "Plugin AI Chat em um celular transmitindo uma resposta de um modelo llama3.2 local rodando no servidor remoto via SSH.",
@@ -128,7 +128,7 @@ export const pt: Dict = {
       "Catálogo de plugins em um iPhone com Tailscale, WireGuard, VS Code, AI Chat e Open WebUI disponíveis para instalar.",
       "Formulário de conexão em um iPhone com o transporte definido como Eternal Terminal para que as sessões sobrevivam a quedas de rede.",
       "Configurações de alertas de agente em um iPhone com opções de vibração, som e somente fones de ouvido.",
-      "Tela de conexão do Mobile SSH em um iPhone com uma seção Recentes para reconectar com um toque."
+      "Tela inicial do Mobile SSH em um iPhone com uma lista de Recentes para reconectar com um toque, acima dos botões Servidores, Credenciais, Logs, Configurações, Sobre e Plugins."
     ],
     compareHead: "Seu lugar ao lado de Termux e Termius",
     compareIntro:

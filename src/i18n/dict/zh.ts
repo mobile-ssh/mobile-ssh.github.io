@@ -88,9 +88,9 @@ export const zh: Dict = {
     carouselNext: "下一张截图",
     carouselDot: "跳到第 {n} 张",
     videoHead: "观看实际效果",
-    videoIntro: "两个平台上的简短演示。Android：tmux 窗口切换、SFTP 文件传输、安装并与 AI Chat 插件对话、Eternal Terminal，以及一键直达的最近会话。iOS：分组的已保存服务器、带 tmux 自动附加的连接选项、实时终端会话，以及 Tmux 管理器。",
-    videoAlt: "Android 演示：tmux 窗口切换、SFTP 文件下载、安装并使用 AI Chat 插件、Eternal Terminal 传输，以及最近会话",
-    videoIosAlt: "iOS 演示：分组的已保存服务器、带 tmux 自动附加与端口转发的连接选项、实时 SSH 终端会话，以及 Tmux 管理器切换窗口",
+    videoIntro: "两个平台上的简短演示。Android：主界面直接告诉你可以回到哪些会话、会话工具栏只显示这台服务器实际支持的功能、把文件直接发送到提示符里，以及 tmux、herdr 与 Zellij 管理器。iOS：启动后直接进入实时终端，以及随后返回的主界面。",
+    videoAlt: "Android 演示：主界面列出可恢复的 tmux 会话、会话工具栏、将文件附加到提示符中，以及 tmux、herdr 与 Zellij 会话管理器",
+    videoIosAlt: "iOS 演示：打开 Mobile SSH 直接进入实时 SSH 终端会话，再返回主界面，展示「最近」列表与应用的其他界面",
     lightboxClose: "关闭",
     lightboxPrev: "上一张",
     lightboxNext: "下一张",
@@ -98,7 +98,7 @@ export const zh: Dict = {
     betaOr: "或发送邮件至",
     betaRequest: "申请私人测试资格",
     galleryAlts: [
-      "手机上的 Mobile SSH 起始界面，包含服务器、凭据、日志、设置、调试与关于等磁贴。",
+      "Android 手机上的 Mobile SSH 主界面，列出某台已保存服务器上正在等待的 tmux 会话，下方是服务器、凭据、设置、关于与插件按钮。",
       "手机上的「添加服务器」对话框，显示主机、端口、凭据、私钥与端口转发字段。",
       "手机上的单会话 SSH 终端，底部有拓展按键栏。",
       "手机上以左右分屏视图显示的两个 SSH 会话。",
@@ -109,7 +109,7 @@ export const zh: Dict = {
       "手机上的「公钥」对话框，显示生成的密钥以及复制、分享和保存选项。",
       "「已保存服务器」界面，显示整理到可折叠的「工作」与「个人」文件夹分组中的服务器。",
       "手机上的 SSH 终端，https:// 网址带下划线，可点击打开链接。",
-      "手机上的 Mobile SSH 起始界面，显示用于一键恢复 SSH 连接的 Recent Sessions 列表。",
+      "Android 手机上的 Zellij 管理器，列出会话、标签页与窗格，并带有附加、重命名、结束与聚焦按钮。",
       "手机上的 tmux 管理器，列出 tmux 会话、窗口与窗格，并带有附加、重命名与切换按钮。",
       "手机上的插件界面，显示包含 Tailscale、WireGuard 与 VS Code 的可安装插件目录。",
       "手机上的 AI Chat 插件，通过 SSH 从远程服务器上运行的本地 llama3.2 模型流式输出回复。",
@@ -127,7 +127,7 @@ export const zh: Dict = {
       "iPhone 上的插件目录，可安装 Tailscale、WireGuard、VS Code、AI Chat 与 Open WebUI。",
       "iPhone 上的连接表单，传输方式设为 Eternal Terminal，使会话在网络中断后仍能存活。",
       "iPhone 上的智能体提醒设置，包含振动、声音与仅耳机播放开关。",
-      "iPhone 上的 Mobile SSH 连接界面，带「最近」区域，一键即可重新连接。"
+      "iPhone 上的 Mobile SSH 主界面，带「最近」列表可一键重新连接，下方是服务器、凭据、日志、设置、关于与插件磁贴。"
     ],
     compareHead: "在 Termux 与 Termius 之外的定位",
     compareIntro:

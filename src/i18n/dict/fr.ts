@@ -88,9 +88,9 @@ export const fr: Dict = {
     carouselNext: "Capture suivante",
     carouselDot: "Aller à la position {n}",
     videoHead: "Voir en action",
-    videoIntro: "Courtes démonstrations sur les deux plateformes. Android : un changement de fenêtre tmux, un transfert de fichier SFTP, l'installation du plugin AI Chat et une conversation avec lui, Eternal Terminal et les sessions récentes en un tap. iOS : serveurs enregistrés groupés, options de connexion avec rattachement tmux automatique, une session de terminal en direct et le gestionnaire tmux.",
-    videoAlt: "Démonstration Android d'un changement de fenêtre tmux, d'un téléchargement de fichier SFTP, de l'installation et de l'utilisation du plugin AI Chat, du transport Eternal Terminal et des sessions récentes",
-    videoIosAlt: "Démonstration iOS de serveurs enregistrés groupés, d'options de connexion avec rattachement tmux automatique et redirection de ports, d'une session de terminal SSH en direct et du gestionnaire tmux changeant de fenêtre",
+    videoIntro: "Courtes démonstrations sur les deux plateformes. Android : l'écran d'accueil qui montre ce que vous pouvez reprendre, une barre d'outils de session qui n'affiche que ce dont dispose le serveur, l'envoi d'un fichier directement dans l'invite, puis les gestionnaires tmux, herdr et Zellij. iOS : l'ouverture directe sur une session de terminal en direct et l'écran d'accueil auquel vous revenez.",
+    videoAlt: "Démonstration Android de l'écran d'accueil listant les sessions tmux à reprendre, de la barre d'outils de session, de l'ajout d'un fichier directement dans l'invite et des gestionnaires de sessions tmux, herdr et Zellij",
+    videoIosAlt: "Démonstration iOS de l'ouverture de Mobile SSH sur une session de terminal SSH en direct, puis du retour à l'écran d'accueil avec la liste Récents et les autres écrans de l'application",
     lightboxClose: "Fermer",
     lightboxPrev: "Précédent",
     lightboxNext: "Suivant",
@@ -98,7 +98,7 @@ export const fr: Dict = {
     betaOr: "ou envoyez un e-mail à",
     betaRequest: "pour demander un accès à la bêta privée",
     galleryAlts: [
-      "Écran d'accueil de Mobile SSH sur un téléphone avec les tuiles Serveurs, Identifiants, Journaux, Paramètres, Débogage et À propos.",
+      "Écran d'accueil de Mobile SSH sur un téléphone Android affichant la liste des sessions tmux en attente sur un serveur enregistré, au-dessus des boutons Serveurs, Identifiants, Paramètres, À propos et Plugins.",
       "Boîte de dialogue Ajouter un serveur sur un téléphone montrant les champs hôte, port, identifiants, clé privée et redirection de ports.",
       "Terminal SSH mono-session sur un téléphone avec la rangée de touches supplémentaires en bas.",
       "Deux sessions SSH dans une vue côte à côte en écran partagé sur un téléphone.",
@@ -109,7 +109,7 @@ export const fr: Dict = {
       "Boîte de dialogue Clé publique sur un téléphone affichant la clé générée avec des options copier, partager et enregistrer.",
       "Écran Serveurs enregistrés affichant les serveurs organisés en groupes de dossiers Travail et Personnel repliables.",
       "Terminal SSH sur un téléphone avec des URL https:// soulignées comme liens cliquables tapotables.",
-      "Écran d'accueil de Mobile SSH sur un téléphone affichant une liste Recent Sessions pour reprendre une connexion SSH en un tap.",
+      "Gestionnaire Zellij sur un téléphone Android listant les sessions, onglets et panneaux avec des boutons pour les attacher, les renommer, les tuer et les activer.",
       "Gestionnaire tmux sur un téléphone listant les sessions, fenêtres et panneaux tmux avec des boutons pour attacher, renommer et basculer.",
       "Écran Plugins sur un téléphone affichant un catalogue de plugins installables avec Tailscale, WireGuard et VS Code.",
       "Plugin AI Chat sur un téléphone diffusant en continu une réponse d'un modèle llama3.2 local exécuté sur le serveur distant via SSH.",
@@ -127,7 +127,7 @@ export const fr: Dict = {
       "Catalogue de plugins sur un iPhone avec Tailscale, WireGuard, VS Code, AI Chat et Open WebUI disponibles à l'installation.",
       "Formulaire de connexion sur un iPhone avec le transport réglé sur Eternal Terminal pour que les sessions survivent aux coupures réseau.",
       "Réglages des alertes agent sur un iPhone avec les options vibration, son et écouteurs uniquement.",
-      "Écran de connexion de Mobile SSH sur un iPhone avec une section Récents pour se reconnecter en un tap."
+      "Écran d'accueil de Mobile SSH sur un iPhone avec une liste Récents pour se reconnecter en un tap, au-dessus des tuiles Serveurs, Identifiants, Journaux, Paramètres, À propos et Plugins."
     ],
     compareHead: "Sa place à côté de Termux et Termius",
     compareIntro:

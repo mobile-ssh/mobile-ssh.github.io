@@ -88,9 +88,9 @@ export const yue: Dict = {
     carouselNext: "下一張截圖",
     carouselDot: "去第 {n} 個位置",
     videoHead: "睇佢實際運作",
-    videoIntro: "兩個平台嘅短片示範。Android：tmux 切換視窗、SFTP 檔案傳輸、安裝同使用 AI Chat 插件、Eternal Terminal，仲有一㩒就連嘅最近會話。iOS：分咗組嘅已儲存伺服器、帶 tmux 自動 attach 嘅連線選項、運行中嘅終端機會話，同埋 Tmux 管理器。",
-    videoAlt: "Android 示範：tmux 切換視窗、SFTP 下載檔案、安裝同使用 AI Chat 插件、Eternal Terminal 傳輸，同埋最近會話",
-    videoIosAlt: "iOS 示範：分咗組嘅已儲存伺服器、帶 tmux 自動 attach 同端口轉發嘅連線選項、運行中嘅 SSH 終端機會話，同埋 Tmux 管理器切換視窗",
+    videoIntro: "兩個平台嘅短片示範。Android：主畫面話你知有咩會話可以續返、會話工具列淨係顯示嗰部伺服器真係有嘅功能、將檔案直接送入提示符，仲有 tmux、herdr 同 Zellij 管理器。iOS：一開 app 就入到運行中嘅終端機，同埋你之後返返去嘅主畫面。",
+    videoAlt: "Android 示範：主畫面列出可以續返嘅 tmux 會話、會話工具列、將檔案附加入提示符，同埋 tmux、herdr 同 Zellij 會話管理器",
+    videoIosAlt: "iOS 示範：打開 Mobile SSH 直接入到運行中嘅 SSH 終端機會話，跟住返去主畫面，睇到「最近」同 app 其他畫面",
     lightboxClose: "關閉",
     lightboxPrev: "上一張",
     lightboxNext: "下一張",
@@ -98,7 +98,7 @@ export const yue: Dict = {
     betaOr: "或傳送電郵至",
     betaRequest: "申請私人測試資格",
     galleryAlts: [
-      "電話上嘅 Mobile SSH 啟動畫面，包括伺服器、憑證、日誌、設定、除錯、關於等磚。",
+      "Android 電話上嘅 Mobile SSH 主畫面，列出喺一部已儲存伺服器度等緊嘅 tmux 會話，下面係伺服器、憑證、設定、關於同插件嘅按鈕。",
       "電話上嘅新增伺服器對話框，顯示 host、port、憑證、私鑰同端口轉發欄位。",
       "電話上嘅單會話 SSH 終端機，下面係附加按鍵列。",
       "電話上兩個並排嘅 SSH 會話，並排分屏顯示。",
@@ -109,7 +109,7 @@ export const yue: Dict = {
       "電話上嘅「公鑰」對話框，顯示產生咗嘅密鑰，連同複製、分享同儲存嘅選項。",
       "已儲存伺服器畫面，顯示伺服器整理入可摺疊嘅「工作」同「個人」資料夾群組。",
       "電話上嘅 SSH 終端機，https:// URL 帶底線成為可點擊嘅連結。",
-      "電話上嘅 Mobile SSH 啟動畫面，顯示 Recent Sessions 清單，一㩒就可以續返之前嘅 SSH 連線。",
+      "Android 電話上嘅 Zellij 管理器，列出會話、分頁同面板，仲有 attach、重新命名、kill 同聚焦嘅按鈕。",
       "電話上嘅 tmux 管理器，列出 tmux 會話、視窗同面板，仲有附加、重新命名同切換嘅按鈕。",
       "電話上嘅插件畫面，顯示可安裝嘅插件目錄，包括 Tailscale、WireGuard 同 VS Code。",
       "電話上嘅 AI Chat 插件，正經 SSH 串流播放遠端伺服器上跑緊嘅本機 llama3.2 模型嘅回覆。",
@@ -127,7 +127,7 @@ export const yue: Dict = {
       "iPhone 上嘅插件目錄，有 Tailscale、WireGuard、VS Code、AI Chat 同 Open WebUI 可以安裝。",
       "iPhone 上嘅連線表單，傳輸方式設定為 Eternal Terminal，等會話喺斷網之後都唔斷。",
       "iPhone 上嘅 agent 提示設定，有震動、聲音同「淨係耳機」開關。",
-      "iPhone 上嘅 Mobile SSH 連線畫面，有「最近」一欄，一㩒就重新連線。"
+      "iPhone 上嘅 Mobile SSH 主畫面，有「最近」清單一㩒就重新連線，下面係伺服器、憑證、日誌、設定、關於同插件嘅磚。"
     ],
     compareHead: "同 Termux、Termius 之間嘅定位",
     compareIntro:

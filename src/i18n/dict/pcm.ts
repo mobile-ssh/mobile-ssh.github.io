@@ -88,9 +88,9 @@ export const pcm: Dict = {
     carouselNext: "Di next screenshot",
     carouselDot: "Go position {n}",
     videoHead: "See am as e dey work",
-    videoIntro: "Short demos for di two platforms. Android: tmux wey dey switch go another window, SFTP file transfer, install and chat wit di AI Chat plugin, Eternal Terminal, and Recent Sessions wey you fit open with one tap. iOS: saved servers wey dem group, connect options wit tmux auto-attach, live terminal session, and di Tmux manager.",
-    videoAlt: "Android demo of tmux wey dey switch go another window, SFTP file download, install and use di AI Chat plugin, di Eternal Terminal transport, and Recent Sessions",
-    videoIosAlt: "iOS demo of saved servers wey dem group, connect options wit tmux auto-attach and port forwarding, live SSH terminal session, and di Tmux manager wey dey switch windows",
+    videoIntro: "Short demos for di two platforms. Android: di home screen wey dey answer wetin you fit go back inside, session toolbar wey dey show only wetin dat server get, sending file straight enter di prompt, and di tmux, herdr and Zellij managers. iOS: opening straight enter live terminal, and di home screen wey you dey come back to.",
+    videoAlt: "Android demo of di home screen wey dey list tmux sessions wey you fit resume, di session toolbar, attaching file enter di prompt, and di tmux, herdr and Zellij session managers",
+    videoIosAlt: "iOS demo of opening Mobile SSH straight enter live SSH terminal session and going back to di home screen, wit Recent and di odda screens wey di app get",
     lightboxClose: "Close am",
     lightboxPrev: "Di one before",
     lightboxNext: "Di next one",
@@ -98,7 +98,7 @@ export const pcm: Dict = {
     betaOr: "or email",
     betaRequest: "to request private beta access",
     galleryAlts: [
-      "Mobile SSH start screen for phone, wit Servers, Credentials, Logs, Settings, Debug and About tiles.",
+      "Mobile SSH home screen for Android phone wey dey list di tmux sessions wey dey wait for one server wey you save, wit buttons for Servers, Credentials, Settings, About and Plugins under am.",
       "Add Server dialog for phone, dey show host, port, credentials, private key and port forward fields.",
       "Single-session SSH terminal for phone, wit di extra key row down.",
       "Two SSH session for side-by-side split view for phone.",
@@ -109,7 +109,7 @@ export const pcm: Dict = {
       "Public Key dialog for phone wey dey show di key wey dem make wit copy, share, and save options.",
       "Saved Servers screen wey dey show servers wey dem arrange enter collapsible Work and Personal folder groups.",
       "SSH terminal for phone wit https:// URLs wey dey underline as tappable clickable links.",
-      "Mobile SSH home screen for phone wey dey show Recent Sessions list to resume SSH connection wit one tap.",
+      "Zellij manager for Android phone wey dey list sessions, tabs, and panes wit buttons to attach, rename, kill, and focus dem.",
       "Tmux manager for phone wey dey list tmux sessions, windows, and panes wit buttons to attach, rename, and switch.",
       "Plugins screen for phone wey dey show plugin catalog wey you fit install, wit Tailscale, WireGuard, and VS Code.",
       "AI Chat plugin for phone wey dey stream reply from local llama3.2 model wey dey run on di remote server over SSH.",
@@ -127,7 +127,7 @@ export const pcm: Dict = {
       "Plugins catalog for iPhone wit Tailscale, WireGuard, VS Code, AI Chat, and Open WebUI wey you fit install.",
       "Connect form for iPhone wit di transport set to Eternal Terminal so session go survive network drop.",
       "Agent alert settings for iPhone wit vibration, sound, and headphones-only toggles.",
-      "Mobile SSH connect screen for iPhone wit Recent section to reconnect wit one tap."
+      "Mobile SSH home screen for iPhone wit Recent list wey you fit take reconnect wit one tap, wit tiles for Servers, Credentials, Logs, Settings, About and Plugins under am."
     ],
     compareHead: "Where e stand next to Termux and Termius",
     compareIntro:

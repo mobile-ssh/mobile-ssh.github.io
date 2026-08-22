@@ -90,9 +90,9 @@ export const en: Dict = {
     carouselNext: "Next screenshot",
     carouselDot: "Go to position {n}",
     videoHead: "See it in action",
-    videoIntro: "Short demos on both platforms. Android: a tmux window switch, an SFTP file transfer, installing and chatting with the AI Chat plugin, Eternal Terminal, and one-tap Recent Sessions. iOS: grouped saved servers, connect options with tmux auto-attach, a live terminal session, and the Tmux manager.",
-    videoAlt: "Android demo of a tmux window switch, an SFTP file download, installing and using the AI Chat plugin, the Eternal Terminal transport, and Recent Sessions",
-    videoIosAlt: "iOS demo of grouped saved servers, connect options with tmux auto-attach and port forwarding, a live SSH terminal session, and the Tmux manager switching windows",
+    videoIntro: "Short demos on both platforms. Android: the home screen answering what you can get back into, a session toolbar showing only what that server has, sending a file straight into the prompt, and the tmux, herdr, and Zellij managers. iOS: launching into a live terminal and the home screen you come back to.",
+    videoAlt: "Android demo of the home screen listing tmux sessions to resume, the session toolbar, attaching a file into the prompt, and the tmux, herdr, and Zellij session managers",
+    videoIosAlt: "iOS demo of opening Mobile SSH into a live SSH terminal session and returning to the home screen, with Recent and the app's other screens",
     lightboxClose: "Close",
     lightboxPrev: "Previous",
     lightboxNext: "Next",
@@ -104,7 +104,7 @@ export const en: Dict = {
     betaWantedCta: "See how to join →",
     betaPlayNote: "Open the Google Play link in your mobile browser, not the Google Play app — the closed test may not be visible inside the app.",
     galleryAlts: [
-      "Mobile SSH start screen on a phone with Servers, Credentials, Logs, Settings, Debug, and About tiles.",
+      "Mobile SSH home screen on an Android phone listing the tmux sessions waiting on a saved server, above buttons for Servers, Credentials, Settings, About, and Plugins.",
       "Add Server dialog on a phone showing host, port, credentials, private key, and port forward fields.",
       "Single-session SSH terminal on a phone with the extra key row at the bottom.",
       "Two SSH sessions in a side-by-side split view on a phone.",
@@ -115,7 +115,7 @@ export const en: Dict = {
       "Public Key dialog on a phone showing the generated key with copy, share, and save options.",
       "Saved Servers screen showing servers organized into collapsible Work and Personal folder groups.",
       "SSH terminal on a phone with https:// URLs underlined as tappable clickable links.",
-      "Mobile SSH home screen on a phone showing a Recent Sessions list to resume an SSH connection with one tap.",
+      "Zellij manager on an Android phone listing sessions, tabs, and panes with buttons to attach, rename, kill, and focus them.",
       "Tmux manager on a phone listing tmux sessions, windows, and panes with buttons to attach, rename, and switch.",
       "Plugins screen on a phone showing an installable plugin catalog with Tailscale, WireGuard, and VS Code.",
       "AI Chat plugin on a phone streaming a reply from a local llama3.2 model running on the remote server over SSH.",
@@ -133,7 +133,7 @@ export const en: Dict = {
       "Plugins catalog on an iPhone with Tailscale, WireGuard, VS Code, AI Chat, and Open WebUI available to install.",
       "Connect form on an iPhone with the transport set to Eternal Terminal so sessions survive network drops.",
       "Agent alert settings on an iPhone with vibration, sound, and headphones-only toggles.",
-      "Mobile SSH connect screen on an iPhone with a Recent section to reconnect with one tap."
+      "Mobile SSH home screen on an iPhone with a Recent list to reconnect with one tap, above tiles for Servers, Credentials, Logs, Settings, About, and Plugins."
     ],
     compareHead: "How it fits beside Termux and Termius",
     compareIntro:

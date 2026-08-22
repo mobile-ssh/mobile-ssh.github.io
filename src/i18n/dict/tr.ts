@@ -88,9 +88,9 @@ export const tr: Dict = {
     carouselNext: "Sonraki ekran görüntüsü",
     carouselDot: "{n}. konuma git",
     videoHead: "Çalışırken görün",
-    videoIntro: "Her iki platformda kısa demolar. Android: tmux pencere değiştirme, SFTP dosya aktarımı, AI Chat eklentisini kurma ve onunla sohbet etme, Eternal Terminal ve tek dokunuşla Son Oturumlar. iOS: gruplanmış kayıtlı sunucular, tmux otomatik eklemeli bağlantı seçenekleri, canlı bir terminal oturumu ve Tmux yöneticisi.",
-    videoAlt: "Android'de tmux pencere değiştirme, SFTP dosya indirme, AI Chat eklentisini kurup kullanma, Eternal Terminal aktarımı ve Son Oturumlar demosu",
-    videoIosAlt: "iOS'ta gruplanmış kayıtlı sunucular, tmux otomatik ekleme ve port yönlendirme içeren bağlantı seçenekleri, canlı bir SSH terminal oturumu ve pencereler arasında geçiş yapan Tmux yöneticisi demosu",
+    videoIntro: "Her iki platformda kısa demolar. Android: nereye geri dönebileceğinizi gösteren ana ekran, yalnızca o sunucuda bulunanları gösteren oturum araç çubuğu, bir dosyayı doğrudan komut istemine gönderme ve tmux, herdr ile Zellij yöneticileri. iOS: doğrudan canlı bir terminalde açılış ve geri döndüğünüz ana ekran.",
+    videoAlt: "Android demosu: sürdürülecek tmux oturumlarını listeleyen ana ekran, oturum araç çubuğu, komut istemine dosya ekleme ve tmux, herdr ile Zellij oturum yöneticileri",
+    videoIosAlt: "iOS demosu: Mobile SSH uygulamasını açıp doğrudan canlı bir SSH terminal oturumuna girme ve Son Oturumlar listesiyle uygulamanın diğer ekranlarının bulunduğu ana ekrana dönme",
     lightboxClose: "Kapat",
     lightboxPrev: "Önceki",
     lightboxNext: "Sonraki",
@@ -98,7 +98,7 @@ export const tr: Dict = {
     betaOr: "veya e-posta gönderin",
     betaRequest: "özel beta erişimi istemek için",
     galleryAlts: [
-      "Bir telefonda Mobile SSH başlangıç ekranı; Sunucular, Kimlik Bilgileri, Günlükler, Ayarlar, Hata Ayıklama ve Hakkında kutucukları.",
+      "Bir Android telefonda Mobile SSH ana ekranı; kayıtlı bir sunucuda bekleyen tmux oturumlarını, Sunucular, Kimlik Bilgileri, Ayarlar, Hakkında ve Eklentiler düğmelerinin üzerinde listeliyor.",
       "Bir telefonda Sunucu Ekle iletişim kutusu; ana bilgisayar, port, kimlik bilgileri, özel anahtar ve port yönlendirme alanları.",
       "Bir telefonda tek oturumlu SSH terminali; en altta ek tuş satırı.",
       "Bir telefonda yan yana iki SSH oturumu bölünmüş görünümde.",
@@ -109,7 +109,7 @@ export const tr: Dict = {
       "Telefonda oluşturulan anahtarı kopyalama, paylaşma ve kaydetme seçenekleriyle gösteren Genel Anahtar iletişim kutusu.",
       "Kaydedilen sunucuların daraltılabilir İş ve Kişisel klasör gruplarında düzenlendiğini gösteren Kaydedilen Sunucular ekranı.",
       "Bir telefonda SSH terminali; https:// URL'leri dokunulabilir tıklanabilir bağlantılar olarak altı çizili şekilde görünüyor.",
-      "Bir telefonda Mobile SSH ana ekranı; SSH bağlantısını tek dokunuşla sürdürmek için bir Son Oturumlar listesi gösteriyor.",
+      "Bir Android telefonda Zellij yöneticisi; oturumları, sekmeleri ve panelleri bağlan, yeniden adlandır, sonlandır ve odaklan düğmeleriyle listeliyor.",
       "Bir telefonda tmux yöneticisi; tmux oturumlarını, pencerelerini ve panellerini listeliyor, bağlan, yeniden adlandır ve geçiş yap düğmeleriyle.",
       "Bir telefonda Eklentiler ekranı; Tailscale, WireGuard ve VS Code içeren, kurulabilir bir eklenti kataloğu gösteriyor.",
       "Bir telefonda AI Chat eklentisi; uzak sunucuda SSH üzerinden çalışan yerel bir llama3.2 modelinden gelen yanıtı akıtıyor.",
@@ -127,7 +127,7 @@ export const tr: Dict = {
       "Bir iPhone'da Eklentiler kataloğu; kurulmaya hazır Tailscale, WireGuard, VS Code, AI Chat ve Open WebUI ile.",
       "Bir iPhone'da bağlantı formu; oturumların ağ kopmalarına dayanması için aktarım Eternal Terminal olarak ayarlanmış.",
       "Bir iPhone'da ajan uyarısı ayarları; titreşim, ses ve yalnızca kulaklık anahtarlarıyla.",
-      "Bir iPhone'da Mobile SSH bağlantı ekranı; tek dokunuşla yeniden bağlanmak için bir Son Oturumlar bölümüyle."
+      "Bir iPhone'da Mobile SSH ana ekranı; tek dokunuşla yeniden bağlanmak için bir Son Oturumlar listesi ve altında Sunucular, Kimlik Bilgileri, Günlükler, Ayarlar, Hakkında ve Eklentiler kutucukları."
     ],
     compareHead: "Termux ve Termius yanında yeri",
     compareIntro:

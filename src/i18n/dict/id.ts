@@ -88,9 +88,9 @@ export const id: Dict = {
     carouselNext: "Tangkapan layar berikutnya",
     carouselDot: "Pergi ke posisi {n}",
     videoHead: "Lihat dalam aksi",
-    videoIntro: "Demo singkat di kedua platform. Android: beralih jendela tmux, transfer berkas SFTP, memasang dan mengobrol dengan plugin AI Chat, Eternal Terminal, dan Sesi Terkini dengan satu tap. iOS: server tersimpan dalam grup, opsi sambungan dengan attach otomatis tmux, sesi terminal langsung, dan pengelola Tmux.",
-    videoAlt: "Demo Android beralih jendela tmux, mengunduh berkas SFTP, memasang dan menggunakan plugin AI Chat, transport Eternal Terminal, dan Sesi Terkini",
-    videoIosAlt: "Demo iOS server tersimpan dalam grup, opsi sambungan dengan attach otomatis tmux dan penerusan port, sesi terminal SSH langsung, dan pengelola Tmux yang beralih jendela",
+    videoIntro: "Demo singkat di kedua platform. Android: layar beranda yang langsung menunjukkan apa saja yang bisa Anda lanjutkan, bilah alat sesi yang hanya menampilkan fitur yang tersedia di server itu, mengirim berkas langsung ke prompt, serta pengelola tmux, herdr, dan Zellij. iOS: membuka aplikasi langsung ke terminal aktif dan layar beranda tempat Anda kembali.",
+    videoAlt: "Demo Android: layar beranda yang menampilkan daftar sesi tmux untuk dilanjutkan, bilah alat sesi, melampirkan berkas ke prompt, serta pengelola sesi tmux, herdr, dan Zellij",
+    videoIosAlt: "Demo iOS: membuka Mobile SSH langsung ke sesi terminal SSH aktif lalu kembali ke layar beranda, dengan daftar Terkini dan layar-layar lain di aplikasi",
     lightboxClose: "Tutup",
     lightboxPrev: "Sebelumnya",
     lightboxNext: "Berikutnya",
@@ -98,7 +98,7 @@ export const id: Dict = {
     betaOr: "atau kirim email ke",
     betaRequest: "untuk meminta akses beta privat",
     galleryAlts: [
-      "Layar awal Mobile SSH di ponsel dengan ubin Server, Kredensial, Log, Pengaturan, Debug, dan Tentang.",
+      "Layar beranda Mobile SSH di ponsel Android yang menampilkan daftar sesi tmux yang menunggu di sebuah server tersimpan, di atas tombol Server, Kredensial, Pengaturan, Tentang, dan Plugin.",
       "Dialog Tambah Server di ponsel menampilkan kolom host, port, kredensial, kunci pribadi, dan penerusan port.",
       "Terminal SSH satu sesi di ponsel dengan baris tombol tambahan di bagian bawah.",
       "Dua sesi SSH dalam tampilan terbagi berdampingan di ponsel.",
@@ -109,7 +109,7 @@ export const id: Dict = {
       "Dialog Kunci Publik di ponsel yang menampilkan kunci yang dibuat dengan opsi salin, bagikan, dan simpan.",
       "Layar Server Tersimpan yang menampilkan server yang diatur dalam grup folder Kerja dan Pribadi yang dapat diciutkan.",
       "Terminal SSH di ponsel dengan URL https:// digarisbawahi sebagai tautan yang dapat diklik.",
-      "Layar awal Mobile SSH di ponsel yang menampilkan daftar Recent Sessions untuk melanjutkan koneksi SSH dengan satu tap.",
+      "Pengelola Zellij di ponsel Android yang menampilkan daftar sesi, tab, dan panel dengan tombol untuk attach, ganti nama, kill, dan fokus.",
       "Pengelola tmux di ponsel yang menampilkan daftar sesi, jendela, dan panel tmux dengan tombol untuk attach, ganti nama, dan beralih.",
       "Layar Plugin di ponsel yang menampilkan katalog plugin yang dapat dipasang dengan Tailscale, WireGuard, dan VS Code.",
       "Plugin AI Chat di ponsel yang menampilkan aliran balasan dari model llama3.2 lokal yang berjalan di server jarak jauh melalui SSH.",
@@ -127,7 +127,7 @@ export const id: Dict = {
       "Katalog plugin di iPhone dengan Tailscale, WireGuard, VS Code, AI Chat, dan Open WebUI yang dapat dipasang.",
       "Formulir sambungan di iPhone dengan transport disetel ke Eternal Terminal agar sesi bertahan saat koneksi jaringan terputus.",
       "Pengaturan peringatan agen di iPhone dengan sakelar getaran, suara, dan hanya-headphone.",
-      "Layar sambungan Mobile SSH di iPhone dengan bagian Terkini untuk menyambung ulang dengan satu tap."
+      "Layar beranda Mobile SSH di iPhone dengan daftar Terkini untuk menyambung ulang dengan satu tap, di atas ubin Server, Kredensial, Log, Pengaturan, Tentang, dan Plugin."
     ],
     compareHead: "Tempatnya di samping Termux dan Termius",
     compareIntro:

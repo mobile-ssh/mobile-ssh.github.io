@@ -89,9 +89,9 @@ export const de: Dict = {
     carouselNext: "Nächster Screenshot",
     carouselDot: "Zu Position {n} wechseln",
     videoHead: "In Aktion sehen",
-    videoIntro: "Kurze Demos auf beiden Plattformen. Android: ein tmux-Fensterwechsel, eine SFTP-Dateiübertragung, das Installieren des AI-Chat-Plugins und Chatten damit, Eternal Terminal sowie kürzliche Sitzungen mit einem Tippen. iOS: gruppierte gespeicherte Server, Verbindungsoptionen mit tmux-Auto-Attach, eine laufende Terminalsitzung und der Tmux-Manager.",
-    videoAlt: "Android-Demo eines tmux-Fensterwechsels, eines SFTP-Dateidownloads, des Installierens und Nutzens des AI-Chat-Plugins, des Eternal-Terminal-Transports und kürzlicher Sitzungen",
-    videoIosAlt: "iOS-Demo gruppierter gespeicherter Server, Verbindungsoptionen mit tmux-Auto-Attach und Portweiterleitung, einer laufenden SSH-Terminalsitzung und des Tmux-Managers beim Fensterwechsel",
+    videoIntro: "Kurze Demos auf beiden Plattformen. Android: der Startbildschirm, der zeigt, wo du wieder einsteigen kannst, eine Sitzungs-Symbolleiste, die nur anbietet, was der jeweilige Server kann, das Senden einer Datei direkt in die Eingabezeile sowie die Manager für tmux, herdr und Zellij. iOS: der Start direkt in ein laufendes Terminal und der Startbildschirm, zu dem du zurückkehrst.",
+    videoAlt: "Android-Demo mit dem Startbildschirm, der fortsetzbare tmux-Sitzungen auflistet, der Sitzungs-Symbolleiste, dem Anhängen einer Datei an die Eingabezeile und den Sitzungsmanagern für tmux, herdr und Zellij",
+    videoIosAlt: "iOS-Demo, in der Mobile SSH direkt in eine laufende SSH-Terminalsitzung startet und danach zum Startbildschirm mit „Zuletzt“ und den übrigen Bildschirmen der App zurückkehrt",
     lightboxClose: "Schließen",
     lightboxPrev: "Zurück",
     lightboxNext: "Weiter",
@@ -99,7 +99,7 @@ export const de: Dict = {
     betaOr: "oder E-Mail an",
     betaRequest: "um Zugang zur privaten Beta anzufordern",
     galleryAlts: [
-      "Startbildschirm von Mobile SSH auf einem Telefon mit Kacheln Server, Anmeldedaten, Logs, Einstellungen, Debug und Über.",
+      "Startbildschirm von Mobile SSH auf einem Android-Telefon mit einer Liste der tmux-Sitzungen, die auf einem gespeicherten Server warten, darunter Schaltflächen für Server, Anmeldedaten, Einstellungen, Über und Plugins.",
       "Dialog „Server hinzufügen“ auf einem Telefon mit Feldern für Host, Port, Anmeldedaten, privatem Schlüssel und Portweiterleitung.",
       "Einzelnes SSH-Terminal auf einem Telefon mit Zusatztastenreihe unten.",
       "Zwei SSH-Sitzungen in einer nebeneinander angeordneten geteilten Ansicht auf einem Telefon.",
@@ -110,7 +110,7 @@ export const de: Dict = {
       "Dialog „Öffentlicher Schlüssel“ auf einem Telefon mit dem erzeugten Schlüssel und Optionen zum Kopieren, Teilen und Speichern.",
       "Bildschirm „Gespeicherte Server“ mit Servern, die in einklappbaren Gruppen „Arbeit“ und „Privat“ organisiert sind.",
       "SSH-Terminal auf einem Telefon mit https://-URLs, die als antippbare, anklickbare Links unterstrichen sind.",
-      "Startbildschirm von Mobile SSH auf einem Telefon mit einer Liste „Recent Sessions“, um eine SSH-Verbindung mit einem Tippen fortzusetzen.",
+      "Zellij-Manager auf einem Android-Telefon mit einer Auflistung von Sitzungen, Tabs und Panels samt Schaltflächen zum Anhängen, Umbenennen, Beenden und Fokussieren.",
       "Tmux-Manager auf einem Telefon mit einer Auflistung von tmux-Sitzungen, -Fenstern und -Panels samt Schaltflächen zum Anhängen, Umbenennen und Wechseln.",
       "Plugins-Bildschirm auf einem Telefon mit einem installierbaren Plugin-Katalog mit Tailscale, WireGuard und VS Code.",
       "AI-Chat-Plugin auf einem Telefon, das eine Antwort eines lokalen llama3.2-Modells streamt, das über SSH auf dem entfernten Server läuft.",
@@ -128,7 +128,7 @@ export const de: Dict = {
       "Plugin-Katalog auf einem iPhone mit Tailscale, WireGuard, VS Code, AI Chat und Open WebUI zur Installation.",
       "Verbindungsformular auf einem iPhone mit dem Transport auf Eternal Terminal eingestellt, damit Sitzungen Netzwerkausfälle überstehen.",
       "Einstellungen für Agenten-Benachrichtigungen auf einem iPhone mit Schaltern für Vibration, Ton und Nur-Kopfhörer.",
-      "Verbindungsbildschirm von Mobile SSH auf einem iPhone mit einem Bereich „Zuletzt“, um sich mit einem Tippen erneut zu verbinden."
+      "Startbildschirm von Mobile SSH auf einem iPhone mit einer Liste „Zuletzt“, um sich mit einem Tippen erneut zu verbinden, darunter Kacheln für Server, Anmeldedaten, Logs, Einstellungen, Über und Plugins."
     ],
     compareHead: "Sein Platz neben Termux und Termius",
     compareIntro:
