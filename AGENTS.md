@@ -96,8 +96,24 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 
 ```bash
 npx vitest run      # 675 tests; structural parity + translation checks
-npx astro build     # 223 pages across 20 locales
+npx astro build     # 224 pages across 20 locales
 ```
+
+### Commit as the project, not as your employer
+
+Mobile SSH is a personal open-source project. Commit it as
+**`mobile.ssh.info@gmail.com`** — the address the site, the About page and the
+store listings already give as the project contact. Never commit it under a
+work address.
+
+```bash
+git config --local user.email mobile.ssh.info@gmail.com   # in each Mobile SSH repo
+```
+
+Set this **locally in every repo** (`mobile-ssh.github.io`, `android-ssh`,
+`ios-ssh`). The global git identity on this machine has drifted between
+addresses more than once, and inheriting it is how the wrong one gets into a
+public history. A local override does not drift.
 
 ### Locale codes differ from the apps
 
