@@ -1,0 +1,1032 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
+import { defaultLocale } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getFlight } from "../../i18n/blog/flight";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const p = getFlight(locale);
+
+// Decorative: every bar is the same 96-glyph run and the CSS width carries the
+// value, so the run itself is not content.
+const BAR = "█".repeat(96);
+// Presentation, not copy: bar colours per chart row, highlighted verdict cells.
+const latencyBars = ["geo", "pac", "leo"];
+const moshBars = ["pred", "unpred"];
+const verdictClasses = ["ok", "hi", "hi"];
+---
+
+<BaseLayout title={p.meta.title} description={p.meta.description} locale={locale} pathKey="blog" chrome={false}>
+  <div class="tp">
+<div class="wrap">
+
+  <main id="main">
+
+  <p class="tp-back"><a href="/blog/">&larr; {p.backLabel}</a></p>
+
+  <!-- ============ scrollback ============ -->
+  <div class="scrollback" aria-hidden="true">
+    <div class="sl">last login: Mon Aug 10 06:12:04 2026 from 10.0.42.7</div>
+    <div class="sl"><b>seat24c@phone</b>:~$ ping -c1 shed.example.net <span class="sl-d">&rarr; 703 ms</span></div>
+    <div class="sl"><b>seat24c@phone</b>:~$ et dmk@shed.example.net:2022</div>
+    <div class="sl sl-i">&#9675; connection lost &mdash; handoff</div>
+    <div class="sl sl-i">&#9679; reattached, replaying 2.1 kB of buffer</div>
+    <div class="sl"><b>seat24c@phone</b>:~$ tmux attach -t atlantic</div>
+    <div class="sl">[attached to session <span class="sl-a">atlantic</span>]</div>
+  </div>
+
+  <!-- ============ masthead pane ============ -->
+  <div class="pane masthead">
+    <span class="pane-corner tr" aria-hidden="true">┐</span>
+    <span class="pane-corner bl" aria-hidden="true">└</span>
+    <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">0</span> field-report <span class="zoom">Z</span> <span class="b">├</span></span>
+
+    <p class="eyebrow">{p.masthead.eyebrow}</p>
+
+    <!-- ---------- split-flap departure board ----------
+         Five destinations share one grid cell and take turns, tiles
+         flipping down on a stagger. Pure CSS: it turns with scripting
+         disabled and holds still under prefers-reduced-motion.
+
+         The tiles stay English in every locale on purpose: they are
+         aria-hidden decoration, and one element per character destroys
+         Arabic/Urdu shaping and Indic conjuncts. The translated headline
+         is the .sr-only text below, plus .board-h1-tr under the board. -->
+    <div class="board" id="board">
+      <div class="board-head">
+        <span>{p.masthead.boardTitle}</span>
+        <span class="clock">08:41</span>
+      </div>
+      <div class="board-legend">
+        <span>{p.masthead.legend.time}</span>
+        <span>{p.masthead.legend.flight}</span>
+        <span class="lg-dest">{p.masthead.legend.destination}</span>
+        <span class="lg-rm">{p.masthead.legend.remarks}</span>
+      </div>
+
+      <h1 class="board-h1">
+        <span class="sr-only">{p.masthead.headline}</span>
+        <span class="dest" aria-hidden="true">
+          <span class="line is-first" style="--l:0">
+            <span class="word"><span class="flap" style="--i:0">E</span><span class="flap" style="--i:1">L</span><span class="flap" style="--i:2">E</span><span class="flap" style="--i:3">V</span><span class="flap" style="--i:4">E</span><span class="flap" style="--i:5">N</span></span>
+            <span class="word"><span class="flap" style="--i:6">H</span><span class="flap" style="--i:7">O</span><span class="flap" style="--i:8">U</span><span class="flap" style="--i:9">R</span><span class="flap" style="--i:10">S</span></span>
+            <span class="word"><span class="flap" style="--i:11">O</span><span class="flap" style="--i:12">V</span><span class="flap" style="--i:13">E</span><span class="flap" style="--i:14">R</span></span>
+            <span class="word"><span class="flap" style="--i:15">T</span><span class="flap" style="--i:16">H</span><span class="flap" style="--i:17">E</span></span>
+            <span class="word"><span class="flap" style="--i:18">A</span><span class="flap" style="--i:19">T</span><span class="flap" style="--i:20">L</span><span class="flap" style="--i:21">A</span><span class="flap" style="--i:22">N</span><span class="flap" style="--i:23">T</span><span class="flap" style="--i:24">I</span><span class="flap" style="--i:25">C</span></span>
+          </span>
+          <span class="line" style="--l:1">
+            <span class="word"><span class="flap" style="--i:0">S</span><span class="flap" style="--i:1">E</span><span class="flap" style="--i:2">A</span><span class="flap" style="--i:3">T</span></span>
+            <span class="word"><span class="flap" style="--i:4">2</span><span class="flap" style="--i:5">4</span><span class="flap" style="--i:6">B</span></span>
+            <span class="word"><span class="flap" style="--i:7">W</span><span class="flap" style="--i:8">A</span><span class="flap" style="--i:9">T</span><span class="flap" style="--i:10">C</span><span class="flap" style="--i:11">H</span><span class="flap" style="--i:12">E</span><span class="flap" style="--i:13">S</span></span>
+            <span class="word"><span class="flap" style="--i:14">A</span></span>
+            <span class="word"><span class="flap" style="--i:15">F</span><span class="flap" style="--i:16">I</span><span class="flap" style="--i:17">L</span><span class="flap" style="--i:18">M</span></span>
+            <span class="word"><span class="flap" style="--i:19">A</span><span class="flap" style="--i:20">G</span><span class="flap" style="--i:21">A</span><span class="flap" style="--i:22">I</span><span class="flap" style="--i:23">N</span></span>
+          </span>
+          <span class="line" style="--l:2">
+            <span class="word"><span class="flap" style="--i:0">S</span><span class="flap" style="--i:1">E</span><span class="flap" style="--i:2">A</span><span class="flap" style="--i:3">T</span></span>
+            <span class="word"><span class="flap" style="--i:4">2</span><span class="flap" style="--i:5">4</span><span class="flap" style="--i:6">C</span></span>
+            <span class="word"><span class="flap" style="--i:7">R</span><span class="flap" style="--i:8">E</span><span class="flap" style="--i:9">V</span><span class="flap" style="--i:10">I</span><span class="flap" style="--i:11">E</span><span class="flap" style="--i:12">W</span><span class="flap" style="--i:13">S</span></span>
+            <span class="word"><span class="flap" style="--i:14">F</span><span class="flap" style="--i:15">O</span><span class="flap" style="--i:16">U</span><span class="flap" style="--i:17">R</span></span>
+            <span class="word"><span class="flap" style="--i:18">S</span><span class="flap" style="--i:19">E</span><span class="flap" style="--i:20">R</span><span class="flap" style="--i:21">V</span><span class="flap" style="--i:22">E</span><span class="flap" style="--i:23">R</span><span class="flap" style="--i:24">S</span></span>
+          </span>
+          <span class="line" style="--l:3">
+            <span class="word"><span class="flap" style="--i:0">G</span><span class="flap" style="--i:1">E</span><span class="flap" style="--i:2">O</span></span>
+            <span class="word"><span class="flap" style="--i:3">A</span><span class="flap" style="--i:4">D</span><span class="flap" style="--i:5">D</span><span class="flap" style="--i:6">S</span></span>
+            <span class="word"><span class="flap" style="--i:7">7</span><span class="flap" style="--i:8">0</span><span class="flap" style="--i:9">3</span></span>
+            <span class="word"><span class="flap" style="--i:10">M</span><span class="flap" style="--i:11">S</span></span>
+            <span class="word"><span class="flap" style="--i:12">T</span><span class="flap" style="--i:13">O</span></span>
+            <span class="word"><span class="flap" style="--i:14">E</span><span class="flap" style="--i:15">V</span><span class="flap" style="--i:16">E</span><span class="flap" style="--i:17">R</span><span class="flap" style="--i:18">Y</span></span>
+            <span class="word"><span class="flap" style="--i:19">K</span><span class="flap" style="--i:20">E</span><span class="flap" style="--i:21">Y</span></span>
+          </span>
+          <span class="line" style="--l:4">
+            <span class="word"><span class="flap" style="--i:0">M</span><span class="flap" style="--i:1">O</span><span class="flap" style="--i:2">V</span><span class="flap" style="--i:3">E</span></span>
+            <span class="word"><span class="flap" style="--i:4">T</span><span class="flap" style="--i:5">H</span><span class="flap" style="--i:6">E</span></span>
+            <span class="word"><span class="flap" style="--i:7">W</span><span class="flap" style="--i:8">O</span><span class="flap" style="--i:9">R</span><span class="flap" style="--i:10">K</span></span>
+            <span class="word"><span class="flap" style="--i:11">N</span><span class="flap" style="--i:12">O</span><span class="flap" style="--i:13">T</span></span>
+            <span class="word"><span class="flap" style="--i:14">T</span><span class="flap" style="--i:15">H</span><span class="flap" style="--i:16">E</span></span>
+            <span class="word"><span class="flap" style="--i:17">K</span><span class="flap" style="--i:18">E</span><span class="flap" style="--i:19">Y</span><span class="flap" style="--i:20">S</span><span class="flap" style="--i:21">T</span><span class="flap" style="--i:22">R</span><span class="flap" style="--i:23">O</span><span class="flap" style="--i:24">K</span><span class="flap" style="--i:25">E</span><span class="flap" style="--i:26">S</span></span>
+          </span>
+        </span>
+      </h1>
+
+      <div class="board-rows" aria-hidden="true">
+        <div class="brow" style="--r:0">
+          <span class="uw"><i style="--i:0" class="u st">0</i><i style="--i:1" class="u st">8</i><i style="--i:2" class="u st">:</i><i style="--i:3" class="u st">4</i><i style="--i:4" class="u st">1</i></span>
+          <span class="uw"><i style="--i:5" class="u st">M</i><i style="--i:6" class="u st">S</i><i style="--i:7" class="u st">0</i><i style="--i:8" class="u st">4</i><i style="--i:9" class="u st">7</i><i style="--i:10" class="u st">7</i></span>
+          <span class="uw ds"><i style="--i:11" class="u st">S</i><i style="--i:12" class="u st">E</i><i style="--i:13" class="u st">A</i><i style="--i:14" class="u st">T</i><i style="--i:15" class="u sp"></i><i style="--i:16" class="u st">2</i><i style="--i:17" class="u st">4</i><i style="--i:18" class="u st">B</i></span>
+          <span class="uw rm"><i style="--i:19" class="u st">W</i><i style="--i:20" class="u st">A</i><i style="--i:21" class="u st">T</i><i style="--i:22" class="u st">C</i><i style="--i:23" class="u st">H</i><i style="--i:24" class="u st">E</i><i style="--i:25" class="u st">D</i><i style="--i:26" class="u sp"></i><i style="--i:27" class="u st">3</i><i style="--i:28" class="u st">X</i></span>
+        </div>
+        <div class="brow" style="--r:1">
+          <span class="uw"><i style="--i:0" class="u st">0</i><i style="--i:1" class="u st">8</i><i style="--i:2" class="u st">:</i><i style="--i:3" class="u st">4</i><i style="--i:4" class="u st">1</i></span>
+          <span class="uw"><i style="--i:5" class="u st">M</i><i style="--i:6" class="u st">S</i><i style="--i:7" class="u st">0</i><i style="--i:8" class="u st">4</i><i style="--i:9" class="u st">7</i><i style="--i:10" class="u st">7</i></span>
+          <span class="uw ds"><i style="--i:11" class="u st">S</i><i style="--i:12" class="u st">E</i><i style="--i:13" class="u st">A</i><i style="--i:14" class="u st">T</i><i style="--i:15" class="u sp"></i><i style="--i:16" class="u st">2</i><i style="--i:17" class="u st">4</i><i style="--i:18" class="u st">C</i></span>
+          <span class="uw rm"><i style="--i:19" class="u st">4</i><i style="--i:20" class="u sp"></i><i style="--i:21" class="u st">S</i><i style="--i:22" class="u st">E</i><i style="--i:23" class="u st">R</i><i style="--i:24" class="u st">V</i><i style="--i:25" class="u st">E</i><i style="--i:26" class="u st">R</i><i style="--i:27" class="u st">S</i></span>
+        </div>
+        <div class="brow is-warn" style="--r:2">
+          <span class="uw"><i style="--i:0" class="u st">-</i><i style="--i:1" class="u st">-</i><i style="--i:2" class="u st">:</i><i style="--i:3" class="u st">-</i><i style="--i:4" class="u st">-</i></span>
+          <span class="uw"><i style="--i:5" class="u st">G</i><i style="--i:6" class="u st">E</i><i style="--i:7" class="u st">O</i></span>
+          <span class="uw ds"><i style="--i:8" class="u st">3</i><i style="--i:9" class="u st">5</i><i style="--i:10" class="u st">7</i><i style="--i:11" class="u st">8</i><i style="--i:12" class="u st">6</i><i style="--i:13" class="u sp"></i><i style="--i:14" class="u st">K</i><i style="--i:15" class="u st">M</i></span>
+          <span class="uw rm"><i style="--i:16" class="u st">7</i><i style="--i:17" class="u st">0</i><i style="--i:18" class="u st">3</i><i style="--i:19" class="u sp"></i><i style="--i:20" class="u st">M</i><i style="--i:21" class="u st">S</i></span>
+        </div>
+        <div class="brow is-good" style="--r:3">
+          <span class="uw"><i style="--i:0" class="u st">-</i><i style="--i:1" class="u st">-</i><i style="--i:2" class="u st">:</i><i style="--i:3" class="u st">-</i><i style="--i:4" class="u st">-</i></span>
+          <span class="uw"><i style="--i:5" class="u st">L</i><i style="--i:6" class="u st">E</i><i style="--i:7" class="u st">O</i></span>
+          <span class="uw ds"><i style="--i:8" class="u st">5</i><i style="--i:9" class="u st">5</i><i style="--i:10" class="u st">0</i><i style="--i:11" class="u sp"></i><i style="--i:12" class="u st">K</i><i style="--i:13" class="u st">M</i></span>
+          <span class="uw rm"><i style="--i:14" class="u st">6</i><i style="--i:15" class="u st">2</i><i style="--i:16" class="u sp"></i><i style="--i:17" class="u st">M</i><i style="--i:18" class="u st">S</i></span>
+        </div>
+      </div>
+    </div>
+
+    {locale !== defaultLocale && p.masthead.headlineTranslated && (
+      /* The flap tiles above stay English, so translated readers get the
+         headline here. aria-hidden because the <h1> already announces it. */
+      <p class="board-h1-tr" aria-hidden="true">{p.masthead.headlineTranslated}</p>
+    )}
+
+    <p class="deck" set:html={p.masthead.deck}></p>
+    <p class="byline">
+      {p.masthead.byline.map((b) => (
+        <span><span class="k">{b.key}</span> {b.value}</span>
+      ))}
+    </p>
+  </div>
+
+  <article>
+
+    <!-- ============ 1 ============ -->
+    <section class="pane" aria-labelledby="h-1">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">1</span> two-seats-one-satellite <span class="b">├</span></span>
+
+      <h2 id="h-1"><span class="n">§1 </span>{p.sections.twoSeats.heading}</h2>
+      <div class="prose">
+        {p.sections.twoSeats.intro.map((para) => <p set:html={para}></p>)}
+      </div>
+
+      <div class="split">
+        <div class="col seat-24b">
+          <p class="seat-tag">{p.seat24b.tag}</p>
+          {p.seat24b.lines.map((l) => (
+            <p class="seat-line"><span class="t">{l.time}</span> <b>{l.verb}</b> {l.text}</p>
+          ))}
+        </div>
+        <div class="divider-v" aria-hidden="true">│
+│
+│
+│
+│
+│
+│</div>
+        <div class="divider-h" aria-hidden="true">─────────────────────────────────────────────────────────────────────────────</div>
+        <div class="col seat-24c">
+          <p class="seat-tag">{p.seat24c.tag}</p>
+          {p.seat24c.lines.map((l) => (
+            <p class="seat-line"><span class="t">{l.time}</span> <b>{l.verb}</b> {l.text}</p>
+          ))}
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top:var(--s5)">
+        {p.sections.twoSeats.outro.map((para) => <p set:html={para}></p>)}
+      </div>
+    </section>
+
+    <figure class="copymode">
+      <div class="cm-bar" aria-hidden="true"><span>-- COPY MODE --</span><span>[1/3]</span></div>
+      <blockquote><span class="sel">{p.quotes[0]}</span></blockquote>
+    </figure>
+
+    <!-- ============ 2 ============ -->
+    <section class="pane" aria-labelledby="h-2">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">2</span> whats-actually-above-you <span class="b">├</span></span>
+
+      <h2 id="h-2"><span class="n">§2 </span>{p.sections.aboveYou.heading}</h2>
+      <div class="prose">
+        {p.sections.aboveYou.intro.map((para) => <p set:html={para}></p>)}
+      </div>
+
+      <figure class="orbit">
+        <svg viewBox="0 0 420 210" role="img" aria-label={p.orbit.alt}>
+          <defs>
+            <linearGradient id="gnd" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#1e2b26"/><stop offset=".5" stop-color="#2f463c"/><stop offset="1" stop-color="#1e2b26"/>
+            </linearGradient>
+          </defs>
+          <!-- GEO arc -->
+          <path d="M8 44 Q210 -6 412 44" fill="none" stroke="#ff6d6d" stroke-width="1" stroke-dasharray="3 5" opacity=".8"/>
+          <text x="14" y="27" fill="#ff6d6d" font-family="JetBrains Mono, monospace" font-size="13">{p.orbit.geoLabel}</text>
+          <text x="412" y="27" fill="#ff6d6d" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end">{p.orbit.geoValue}</text>
+          <text x="205" y="52" fill="#ff6d6d" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle">◆</text>
+          <!-- LEO arc -->
+          <path d="M8 118 Q210 86 412 118" fill="none" stroke="#5ce890" stroke-width="1" stroke-dasharray="3 5" opacity=".85"/>
+          <text x="14" y="102" fill="#5ce890" font-family="JetBrains Mono, monospace" font-size="13">{p.orbit.leoLabel}</text>
+          <text x="412" y="102" fill="#5ce890" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="end">{p.orbit.leoValue}</text>
+          <text x="150" y="126" fill="#5ce890" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle">▪</text>
+          <text x="262" y="126" fill="#5ce890" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle">▪</text>
+          <!-- paths up -->
+          <path d="M205 168 L205 60" stroke="#ff6d6d" stroke-width="1" stroke-dasharray="2 4" opacity=".55"/>
+          <path d="M205 168 L152 134" stroke="#5ce890" stroke-width="1" stroke-dasharray="2 4" opacity=".65"/>
+          <!-- aircraft + ground -->
+          <text x="205" y="176" fill="#5fd7f0" font-family="JetBrains Mono, monospace" font-size="15" text-anchor="middle">✈</text>
+          <text x="205" y="192" fill="#8aa197" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">{p.orbit.aircraft}</text>
+          <line x1="8" y1="202" x2="412" y2="202" stroke="url(#gnd)" stroke-width="1" stroke-dasharray="1 3"/>
+        </svg>
+        <figcaption>{p.orbit.caption}</figcaption>
+      </figure>
+
+      <div class="prose">
+        {p.sections.aboveYou.afterDiagram.map((para) => <p set:html={para}></p>)}
+      </div>
+
+      <div class="chart">
+        {p.latencyChart.rows.map((r, i) => (
+          <div class="row">
+            <div class="row-head"><span class="lab">{r.label}</span><span class="val">{r.value}</span></div>
+            <div class="track"><div class={`bar ${latencyBars[i]}`} aria-hidden="true">{BAR}</div></div>
+          </div>
+        ))}
+        <p class="chart-note">{p.latencyChart.note}</p>
+      </div>
+
+      <div class="prose">
+        {p.sections.aboveYou.afterChart.map((para) => <p set:html={para}></p>)}
+      </div>
+    </section>
+
+    <!-- ============ 3 ============ -->
+    <section class="pane" aria-labelledby="h-3">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">3</span> rollout-reality <span class="b">├</span></span>
+
+      <h2 id="h-3"><span class="n">§3 </span>{p.sections.rollout.heading}</h2>
+      <div class="prose">
+        {p.sections.rollout.intro.map((para) => <p set:html={para}></p>)}
+      </div>
+
+      <!-- Deliberately not a bar chart: "60 of 400+ aircraft" and "12 of ~43
+           widebodies" have different denominators, so a shared scale would
+           invite a comparison the sources do not support. -->
+      <div class="rollout">
+        {p.rolloutFigure.items.map((it) => (
+          <div class="ro">
+            <span class="ro-k">{it.name}</span>
+            <span class="ro-v">{it.value}</span>
+            <span class="ro-d">{it.text}</span>
+          </div>
+        ))}
+        <p class="chart-note">{p.rolloutFigure.note}</p>
+      </div>
+
+      <div class="prose">
+        {p.sections.rollout.afterFigure.map((para) => <p set:html={para}></p>)}
+      </div>
+    </section>
+
+    <figure class="copymode">
+      <div class="cm-bar" aria-hidden="true"><span>-- COPY MODE --</span><span>[2/3]</span></div>
+      <blockquote><span class="sel">{p.quotes[1]}</span></blockquote>
+    </figure>
+
+    <!-- ============ 4 ============ -->
+    <section class="pane" aria-labelledby="h-4">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">4</span> film-vs-shell <span class="b">├</span></span>
+
+      <h2 id="h-4"><span class="n">§4 </span>{p.sections.filmVsShell.heading}</h2>
+      <p class="cmd"><span class="p">$</span> <span class="bin">time</span> <span class="path">echo</span> <span class="str">"a"</span> <span class="flag">|</span> <span class="bin">ssh</span> <span class="path">shed</span> <span class="str">'cat'</span>   <span class="cm"># {p.sections.filmVsShell.cmdComment}</span></p>
+      <div class="prose">
+        {p.sections.filmVsShell.prose.map((para) => <p set:html={para}></p>)}
+      </div>
+    </section>
+
+    <!-- ============ 5 ============ -->
+    <section class="pane" aria-labelledby="h-5">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">5</span> what-actually-breaks <span class="b">├</span></span>
+
+      <h2 id="h-5"><span class="n">§5 </span>{p.sections.whatBreaks.heading}</h2>
+      <div class="prose">
+        {p.sections.whatBreaks.intro.map((para) => <p set:html={para}></p>)}
+      </div>
+
+      <p class="tablecap" id="cap-mum">{p.latencyTable.caption}</p>
+      <div class="tablewrap">
+        <table aria-describedby="cap-mum">
+          <thead>
+            <tr>{p.latencyTable.head.map((h) => <th scope="col">{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            {p.latencyTable.rows.map((r, i) => (
+              <tr><th scope="row">{r.task}</th><td>{r.low}</td><td>{r.high}</td><td class={verdictClasses[i]}>{r.verdict}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        {p.sections.whatBreaks.afterTable.map((para) => <p set:html={para}></p>)}
+      </div>
+    </section>
+
+    <figure class="copymode">
+      <div class="cm-bar" aria-hidden="true"><span>-- COPY MODE --</span><span>[3/3]</span></div>
+      <blockquote><span class="sel">{p.quotes[2]}</span></blockquote>
+    </figure>
+
+    <!-- ============ 6 ============ -->
+    <section class="pane" aria-labelledby="h-6">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">6</span> move-the-work <span class="b">├</span></span>
+
+      <h2 id="h-6"><span class="n">§6 </span>{p.sections.moveTheWork.heading}</h2>
+      <div class="prose">
+        {p.sections.moveTheWork.intro.map((para) => <p set:html={para}></p>)}
+      </div>
+
+      <h3>{p.sections.moveTheWork.chartHeading}</h3>
+      <div class="chart">
+        {p.moshChart.rows.map((r, i) => (
+          <div class="row">
+            <div class="row-head"><span class="lab">{r.label}</span><span class="val">{r.value}</span></div>
+            <div class="track"><div class={`bar ${moshBars[i]}`} aria-hidden="true">{BAR}</div></div>
+          </div>
+        ))}
+        <p class="chart-note">{p.moshChart.note}</p>
+      </div>
+
+      <div class="prose">
+        {p.sections.moveTheWork.afterChart.map((para) => <p set:html={para}></p>)}
+      </div>
+    </section>
+
+    <!-- ============ 7 ============ -->
+    <section class="pane" aria-labelledby="h-7">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">7</span> seat-24c <span class="b">├</span></span>
+
+      <h2 id="h-7"><span class="n">§7 </span>{p.sections.seat24c.heading}</h2>
+      <p class="cmd"><span class="p">$</span> <span class="bin">tmux</span> <span class="flag">list-windows</span> <span class="flag">-t</span> <span class="str">atlantic</span></p>
+      <div class="prose"><p set:html={p.sections.seat24c.lead}></p></div>
+
+      <ul class="winlist">
+        {p.windows.map((w, i) => (
+          <li>
+            <p class="win-h"><span class="i">{i}:</span> {w.title}{w.bellLabel && (<Fragment> <span class="flag">!</span><span class="sr-only">{w.bellLabel}</span></Fragment>)}</p>
+            <p set:html={w.body}></p>
+          </li>
+        ))}
+      </ul>
+
+      <div class="prose" style="margin-top:var(--s5)">
+        {p.sections.seat24c.outro.map((para) => <p set:html={para}></p>)}
+      </div>
+    </section>
+
+    <!-- ============ 8 ============ -->
+    <section class="pane" aria-labelledby="h-8">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">8</span> honest-caveat <span class="b">├</span></span>
+
+      <h2 id="h-8"><span class="n">§8 </span>{p.sections.caveat.heading}</h2>
+      <div class="prose">
+        {p.sections.caveat.prose.map((para) => <p set:html={para}></p>)}
+      </div>
+    </section>
+
+    <!-- ============ closing ============ -->
+    <section class="pane" aria-labelledby="h-9">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">9</span> descent <span class="b">├</span></span>
+
+      <h2 id="h-9"><span class="n">§9 </span>{p.sections.descent.heading}</h2>
+      <div class="prose">
+        {p.sections.descent.prose.map((para) => <p set:html={para}></p>)}
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="pane cta" aria-labelledby="h-cta">
+      <span class="pane-corner tr" aria-hidden="true">┐</span>
+      <span class="pane-corner bl" aria-hidden="true">└</span>
+      <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">10</span> install <span class="zoom">Z</span> <span class="b">├</span></span>
+
+      <p class="cmd"><span class="usr">seat24c@phone</span><span class="p">:</span><span class="path">~</span><span class="p">$</span> <span class="bin">mobile-ssh</span> <span class="flag">--join-beta</span> <span class="cm"># {p.cta.cmdComment}</span><span class="cur" aria-hidden="true"></span></p>
+      <h2 id="h-cta">{p.cta.heading}</h2>
+      <div class="prose">
+        {p.cta.prose.map((para) => <p set:html={para}></p>)}
+      </div>
+      <p class="tags">{p.cta.tags.map((tag) => <span>{tag}</span>)}</p>
+      <div class="btns">
+        <a class="btn" href={PLAY_STORE_BETA_URL} rel="noopener">{p.cta.playButton} →</a>
+        <a class="btn btn--ghost" href={TESTFLIGHT_URL} rel="noopener">{p.cta.iosButton} →</a>
+      </div>
+      <p class="cta-note">{p.cta.note}</p>
+    </section>
+
+  </article>
+
+  <!-- ============ sources ============ -->
+  <aside class="pane" aria-labelledby="h-src">
+    <span class="pane-corner tr" aria-hidden="true">┐</span>
+    <span class="pane-corner bl" aria-hidden="true">└</span>
+    <span class="pane-title" aria-hidden="true"><span class="b">┤</span> <span class="idx">11</span> sources — less <span class="b">├</span></span>
+
+    <h2 id="h-src"><span class="n">§ </span>{p.sources.heading}</h2>
+    <ol class="sources">
+      {p.sources.items.map((item) => <li set:html={item}></li>)}
+    </ol>
+    <p class="less-prompt"><span class="inv">(END)</span> {p.sources.quitHint}</p>
+
+    <p class="colophon">
+      {p.colophon.map((line) => <span>{line}</span>)}
+    </p>
+  </aside>
+
+  </main>
+
+</div>
+
+<!-- ============ tmux status bar ============ -->
+<div class="statusbar" aria-hidden="true">
+  <span class="sb-session">[atlantic]</span>
+  <span class="sb-wins" aria-hidden="true">
+    <span class="sb-win hide-xs">0:film-</span>
+    <span class="sb-win on">1:report*</span>
+    <span class="sb-win hide-sm">2:agents</span>
+    <span class="sb-win hide-sm">3:builds</span>
+  </span>
+  <span class="sb-win sb-bell" aria-hidden="true">4:alerts<span class="bell">!</span></span>
+  <span class="sb-gap" aria-hidden="true"></span>
+  <span class="sb-right">
+    <span class="sb-clock" id="clk">T+04:12</span>
+    <span class="rtt">RTT 703ms</span>
+  </span>
+</div>
+
+
+  </div>
+
+  <style>
+/* ============================================================
+   08 — TMUX GRID
+   The article as a tmux session. Panes, pane titles, copy mode,
+   a pinned green status bar. Everything monospace, on purpose.
+   ============================================================ */
+
+.tp{
+  --bg:#07090a;
+  --pane:#0b0e0f;
+  --pane-2:#0e1213;
+  --fg:#d3e6da;
+  --dim:#8aa197;
+  --dimmer:#6f857b;
+  --line:#1e2b26;
+  --line-hi:#2f463c;
+  --green:#5ce890;
+  --green-dk:#2fb96a;
+  --cyan:#5fd7f0;
+  --amber:#ffc95c;
+  --red:#ff6d6d;
+  --violet:#c99bf5;
+  --status:#31c977;
+  --status-fg:#04140b;
+
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem;
+  --s5:1.5rem; --s6:2rem; --s7:3rem; --s8:4.5rem;
+
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --bar-h:2.35rem;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+
+.tp{
+  position:relative;            /* the CRT texture is absolute inside this */
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--mono);
+  font-size:clamp(14px,1.02vw + 11px,15.5px);
+  line-height:1.68;
+  font-weight:400;
+  padding:var(--s5) var(--s4) var(--s6);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* faint CRT texture — static, never animated */
+.tp::after{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;z-index:40;
+  background:repeating-linear-gradient(to bottom,rgba(140,255,190,.028) 0 1px,transparent 1px 3px);
+  mix-blend-mode:screen;
+}
+
+.wrap{max-width:1180px;margin:0 auto}
+
+a{color:var(--cyan);text-underline-offset:.22em;text-decoration-thickness:1px}
+a:hover{color:var(--green)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px; overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- scrollback ---------- */
+.scrollback{
+  font-size:.82em;line-height:1.85;color:var(--dimmer);
+  padding-top:var(--s6);
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 78%);
+  mask-image:linear-gradient(to bottom,transparent,#000 78%);
+}
+/* Each line is its own block: Astro normalises whitespace next to inline
+   tags, so a pre-wrap text blob would run the lines together. */
+.scrollback .sl{overflow-wrap:anywhere}
+.scrollback .sl-i{padding-left:1.2em}
+.scrollback .sl-d{color:var(--dimmer)}
+.scrollback .sl-a{color:var(--green)}
+.scrollback b{font-weight:400;color:var(--dim)}
+
+/* ---------- panes ---------- */
+.pane{
+  position:relative;
+  border:1px solid var(--line);
+  background:var(--pane);
+  padding:var(--s6) clamp(var(--s4),3.2vw,var(--s6)) var(--s6);
+  margin:var(--s6) 0;
+}
+.pane--flush{background:transparent}
+.pane-title{
+  position:absolute;top:0;left:clamp(var(--s3),2.6vw,var(--s5));
+  transform:translateY(-50%);
+  background:var(--bg);
+  padding:0 .55ch;
+  font-size:.76em;letter-spacing:.06em;
+  color:var(--dim);white-space:nowrap;max-width:calc(100% - 2rem);overflow:hidden;
+}
+.pane-title .b{color:var(--line-hi)}
+.pane-title .idx{color:var(--green-dk);font-weight:700}
+.pane-title .zoom{color:var(--amber)}
+.pane-corner{position:absolute;font-size:.9em;color:var(--line-hi);line-height:1}
+.pane-corner.tr{top:-.62em;right:-.06em}
+.pane-corner.bl{bottom:-.62em;left:-.06em}
+
+.prose{max-width:66ch}
+.prose p{margin:0 0 var(--s4)}
+.prose p:last-child{margin-bottom:0}
+.prose strong{color:var(--green);font-weight:700}
+.prose em{color:var(--violet);font-style:normal}
+.prose code,.ic{
+  color:var(--amber);background:rgba(255,201,92,.09);
+  padding:.05em .4em;border-radius:2px;font-size:.94em;overflow-wrap:anywhere;
+}
+
+h1,h2,h3{font-weight:700;line-height:1.18;margin:0}
+
+/* ---------- masthead ---------- */
+.masthead{padding-top:var(--s6)}
+.eyebrow{
+  display:inline-block;font-size:.78em;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--status-fg);background:var(--status);padding:.15em .7em;font-weight:700;
+}
+h1{
+  font-size:clamp(1.85rem,6.4vw,3.5rem);
+  letter-spacing:-.035em;
+  margin:var(--s4) 0 var(--s4);
+  color:var(--green);
+  text-shadow:0 0 26px rgba(92,232,144,.28);
+  overflow-wrap:break-word;
+}
+h1 .cur{color:var(--green)}
+.deck{font-size:clamp(1rem,.5vw + .92rem,1.16rem); color:var(--fg);max-width:60ch;margin:0 0 var(--s5);line-height:1.6}
+.deck .hl{color:var(--cyan)}
+.byline{
+  display:flex;flex-wrap:wrap;gap:var(--s2) var(--s3);
+  font-size:.82em;color:var(--dim);border-top:1px dashed var(--line-hi);padding-top:var(--s3);
+}
+.byline .k{color:var(--dimmer)}
+
+h2{font-size:clamp(1.15rem,1.5vw + .85rem,1.6rem); letter-spacing:-.02em;color:var(--fg);margin:0 0 var(--s4)}
+h2 .n{color:var(--green-dk);font-weight:400}
+h3{font-size:.94em;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin:var(--s5) 0 var(--s3)}
+
+/* ---------- command lines ---------- */
+.cmd{font-size:.88em;margin:0 0 var(--s4);white-space:pre-wrap;overflow-wrap:anywhere; color:var(--dim)}
+.cmd .p{color:var(--green-dk)}
+.cmd .usr{color:var(--violet)}
+.cmd .path{color:var(--cyan)}
+.cmd .bin{color:var(--green);font-weight:500}
+.cmd .flag{color:var(--amber)}
+.cmd .str{color:var(--violet)}
+.cmd .cm{color:var(--dimmer)}
+.cmd .out{color:var(--dim)}
+
+.cur{
+  display:inline-block;width:.62em;height:1.02em;vertical-align:-.16em;
+  background:currentColor;margin-left:.14em;
+  animation:blink 1.08s steps(1,end) infinite;
+}
+@keyframes blink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+
+/* ---------- vertical split (seat 24B / 24C) ---------- */
+.split{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin:var(--s2) 0 0}
+.split > .col{min-width:0;padding:0 var(--s4)}
+.split > .col:first-child{padding-left:0}
+.split > .col:last-child{padding-right:0}
+.divider-v{color:var(--line-hi);white-space:pre;line-height:1.5;font-size:1em; overflow:hidden;user-select:none;text-align:center}
+.divider-h{display:none;color:var(--line-hi);overflow:hidden;white-space:nowrap;user-select:none;margin:var(--s4) 0}
+.seat-tag{font-size:.78em;letter-spacing:.16em;text-transform:uppercase;color:var(--dimmer);margin-bottom:var(--s2)}
+.seat-24b .seat-tag{color:var(--amber)}
+.seat-24c .seat-tag{color:var(--green)}
+.seat-line{font-size:.86em;color:var(--dim);margin:0 0 var(--s1);overflow-wrap:anywhere}
+.seat-line .t{color:var(--dimmer)}
+.seat-24c .seat-line b{color:var(--green);font-weight:500}
+.seat-24b .seat-line b{color:var(--amber);font-weight:500}
+
+/* ---------- copy-mode pull quote ---------- */
+.copymode{margin:var(--s6) 0;border:1px solid var(--line-hi);background:var(--pane-2)}
+.cm-bar{
+  display:flex;justify-content:space-between;gap:var(--s3);
+  background:var(--amber);color:#160f00;font-size:.74em;font-weight:700;
+  letter-spacing:.14em;padding:.1em .7em;
+}
+.copymode blockquote{
+  margin:0;padding:var(--s5) clamp(var(--s3),3vw,var(--s5));
+  font-size:clamp(1.02rem,1.1vw + .8rem,1.32rem);line-height:1.62;max-width:56ch;
+}
+.copymode .sel{
+  background:rgba(92,232,144,.17);color:#e8fff1;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+  padding:.12em .28em;
+}
+.copymode figcaption{padding:0 clamp(var(--s3),3vw,var(--s5)) var(--s4); font-size:.78em;color:var(--dimmer)}
+
+/* ---------- ascii bars ---------- */
+.chart{margin:var(--s5) 0 var(--s4);max-width:70ch}
+.row{margin:0 0 var(--s4)}
+.row-head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3);font-size:.84em;margin-bottom:.15em}
+.row-head .lab{color:var(--dim);min-width:0;overflow-wrap:anywhere}
+.row-head .val{color:var(--fg);font-weight:700;white-space:nowrap}
+.track{background:rgba(255,255,255,.028);border-left:1px solid var(--line-hi)}
+.bar{overflow:hidden;white-space:nowrap;line-height:1.05;font-size:1em;letter-spacing:-.06em}
+.bar.geo{color:var(--red);width:100%}
+.bar.pac{color:var(--amber);width:8.8%}
+.bar.leo{color:var(--green);width:6.3%}
+.bar.pred{color:var(--green);width:70%}
+.bar.unpred{color:var(--red);width:30%}
+.chart-note{font-size:.78em;color:var(--dimmer);margin:0;max-width:62ch}
+
+/* ---------- orbit diagram ---------- */
+.orbit{margin:var(--s5) 0 var(--s5);max-width:460px}
+.orbit svg{display:block;width:100%;height:auto}
+.orbit figcaption{font-size:.78em;color:var(--dimmer);text-align:center;margin-top:var(--s2)}
+
+/* ---------- data table ---------- */
+.rollout{margin:var(--s5) 0;display:grid;gap:var(--s4)}
+.ro{display:grid;grid-template-columns:1fr auto;gap:.15em var(--s3);align-items:baseline;
+  border-left:2px solid var(--line-hi);padding-left:var(--s3)}
+.ro-k{color:var(--cyan);font-size:.86em;letter-spacing:.06em;text-transform:uppercase}
+.ro-v{color:var(--amber);font-weight:700;font-size:1.15em;justify-self:end}
+.ro-d{grid-column:1 / -1;color:var(--dim);font-size:.92em;line-height:1.5}
+.tablecap{margin:var(--s5) 0 .5em;color:var(--dim);font-size:.9em;max-width:70ch}
+.tablewrap{overflow-x:auto;margin:0 0 var(--s5);border:1px solid var(--line);max-width:70ch}
+table{border-collapse:collapse;width:100%;font-size:.8em;min-width:19rem}
+caption{text-align:left;padding:var(--s2) var(--s3);color:var(--dimmer);font-size:.95em;border-bottom:1px solid var(--line)}
+th,td{padding:.42em var(--s3);text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{color:var(--dimmer);font-weight:400;letter-spacing:.08em;text-transform:uppercase;font-size:.9em}
+tbody tr:last-child td{border-bottom:0}
+td.hi{color:var(--amber);font-weight:700}
+td.ok{color:var(--dim)}
+
+/* ---------- window list (section 7) ---------- */
+.winlist{list-style:none;margin:var(--s2) 0 0;padding:0}
+.winlist li{border-left:2px solid var(--line-hi);padding:0 0 0 var(--s4); margin:0 0 var(--s5);max-width:64ch}
+.winlist li:last-child{margin-bottom:0}
+.winlist li::marker{content:""}
+.win-h{font-size:.86em;color:var(--green);font-weight:700;margin-bottom:var(--s1);letter-spacing:.02em}
+.win-h .i{color:var(--dimmer);font-weight:400}
+.win-h .flag{color:var(--amber)}
+.winlist p{margin:0;color:var(--fg)}
+
+/* ---------- CTA ---------- */
+.cta{border:1px solid var(--green-dk);background:linear-gradient(180deg,rgba(49,201,119,.09),rgba(49,201,119,.02))}
+.cta h2{color:var(--green)}
+.btns{display:flex;flex-wrap:wrap;gap:var(--s3);margin:var(--s5) 0 var(--s4)}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:700;font-size:.92em;
+  padding:.62em 1.15em;border:1px solid var(--green);color:var(--status-fg);
+  background:var(--status);letter-spacing:.02em;
+}
+.btn:hover{background:var(--green);color:var(--status-fg)}
+.btn--ghost{background:transparent;color:var(--green);border-color:var(--green-dk)}
+.btn--ghost:hover{background:rgba(92,232,144,.14);color:var(--green)}
+.tags{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s3);font-size:.78em;color:var(--dim);margin:0 0 var(--s4)}
+.tags span::before{content:"[ ";color:var(--line-hi)}
+.tags span::after{content:" ]";color:var(--line-hi)}
+.cta-note{font-size:.8em;color:var(--dim);max-width:62ch;margin:0}
+
+/* ---------- sources / footer ---------- */
+.sources{list-style:none;margin:0;padding:0;font-size:.79em;color:var(--dim);counter-reset:src;max-width:88ch}
+.sources li{
+  counter-increment:src;position:relative;padding:.34em 0 .34em 3.2em;
+  border-bottom:1px dashed rgba(47,70,60,.55);overflow-wrap:anywhere;
+}
+.sources li::before{
+  content:counter(src,decimal-leading-zero);position:absolute;left:0;top:.34em;
+  color:var(--dimmer);background:rgba(255,255,255,.03);padding:0 .45em;
+}
+.sources li:last-child{border-bottom:0}
+.sources em{color:var(--fg);font-style:italic}
+.less-prompt{margin-top:var(--s4);font-size:.8em;color:var(--dim)}
+.less-prompt .inv{background:var(--dim);color:var(--pane);padding:0 .3em}
+
+.colophon{font-size:.78em;color:var(--dimmer);margin:var(--s6) 0 0; display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4)}
+
+/* ---------- status bar ---------- */
+.statusbar{
+  max-width:1180px;margin-left:auto;margin-right:auto;
+  position:relative;z-index:20;
+  height:var(--bar-h);
+  display:flex;align-items:center;gap:0;
+  background:var(--status);color:var(--status-fg);
+  font-size:clamp(11px,2.8vw,13px);font-weight:500;line-height:1;
+  border-top:1px solid #0a3a22;
+  overflow:hidden;
+}
+.sb-session{background:#04140b;color:var(--status);font-weight:700; padding:0 .8em;height:100%;display:flex;align-items:center;flex:0 0 auto}
+.sb-wins{display:flex;align-items:center;gap:0;flex:0 1 auto;min-width:0;overflow:hidden;padding-left:.55em}
+.sb-gap{flex:1 1 auto;min-width:0}
+.sb-win{padding:0 .62em;white-space:nowrap;opacity:.82}
+.sb-win.on{background:#04140b;color:var(--status);opacity:1;font-weight:700;padding-block:.28em}
+.sb-bell{flex:0 0 auto;opacity:1;font-weight:700}
+.sb-win .bell{color:#701700;font-weight:700}
+.sb-right{display:flex;align-items:center;gap:.85em;padding:0 .8em;flex:0 0 auto;white-space:nowrap}
+.sb-right .rtt{background:#04140b;color:var(--amber);padding:.28em .5em;font-weight:700}
+.sb-clock{font-variant-numeric:tabular-nums}
+
+@media (max-width:780px){
+  .split{grid-template-columns:1fr}
+  .split > .col{padding:0}
+  .divider-v{display:none}
+  .divider-h{display:block}
+  .hide-sm{display:none}
+}
+@media (max-width:430px){
+  .pane{padding-left:var(--s3);padding-right:var(--s3)}
+  .hide-xs{display:none}
+  .sb-session{padding:0 .55em}
+  .sb-win{padding:0 .42em}
+  .sb-right{gap:.5em;padding:0 .5em}
+  .sb-right .rtt{padding:.28em .34em}
+  /* the window list cannot fit at this width; drop it rather than slice it */
+  .sb-wins{display:none}
+}
+
+/* ============================================================
+   SPLIT-FLAP DEPARTURE BOARD (masthead) — pure CSS, no scripting
+   The headline is a destination display: five lines share one grid
+   cell and each takes the board for a fifth of the cycle, its tiles
+   flipping down on a stagger as it arrives. Tiles follow the Solari
+   treatment from 05-departure-board: warm leaf gradients, a hairline
+   hinge, and a specular sheen on the upper half.
+   Everything runs on @keyframes, so it turns with scripting disabled.
+   ============================================================ */
+
+.board{
+  --unit-w:.72em;
+  --unit-h:1.2em;
+  --unit-gap:.075em;
+  --cycle:20s;
+  --tile-top:#1c1508; --tile-bot:#0b0804; --amber-hot:#ffe3ad;
+  /* Column tracks in rem, not em, so the legend lines up with the rows
+     even though the two are set at different sizes. */
+  --col-time:3.5rem; --col-flt:4.4rem; --col-rm:6.6rem;
+  position:relative;
+  margin:var(--s4) 0 var(--s5);
+  padding:clamp(.75rem,2.4vw,1.2rem);
+  background:linear-gradient(#15191b,#0a0c0d 58%,#0f1213);
+  border:1px solid #242b2e;
+  border-radius:7px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    inset 0 -20px 38px rgba(0,0,0,.6),
+    0 20px 44px -24px rgba(0,0,0,.95);
+  overflow:hidden;
+}
+.board::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:42%;
+  background:linear-gradient(rgba(255,255,255,.06),transparent);
+  pointer-events:none;z-index:1;
+}
+
+.board-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:1em;
+  font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;
+  color:#8d9aa0;margin-bottom:.6em;position:relative;z-index:2;
+}
+.board-head .clock{
+  letter-spacing:.14em;color:#e4e0d6;font-weight:700;font-size:.78rem;
+  background:#0b0e0f;border-radius:2.5px;padding:.12em .5em;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.board-legend{
+  display:grid;grid-template-columns:var(--col-time) var(--col-flt) 1fr var(--col-rm);
+  gap:.55rem;align-items:end;
+  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:#78868c;
+  border-bottom:1px solid #242b2e;padding-bottom:.45em;margin-bottom:.75em;
+  position:relative;z-index:2;
+}
+.board-legend .lg-rm{text-align:right}
+
+/* ---------- a unit ---------- */
+.u{
+  position:relative;display:inline-block;flex:0 0 auto;
+  width:var(--unit-w);height:var(--unit-h);
+  overflow:hidden;border-radius:2.5px;
+  font-style:normal;font-weight:700;color:#f2f0ea;
+  /* the tonal step across the hinge: upper leaf lit, lower half in shadow */
+  background:linear-gradient(180deg,var(--tile-top) 0 49.6%,var(--tile-bot) 50.4% 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.07),
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 1px 2px rgba(0,0,0,.8);
+}
+/* hinge seam, its shadow, and the spindle pins at either side */
+.u::after{
+  content:"";position:absolute;left:0;right:0;top:50%;height:3px;
+  transform:translateY(-1.5px);z-index:4;pointer-events:none;
+  background:
+    radial-gradient(circle at 1.5px 50%, #59636a 0 1.3px, transparent 1.6px),
+    radial-gradient(circle at calc(100% - 1.5px) 50%, #59636a 0 1.3px, transparent 1.6px),
+    linear-gradient(rgba(0,0,0,.55) 0 45%, #000 45% 62%, rgba(0,0,0,.35));
+}
+.u.sp{background:transparent;box-shadow:none}
+.u.sp::after{display:none}
+.u.st{display:flex;align-items:center;justify-content:center}
+
+/* ---------- headline: a destination display in the 05 board style ----------
+   Five destinations stacked in one grid cell, so the block is as tall as
+   the tallest and never jumps. Each takes its turn for a fifth of the
+   cycle, and its tiles flip in on a stagger as it arrives. Word-grouped
+   and wrapping, so it can be set large and still break cleanly.        */
+.board-h1{margin:0;line-height:1}
+.dest{
+  display:grid;perspective:600px;position:relative;z-index:2;
+  font-size:clamp(1.15rem, 5.6vw, 2.6rem);
+}
+.dest .line{
+  grid-area:1 / 1;
+  display:flex;flex-wrap:wrap;gap:.3em .72em;align-content:start;
+  opacity:0;visibility:hidden;
+  animation:destshow var(--cycle) linear infinite;
+  animation-delay:calc(var(--l) * var(--cycle) / 5);
+}
+.dest .word{display:flex;gap:.14em}
+.flap{
+  position:relative;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  width:.94em;height:1.32em;
+  background:linear-gradient(180deg,var(--tile-top) 0 49.6%,var(--tile-bot) 50.4% 100%);
+  border-radius:2px;
+  box-shadow:inset 0 0 0 1px rgba(255,176,32,.10),0 1px 0 rgba(0,0,0,.9);
+  color:var(--amber-hot);
+  font-weight:700;letter-spacing:0;
+  text-shadow:0 0 12px rgba(255,176,32,.5);
+  transform-origin:50% 50%;
+  animation:flapturn var(--cycle) infinite;
+  animation-delay:calc(var(--l) * var(--cycle) / 5 + var(--i) * 30ms);
+}
+.flap::before{ /* hairline seam across the middle */
+  content:"";position:absolute;left:0;right:0;top:50%;height:2px;
+  transform:translateY(-1px);z-index:2;
+  background:linear-gradient(180deg,rgba(0,0,0,.92) 0 50%,rgba(255,214,150,.10) 50%);
+}
+.flap::after{ /* specular sheen on the upper leaf */
+  content:"";position:absolute;left:0;right:0;top:0;height:50%;
+  background:linear-gradient(180deg,rgba(255,214,150,.075),transparent);
+  border-radius:2px 2px 0 0;
+}
+
+@keyframes destshow{
+  0%,19.99%   {opacity:1;visibility:visible}
+  20%,100%    {opacity:0;visibility:hidden}
+}
+/* the leaf drops into place as its line comes up */
+@keyframes flapturn{
+  0%    {transform:rotateX(-92deg)}
+  2.2%  {transform:rotateX(14deg)}
+  3.2%  {transform:rotateX(-6deg)}
+  4%    {transform:rotateX(0)}
+  100%  {transform:rotateX(0)}
+}
+
+/* ---------- data rows ---------- */
+.board-rows{
+  perspective:600px;
+  display:grid;gap:.45rem;margin-top:.9em;
+  padding-top:.8em;border-top:1px solid #1c2225;
+  position:relative;z-index:2;
+  font-size:clamp(.6rem,1.7vw,.82rem);
+}
+.brow{
+  display:grid;grid-template-columns:var(--col-time) var(--col-flt) 1fr var(--col-rm);
+  gap:.55rem;align-items:center;
+}
+.uw{display:flex;gap:var(--unit-gap);flex-wrap:nowrap}
+.uw.rm{justify-self:end}
+.brow .u{color:#dcd8cd}
+/* A real board refreshes its rows too. Each line takes one slot of the cycle
+   and turns tile by tile, so the whole board is never still for long. */
+.brow .u.st{
+  transform-origin:50% 50%;
+  animation:flapturn var(--cycle) infinite;
+  animation-delay:calc(var(--r,0) * var(--cycle) / 5 + var(--i,0) * 26ms + 900ms);
+}
+.brow .rm .u{color:#f4f1e8}
+.brow.is-warn .rm .u{color:var(--amber)}
+.brow.is-good .rm .u{color:var(--green)}
+
+@media (max-width:640px){
+  /* Narrower units and a tighter gap buy back headline size on a phone:
+     the row still holds all 32 units on one line, so nothing breaks
+     mid-word, but each character is set appreciably larger. */
+  .board{--col-time:3rem;--col-flt:3.4rem;--col-rm:5.4rem;--unit-w:.64em;--unit-gap:.04em}
+  .board-legend{grid-template-columns:var(--col-time) var(--col-flt) 1fr}
+  .board-legend .lg-dest,.board-legend .lg-rm{display:none}
+  .brow{grid-template-columns:var(--col-time) var(--col-flt) 1fr;gap:.4rem .5rem}
+  .brow .ds{grid-column:1 / -1;order:3;margin-top:.3em}
+  .brow .rm{grid-column:3;justify-self:end}
+  .board-rows{gap:.75rem;font-size:.72rem}
+  /* a 3px hinge swallows a 12px tile — thin it along with the type */
+  .u::after{height:2px;transform:translateY(-1px)}
+  .brow{padding-bottom:.55em;border-bottom:1px dashed #1c2225}
+  .brow:last-child{border-bottom:0;padding-bottom:0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .cur{opacity:1!important}
+  .tp::after{display:none}
+  .dest .line{display:none}
+  .dest .line.is-first{display:flex;opacity:1;visibility:visible}
+}
+/* ---------- inside the site chrome ---------- */
+.tp-back{margin:0 0 var(--s5);font-size:.86em}
+.tp-back a{color:var(--dim)}
+.tp-back a:hover{color:var(--green)}
+
+/* ---------- translated headline (non-English locales) ----------
+   The split-flap tiles stay English everywhere, so a translated locale gets
+   its headline as type, directly under the board. English never renders
+   this element, so the English page is untouched. */
+.board-h1-tr{
+  margin:var(--s4) 0 var(--s5);
+  font-size:clamp(1.25rem,3.6vw,2rem);
+  font-weight:700;line-height:1.22;letter-spacing:-.02em;
+  color:var(--green);max-width:28ch;
+  text-shadow:0 0 22px rgba(92,232,144,.22);
+}
+
+/* ---------- prose injected with set:html ----------
+   Translatable prose arrives as strings and is rendered with set:html, so its
+   inline tags are not authored in this component and never pick up the scope
+   attribute Astro adds. These rules re-apply the declarations above to that
+   markup — copies of existing rules, not new styling. */
+.prose :global(strong){color:var(--green);font-weight:700}
+.prose :global(em){color:var(--violet);font-style:normal}
+.prose :global(code){
+  color:var(--amber);background:rgba(255,201,92,.09);
+  padding:.05em .4em;border-radius:2px;font-size:.94em;overflow-wrap:anywhere;
+}
+.deck :global(.hl){color:var(--cyan)}
+.sources :global(em){color:var(--fg);font-style:italic}
+
+  </style>
+
+  <script is:inline>
+/* Flight clock. Purely decorative: the page ships a valid static value in HTML
+   and never depends on this running. Frozen when reduced motion is requested. */
+(function () {
+  var el = document.getElementById('clk');
+  if (!el) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var t = 4 * 3600 + 12 * 60;
+  setInterval(function () {
+    t += 1;
+    var h = Math.floor(t / 3600), m = Math.floor(t / 60) % 60, s = t % 60;
+    el.textContent = 'T+' + String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+  }, 1000);
+})();
+
+  </script>
+</BaseLayout>

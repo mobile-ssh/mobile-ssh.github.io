@@ -25,15 +25,15 @@ const info = localeMap[locale];
 const t = getDict(locale);
 const currentPath = Astro.url.pathname;
 
-// The blog is English-only, so its nav entry always points at the canonical
-// /blog/ route regardless of the active locale. About and Privacy moved to the
-// footer to keep the top nav focused on the product.
+// The blog is translated now, so its nav entry follows the active locale like
+// every other destination. About and Privacy moved to the footer to keep the
+// top nav focused on the product.
 const navItems: { key: NonNullable<Props["pathKey"]>; href: string; label: string }[] = [
   { key: "home",     href: localizedHref(locale, "/"),           label: t.nav.home },
   { key: "features", href: localizedHref(locale, "/features/"),  label: t.nav.features },
   { key: "docs",     href: localizedHref(locale, "/docs/"),      label: t.nav.docs },
   { key: "compare",  href: localizedHref(locale, "/compare/"),   label: t.nav.compare },
-  { key: "blog",     href: "/blog/",                             label: t.nav.blog }
+  { key: "blog",     href: localizedHref(locale, "/blog/"),      label: t.nav.blog }
 ];
 
 function localePath(targetCode: LocaleCode): string {

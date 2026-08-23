@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { defaultLocale, localizedHref } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getBlogIndex } from "../../i18n/blog/index-page";
+import type { BlogPostSlug } from "../../i18n/blog/index-page/types";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const c = getBlogIndex(locale);
+
+// Newest first. Add new entries to the top of this list.
+// Slugs and machine-readable dates are not translatable; the copy for each
+// slug lives in src/i18n/blog/index-page/<locale>.ts.
+const postRefs: { slug: BlogPostSlug; date: string }[] = [
+  { slug: "eleven-hours-over-the-atlantic", date: "2026-08-10" },
+  { slug: "laptops-are-dead", date: "2026-07-27" },
+];
+
+const posts = postRefs.map((ref) => ({
+  ...c.posts[ref.slug],
+  date: ref.date,
+  href: localizedHref(locale, `/blog/${ref.slug}/`),
+}));
+---
+
+<BaseLayout title={c.metaTitle} description={c.metaDescription} locale={locale} pathKey="blog">
+  <main class="blog-index">
+    <header class="blog-head">
+      <p class="eyebrow">{c.eyebrow}</p>
+      <h1>{c.h1}</h1>
+      <p class="intro" set:html={c.intro}></p>
+    </header>
+
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li class="post-card">
+          <a href={post.href} class="card-link" aria-label={post.title}></a>
+          <div class="meta">
+            <span class="tag">{post.tag}</span>
+            <time datetime={post.date}>{post.dateLabel}</time>
+            <span class="dot" aria-hidden="true">·</span>
+            <span>{post.readingTime}</span>
+          </div>
+          <h2>{post.title}</h2>
+          <p set:html={post.excerpt}></p>
+          <span class="more">{post.cta} →</span>
+        </li>
+      ))}
+    </ul>
+  </main>
+
+  <style>
+    .blog-index { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    .blog-head { text-align: center; margin-bottom: 2.5rem; }
+    .eyebrow { text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; font-weight: 700; color: var(--green); margin: 0 0 0.8rem; }
+    .blog-head h1 { margin: 0; font-size: clamp(2rem, 5.5vw, 3rem); letter-spacing: -0.03em; color: var(--ink); }
+    .blog-head .intro { max-width: 52ch; margin: 1rem auto 0; color: var(--muted); font-size: 1.08rem; line-height: 1.55; }
+
+    .post-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; }
+    .post-card {
+      position: relative; background: var(--surface); border: 1px solid var(--line);
+      border-radius: 14px; padding: 1.6rem 1.6rem 1.5rem;
+      transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    }
+    .post-card:hover { border-color: var(--green); box-shadow: 0 16px 36px -22px rgba(20,26,45,.32); transform: translateY(-2px); }
+    .card-link { position: absolute; inset: 0; border-radius: 14px; z-index: 1; }
+    .card-link:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+    .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 0.6rem; color: var(--muted); font-size: 0.82rem; }
+    .tag { text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.68rem; color: var(--green); background: #eaf5f0; padding: 0.2rem 0.55rem; border-radius: 999px; }
+    .meta .dot { opacity: 0.5; }
+    .post-card h2 { margin: 0.7rem 0 0.4rem; font-size: clamp(1.3rem, 3.4vw, 1.7rem); letter-spacing: -0.02em; color: var(--ink); line-height: 1.15; }
+    .post-card p { margin: 0; color: var(--muted); font-size: 1.02rem; line-height: 1.6; }
+    .more { display: inline-block; margin-top: 1rem; color: var(--green); font-weight: 600; font-size: 0.92rem; }
+
+    @media (prefers-reduced-motion: reduce) { .post-card:hover { transform: none; } }
+  </style>
+</BaseLayout>
