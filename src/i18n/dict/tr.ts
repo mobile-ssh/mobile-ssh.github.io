@@ -65,7 +65,7 @@ export const tr: Dict = {
       { title: "Yeniden bağlanma akışı", text: "Ağ değiştirdiğinde oturumlar ölü rotanın zaman aşımına uğramasını beklemeden hemen yeniden bağlanır; bekleme süresindeki bir oturum da kullanılabilir bir ağ belirir belirmez uyanır. iOS'ta sessizce yanıt vermeyi bırakmış bir sunucu fark edilir ve yeniden bağlanılır." },
       { title: "Yedekleme ve geri yükleme", text: "Kaydedilen sunucuları ve kimlik bilgilerini şifreli bir yedek dosyasına aktar; cihazlar arası geçiş için birleştir veya değiştir seçeneğiyle içe aktar — yedekler Android ve iOS arasında uyumludur." },
       { title: "Eternal Terminal", text: "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) üzerinden bağlanın — isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla." },
-      { title: "Çoğullayıcı yöneticileri", text: "tmux'u önek akorları olmadan yönetin — bağlanın, yeniden adlandırın, oluşturun, bölün, yakınlaştırın veya sonlandırın. Android aynısını herdr ve Zellij için de sunar; araç çubuğunda bir simge yalnızca o program sunucuda bulunduğunda belirir." },
+      { title: "Çoğullayıcı yöneticileri", text: "tmux'u önek akorları olmadan yönetin — bağlanın, yeniden adlandırın, oluşturun, bölün, yakınlaştırın veya sonlandırın. Her iki platform da aynısını herdr ve Zellij için sunar; araç çubuğunda bir simge yalnızca o program sunucuda bulunduğunda belirir." },
       { title: "Eklentiler", text: "Mobile SSH'yi genişletmek için eklentilere göz atın, kurun ve çalıştırın. Eklentiler genel bir katalogdan istek üzerine indirilir ve uygulamaya özel depolamaya SHA-256 ile doğrulanarak kaydedilir." }
     ],
     multiHead: "Tek ekran, birkaç canlı kabuk",
@@ -91,6 +91,31 @@ export const tr: Dict = {
     videoIntro: "Her iki platformda kısa demolar. Android: nereye geri dönebileceğinizi gösteren ana ekran, yalnızca o sunucuda bulunanları gösteren oturum araç çubuğu, bir dosyayı doğrudan komut istemine gönderme ve tmux, herdr ile Zellij yöneticileri. iOS: doğrudan canlı bir terminalde açılış ve geri döndüğünüz ana ekran.",
     videoAlt: "Android demosu: sürdürülecek tmux oturumlarını listeleyen ana ekran, oturum araç çubuğu, komut istemine dosya ekleme ve tmux, herdr ile Zellij oturum yöneticileri",
     videoIosAlt: "iOS demosu: Mobile SSH uygulamasını açıp doğrudan canlı bir SSH terminal oturumuna girme ve Son Oturumlar listesiyle uygulamanın diğer ekranlarının bulunduğu ana ekrana dönme",
+    muxHead: "Her oturum yöneticisi için bir video",
+    muxIntro:
+      "Yukarıdaki demolarda tmux, herdr ve Zellij toplamda otuz saniye kadar yer paylaşıyor — araç çubuğunun her biri için bir simge çizdiğini göstermeye yeter, ama hiçbirinin ne yaptığını göstermeye yetmez. Bunlar uzun sürümler; her iki platformda, canlı bir sunucuya karşı çekildi.",
+    muxItems: [
+        {
+          text: "Ana ekrandan doğrudan oturumlara, pencerelere ve bölmelere. Bir oturum zille işaretli, çünkü orada bir şey yanıt bekliyor. Bir pencereye bağlanın, çalışan terminal onu izlesin; pencere oluşturup adlandırın — hiçbir noktada önek kısayolu yazmadan.",
+          androidAlt: "tmux yöneticisinin Android demosu: ana ekrandaki önbelleğe alınmış oturum listesi, ardından oturumlar, pencereler ve bölmeler, terminalin izlediği bir pencereye bağlanma ve adlandırılmış bir pencere oluşturma.",
+          iosAlt: "tmux yöneticisinin iOS demosu: yaşlarıyla birlikte tmux oturumları ve girdi bekleyenin üzerindeki zil, ardından pencereler ve bölmeler; her satırda Aç, Yeniden adlandır ve Sonlandır."
+        },
+        {
+          text: "Gerçek ajan durumu taşıyan çalışma alanları, sekmeler ve bölmeler — biri çalışıyor, biri engellenmiş ve bir insanı bekliyor. Engellenmiş olanı önizleyin, telefondan yanıtlayın ve herdr'ın onu önce çalışıyor, sonra bitti olarak yeniden sınıflandırmasını izleyin.",
+          androidAlt: "herdr yöneticisinin Android demosu: ajan durumuyla etiketlenmiş oturumlar ve çalışma alanları, needs you olarak işaretlenmiş bir ajan, telefondan yanıtlanması ve yeni bir çalışma alanının oluşturulup yeniden adlandırılması.",
+          iosAlt: "herdr yöneticisinin iOS demosu: ajan durumu taşıyan çalışma alanları ve yazılan girdiyi Enter ile birlikte engellenmiş bir ajana gönderen bir yanıt sayfası."
+        },
+        {
+          text: "Yaşlarıyla birlikte oturumlar, ardından sekmeler ve bölmeler. Bir bölmenin çıktısını bağlanmadan önizleyin, adlandırılmış bir sekme ekleyin, önemli olanı öne getirin ve bağlanın — komut isteminde hiçbir şey yazmadan.",
+          androidAlt: "Zellij yöneticisinin Android demosu: yaşlarıyla oturumlar, sekmeler ve bölmeler, bir bölmenin çıktısının önizlenmesi, adlandırılmış bir sekme oluşturulması ve bir oturuma bağlanılması.",
+          iosAlt: "Zellij yöneticisinin iOS demosu: bağlanma, yeniden adlandırma, sonlandırma ve silme eylemleri olan bir oturum, sekmeleri ve önizleme ile her iki bölme yönünü sunan bir bölme."
+        }
+    ],
+    graphicsHead: "Terminalin içinde, hareketli bir grafik",
+    graphicsBody:
+      "Kitty grafik protokolü üzerinden akıtılan ve uygulamanın dosyanın kendi kare zamanlamasıyla çözdüğü 36 karelik bir GIF — dışarıdan kare kare ilerletilmiyor. Ardından bir terminalin sınandığı kaçış dizileri: OSC 8 yapı numaralarını ve pano adlarını dokunulabilir şeylere çevirir, OSC 52 uzaktaki makinenin telefonunuzun panosuna yazmasına izin verir, OSC 777 ise gerçek bir Android bildirimi yükseltir.",
+    graphicsAlt:
+      "Kitty grafik protokolü üzerinden terminale akıtılan hareketli bir gecikme grafiğinin Android demosu; ardından OSC 8 bağlantıları, OSC 52 ile pano yazımı ve bir OSC 777 bildirimi.",
     lightboxClose: "Kapat",
     lightboxPrev: "Önceki",
     lightboxNext: "Sonraki",
@@ -215,7 +240,7 @@ export const tr: Dict = {
           "Ajan kancasını uygulamanın içinden bir sunucuya kurun — herhangi bir ajanın çağırabileceği küçük bir kabuk betiği; sağlayıcıya özel bir entegrasyon değil",
           "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) aktarımı; isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla",
           "Tmux yöneticisi: oturumları, pencereleri ve panelleri listele ve aralarında geçiş yap — bağlan, yeniden adlandır, oluştur, böl, yakınlaştır veya sonlandır; ada/tarihe göre sıralama ve girdi bekleyen ajanlar için 🔔",
-          "Android'de herdr ve Zellij yöneticileri; her biri kendi oturumları, sekmeleri ve panelleri üzerinde aynı denetimi sunar — araç çubuğu bir simgeyi yalnızca o program sunucuda bulunduğunda gösterir"
+          "Android ve iOS'ta herdr ve Zellij yöneticileri; her biri kendi oturumları, sekmeleri ve panelleri üzerinde aynı denetimi sunar — araç çubuğu bir simgeyi yalnızca o program sunucuda bulunduğunda gösterir"
         ]
       },
       {
@@ -406,7 +431,7 @@ export const tr: Dict = {
       { category: "Oturumlar", feature: "Eternal Terminal (dayanıklı oturumlar)",  mobile: "yes",    termux: "CLI ile",      termius: "no" },
       { category: "Oturumlar", feature: "SSH üzerinden otomatik etserver kurulumu", mobile: "yes",   termux: "no",           termius: "no" },
       { category: "Oturumlar", feature: "tmux oturum yöneticisi",                  mobile: "yes",    termux: "CLI ile",      termius: "no" },
-      { category: "Oturumlar", feature: "herdr ve Zellij oturum yöneticileri",     mobile: "Android", termux: "CLI ile",     termius: "no" },
+      { category: "Oturumlar", feature: "herdr ve Zellij oturum yöneticileri",     mobile: "yes"    , termux: "CLI ile",     termius: "no" },
       { category: "Oturumlar", feature: "Takılmış bir ajana tek dokunuşla yanıt",  mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Eklentiler", feature: "Eklenti desteği",                        mobile: "yes",    termux: "paketlerle",   termius: "no" },
       { category: "Eklentiler", feature: "İstek üzerine kurulan eklenti kataloğu", mobile: "yes",    termux: "no",           termius: "no" }

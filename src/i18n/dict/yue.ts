@@ -65,7 +65,7 @@ export const yue: Dict = {
       { title: "重連工作流", text: "一轉網絡，會話就即刻重撥，唔使等死咗嘅路由逾時；正喺退避等候嘅會話，一有可用網絡就即刻醒返。喺 iOS，靜靜雞停咗回應嘅伺服器都會俾偵測到並重新連線。" },
       { title: "備份與還原", text: "將已儲存嘅伺服器同憑證匯出做加密備份檔案；匯入時可合併或取代，方便跨裝置搬移 —— 備份喺 Android 同 iOS 之間可以互通。" },
       { title: "Eternal Terminal", text: "用 Eternal Terminal（ET）連線，令會話喺斷網、休眠同 IP 轉變之間都唔斷 —— 仲可以選擇經 SSH 自動裝好 etserver。" },
-      { title: "多工器管理器", text: "唔使㩒 prefix 組合鍵都操控到 tmux —— attach、重新命名、新建、分割、放大或者 kill。Android 仲對 herdr 同 Zellij 有同樣嘅管理器，而工具列嘅圖示要喺伺服器搵到嗰個程式之後先會出現。" },
+      { title: "多工器管理器", text: "唔使㩒 prefix 組合鍵都操控到 tmux —— attach、重新命名、新建、分割、放大或者 kill。兩個平台都對 herdr 同 Zellij 有同樣嘅管理器，而工具列嘅圖示要喺伺服器搵到嗰個程式之後先會出現。" },
       { title: "插件", text: "瀏覽、安裝同運行插件嚟擴充 Mobile SSH。插件由公開目錄按需下載，經 SHA-256 驗證後放入 App 專屬儲存。" }
     ],
     multiHead: "一個畫面，幾個活躍 Shell",
@@ -91,6 +91,31 @@ export const yue: Dict = {
     videoIntro: "兩個平台嘅短片示範。Android：主畫面話你知有咩會話可以續返、會話工具列淨係顯示嗰部伺服器真係有嘅功能、將檔案直接送入提示符，仲有 tmux、herdr 同 Zellij 管理器。iOS：一開 app 就入到運行中嘅終端機，同埋你之後返返去嘅主畫面。",
     videoAlt: "Android 示範：主畫面列出可以續返嘅 tmux 會話、會話工具列、將檔案附加入提示符，同埋 tmux、herdr 同 Zellij 會話管理器",
     videoIosAlt: "iOS 示範：打開 Mobile SSH 直接入到運行中嘅 SSH 終端機會話，跟住返去主畫面，睇到「最近」同 app 其他畫面",
+    muxHead: "每個會話管理器一段片",
+    muxIntro:
+      "上面嘅示範入面，tmux、herdr 同 Zellij 加埋先得大約三十秒——夠睇到工具列為每個都畫咗個圖示，但唔夠睇到佢哋各自做到啲乜。呢啲係長版，喺兩個平台對住真實伺服器拍。",
+    muxItems: [
+        {
+          text: "由主畫面直接去到會話、視窗同窗格，其中一個會話有個鈴，因為嗰度有嘢等緊人應。附加一個視窗，行緊嘅終端就跟住過去；開一個視窗再改名——全程唔使撳任何前綴組合鍵。",
+          androidAlt: "Android tmux 管理器示範：主畫面快取嘅會話清單，跟住係會話、視窗同窗格，附加一個視窗令終端跟住行，同埋開一個有名嘅視窗。",
+          iosAlt: "iOS tmux 管理器示範：有建立時間嘅 tmux 會話，其中一個用鈴標住等緊輸入，跟住係視窗同窗格，每行都有開啟、改名同終止。"
+        },
+        {
+          text: "工作區、分頁同窗格帶住真實嘅代理狀態——一個做緊嘢，一個被阻塞緊等人答。預覽被阻塞嗰個，喺電話度回覆佢，然後睇住 herdr 將佢改為做緊，再改為完成。",
+          androidAlt: "Android herdr 管理器示範：標住代理狀態嘅會話同工作區，一個標住 needs you 嘅代理，喺電話度回覆佢，同埋新建再改名一個工作區。",
+          iosAlt: "iOS herdr 管理器示範：帶代理狀態嘅工作區，同埋一張回覆表，將打好嘅內容連 Enter 一齊送畀被阻塞嘅代理。"
+        },
+        {
+          text: "有建立時間嘅會話，跟住係分頁同窗格。唔使附加都預覽到某個窗格嘅輸出，加一個有名嘅分頁，將重要嗰個擺去前面，然後附加——喺提示符度乜都唔使打。",
+          androidAlt: "Android Zellij 管理器示範：有建立時間嘅會話、分頁同窗格，預覽窗格輸出，開一個有名嘅分頁，同埋附加一個會話。",
+          iosAlt: "iOS Zellij 管理器示範：一個可以附加、改名、終止同刪除嘅會話，佢嘅分頁，同埋一個有預覽同兩個分割方向嘅窗格。"
+        }
+    ],
+    graphicsHead: "終端機入面郁緊嘅圖表",
+    graphicsBody:
+      "一段 36 格嘅 GIF，經 Kitty 圖形協定串流入去，由 App 按檔案本身嘅格速解碼——唔係由外面逐格推。跟住係考驗一個終端機嘅轉義序列：OSC 8 將建置編號同儀表板名變成撳得嘅嘢，OSC 52 畀遠端寫入電話嘅剪貼簿，OSC 777 彈出一個真正嘅 Android 通知。",
+    graphicsAlt:
+      "Android 示範：經 Kitty 圖形協定串流入終端機嘅動態延遲圖表，跟住係 OSC 8 連結、OSC 52 寫入剪貼簿同一個 OSC 777 通知。",
     lightboxClose: "關閉",
     lightboxPrev: "上一張",
     lightboxNext: "下一張",
@@ -215,7 +240,7 @@ export const yue: Dict = {
           "可以喺 App 入面將 agent hook 裝落伺服器 —— 佢係一個任何 agent 都調用得到嘅細細 shell 腳本，唔係綁死某個供應商嘅整合",
           "Eternal Terminal（ET）傳輸令會話喺斷網、休眠同 IP 轉變之間都唔斷，仲可以選擇經 SSH 自動裝好 etserver",
           "Tmux 管理器：列出並切換會話、視窗同面板 —— attach、重新命名、新建、分割、放大或者 kill，可按名稱／日期排序，🔔 標示等緊輸入嘅 agent",
-          "Android 仲有 herdr 同 Zellij 管理器，各自對自己嘅會話、分頁同面板有同樣嘅操控 —— 工具列要喺伺服器搵到嗰個程式之後先會顯示個圖示"
+          "Android 同 iOS 都有 herdr 同 Zellij 管理器，各自對自己嘅會話、分頁同面板有同樣嘅操控 —— 工具列要喺伺服器搵到嗰個程式之後先會顯示個圖示"
         ]
       },
       {
@@ -406,7 +431,7 @@ export const yue: Dict = {
       { category: "會話", feature: "Eternal Terminal（彈性會話）",         mobile: "yes",    termux: "經由 CLI",      termius: "no" },
       { category: "會話", feature: "經 SSH 自動安裝 etserver",             mobile: "yes",    termux: "no",           termius: "no" },
       { category: "會話", feature: "tmux 會話管理器",                      mobile: "yes",    termux: "經由 CLI",      termius: "no" },
-      { category: "會話", feature: "herdr 同 Zellij 會話管理器",           mobile: "Android", termux: "經由 CLI",     termius: "no" },
+      { category: "會話", feature: "herdr 同 Zellij 會話管理器",           mobile: "yes"    , termux: "經由 CLI",     termius: "no" },
       { category: "會話", feature: "一㩒回覆卡住咗嘅 agent",               mobile: "yes",    termux: "no",           termius: "no" },
       { category: "插件", feature: "插件支援",                             mobile: "yes",    termux: "經由套件",      termius: "no" },
       { category: "插件", feature: "按需安裝嘅插件目錄",                   mobile: "yes",    termux: "no",           termius: "no" }

@@ -59,6 +59,26 @@ describe("locale dicts – structure", () => {
       expect(t.home.galleryIosAlts).toHaveLength(en.home.galleryIosAlts.length);
     });
 
+    it(`${locale}: muxItems has ${en.home.muxItems.length} items, all fields set`, () => {
+      const t = getDict(locale);
+      // Home.astro pairs these positionally with a fixed list of video files
+      // (tmux, herdr, Zellij) — a short or reordered array renders the wrong
+      // caption against the wrong take, and an empty alt is a silent a11y hole.
+      expect(t.home.muxItems).toHaveLength(en.home.muxItems.length);
+      for (const item of t.home.muxItems) {
+        expect(item.text.trim()).not.toBe("");
+        expect(item.androidAlt.trim()).not.toBe("");
+        expect(item.iosAlt.trim()).not.toBe("");
+      }
+    });
+
+    it(`${locale}: graphics demo copy is set`, () => {
+      const t = getDict(locale);
+      expect(t.home.graphicsHead.trim()).not.toBe("");
+      expect(t.home.graphicsBody.trim()).not.toBe("");
+      expect(t.home.graphicsAlt.trim()).not.toBe("");
+    });
+
     it(`${locale}: versionLine keeps {count}/{version}/{iosVersion} placeholders`, () => {
       const t = getDict(locale);
       expect(t.home.versionLine).toContain("{count}");

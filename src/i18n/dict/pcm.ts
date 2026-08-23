@@ -65,7 +65,7 @@ export const pcm: Dict = {
       { title: "Reconnect workflow", text: "Change network and di sessions go re-dial one time instead of waiting make di dead route timeout, and session wey dey backoff go wake di moment usable network show. For iOS, wen server quietly stop to answer, di app go notice am and reconnect." },
       { title: "Backup & restore", text: "Export saved servers and credentials to encrypted backup file; import with merge or replace to move between devices — di backups dey work between Android and iOS." },
       { title: "Eternal Terminal", text: "Connect over Eternal Terminal (ET) for sessions wey dey survive network drop, sleep, and IP change — wit optional automatic etserver setup over SSH." },
-      { title: "Multiplexer managers", text: "Drive tmux witout prefix chords — attach, rename, create, split, zoom, or kill. Android add di same thing for herdr and Zellij, and di toolbar icon dey show only wen di app don find dat program for di server." },
+      { title: "Multiplexer managers", text: "Drive tmux witout prefix chords — attach, rename, create, split, zoom, or kill. Di two platforms both add di same thing for herdr and Zellij, and di toolbar icon dey show only wen di app don find dat program for di server." },
       { title: "Plugins", text: "Browse, install, and run plugins to extend Mobile SSH. Plugins dey download as you need dem from public catalog and dem dey SHA-256 verified enter app-private storage." }
     ],
     multiHead: "One screen, plenty live shell",
@@ -91,6 +91,31 @@ export const pcm: Dict = {
     videoIntro: "Short demos for di two platforms. Android: di home screen wey dey answer wetin you fit go back inside, session toolbar wey dey show only wetin dat server get, sending file straight enter di prompt, and di tmux, herdr and Zellij managers. iOS: opening straight enter live terminal, and di home screen wey you dey come back to.",
     videoAlt: "Android demo of di home screen wey dey list tmux sessions wey you fit resume, di session toolbar, attaching file enter di prompt, and di tmux, herdr and Zellij session managers",
     videoIosAlt: "iOS demo of opening Mobile SSH straight enter live SSH terminal session and going back to di home screen, wit Recent and di odda screens wey di app get",
+    muxHead: "One video for each session manager",
+    muxIntro:
+      "For di demos wey dey up there, tmux, herdr and Zellij share about thirty seconds between dem — e enough to show say di toolbar dey draw icon for each one, but e no enough to show wetin any of dem fit do. Dis na di long versions, wey we film for both platforms against server wey dey run true-true.",
+    muxItems: [
+        {
+          text: "Sessions, windows and panes wey you fit reach from di home screen, with one session wey bell mark because something for inside dey wait make person answer am. Attach one window and di terminal wey dey run go follow am; create window and give am name — you no go type any prefix chord at all.",
+          androidAlt: "Android demo of di tmux manager: di session list wey di home screen keep, then sessions, windows and panes, attaching one window make di terminal follow am, and creating window wey get name.",
+          iosAlt: "iOS demo of di tmux manager: tmux sessions with how old dem be and bell for di one wey dey wait input, then windows and panes, every row get Open, Rename and Kill."
+        },
+        {
+          text: "Workspaces, tabs and panes wey carry real agent state — one agent dey work, anoda one block dey wait for person. Preview di one wey block, answer am from di phone, and watch as herdr go mark am working, then done.",
+          androidAlt: "Android demo of di herdr manager: sessions and workspaces wey dem label with agent state, one agent wey dem mark needs you, answering am from di phone, and new workspace wey dem create and rename.",
+          iosAlt: "iOS demo of di herdr manager: workspaces wey carry agent state and one reply sheet wey dey send wetin you type go meet agent wey block, with Enter follow am."
+        },
+        {
+          text: "Sessions with how old dem be, then tabs and panes. Preview wetin one pane dey show without attaching, add tab wey get name, bring di one wey matter come front, and attach — you no type anything for di prompt.",
+          androidAlt: "Android demo of di Zellij manager: sessions with how old dem be, tabs and panes, previewing wetin one pane dey show, creating tab wey get name, and attaching one session.",
+          iosAlt: "iOS demo of di Zellij manager: one session wey get attach, rename, kill and delete, im tabs, and one pane wey give preview and di two split directions."
+        }
+    ],
+    graphicsHead: "Chart wey dey move, inside di terminal",
+    graphicsBody:
+      "One GIF wey get 36 frames, wey dem stream over di Kitty graphics protocol and di app decode am for di file im own frame timing — na no be say person dey push am from outside. Then di escape sequences wey dem dey take judge terminal: OSC 8 dey turn build numbers and dashboard names into something wey you fit tap, OSC 52 dey let di remote write your phone clipboard, and OSC 777 dey raise real Android notification.",
+    graphicsAlt:
+      "Android demo of latency chart wey dey move, wey dem stream enter di terminal over di Kitty graphics protocol, then OSC 8 links, OSC 52 clipboard write, and OSC 777 notification.",
     lightboxClose: "Close am",
     lightboxPrev: "Di one before",
     lightboxNext: "Di next one",
@@ -215,7 +240,7 @@ export const pcm: Dict = {
           "Install di agent hook go server from inside di app — small shell script wey any agent fit call, no be vendor integration",
           "Eternal Terminal (ET) transport for sessions wey dey survive network drop, sleep, and IP change, wit optional automatic etserver setup over SSH",
           "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, wit name/date sorting and 🔔 for agents wey dey wait for input",
-          "Herdr and Zellij managers for Android, each one get di same reach over im own sessions, tabs, and panes — di toolbar dey show icon only wen di app don find dat program for di server"
+          "Herdr and Zellij managers for Android and iOS, each one get di same reach over im own sessions, tabs, and panes — di toolbar dey show icon only wen di app don find dat program for di server"
         ]
       },
       {
@@ -406,7 +431,7 @@ export const pcm: Dict = {
       { category: "Sessions",         feature: "Eternal Terminal (sessions wey no dey die)",  mobile: "yes",     termux: "via CLI",       termius: "no" },
       { category: "Sessions",         feature: "Auto-install etserver over SSH",              mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sessions",         feature: "tmux session manager",                        mobile: "yes",     termux: "via CLI",       termius: "no" },
-      { category: "Sessions",         feature: "herdr and Zellij session manager",            mobile: "Android", termux: "via CLI",       termius: "no" },
+      { category: "Sessions",         feature: "herdr and Zellij session manager",            mobile: "yes"    , termux: "via CLI",       termius: "no" },
       { category: "Sessions",         feature: "One-tap reply to agent wey block",            mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Plugins",          feature: "Plugin support",                              mobile: "yes",     termux: "via packages",  termius: "no" },
       { category: "Plugins",          feature: "Plugin catalog wey dey install on demand",    mobile: "yes",     termux: "no",            termius: "no" }

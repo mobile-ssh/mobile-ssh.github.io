@@ -66,7 +66,7 @@ export const en: Dict = {
       { title: "Reconnect workflow", text: "Change network and sessions re-dial at once instead of waiting out a dead route, and a session in backoff wakes the moment a usable network appears. On iOS a server that has silently stopped answering is noticed and reconnected." },
       { title: "Backup & restore", text: "Export saved servers and credentials to an encrypted backup file; import with merge or replace to move between devices — backups are interoperable between Android and iOS." },
       { title: "Eternal Terminal", text: "Connect over Eternal Terminal (ET) for sessions that survive network drops, sleep, and IP changes — with optional automatic etserver setup over SSH." },
-      { title: "Multiplexer managers", text: "Drive tmux without prefix chords — attach, rename, create, split, zoom, or kill. Android adds the same for herdr and Zellij, and a toolbar icon appears only once that program is found on the server." },
+      { title: "Multiplexer managers", text: "Drive tmux without prefix chords — attach, rename, create, split, zoom, or kill. Both platforms give herdr and Zellij the same reach, and a toolbar icon appears only once that program is found on the server." },
       { title: "Plugins", text: "Browse, install, and run plugins to extend Mobile SSH. Plugins download on demand from a public catalog and are SHA-256 verified into app-private storage." }
     ],
     multiHead: "One screen, several live shells",
@@ -93,6 +93,37 @@ export const en: Dict = {
     videoIntro: "Short demos on both platforms. Android: the home screen answering what you can get back into, a session toolbar showing only what that server has, sending a file straight into the prompt, and the tmux, herdr, and Zellij managers. iOS: launching into a live terminal and the home screen you come back to.",
     videoAlt: "Android demo of the home screen listing tmux sessions to resume, the session toolbar, attaching a file into the prompt, and the tmux, herdr, and Zellij session managers",
     videoIosAlt: "iOS demo of opening Mobile SSH into a live SSH terminal session and returning to the home screen, with Recent and the app's other screens",
+    muxHead: "One video per session manager",
+    muxIntro:
+      "The demos above give tmux, herdr and Zellij about thirty seconds between them — enough to show the toolbar draws an icon for each, not enough to show what any of them does. These are the long versions, filmed on both platforms against a live server.",
+    muxItems: [
+      {
+        text: "Sessions, windows and panes reached from the home screen, one session flagged by a bell because something on it is asking for attention. Attach a window and the live terminal follows it; create a window and name it — no prefix chord typed at any point.",
+        androidAlt:
+          "Android demo of the tmux manager: the home screen's cached session list, then sessions, windows and panes, attaching a window so the terminal follows, and creating a named window.",
+        iosAlt:
+          "iOS demo of the tmux manager: tmux sessions with their age and a bell on one awaiting input, then windows and panes, each row offering Open, Rename and Kill."
+      },
+      {
+        text: "Workspaces, tabs and panes carrying real agent state — one agent working, one blocked and waiting on a person. Preview the blocked one, answer it from the phone, and watch herdr reclassify it working, then done.",
+        androidAlt:
+          "Android demo of the herdr manager: sessions and workspaces labelled with agent state, one agent marked needs you, answering it from the phone, and a new workspace being created and renamed.",
+        iosAlt:
+          "iOS demo of the herdr manager: workspaces carrying agent state and a reply sheet that sends typed input to a blocked agent, followed by Enter."
+      },
+      {
+        text: "Sessions with their age, then tabs and panes. Preview a pane's output, add a named tab, focus the one that matters, and attach — with nothing typed at the prompt.",
+        androidAlt:
+          "Android demo of the Zellij manager: sessions with their age, tabs and panes, previewing a pane's output, creating a named tab, and attaching a session.",
+        iosAlt:
+          "iOS demo of the Zellij manager: a session with attach, rename, kill and delete actions, its tabs, and a pane offering preview and both split directions."
+      }
+    ],
+    graphicsHead: "An animated chart, inside the terminal",
+    graphicsBody:
+      "A 36-frame GIF streamed over the Kitty graphics protocol and decoded by the app at the file's own frame timing — not stepped from outside. Then the escape sequences a terminal is judged by: OSC 8 turns build numbers and dashboard names into things you can tap, OSC 52 lets the remote write your phone's clipboard, and OSC 777 raises a real Android notification.",
+    graphicsAlt:
+      "Android demo of an animated latency chart streamed into the terminal over the Kitty graphics protocol, followed by OSC 8 links, an OSC 52 clipboard write, and an OSC 777 notification.",
     lightboxClose: "Close",
     lightboxPrev: "Previous",
     lightboxNext: "Next",
@@ -221,7 +252,7 @@ export const en: Dict = {
           "Install the agent hook onto a server from inside the app — a small shell script that any agent can call, not a vendor integration",
           "Eternal Terminal (ET) transport for sessions that survive network drops, sleep, and IP changes, with optional automatic etserver setup over SSH",
           "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, with name/date sorting and a 🔔 for agents awaiting input",
-          "Herdr and Zellij managers on Android, each with the same reach over its own sessions, tabs, and panes — the toolbar shows an icon only once that program is found on the server"
+          "Herdr and Zellij managers on Android and iOS, each with the same reach over its own sessions, tabs, and panes — the toolbar shows an icon only once that program is found on the server"
         ]
       },
       {
@@ -412,7 +443,7 @@ export const en: Dict = {
       { category: "Sessions",   feature: "Eternal Terminal (resilient sessions)", mobile: "yes", termux: "via CLI",   termius: "no" },
       { category: "Sessions",   feature: "Auto-install etserver over SSH",     mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Sessions",   feature: "tmux session manager",               mobile: "yes",    termux: "via CLI",      termius: "no" },
-      { category: "Sessions",   feature: "herdr and Zellij session managers",  mobile: "Android", termux: "via CLI",     termius: "no" },
+      { category: "Sessions",   feature: "herdr and Zellij session managers",  mobile: "yes",     termux: "via CLI",     termius: "no" },
       { category: "Sessions",   feature: "One-tap replies to a blocked agent", mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Plugins",    feature: "Plugin support",                     mobile: "yes",    termux: "via packages", termius: "no" },
       { category: "Plugins",    feature: "Install-on-demand plugin catalog",   mobile: "yes",    termux: "no",           termius: "no" }

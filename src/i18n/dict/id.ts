@@ -65,7 +65,7 @@ export const id: Dict = {
       { title: "Alur penyambungan ulang", text: "Ganti jaringan dan semua sesi langsung menghubungi ulang alih-alih menunggu rute mati kehabisan waktu, dan sesi yang sedang dalam backoff bangun begitu jaringan yang dapat dipakai muncul. Di iOS, server yang diam-diam berhenti menjawab akan terdeteksi dan disambungkan ulang." },
       { title: "Cadangan & pemulihan", text: "Ekspor server dan kredensial tersimpan ke file cadangan terenkripsi; impor dengan gabung atau ganti untuk berpindah antar perangkat — cadangan dapat dipertukarkan antara Android dan iOS." },
       { title: "Eternal Terminal", text: "Sambung melalui Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah — dengan opsi penyiapan etserver otomatis melalui SSH." },
-      { title: "Pengelola multiplexer", text: "Kendalikan tmux tanpa kord prefix — attach, ganti nama, buat, pisah, zoom, atau kill. Android menambahkan hal yang sama untuk herdr dan Zellij, dan ikon di bilah alat baru muncul setelah program itu ditemukan di server." },
+      { title: "Pengelola multiplexer", text: "Kendalikan tmux tanpa kord prefix — attach, ganti nama, buat, pisah, zoom, atau kill. Kedua platform memberikan hal yang sama untuk herdr dan Zellij, dan ikon di bilah alat baru muncul setelah program itu ditemukan di server." },
       { title: "Plugin", text: "Telusuri, pasang, dan jalankan plugin untuk memperluas Mobile SSH. Plugin diunduh sesuai kebutuhan dari katalog publik dan diverifikasi SHA-256 ke penyimpanan privat aplikasi." }
     ],
     multiHead: "Satu layar, beberapa shell aktif",
@@ -91,6 +91,31 @@ export const id: Dict = {
     videoIntro: "Demo singkat di kedua platform. Android: layar beranda yang langsung menunjukkan apa saja yang bisa Anda lanjutkan, bilah alat sesi yang hanya menampilkan fitur yang tersedia di server itu, mengirim berkas langsung ke prompt, serta pengelola tmux, herdr, dan Zellij. iOS: membuka aplikasi langsung ke terminal aktif dan layar beranda tempat Anda kembali.",
     videoAlt: "Demo Android: layar beranda yang menampilkan daftar sesi tmux untuk dilanjutkan, bilah alat sesi, melampirkan berkas ke prompt, serta pengelola sesi tmux, herdr, dan Zellij",
     videoIosAlt: "Demo iOS: membuka Mobile SSH langsung ke sesi terminal SSH aktif lalu kembali ke layar beranda, dengan daftar Terkini dan layar-layar lain di aplikasi",
+    muxHead: "Satu video untuk tiap pengelola sesi",
+    muxIntro:
+      "Pada demo di atas, tmux, herdr, dan Zellij hanya berbagi sekitar tiga puluh detik — cukup untuk menunjukkan bahwa bilah alat menggambar ikon untuk masing-masing, tetapi tidak cukup untuk menunjukkan apa yang bisa dilakukan salah satunya. Ini versi panjangnya, difilmkan di kedua platform terhadap server sungguhan.",
+    muxItems: [
+        {
+          text: "Sesi, jendela, dan panel yang dijangkau langsung dari layar utama, dengan satu sesi ditandai lonceng karena ada sesuatu di sana yang menunggu jawaban. Lampirkan sebuah jendela dan terminal yang sedang berjalan ikut berpindah; buat jendela lalu beri nama — tanpa sekali pun mengetik kombinasi prefiks.",
+          androidAlt: "Demo pengelola tmux di Android: daftar sesi tersimpan di layar utama, lalu sesi, jendela, dan panel, melampirkan jendela sehingga terminal mengikutinya, dan membuat jendela bernama.",
+          iosAlt: "Demo pengelola tmux di iOS: sesi tmux beserta usianya dan lonceng pada sesi yang menunggu masukan, lalu jendela dan panel, tiap baris menawarkan Buka, Ganti nama, dan Hentikan."
+        },
+        {
+          text: "Ruang kerja, tab, dan panel yang membawa keadaan agen yang sebenarnya — satu agen bekerja, satu lagi terblokir menunggu manusia. Pratinjau yang terblokir, jawab dari ponsel, lalu lihat herdr menggolongkannya kembali menjadi bekerja, kemudian selesai.",
+          androidAlt: "Demo pengelola herdr di Android: sesi dan ruang kerja berlabel keadaan agen, satu agen ditandai needs you, menjawabnya dari ponsel, serta ruang kerja baru yang dibuat dan diganti namanya.",
+          iosAlt: "Demo pengelola herdr di iOS: ruang kerja yang membawa keadaan agen dan lembar balasan yang mengirim ketikan ke agen yang terblokir, diikuti Enter."
+        },
+        {
+          text: "Sesi beserta usianya, lalu tab dan panel. Pratinjau keluaran sebuah panel, tambahkan tab bernama, bawa yang penting ke depan, lalu lampirkan — tanpa mengetik apa pun di prompt.",
+          androidAlt: "Demo pengelola Zellij di Android: sesi beserta usianya, tab dan panel, pratinjau keluaran panel, membuat tab bernama, dan melampirkan sesi.",
+          iosAlt: "Demo pengelola Zellij di iOS: sebuah sesi dengan tindakan lampirkan, ganti nama, hentikan, dan hapus, tab-tabnya, serta panel yang menawarkan pratinjau dan kedua arah pembagian."
+        }
+    ],
+    graphicsHead: "Grafik bergerak, di dalam terminal",
+    graphicsBody:
+      "GIF 36 bingkai yang dialirkan lewat protokol grafis Kitty dan didekode aplikasi pada tempo bingkai berkas itu sendiri — bukan dimajukan dari luar. Lalu urutan escape yang menjadi ukuran sebuah terminal: OSC 8 mengubah nomor build dan nama dasbor menjadi sesuatu yang bisa diketuk, OSC 52 membiarkan sisi jauh menulis papan klip ponsel Anda, dan OSC 777 memunculkan notifikasi Android yang sungguhan.",
+    graphicsAlt:
+      "Demo Android berupa grafik latensi bergerak yang dialirkan ke terminal lewat protokol grafis Kitty, disusul tautan OSC 8, penulisan papan klip OSC 52, dan notifikasi OSC 777.",
     lightboxClose: "Tutup",
     lightboxPrev: "Sebelumnya",
     lightboxNext: "Berikutnya",
@@ -215,7 +240,7 @@ export const id: Dict = {
           "Pasang hook agen ke sebuah server dari dalam aplikasi — skrip shell kecil yang dapat dipanggil agen mana pun, bukan integrasi khusus satu vendor",
           "Transport Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah, dengan opsi penyiapan etserver otomatis melalui SSH",
           "Pengelola tmux: lihat daftar dan beralih antar sesi, jendela, dan panel — attach, ganti nama, buat, pisah, zoom, atau kill, dengan pengurutan nama/tanggal dan 🔔 untuk agen yang menunggu masukan",
-          "Pengelola herdr dan Zellij di Android, masing-masing dengan jangkauan yang sama atas sesi, tab, dan panelnya sendiri — bilah alat menampilkan ikonnya hanya setelah program itu ditemukan di server"
+          "Pengelola herdr dan Zellij di Android dan iOS, masing-masing dengan jangkauan yang sama atas sesi, tab, dan panelnya sendiri — bilah alat menampilkan ikonnya hanya setelah program itu ditemukan di server"
         ]
       },
       {
@@ -406,7 +431,7 @@ export const id: Dict = {
       { category: "Sesi",             feature: "Eternal Terminal (sesi tangguh)",                mobile: "yes",     termux: "melalui CLI",   termius: "no" },
       { category: "Sesi",             feature: "Pasang etserver otomatis melalui SSH",           mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sesi",             feature: "Pengelola sesi tmux",                            mobile: "yes",     termux: "melalui CLI",   termius: "no" },
-      { category: "Sesi",             feature: "Pengelola sesi herdr dan Zellij",                mobile: "Android", termux: "melalui CLI",   termius: "no" },
+      { category: "Sesi",             feature: "Pengelola sesi herdr dan Zellij",                mobile: "yes"    , termux: "melalui CLI",   termius: "no" },
       { category: "Sesi",             feature: "Balasan satu ketuk untuk agen yang tertahan",    mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Plugin",           feature: "Dukungan plugin",                                mobile: "yes",     termux: "melalui paket", termius: "no" },
       { category: "Plugin",           feature: "Katalog plugin pasang-sesuai-kebutuhan",         mobile: "yes",     termux: "no",            termius: "no" }

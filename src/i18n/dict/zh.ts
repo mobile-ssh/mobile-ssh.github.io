@@ -65,7 +65,7 @@ export const zh: Dict = {
       { title: "重连流程", text: "切换网络后会话会立刻重新拨号，而不是干等一条已经失效的链路；处于退避等待中的会话，一旦出现可用网络就会被唤醒。在 iOS 上，如果服务器已经悄无声息地停止响应，应用会察觉并重新连接。" },
       { title: "备份与恢复", text: "将保存的服务器和凭据导出为加密备份文件；以合并或替换方式导入，轻松在设备间迁移——备份可在 Android 和 iOS 之间互通。" },
       { title: "Eternal Terminal", text: "通过 Eternal Terminal（ET）连接，会话可在网络中断、休眠和 IP 变化后存活——还可选择通过 SSH 自动部署 etserver。" },
-      { title: "复用器管理器", text: "无需前缀组合键即可驱动 tmux——附加、重命名、创建、拆分、缩放或结束。Android 上还为 herdr 与 Zellij 提供同样的能力，只有在服务器上确实找到该程序后，工具栏才会出现对应图标。" },
+      { title: "复用器管理器", text: "无需前缀组合键即可驱动 tmux——附加、重命名、创建、拆分、缩放或结束。两个平台都为 herdr 与 Zellij 提供同样的能力，只有在服务器上确实找到该程序后，工具栏才会出现对应图标。" },
       { title: "插件", text: "浏览、安装并运行插件来扩展 Mobile SSH。插件从公开目录按需下载，经 SHA-256 校验后存入应用私有存储。" }
     ],
     multiHead: "一屏多个活跃 Shell",
@@ -91,6 +91,31 @@ export const zh: Dict = {
     videoIntro: "两个平台上的简短演示。Android：主界面直接告诉你可以回到哪些会话、会话工具栏只显示这台服务器实际支持的功能、把文件直接发送到提示符里，以及 tmux、herdr 与 Zellij 管理器。iOS：启动后直接进入实时终端，以及随后返回的主界面。",
     videoAlt: "Android 演示：主界面列出可恢复的 tmux 会话、会话工具栏、将文件附加到提示符中，以及 tmux、herdr 与 Zellij 会话管理器",
     videoIosAlt: "iOS 演示：打开 Mobile SSH 直接进入实时 SSH 终端会话，再返回主界面，展示「最近」列表与应用的其他界面",
+    muxHead: "每个会话管理器一段视频",
+    muxIntro:
+      "上面的演示里，tmux、herdr 和 Zellij 一共只分到约三十秒——足够看出工具栏为每一个都画了图标，却不足以看出它们各自能做什么。这些是长版本，在两个平台上对着真实服务器拍摄。",
+    muxItems: [
+        {
+          text: "从主屏幕直达会话、窗口和窗格，其中一个会话带着铃铛，因为那里有东西在等人回应。附加一个窗口，正在运行的终端就跟过去；新建一个窗口并命名——全程不必敲任何前缀组合键。",
+          androidAlt: "Android 上 tmux 管理器的演示：主屏幕缓存的会话列表，然后是会话、窗口和窗格，附加一个窗口让终端跟随，以及创建一个命名窗口。",
+          iosAlt: "iOS 上 tmux 管理器的演示：带创建时长的 tmux 会话，其中一个用铃铛标出正在等待输入，然后是窗口和窗格，每行都有打开、重命名和终止。"
+        },
+        {
+          text: "工作区、标签页和窗格承载着真实的智能体状态——一个在工作，一个被阻塞、正等着人回答。预览被阻塞的那个，从手机上回复它，然后看着 herdr 把它重新标为工作中，再标为完成。",
+          androidAlt: "Android 上 herdr 管理器的演示：标注了智能体状态的会话与工作区，一个被标为 needs you 的智能体，从手机上回复它，以及新建并重命名一个工作区。",
+          iosAlt: "iOS 上 herdr 管理器的演示：承载智能体状态的工作区，以及一张回复表单，把输入的内容连同回车发给被阻塞的智能体。"
+        },
+        {
+          text: "带创建时长的会话，然后是标签页和窗格。不附加就能预览某个窗格的输出，添加一个命名标签页，把要紧的那个调到前面，然后附加——提示符上什么都不用敲。",
+          androidAlt: "Android 上 Zellij 管理器的演示：带创建时长的会话、标签页和窗格，预览窗格输出，创建命名标签页，以及附加会话。",
+          iosAlt: "iOS 上 Zellij 管理器的演示：一个可附加、重命名、终止和删除的会话，它的标签页，以及一个提供预览和两个分割方向的窗格。"
+        }
+    ],
+    graphicsHead: "终端里的动态图表",
+    graphicsBody:
+      "一段 36 帧的 GIF，通过 Kitty 图形协议流式传入，由应用按文件自身的帧时序解码——不是从外部一帧帧推的。接着是衡量一个终端的那些转义序列：OSC 8 把构建号和仪表盘名字变成可以点的东西，OSC 52 让远端写入手机的剪贴板，OSC 777 弹出一条真正的 Android 通知。",
+    graphicsAlt:
+      "Android 演示：通过 Kitty 图形协议流入终端的动态延迟图表，随后是 OSC 8 链接、OSC 52 写入剪贴板和一条 OSC 777 通知。",
     lightboxClose: "关闭",
     lightboxPrev: "上一张",
     lightboxNext: "下一张",
@@ -215,7 +240,7 @@ export const zh: Dict = {
           "可在应用内把智能体钩子安装到服务器上——那是一个任何智能体都能调用的小 shell 脚本，而不是绑定某个厂商的集成",
           "Eternal Terminal（ET）传输，使会话在网络中断、休眠和 IP 变化后仍能存活，可选择通过 SSH 自动部署 etserver",
           "Tmux 管理器：列出并切换会话、窗口与窗格——附加、重命名、创建、拆分、缩放或结束，支持按名称/日期排序，🔔 标记等待输入的智能体",
-          "Android 上还有 herdr 与 Zellij 管理器，各自对自己的会话、标签页与窗格拥有同样的控制力——只有在服务器上找到该程序后，工具栏才会显示对应图标"
+          "Android 与 iOS 上都有 herdr 与 Zellij 管理器，各自对自己的会话、标签页与窗格拥有同样的控制力——只有在服务器上找到该程序后，工具栏才会显示对应图标"
         ]
       },
       {
@@ -406,7 +431,7 @@ export const zh: Dict = {
       { category: "会话", feature: "Eternal Terminal（抗断线会话）",  mobile: "yes",    termux: "通过 CLI",      termius: "no" },
       { category: "会话", feature: "通过 SSH 自动安装 etserver",      mobile: "yes",    termux: "no",           termius: "no" },
       { category: "会话", feature: "tmux 会话管理器",                 mobile: "yes",    termux: "通过 CLI",      termius: "no" },
-      { category: "会话", feature: "herdr 与 Zellij 会话管理器",      mobile: "Android", termux: "通过 CLI",     termius: "no" },
+      { category: "会话", feature: "herdr 与 Zellij 会话管理器",      mobile: "yes"    , termux: "通过 CLI",     termius: "no" },
       { category: "会话", feature: "一键回复被阻塞的智能体",          mobile: "yes",    termux: "no",           termius: "no" },
       { category: "插件", feature: "插件支持",                        mobile: "yes",    termux: "通过软件包",    termius: "no" },
       { category: "插件", feature: "按需安装的插件目录",              mobile: "yes",    termux: "no",           termius: "no" }

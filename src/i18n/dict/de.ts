@@ -65,7 +65,7 @@ export const de: Dict = {
       { title: "Reconnect-Workflow", text: "Wechselt das Netzwerk, wählen die Sitzungen sofort neu, statt eine tote Route auslaufen zu lassen, und eine Sitzung im Backoff wacht auf, sobald ein nutzbares Netzwerk erscheint. Auf iOS wird ein Server, der stillschweigend nicht mehr antwortet, erkannt und neu verbunden." },
       { title: "Sicherung & Wiederherstellung", text: "Gespeicherte Server und Zugangsdaten in eine verschlüsselte Sicherungsdatei exportieren; mit Zusammenführen oder Ersetzen importieren, um zwischen Geräten zu wechseln – Sicherungen sind zwischen Android und iOS austauschbar." },
       { title: "Eternal Terminal", text: "Verbinde dich über Eternal Terminal (ET) für Sitzungen, die Netzwerkausfälle, Schlafmodus und IP-Wechsel überstehen – mit optionaler automatischer etserver-Einrichtung über SSH." },
-      { title: "Multiplexer-Manager", text: "tmux ohne Prefix-Tastenfolgen steuern – anhängen, umbenennen, erstellen, teilen, zoomen oder beenden. Android bietet dasselbe für herdr und Zellij, und ein Symbol in der Symbolleiste erscheint erst, sobald das jeweilige Programm auf dem Server gefunden wurde." },
+      { title: "Multiplexer-Manager", text: "tmux ohne Prefix-Tastenfolgen steuern – anhängen, umbenennen, erstellen, teilen, zoomen oder beenden. Beide Plattformen bieten dasselbe für herdr und Zellij, und ein Symbol in der Symbolleiste erscheint erst, sobald das jeweilige Programm auf dem Server gefunden wurde." },
       { title: "Plugins", text: "Plugins durchsuchen, installieren und ausführen, um Mobile SSH zu erweitern. Plugins werden bei Bedarf aus einem öffentlichen Katalog geladen und per SHA-256 verifiziert im app-privaten Speicher abgelegt." }
     ],
     multiHead: "Ein Bildschirm, mehrere aktive Shells",
@@ -92,6 +92,31 @@ export const de: Dict = {
     videoIntro: "Kurze Demos auf beiden Plattformen. Android: der Startbildschirm, der zeigt, wo du wieder einsteigen kannst, eine Sitzungs-Symbolleiste, die nur anbietet, was der jeweilige Server kann, das Senden einer Datei direkt in die Eingabezeile sowie die Manager für tmux, herdr und Zellij. iOS: der Start direkt in ein laufendes Terminal und der Startbildschirm, zu dem du zurückkehrst.",
     videoAlt: "Android-Demo mit dem Startbildschirm, der fortsetzbare tmux-Sitzungen auflistet, der Sitzungs-Symbolleiste, dem Anhängen einer Datei an die Eingabezeile und den Sitzungsmanagern für tmux, herdr und Zellij",
     videoIosAlt: "iOS-Demo, in der Mobile SSH direkt in eine laufende SSH-Terminalsitzung startet und danach zum Startbildschirm mit „Zuletzt“ und den übrigen Bildschirmen der App zurückkehrt",
+    muxHead: "Ein Video pro Sitzungsmanager",
+    muxIntro:
+      "In den Demos oben teilen sich tmux, herdr und Zellij rund dreißig Sekunden — genug, um zu zeigen, dass die Symbolleiste für jedes ein Symbol zeichnet, zu wenig, um zu zeigen, was eines davon tut. Dies sind die langen Fassungen, auf beiden Plattformen an einem echten Server gefilmt.",
+    muxItems: [
+        {
+          text: "Sitzungen, Fenster und Bereiche direkt vom Startbildschirm aus, eine Sitzung mit Glocke markiert, weil dort etwas Aufmerksamkeit verlangt. Hänge ein Fenster an, und das laufende Terminal folgt ihm; lege ein Fenster an und benenne es — ohne ein einziges Präfix-Kürzel zu tippen.",
+          androidAlt: "Android-Demo des tmux-Managers: die zwischengespeicherte Sitzungsliste des Startbildschirms, dann Sitzungen, Fenster und Bereiche, das Anhängen eines Fensters, dem das Terminal folgt, und das Anlegen eines benannten Fensters.",
+          iosAlt: "iOS-Demo des tmux-Managers: tmux-Sitzungen mit ihrem Alter und einer Glocke an einer, die auf Eingabe wartet, dann Fenster und Bereiche, jede Zeile mit Öffnen, Umbenennen und Beenden."
+        },
+        {
+          text: "Arbeitsbereiche, Tabs und Bereiche, die echten Agentenzustand tragen — ein Agent arbeitet, einer ist blockiert und wartet auf einen Menschen. Sieh dir den blockierten an, antworte ihm vom Telefon aus und beobachte, wie herdr ihn als arbeitend und dann als fertig einstuft.",
+          androidAlt: "Android-Demo des herdr-Managers: Sitzungen und Arbeitsbereiche mit Agentenzustand beschriftet, ein Agent als „needs you“ markiert, die Antwort vom Telefon aus, und ein neuer Arbeitsbereich, der angelegt und umbenannt wird.",
+          iosAlt: "iOS-Demo des herdr-Managers: Arbeitsbereiche mit Agentenzustand und ein Antwortblatt, das getippte Eingabe an einen blockierten Agenten sendet, gefolgt von Enter."
+        },
+        {
+          text: "Sitzungen mit ihrem Alter, dann Tabs und Bereiche. Sieh dir die Ausgabe eines Bereichs an, füge einen benannten Tab hinzu, hole den wichtigen nach vorn und hänge dich an — ohne irgendetwas an der Eingabeaufforderung zu tippen.",
+          androidAlt: "Android-Demo des Zellij-Managers: Sitzungen mit ihrem Alter, Tabs und Bereiche, die Vorschau der Ausgabe eines Bereichs, das Anlegen eines benannten Tabs und das Anhängen einer Sitzung.",
+          iosAlt: "iOS-Demo des Zellij-Managers: eine Sitzung mit Anhängen, Umbenennen, Beenden und Löschen, ihre Tabs und ein Bereich mit Vorschau und beiden Teilungsrichtungen."
+        }
+    ],
+    graphicsHead: "Ein animiertes Diagramm, im Terminal",
+    graphicsBody:
+      "Ein GIF mit 36 Bildern, über das Kitty-Grafikprotokoll gestreamt und von der App im Takt der Datei selbst dekodiert — nicht von außen weitergeschaltet. Danach die Escape-Sequenzen, an denen ein Terminal gemessen wird: OSC 8 macht Build-Nummern und Dashboard-Namen antippbar, OSC 52 lässt die Gegenstelle in die Zwischenablage deines Telefons schreiben, und OSC 777 löst eine echte Android-Benachrichtigung aus.",
+    graphicsAlt:
+      "Android-Demo eines animierten Latenzdiagramms, das über das Kitty-Grafikprotokoll ins Terminal gestreamt wird, gefolgt von OSC-8-Links, einem OSC-52-Schreibvorgang in die Zwischenablage und einer OSC-777-Benachrichtigung.",
     lightboxClose: "Schließen",
     lightboxPrev: "Zurück",
     lightboxNext: "Weiter",
@@ -216,7 +241,7 @@ export const de: Dict = {
           "Installiere den Agenten-Hook aus der App heraus auf einem Server – ein kleines Shell-Skript, das jeder Agent aufrufen kann, keine Anbieter-Integration",
           "Eternal-Terminal-Transport (ET) für Sitzungen, die Netzwerkausfälle, Schlafmodus und IP-Wechsel überstehen, mit optionaler automatischer etserver-Einrichtung über SSH",
           "Tmux-Manager: Sitzungen, Fenster und Panels auflisten und wechseln – anhängen, umbenennen, erstellen, teilen, zoomen oder beenden, mit Sortierung nach Name/Datum und einem 🔔 für Agenten, die auf Eingabe warten",
-          "Herdr- und Zellij-Manager auf Android, jeder mit derselben Reichweite über seine eigenen Sitzungen, Tabs und Bereiche – die Symbolleiste zeigt ein Symbol erst, sobald das Programm auf dem Server gefunden wurde"
+          "Herdr- und Zellij-Manager auf Android und iOS, jeder mit derselben Reichweite über seine eigenen Sitzungen, Tabs und Bereiche – die Symbolleiste zeigt ein Symbol erst, sobald das Programm auf dem Server gefunden wurde"
         ]
       },
       {
@@ -407,7 +432,7 @@ export const de: Dict = {
       { category: "Sitzungen",         feature: "Eternal Terminal (ausfallsichere Sitzungen)",       mobile: "yes",      termux: "über CLI",        termius: "no" },
       { category: "Sitzungen",         feature: "Automatische etserver-Installation über SSH",       mobile: "yes",      termux: "no",             termius: "no" },
       { category: "Sitzungen",         feature: "tmux-Sitzungsmanager",                              mobile: "yes",      termux: "über CLI",        termius: "no" },
-      { category: "Sitzungen",         feature: "herdr- und Zellij-Sitzungsmanager",                 mobile: "Android",  termux: "über CLI",        termius: "no" },
+      { category: "Sitzungen",         feature: "herdr- und Zellij-Sitzungsmanager",                 mobile: "yes"    ,  termux: "über CLI",        termius: "no" },
       { category: "Sitzungen",         feature: "Ein-Tipp-Antworten an einen blockierten Agenten",   mobile: "yes",      termux: "no",             termius: "no" },
       { category: "Plugins",           feature: "Plugin-Unterstützung",                              mobile: "yes",      termux: "über Pakete",     termius: "no" },
       { category: "Plugins",           feature: "Plugin-Katalog mit Installation bei Bedarf",        mobile: "yes",      termux: "no",             termius: "no" }

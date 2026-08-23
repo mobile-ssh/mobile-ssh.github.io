@@ -65,7 +65,7 @@ export const pt: Dict = {
       { title: "Fluxo de reconexão", text: "Troque de rede e as sessões rediscam na hora, em vez de esperar uma rota morta expirar, e uma sessão em backoff acorda assim que surge uma rede utilizável. No iOS, um servidor que parou de responder em silêncio é detectado e reconectado." },
       { title: "Backup e restauração", text: "Exporte servidores e credenciais salvos para um arquivo de backup criptografado; importe com mescla ou substituição para migrar entre dispositivos — os backups são interoperáveis entre Android e iOS." },
       { title: "Eternal Terminal", text: "Conecte por Eternal Terminal (ET) para sessões que sobrevivem a quedas de rede, suspensão e mudanças de IP — com configuração automática opcional do etserver por SSH." },
-      { title: "Gerenciadores de multiplexadores", text: "Comande o tmux sem combinações de prefixo — anexe, renomeie, crie, divida, amplie ou encerre. O Android acrescenta o mesmo para herdr e Zellij, e o ícone na barra de ferramentas só aparece depois que esse programa é encontrado no servidor." },
+      { title: "Gerenciadores de multiplexadores", text: "Comande o tmux sem combinações de prefixo — anexe, renomeie, crie, divida, amplie ou encerre. Ambas as plataformas oferecem o mesmo para herdr e Zellij, e o ícone na barra de ferramentas só aparece depois que esse programa é encontrado no servidor." },
       { title: "Plugins", text: "Navegue, instale e execute plugins para estender o Mobile SSH. Os plugins são baixados sob demanda de um catálogo público e verificados por SHA-256 no armazenamento privado do app." }
     ],
     multiHead: "Uma tela, várias shells ativas",
@@ -92,6 +92,31 @@ export const pt: Dict = {
     videoIntro: "Demonstrações rápidas nas duas plataformas. Android: a tela inicial mostrando ao que você pode voltar, uma barra de ferramentas de sessão que exibe apenas o que aquele servidor oferece, o envio de um arquivo direto para o prompt e os gerenciadores de tmux, herdr e Zellij. iOS: abrir o app direto em um terminal ao vivo e a tela inicial para onde você volta.",
     videoAlt: "Demo no Android da tela inicial listando sessões do tmux para retomar, da barra de ferramentas da sessão, do envio de um arquivo para o prompt e dos gerenciadores de sessões do tmux, do herdr e do Zellij",
     videoIosAlt: "Demo no iOS abrindo o Mobile SSH direto em uma sessão de terminal SSH ao vivo e voltando para a tela inicial, com Recentes e as demais telas do app",
+    muxHead: "Um vídeo por gestor de sessões",
+    muxIntro:
+      "Nas demos acima, tmux, herdr e Zellij dividem uns trinta segundos — o suficiente para mostrar que a barra desenha um ícone para cada um, insuficiente para mostrar o que qualquer um deles faz. Estas são as versões longas, filmadas nas duas plataformas contra um servidor real.",
+    muxItems: [
+        {
+          text: "Sessões, janelas e painéis alcançados a partir do ecrã inicial, com uma sessão sinalizada por uma campainha porque algo nela pede atenção. Anexe uma janela e o terminal ao vivo segue-a; crie uma janela e dê-lhe nome — sem teclar um único atalho de prefixo.",
+          androidAlt: "Demo em Android do gestor de tmux: a lista de sessões em cache do ecrã inicial, depois sessões, janelas e painéis, anexando uma janela para que o terminal a siga, e criando uma janela com nome.",
+          iosAlt: "Demo em iOS do gestor de tmux: sessões de tmux com a sua idade e uma campainha na que aguarda entrada, depois janelas e painéis, cada linha com Abrir, Renomear e Terminar."
+        },
+        {
+          text: "Espaços de trabalho, separadores e painéis com estado real de agente — um agente a trabalhar, outro bloqueado à espera de uma pessoa. Pré-visualize o bloqueado, responda-lhe pelo telemóvel e veja o herdr reclassificá-lo como a trabalhar e depois como concluído.",
+          androidAlt: "Demo em Android do gestor de herdr: sessões e espaços de trabalho rotulados com o estado do agente, um agente marcado como «needs you», a resposta enviada pelo telemóvel, e um novo espaço de trabalho criado e renomeado.",
+          iosAlt: "Demo em iOS do gestor de herdr: espaços de trabalho com estado de agente e uma folha de resposta que envia texto escrito a um agente bloqueado, seguido de Enter."
+        },
+        {
+          text: "Sessões com a sua idade, depois separadores e painéis. Pré-visualize a saída de um painel, adicione um separador com nome, foque o que interessa e anexe-se — sem escrever nada na linha de comandos.",
+          androidAlt: "Demo em Android do gestor de Zellij: sessões com a sua idade, separadores e painéis, pré-visualizando a saída de um painel, criando um separador com nome e anexando uma sessão.",
+          iosAlt: "Demo em iOS do gestor de Zellij: uma sessão com anexar, renomear, terminar e eliminar, os seus separadores, e um painel com pré-visualização e ambas as direções de divisão."
+        }
+    ],
+    graphicsHead: "Um gráfico animado, dentro do terminal",
+    graphicsBody:
+      "Um GIF de 36 fotogramas transmitido pelo protocolo gráfico do Kitty e descodificado pela aplicação ao ritmo do próprio ficheiro — não avançado a partir de fora. Depois, as sequências de escape pelas quais um terminal é julgado: OSC 8 torna números de compilação e nomes de painéis em algo que se toca, OSC 52 deixa a máquina remota escrever na área de transferência do telemóvel, e OSC 777 lança uma notificação Android verdadeira.",
+    graphicsAlt:
+      "Demo em Android de um gráfico de latência animado transmitido para o terminal pelo protocolo gráfico do Kitty, seguido de ligações OSC 8, uma escrita na área de transferência por OSC 52 e uma notificação OSC 777.",
     lightboxClose: "Fechar",
     lightboxPrev: "Anterior",
     lightboxNext: "Próximo",
@@ -216,7 +241,7 @@ export const pt: Dict = {
           "Instale o hook de agente em um servidor de dentro do próprio app — um pequeno script de shell que qualquer agente pode chamar, e não uma integração presa a um fornecedor",
           "Transporte Eternal Terminal (ET) para sessões que sobrevivem a quedas de rede, suspensão e mudanças de IP, com configuração automática opcional do etserver por SSH",
           "Gerenciador de tmux: liste e alterne sessões, janelas e painéis — anexe, renomeie, crie, divida, amplie ou encerre, com ordenação por nome/data e um 🔔 para agentes aguardando entrada",
-          "Gerenciadores de herdr e Zellij no Android, cada um com o mesmo alcance sobre suas próprias sessões, abas e painéis — a barra de ferramentas só mostra o ícone depois que esse programa é encontrado no servidor"
+          "Gerenciadores de herdr e Zellij no Android e no iOS, cada um com o mesmo alcance sobre suas próprias sessões, abas e painéis — a barra de ferramentas só mostra o ícone depois que esse programa é encontrado no servidor"
         ]
       },
       {
@@ -407,7 +432,7 @@ export const pt: Dict = {
       { category: "Sessões",            feature: "Eternal Terminal (sessões resilientes)",             mobile: "yes",     termux: "via CLI",      termius: "no" },
       { category: "Sessões",            feature: "Instalação automática do etserver via SSH",          mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Sessões",            feature: "Gerenciador de sessões tmux",                        mobile: "yes",     termux: "via CLI",      termius: "no" },
-      { category: "Sessões",            feature: "Gerenciadores de sessões herdr e Zellij",            mobile: "Android", termux: "via CLI",      termius: "no" },
+      { category: "Sessões",            feature: "Gerenciadores de sessões herdr e Zellij",            mobile: "yes"    , termux: "via CLI",      termius: "no" },
       { category: "Sessões",            feature: "Respostas com um toque a um agente bloqueado",       mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Plugins",            feature: "Suporte a plugins",                               mobile: "yes",     termux: "via pacotes",  termius: "no" },
       { category: "Plugins",            feature: "Catálogo de plugins com instalação sob demanda",     mobile: "yes",     termux: "no",           termius: "no" }

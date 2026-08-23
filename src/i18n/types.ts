@@ -26,6 +26,20 @@ export interface DocCard {
   text: string;
 }
 
+/**
+ * One row of the long-form manager demos: a sentence about what that
+ * multiplexer's video shows, plus alt text for the Android and iOS takes.
+ *
+ * There is deliberately no `title` — the row is headed by the program's own
+ * name (tmux, herdr, Zellij), which AGENTS.md lists among the names that are
+ * never translated. The component supplies it.
+ */
+export interface MuxDemo {
+  text: string;
+  androidAlt: string;
+  iosAlt: string;
+}
+
 export interface Dict {
   meta: {
     siteName: string;
@@ -95,6 +109,16 @@ export interface Dict {
     videoIntro: string;
     videoAlt: string;
     videoIosAlt: string;
+    // The per-multiplexer demos. `muxItems` is indexed positionally against a
+    // fixed list of video files in Home.astro, so its length is asserted in
+    // translations.test.ts — it must stay at three (tmux, herdr, Zellij).
+    muxHead: string;
+    muxIntro: string;
+    muxItems: MuxDemo[];
+    // The Kitty-graphics demo, which is one Android take rather than a pair.
+    graphicsHead: string;
+    graphicsBody: string;
+    graphicsAlt: string;
     lightboxClose: string;
     lightboxPrev: string;
     lightboxNext: string;
