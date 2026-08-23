@@ -123,9 +123,9 @@ export const es: Dict = {
     betaOr: "o escríbenos a",
     betaRequest: "para solicitar acceso a la beta privada",
     galleryAlts: [
-      "Pantalla de inicio de Mobile SSH en un teléfono Android con la lista de sesiones de tmux que esperan en un servidor guardado, encima de los botones Servidores, Credenciales, Ajustes, Acerca de y Complementos.",
-      "Diálogo Añadir servidor en un teléfono mostrando los campos host, puerto, credenciales, clave privada y reenvío de puertos.",
-      "Terminal SSH de una sola sesión en un teléfono con la fila de teclas extra en la parte inferior.",
+      "Pantalla de inicio de Mobile SSH en un teléfono Android con un aviso de Sesiones activas y una lista Continuar de servidores guardados que retomar, encima de los botones Servidores, Credenciales, Ajustes, Acerca de y Complementos.",
+      "Diálogo Añadir servidor en un teléfono con campos de nombre del servidor, host y puerto, direcciones adicionales, credenciales, clave privada y reenvío de puertos.",
+      "Terminal SSH de una sola sesión en un teléfono mostrando el parche de un agente de programación y una tanda de pruebas superada, bajo la barra de la sesión.",
       "Dos sesiones SSH en una vista dividida en paralelo en un teléfono.",
       "Dos sesiones SSH apiladas verticalmente en un teléfono con el panel activo resaltado.",
       "Pantalla de transferencia de archivos SFTP en un teléfono con paneles Mi teléfono y Servidor remoto.",

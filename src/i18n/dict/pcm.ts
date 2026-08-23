@@ -123,9 +123,9 @@ export const pcm: Dict = {
     betaOr: "or email",
     betaRequest: "to request private beta access",
     galleryAlts: [
-      "Mobile SSH home screen for Android phone wey dey list di tmux sessions wey dey wait for one server wey you save, wit buttons for Servers, Credentials, Settings, About and Plugins under am.",
-      "Add Server dialog for phone, dey show host, port, credentials, private key and port forward fields.",
-      "Single-session SSH terminal for phone, wit di extra key row down.",
+      "Mobile SSH home screen for Android phone wit one Active Sessions banner and one Continue list of servers wey you save and fit go back to, on top di Servers, Credentials, Settings, About and Plugins buttons.",
+      "Add Server dialog for phone wit fields for server name, host and port, extra addresses, credentials, private key and port forwards.",
+      "Single-session SSH terminal for phone wey dey show one coding agent patch and test run wey pass, under di session toolbar.",
       "Two SSH session for side-by-side split view for phone.",
       "Two SSH session wey stack vertical for phone wit di active pane highlighted.",
       "SFTP file transfer screen for phone, wit My Phone and Remote Host panes.",

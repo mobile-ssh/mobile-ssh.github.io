@@ -123,9 +123,9 @@ export const id: Dict = {
     betaOr: "atau kirim email ke",
     betaRequest: "untuk meminta akses beta privat",
     galleryAlts: [
-      "Layar beranda Mobile SSH di ponsel Android yang menampilkan daftar sesi tmux yang menunggu di sebuah server tersimpan, di atas tombol Server, Kredensial, Pengaturan, Tentang, dan Plugin.",
-      "Dialog Tambah Server di ponsel menampilkan kolom host, port, kredensial, kunci pribadi, dan penerusan port.",
-      "Terminal SSH satu sesi di ponsel dengan baris tombol tambahan di bagian bawah.",
+      "Layar beranda Mobile SSH di ponsel Android dengan spanduk Sesi Aktif dan daftar Lanjutkan berisi server tersimpan yang bisa dilanjutkan, di atas tombol Server, Kredensial, Pengaturan, Tentang, dan Plugin.",
+      "Dialog Tambah Server di ponsel dengan kolom nama server, host dan port, alamat tambahan, kredensial, kunci pribadi, dan penerusan port.",
+      "Terminal SSH satu sesi di ponsel yang menampilkan tambalan dari agen pemrograman dan uji coba yang lulus, di bawah bilah alat sesi.",
       "Dua sesi SSH dalam tampilan terbagi berdampingan di ponsel.",
       "Dua sesi SSH bertumpuk secara vertikal di ponsel dengan panel aktif disorot.",
       "Layar transfer SFTP di ponsel dengan panel Ponsel Saya dan Host Jarak Jauh.",

@@ -135,9 +135,9 @@ export const en: Dict = {
     betaWantedCta: "See how to join →",
     betaPlayNote: "Open the Google Play link in your mobile browser, not the Google Play app — the closed test may not be visible inside the app.",
     galleryAlts: [
-      "Mobile SSH home screen on an Android phone listing the tmux sessions waiting on a saved server, above buttons for Servers, Credentials, Settings, About, and Plugins.",
-      "Add Server dialog on a phone showing host, port, credentials, private key, and port forward fields.",
-      "Single-session SSH terminal on a phone with the extra key row at the bottom.",
+      "Mobile SSH home screen on an Android phone with an Active Sessions banner and a Continue list of saved servers to resume, above buttons for Servers, Credentials, Settings, About, and Plugins.",
+      "Add Server dialog on a phone with fields for a server name, host and port, additional addresses, credentials, private key, and port forwards.",
+      "Single-session SSH terminal on a phone showing a coding agent's patch and passing test run, under the session toolbar.",
       "Two SSH sessions in a side-by-side split view on a phone.",
       "Two SSH sessions stacked vertically on a phone with the active pane highlighted.",
       "SFTP file transfer screen on a phone with local My Phone and Remote Host panes.",

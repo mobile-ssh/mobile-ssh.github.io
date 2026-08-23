@@ -123,9 +123,9 @@ export const tr: Dict = {
     betaOr: "veya e-posta gönderin",
     betaRequest: "özel beta erişimi istemek için",
     galleryAlts: [
-      "Bir Android telefonda Mobile SSH ana ekranı; kayıtlı bir sunucuda bekleyen tmux oturumlarını, Sunucular, Kimlik Bilgileri, Ayarlar, Hakkında ve Eklentiler düğmelerinin üzerinde listeliyor.",
-      "Bir telefonda Sunucu Ekle iletişim kutusu; ana bilgisayar, port, kimlik bilgileri, özel anahtar ve port yönlendirme alanları.",
-      "Bir telefonda tek oturumlu SSH terminali; en altta ek tuş satırı.",
+      "Bir Android telefonda Mobile SSH ana ekranı; Etkin Oturumlar başlığı ve kaldığı yerden devam edilebilecek kayıtlı sunucuların listesi, Sunucular, Kimlik Bilgileri, Ayarlar, Hakkında ve Eklentiler düğmelerinin üzerinde.",
+      "Bir telefonda Sunucu Ekle iletişim kutusu; sunucu adı, ana bilgisayar ve port, ek adresler, kimlik bilgileri, özel anahtar ve port yönlendirme alanlarıyla.",
+      "Bir telefonda tek oturumlu SSH terminali; oturum araç çubuğunun altında bir kodlama ajanının yaması ve geçen test koşusu görünüyor.",
       "Bir telefonda yan yana iki SSH oturumu bölünmüş görünümde.",
       "Bir telefonda üst üste iki SSH oturumu; aktif panel vurgulu.",
       "Bir telefonda SFTP dosya aktarımı ekranı; Telefonum ve Uzak Sunucu panelleri.",

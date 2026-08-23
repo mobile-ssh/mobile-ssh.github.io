@@ -123,9 +123,9 @@ export const fr: Dict = {
     betaOr: "ou envoyez un e-mail à",
     betaRequest: "pour demander un accès à la bêta privée",
     galleryAlts: [
-      "Écran d'accueil de Mobile SSH sur un téléphone Android affichant la liste des sessions tmux en attente sur un serveur enregistré, au-dessus des boutons Serveurs, Identifiants, Paramètres, À propos et Plugins.",
-      "Boîte de dialogue Ajouter un serveur sur un téléphone montrant les champs hôte, port, identifiants, clé privée et redirection de ports.",
-      "Terminal SSH mono-session sur un téléphone avec la rangée de touches supplémentaires en bas.",
+      "Écran d'accueil de Mobile SSH sur un téléphone Android avec une bannière Sessions actives et une liste Continuer de serveurs enregistrés à reprendre, au-dessus des boutons Serveurs, Identifiants, Réglages, À propos et Extensions.",
+      "Boîte de dialogue Ajouter un serveur sur un téléphone avec les champs nom du serveur, hôte et port, adresses supplémentaires, identifiants, clé privée et redirections de ports.",
+      "Terminal SSH mono-session sur un téléphone montrant le correctif d'un agent de code et une série de tests réussie, sous la barre d'outils de session.",
       "Deux sessions SSH dans une vue côte à côte en écran partagé sur un téléphone.",
       "Deux sessions SSH empilées verticalement sur un téléphone avec le panneau actif mis en évidence.",
       "Écran de transfert SFTP sur un téléphone avec les panneaux Mon téléphone et Hôte distant.",
