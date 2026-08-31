@@ -5,3 +5,8 @@ dist/
 .env.*
 npm-debug.log*
 .playwright-mcp/
+
+# Local design and i18n experiments
+/experiments/
+/src/i18n/match.ts
+/src/i18n/suggest.ts
