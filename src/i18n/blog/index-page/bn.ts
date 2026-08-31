@@ -9,6 +9,12 @@ export const bn: BlogIndexContent = {
   intro:
     "মতামত, সরেজমিন প্রতিবেদন আর মাঝেমধ্যে একটা শোকগাথা — Mobile SSH-এর পিছনের দলটির কাছ থেকে; Android, iPhone ও iPad-এর জন্য নেটিভ SSH, SFTP ও টার্মিনাল ক্লায়েন্ট।",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "কর্মপ্রবাহ", dateLabel: "৩০ আগস্ট ২০২৬", readingTime: "৬ মিনিটের পাঠ",
+      title: "অ্যাপ নয়, এজেন্ট বদলান।",
+      excerpt: "Claude Code বা Codex ব্যবহার কিংবা ব্যয়সীমায় পৌঁছালে সাবস্ক্রিপশন থামতে পারে, রিপোজিটরি নয়। একই সার্ভার, working tree ও মোবাইল ইন্টারফেস রাখুন—পুরো অ্যাপ নয়, একটি কমান্ড বদলান।",
+      cta: "কর্মপ্রবাহ পড়ুন",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "সরেজমিন প্রতিবেদন",
       dateLabel: "১০ আগস্ট, ২০২৬",

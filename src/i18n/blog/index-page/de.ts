@@ -9,6 +9,12 @@ export const de: BlogIndexContent = {
   intro:
     "Meinungen, Erfahrungsberichte und gelegentlich ein Nachruf – vom Team hinter Mobile SSH, dem nativen SSH-, SFTP- und Terminal-Client für Android, iPhone und iPad.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "Arbeitsablauf", dateLabel: "30. August 2026", readingTime: "6 Min. Lesezeit",
+      title: "Agent wechseln, nicht App.",
+      excerpt: "Wenn Claude Code oder Codex ein Nutzungs- oder Ausgabenlimit erreicht, kann das Abo stoppen – dein Repository nicht. Behalte Server, Arbeitsbaum und Oberfläche; wechsle einen Befehl, nicht die ganze App.",
+      cta: "Arbeitsablauf lesen",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "Erfahrungsbericht",
       dateLabel: "10. August 2026",

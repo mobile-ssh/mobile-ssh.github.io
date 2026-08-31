@@ -11,6 +11,15 @@ export const en: BlogIndexContent = {
   intro:
     "Opinions, field reports and the occasional obituary — from the team behind Mobile SSH, the\nnative SSH, SFTP and terminal client for Android, iPhone and iPad.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "Workflow",
+      dateLabel: "August 30, 2026",
+      readingTime: "6 min read",
+      title: "Switch agents, not apps.",
+      excerpt:
+        "When Claude Code or Codex reaches a usage or spend limit, the subscription may stop but your repository does not. Keep the same server, working tree and mobile interface — switch one terminal command, not the whole app.",
+      cta: "Read the workflow",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "Field report",
       dateLabel: "August 10, 2026",

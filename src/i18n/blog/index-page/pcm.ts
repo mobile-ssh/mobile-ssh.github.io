@@ -11,6 +11,12 @@ export const pcm: BlogIndexContent = {
   intro:
     "Our own talk, report from ground, and tribute once in a while — from di team wey dey behind Mobile SSH, di native SSH, SFTP and terminal client for Android, iPhone and iPad.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "How work dey flow", dateLabel: "30 August 2026", readingTime: "6 min read",
+      title: "Change agent, no be app.",
+      excerpt: "If Claude Code or Codex reach usage or spending limit, subscription fit stop but repository no stop. Keep the same server, working tree and mobile interface—change one terminal command, no be the whole app.",
+      cta: "Read the workflow",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "Report from ground",
       dateLabel: "10 August, 2026",

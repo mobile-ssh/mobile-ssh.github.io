@@ -9,6 +9,12 @@ export const zh: BlogIndexContent = {
   intro:
     "观点、现场报告，偶尔还有一篇讣告——来自 Mobile SSH 团队，这是一款面向 Android、iPhone 和 iPad 的原生 SSH、SFTP 与终端客户端。",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "工作流", dateLabel: "2026年8月30日", readingTime: "阅读约 6 分钟",
+      title: "切换智能体，不要切换应用。",
+      excerpt: "Claude Code 或 Codex 达到用量或支出上限时，订阅可能停下，但仓库不会。保留同一台服务器、工作树和移动界面——只换一条终端命令，不要换掉整个应用。",
+      cta: "阅读工作流",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "现场报告",
       dateLabel: "2026 年 8 月 10 日",

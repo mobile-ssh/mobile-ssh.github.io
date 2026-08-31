@@ -9,6 +9,12 @@ export const id: BlogIndexContent = {
   intro:
     "Opini, laporan lapangan, dan sesekali obituari — dari tim di balik Mobile SSH, klien SSH, SFTP, dan terminal native untuk Android, iPhone, dan iPad.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "Alur kerja", dateLabel: "30 Agustus 2026", readingTime: "Baca 6 mnt",
+      title: "Ganti agen, bukan aplikasi.",
+      excerpt: "Saat Claude Code atau Codex mencapai batas penggunaan atau pengeluaran, langganan bisa berhenti tetapi repositori tidak. Pertahankan server, working tree, dan antarmuka; ganti perintah, bukan seluruh aplikasi.",
+      cta: "Baca alur kerja",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "Laporan lapangan",
       dateLabel: "10 Agustus 2026",

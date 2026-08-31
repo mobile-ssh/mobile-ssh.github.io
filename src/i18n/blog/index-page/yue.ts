@@ -9,6 +9,12 @@ export const yue: BlogIndexContent = {
   intro:
     "觀點、現場報告，偶爾仲有一篇悼文 —— 來自 Mobile SSH 團隊，一款為 Android、iPhone 同 iPad 而設嘅原生 SSH、SFTP 同終端機客戶端。",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "工作流程", dateLabel: "2026年8月30日", readingTime: "閱讀約 6 分鐘",
+      title: "轉代理，唔好轉 app。",
+      excerpt: "Claude Code 或 Codex 去到用量或者開支上限，訂閱可以停，但 repository 唔會。保留同一部伺服器、working tree 同手機介面——轉一條 terminal command，唔好換成個 app。",
+      cta: "睇工作流程",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "現場報告",
       dateLabel: "2026 年 8 月 10 日",

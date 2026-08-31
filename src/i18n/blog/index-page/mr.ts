@@ -9,6 +9,12 @@ export const mr: BlogIndexContent = {
   intro:
     "मते, प्रत्यक्ष अहवाल आणि अधूनमधून एखादी श्रद्धांजली — Mobile SSH मागच्या चमूकडून; Android, iPhone आणि iPad साठीचा नेटिव्ह SSH, SFTP आणि टर्मिनल क्लायंट.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "कार्यप्रवाह", dateLabel: "30 ऑगस्ट 2026", readingTime: "6 मिनिटांचे वाचन",
+      title: "ॲप नव्हे, एजंट बदला.",
+      excerpt: "Claude Code किंवा Codex वापर वा खर्च मर्यादेवर पोहोचल्यास subscription थांबू शकते, repository नाही. तोच server, working tree आणि mobile interface ठेवा—पूर्ण ॲप नव्हे, एक command बदला.",
+      cta: "कार्यप्रवाह वाचा",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "प्रत्यक्ष अहवाल",
       dateLabel: "10 ऑगस्ट 2026",

@@ -9,6 +9,12 @@ export const ja: BlogIndexContent = {
   intro:
     "オピニオン、現場レポート、そしてときどき訃報。Android・iPhone・iPad 向けのネイティブな SSH／SFTP／ターミナル クライアント、Mobile SSH のチームより。",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "ワークフロー", dateLabel: "2026年8月30日", readingTime: "読了 6 分",
+      title: "アプリではなく、エージェントを切り替える。",
+      excerpt: "Claude Code や Codex が使用量・支出上限に達しても、止まるのは契約でリポジトリではありません。同じサーバー、ワーキングツリー、画面のまま、アプリ全体でなくコマンドだけを替えます。",
+      cta: "ワークフローを読む",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "現場レポート",
       dateLabel: "2026年8月10日",

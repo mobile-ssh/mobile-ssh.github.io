@@ -95,8 +95,8 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 ### Before you commit
 
 ```bash
-npx vitest run      # 675 tests; structural parity + translation checks
-npx astro build     # 224 pages across 20 locales
+npx vitest run      # 865 tests; structural parity + translation checks
+npx astro build     # 301 pages across 20 locales
 ```
 
 ### Commit as the project, not as your employer

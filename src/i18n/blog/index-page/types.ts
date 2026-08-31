@@ -5,7 +5,10 @@
 // src/components/blog/BlogIndex.astro.
 
 /** Post slugs, newest first. Also the key each locale must supply copy for. */
-export type BlogPostSlug = "eleven-hours-over-the-atlantic" | "laptops-are-dead";
+export type BlogPostSlug =
+  | "switch-agents-not-apps"
+  | "eleven-hours-over-the-atlantic"
+  | "laptops-are-dead";
 
 export interface BlogIndexPostContent {
   /** Category pill, e.g. "Field report". */

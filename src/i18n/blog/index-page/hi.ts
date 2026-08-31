@@ -9,6 +9,12 @@ export const hi: BlogIndexContent = {
   intro:
     "राय, फ़ील्ड रिपोर्ट और कभी-कभार एक शोक-संदेश — Mobile SSH बनाने वाली टीम की ओर से, जो Android, iPhone और iPad के लिए नेटिव SSH, SFTP और टर्मिनल क्लाइंट है।",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "कार्यप्रवाह", dateLabel: "30 अगस्त 2026", readingTime: "6 मिनट का लेख",
+      title: "ऐप नहीं, एजेंट बदलें।",
+      excerpt: "Claude Code या Codex उपयोग अथवा खर्च सीमा पर पहुँचे तो सदस्यता रुक सकती है, रिपॉज़िटरी नहीं। वही सर्वर, वर्किंग ट्री और मोबाइल इंटरफ़ेस रखें—पूरी ऐप नहीं, एक कमांड बदलें।",
+      cta: "कार्यप्रवाह पढ़ें",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "फ़ील्ड रिपोर्ट",
       dateLabel: "10 अगस्त 2026",

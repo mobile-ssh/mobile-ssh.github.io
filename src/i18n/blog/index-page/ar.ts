@@ -9,6 +9,12 @@ export const ar: BlogIndexContent = {
   intro:
     "آراء وتقارير ميدانية ونعيٌ بين الحين والآخر — من الفريق الذي يقف خلف Mobile SSH، عميل SSH وSFTP والطرفية الأصلي لأجهزة Android وiPhone وiPad.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "سير العمل", dateLabel: "30 أغسطس 2026", readingTime: "قراءة في 6 دقائق",
+      title: "بدّل الوكيل، لا التطبيق.",
+      excerpt: "حين يبلغ Claude Code أو Codex حد الاستخدام أو الإنفاق، قد يتوقف الاشتراك لكن المستودع لا يتوقف. احتفظ بالخادم وشجرة العمل وواجهة الهاتف نفسها — بدّل أمرًا واحدًا لا التطبيق كله.",
+      cta: "اقرأ سير العمل",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "تقرير ميداني",
       dateLabel: "10 أغسطس 2026",

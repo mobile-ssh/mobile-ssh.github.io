@@ -9,6 +9,12 @@ export const fr: BlogIndexContent = {
   intro:
     "Opinions, carnets de terrain et, à l'occasion, un avis de décès — par l'équipe derrière Mobile SSH, le client SSH, SFTP et terminal natif pour Android, iPhone et iPad.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "Flux de travail", dateLabel: "30 août 2026", readingTime: "6 min de lecture",
+      title: "Changez d’agent, pas d’app.",
+      excerpt: "Quand Claude Code ou Codex atteint une limite d’usage ou de dépense, l’abonnement peut s’arrêter, pas votre dépôt. Gardez serveur, arbre de travail et interface mobile : changez une commande, pas toute l’app.",
+      cta: "Lire le flux de travail",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "Carnet de terrain",
       dateLabel: "10 août 2026",

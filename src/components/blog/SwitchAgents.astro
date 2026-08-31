@@ -1,0 +1,265 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { defaultLocale, localeMap, localizedHref } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getSwitchAgents } from "../../i18n/blog/switch-agents";
+import { PLAY_STORE_URL, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const c = getSwitchAgents(locale);
+const publishedISO = "2026-08-30";
+const ctaNote = c.cta.note.replace("{playUrl}", PLAY_STORE_URL);
+const backArrow = localeMap[locale].dir === "rtl" ? "→" : "←";
+
+const OPENAI_USAGE_URL = "https://help.openai.com/en/articles/11369540-getting-started-with-codex";
+const ANTHROPIC_CREDITS_URL = "https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans";
+---
+
+<BaseLayout title={c.metaTitle} description={c.metaDescription} locale={locale} pathKey="blog">
+  <main class="post">
+    <p class="back"><a href={localizedHref(locale, "/blog/")}>{backArrow} {c.back}</a></p>
+
+    <header class="post-head">
+      <p class="eyebrow">{c.eyebrow}</p>
+      <h1>{c.title}</h1>
+      <p class="standfirst" set:html={c.standfirst}></p>
+      <p class="byline">
+        <span class="who"><span class="avatar" aria-hidden="true">MS</span> {c.author}</span>
+        <span class="sep">·</span>
+        <time datetime={publishedISO}>{c.date}</time>
+        <span class="sep">·</span>
+        <span>{c.readingTime}</span>
+      </p>
+    </header>
+
+    <figure class="switch-fig">
+      <div class="terminal" role="img" aria-label={c.figure.ariaLabel}>
+        <div class="term-bar">
+          <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>{c.figure.sameHost}</span>
+        </div>
+        <div class="panes" aria-hidden="true">
+          <section class="pane pane--claude">
+            <div class="pane-head"><span>1</span> {c.figure.claudePane}</div>
+            <div class="screen">
+              <p><span class="prompt">you@prod-01</span>:~/app$ claude</p>
+              <p class="limit">You've hit your individual spend limit</p>
+              <p class="help">run <b>/usage-credits</b> to ask your admin for a higher limit</p>
+              <p><span class="prompt">you@prod-01</span>:~/app$ <span class="cursor"></span></p>
+            </div>
+          </section>
+          <section class="pane pane--codex">
+            <div class="pane-head"><span>2</span> {c.figure.codexPane}</div>
+            <div class="screen">
+              <p><span class="prompt">you@prod-01</span>:~/app$ codex</p>
+              <p class="work">• {c.figure.carriedWork}</p>
+              <p class="diff">M src/api/auth.ts<br />M src/tests/auth.test.ts</p>
+              <p class="ok">✓ {c.figure.ready}</p>
+            </div>
+          </section>
+        </div>
+        <div class="tmux" aria-hidden="true"><b>0:claude</b><b>1:codex*</b><span>prod-01</span></div>
+      </div>
+      <figcaption>{c.figure.caption}</figcaption>
+    </figure>
+
+    <article class="prose">
+      {c.body.map((block) => (
+        <>
+          {block.kind === "lead" && <p class="lead" set:html={block.html}></p>}
+          {block.kind === "p" && <p set:html={block.html}></p>}
+          {block.kind === "h2" && <h2 set:html={block.html}></h2>}
+          {block.kind === "pull" && <blockquote class="pull" set:html={block.html}></blockquote>}
+
+          {block.kind === "limits" && (
+            <section class="limit-grid" aria-label={c.limits.ariaLabel}>
+              {c.limits.items.map((item, i) => (
+                <article>
+                  <span class="limit-num" aria-hidden="true">0{i + 1}</span>
+                  <h3>{item.heading}</h3>
+                  <p set:html={item.body}></p>
+                  <p class="action"><b>{c.limits.actionLabel}:</b> <span set:html={item.action}></span></p>
+                </article>
+              ))}
+            </section>
+          )}
+
+          {block.kind === "carry" && (
+            <figure class="carry">
+              <table>
+                <caption>{c.carry.heading}</caption>
+                <thead><tr><th>{c.carry.itemHeading}</th><th>{c.carry.resultHeading}</th></tr></thead>
+                <tbody>
+                  {c.carry.rows.map((row) => (
+                    <tr>
+                      <td><strong>{row.item}</strong><small>{row.value}</small></td>
+                      <td><span class:list={["pill", row.shared ? "yes" : "no"]}>{row.shared ? `✓ ${c.carry.yes}` : `— ${c.carry.no}`}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <figcaption set:html={c.carry.note}></figcaption>
+            </figure>
+          )}
+
+          {block.kind === "handoff" && (
+            <section class="handoff">
+              <h3>{c.handoff.heading}</h3>
+              <ol>
+                {c.handoff.steps.map((step) => (
+                  <li><div><strong>{step.heading}</strong><p set:html={step.body}></p></div></li>
+                ))}
+              </ol>
+              <div class="prompt-box">
+                <span>{c.handoff.promptLabel}</span>
+                <code>{c.handoff.prompt}</code>
+              </div>
+            </section>
+          )}
+        </>
+      ))}
+    </article>
+
+    <aside class="sources">
+      <h2>{c.sources.heading}</h2>
+      <p>{c.sources.intro}</p>
+      <ul>
+        <li><a href={OPENAI_USAGE_URL} rel="noopener">{c.sources.openai}</a></li>
+        <li><a href={ANTHROPIC_CREDITS_URL} rel="noopener">{c.sources.anthropic}</a></li>
+      </ul>
+      <p class="checked">{c.sources.checked}</p>
+    </aside>
+
+    <aside class="cta" aria-label={c.cta.ariaLabel}>
+      <h2>{c.cta.heading}</h2>
+      <p>{c.cta.body}</p>
+      <div class="cta-tags">{c.cta.tags.map((tag) => <span>{tag}</span>)}</div>
+      <div class="cta-btns">
+        <a class="btn btn--primary" href={PLAY_STORE_BETA_URL} rel="noopener">{c.cta.playButton}</a>
+        <a class="btn btn--ghost" href={TESTFLIGHT_URL} rel="noopener">{c.cta.iosButton}</a>
+      </div>
+      <p class="cta-note" set:html={ctaNote}></p>
+    </aside>
+  </main>
+
+  <style>
+    .post { max-width: 760px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+    .back { margin: 1.5rem 0 0; font-size: .9rem; }
+    .back a { color: var(--muted); }
+    .post-head { text-align: center; padding: 1.5rem 0 .5rem; }
+    .eyebrow { margin: 0 0 .9rem; color: var(--green); font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .post-head h1 { margin: 0; color: var(--ink); font-size: clamp(2.2rem, 7vw, 4rem); line-height: 1; letter-spacing: -.045em; }
+    .standfirst { max-width: 48ch; margin: 1.2rem auto 0; color: var(--muted); font-size: clamp(1.05rem, 2.5vw, 1.24rem); line-height: 1.55; }
+    .byline { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .5rem .7rem; margin: 1.4rem 0 0; color: var(--muted); font-size: .85rem; }
+    .who { display: inline-flex; align-items: center; gap: .5rem; color: var(--ink); font-weight: 600; }
+    .sep { opacity: .5; }
+    .avatar { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--terminal); color: var(--green-bright); font: 700 .72rem ui-monospace, monospace; }
+
+    .switch-fig { margin: 2.5rem 0 .5rem; }
+    .terminal { overflow: hidden; border: 1px solid #273244; border-radius: 18px; background: #0d1119; box-shadow: 0 28px 60px -30px rgba(9,17,30,.7); color: #dbe3ef; direction: ltr; }
+    .term-bar { display: flex; align-items: center; justify-content: space-between; min-height: 40px; padding: 0 14px; border-bottom: 1px solid #273244; background: #171d28; color: #9ca8b8; font: 11px ui-monospace, monospace; }
+    .lights { display: flex; gap: 6px; }
+    .lights i { width: 9px; height: 9px; border-radius: 50%; background: #ff6b67; }
+    .lights i:nth-child(2) { background: #e8b94e; }
+    .lights i:nth-child(3) { background: #43c984; }
+    .panes { display: grid; grid-template-columns: 1fr 1fr; min-height: 270px; }
+    .pane { min-width: 0; }
+    .pane + .pane { border-left: 1px solid #334055; }
+    .pane-head { padding: 7px 11px; background: #151b25; color: #9da9ba; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .04em; }
+    .pane-head span { display: inline-grid; width: 17px; height: 17px; margin-right: 5px; place-items: center; border-radius: 4px; background: #2a3342; color: #dfe5ee; }
+    .pane--claude .pane-head { box-shadow: inset 0 2px #df8260; }
+    .pane--codex .pane-head { box-shadow: inset 0 2px var(--green-bright); }
+    .screen { padding: 18px 15px; font: 12px/1.55 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
+    .screen p { margin: 0 0 12px; overflow-wrap: anywhere; }
+    .prompt { color: var(--green-bright); }
+    .limit { margin-top: 26px !important; color: #ff9d7b; font-weight: 700; }
+    .help, .work { color: #9ba6b8; }
+    .help b { color: #f4c76a; }
+    .diff { padding: 8px 10px; border-inline-start: 2px solid #77869c; background: #121722; color: #aeb9c8; }
+    .ok { color: var(--green-bright); }
+    .cursor { display: inline-block; width: 7px; height: 14px; vertical-align: -2px; background: var(--green-bright); animation: blink 1.15s steps(1) infinite; }
+    .tmux { display: flex; gap: 4px; padding: 4px 8px; background: #49c68b; color: #08261a; font: 10px ui-monospace, monospace; }
+    .tmux b { padding: 1px 5px; background: rgba(255,255,255,.35); }
+    .tmux span { margin-left: auto; }
+    figcaption { max-width: 50ch; margin: 1rem auto 0; color: var(--muted); text-align: center; font-size: .86rem; font-style: italic; line-height: 1.5; }
+
+    .prose { margin-top: 1.8rem; }
+    .prose > p { margin: 0 0 1.1rem; color: #333d47; font-size: 1.13rem; line-height: 1.72; }
+    .prose h2 { margin: 2.5rem 0 .7rem; color: var(--ink); font-size: clamp(1.45rem, 3.5vw, 2rem); letter-spacing: -.025em; }
+    .prose :global(strong) { color: var(--ink); }
+    .prose :global(code) { padding: 1px 6px; border-radius: 5px; background: #eef2f4; font: .86em ui-monospace, Menlo, Consolas, monospace; }
+    .prose > p :global(code), .handoff li :global(code) { direction: ltr; unicode-bidi: isolate; }
+    .lead::first-letter { float: inline-start; padding: .05em .12em 0 0; color: var(--green); font: 700 3.4em/.72 Georgia, serif; }
+    .pull { margin: 1.9rem 0; padding: .2rem 0 .2rem 1.35rem; border-inline-start: 4px solid var(--green); color: var(--ink); font-size: clamp(1.25rem, 3.2vw, 1.65rem); font-style: italic; font-weight: 500; line-height: 1.3; }
+
+    .limit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1.7rem 0 2rem; }
+    .limit-grid article { position: relative; padding: 1.15rem 1rem 1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+    .limit-grid h3 { margin: .35rem 0 .45rem; color: var(--ink); font-size: 1rem; }
+    .limit-grid p { margin: 0 0 .65rem; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+    .limit-grid .action { margin: 0; padding-top: .65rem; border-top: 1px solid var(--line); }
+    .limit-num { color: var(--green); font: 700 .68rem ui-monospace, monospace; letter-spacing: .08em; }
+
+    .carry { margin: 1.8rem 0 2.1rem; }
+    .carry table { width: 100%; overflow: hidden; border: 1px solid var(--line); border-spacing: 0; border-radius: 14px; background: var(--surface); }
+    .carry caption { padding: 1rem 1.1rem .75rem; color: var(--ink); text-align: start; font-size: 1.1rem; font-weight: 700; }
+    .carry th { padding: .55rem 1.1rem; border-block: 1px solid var(--line); background: #f2f5f5; color: var(--muted); text-align: start; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+    .carry td { padding: .8rem 1.1rem; border-bottom: 1px solid var(--line); color: #333d47; font-size: .94rem; }
+    .carry tr:last-child td { border-bottom: 0; }
+    .carry td:last-child { width: 8rem; text-align: end; }
+    .carry td strong, .carry td small { display: block; }
+    .carry td small { margin-top: .2rem; color: var(--muted); font-size: .79rem; }
+    .pill { display: inline-block; min-width: 3.7rem; padding: .25rem .55rem; border-radius: 999px; text-align: center; font-size: .75rem; font-weight: 700; }
+    .pill.yes { background: #e4f6ed; color: #127349; }
+    .pill.no { background: #f1f2f4; color: #697383; }
+
+    .handoff { margin: 1.8rem 0 2rem; padding: 1.35rem; border-radius: 16px; background: var(--terminal); color: #e7ebf2; }
+    .handoff > h3 { margin: 0 0 1rem; font-size: 1.25rem; }
+    .handoff ol { margin: 0; padding: 0; list-style: none; counter-reset: handoff; }
+    .handoff li { display: grid; grid-template-columns: 2rem 1fr; gap: .8rem; padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,.09); counter-increment: handoff; }
+    .handoff li::before { content: counter(handoff); display: grid; width: 1.8rem; height: 1.8rem; place-items: center; border-radius: 50%; background: rgba(46,229,157,.15); color: var(--green-bright); font: 700 .76rem ui-monospace, monospace; }
+    .handoff li strong { color: #fff; }
+    .handoff li p { margin: .25rem 0 0; color: #adb6c6; font-size: .9rem; line-height: 1.5; }
+    .handoff :global(code) { background: rgba(255,255,255,.1); color: #edf2f8; }
+    .prompt-box { margin-top: 1rem; padding: .85rem 1rem; border: 1px solid rgba(46,229,157,.28); border-radius: 10px; background: #0b1018; }
+    .prompt-box span { display: block; margin-bottom: .45rem; color: var(--green-bright); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .prompt-box code { display: block; color: #d9e1ec; font: .82rem/1.55 ui-monospace, Menlo, Consolas, monospace; }
+
+    .sources { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+    .sources h2 { margin: 0 0 .5rem; color: var(--ink); font-size: 1.1rem; }
+    .sources p, .sources li { color: var(--muted); font-size: .87rem; line-height: 1.55; }
+    .sources p { margin: 0 0 .7rem; }
+    .sources ul { margin: .5rem 0; padding-inline-start: 1.2rem; }
+    .sources .checked { font-style: italic; }
+
+    .cta { position: relative; overflow: hidden; margin-top: 2.6rem; padding: 2.4rem 1.6rem; border-radius: 20px; background: var(--terminal); color: #eef1f6; text-align: center; }
+    .cta::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(460px 220px at 50% -12%, rgba(46,229,157,.22), transparent 62%); }
+    .cta h2 { position: relative; margin: 0; font-size: clamp(1.5rem, 4.4vw, 2.1rem); }
+    .cta > p { position: relative; max-width: 48ch; margin: .8rem auto 0; color: #b9c0d0; }
+    .cta-tags, .cta-btns { position: relative; display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; }
+    .cta-tags { margin-top: 1.3rem; }
+    .cta-tags span { padding: .4rem .8rem; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #dfe4ee; font-size: .8rem; }
+    .cta-btns { margin-top: 1.5rem; gap: .7rem; }
+    .btn { display: inline-flex; padding: .75rem 1.3rem; border-radius: 999px; font-size: .95rem; font-weight: 600; text-decoration: none; transition: transform .15s ease, background .15s ease; }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn--primary { background: var(--green-bright); color: #06251a; }
+    .btn--ghost { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); color: #fff; }
+    .cta-note { position: relative; max-width: 52ch; margin: 1.1rem auto 0; color: #9aa6b6; font-size: .8rem; line-height: 1.5; }
+    .cta-note :global(a) { color: var(--green-bright); }
+
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (max-width: 650px) {
+      .panes { grid-template-columns: 1fr; }
+      .pane + .pane { border-top: 1px solid #334055; border-left: 0; }
+      .screen { min-height: 178px; }
+      .limit-grid { grid-template-columns: 1fr; }
+      .prose > p { font-size: 1.06rem; }
+      .carry th:last-child { width: 5.5rem; }
+      .carry td { padding: .72rem .75rem; }
+      .carry td:last-child { width: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cursor { animation: none; }
+      .btn:hover { transform: none; }
+    }
+  </style>
+</BaseLayout>

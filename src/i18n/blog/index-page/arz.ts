@@ -11,6 +11,12 @@ export const arz: BlogIndexContent = {
   intro:
     "آراء، وتقارير ميدانية، ونعي من وقت للتاني — من الفريق اللي ورا Mobile SSH، برنامج SSH وSFTP والترمنال الأصلي لـ Android وiPhone وiPad.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "طريقة الشغل", dateLabel: "30 أغسطس 2026", readingTime: "قراية 6 دقايق",
+      title: "غيّر الوكيل، مش التطبيق.",
+      excerpt: "لما Claude Code أو Codex يوصل لحد الاستخدام أو الصرف، الاشتراك ممكن يقف لكن الـ repository لأ. خليك على نفس السيرفر والـ working tree وواجهة الموبايل — غيّر أمر، مش التطبيق كله.",
+      cta: "اقرا طريقة الشغل",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "تقرير ميداني",
       dateLabel: "10 أغسطس 2026",

@@ -9,6 +9,12 @@ export const te: BlogIndexContent = {
   intro:
     "అభిప్రాయాలు, క్షేత్ర నివేదికలు, అప్పుడప్పుడు ఒక సంతాప వార్త — Android, iPhone మరియు iPad కోసం నేటివ్ SSH, SFTP మరియు టర్మినల్ క్లయింట్ అయిన Mobile SSH వెనుకున్న బృందం నుంచి.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "పని విధానం", dateLabel: "30 ఆగస్టు 2026", readingTime: "6 నిమిషాల పఠనం",
+      title: "యాప్‌ను కాదు, ఏజెంట్‌ను మార్చండి.",
+      excerpt: "Claude Code లేదా Codex వినియోగం లేదా ఖర్చు పరిమితిని చేరితే subscription ఆగవచ్చు, repository కాదు. అదే server, working tree, mobile interface ఉంచండి—పూర్తి యాప్‌ను కాదు, ఒక commandను మార్చండి.",
+      cta: "పని విధానం చదవండి",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "క్షేత్ర నివేదిక",
       dateLabel: "2026 ఆగస్టు 10",

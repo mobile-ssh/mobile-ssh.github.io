@@ -9,6 +9,12 @@ export const ta: BlogIndexContent = {
   intro:
     "கருத்துகள், கள அறிக்கைகள், அவ்வப்போது ஓர் இரங்கல் உரை — Android, iPhone மற்றும் iPad-க்கான நேட்டிவ்\nSSH, SFTP மற்றும் டெர்மினல் கிளையன்ட்டான Mobile SSH-ஐ உருவாக்கும் குழுவிடமிருந்து.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "பணிப்பாய்வு", dateLabel: "30 ஆகஸ்ட் 2026", readingTime: "6 நிமிட வாசிப்பு",
+      title: "செயலியை அல்ல, முகவரை மாற்றுங்கள்.",
+      excerpt: "Claude Code அல்லது Codex பயன்பாடு அல்லது செலவு வரம்பை எட்டினால் subscription நிற்கலாம், repository அல்ல. அதே server, working tree, mobile interface-ஐ வைத்து—முழு app-ஐ அல்ல, ஒரு command-ஐ மாற்றுங்கள்.",
+      cta: "பணிப்பாய்வைப் படியுங்கள்",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "கள அறிக்கை",
       dateLabel: "10 ஆகஸ்ட் 2026",

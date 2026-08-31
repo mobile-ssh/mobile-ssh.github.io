@@ -9,6 +9,12 @@ export const tr: BlogIndexContent = {
   intro:
     "Görüşler, saha raporları ve arada bir bir veda yazısı — Android, iPhone ve iPad için yerel SSH, SFTP ve terminal istemcisi Mobile SSH'nin arkasındaki ekipten.",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "İş akışı", dateLabel: "30 Ağustos 2026", readingTime: "6 dk okuma",
+      title: "Uygulamayı değil, ajanı değiştirin.",
+      excerpt: "Claude Code veya Codex bir kullanım ya da harcama sınırına ulaştığında abonelik durabilir, depo durmaz. Sunucuyu, çalışma ağacını ve mobil arayüzü koruyun; tüm uygulamayı değil, tek komutu değiştirin.",
+      cta: "İş akışını okuyun",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "Saha raporu",
       dateLabel: "10 Ağustos 2026",

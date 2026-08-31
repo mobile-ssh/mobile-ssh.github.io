@@ -9,6 +9,12 @@ export const ur: BlogIndexContent = {
   intro:
     "آرا، میدانی رپورٹس اور کبھی کبھار کوئی تعزیت نامہ — اُس ٹیم کی جانب سے جو Mobile SSH بناتی ہے، یعنی Android، iPhone اور iPad کے لیے نیٹو SSH، SFTP اور ٹرمینل کلائنٹ۔",
   posts: {
+    "switch-agents-not-apps": {
+      tag: "ورک فلو", dateLabel: "30 اگست 2026", readingTime: "6 منٹ مطالعہ",
+      title: "ایپ نہیں، ایجنٹ بدلیں۔",
+      excerpt: "جب Claude Code یا Codex استعمال یا خرچ کی حد تک پہنچے تو سبسکرپشن رک سکتی ہے، ریپوزٹری نہیں۔ وہی سرور، ورکنگ ٹری اور موبائل انٹرفیس رکھیں—پوری ایپ نہیں، ایک کمانڈ بدلیں۔",
+      cta: "ورک فلو پڑھیں",
+    },
     "eleven-hours-over-the-atlantic": {
       tag: "میدانی رپورٹ",
       dateLabel: "10 اگست 2026",

@@ -1,0 +1,72 @@
+import { defineSwitchAgents } from "./define";
+
+export const es = defineSwitchAgents({
+  metaTitle: "Cambia de agente, no de app | Mobile SSH",
+  metaDescription: "Cuando Claude Code o Codex alcanza un límite de uso o gasto, conserva el mismo servidor, repositorio, terminal y flujo móvil.",
+  back: "Blog", eyebrow: "Flujo de trabajo", title: "Cambia de agente, no de app.",
+  standfirst: "Un agente de programación puede agotar su cupo a mitad de una tarea. Tu repositorio no ha agotado nada. Deja el trabajo donde está, abre el otro agente y continúa en el mismo terminal.",
+  author: "El consejo editorial de Mobile SSH", date: "30 de agosto de 2026", readingTime: "6 min de lectura",
+  figure: {
+    ariaLabel: "Dos paneles en el mismo host SSH. Claude Code alcanzó un límite de gasto individual; el panel contiguo de Codex lee el mismo árbol de trabajo y está listo para continuar.",
+    claudePane: "Claude Code · límite alcanzado", codexPane: "Codex · mismo host", sameHost: "mismo host SSH · prod-01",
+    carriedWork: "leyendo AGENTS.md y el árbol de trabajo actual", ready: "listo para continuar",
+    caption: "Cambió el agente. El host, el repositorio, el árbol de trabajo y la interfaz móvil no.",
+  },
+  body: [
+    `Suele ocurrir cuando ya ha empezado la parte útil. El agente ha leído el repositorio, encontrado la ruta que falla y modificado dos archivos. Entonces el terminal se detiene con una frase que no tiene nada que ver con el código: <strong>has alcanzado un límite de uso o gasto.</strong>`,
+    `Un mensaje real de Claude Code es tajante: <code>You've hit your individual spend limit · run /usage-credits to ask your admin for a higher limit</code>. Codex tiene sus propios avisos y opciones según la cuenta. Cambian las palabras; la interrupción es la misma. Una frontera de proveedor ha aparecido en medio de tu árbol de trabajo.`,
+    `Primero: ¿qué límite alcanzaste?`,
+    `Se suele llamar “límite de tokens” a todo, pero esa expresión mezcla tres problemas distintos. Una conversación puede llenar su contexto, un plan puede agotar su cupo o una cuenta puede llegar a un tope de crédito o gasto. El siguiente paso depende de lo que el producto indique realmente.`,
+    `Lee el aviso que tienes delante. Consulta en la página de uso del proveedor las opciones de reinicio, créditos o administración disponibles para <em>esa cuenta</em>. Los límites y soluciones cambian según el plan y con el tiempo. Pero pagar, esperar o pedir ayuda al administrador no son las únicas maneras de que la tarea siga avanzando.`,
+    `La suscripción se detuvo. El repositorio no.`,
+    `La alternativa obvia tiene el coste de cambiar de app`,
+    `En el teléfono, lo obvio es salir de Claude y abrir ChatGPT para usar Codex, o salir de ChatGPT y abrir Claude. Funciona en el sentido estricto de que hay otro agente disponible. También sustituye toda la cabina justo cuando necesitas continuidad.`,
+    `La navegación cambia. Los controles de aprobación son distintos. El historial se organiza de otra forma. Una app puede ofrecer un flujo que la otra no tiene, y ninguna es un terminal SSH general con tus sesiones tmux, navegador SFTP y túneles junto al agente. Pierdes los primeros minutos buscando controles en vez de entender qué cambió el agente anterior.`,
+    `Haz del terminal la capa estable`,
+    `Ejecuta Claude Code y Codex donde ya vive el trabajo: en la misma máquina y a través del mismo cliente SSH. En Mobile SSH, cambiar de proveedor puede ser tan simple como abrir otro panel tmux y ejecutar el otro comando. La interfaz sigue siendo familiar porque pertenece a <em>tu servidor</em>, no a un proveedor de modelos.`,
+    `Esta es la portabilidad útil. El siguiente agente puede inspeccionar archivos, diferencias, resultados de pruebas e instrucciones guardadas en el disco. Mobile SSH conserva la conexión; tmux, la sesión; SFTP y los reenvíos de puertos siguen en su sitio. Las alertas de agentes sirven para ambos porque el hook informa del estado del terminal sin casarse con un proveedor.`,
+    `Ser neutral respecto al proveedor no significa que el contexto se transfiera por arte de magia. Significa que las pruebas sobreviven al cambio.`,
+    `El relevo honesto`,
+    `La conversación de Claude no se convierte en la de Codex, ni al revés. No le digas simplemente “continúa” al sustituto esperando que vea un chat de otro servicio. Dale el estado duradero: reglas del repositorio, diff del árbol, comandos ejecutados y resultado pendiente.`,
+    `Si el primer agente se detuvo antes de resumir, el diff es el resumen oficial. Pide al sustituto que inspeccione antes de editar. Así proteges el trabajo parcial, detectas supuestos incrustados en el parche y obtienes un punto limpio para continuar, corregir o revertir.`,
+    `Una interfaz para el agente que hoy resulte útil`,
+    `Esto no afirma que Codex y Claude Code sean intercambiables. Tienen fortalezas, modelos, herramientas, límites y reglas de cuenta distintos. Precisamente por eso la interfaz no debe imponerte una elección permanente. Elige según la tarea, el cupo disponible y las políticas del repositorio.`,
+    `La app nativa del proveedor suele ser el camino más rápido y sin configuración a su agente en la nube. Consérvala cuando eso sea lo que necesitas. Pero si el trabajo vive en una máquina que controlas, un terminal general ofrece un hogar más duradero: una app para llegar al servidor, cualquier agente instalado y toda la caja de herramientas SSH cuando el trabajo vuelve a ser ingeniería normal.`,
+    `Elige el agente por sus méritos. Conserva el espacio de trabajo en tus términos.`,
+  ],
+  limits: {
+    ariaLabel: "Tres clases de límites y qué hacer después", actionLabel: "Qué hacer",
+    items: [
+      { heading: "Contexto o longitud", body: "Una conversación alcanzó la cantidad de material que el modelo puede mantener activo.", action: "Compacta o resume si es posible, o inicia una sesión nueva con un relevo concreto." },
+      { heading: "Cupo de uso", body: "Tu plan consumió el cupo del período actual del producto.", action: "Consulta el reinicio mostrado y las opciones de mejora o créditos de tu cuenta." },
+      { heading: "Tope de gasto o crédito", body: "La continuación de pago llegó a un límite personal, del espacio o de la organización.", action: "Añade fondos, cambia el tope, pregunta a un administrador, espera o traslada la tarea a otro agente." },
+    ],
+  },
+  carry: {
+    heading: "Qué sobrevive al cambio de agente", itemHeading: "Estado de trabajo", resultHeading: "¿Se conserva?", yes: "Sí", no: "No",
+    rows: [
+      { item: "Archivos y cambios sin confirmar", value: "En el mismo disco", shared: true },
+      { item: "Estado y diff de Git; resultados de pruebas", value: "Ambas CLI pueden inspeccionarlos", shared: true },
+      { item: "Host SSH, shell y directorio", value: "La misma sesión", shared: true },
+      { item: "tmux, SFTP, túneles y alertas", value: "Las mismas herramientas móviles", shared: true },
+      { item: "Historial de conversación del otro proveedor", value: "Necesita un relevo nuevo", shared: false },
+    ],
+    note: "Los archivos son estado compartido. El chat es estado del proveedor. Usa el repositorio como fuente de verdad.",
+  },
+  handoff: {
+    heading: "Un relevo en cuatro pasos",
+    steps: [
+      { heading: "Congela las pruebas", body: "No limpies ni sobrescribas el árbol. Captura <code>git status --short</code> e inspecciona <code>git diff --stat</code>." },
+      { heading: "Lee las reglas locales", body: "Haz que el agente nuevo lea <code>AGENTS.md</code> y la documentación pertinente antes de editar." },
+      { heading: "Restablece la línea base", body: "Ejecuta la prueba o comprobación relevante más pequeña y anota qué pasa, falla o no se probó." },
+      { heading: "Continúa en otro panel", body: "Inicia la otra CLI junto al panel anterior, explica objetivo y restricciones y pide que inspeccione primero el diff." },
+    ],
+    promptLabel: "Un primer prompt útil", prompt: "Lee AGENTS.md, git status y el diff actual. Conserva el trabajo existente. Ejecuta las pruebas específicas, explica qué falta y después continúa la tarea.",
+  },
+  sources: { heading: "Fuentes y nota sobre límites", intro: "Los límites y las opciones de facturación cambian. Estas páginas oficiales sustentan la distinción anterior; el aviso de tu cuenta sigue siendo la autoridad.", openai: "OpenAI: límites de uso de Codex y opciones de cuenta", anthropic: "Anthropic: créditos de uso y límites de gasto individual", checked: "Comprobado el 30 de agosto de 2026." },
+  cta: {
+    ariaLabel: "Obtener Mobile SSH", heading: "Lleva ambos agentes en un bolsillo.", body: "Conéctate a tu máquina, ejecuta Claude Code, Codex u otra CLI y conserva el mismo terminal, sesiones tmux, archivos, túneles y alertas al cambiar.",
+    tags: ["Cualquier agente", "SSH directo", "Alertas de agentes", "Apache-2.0"], playButton: "Participa en Google Play", iosButton: "Únete a la beta de iOS",
+    note: `Android está en prueba cerrada: participa con la cuenta de Google que usarás y abre el enlace en el navegador móvil. ¿Ya participas? Ve directamente a la <a href="{playUrl}" rel="noopener">ficha de Play</a>.`,
+  },
+});
