@@ -68,7 +68,14 @@ export function matchLocale(preferred: readonly string[]): LocaleCode | null {
     // An exact hit on one of our own codes (e.g. "de", "ta").
     if (Object.hasOwn(localeMap, tag)) return tag as LocaleCode;
 
-    const primary = tag.split("-")[0];
+    const parts = tag.split("-");
+
+    // A deprecated extlang carries its real language in the second subtag, so
+    // `zh-yue-HK` is Cantonese and must be read before the `zh` in front of it.
+    const extlang = `${parts[0]}-${parts[1]}`;
+    if (parts.length > 2 && Object.hasOwn(EXACT, extlang)) return EXACT[extlang];
+
+    const primary = parts[0];
     if (Object.hasOwn(EXACT, primary)) return EXACT[primary];
     if (Object.hasOwn(localeMap, primary)) return primary as LocaleCode;
   }

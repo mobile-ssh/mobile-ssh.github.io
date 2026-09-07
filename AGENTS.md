@@ -18,6 +18,8 @@ before touching copy.
 | `src/i18n/dict/en.ts` | English source of truth |
 | `src/i18n/dict/<loc>.ts` | One per locale, same shape |
 | `src/i18n/version.ts` | App versions — **not** in the dicts |
+| `src/i18n/match.ts` | Browser language tag → site locale |
+| `src/i18n/suggest.ts` | The language-suggestion banner, all 20 at once — **not** in `Dict` |
 | `src/pages/<loc>/docs/*.md` | 5 translated doc pages per locale |
 | `astro.config.mjs` | `i18n.locales`, `defaultLocale: "en"` |
 
@@ -69,6 +71,40 @@ locale-independent are exempt: URLs, pure numbers, and the names
 sharing vocabulary is correct. It should still read as Pidgin
 ("Links wey you fit tap"), not as untranslated English.
 
+### The suggestion banner is translated but not in `Dict`
+
+`src/i18n/suggest.ts` holds the "this page is also available in your language"
+banner in all 20 languages at once, and it is deliberately outside `Dict`. A
+dict is the strings for the page's *own* locale; this banner is shown to
+someone whose browser asked for a different one, so a Chinese reader on the
+English page has to see Chinese, on the English page.
+
+That means none of the checks above see it. `src/tests/suggest.test.ts` is its
+own gate: every locale present, every field set, right Unicode script, no Latin
+text in a non-Latin locale, no two locales sharing a string, and short enough
+for one line.
+
+Two of those rules constrain what you may write, so read them before editing a
+banner:
+
+- **Each banner's `text` and `cta` must name its own language, in that
+  language** — `español`, `中文`, `తెలుగు`, `bahasa Indonesia`. The table of
+  endonyms is in the test. This is the only rule with teeth for the eight
+  Latin-script locales, where "is it in the right script?" is answered yes by
+  any English sentence, and the only one that catches a row pasted into a
+  same-script neighbour: `zh` and `yue`, `hi` and `mr`, `ar` and `arz` all
+  satisfy a script check for each other's text. Add a locale, add its endonym.
+- **A banner may not name a product.** The no-Latin-letters rule for non-Latin
+  locales is what catches an untranslated row, so keep `Mobile SSH` and `SSH`
+  out of these strings rather than relaxing it.
+
+`src/i18n/match.ts` decides which locale to offer, and
+`src/tests/locale-match.test.ts` gates the part that AGENTS.md keeps warning
+about: `ar-EG` must stay `ar`, `zh-HK` must stay `zh`, `en-NG` must stay `en`,
+while `arz`, `yue`, `pcm` and legacy `in`/`in-ID` resolve when a reader names
+them — including the region-qualified forms real devices send (`yue-Hant-HK`,
+`pcm-NG`, `arz-EG`). Both directions are asserted, because both have been wrong.
+
 ### Doc pages
 
 Every locale needs all five under `src/pages/<loc>/docs/`: `getting-started`,
@@ -95,7 +131,7 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 ### Before you commit
 
 ```bash
-npx vitest run      # 865 tests; structural parity + translation checks
+npx vitest run      # 1084 tests; structural parity + translation checks
 npx astro build     # 301 pages across 20 locales
 ```
 
