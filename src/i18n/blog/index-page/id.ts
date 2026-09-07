@@ -9,6 +9,12 @@ export const id: BlogIndexContent = {
   intro:
     "Opini, laporan lapangan, dan sesekali obituari — dari tim di balik Mobile SSH, klien SSH, SFTP, dan terminal native untuk Android, iPhone, dan iPad.",
   posts: {
+    "go-outside": {
+      tag: "Catatan lapangan", dateLabel: "7 September 2026", readingTime: "Baca 7 mnt",
+      title: "Pergilah keluar. Agennya tetap bekerja.",
+      excerpt: "Agen coding Anda berjalan di server Anda, bukan di ponsel. Jalankan di bawah multiplexer, melangkahlah keluar, dan biarkan peringatan menemukan Anda saat pekerjaan itu benar-benar butuh manusia — lengkap dengan catatan jujur tentang apa yang ditahan Android tetapi tidak oleh iOS.",
+      cta: "Baca catatan lapangannya",
+    },
     "switch-agents-not-apps": {
       tag: "Alur kerja", dateLabel: "30 Agustus 2026", readingTime: "Baca 6 mnt",
       title: "Ganti agen, bukan aplikasi.",

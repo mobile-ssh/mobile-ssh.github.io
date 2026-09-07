@@ -9,6 +9,15 @@ export const tr: BlogIndexContent = {
   intro:
     "Görüşler, saha raporları ve arada bir bir veda yazısı — Android, iPhone ve iPad için yerel SSH, SFTP ve terminal istemcisi Mobile SSH'nin arkasındaki ekipten.",
   posts: {
+    "go-outside": {
+      tag: "Saha notu",
+      dateLabel: "7 Eylül 2026",
+      readingTime: "7 dk okuma",
+      title: "Dışarı çıkın. Ajan çalışmaya devam ediyor.",
+      excerpt:
+        "Kodlama ajanınız telefonunuzda değil, sunucunuzda çalışır. Onu bir multiplexer altında başlatın, dışarı çıkın ve gerçekten bir insana ihtiyaç duyduğunda uyarılar sizi bulsun — Android'in açık tuttuğu, iOS'un tutmadığı şeye dair dürüst bir notla.",
+      cta: "Saha notunu okuyun",
+    },
     "switch-agents-not-apps": {
       tag: "İş akışı", dateLabel: "30 Ağustos 2026", readingTime: "6 dk okuma",
       title: "Uygulamayı değil, ajanı değiştirin.",

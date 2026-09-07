@@ -4,6 +4,7 @@ import { getLaptops } from "../i18n/blog/laptops";
 import { getFlight } from "../i18n/blog/flight";
 import { getSwitchAgents } from "../i18n/blog/switch-agents";
 import { getBlogIndex } from "../i18n/blog/index-page";
+import { getGoOutside } from "../i18n/blog/go-outside";
 
 // The blog posts render from per-locale content modules whose arrays are indexed
 // positionally by the components. A locale that drops or reorders an entry does
@@ -15,6 +16,7 @@ const enLaptops = getLaptops("en");
 const enFlight = getFlight("en");
 const enSwitchAgents = getSwitchAgents("en");
 const enIndex = getBlogIndex("en");
+const enGoOutside = getGoOutside("en");
 
 // "Blog | Mobile SSH" is genuinely identical in several languages, so metaTitle
 // is a bad translation signal. These fields are prose and must differ.
@@ -27,6 +29,40 @@ describe("blog content parity", () => {
       expect(getFlight(locale)).not.toBe(enFlight);
       expect(getSwitchAgents(locale)).not.toBe(enSwitchAgents);
       expect(getBlogIndex(locale)).not.toBe(enIndex);
+      expect(getGoOutside(locale)).not.toBe(enGoOutside);
+    });
+
+    it(`${locale}: go-outside post matches the English shape`, () => {
+      const t = getGoOutside(locale);
+      expect(t.body).toHaveLength(enGoOutside.body.length);
+      expect(t.body.map((b) => b.kind)).toEqual(enGoOutside.body.map((b) => b.kind));
+      expect(t.checklist.steps).toHaveLength(enGoOutside.checklist.steps.length);
+      expect(t.cta.tags).toHaveLength(enGoOutside.cta.tags.length);
+      // The board is read positionally by the component and its rows carry
+      // session names and booleans that are not translatable — a reordered or
+      // relabelled row would render an amber "needs you" against the wrong one.
+      expect(t.board.rows.map((r) => r.name)).toEqual(enGoOutside.board.rows.map((r) => r.name));
+      expect(t.board.rows.map((r) => r.swell)).toEqual(enGoOutside.board.rows.map((r) => r.swell));
+      expect(t.board.rows.map((r) => r.needsYou)).toEqual(
+        enGoOutside.board.rows.map((r) => r.needsYou),
+      );
+      // Same for the honest-limits table: the yes/no column is a factual claim
+      // about the platforms, not something a translator should be able to flip.
+      expect(t.truth.rows).toHaveLength(enGoOutside.truth.rows.length);
+      expect(t.truth.rows.map((r) => r.survives)).toEqual(
+        enGoOutside.truth.rows.map((r) => r.survives),
+      );
+    });
+
+    it(`${locale}: go-outside keeps its placeholder, clock and Hawaiian`, () => {
+      const t = getGoOutside(locale);
+      expect(t.cta.note).toContain("{playUrl}");
+      expect(t.board.timeLabel).toBe(enGoOutside.board.timeLabel);
+      // "pau hana" is kept in Hawaiian in every locale; the gloss beside it is
+      // what gets translated. If a translator localised the phrase itself the
+      // sentence still reads, which is exactly why it needs asserting.
+      const body = t.body.map((b) => ("html" in b ? b.html : "")).join(" ").toLowerCase();
+      expect(body).toContain("pau hana");
     });
 
     it(`${locale}: switch-agents post matches the English shape`, () => {
@@ -100,6 +136,7 @@ describe("blog content parity", () => {
       expect(getLaptops(code).body.length).toBeGreaterThan(0);
       expect(getFlight(code).masthead.headline).toBeTruthy();
       expect(getSwitchAgents(code).body.length).toBeGreaterThan(0);
+      expect(getGoOutside(code).body.length).toBeGreaterThan(0);
       expect(Object.keys(getBlogIndex(code).posts).length).toBeGreaterThan(0);
     }
   });

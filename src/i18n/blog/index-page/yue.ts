@@ -9,6 +9,12 @@ export const yue: BlogIndexContent = {
   intro:
     "觀點、現場報告，偶爾仲有一篇悼文 —— 來自 Mobile SSH 團隊，一款為 Android、iPhone 同 iPad 而設嘅原生 SSH、SFTP 同終端機客戶端。",
   posts: {
+    "go-outside": {
+      tag: "現場筆記", dateLabel: "2026年9月7日", readingTime: "閱讀約 7 分鐘",
+      title: "出去行下啦。代理仲做緊嘢。",
+      excerpt: "你嘅 coding 代理係喺你部伺服器度行，唔係喺部手機。用 multiplexer 開起佢，行出門口，等真係要人嗰陣先由提示搵返你——仲有一段老實話，講 Android 撐得住而 iOS 撐唔住嘅嘢。",
+      cta: "睇呢篇現場筆記",
+    },
     "switch-agents-not-apps": {
       tag: "工作流程", dateLabel: "2026年8月30日", readingTime: "閱讀約 6 分鐘",
       title: "轉代理，唔好轉 app。",

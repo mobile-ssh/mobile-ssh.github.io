@@ -128,6 +128,11 @@ Product and protocol names: `SSH`, `SFTP`, `SCP`, `tmux`, `Mobile SSH`,
 `JetBrains Mono`, `Source Code Pro`, `Solarized`, `Gruvbox`, `Dracula`, `Nord`,
 `OTP`, `URL`, `Claude Code`, `Codex`.
 
+Hawaiian words used in the `go-outside` post — `aloha`, `pau hana`, `mahalo`,
+`ʻohana` — are kept verbatim in all twenty locales. Each is glossed in-line on
+first use, and it is the **gloss** that gets translated, not the word. A test
+asserts `pau hana` survives in every locale.
+
 ### RTL
 
 `ar`, `arz` and `ur` are `dir: "rtl"` in `locales.ts`. Use logical CSS
@@ -136,8 +141,8 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 ### Before you commit
 
 ```bash
-npx vitest run      # 1140 tests; structural parity + translation checks
-npx astro build     # 301 pages across 20 locales
+npx vitest run      # 1178 tests; structural parity + translation checks
+npx astro build     # 321 pages across 20 locales
 ```
 
 ### Commit as the project, not as your employer

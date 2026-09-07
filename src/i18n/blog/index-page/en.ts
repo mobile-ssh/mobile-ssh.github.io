@@ -11,6 +11,15 @@ export const en: BlogIndexContent = {
   intro:
     "Opinions, field reports and the occasional obituary — from the team behind Mobile SSH, the\nnative SSH, SFTP and terminal client for Android, iPhone and iPad.",
   posts: {
+    "go-outside": {
+      tag: "Field note",
+      dateLabel: "September 7, 2026",
+      readingTime: "7 min read",
+      title: "Go outside. The agent is still working.",
+      excerpt:
+        "Your coding agent runs on your server, not on your phone. Start it under a multiplexer, walk out, and let the alerts find you when it actually needs a person — with an honest note on what Android holds open that iOS does not.",
+      cta: "Read the field note",
+    },
     "switch-agents-not-apps": {
       tag: "Workflow",
       dateLabel: "August 30, 2026",

@@ -9,6 +9,12 @@ export const pt: BlogIndexContent = {
   intro:
     "Opiniões, relatos de campo e um obituário de vez em quando — da equipe por trás do Mobile SSH, o cliente nativo de SSH, SFTP e terminal para Android, iPhone e iPad.",
   posts: {
+    "go-outside": {
+      tag: "Nota de campo", dateLabel: "7 de setembro de 2026", readingTime: "7 min de leitura",
+      title: "Saia de casa. O agente continua trabalhando.",
+      excerpt: "Seu agente de programação roda no seu servidor, não no seu telefone. Inicie-o sob um multiplexador, vá embora e deixe que os alertas encontrem você quando realmente for preciso uma pessoa — com uma nota honesta sobre o que o Android mantém aberto e o iOS não.",
+      cta: "Ler a nota de campo",
+    },
     "switch-agents-not-apps": {
       tag: "Fluxo de trabalho", dateLabel: "30 de agosto de 2026", readingTime: "6 min de leitura",
       title: "Troque de agente, não de app.",

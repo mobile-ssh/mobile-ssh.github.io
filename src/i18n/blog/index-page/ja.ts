@@ -9,6 +9,15 @@ export const ja: BlogIndexContent = {
   intro:
     "オピニオン、現場レポート、そしてときどき訃報。Android・iPhone・iPad 向けのネイティブな SSH／SFTP／ターミナル クライアント、Mobile SSH のチームより。",
   posts: {
+    "go-outside": {
+      tag: "現場ノート",
+      dateLabel: "2026年9月7日",
+      readingTime: "読了 7 分",
+      title: "外に出よう。エージェントはまだ働いている。",
+      excerpt:
+        "コーディングエージェントが動いているのは、スマートフォンではなくあなたのサーバーです。マルチプレクサーの中で起動して外に出れば、本当に人が必要になったときだけ通知が見つけてくれます。Android が開いたまま保持できて iOS が保持できないものについての、正直な注記付き。",
+      cta: "現場ノートを読む",
+    },
     "switch-agents-not-apps": {
       tag: "ワークフロー", dateLabel: "2026年8月30日", readingTime: "読了 6 分",
       title: "アプリではなく、エージェントを切り替える。",

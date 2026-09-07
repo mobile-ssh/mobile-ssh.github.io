@@ -11,6 +11,12 @@ export const pcm: BlogIndexContent = {
   intro:
     "Our own talk, report from ground, and tribute once in a while — from di team wey dey behind Mobile SSH, di native SSH, SFTP and terminal client for Android, iPhone and iPad.",
   posts: {
+    "go-outside": {
+      tag: "Note from ground", dateLabel: "7 September 2026", readingTime: "7 min read",
+      title: "Comot go outside. Agent still dey work.",
+      excerpt: "Your coding agent dey run for your server, no be for your phone. Start am under multiplexer, waka comot, and make the alerts find you when e really need person — with honest note on wetin Android dey hold open wey iOS no dey hold.",
+      cta: "Read the note from ground",
+    },
     "switch-agents-not-apps": {
       tag: "How work dey flow", dateLabel: "30 August 2026", readingTime: "6 min read",
       title: "Change agent, no be app.",
