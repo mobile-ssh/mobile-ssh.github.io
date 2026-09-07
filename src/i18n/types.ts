@@ -40,6 +40,16 @@ export interface MuxDemo {
   iosAlt: string;
 }
 
+/**
+ * A single-platform feature demo. These are Android takes with no iOS
+ * counterpart filmed yet, so unlike MuxDemo they carry one alt string.
+ */
+export interface FeatureDemo {
+  title: string;
+  text: string;
+  androidAlt: string;
+}
+
 export interface Dict {
   meta: {
     siteName: string;
@@ -115,6 +125,13 @@ export interface Dict {
     muxHead: string;
     muxIntro: string;
     muxItems: MuxDemo[];
+    // The Kitty-graphics demo, which is one Android take rather than a pair.
+    // The single-platform feature demos. Like `muxItems`, `demoItems` is
+    // indexed positionally against a fixed list of video files in Home.astro,
+    // so its length is asserted in translations.test.ts.
+    demoHead: string;
+    demoIntro: string;
+    demoItems: FeatureDemo[];
     // The Kitty-graphics demo, which is one Android take rather than a pair.
     graphicsHead: string;
     graphicsBody: string;

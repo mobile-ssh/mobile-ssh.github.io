@@ -119,6 +119,29 @@ export const en: Dict = {
           "iOS demo of the Zellij manager: a session with attach, rename, kill and delete actions, its tabs, and a pane offering preview and both split directions."
       }
     ],
+    demoHead: "Three more, filmed on Android",
+    demoIntro:
+      "There is no iOS take of these yet. Same live server as the demos above: a session that survives leaving the app, a key made on the phone instead of typed into it, and servers grouped the way you think about them.",
+    demoItems: [
+      {
+        title: "The session outlives the app",
+        text: "Android keeps the connection in a foreground service, and the ongoing notification is that connection — it names the server and offers Disconnect all. Leave for the home screen while a log is streaming and come back to find it never stopped. iOS has no background execution and reconnects with tmux auto-attach instead.",
+        androidAlt:
+          "Android demo of a session that keeps running in the background: a live HTTP log streaming in the terminal, the notification permission prompt, the ongoing notification naming the connected server with Disconnect all, then leaving for the home screen and returning to the same stream still arriving."
+      },
+      {
+        title: "Keys are made here, not typed",
+        text: "Generate an Ed25519 key on the phone: a label, a username, an optional passphrase. The sheet that follows shows the public half to add to a server's authorized_keys, and can share or save either half.",
+        androidAlt:
+          "Android demo of key generation: the Generate SSH Key dialog with a label, a username, the Ed25519 key type and a passphrase, then the public key sheet offering to share or save the key."
+      },
+      {
+        title: "Servers live in folders you name",
+        text: "Group saved servers into folders and collapse the ones you are not using. The same take ends in the terminal, where a URL printed by a command is underlined and tappable rather than something to select by hand.",
+        androidAlt:
+          "Android demo of server folders: saved servers grouped into named folders that expand and collapse, then a terminal where URLs in command output are underlined and can be tapped."
+      }
+    ],
     graphicsHead: "An animated chart, inside the terminal",
     graphicsBody:
       "A 36-frame GIF streamed over the Kitty graphics protocol and decoded by the app at the file's own frame timing — not stepped from outside. Then the escape sequences a terminal is judged by: OSC 8 turns build numbers and dashboard names into things you can tap, OSC 52 lets the remote write your phone's clipboard, and OSC 777 raises a real Android notification.",

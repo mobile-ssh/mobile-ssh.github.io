@@ -75,6 +75,15 @@ const muxDemos = [
     iosPoster: "/assets/posters/zellij-ios.png"
   }
 ];
+
+// The single-platform feature demos. Android-only: no iOS take exists yet.
+// `t.home.demoItems` is indexed positionally against this list, so the two must
+// stay the same length and order, exactly as muxDemos above.
+const featureDemos = [
+  { video: "/assets/videos/fgs.mp4",           poster: "/assets/posters/fgs-android.png" },
+  { video: "/assets/videos/keygen.mp4",        poster: "/assets/posters/keygen-android.png" },
+  { video: "/assets/videos/links-folders.mp4", poster: "/assets/posters/links-folders-android.png" }
+];
 ---
 
 <BaseLayout title={t.home.metaTitle} description={t.home.metaDescription} locale={locale} pathKey="home">
@@ -275,6 +284,34 @@ const muxDemos = [
                   controls
                   preload="none"
                   aria-label={t.home.muxItems[i].iosAlt}
+                ></video>
+              </figure>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>{t.home.demoHead}</h2>
+          <p>{t.home.demoIntro}</p>
+        </div>
+        {featureDemos.map((d, i) => (
+          <div class="mux-demo">
+            <h3 class="mux-name">{t.home.demoItems[i].title}</h3>
+            <p class="mux-text">{t.home.demoItems[i].text}</p>
+            <div class="video-solo">
+              <figure class="video-col">
+                <figcaption class="platform-label">{t.home.platformAndroid}</figcaption>
+                <video
+                  class="feat-video"
+                  src={d.video}
+                  poster={d.poster}
+                  controls
+                  preload="none"
+                  aria-label={t.home.demoItems[i].androidAlt}
                 ></video>
               </figure>
             </div>

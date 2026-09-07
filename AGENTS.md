@@ -40,10 +40,14 @@ same change, or you have shipped a lie in 19 languages.
 ### Arrays must be the same length everywhere
 
 The test suite asserts element counts against English for `home.advantages`,
-`home.features`, `home.galleryAlts`, `home.galleryIosAlts`, `about.notices`,
-`compare.featureRows`, `compare.agentAppsRows`, `compare.rows`,
-`features.groups` **and each group's `items`**, `privacy.sections`, and
-`docsIndex.cards`.
+`home.features`, `home.galleryAlts`, `home.galleryIosAlts`, `home.muxItems`,
+`home.demoItems`, `about.notices`, `compare.featureRows`,
+`compare.agentAppsRows`, `compare.rows`, `features.groups` **and each group's
+`items`**, `privacy.sections`, and `docsIndex.cards`.
+
+`home.muxItems` and `home.demoItems` are indexed **positionally** against fixed
+lists of video files in `Home.astro` (`muxDemos` and `featureDemos`). A short or
+reordered array does not fail to compile — it captions the wrong video.
 
 Add one bullet to an English feature group and you have broken 19 locales. Add
 it everywhere in the same change.
@@ -119,7 +123,8 @@ Editing an English doc means editing 19 translated copies too.
 
 Product and protocol names: `SSH`, `SFTP`, `SCP`, `tmux`, `Mobile SSH`,
 `Termux`, `Termius`, `Teleport`, `OSC 133`, `OSC 52`, `Ed25519`, `RSA`,
-`ECDSA`, `DSA`, `Nerd Font`, `powerline`, `Kitty`, `VT100`, `xterm-256color`,
+`ECDSA`, `DSA`, `OSC 8`, `authorized_keys`, `Nerd Font`, `powerline`, `Kitty`,
+`VT100`, `xterm-256color`,
 `JetBrains Mono`, `Source Code Pro`, `Solarized`, `Gruvbox`, `Dracula`, `Nord`,
 `OTP`, `URL`, `Claude Code`, `Codex`.
 
@@ -131,7 +136,7 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 ### Before you commit
 
 ```bash
-npx vitest run      # 1084 tests; structural parity + translation checks
+npx vitest run      # 1140 tests; structural parity + translation checks
 npx astro build     # 301 pages across 20 locales
 ```
 

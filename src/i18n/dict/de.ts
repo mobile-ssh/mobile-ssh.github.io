@@ -112,6 +112,29 @@ export const de: Dict = {
           iosAlt: "iOS-Demo des Zellij-Managers: eine Sitzung mit Anhängen, Umbenennen, Beenden und Löschen, ihre Tabs und ein Bereich mit Vorschau und beiden Teilungsrichtungen."
         }
     ],
+    demoHead: "Drei weitere, auf Android gefilmt",
+    demoIntro:
+      "Von diesen gibt es noch keine iOS-Fassung. Derselbe echte Server wie in den Demos oben: eine Sitzung, die es übersteht, wenn du die App verlässt, ein Schlüssel, der auf dem Telefon entsteht, statt in es hineingetippt zu werden, und Server, gruppiert so, wie du über sie denkst.",
+    demoItems: [
+      {
+        title: "Die Sitzung überlebt die App",
+        text: "Android hält die Verbindung in einem Vordergrunddienst, und die dauerhafte Benachrichtigung ist diese Verbindung — sie nennt den Server und bietet „Alle trennen“ an. Wechsle zum Startbildschirm des Telefons, während ein Log ins Terminal strömt, und komm zurück: Es hat nie aufgehört. iOS hat keine Hintergrundausführung und verbindet sich stattdessen neu, mit tmux-Auto-Attach.",
+        androidAlt:
+          "Android-Demo einer Sitzung, die im Hintergrund weiterläuft: ein HTTP-Log, das live ins Terminal strömt, die Abfrage der Benachrichtigungsberechtigung, die dauerhafte Benachrichtigung, die den verbundenen Server nennt, mit „Alle trennen“, dann der Wechsel zum Startbildschirm des Telefons und die Rückkehr zu demselben Strom, der weiterhin eintrifft."
+      },
+      {
+        title: "Schlüssel entstehen hier, statt getippt zu werden",
+        text: "Erzeuge einen Ed25519-Schlüssel auf dem Telefon: eine Bezeichnung, ein Benutzername, eine optionale Passphrase. Das Blatt, das danach erscheint, zeigt die öffentliche Hälfte, die in die authorized_keys eines Servers gehört, und kann jede der beiden Hälften teilen oder speichern.",
+        androidAlt:
+          "Android-Demo der Schlüsselerzeugung: der Dialog „SSH-Schlüssel erzeugen“ mit einer Bezeichnung, einem Benutzernamen, dem Schlüsseltyp Ed25519 und einer Passphrase, dann das Blatt mit dem öffentlichen Schlüssel, das anbietet, den Schlüssel zu teilen oder zu speichern."
+      },
+      {
+        title: "Server leben in Ordnern, die du benennst",
+        text: "Gruppiere gespeicherte Server in Ordner und klappe die zu, die du gerade nicht brauchst. Dieselbe Aufnahme endet im Terminal, wo eine von einem Befehl ausgegebene URL unterstrichen und antippbar ist, statt etwas, das du von Hand markieren musst.",
+        androidAlt:
+          "Android-Demo der Server-Ordner: gespeicherte Server, gruppiert in benannte Ordner, die sich auf- und zuklappen lassen, dann ein Terminal, in dem URLs in der Befehlsausgabe unterstrichen und antippbar sind."
+      }
+    ],
     graphicsHead: "Ein animiertes Diagramm, im Terminal",
     graphicsBody:
       "Ein GIF mit 36 Bildern, über das Kitty-Grafikprotokoll gestreamt und von der App im Takt der Datei selbst dekodiert — nicht von außen weitergeschaltet. Danach die Escape-Sequenzen, an denen ein Terminal gemessen wird: OSC 8 macht Build-Nummern und Dashboard-Namen antippbar, OSC 52 lässt die Gegenstelle in die Zwischenablage deines Telefons schreiben, und OSC 777 löst eine echte Android-Benachrichtigung aus.",

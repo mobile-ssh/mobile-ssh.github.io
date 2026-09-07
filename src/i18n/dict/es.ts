@@ -111,6 +111,29 @@ export const es: Dict = {
           iosAlt: "Demo en iOS del gestor de Zellij: una sesión con acciones de adjuntar, renombrar, matar y eliminar, sus pestañas, y un panel con previsualización y ambas direcciones de división."
         }
     ],
+    demoHead: "Tres más, filmadas en Android",
+    demoIntro:
+      "Todavía no hay una toma en iOS de estas. El mismo servidor real que en las demos de arriba: una sesión que sobrevive a que salgas de la app, una clave creada en el teléfono en lugar de tecleada en él, y servidores agrupados tal y como tú los piensas.",
+    demoItems: [
+      {
+        title: "La sesión sobrevive a la app",
+        text: "Android mantiene la conexión en un servicio en primer plano, y la notificación permanente es esa conexión: nombra el servidor y ofrece Desconectar todo. Vete a la pantalla de inicio del teléfono mientras se transmite un registro y vuelve para encontrar que no se ha detenido en ningún momento. iOS no tiene ejecución en segundo plano y en su lugar se reconecta con el auto-attach de tmux.",
+        androidAlt:
+          "Demo en Android de una sesión que sigue ejecutándose en segundo plano: un registro HTTP en vivo transmitiéndose en el terminal, el aviso de permiso de notificaciones, la notificación permanente que nombra el servidor conectado con Desconectar todo, y luego la salida a la pantalla de inicio del teléfono y la vuelta al mismo flujo, que sigue llegando."
+      },
+      {
+        title: "Las claves se crean aquí, no se teclean",
+        text: "Genera una clave Ed25519 en el teléfono: una etiqueta, un usuario y una frase de contraseña opcional. La hoja que aparece después muestra la mitad pública para añadirla al authorized_keys de un servidor, y puede compartir o guardar cualquiera de las dos mitades.",
+        androidAlt:
+          "Demo en Android de la generación de claves: el diálogo Generar clave SSH con una etiqueta, un usuario, el tipo de clave Ed25519 y una frase de contraseña, y después la hoja de la clave pública que ofrece compartir o guardar la clave."
+      },
+      {
+        title: "Los servidores viven en carpetas que tú nombras",
+        text: "Agrupa los servidores guardados en carpetas y contrae las que no estés usando. La misma toma termina en el terminal, donde una URL impresa por un comando aparece subrayada y se puede tocar, en lugar de ser algo que tengas que seleccionar a mano.",
+        androidAlt:
+          "Demo en Android de las carpetas de servidores: servidores guardados agrupados en carpetas con nombre que se despliegan y se contraen, y luego un terminal donde las URL de la salida de un comando aparecen subrayadas y se pueden tocar."
+      }
+    ],
     graphicsHead: "Un gráfico animado, dentro del terminal",
     graphicsBody:
       "Un GIF de 36 fotogramas transmitido por el protocolo gráfico de Kitty y decodificado por la app al ritmo del propio archivo, no avanzado desde fuera. Después, las secuencias de escape por las que se juzga a un terminal: OSC 8 convierte números de compilación y nombres de paneles en algo que puedes tocar, OSC 52 deja que el remoto escriba en el portapapeles de tu teléfono, y OSC 777 lanza una notificación real de Android.",

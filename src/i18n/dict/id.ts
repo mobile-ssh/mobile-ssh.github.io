@@ -111,6 +111,29 @@ export const id: Dict = {
           iosAlt: "Demo pengelola Zellij di iOS: sebuah sesi dengan tindakan lampirkan, ganti nama, hentikan, dan hapus, tab-tabnya, serta panel yang menawarkan pratinjau dan kedua arah pembagian."
         }
     ],
+    demoHead: "Tiga lagi, difilmkan di Android",
+    demoIntro:
+      "Belum ada rekaman iOS untuk ketiganya. Server sungguhan yang sama seperti demo di atas: sesi yang bertahan meski Anda keluar dari aplikasi, kunci yang dibuat di ponsel alih-alih diketikkan ke dalamnya, dan server yang dikelompokkan sesuai cara Anda memikirkannya.",
+    demoItems: [
+      {
+        title: "Sesi hidup lebih lama daripada aplikasinya",
+        text: "Android menahan koneksi di dalam layanan latar depan, dan notifikasi yang terus tampil itulah koneksinya — ia menyebutkan nama server dan menawarkan Putuskan semua. Beralihlah ke layar beranda ponsel saat sebuah log sedang mengalir, lalu kembali dan dapati bahwa ia tak pernah berhenti. iOS tidak memiliki eksekusi latar belakang dan sebagai gantinya menyambung ulang dengan pelekatan otomatis tmux.",
+        androidAlt:
+          "Demo Android tentang sesi yang terus berjalan di latar belakang: log HTTP langsung yang mengalir di terminal, permintaan izin notifikasi, notifikasi yang terus tampil menyebutkan server yang tersambung beserta Putuskan semua, lalu beralih ke layar beranda ponsel dan kembali ke aliran yang sama yang masih terus berdatangan."
+      },
+      {
+        title: "Kunci dibuat di sini, bukan diketikkan",
+        text: "Buat kunci Ed25519 di ponsel: sebuah label, nama pengguna, dan frasa sandi opsional. Lembar yang muncul setelahnya menampilkan bagian publik untuk ditambahkan ke authorized_keys sebuah server, dan dapat membagikan atau menyimpan bagian mana pun dari keduanya.",
+        androidAlt:
+          "Demo Android tentang pembuatan kunci: dialog Buat Kunci SSH dengan label, nama pengguna, jenis kunci Ed25519, dan frasa sandi, lalu lembar kunci publik yang menawarkan untuk membagikan atau menyimpan kunci."
+      },
+      {
+        title: "Server tinggal di folder yang Anda beri nama",
+        text: "Kelompokkan server tersimpan ke dalam folder dan ciutkan yang sedang tidak Anda pakai. Rekaman yang sama berakhir di terminal, tempat URL yang dicetak oleh sebuah perintah tampil digarisbawahi dan dapat diketuk, bukan sesuatu yang harus diseleksi dengan tangan.",
+        androidAlt:
+          "Demo Android tentang folder server: server tersimpan yang dikelompokkan ke dalam folder bernama yang bisa dibentangkan dan diciutkan, lalu terminal tempat URL pada keluaran perintah digarisbawahi dan dapat diketuk."
+      }
+    ],
     graphicsHead: "Grafik bergerak, di dalam terminal",
     graphicsBody:
       "GIF 36 bingkai yang dialirkan lewat protokol grafis Kitty dan didekode aplikasi pada tempo bingkai berkas itu sendiri — bukan dimajukan dari luar. Lalu urutan escape yang menjadi ukuran sebuah terminal: OSC 8 mengubah nomor build dan nama dasbor menjadi sesuatu yang bisa diketuk, OSC 52 membiarkan sisi jauh menulis papan klip ponsel Anda, dan OSC 777 memunculkan notifikasi Android yang sungguhan.",

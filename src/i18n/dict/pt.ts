@@ -112,6 +112,29 @@ export const pt: Dict = {
           iosAlt: "Demo em iOS do gestor de Zellij: uma sessão com anexar, renomear, terminar e eliminar, os seus separadores, e um painel com pré-visualização e ambas as direções de divisão."
         }
     ],
+    demoHead: "Mais três, filmadas no Android",
+    demoIntro:
+      "Ainda não existe uma versão iOS destas. O mesmo servidor ao vivo das demos acima: uma sessão que sobrevive a você sair do app, uma chave criada no celular em vez de digitada nele, e servidores agrupados do jeito que você pensa neles.",
+    demoItems: [
+      {
+        title: "A sessão sobrevive ao app",
+        text: "No Android, a conexão fica em um serviço em primeiro plano, e a notificação contínua é essa conexão — ela nomeia o servidor e oferece Desconectar tudo. Vá para a tela inicial enquanto um log é transmitido e volte para encontrá-lo sem nunca ter parado. O iOS não tem execução em segundo plano e, em vez disso, reconecta com o auto-attach do tmux.",
+        androidAlt:
+          "Demo no Android de uma sessão que continua rodando em segundo plano: um log HTTP ao vivo transmitido no terminal, o pedido de permissão de notificações, a notificação contínua nomeando o servidor conectado com Desconectar tudo, depois a saída para a tela inicial e a volta ao mesmo fluxo, que continua chegando."
+      },
+      {
+        title: "As chaves são criadas aqui, não digitadas",
+        text: "Gere uma chave Ed25519 no celular: um rótulo, um usuário, uma frase secreta opcional. O diálogo seguinte mostra a metade pública para adicionar ao authorized_keys de um servidor, e pode compartilhar ou salvar qualquer uma das duas metades.",
+        androidAlt:
+          "Demo no Android da geração de chaves: o diálogo Gerar chave SSH com um rótulo, um usuário, o tipo de chave Ed25519 e uma frase secreta, depois o diálogo Chave pública oferecendo compartilhar ou salvar a chave."
+      },
+      {
+        title: "Os servidores ficam em pastas que você nomeia",
+        text: "Agrupe servidores salvos em pastas e recolha as que você não está usando. A mesma gravação termina no terminal, onde um URL impresso por um comando fica sublinhado e tocável, em vez de ser algo para selecionar à mão.",
+        androidAlt:
+          "Demo no Android das pastas de servidores: servidores salvos agrupados em pastas com nome que expandem e recolhem, depois um terminal onde os URLs na saída dos comandos ficam sublinhados e podem ser tocados."
+      }
+    ],
     graphicsHead: "Um gráfico animado, dentro do terminal",
     graphicsBody:
       "Um GIF de 36 fotogramas transmitido pelo protocolo gráfico do Kitty e descodificado pela aplicação ao ritmo do próprio ficheiro — não avançado a partir de fora. Depois, as sequências de escape pelas quais um terminal é julgado: OSC 8 torna números de compilação e nomes de painéis em algo que se toca, OSC 52 deixa a máquina remota escrever na área de transferência do telemóvel, e OSC 777 lança uma notificação Android verdadeira.",

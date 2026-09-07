@@ -72,6 +72,26 @@ describe("locale dicts – structure", () => {
       }
     });
 
+    it(`${locale}: demoItems has ${en.home.demoItems.length} items, all fields set`, () => {
+      const t = getDict(locale);
+      // Home.astro pairs these positionally with a fixed list of Android-only
+      // video files, so a short or reordered array captions the wrong take and
+      // an empty androidAlt is a silent a11y hole — the same contract muxItems
+      // has, and the same failure it had before it was asserted.
+      expect(t.home.demoItems).toHaveLength(en.home.demoItems.length);
+      for (const item of t.home.demoItems) {
+        expect(item.title.trim()).not.toBe("");
+        expect(item.text.trim()).not.toBe("");
+        expect(item.androidAlt.trim()).not.toBe("");
+      }
+    });
+
+    it(`${locale}: demo section heading and intro are set`, () => {
+      const t = getDict(locale);
+      expect(t.home.demoHead.trim()).not.toBe("");
+      expect(t.home.demoIntro.trim()).not.toBe("");
+    });
+
     it(`${locale}: graphics demo copy is set`, () => {
       const t = getDict(locale);
       expect(t.home.graphicsHead.trim()).not.toBe("");
@@ -211,6 +231,22 @@ describe("locale dicts – translated (not English copy-paste)", () => {
         isTranslated(a.title, en.home.advantages[i].title),
       );
       expect(translated.length).toBeGreaterThanOrEqual(4);
+    });
+
+    it(`${locale}: demo copy is translated`, () => {
+      const t = getDict(locale);
+      expect(isTranslated(t.home.demoHead, en.home.demoHead)).toBe(true);
+      expect(isTranslated(t.home.demoIntro, en.home.demoIntro)).toBe(true);
+      for (let i = 0; i < en.home.demoItems.length; i++) {
+        expect(
+          isTranslated(t.home.demoItems[i].title, en.home.demoItems[i].title),
+          `${locale} demoItems[${i}].title is the English string`,
+        ).toBe(true);
+        expect(
+          isTranslated(t.home.demoItems[i].androidAlt, en.home.demoItems[i].androidAlt),
+          `${locale} demoItems[${i}].androidAlt is the English string`,
+        ).toBe(true);
+      }
     });
 
     it(`${locale}: featureRows have translated categories`, () => {

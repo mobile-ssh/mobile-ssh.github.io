@@ -111,6 +111,29 @@ export const pcm: Dict = {
           iosAlt: "iOS demo of di Zellij manager: one session wey get attach, rename, kill and delete, im tabs, and one pane wey give preview and di two split directions."
         }
     ],
+    demoHead: "Three more wey we film for Android",
+    demoIntro:
+      "No iOS take dey for dis ones yet. Na di same live server wey di demos wey dey up there use: session wey dey survive even wen you komot for di app, key wey di phone make instead of one wey you type enter am, and servers wey dem group di way wey you dey think about dem.",
+    demoItems: [
+      {
+        title: "Di session dey run even wen you komot for di app",
+        text: "Android dey hold di connection inside foreground service, and dat ongoing notification na di connection itself — e dey call di server name and e dey give you Disconnect all. Komot go home screen while log dey stream, come back and you go see say e never stop. iOS no get background execution at all, na reconnect plus tmux auto-attach e dey use instead.",
+        androidAlt:
+          "Android demo of session wey dey keep running for background: live HTTP log wey dey stream for di terminal, di notification permission prompt, di ongoing notification wey dey call di server wey connect wit Disconnect all, then komot go home screen and come back meet di same stream wey still dey enter."
+      },
+      {
+        title: "Na here dem dey make keys, no be type you dey type am",
+        text: "Generate Ed25519 key for di phone: label, username, and passphrase wey you fit add or leave. Di sheet wey follow dey show di public half wey you go put inside server im authorized_keys, and e fit share or save any of di two halves.",
+        androidAlt:
+          "Android demo of key generation: di Generate SSH Key dialog wit label, username, di Ed25519 key type and passphrase, then di public key sheet wey dey offer make you share or save di key."
+      },
+      {
+        title: "Servers dey live inside folders wey you name",
+        text: "Arrange servers wey you save enter folders and fold di ones wey you no dey use. Di same take dey end for di terminal, where URL wey command print get underline and you fit tap am instead of say you go dey select am by hand.",
+        androidAlt:
+          "Android demo of server folders: servers wey you save wey dem arrange enter folders wey get name, wey dey open and fold, then terminal where URLs wey dey command output get underline and you fit tap dem."
+      }
+    ],
     graphicsHead: "Chart wey dey move, inside di terminal",
     graphicsBody:
       "One GIF wey get 36 frames, wey dem stream over di Kitty graphics protocol and di app decode am for di file im own frame timing — na no be say person dey push am from outside. Then di escape sequences wey dem dey take judge terminal: OSC 8 dey turn build numbers and dashboard names into something wey you fit tap, OSC 52 dey let di remote write your phone clipboard, and OSC 777 dey raise real Android notification.",

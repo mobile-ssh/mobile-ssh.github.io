@@ -111,6 +111,29 @@ export const fr: Dict = {
           iosAlt: "Démo iOS du gestionnaire Zellij : une session avec attacher, renommer, tuer et supprimer, ses onglets, et un volet proposant la prévisualisation et les deux sens de division."
         }
     ],
+    demoHead: "Trois autres, filmées sur Android",
+    demoIntro:
+      "Il n'en existe pas encore de prise iOS. Le même vrai serveur que dans les démos ci-dessus : une session qui survit quand vous quittez l'application, une clé fabriquée sur le téléphone au lieu d'y être saisie, et des serveurs regroupés comme vous vous les représentez.",
+    demoItems: [
+      {
+        title: "La session survit à l'application",
+        text: "Android garde la connexion dans un service de premier plan, et la notification persistante est cette connexion : elle nomme le serveur et propose Tout déconnecter. Partez vers l'écran d'accueil du téléphone pendant qu'un journal défile, revenez, et il ne s'est jamais arrêté. iOS n'a aucune exécution en arrière-plan et se reconnecte avec le rattachement tmux automatique à la place.",
+        androidAlt:
+          "Démo Android d'une session qui continue de tourner en arrière-plan : un journal HTTP en direct qui défile dans le terminal, la demande d'autorisation de notification, la notification persistante nommant le serveur connecté avec Tout déconnecter, puis le passage à l'écran d'accueil du téléphone et le retour au même flux qui arrive toujours."
+      },
+      {
+        title: "Les clés se fabriquent ici, elles ne se saisissent pas",
+        text: "Générez une clé Ed25519 sur le téléphone : un libellé, un utilisateur, une phrase secrète facultative. La feuille qui suit affiche la moitié publique à ajouter au fichier authorized_keys d'un serveur, et permet de partager ou d'enregistrer l'une ou l'autre moitié.",
+        androidAlt:
+          "Démo Android de la génération de clés : la boîte de dialogue Générer une clé SSH avec un libellé, un utilisateur, le type de clé Ed25519 et une phrase secrète, puis la feuille de clé publique proposant de partager ou d'enregistrer la clé."
+      },
+      {
+        title: "Les serveurs vivent dans des dossiers que vous nommez",
+        text: "Regroupez les serveurs enregistrés dans des dossiers et repliez ceux dont vous ne vous servez pas. La même prise se termine dans le terminal, où une URL affichée par une commande est soulignée et tapotable au lieu d'être quelque chose à sélectionner à la main.",
+        androidAlt:
+          "Démo Android des dossiers de serveurs : des serveurs enregistrés regroupés dans des dossiers nommés qui se déplient et se replient, puis un terminal où les URL de la sortie des commandes sont soulignées et tapotables."
+      }
+    ],
     graphicsHead: "Un graphique animé, dans le terminal",
     graphicsBody:
       "Un GIF de 36 images diffusé via le protocole graphique de Kitty et décodé par l'application au rythme du fichier lui-même, et non avancé de l'extérieur. Puis les séquences d'échappement sur lesquelles un terminal se juge : OSC 8 transforme numéros de build et noms de tableaux de bord en éléments tactiles, OSC 52 laisse la machine distante écrire dans le presse-papiers du téléphone, et OSC 777 déclenche une vraie notification Android.",

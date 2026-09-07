@@ -111,6 +111,29 @@ export const tr: Dict = {
           iosAlt: "Zellij yöneticisinin iOS demosu: bağlanma, yeniden adlandırma, sonlandırma ve silme eylemleri olan bir oturum, sekmeleri ve önizleme ile her iki bölme yönünü sunan bir bölme."
         }
     ],
+    demoHead: "Android'de çekilmiş üç demo daha",
+    demoIntro:
+      "Bunların henüz iOS çekimi yok. Yukarıdaki demolarla aynı canlı sunucu: uygulamadan çıkınca hayatta kalan bir oturum, telefona yazılmak yerine telefonda oluşturulan bir anahtar ve sunuculardan, onları zihninizde nasıl grupluyorsanız öyle gruplanmış bir liste.",
+    demoItems: [
+      {
+        title: "Oturum uygulamadan uzun yaşar",
+        text: "Android bağlantıyı bir ön plan servisinde tutar ve süregelen bildirim, o bağlantının kendisidir — sunucunun adını yazar ve «Tümünün bağlantısını kes» eylemini sunar. Terminale bir günlük akarken ana ekrana geçin, geri döndüğünüzde akışın hiç durmadığını görün. iOS'ta arka planda çalıştırma yoktur; bunun yerine yeniden bağlanır ve tmux otomatik ekleme kullanır.",
+        androidAlt:
+          "Arka planda çalışmayı sürdüren bir oturumun Android demosu: terminale canlı akan bir HTTP günlüğü, bildirim izni istemi, bağlı sunucunun adını yazan ve «Tümünün bağlantısını kes» sunan süregelen bildirim, ardından ana ekrana geçiş ve hâlâ akmakta olan aynı akışa dönüş."
+      },
+      {
+        title: "Anahtarlar burada oluşturulur, yazılmaz",
+        text: "Telefonda bir Ed25519 anahtarı oluşturun: bir etiket, bir kullanıcı adı ve isteğe bağlı bir parola. Ardından gelen sayfa, bir sunucunun authorized_keys dosyasına eklenecek genel yarıyı gösterir ve iki yarıdan da paylaşabilir ya da kaydedebilir.",
+        androidAlt:
+          "Anahtar oluşturmanın Android demosu: bir etiket, bir kullanıcı adı, Ed25519 anahtar türü ve bir parola içeren «SSH Anahtarı Oluştur» iletişim kutusu, ardından anahtarı paylaşmayı veya kaydetmeyi sunan genel anahtar sayfası."
+      },
+      {
+        title: "Sunucular, adını sizin verdiğiniz klasörlerde yaşar",
+        text: "Kaydedilen sunucuları klasörlerde gruplayın ve kullanmadıklarınızı daraltın. Aynı çekim terminalde biter: bir komutun yazdırdığı URL, elle seçilecek bir şey olmak yerine altı çizili ve dokunulabilirdir.",
+        androidAlt:
+          "Sunucu klasörlerinin Android demosu: adlandırılmış, açılıp daraltılabilen klasörlerde gruplanmış kayıtlı sunucular, ardından komut çıktısındaki URL'lerin altının çizili olduğu ve dokunulabildiği bir terminal."
+      }
+    ],
     graphicsHead: "Terminalin içinde, hareketli bir grafik",
     graphicsBody:
       "Kitty grafik protokolü üzerinden akıtılan ve uygulamanın dosyanın kendi kare zamanlamasıyla çözdüğü 36 karelik bir GIF — dışarıdan kare kare ilerletilmiyor. Ardından bir terminalin sınandığı kaçış dizileri: OSC 8 yapı numaralarını ve pano adlarını dokunulabilir şeylere çevirir, OSC 52 uzaktaki makinenin telefonunuzun panosuna yazmasına izin verir, OSC 777 ise gerçek bir Android bildirimi yükseltir.",
