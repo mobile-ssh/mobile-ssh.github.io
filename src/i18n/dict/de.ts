@@ -16,6 +16,7 @@ export const de: Dict = {
     privacy: "Datenschutz"
   },
   footer: {
+    beta: "Betatest",
     tagline: "Fokussierte SSH-, SFTP- und Terminal-Workflows für Android- und iOS-Geräte.",
     documentation: "Dokumentation",
     comparison: "Vergleich",

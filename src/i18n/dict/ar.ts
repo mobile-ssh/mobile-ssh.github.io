@@ -16,6 +16,7 @@ export const ar: Dict = {
     privacy: "الخصوصية"
   },
   footer: {
+    beta: "البرنامج التجريبي",
     tagline: "تدفّقات SSH وSFTP وطرفية مُركَّزة لأجهزة Android وiOS.",
     documentation: "التوثيق",
     comparison: "المقارنة",

@@ -16,6 +16,7 @@ export const ja: Dict = {
     privacy: "プライバシー"
   },
   footer: {
+    beta: "ベータテスト",
     tagline: "Android と iOS の端末向けに絞り込んだ SSH／SFTP／ターミナル ワークフロー。",
     documentation: "ドキュメント",
     comparison: "比較",

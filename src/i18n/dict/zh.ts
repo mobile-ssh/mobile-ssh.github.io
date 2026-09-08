@@ -16,6 +16,7 @@ export const zh: Dict = {
     privacy: "隐私"
   },
   footer: {
+    beta: "参与测试",
     tagline: "为 Android 和 iOS 设备打造的专注 SSH、SFTP 与终端工作流。",
     documentation: "文档",
     comparison: "对比",

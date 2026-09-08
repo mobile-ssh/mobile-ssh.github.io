@@ -234,7 +234,18 @@ p {
   gap: .5rem;
 }
 
+/* The page background is light (--bg), so this is the default. The white-on
+   translucent-white version below is for dark panels only — it was the default
+   once, which left "Open feedback form" and "Email us" invisible on /beta. */
 .button.secondary {
+  color: var(--ink);
+  background: transparent;
+  border-color: var(--line);
+}
+
+.hero .button.secondary,
+.cta .button.secondary,
+[data-on-dark] .button.secondary {
   color: #fff;
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.34);

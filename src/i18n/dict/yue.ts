@@ -16,6 +16,7 @@ export const yue: Dict = {
     privacy: "私隱"
   },
   footer: {
+    beta: "參與測試",
     tagline: "為 Android 同 iOS 裝置而設嘅集中式 SSH、SFTP 同終端機工作流程。",
     documentation: "說明文件",
     comparison: "對比",

@@ -16,6 +16,7 @@ export const tr: Dict = {
     privacy: "Gizlilik"
   },
   footer: {
+    beta: "Beta testi",
     tagline: "Android ve iOS cihazlar için odaklanmış SSH, SFTP ve terminal akışları.",
     documentation: "Belgeler",
     comparison: "Karşılaştırma",

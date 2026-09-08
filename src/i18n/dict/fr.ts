@@ -16,6 +16,7 @@ export const fr: Dict = {
     privacy: "Confidentialité"
   },
   footer: {
+    beta: "Bêta-test",
     tagline: "Flux SSH, SFTP et terminal ciblés pour les appareils Android et iOS.",
     documentation: "Documentation",
     comparison: "Comparaison",

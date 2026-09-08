@@ -16,6 +16,7 @@ export const es: Dict = {
     privacy: "Privacidad"
   },
   footer: {
+    beta: "Prueba beta",
     tagline: "Flujos enfocados de SSH, SFTP y terminal para dispositivos Android e iOS.",
     documentation: "Documentación",
     comparison: "Comparación",

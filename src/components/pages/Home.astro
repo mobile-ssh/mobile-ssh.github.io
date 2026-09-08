@@ -5,6 +5,7 @@ import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
 import { renderVersionLine, PLAY_STORE_URL, TESTFLIGHT_URL } from "../../i18n/version";
 import GooglePlayIcon from "../GooglePlayIcon.astro";
+import TestFlightIcon from "../TestFlightIcon.astro";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
@@ -93,7 +94,7 @@ const featureDemos = [
       <div class="hero-inner">
         <div class="hero-copy">
           <a class="qr-badge" href="https://mobile-ssh.github.io" aria-label="mobile-ssh.github.io">
-            <img src="/assets/qr-mobile-ssh.svg" alt="QR code linking to mobile-ssh.github.io" width="132" height="132" />
+            <img src="/assets/qr-mobile-ssh.svg" alt="QR code linking to mobile-ssh.github.io" width="168" height="168" />
           </a>
           <p class="eyebrow">{t.home.eyebrow}</p>
           <h1>{t.home.h1}</h1>
@@ -102,7 +103,7 @@ const featureDemos = [
           <div class="cta-row">
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
             <a class="button secondary" href={PLAY_STORE_URL} rel="noopener"><GooglePlayIcon /> {t.home.ctaPlay}</a>
-            <a class="button secondary" href={TESTFLIGHT_URL} rel="noopener">{t.home.ctaIos}</a>
+            <a class="button secondary" href={TESTFLIGHT_URL} rel="noopener"><TestFlightIcon /> {t.home.ctaIos}</a>
           </div>
           <div class="hero-shot">
             <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="480" height="1077" />
@@ -432,8 +433,9 @@ const featureDemos = [
   }
   .qr-badge img {
     display: block;
-    width: 132px;
-    height: 132px;
+    /* 33 modules of vector, so this only gets crisper as it grows. */
+    width: 168px;
+    height: 168px;
   }
   .qr-badge:hover { box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55); }
 

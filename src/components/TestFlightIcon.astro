@@ -1,0 +1,22 @@
+---
+// A paper-plane mark for the TestFlight buttons, drawn rather than lifted from
+// Apple: TestFlight's own glyph is a trademarked app icon, and this only needs
+// to read as "the beta, over the air" beside a label that already says
+// TestFlight. Decorative — the link text names the destination.
+const { size = 18 } = Astro.props as { size?: number };
+---
+<svg
+  class="tf-icon"
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d="M21.6 2.4 2.9 9.6c-.7.27-.68 1.27.03 1.51l5.1 1.72 1.72 5.1c.24.71 1.24.73 1.51.03L21.6 2.4z" fill="#0D96F2" />
+  <path d="M21.6 2.4 8.03 12.83l1.72 5.1c.24.71 1.24.73 1.51.03L21.6 2.4z" fill="#0A78C2" />
+</svg>
+
+<style>
+  .tf-icon { flex: none; vertical-align: -.18em; }
+</style>

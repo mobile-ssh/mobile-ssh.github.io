@@ -16,6 +16,7 @@ export const hi: Dict = {
     privacy: "गोपनीयता"
   },
   footer: {
+    beta: "बीटा टेस्टिंग",
     tagline: "Android और iOS उपकरणों के लिए केंद्रित SSH, SFTP और टर्मिनल वर्कफ़्लो।",
     documentation: "दस्तावेज़",
     comparison: "तुलना",

@@ -16,6 +16,7 @@ export const arz: Dict = {
     privacy: "الخصوصية"
   },
   footer: {
+    beta: "اختبار البيتا",
     tagline: "شغل SSH وSFTP وترمنال مركّز لأجهزة Android وiOS.",
     documentation: "التوثيق",
     comparison: "المقارنة",

@@ -33,7 +33,10 @@ const navItems: { key: NonNullable<Props["pathKey"]>; href: string; label: strin
   { key: "features", href: localizedHref(locale, "/features/"),  label: t.nav.features },
   { key: "docs",     href: localizedHref(locale, "/docs/"),      label: t.nav.docs },
   { key: "compare",  href: localizedHref(locale, "/compare/"),   label: t.nav.compare },
-  { key: "blog",     href: localizedHref(locale, "/blog/"),      label: t.nav.blog }
+  { key: "blog",     href: localizedHref(locale, "/blog/"),      label: t.nav.blog },
+  // /beta is a standalone English-only page, so it takes a bare href —
+  // localizedHref would point at /<locale>/beta/, which does not exist.
+  { key: "beta",     href: "/beta/",                             label: t.footer.beta ?? "Beta testing" }
 ];
 
 function localePath(targetCode: LocaleCode): string {

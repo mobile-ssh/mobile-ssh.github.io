@@ -16,6 +16,7 @@ export const ur: Dict = {
     privacy: "رازداری"
   },
   footer: {
+    beta: "بیٹا ٹیسٹنگ",
     tagline: "Android اور iOS آلات کے لیے مرکوز SSH، SFTP اور ٹرمینل ورک فلو۔",
     documentation: "دستاویزات",
     comparison: "موازنہ",

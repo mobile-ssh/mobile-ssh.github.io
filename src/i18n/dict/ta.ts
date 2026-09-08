@@ -16,6 +16,7 @@ export const ta: Dict = {
     privacy: "தனியுரிமை"
   },
   footer: {
+    beta: "பீட்டா சோதனை",
     tagline: "Android மற்றும் iOS சாதனங்களுக்கான மையமான SSH, SFTP மற்றும் டெர்மினல் பணிப்பாய்வுகள்.",
     documentation: "ஆவணம்",
     comparison: "ஒப்பீடு",
