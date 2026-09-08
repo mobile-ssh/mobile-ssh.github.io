@@ -1,22 +1,23 @@
 ---
-// A paper-plane mark for the TestFlight buttons, drawn rather than lifted from
-// Apple: TestFlight's own glyph is a trademarked app icon, and this only needs
-// to read as "the beta, over the air" beside a label that already says
-// TestFlight. Decorative — the link text names the destination.
+// Apple's own TestFlight app icon, vendored rather than hot-linked from
+// testflight.apple.com: an external image on every page view would make the
+// site depend on Apple's server, hand them our visitors' IP addresses, and
+// break silently if they move the file. The source is 400x400 and 594 KB,
+// which is absurd for an 18px mark, so this is downscaled to 72 — still 4x the
+// rendered size, and 7 KB.
+// Decorative: the link text already names the destination.
 const { size = 18 } = Astro.props as { size?: number };
 ---
-<svg
+<img
   class="tf-icon"
+  src="/assets/testflight-icon.png"
   width={size}
   height={size}
-  viewBox="0 0 24 24"
+  alt=""
   aria-hidden="true"
-  focusable="false"
->
-  <path d="M21.6 2.4 2.9 9.6c-.7.27-.68 1.27.03 1.51l5.1 1.72 1.72 5.1c.24.71 1.24.73 1.51.03L21.6 2.4z" fill="#0D96F2" />
-  <path d="M21.6 2.4 8.03 12.83l1.72 5.1c.24.71 1.24.73 1.51.03L21.6 2.4z" fill="#0A78C2" />
-</svg>
+  decoding="async"
+/>
 
 <style>
-  .tf-icon { flex: none; vertical-align: -.18em; }
+  .tf-icon { flex: none; display: block; border-radius: 22%; }
 </style>
