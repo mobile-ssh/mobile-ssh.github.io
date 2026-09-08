@@ -150,7 +150,7 @@ export const pcm: Dict = {
       "Add Server dialog for phone wit fields for server name, host and port, extra addresses, credentials, private key and port forwards.",
       "Single-session SSH terminal for phone wey dey show one coding agent patch and test run wey pass, under di session toolbar.",
       "Two SSH session for side-by-side split view for phone.",
-      "Two SSH session wey stack vertical for phone wit di active pane highlighted.",
+      "Four SSH session for grid for phone, each one on different server, wit di active pane highlighted.",
       "SFTP file transfer screen for phone, wit My Phone and Remote Host panes.",
       "About dialog for phone, dey show version, author, license and website fields.",
       "Generate SSH Key dialog for phone wit label, user, key type, and passphrase fields.",
@@ -159,7 +159,7 @@ export const pcm: Dict = {
       "SSH terminal for phone wit https:// URLs wey dey underline as tappable clickable links.",
       "Zellij manager for Android phone wey dey list sessions, tabs, and panes wit buttons to attach, rename, kill, and focus dem.",
       "Tmux manager for phone wey dey list tmux sessions, windows, and panes wit buttons to attach, rename, and switch.",
-      "Plugins screen for phone wey dey show plugin catalog wey you fit install, wit Tailscale, WireGuard, and VS Code.",
+      "Plugins screen for phone wey dey show plugin catalog wey you fit install, wit Tailscale, WireGuard, and Claude Code CLI.",
       "AI Chat plugin for phone wey dey stream reply from local llama3.2 model wey dey run on di remote server over SSH.",
       "Add Server dialog for phone wit di transport set to Eternal Terminal so session go survive network drop."
     ],
@@ -167,15 +167,15 @@ export const pcm: Dict = {
       "Mobile SSH connect form for iPhone wit server, authentication, folder, and transport fields.",
       "Saved Servers for iPhone wey dem arrange enter Production and Staging groups wit server search.",
       "Live SSH terminal for iPhone wit tmux status bar and di extra key row down.",
-      "Two SSH session side by side for grid for iPhone wit tap-to-focus panes.",
+      "Two SSH session wey stack one on top di oda for grid for iPhone wit tap-to-focus panes.",
       "File Transfer for iPhone wit My Phone and Remote Host panes and log of transfer wey don finish.",
       "Key authentication for iPhone wit Ed25519 key wey dem generate on device and public key wey you fit copy.",
-      "Tmux manager for iPhone wey dey list sessions and windows wit attach, rename, and kill actions — bell dey show agent wey dey wait for input.",
+      "Tmux manager for iPhone wey dey list sessions and windows wit open, rename, and kill actions — bell dey show agent wey dey wait for input.",
       "SSH terminal for iPhone wey attach to tmux window dey show code for remote editor.",
-      "Plugins catalog for iPhone wit Tailscale, WireGuard, VS Code, AI Chat, and Open WebUI wey you fit install.",
+      "Plugins catalog for iPhone wit Tailscale, WireGuard, Claude Code CLI, VS Code, and AI Chat wey you fit install.",
       "Connect form for iPhone wit di transport set to Eternal Terminal so session go survive network drop.",
       "Agent alert settings for iPhone wit vibration, sound, and headphones-only toggles.",
-      "Mobile SSH home screen for iPhone wit Recent list wey you fit take reconnect wit one tap, wit tiles for Servers, Credentials, Logs, Settings, About and Plugins under am."
+      "Mobile SSH home screen for iPhone wit one Active Sessions banner and one Continue row wey you fit take go back to session wey dey run, wit tiles for Servers, Credentials, Logs, Settings, About and Plugins under am."
     ],
     compareHead: "Where e stand next to Termux and Termius",
     compareIntro:

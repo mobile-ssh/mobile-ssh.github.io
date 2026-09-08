@@ -150,7 +150,7 @@ export const tr: Dict = {
       "Bir telefonda Sunucu Ekle iletişim kutusu; sunucu adı, ana bilgisayar ve port, ek adresler, kimlik bilgileri, özel anahtar ve port yönlendirme alanlarıyla.",
       "Bir telefonda tek oturumlu SSH terminali; oturum araç çubuğunun altında bir kodlama ajanının yaması ve geçen test koşusu görünüyor.",
       "Bir telefonda yan yana iki SSH oturumu bölünmüş görünümde.",
-      "Bir telefonda üst üste iki SSH oturumu; etkin bölme vurgulu.",
+      "Bir telefonda ızgarada dört SSH oturumu; her biri farklı bir sunucuda, etkin bölme vurgulu.",
       "Bir telefonda SFTP dosya aktarımı ekranı; Telefonum ve Uzak Sunucu bölmeleri.",
       "Bir telefonda Hakkında iletişim kutusu; sürüm, yazar, lisans ve web sitesi alanları.",
       "Telefonda etiket, kullanıcı, anahtar türü ve parola alanlarını içeren SSH Anahtarı Oluştur iletişim kutusu.",
@@ -159,7 +159,7 @@ export const tr: Dict = {
       "Bir telefonda SSH terminali; https:// URL'leri dokunulabilir tıklanabilir bağlantılar olarak altı çizili şekilde görünüyor.",
       "Bir Android telefonda Zellij yöneticisi; oturumları, sekmeleri ve bölmeleri bağlan, yeniden adlandır, sonlandır ve odaklan düğmeleriyle listeliyor.",
       "Bir telefonda tmux yöneticisi; tmux oturumlarını, pencerelerini ve bölmelerini listeliyor, bağlan, yeniden adlandır ve geçiş yap düğmeleriyle.",
-      "Bir telefonda Eklentiler ekranı; Tailscale, WireGuard ve VS Code içeren, kurulabilir bir eklenti kataloğu gösteriyor.",
+      "Bir telefonda Eklentiler ekranı; Tailscale, WireGuard ve Claude Code CLI içeren, kurulabilir bir eklenti kataloğu gösteriyor.",
       "Bir telefonda AI Chat eklentisi; uzak sunucuda SSH üzerinden çalışan yerel bir llama3.2 modelinden gelen yanıtı akıtıyor.",
       "Bir telefonda Sunucu Ekle iletişim kutusu; oturumların ağ kopmalarına dayanması için aktarım Eternal Terminal olarak ayarlanmış."
     ],
@@ -167,15 +167,15 @@ export const tr: Dict = {
       "Bir iPhone'da Mobile SSH bağlantı formu; sunucu, kimlik doğrulama, klasör ve aktarım alanlarıyla.",
       "Bir iPhone'da Kaydedilen Sunucular; sunucu aramasıyla Production ve Staging gruplarına düzenlenmiş.",
       "Bir iPhone'da canlı SSH terminali; tmux durum çubuğu ve en altta ek tuş satırıyla.",
-      "Bir iPhone'da ızgarada yan yana iki SSH oturumu; dokunarak odaklanılan bölmelerle.",
+      "Bir iPhone'da ızgarada alt alta iki SSH oturumu; dokunarak odaklanılan bölmelerle.",
       "Bir iPhone'da Dosya Aktarımı; Telefonum ve Uzak Sunucu bölmeleri ve tamamlanmış bir aktarım günlüğüyle.",
       "Bir iPhone'da anahtarla kimlik doğrulama; cihazda oluşturulmuş bir Ed25519 anahtarı ve kopyalanabilir genel anahtarla.",
-      "Bir iPhone'da tmux yöneticisi; oturumları ve pencereleri bağlan, yeniden adlandır ve sonlandır eylemleriyle listeliyor — girdi bekleyen bir ajanı zil simgesi işaretliyor.",
+      "Bir iPhone'da tmux yöneticisi; oturumları ve pencereleri aç, yeniden adlandır ve sonlandır eylemleriyle listeliyor — girdi bekleyen bir ajanı zil simgesi işaretliyor.",
       "Bir iPhone'da bir tmux penceresine bağlı SSH terminali; uzak bir düzenleyicide kod gösteriyor.",
-      "Bir iPhone'da Eklentiler kataloğu; kurulmaya hazır Tailscale, WireGuard, VS Code, AI Chat ve Open WebUI ile.",
+      "Bir iPhone'da Eklentiler kataloğu; kurulmaya hazır Tailscale, WireGuard, Claude Code CLI, VS Code ve AI Chat ile.",
       "Bir iPhone'da bağlantı formu; oturumların ağ kopmalarına dayanması için aktarım Eternal Terminal olarak ayarlanmış.",
       "Bir iPhone'da ajan uyarısı ayarları; titreşim, ses ve yalnızca kulaklık anahtarlarıyla.",
-      "Bir iPhone'da Mobile SSH ana ekranı; tek dokunuşla yeniden bağlanmak için bir Son Oturumlar listesi ve altında Sunucular, Kimlik Bilgileri, Günlükler, Ayarlar, Hakkında ve Eklentiler kutucukları."
+      "Bir iPhone'da Mobile SSH ana ekranı; Etkin Oturumlar başlığı ve canlı bir oturuma dönmek için bir Devam satırı, altında Sunucular, Kimlik Bilgileri, Günlükler, Ayarlar, Hakkında ve Eklentiler kutucukları."
     ],
     compareHead: "Termux ve Termius yanında yeri",
     compareIntro:

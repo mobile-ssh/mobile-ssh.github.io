@@ -150,7 +150,7 @@ export const id: Dict = {
       "Dialog Tambah Server di ponsel dengan kolom nama server, host dan port, alamat tambahan, kredensial, kunci privat, dan penerusan port.",
       "Terminal SSH satu sesi di ponsel yang menampilkan tambalan dari agen pemrograman dan uji coba yang lulus, di bawah bilah alat sesi.",
       "Dua sesi SSH dalam tampilan terbagi berdampingan di ponsel.",
-      "Dua sesi SSH bertumpuk secara vertikal di ponsel dengan panel aktif disorot.",
+      "Empat sesi SSH dalam kisi di ponsel, masing-masing terhubung ke server yang berbeda, dengan panel aktif disorot.",
       "Layar transfer SFTP di ponsel dengan panel Ponsel Saya dan Host Jarak Jauh.",
       "Dialog Tentang di ponsel menampilkan kolom versi, penulis, lisensi, dan situs web.",
       "Dialog Buat Kunci SSH di ponsel dengan kolom label, pengguna, jenis kunci, dan frasa sandi.",
@@ -159,7 +159,7 @@ export const id: Dict = {
       "Terminal SSH di ponsel dengan URL https:// digarisbawahi sebagai tautan yang dapat diklik.",
       "Pengelola Zellij di ponsel Android yang menampilkan daftar sesi, tab, dan panel dengan tombol untuk attach, ganti nama, kill, dan fokus.",
       "Pengelola tmux di ponsel yang menampilkan daftar sesi, jendela, dan panel tmux dengan tombol untuk attach, ganti nama, dan beralih.",
-      "Layar Plugin di ponsel yang menampilkan katalog plugin yang dapat dipasang dengan Tailscale, WireGuard, dan VS Code.",
+      "Layar Plugin di ponsel yang menampilkan katalog plugin yang dapat dipasang dengan Tailscale, WireGuard, dan Claude Code CLI.",
       "Plugin AI Chat di ponsel yang menampilkan aliran balasan dari model llama3.2 lokal yang berjalan di server jarak jauh melalui SSH.",
       "Dialog Tambah Server di ponsel dengan transport disetel ke Eternal Terminal agar sesi bertahan saat koneksi jaringan terputus."
     ],
@@ -167,15 +167,15 @@ export const id: Dict = {
       "Formulir koneksi Mobile SSH di iPhone dengan kolom server, autentikasi, folder, dan transport.",
       "Server Tersimpan di iPhone yang diatur dalam grup Production dan Staging dengan pencarian server.",
       "Terminal SSH langsung di iPhone dengan bilah status tmux dan baris tombol tambahan di bagian bawah.",
-      "Dua sesi SSH berdampingan dalam kisi di iPhone dengan panel ketuk-untuk-fokus.",
+      "Dua sesi SSH tersusun atas-bawah dalam kisi di iPhone dengan panel ketuk-untuk-fokus.",
       "Transfer Berkas di iPhone dengan panel Ponsel Saya dan Host Jarak Jauh serta log transfer yang selesai.",
       "Autentikasi kunci di iPhone dengan kunci Ed25519 yang dibuat di perangkat dan kunci publik yang dapat disalin.",
-      "Pengelola tmux di iPhone yang menampilkan daftar sesi dan jendela dengan aksi attach, ganti nama, dan kill — ikon bel menandai agen yang menunggu input.",
+      "Pengelola tmux di iPhone yang menampilkan daftar sesi dan jendela dengan aksi buka, ganti nama, dan kill — ikon bel menandai agen yang menunggu input.",
       "Terminal SSH di iPhone yang ter-attach ke jendela tmux menampilkan kode di editor jarak jauh.",
-      "Katalog plugin di iPhone dengan Tailscale, WireGuard, VS Code, AI Chat, dan Open WebUI yang dapat dipasang.",
+      "Katalog plugin di iPhone dengan Tailscale, WireGuard, Claude Code CLI, VS Code, dan AI Chat yang dapat dipasang.",
       "Formulir koneksi di iPhone dengan transport disetel ke Eternal Terminal agar sesi bertahan saat koneksi jaringan terputus.",
       "Pengaturan peringatan agen di iPhone dengan sakelar getaran, suara, dan hanya-headphone.",
-      "Layar beranda Mobile SSH di iPhone dengan daftar Terkini untuk menyambung ulang dengan satu ketuk, di atas ubin Server, Kredensial, Log, Pengaturan, Tentang, dan Plugin."
+      "Layar beranda Mobile SSH di iPhone dengan spanduk Sesi Aktif dan baris Lanjutkan untuk kembali ke sesi yang sedang berjalan, di atas ubin Server, Kredensial, Log, Pengaturan, Tentang, dan Plugin."
     ],
     compareHead: "Tempatnya di samping Termux dan Termius",
     compareIntro:

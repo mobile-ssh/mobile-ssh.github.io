@@ -151,7 +151,7 @@ export const pt: Dict = {
       "Caixa de diálogo Adicionar servidor em um celular com campos de nome do servidor, host e porta, endereços adicionais, credenciais, chave privada e encaminhamento de portas.",
       "Terminal SSH de sessão única em um celular mostrando o patch de um agente de programação e uma bateria de testes aprovada, sob a barra da sessão.",
       "Duas sessões SSH em visualização dividida lado a lado em um celular.",
-      "Duas sessões SSH empilhadas verticalmente em um celular com o painel ativo destacado.",
+      "Quatro sessões SSH em uma grade em um celular, cada uma em um servidor diferente, com o painel ativo destacado.",
       "Tela de transferência SFTP em um celular com os painéis Meu telefone e Host remoto.",
       "Caixa de diálogo Sobre em um celular mostrando versão, autor, licença e site.",
       "Caixa de diálogo Gerar chave SSH em um celular com campos de rótulo, usuário, tipo de chave e frase-senha.",
@@ -160,7 +160,7 @@ export const pt: Dict = {
       "Terminal SSH em um celular com URLs https:// sublinhados como links clicáveis tocáveis.",
       "Gerenciador de Zellij em um celular Android listando sessões, abas e painéis com botões para anexar, renomear, encerrar e focar.",
       "Gerenciador de tmux em um celular listando sessões, janelas e painéis do tmux com botões para anexar, renomear e alternar.",
-      "Tela de Plugins em um celular mostrando um catálogo de plugins instaláveis com Tailscale, WireGuard e VS Code.",
+      "Tela de Plugins em um celular mostrando um catálogo de plugins instaláveis com Tailscale, WireGuard e Claude Code CLI.",
       "Plugin AI Chat em um celular transmitindo uma resposta de um modelo llama3.2 local rodando no servidor remoto via SSH.",
       "Caixa de diálogo Adicionar servidor em um celular com o transporte definido como Eternal Terminal para que as sessões sobrevivam a quedas de rede."
     ],
@@ -168,15 +168,15 @@ export const pt: Dict = {
       "Formulário de conexão do Mobile SSH em um iPhone com campos de servidor, autenticação, pasta e transporte.",
       "Servidores salvos em um iPhone organizados nos grupos Production e Staging com pesquisa de servidores.",
       "Terminal SSH ao vivo em um iPhone com a barra de status do tmux e a linha de teclas extras embaixo.",
-      "Duas sessões SSH lado a lado em uma grade em um iPhone com painéis que focam ao toque.",
+      "Duas sessões SSH empilhadas em uma grade em um iPhone com painéis que focam ao toque.",
       "Transferência de arquivos em um iPhone com os painéis Meu telefone e Host remoto e um log de transferência concluída.",
       "Autenticação por chave em um iPhone com uma chave Ed25519 gerada no dispositivo e uma chave pública copiável.",
-      "Gerenciador de tmux em um iPhone listando sessões e janelas com ações de anexar, renomear e encerrar — uma campainha sinaliza um agente aguardando entrada.",
+      "Gerenciador de tmux em um iPhone listando sessões e janelas com ações de abrir, renomear e encerrar — uma campainha sinaliza um agente aguardando entrada.",
       "Terminal SSH em um iPhone anexado a uma janela do tmux mostrando código em um editor remoto.",
-      "Catálogo de plugins em um iPhone com Tailscale, WireGuard, VS Code, AI Chat e Open WebUI disponíveis para instalar.",
+      "Catálogo de plugins em um iPhone com Tailscale, WireGuard, Claude Code CLI, VS Code e AI Chat disponíveis para instalar.",
       "Formulário de conexão em um iPhone com o transporte definido como Eternal Terminal para que as sessões sobrevivam a quedas de rede.",
       "Configurações de alertas de agente em um iPhone com opções de vibração, som e somente fones de ouvido.",
-      "Tela inicial do Mobile SSH em um iPhone com uma lista de Recentes para reconectar com um toque, acima dos botões Servidores, Credenciais, Logs, Configurações, Sobre e Plugins."
+      "Tela inicial do Mobile SSH em um iPhone com um aviso de Sessões ativas e uma linha Continuar para voltar a uma sessão em andamento, acima dos botões Servidores, Credenciais, Logs, Configurações, Sobre e Plugins."
     ],
     compareHead: "Seu lugar ao lado de Termux e Termius",
     compareIntro:

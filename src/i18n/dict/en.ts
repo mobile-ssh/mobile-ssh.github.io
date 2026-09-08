@@ -92,7 +92,7 @@ export const en: Dict = {
     videoHead: "See it in action",
     videoIntro: "Short demos on both platforms. Android: the home screen answering what you can get back into, a session toolbar showing only what that server has, sending a file straight into the prompt, and the tmux, herdr, and Zellij managers. iOS: launching into a live terminal and the home screen you come back to.",
     videoAlt: "Android demo of the home screen listing tmux sessions to resume, the session toolbar, attaching a file into the prompt, and the tmux, herdr, and Zellij session managers",
-    videoIosAlt: "iOS demo of opening Mobile SSH into a live SSH terminal session and returning to the home screen, with Recent and the app's other screens",
+    videoIosAlt: "iOS demo of opening Mobile SSH into a live SSH terminal session and returning to the home screen, with the tmux manager, Settings and the app's other screens",
     muxHead: "One video per session manager",
     muxIntro:
       "The demos above give tmux, herdr and Zellij about thirty seconds between them — enough to show the toolbar draws an icon for each, not enough to show what any of them does. These are the long versions, filmed on both platforms against a live server.",
@@ -162,7 +162,7 @@ export const en: Dict = {
       "Add Server dialog on a phone with fields for a server name, host and port, additional addresses, credentials, private key, and port forwards.",
       "Single-session SSH terminal on a phone showing a coding agent's patch and passing test run, under the session toolbar.",
       "Two SSH sessions in a side-by-side split view on a phone.",
-      "Two SSH sessions stacked vertically on a phone with the active pane highlighted.",
+      "Four SSH sessions in a grid on a phone, each on a different server, with the active pane highlighted.",
       "SFTP file transfer screen on a phone with local My Phone and Remote Host panes.",
       "About dialog on a phone showing version, author, license, and website fields.",
       "Generate SSH Key dialog on a phone with label, user, key type, and passphrase fields.",
@@ -171,7 +171,7 @@ export const en: Dict = {
       "SSH terminal on a phone with https:// URLs underlined as tappable clickable links.",
       "Zellij manager on an Android phone listing sessions, tabs, and panes with buttons to attach, rename, kill, and focus them.",
       "Tmux manager on a phone listing tmux sessions, windows, and panes with buttons to attach, rename, and switch.",
-      "Plugins screen on a phone showing an installable plugin catalog with Tailscale, WireGuard, and VS Code.",
+      "Plugins screen on a phone showing an installable plugin catalog with Tailscale, WireGuard, and Claude Code CLI.",
       "AI Chat plugin on a phone streaming a reply from a local llama3.2 model running on the remote server over SSH.",
       "Add Server dialog on a phone with the transport set to Eternal Terminal so sessions survive network drops."
     ],
@@ -179,15 +179,15 @@ export const en: Dict = {
       "Mobile SSH connect form on an iPhone with server, authentication, folder, and transport fields.",
       "Saved Servers on an iPhone organized into Production and Staging groups with server search.",
       "Live SSH terminal on an iPhone with a tmux status bar and the extra key row at the bottom.",
-      "Two SSH sessions side by side in a grid on an iPhone with tap-to-focus panes.",
+      "Two SSH sessions stacked in a grid on an iPhone with tap-to-focus panes.",
       "File Transfer on an iPhone with My Phone and Remote Host panes and a completed transfer log.",
       "Key authentication on an iPhone with an Ed25519 key generated on device and a copyable public key.",
-      "Tmux manager on an iPhone listing sessions and windows with attach, rename, and kill actions — a bell flags an agent awaiting input.",
+      "Tmux manager on an iPhone listing sessions and windows with open, rename, and kill actions — a bell flags an agent awaiting input.",
       "SSH terminal on an iPhone attached to a tmux window showing code in a remote editor.",
-      "Plugins catalog on an iPhone with Tailscale, WireGuard, VS Code, AI Chat, and Open WebUI available to install.",
+      "Plugins catalog on an iPhone with Tailscale, WireGuard, Claude Code CLI, VS Code, and AI Chat available to install.",
       "Connect form on an iPhone with the transport set to Eternal Terminal so sessions survive network drops.",
       "Agent alert settings on an iPhone with vibration, sound, and headphones-only toggles.",
-      "Mobile SSH home screen on an iPhone with a Recent list to reconnect with one tap, above tiles for Servers, Credentials, Logs, Settings, About, and Plugins."
+      "Mobile SSH home screen on an iPhone with an Active sessions banner and a Continue row to return to a live session, above tiles for Servers, Credentials, Logs, Settings, About, and Plugins."
     ],
     compareHead: "How it fits beside Termux and Termius",
     compareIntro:
@@ -226,7 +226,7 @@ export const en: Dict = {
           "Search-first Add Session flow: pick a saved server from a dedicated search page and connect with one tap",
           "Multiple addresses per saved server for LAN/VPN roaming — dialed in order with the last working address tried first, and reconnection kicks in on network change",
           "Reusable credential records that can be selected from server setup",
-          "A home screen built around resuming: the connections live right now, and the tmux sessions waiting on your servers — drawn from a stored snapshot, so they list with no network and each row is stamped with its age. iOS also keeps a Recent list",
+          "A home screen built around resuming: the connections live right now, and the tmux sessions waiting on your servers — drawn from a stored snapshot, so they list with no network and each row is stamped with its age. On iOS the Recent list moved into the New connection sheet, where a tap prefills the form",
           "IPv6 end to end: bracketed literals with an optional port in the address fields, and bracketed IPv6 destinations in port-forward rules",
           "Login log for successful and failed attempts, recording the exact dialed address and, on failure, the reason",
           "Teleport proxy transport (experimental, Android): log in with username, password, and OTP or import a Teleport config or identity file, browse cluster nodes, then run terminals, SFTP, tmux, and plugins over the proxy tunnel"

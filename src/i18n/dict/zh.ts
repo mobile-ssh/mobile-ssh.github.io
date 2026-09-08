@@ -150,7 +150,7 @@ export const zh: Dict = {
       "手机上的「添加服务器」对话框，包含服务器名称、主机与端口、附加地址、凭据、私钥与端口转发字段。",
       "手机上的单会话 SSH 终端，会话工具栏下方显示编程智能体的补丁和一次通过的测试运行。",
       "手机上以左右分屏视图显示的两个 SSH 会话。",
-      "手机上两个垂直堆叠的 SSH 会话，活动窗格被高亮。",
+      "手机上以网格显示的四个 SSH 会话，每个连接到不同的服务器，活动窗格被高亮。",
       "手机上的 SFTP 文件传输界面，包含「我的手机」与「远程主机」窗格。",
       "手机上的「关于」对话框，显示版本、作者、许可与网站字段。",
       "手机上的「生成 SSH 密钥」对话框，包含标签、用户、密钥类型和口令字段。",
@@ -159,7 +159,7 @@ export const zh: Dict = {
       "手机上的 SSH 终端，https:// 网址带下划线，可点击打开链接。",
       "Android 手机上的 Zellij 管理器，列出会话、标签页与窗格，并带有附加、重命名、结束与聚焦按钮。",
       "手机上的 tmux 管理器，列出 tmux 会话、窗口与窗格，并带有附加、重命名与切换按钮。",
-      "手机上的插件界面，显示包含 Tailscale、WireGuard 与 VS Code 的可安装插件目录。",
+      "手机上的插件界面，显示包含 Tailscale、WireGuard 与 Claude Code CLI 的可安装插件目录。",
       "手机上的 AI Chat 插件，通过 SSH 从远程服务器上运行的本地 llama3.2 模型流式输出回复。",
       "手机上的「添加服务器」对话框，传输方式设为 Eternal Terminal，使会话在网络中断后仍能存活。"
     ],
@@ -167,15 +167,15 @@ export const zh: Dict = {
       "iPhone 上的 Mobile SSH 连接表单，包含服务器、认证、文件夹与传输方式字段。",
       "iPhone 上的「已保存服务器」，按 Production 与 Staging 分组整理，并带服务器搜索。",
       "iPhone 上的实时 SSH 终端，带 tmux 状态栏，底部有扩展按键栏。",
-      "iPhone 上网格中左右并排的两个 SSH 会话，点按窗格即可聚焦。",
+      "iPhone 上网格中上下排列的两个 SSH 会话，点按窗格即可聚焦。",
       "iPhone 上的文件传输，包含「我的手机」与「远程主机」窗格以及已完成的传输日志。",
       "iPhone 上的密钥认证，显示在设备上生成的 Ed25519 密钥与可复制的公钥。",
-      "iPhone 上的 tmux 管理器，列出会话与窗口，带附加、重命名与结束操作——铃铛标记等待输入的智能体。",
+      "iPhone 上的 tmux 管理器，列出会话与窗口，带打开、重命名与结束操作——铃铛标记等待输入的智能体。",
       "iPhone 上的 SSH 终端，已附加到 tmux 窗口，显示远程编辑器中的代码。",
-      "iPhone 上的插件目录，可安装 Tailscale、WireGuard、VS Code、AI Chat 与 Open WebUI。",
+      "iPhone 上的插件目录，可安装 Tailscale、WireGuard、Claude Code CLI、VS Code 与 AI Chat。",
       "iPhone 上的连接表单，传输方式设为 Eternal Terminal，使会话在网络中断后仍能存活。",
       "iPhone 上的智能体提醒设置，包含振动、声音与仅耳机播放开关。",
-      "iPhone 上的 Mobile SSH 主界面，带「最近」列表可一键重新连接，下方是服务器、凭据、日志、设置、关于与插件磁贴。"
+      "iPhone 上的 Mobile SSH 主界面，带「活动会话」提示条和可返回实时会话的「继续」一行，下方是服务器、凭据、日志、设置、关于与插件磁贴。"
     ],
     compareHead: "在 Termux 与 Termius 之外的定位",
     compareIntro:

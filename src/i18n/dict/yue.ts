@@ -150,7 +150,7 @@ export const yue: Dict = {
       "電話上嘅新增伺服器對話框，有伺服器名稱、主機同連接埠、額外位址、憑證、私鑰同連接埠轉發欄位。",
       "電話上嘅單工作階段 SSH 終端機，工作階段工具列下面顯示編程代理嘅修補同埋通過咗嘅測試。",
       "電話上兩個並排嘅 SSH 工作階段，並排分屏顯示。",
-      "電話上兩個上下疊住嘅 SSH 工作階段，使用中嘅窗格有 highlight。",
+      "電話上四個 SSH 工作階段喺格網入面，每個連住唔同嘅伺服器，使用中嘅窗格有 highlight。",
       "電話上嘅 SFTP 檔案傳輸畫面，包括「我嘅電話」同「遠端主機」窗格。",
       "電話上嘅關於對話框，顯示版本、作者、授權同網站。",
       "電話上嘅「產生 SSH 金鑰」對話框，有標籤、用戶、金鑰類型同密碼短語欄位。",
@@ -159,7 +159,7 @@ export const yue: Dict = {
       "電話上嘅 SSH 終端機，https:// URL 帶底線成為撳得嘅連結。",
       "Android 電話上嘅 Zellij 管理器，列出工作階段、分頁同窗格，仲有 attach、重新命名、kill 同聚焦嘅掣。",
       "電話上嘅 tmux 管理器，列出 tmux 工作階段、視窗同窗格，仲有附加、重新命名同切換嘅掣。",
-      "電話上嘅插件畫面，顯示可安裝嘅插件目錄，包括 Tailscale、WireGuard 同 VS Code。",
+      "電話上嘅插件畫面，顯示可安裝嘅插件目錄，包括 Tailscale、WireGuard 同 Claude Code CLI。",
       "電話上嘅 AI Chat 插件，正經 SSH 串流播放遠端伺服器上跑緊嘅本機 llama3.2 模型嘅回覆。",
       "電話上嘅新增伺服器對話框，傳輸方式設定為 Eternal Terminal，等工作階段喺斷網之後都唔斷。"
     ],
@@ -167,15 +167,15 @@ export const yue: Dict = {
       "iPhone 上嘅 Mobile SSH 連線表單，包含伺服器、驗證、資料夾同傳輸方式欄位。",
       "iPhone 上嘅已儲存伺服器，整理入 Production 同 Staging 群組，仲有伺服器搜尋。",
       "iPhone 上運行中嘅 SSH 終端機，有 tmux 狀態列，下面係額外按鍵列。",
-      "iPhone 上兩個 SSH 工作階段並排喺格網入面，撳一下窗格就聚焦。",
+      "iPhone 上兩個 SSH 工作階段上下排列喺格網入面，撳一下窗格就聚焦。",
       "iPhone 上嘅檔案傳輸，有「我嘅電話」同「遠端主機」窗格，仲有已完成嘅傳輸日誌。",
       "iPhone 上嘅金鑰驗證，顯示裝置上產生嘅 Ed25519 金鑰同可以複製嘅公鑰。",
-      "iPhone 上嘅 tmux 管理器，列出工作階段同視窗，有 attach、重新命名同 kill 操作 —— 響鈴標示等緊輸入嘅代理。",
+      "iPhone 上嘅 tmux 管理器，列出工作階段同視窗，有開啟、重新命名同 kill 操作 —— 響鈴標示等緊輸入嘅代理。",
       "iPhone 上嘅 SSH 終端機，attach 咗一個 tmux 視窗，顯示遠端編輯器入面嘅代碼。",
-      "iPhone 上嘅插件目錄，有 Tailscale、WireGuard、VS Code、AI Chat 同 Open WebUI 可以安裝。",
+      "iPhone 上嘅插件目錄，有 Tailscale、WireGuard、Claude Code CLI、VS Code 同 AI Chat 可以安裝。",
       "iPhone 上嘅連線表單，傳輸方式設定為 Eternal Terminal，等工作階段喺斷網之後都唔斷。",
       "iPhone 上嘅代理提示設定，有震動、聲音同「淨係耳機」開關。",
-      "iPhone 上嘅 Mobile SSH 主畫面，有「最近」清單一撳就重新連線，下面係伺服器、憑證、日誌、設定、關於同插件嘅磚。"
+      "iPhone 上嘅 Mobile SSH 主畫面，有「使用中工作階段」橫幅同一行「繼續」可以返返去運行中嘅工作階段，下面係伺服器、憑證、日誌、設定、關於同插件嘅磚。"
     ],
     compareHead: "同 Termux、Termius 之間嘅定位",
     compareIntro:

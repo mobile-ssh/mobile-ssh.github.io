@@ -150,7 +150,7 @@ export const es: Dict = {
       "Diálogo Añadir servidor en un teléfono con campos de nombre del servidor, host y puerto, direcciones adicionales, credenciales, clave privada y reenvío de puertos.",
       "Terminal SSH de una sola sesión en un teléfono mostrando el parche de un agente de programación y una tanda de pruebas superada, bajo la barra de la sesión.",
       "Dos sesiones SSH en una vista dividida en paralelo en un teléfono.",
-      "Dos sesiones SSH apiladas verticalmente en un teléfono con el panel activo resaltado.",
+      "Cuatro sesiones SSH en una cuadrícula en un teléfono, cada una en un servidor distinto, con el panel activo resaltado.",
       "Pantalla de transferencia de archivos SFTP en un teléfono con paneles Mi teléfono y Servidor remoto.",
       "Diálogo Acerca de en un teléfono mostrando los campos versión, autor, licencia y sitio web.",
       "Diálogo Generar clave SSH en un teléfono con campos de etiqueta, usuario, tipo de clave y frase de contraseña.",
@@ -159,7 +159,7 @@ export const es: Dict = {
       "Terminal SSH en un teléfono con URL https:// subrayadas como enlaces que se pueden tocar.",
       "Gestor de Zellij en un teléfono Android listando sesiones, pestañas y paneles con botones para adjuntar, renombrar, cerrar y enfocar.",
       "Gestor de tmux en un teléfono listando sesiones, ventanas y paneles de tmux con botones para adjuntar, renombrar y cambiar.",
-      "Pantalla de complementos en un teléfono mostrando un catálogo de complementos instalables con Tailscale, WireGuard y VS Code.",
+      "Pantalla de complementos en un teléfono mostrando un catálogo de complementos instalables con Tailscale, WireGuard y Claude Code CLI.",
       "Complemento AI Chat en un teléfono transmitiendo una respuesta de un modelo local llama3.2 que se ejecuta en el servidor remoto por SSH.",
       "Diálogo Añadir servidor en un teléfono con el transporte configurado como Eternal Terminal para que las sesiones sobrevivan a los cortes de red."
     ],
@@ -167,15 +167,15 @@ export const es: Dict = {
       "Formulario de conexión de Mobile SSH en un iPhone con campos de servidor, autenticación, carpeta y transporte.",
       "Servidores guardados en un iPhone organizados en los grupos Production y Staging, con búsqueda de servidores.",
       "Terminal SSH en vivo en un iPhone con la barra de estado de tmux y la fila de teclas extra en la parte inferior.",
-      "Dos sesiones SSH en paralelo en una cuadrícula en un iPhone con paneles que se enfocan al tocar.",
+      "Dos sesiones SSH apiladas en una cuadrícula en un iPhone con paneles que se enfocan al tocar.",
       "Transferencia de archivos en un iPhone con los paneles Mi teléfono y Host remoto y un registro de transferencia completada.",
       "Autenticación por clave en un iPhone con una clave Ed25519 generada en el dispositivo y una clave pública copiable.",
-      "Gestor de tmux en un iPhone listando sesiones y ventanas con acciones de adjuntar, renombrar y cerrar — una campana señala un agente que espera intervención.",
+      "Gestor de tmux en un iPhone listando sesiones y ventanas con acciones de abrir, renombrar y cerrar — una campana señala un agente que espera intervención.",
       "Terminal SSH en un iPhone adjunto a una ventana de tmux que muestra código en un editor remoto.",
-      "Catálogo de complementos en un iPhone con Tailscale, WireGuard, VS Code, AI Chat y Open WebUI disponibles para instalar.",
+      "Catálogo de complementos en un iPhone con Tailscale, WireGuard, Claude Code CLI, VS Code y AI Chat disponibles para instalar.",
       "Formulario de conexión en un iPhone con el transporte configurado como Eternal Terminal para que las sesiones sobrevivan a los cortes de red.",
       "Ajustes de alertas de agente en un iPhone con interruptores de vibración, sonido y solo auriculares.",
-      "Pantalla de inicio de Mobile SSH en un iPhone con una lista de Recientes para reconectar con un toque, encima de los botones Servidores, Credenciales, Registros, Ajustes, Acerca de y Complementos."
+      "Pantalla de inicio de Mobile SSH en un iPhone con un aviso de Sesiones activas y una fila Continuar para volver a una sesión en curso, encima de los botones Servidores, Credenciales, Registros, Ajustes, Acerca de y Complementos."
     ],
     compareHead: "Su lugar junto a Termux y Termius",
     compareIntro:

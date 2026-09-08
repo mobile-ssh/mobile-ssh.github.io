@@ -151,7 +151,7 @@ export const de: Dict = {
       "Dialog „Server hinzufügen“ auf einem Telefon mit Feldern für Servername, Host und Port, weitere Adressen, Anmeldedaten, privaten Schlüssel und Portweiterleitungen.",
       "Einzelnes SSH-Terminal auf einem Telefon mit dem Patch eines Coding-Agenten und einem bestandenen Testlauf, unter der Sitzungs-Symbolleiste.",
       "Zwei SSH-Sitzungen in einer nebeneinander angeordneten geteilten Ansicht auf einem Telefon.",
-      "Zwei SSH-Sitzungen übereinander auf einem Telefon mit hervorgehobenem aktivem Panel.",
+      "Vier SSH-Sitzungen in einem Raster auf einem Telefon, jede auf einem anderen Server, mit hervorgehobenem aktivem Panel.",
       "SFTP-Dateiübertragungs-Bildschirm auf einem Telefon mit Panels „Mein Telefon“ und „Remote-Host“.",
       "Über-Dialog auf einem Telefon mit Feldern für Version, Autor, Lizenz und Website.",
       "Dialog „SSH-Schlüssel erzeugen“ auf einem Telefon mit Feldern für Bezeichnung, Benutzer, Schlüsseltyp und Passphrase.",
@@ -160,7 +160,7 @@ export const de: Dict = {
       "SSH-Terminal auf einem Telefon mit https://-URLs, die als antippbare, anklickbare Links unterstrichen sind.",
       "Zellij-Manager auf einem Android-Telefon mit einer Auflistung von Sitzungen, Tabs und Panels samt Schaltflächen zum Anhängen, Umbenennen, Beenden und Fokussieren.",
       "Tmux-Manager auf einem Telefon mit einer Auflistung von tmux-Sitzungen, -Fenstern und -Panels samt Schaltflächen zum Anhängen, Umbenennen und Wechseln.",
-      "Plugins-Bildschirm auf einem Telefon mit einem installierbaren Plugin-Katalog mit Tailscale, WireGuard und VS Code.",
+      "Plugins-Bildschirm auf einem Telefon mit einem installierbaren Plugin-Katalog mit Tailscale, WireGuard und Claude Code CLI.",
       "AI-Chat-Plugin auf einem Telefon, das eine Antwort eines lokalen llama3.2-Modells streamt, das über SSH auf dem entfernten Server läuft.",
       "Dialog „Server hinzufügen“ auf einem Telefon mit dem Transport auf Eternal Terminal eingestellt, damit Sitzungen Netzwerkausfälle überstehen."
     ],
@@ -168,15 +168,15 @@ export const de: Dict = {
       "Verbindungsformular von Mobile SSH auf einem iPhone mit Feldern für Server, Authentifizierung, Ordner und Transport.",
       "Gespeicherte Server auf einem iPhone, organisiert in die Gruppen „Production“ und „Staging“, mit Serversuche.",
       "Aktives SSH-Terminal auf einem iPhone mit tmux-Statusleiste und Zusatztastenreihe unten.",
-      "Zwei SSH-Sitzungen nebeneinander in einem Raster auf einem iPhone mit Panels, die per Tippen fokussiert werden.",
+      "Zwei SSH-Sitzungen übereinander in einem Raster auf einem iPhone mit Panels, die per Tippen fokussiert werden.",
       "Dateiübertragung auf einem iPhone mit Panels „Mein Telefon“ und „Remote-Host“ sowie einem Protokoll abgeschlossener Übertragungen.",
       "Schlüssel-Authentifizierung auf einem iPhone mit einem auf dem Gerät erzeugten Ed25519-Schlüssel und kopierbarem öffentlichem Schlüssel.",
-      "Tmux-Manager auf einem iPhone mit einer Auflistung von Sitzungen und Fenstern samt Aktionen zum Anhängen, Umbenennen und Beenden – eine Glocke markiert einen Agenten, der auf Eingabe wartet.",
+      "Tmux-Manager auf einem iPhone mit einer Auflistung von Sitzungen und Fenstern samt Aktionen zum Öffnen, Umbenennen und Beenden – eine Glocke markiert einen Agenten, der auf Eingabe wartet.",
       "SSH-Terminal auf einem iPhone, verbunden mit einem tmux-Fenster, das Code in einem entfernten Editor zeigt.",
-      "Plugin-Katalog auf einem iPhone mit Tailscale, WireGuard, VS Code, AI Chat und Open WebUI zur Installation.",
+      "Plugin-Katalog auf einem iPhone mit Tailscale, WireGuard, Claude Code CLI, VS Code und AI Chat zur Installation.",
       "Verbindungsformular auf einem iPhone mit dem Transport auf Eternal Terminal eingestellt, damit Sitzungen Netzwerkausfälle überstehen.",
       "Einstellungen für Agenten-Benachrichtigungen auf einem iPhone mit Schaltern für Vibration, Ton und Nur-Kopfhörer.",
-      "Startbildschirm von Mobile SSH auf einem iPhone mit einer Liste „Zuletzt“, um sich mit einem Tippen erneut zu verbinden, darunter Kacheln für Server, Anmeldedaten, Logs, Einstellungen, Über und Plugins."
+      "Startbildschirm von Mobile SSH auf einem iPhone mit einem Banner „Aktive Sitzungen“ und einer Fortsetzen-Zeile, um zu einer laufenden Sitzung zurückzukehren, darunter Kacheln für Server, Anmeldedaten, Logs, Einstellungen, Über und Plugins."
     ],
     compareHead: "Sein Platz neben Termux und Termius",
     compareIntro:

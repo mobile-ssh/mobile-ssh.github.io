@@ -150,7 +150,7 @@ export const fr: Dict = {
       "Boîte de dialogue Ajouter un serveur sur un téléphone avec les champs nom du serveur, hôte et port, adresses supplémentaires, identifiants, clé privée et redirections de ports.",
       "Terminal SSH mono-session sur un téléphone montrant le correctif d'un agent de code et une série de tests réussie, sous la barre d'outils de session.",
       "Deux sessions SSH dans une vue côte à côte en écran partagé sur un téléphone.",
-      "Deux sessions SSH empilées verticalement sur un téléphone avec le panneau actif mis en évidence.",
+      "Quatre sessions SSH dans une grille sur un téléphone, chacune sur un serveur différent, avec le panneau actif mis en évidence.",
       "Écran de transfert SFTP sur un téléphone avec les panneaux Mon téléphone et Hôte distant.",
       "Boîte de dialogue À propos sur un téléphone montrant la version, l'auteur, la licence et le site web.",
       "Boîte de dialogue Générer une clé SSH sur un téléphone avec les champs libellé, utilisateur, type de clé et phrase secrète.",
@@ -159,7 +159,7 @@ export const fr: Dict = {
       "Terminal SSH sur un téléphone avec des URL https:// soulignées comme liens cliquables tapotables.",
       "Gestionnaire Zellij sur un téléphone Android listant les sessions, onglets et panneaux avec des boutons pour les attacher, les renommer, les tuer et les activer.",
       "Gestionnaire tmux sur un téléphone listant les sessions, fenêtres et panneaux tmux avec des boutons pour attacher, renommer et basculer.",
-      "Écran Plugins sur un téléphone affichant un catalogue de plugins installables avec Tailscale, WireGuard et VS Code.",
+      "Écran Plugins sur un téléphone affichant un catalogue de plugins installables avec Tailscale, WireGuard et Claude Code CLI.",
       "Plugin AI Chat sur un téléphone diffusant en continu une réponse d'un modèle llama3.2 local exécuté sur le serveur distant via SSH.",
       "Boîte de dialogue Ajouter un serveur sur un téléphone avec le transport réglé sur Eternal Terminal pour que les sessions survivent aux coupures réseau."
     ],
@@ -167,15 +167,15 @@ export const fr: Dict = {
       "Formulaire de connexion de Mobile SSH sur un iPhone avec les champs serveur, authentification, dossier et transport.",
       "Serveurs enregistrés sur un iPhone organisés en groupes Production et Staging avec recherche de serveurs.",
       "Terminal SSH en direct sur un iPhone avec une barre d'état tmux et la rangée de touches supplémentaires en bas.",
-      "Deux sessions SSH côte à côte dans une grille sur un iPhone avec panneaux focalisables au tap.",
+      "Deux sessions SSH empilées dans une grille sur un iPhone avec panneaux focalisables au tap.",
       "Transfert de fichiers sur un iPhone avec les panneaux Mon téléphone et Hôte distant et un journal de transfert terminé.",
       "Authentification par clé sur un iPhone avec une clé Ed25519 générée sur l'appareil et une clé publique copiable.",
-      "Gestionnaire tmux sur un iPhone listant sessions et fenêtres avec des actions attacher, renommer et tuer — une cloche signale un agent en attente d'intervention.",
+      "Gestionnaire tmux sur un iPhone listant sessions et fenêtres avec des actions ouvrir, renommer et tuer — une cloche signale un agent en attente d'intervention.",
       "Terminal SSH sur un iPhone attaché à une fenêtre tmux affichant du code dans un éditeur distant.",
-      "Catalogue de plugins sur un iPhone avec Tailscale, WireGuard, VS Code, AI Chat et Open WebUI disponibles à l'installation.",
+      "Catalogue de plugins sur un iPhone avec Tailscale, WireGuard, Claude Code CLI, VS Code et AI Chat disponibles à l'installation.",
       "Formulaire de connexion sur un iPhone avec le transport réglé sur Eternal Terminal pour que les sessions survivent aux coupures réseau.",
       "Réglages des alertes agent sur un iPhone avec les options vibration, son et écouteurs uniquement.",
-      "Écran d'accueil de Mobile SSH sur un iPhone avec une liste Récents pour se reconnecter en un tap, au-dessus des tuiles Serveurs, Identifiants, Journaux, Paramètres, À propos et Plugins."
+      "Écran d'accueil de Mobile SSH sur un iPhone avec une bannière Sessions actives et une ligne Continuer pour revenir à une session en cours, au-dessus des tuiles Serveurs, Identifiants, Journaux, Paramètres, À propos et Plugins."
     ],
     compareHead: "Sa place à côté de Termux et Termius",
     compareIntro:
