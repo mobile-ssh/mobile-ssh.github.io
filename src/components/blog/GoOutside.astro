@@ -23,7 +23,7 @@ const BARS = [0, 1, 2, 3, 4];
     <p class="back"><a href={localizedHref(locale, "/blog/")}>{backArrow} {c.back}</a></p>
 
     <header class="post-head">
-      <svg class="shaka" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g transform="rotate(-20 32 32)"><path d="M20 37 L10 24" stroke="currentColor" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M44 31 L54 16" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="none"/><ellipse cx="32" cy="38" rx="12.5" ry="10.5" fill="currentColor"/><g stroke-width="1.7" stroke-linecap="round" opacity=".45" stroke="#062130"><path d="M26 34 L26 38"/><path d="M32 33.4 L32 37.6"/><path d="M38 34 L38 38"/></g></g></svg>
+      <span class="shaka" aria-hidden="true">🤙</span>
       <p class="eyebrow">{c.eyebrow}</p>
       <h1>{c.title}</h1>
       <p class="standfirst" set:html={c.standfirst}></p>
@@ -111,7 +111,7 @@ const BARS = [0, 1, 2, 3, 4];
     </article>
 
     <aside class="cta" aria-label={c.cta.ariaLabel}>
-      <svg class="shaka shaka--cta" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g transform="rotate(-20 32 32)"><path d="M20 37 L10 24" stroke="currentColor" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M44 31 L54 16" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="none"/><ellipse cx="32" cy="38" rx="12.5" ry="10.5" fill="currentColor"/><g stroke-width="1.7" stroke-linecap="round" opacity=".45" stroke="#062130"><path d="M26 34 L26 38"/><path d="M32 33.4 L32 37.6"/><path d="M38 34 L38 38"/></g></g></svg>
+      <span class="shaka shaka--cta" aria-hidden="true">🤙</span>
       <h2>{c.cta.heading}</h2>
       <p>{c.cta.body}</p>
       <div class="cta-tags">{c.cta.tags.map((tag) => <span>{tag}</span>)}</div>
@@ -342,11 +342,19 @@ const BARS = [0, 1, 2, 3, 4];
     }
 
     /* ---------- the shaka ----------
-       Drawn rather than the U+1F919 emoji, which renders close to a thumbs-up
-       in Chrome's Noto build and so would not reliably read as a shaka at all.
-       currentColor keeps it in the palette; aria-hidden because the gesture is
-       decoration, not content. */
-    .shaka { display: block; width: 46px; height: 46px; margin: 0 auto 1rem; color: #f0c076; }
-    .shaka--cta { position: relative; width: 40px; height: 40px; margin: 0 auto .8rem; color: #f0c076; }
+       The platform's own emoji rather than a drawn one. Android and iOS both
+       render U+1F919 as a proper shaka, and a hand-built SVG read as a bent
+       finger at this size. aria-hidden because the gesture is decoration, not
+       content — a screen reader announcing "call me hand" here would be noise.
+       The explicit emoji stack keeps it in colour on systems whose default
+       sans carries a monochrome glyph for this codepoint. */
+    .shaka {
+      display: block;
+      margin: 0 auto .85rem;
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+      font-size: 44px;
+      line-height: 1;
+    }
+    .shaka--cta { position: relative; font-size: 38px; margin-bottom: .7rem; }
   </style>
 </BaseLayout>
