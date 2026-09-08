@@ -276,7 +276,7 @@ ersten Klingeln ran.`
     heading: "Statt Blumen: Schließ ein paar Tabs.",
     body: "Installiere Mobile SSH, gönn deinem Laptop die Ruhe, die er sich verdient hat, und trag ein echtes Terminal in der Hosentasche – kostenlos, nativ und quelloffen.",
     tags: ["Keine Werbung", "Kein Konto", "Daten bleiben lokal", "Apache-2.0"],
-    playButton: "Bei Google Play anmelden",
+    playButton: "Jetzt bei Google Play",
     iosButton: "iOS-Beta beitreten",
     note: `Android läuft als geschlossener Test: Melde dich mit dem Google-Konto an, mit dem du testen
 willst, und öffne den Opt-in-Link im mobilen Browser – in der Google-Play-App ist der geschlossene Test

@@ -324,7 +324,7 @@ export const yue: FlightPost = {
           免費，唔使開帳號，冇廣告，開源。`
     ],
     tags: ["冇廣告", "唔使開帳號", "資料留喺部機", "Apache-2.0"],
-    playButton: "喺 Google Play 加入測試",
+    playButton: "喺 Google Play 下載",
     iosButton: "加入 iOS 公測",
     note: `Android 而家係封閉測試 —— 請用你打算攞嚟測試嗰個 Google 帳號加入，
       並且喺手機瀏覽器度打開條連結；封閉測試喺 Google Play App 入面可能睇唔到。`

@@ -99,7 +99,7 @@ export const ja = defineGoOutside({
     heading: "ノートパソコンは置いて、ターミナルを持って出よう。",
     body: "自分のマシンへ直接接続し、好きなエージェントを tmux、herdr、Zellij の中で実行。人が必要になったら Agent Alerts が知らせます。SFTP、トンネル、本物のターミナルも同じアプリの中に。",
     tags: ["任意のエージェント", "直接 SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "Google Play テストに参加",
+    playButton: "Google Play で手に入れよう",
     iosButton: "iOS ベータに参加",
     note: `Android はクローズドテスト中です。テストに使う Google アカウントで参加し、モバイルブラウザーで参加リンクを開いてください。参加済みなら <a href="{playUrl}" rel="noopener">Play の掲載ページ</a>へ。`
   },

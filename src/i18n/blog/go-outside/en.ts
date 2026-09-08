@@ -134,7 +134,7 @@ export const en: GoOutsidePost = {
     heading: "Leave the laptop. Take the terminal.",
     body: "Connect straight to your own machine, run whichever agent you like inside tmux, herdr or Zellij, and let Agent Alerts tell you when it needs a person — with SFTP, tunnels and a real terminal in the same app.",
     tags: ["Any agent", "Direct SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "Opt in on Google Play",
+    playButton: "Get it on Google Play",
     iosButton: "Join the iOS beta",
     note: `Android is in closed testing: opt in with the Google account you'll test with, then open the
 opt-in link in your mobile browser. Already opted in? Go straight to the <a href="{playUrl}" rel="noopener">Play listing</a>.`

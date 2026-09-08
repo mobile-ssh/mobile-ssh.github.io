@@ -96,7 +96,7 @@ export const zh = defineGoOutside({
     heading: "把笔记本留下，把终端带走。",
     body: "直连你自己的机器，在 tmux、herdr 或 Zellij 里运行你喜欢的任意智能体，让 Agent Alerts 在需要人的时候告诉你——同一个应用里还有 SFTP、隧道和一个真正的终端。",
     tags: ["任意智能体", "直连 SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "在 Google Play 参与测试",
+    playButton: "在 Google Play 上获取",
     iosButton: "加入 iOS 测试版",
     note: `Android 正在封闭测试：请用准备参加测试的 Google 账户加入，然后在手机浏览器中打开加入链接。已经加入？直接前往 <a href="{playUrl}" rel="noopener">Play 商品页</a>。`
   }

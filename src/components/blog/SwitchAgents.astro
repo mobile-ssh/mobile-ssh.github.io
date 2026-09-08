@@ -4,6 +4,7 @@ import { defaultLocale, localeMap, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getSwitchAgents } from "../../i18n/blog/switch-agents";
 import { PLAY_STORE_URL, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
+import GooglePlayIcon from "../GooglePlayIcon.astro";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const c = getSwitchAgents(locale);
@@ -135,7 +136,7 @@ const ANTHROPIC_CREDITS_URL = "https://support.claude.com/en/articles/12005970-m
       <p>{c.cta.body}</p>
       <div class="cta-tags">{c.cta.tags.map((tag) => <span>{tag}</span>)}</div>
       <div class="cta-btns">
-        <a class="btn btn--primary" href={PLAY_STORE_BETA_URL} rel="noopener">{c.cta.playButton}</a>
+        <a class="btn btn--primary" href={PLAY_STORE_URL} rel="noopener"><GooglePlayIcon /> {c.cta.playButton}</a>
         <a class="btn btn--ghost" href={TESTFLIGHT_URL} rel="noopener">{c.cta.iosButton}</a>
       </div>
       <p class="cta-note" set:html={ctaNote}></p>
@@ -239,7 +240,7 @@ const ANTHROPIC_CREDITS_URL = "https://support.claude.com/en/articles/12005970-m
     .cta-tags { margin-top: 1.3rem; }
     .cta-tags span { padding: .4rem .8rem; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #dfe4ee; font-size: .8rem; }
     .cta-btns { margin-top: 1.5rem; gap: .7rem; }
-    .btn { display: inline-flex; padding: .75rem 1.3rem; border-radius: 999px; font-size: .95rem; font-weight: 600; text-decoration: none; transition: transform .15s ease, background .15s ease; }
+    .btn { display: inline-flex; padding: .75rem 1.3rem; border-radius: 999px; font-size: .95rem; font-weight: 600; text-decoration: none; transition: transform .15s ease, background .15s ease; align-items: center; gap: .5rem; }
     .btn:hover { transform: translateY(-1px); text-decoration: none; }
     .btn--primary { background: var(--green-bright); color: #06251a; }
     .btn--ghost { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); color: #fff; }

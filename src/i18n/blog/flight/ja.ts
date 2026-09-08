@@ -331,7 +331,7 @@ export const ja: FlightPost = {
           ときのプッシュ通知。無料、アカウント不要、広告なし、オープンソース。`
     ],
     tags: ["広告なし", "アカウント不要", "データは端末内", "Apache-2.0"],
-    playButton: "Google Play でテストに参加",
+    playButton: "Google Play で手に入れよう",
     iosButton: "iOS ベータに参加",
     note: `Android はクローズドテスト中です — テストに使う Google アカウントで参加登録し、リンクはモバイル
       ブラウザーで開いてください。クローズドテストは Google Play アプリの中には表示されないことがあります。`

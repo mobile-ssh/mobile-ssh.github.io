@@ -231,6 +231,7 @@ p {
   font-weight: 750;
   color: var(--terminal);
   background: var(--green-bright);
+  gap: .5rem;
 }
 
 .button.secondary {

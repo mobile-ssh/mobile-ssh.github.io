@@ -102,7 +102,7 @@ export const pcm = defineGoOutside({
     heading: "Leave the laptop. Carry the terminal.",
     body: "Connect straight to your own machine, run any agent wey you like inside tmux, herdr or Zellij, and make Agent Alerts tell you when e need person — with SFTP, tunnels and real terminal for the same app.",
     tags: ["Any agent", "Direct SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "Opt in for Google Play",
+    playButton: "Get am for Google Play",
     iosButton: "Join iOS beta",
     note: `Android dey closed testing: opt in with the Google account wey you go take test, then open the
 opt-in link for your mobile browser. You don opt in? Go straight to the <a href="{playUrl}" rel="noopener">Play listing</a>.`

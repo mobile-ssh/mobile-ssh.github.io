@@ -99,7 +99,7 @@ export const es = defineGoOutside({
     heading: "Deja el portátil. Llévate el terminal.",
     body: "Conéctate directamente a tu propia máquina, ejecuta el agente que prefieras dentro de tmux, herdr o Zellij y deja que las Agent Alerts te avisen cuando necesite a una persona, con SFTP, túneles y un terminal de verdad en la misma app.",
     tags: ["Cualquier agente", "SSH directo", "Agent Alerts", "Apache-2.0"],
-    playButton: "Participa en Google Play",
+    playButton: "Disponible en Google Play",
     iosButton: "Únete a la beta de iOS",
     note: `Android está en prueba cerrada: participa con la cuenta de Google con la que vayas a probar y abre después el
 enlace de participación en el navegador de tu móvil. ¿Ya participas? Ve directamente a la <a href="{playUrl}" rel="noopener">ficha de Play</a>.`,

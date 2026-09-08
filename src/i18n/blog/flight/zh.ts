@@ -317,7 +317,7 @@ export const zh: FlightPost = {
           免费，无需账号，没有广告，开源。`
     ],
     tags: ["无广告", "无需账号", "数据留在设备上", "Apache-2.0"],
-    playButton: "在 Google Play 上加入测试",
+    playButton: "在 Google Play 上获取",
     iosButton: "加入 iOS 测试版",
     note: `Android 目前处于封闭测试——请用你打算用来测试的 Google 账号加入，
       并在手机浏览器里打开链接；封闭测试在 Google Play 应用内可能看不到。`

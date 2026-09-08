@@ -364,7 +364,7 @@ export const id: FlightPost = {
           membutuhkan Anda. Gratis, tanpa akun, tanpa iklan, open source.`
     ],
     tags: ["Tanpa iklan", "Tanpa akun", "Data di perangkat", "Apache-2.0"],
-    playButton: "Ikut serta di Google Play",
+    playButton: "Dapatkan di Google Play",
     iosButton: "Ikut beta iOS",
     note: `Android sedang dalam uji tertutup — daftarlah dengan akun Google yang akan Anda pakai
       untuk menguji, dan buka tautannya di peramban ponsel Anda; uji tertutup itu mungkin tidak terlihat

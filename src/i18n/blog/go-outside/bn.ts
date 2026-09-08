@@ -99,7 +99,7 @@ export const bn = defineGoOutside({
     heading: "ল্যাপটপ রেখে যান। টার্মিনাল সঙ্গে নিন।",
     body: "সরাসরি নিজের মেশিনে যুক্ত হোন, tmux, herdr বা Zellij-এর ভেতরে পছন্দের যেকোনো এজেন্ট চালান, আর কখন মানুষ দরকার তা Agent Alerts জানিয়ে দিক — একই অ্যাপে SFTP, tunnel ও আসল টার্মিনাল-সহ।",
     tags: ["যেকোনো এজেন্ট", "সরাসরি SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "Google Play-তে যোগ দিন",
+    playButton: "Google Play-তে পান",
     iosButton: "iOS beta-তে যোগ দিন",
     note: `Android বন্ধ পরীক্ষায় আছে: যে Google অ্যাকাউন্টে পরীক্ষা করবেন সেটি দিয়ে যোগ দিন, তারপর মোবাইল ব্রাউজারে যোগদানের লিংকটি খুলুন। আগেই যোগ দিয়েছেন? সরাসরি <a href="{playUrl}" rel="noopener">Play listing</a>-এ যান।`
   }

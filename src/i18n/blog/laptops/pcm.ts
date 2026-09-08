@@ -266,7 +266,7 @@ ring.`
     heading: "Instead of wreath, close some tabs.",
     body: "Install Mobile SSH, give your laptop di rest wey e don work for, and carry real terminal for your pocket — e free, e native, and e open source.",
     tags: ["No ads", "No account", "Data dey for di device", "Apache-2.0"],
-    playButton: "Opt in for Google Play",
+    playButton: "Get am for Google Play",
     iosButton: "Join di iOS beta",
     note: `Android dey closed testing: opt in wit di Google account wey you go take test, and open di
 opt-in link inside your mobile browser — di closed test fit no show inside di Google Play app. You don

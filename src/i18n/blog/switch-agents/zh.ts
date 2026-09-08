@@ -45,5 +45,5 @@ export const zh = defineSwitchAgents({
     { heading: "在新窗格继续", body: "在旧窗格旁启动另一个 CLI，说明目标和约束，并要求它先检查现有 diff。" },
   ], promptLabel: "一个实用的首条提示", prompt: "阅读 AGENTS.md、git status 和当前 diff。保留已有工作。运行针对性测试，解释还剩什么，然后继续任务。" },
   sources: { heading: "来源与上限说明", intro: "产品上限和计费选项会变化。以上区分依据这些官方页面；你账户中显示的提示仍是权威信息。", openai: "OpenAI：Codex 用量上限与账户选项", anthropic: "Anthropic：用量信用额度与个人支出上限", checked: "核对于 2026 年 8 月 30 日。" },
-  cta: { ariaLabel: "获取 Mobile SSH", heading: "把两个智能体放进同一个口袋。", body: "连接自己的机器，运行 Claude Code、Codex 或其他 CLI；切换时保留同一个终端、tmux 会话、文件、隧道和智能体提醒。", tags: ["任意智能体", "直连 SSH", "智能体提醒", "Apache-2.0"], playButton: "在 Google Play 参与测试", iosButton: "加入 iOS 测试版", note: `Android 正在封闭测试：请用准备参加测试的 Google 账户加入，并在手机浏览器打开链接。已经加入？直接前往 <a href="{playUrl}" rel="noopener">Play 商品页</a>。` },
+  cta: { ariaLabel: "获取 Mobile SSH", heading: "把两个智能体放进同一个口袋。", body: "连接自己的机器，运行 Claude Code、Codex 或其他 CLI；切换时保留同一个终端、tmux 会话、文件、隧道和智能体提醒。", tags: ["任意智能体", "直连 SSH", "智能体提醒", "Apache-2.0"], playButton: "在 Google Play 上获取", iosButton: "加入 iOS 测试版", note: `Android 正在封闭测试：请用准备参加测试的 Google 账户加入，并在手机浏览器打开链接。已经加入？直接前往 <a href="{playUrl}" rel="noopener">Play 商品页</a>。` },
 });

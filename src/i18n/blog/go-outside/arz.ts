@@ -99,7 +99,7 @@ export const arz = defineGoOutside({
     heading: "سيب اللاب توب. خد الترمنال.",
     body: "اتصل بجهازك على طول، شغّل الوكيل اللى يعجبك جوه tmux أو herdr أو Zellij، وخلى Agent Alerts تقولك إمتى بقى محتاج بنى آدم — مع SFTP والـ tunnels وترمنال حقيقى فى نفس التطبيق.",
     tags: ["أى وكيل", "SSH مباشر", "Agent Alerts", "Apache-2.0"],
-    playButton: "اشترك على Google Play",
+    playButton: "متاح على Google Play",
     iosButton: "انضم لنسخة iOS التجريبية",
     note: `Android فى اختبار مقفول: اشترك بحساب Google اللى هتختبر بيه، وبعدين افتح رابط الاشتراك فى متصفح الموبايل. مشترك فعلًا؟ افتح <a href="{playUrl}" rel="noopener">صفحة Play</a>.`
   }

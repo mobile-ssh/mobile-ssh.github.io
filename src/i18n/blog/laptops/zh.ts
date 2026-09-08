@@ -252,7 +252,7 @@ Ylönen 在 Helsinki University of Technology 写下了它——此前校园网�
     heading: "恕辞花圈，请关掉几个标签页。",
     body: "装上 Mobile SSH，让你的笔记本电脑好好歇一歇——这是它应得的——然后在口袋里揣一个真正的终端：免费、原生、开源。",
     tags: ["无广告", "无需账号", "数据留在设备上", "Apache-2.0"],
-    playButton: "在 Google Play 上加入测试",
+    playButton: "在 Google Play 上获取",
     iosButton: "加入 iOS 测试版",
     note: `Android 目前处于封闭测试：请用你打算用来测试的 Google 账号加入，并在手机浏览器里打开加入
 链接——封闭测试在 Google Play 应用内可能看不到。已经加入了？直接前往

@@ -358,7 +358,7 @@ export const tr: FlightPost = {
           anlık bildirim. Ücretsiz, hesap yok, reklam yok, açık kaynak.`
     ],
     tags: ["Reklam yok", "Hesap yok", "Veriler cihazda", "Apache-2.0"],
-    playButton: "Google Play'de teste katılın",
+    playButton: "Google Play'den indirin",
     iosButton: "iOS betasına katılın",
     note: `Android kapalı testte — test edeceğiniz Google hesabıyla teste katılın ve bağlantıyı mobil
       tarayıcınızda açın; kapalı test, Google Play uygulamasının içinde görünmeyebilir.`

@@ -340,7 +340,7 @@ export const ar: FlightPost = {
           ومفتوح المصدر.`
     ],
     tags: ["بلا إعلانات", "بلا حساب", "بيانات على الجهاز", "Apache-2.0"],
-    playButton: "اشترك عبر Google Play",
+    playButton: "متاح على Google Play",
     iosButton: "انضمّ إلى نسخة iOS التجريبية",
     note: `Android في مرحلة اختبار مغلق — اشترك بحساب Google الذي ستختبر به، وافتح الرابط في
       متصفّح هاتفك؛ فقد لا يظهر الاختبار المغلق داخل تطبيق Google Play.`

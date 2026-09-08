@@ -268,7 +268,7 @@ building. It fits in a pocket now. It answers on the first ring.`
     heading: "In lieu of flowers, close a few tabs.",
     body: "Install Mobile SSH, give your laptop the rest it has earned, and carry a real terminal in your pocket — free, native, and open source.",
     tags: ["No ads", "No account", "On-device data", "Apache-2.0"],
-    playButton: "Opt in on Google Play",
+    playButton: "Get it on Google Play",
     iosButton: "Join the iOS beta",
     note: `Android is in closed testing: opt in with the Google account you’ll test with, and open the
 opt-in link in your mobile browser — the closed test may not be visible inside the Google Play

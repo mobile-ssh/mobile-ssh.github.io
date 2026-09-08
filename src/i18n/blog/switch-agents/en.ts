@@ -167,7 +167,7 @@ export const en: SwitchAgentsPost = {
     heading: "Put both agents in one pocket.",
     body: "Connect to your own machine, run Claude Code, Codex or another CLI, and keep the same terminal, tmux sessions, files, tunnels and Agent Alerts when you switch.",
     tags: ["Any agent", "Direct SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "Opt in on Google Play",
+    playButton: "Get it on Google Play",
     iosButton: "Join the iOS beta",
     note: `Android is in closed testing: opt in with the Google account you'll test with, then open the
 opt-in link in your mobile browser. Already opted in? Go straight to the <a href="{playUrl}" rel="noopener">Play listing</a>.`,

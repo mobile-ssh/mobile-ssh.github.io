@@ -264,7 +264,7 @@ OpenSSH を OpenBSD&nbsp;2.6 とともに出荷した。プロトコルはお構
     heading: "供花に代えて、タブをいくつか閉じてください。",
     body: "Mobile SSH をインストールして、ラップトップにふさわしい安息を与え、本物のターミナルをポケットに携えてください — 無料、ネイティブ、オープンソース。",
     tags: ["広告なし", "アカウント不要", "データは端末内", "Apache-2.0"],
-    playButton: "Google Play でテストに参加",
+    playButton: "Google Play で手に入れよう",
     iosButton: "iOS ベータに参加",
     note: `Android はクローズドテスト中です。テストに使う Google アカウントで参加登録し、参加用リンクはモバイル
 ブラウザーで開いてください — クローズドテストは Google Play アプリの中には表示されないことがあります。

@@ -66,7 +66,7 @@ export const es = defineSwitchAgents({
   sources: { heading: "Fuentes y nota sobre límites", intro: "Los límites y las opciones de facturación cambian. Estas páginas oficiales sustentan la distinción anterior; el aviso de tu cuenta sigue siendo la autoridad.", openai: "OpenAI: límites de uso de Codex y opciones de cuenta", anthropic: "Anthropic: créditos de uso y límites de gasto individual", checked: "Comprobado el 30 de agosto de 2026." },
   cta: {
     ariaLabel: "Obtener Mobile SSH", heading: "Lleva ambos agentes en un bolsillo.", body: "Conéctate a tu máquina, ejecuta Claude Code, Codex u otra CLI y conserva el mismo terminal, sesiones tmux, archivos, túneles y alertas al cambiar.",
-    tags: ["Cualquier agente", "SSH directo", "Alertas de agentes", "Apache-2.0"], playButton: "Participa en Google Play", iosButton: "Únete a la beta de iOS",
+    tags: ["Cualquier agente", "SSH directo", "Alertas de agentes", "Apache-2.0"], playButton: "Disponible en Google Play", iosButton: "Únete a la beta de iOS",
     note: `Android está en prueba cerrada: participa con la cuenta de Google que usarás y abre el enlace en el navegador móvil. ¿Ya participas? Ve directamente a la <a href="{playUrl}" rel="noopener">ficha de Play</a>.`,
   },
 });

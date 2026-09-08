@@ -335,7 +335,7 @@ export const arz: FlightPost = {
           المصدر.`
     ],
     tags: ["مفيش إعلانات", "من غير حساب", "داتا على الجهاز", "Apache-2.0"],
-    playButton: "اشترك في الاختبار على Google Play",
+    playButton: "متاح على Google Play",
     iosButton: "ادخل بيتا iOS",
     note: `Android لسه في اختبار مغلق — اشترك بحساب Google اللي هتجرّب بيه، وافتح اللينك في متصفح
       الموبايل؛ الاختبار المغلق ممكن ميظهرش جوّه تطبيق Google Play.`

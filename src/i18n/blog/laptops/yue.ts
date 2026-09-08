@@ -255,7 +255,7 @@ shell 一直開住。Eternal Terminal 行多一步，改為命名會話而唔係
     heading: "懇辭花圈，請閂咗幾個分頁。",
     body: "裝返個 Mobile SSH，畀部手提電腦好好抖一抖 —— 呢個係佢應得嘅 —— 然後喺褲袋度袋住一個真正嘅終端機：免費、原生、開源。",
     tags: ["冇廣告", "唔使開帳號", "資料留喺部機", "Apache-2.0"],
-    playButton: "喺 Google Play 加入測試",
+    playButton: "喺 Google Play 下載",
     iosButton: "加入 iOS 公測",
     note: `Android 而家係封閉測試：請用你打算攞嚟測試嗰個 Google 帳號加入，並且喺手機瀏覽器度打開加入
 連結 —— 封閉測試喺 Google Play App 入面可能睇唔到。已經加入咗？直接去

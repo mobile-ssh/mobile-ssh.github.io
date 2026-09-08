@@ -99,7 +99,7 @@ export const mr = defineGoOutside({
     heading: "laptop ठेवून द्या. terminal सोबत घ्या.",
     body: "थेट तुमच्याच machine ला जोडा, आवडेल तो एजंट tmux, herdr किंवा Zellij मध्ये चालवा आणि माणसाची गरज लागल्यावर Agent Alerts ना सांगू द्या — त्याच ॲपमध्ये SFTP, tunnels आणि खराखुरा terminal सोबत.",
     tags: ["कोणताही एजंट", "थेट SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "Google Play वर सामील व्हा",
+    playButton: "Google Play वर मिळवा",
     iosButton: "iOS beta मध्ये सामील व्हा",
     note: `Android closed testing मध्ये आहे: चाचणीच्या Google account ने सामील व्हा, मग opt-in link mobile browser मध्ये उघडा. आधीच सामील? थेट <a href="{playUrl}" rel="noopener">Play listing</a> उघडा.`
   }

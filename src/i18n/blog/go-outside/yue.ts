@@ -96,7 +96,7 @@ export const yue = defineGoOutside({
     heading: "留低部手提電腦，帶走個 terminal。",
     body: "直接連自己部機，喺 tmux、herdr 或者 Zellij 入面行你鍾意嘅任何代理，等 Agent Alerts 喺要人嗰陣話你知——同一個 app 仲有 SFTP、tunnel 同一個真正嘅 terminal。",
     tags: ["任何代理", "直接 SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "參加 Google Play 測試",
+    playButton: "喺 Google Play 下載",
     iosButton: "加入 iOS beta",
     note: `Android 正進行封閉測試：請用會用嚟測試嘅 Google 帳戶參加，再喺手機瀏覽器開參加連結。已經參加？直接去 <a href="{playUrl}" rel="noopener">Play 頁面</a>。`
   }

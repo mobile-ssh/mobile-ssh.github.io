@@ -99,7 +99,7 @@ export const tr = defineGoOutside({
     heading: "Dizüstünü bırakın. Terminali alın.",
     body: "Doğrudan kendi makinenize bağlanın, dilediğiniz ajanı tmux, herdr veya Zellij içinde çalıştırın ve bir insana ihtiyaç duyduğunda Agent Alerts size haber versin — aynı uygulamada SFTP, tüneller ve gerçek bir terminalle.",
     tags: ["Her ajan", "Doğrudan SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "Google Play testine katıl",
+    playButton: "Google Play'den indirin",
     iosButton: "iOS betasına katıl",
     note: `Android kapalı testtedir: test edeceğiniz Google hesabıyla katılın, sonra katılım bağlantısını mobil tarayıcınızda açın. Zaten katıldınız mı? Doğrudan <a href="{playUrl}" rel="noopener">Play sayfasına</a> gidin.`
   }

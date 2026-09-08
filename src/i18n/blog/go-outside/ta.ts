@@ -99,7 +99,7 @@ export const ta = defineGoOutside({
     heading: "மடிக்கணினியை விடுங்கள். terminal-ஐ எடுத்துச் செல்லுங்கள்.",
     body: "நேரடியாக உங்கள் சொந்த machine-க்கு connect செய்து, விரும்பும் எந்த agent-ஐயும் tmux, herdr அல்லது Zellij உள்ளே இயக்குங்கள்; ஒரு நபர் தேவைப்படும்போது Agent Alerts சொல்லட்டும் — அதே செயலியில் SFTP, tunnels மற்றும் உண்மையான terminal உடன்.",
     tags: ["எந்த agent-ம்", "நேரடி SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "Google Play-ல் சேருங்கள்",
+    playButton: "Google Play-ல் பெறுங்கள்",
     iosButton: "iOS beta-வில் சேருங்கள்",
     note: `Android மூடிய சோதனையில் உள்ளது: நீங்கள் சோதிக்கும் Google account மூலம் சேர்ந்து, பிறகு opt-in
 link-ஐ உங்கள் mobile browser-ல் திறக்கவும். ஏற்கனவே சேர்ந்துவிட்டீர்களா? நேராக <a href="{playUrl}" rel="noopener">Play listing</a>-க்குச் செல்லுங்கள்.`

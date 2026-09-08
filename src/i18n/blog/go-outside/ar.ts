@@ -99,7 +99,7 @@ export const ar = defineGoOutside({
     heading: "اترك الحاسوب المحمول. خذ الطرفية.",
     body: "اتصل مباشرة بجهازك، وشغّل أيّ وكيل تريده داخل tmux أو herdr أو Zellij، ودع Agent Alerts تخبرك حين يحتاج إلى إنسان — مع SFTP والأنفاق وطرفية حقيقية في التطبيق نفسه.",
     tags: ["أي وكيل", "SSH مباشر", "Agent Alerts", "Apache-2.0"],
-    playButton: "اشترك عبر Google Play",
+    playButton: "متاح على Google Play",
     iosButton: "انضم إلى إصدار iOS التجريبي",
     note: `Android في اختبار مغلق: اشترك بحساب Google الذي ستختبر به، ثم افتح رابط الاشتراك في متصفح هاتفك. مشترك بالفعل؟ انتقل مباشرة إلى <a href="{playUrl}" rel="noopener">صفحة Play</a>.`
   }

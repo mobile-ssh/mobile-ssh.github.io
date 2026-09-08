@@ -45,5 +45,5 @@ export const yue = defineSwitchAgents({
     { heading: "喺新 pane 繼續", body: "喺舊 pane 隔籬開另一個 CLI，講目標同限制，叫佢先檢查現有 diff。" },
   ], promptLabel: "實用嘅第一個 prompt", prompt: "讀 AGENTS.md、git status 同目前 diff。保留現有工作。行針對性測試，解釋仲差乜，然後繼續任務。" },
   sources: { heading: "來源同上限備註", intro: "產品上限同收費選項會變。上面嘅分別係根據呢啲官方頁面；你帳戶顯示嘅通知仍然最準。", openai: "OpenAI：Codex 用量上限同帳戶選項", anthropic: "Anthropic：用量信用額同個人開支上限", checked: "2026年8月30日查核。" },
-  cta: { ariaLabel: "取得 Mobile SSH", heading: "將兩個代理放入同一個衫袋。", body: "連接自己部機，運行 Claude Code、Codex 或其他 CLI；轉換時保留同一個 terminal、tmux session、檔案、tunnel 同代理提示。", tags: ["任何代理", "直接 SSH", "代理提示", "Apache-2.0"], playButton: "參加 Google Play 測試", iosButton: "加入 iOS beta", note: `Android 正進行封閉測試：請用會用嚟測試嘅 Google 帳戶參加，再喺手機瀏覽器開連結。已經參加？直接去 <a href="{playUrl}" rel="noopener">Play 頁面</a>。` },
+  cta: { ariaLabel: "取得 Mobile SSH", heading: "將兩個代理放入同一個衫袋。", body: "連接自己部機，運行 Claude Code、Codex 或其他 CLI；轉換時保留同一個 terminal、tmux session、檔案、tunnel 同代理提示。", tags: ["任何代理", "直接 SSH", "代理提示", "Apache-2.0"], playButton: "喺 Google Play 下載", iosButton: "加入 iOS beta", note: `Android 正進行封閉測試：請用會用嚟測試嘅 Google 帳戶參加，再喺手機瀏覽器開連結。已經參加？直接去 <a href="{playUrl}" rel="noopener">Play 頁面</a>。` },
 });

@@ -3,7 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { defaultLocale, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
-import { renderVersionLine, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
+import { renderVersionLine, PLAY_STORE_URL, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
+import GooglePlayIcon from "../GooglePlayIcon.astro";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
@@ -100,7 +101,7 @@ const featureDemos = [
           <p class="hero-meta" style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.78;">{versionLine}</p>
           <div class="cta-row">
             <a class="button" href={localizedHref(locale, "/docs/getting-started/")}>{t.home.ctaDocs}</a>
-            <a class="button secondary" href={PLAY_STORE_BETA_URL} rel="noopener">{t.home.ctaPlay}</a>
+            <a class="button secondary" href={PLAY_STORE_URL} rel="noopener"><GooglePlayIcon /> {t.home.ctaPlay}</a>
             <a class="button secondary" href={TESTFLIGHT_URL} rel="noopener">{t.home.ctaIos}</a>
           </div>
           <p class="play-note">

@@ -4,6 +4,7 @@ import { defaultLocale } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getLaptops } from "../../i18n/blog/laptops";
 import { PLAY_STORE_URL, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
+import GooglePlayIcon from "../GooglePlayIcon.astro";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const c = getLaptops(locale);
@@ -107,7 +108,7 @@ const ctaNote = c.cta.note.replace("{playUrl}", PLAY_STORE_URL);
         {c.cta.tags.map((tag) => (<span>{tag}</span>))}
       </div>
       <div class="cta-btns">
-        <a class="btn btn--primary" href={PLAY_STORE_BETA_URL} rel="noopener">{c.cta.playButton}</a>
+        <a class="btn btn--primary" href={PLAY_STORE_URL} rel="noopener"><GooglePlayIcon /> {c.cta.playButton}</a>
         <a class="btn btn--ghost" href={TESTFLIGHT_URL} rel="noopener">{c.cta.iosButton}</a>
       </div>
       <p class="cta-note" set:html={ctaNote}></p>
@@ -262,7 +263,7 @@ const ctaNote = c.cta.note.replace("{playUrl}", PLAY_STORE_URL);
     .cta-tags { position: relative; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1.3rem; }
     .cta-tags span { font-size: 0.8rem; color: #dfe4ee; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 0.4rem 0.8rem; }
     .cta-btns { position: relative; display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
-    .btn { display: inline-flex; align-items: center; font-weight: 600; font-size: 0.95rem; padding: 0.75rem 1.3rem; border-radius: 999px; text-decoration: none; transition: transform .15s ease, background .15s ease; }
+    .btn { display: inline-flex; align-items: center; font-weight: 600; font-size: 0.95rem; padding: 0.75rem 1.3rem; border-radius: 999px; text-decoration: none; transition: transform .15s ease, background .15s ease; gap: .5rem; }
     .btn:hover { transform: translateY(-1px); text-decoration: none; }
     .btn--primary { background: var(--green-bright); color: #06251a; }
     .btn--primary:hover { background: #4ff0af; }

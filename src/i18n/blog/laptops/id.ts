@@ -267,7 +267,7 @@ berkemas lebih ringan dan meninggalkan gedung. Kini ia muat di saku. Ia menjawab
     heading: "Sebagai ganti karangan bunga, tutuplah beberapa tab.",
     body: "Pasang Mobile SSH, beri laptop Anda istirahat yang memang layak ia terima, dan bawa terminal sungguhan di saku — gratis, native, dan open source.",
     tags: ["Tanpa iklan", "Tanpa akun", "Data di perangkat", "Apache-2.0"],
-    playButton: "Ikut serta di Google Play",
+    playButton: "Dapatkan di Google Play",
     iosButton: "Ikut beta iOS",
     note: `Android sedang dalam uji tertutup: daftarlah dengan akun Google yang akan Anda pakai untuk menguji, dan buka
 tautan pendaftarannya di peramban ponsel Anda — uji tertutup itu mungkin tidak terlihat di dalam aplikasi

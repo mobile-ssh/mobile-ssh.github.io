@@ -45,5 +45,5 @@ export const ja = defineSwitchAgents({
     { heading: "新しいペインで続ける", body: "古いペインの隣で別 CLI を起動し、目標と制約を渡し、まず既存 diff を確認させます。" },
   ], promptLabel: "役立つ最初のプロンプト", prompt: "AGENTS.md、git status、現在の diff を読んでください。既存の作業を保ち、対象テストを実行し、残作業を説明してから続行してください。" },
   sources: { heading: "出典と上限に関する注記", intro: "製品上限と課金選択肢は変化します。上の区別にはこれらの公式ページを使用しました。最終的にはアカウントに表示された通知が基準です。", openai: "OpenAI：Codex の使用上限とアカウント選択肢", anthropic: "Anthropic：使用クレジットと個人支出上限", checked: "2026年8月30日確認。" },
-  cta: { ariaLabel: "Mobile SSH を入手", heading: "2つのエージェントを、ひとつのポケットに。", body: "自分のマシンへ接続し、Claude Code、Codex、その他の CLI を実行。切り替えても同じターミナル、tmux、ファイル、トンネル、エージェント通知を使えます。", tags: ["任意のエージェント", "直接 SSH", "エージェント通知", "Apache-2.0"], playButton: "Google Play テストに参加", iosButton: "iOS ベータに参加", note: `Android はクローズドテスト中です。テストに使う Google アカウントで参加し、モバイルブラウザーでリンクを開いてください。参加済みなら <a href="{playUrl}" rel="noopener">Play の掲載ページ</a>へ。` },
+  cta: { ariaLabel: "Mobile SSH を入手", heading: "2つのエージェントを、ひとつのポケットに。", body: "自分のマシンへ接続し、Claude Code、Codex、その他の CLI を実行。切り替えても同じターミナル、tmux、ファイル、トンネル、エージェント通知を使えます。", tags: ["任意のエージェント", "直接 SSH", "エージェント通知", "Apache-2.0"], playButton: "Google Play で手に入れよう", iosButton: "iOS ベータに参加", note: `Android はクローズドテスト中です。テストに使う Google アカウントで参加し、モバイルブラウザーでリンクを開いてください。参加済みなら <a href="{playUrl}" rel="noopener">Play の掲載ページ</a>へ。` },
 });

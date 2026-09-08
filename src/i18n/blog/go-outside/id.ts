@@ -99,7 +99,7 @@ export const id = defineGoOutside({
     heading: "Tinggalkan laptopnya. Bawa terminalnya.",
     body: "Terhubung langsung ke mesin Anda sendiri, jalankan agen apa pun yang Anda suka di dalam tmux, herdr, atau Zellij, dan biarkan Agent Alerts memberi tahu saat pekerjaan itu butuh manusia — lengkap dengan SFTP, tunnel, dan terminal sungguhan dalam satu aplikasi.",
     tags: ["Agen apa pun", "SSH langsung", "Agent Alerts", "Apache-2.0"],
-    playButton: "Ikut serta di Google Play",
+    playButton: "Dapatkan di Google Play",
     iosButton: "Gabung beta iOS",
     note: `Android sedang dalam pengujian tertutup: ikut serta dengan akun Google yang akan Anda pakai menguji, lalu buka
 tautan pendaftaran di peramban seluler. Sudah ikut serta? Buka langsung <a href="{playUrl}" rel="noopener">halaman Play</a>.`

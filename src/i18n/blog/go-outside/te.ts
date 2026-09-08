@@ -99,7 +99,7 @@ export const te = defineGoOutside({
     heading: "laptopను వదిలేయండి. terminalను తీసుకెళ్లండి.",
     body: "మీ స్వంత machineకు నేరుగా connect అయి, tmux, herdr లేదా Zellij లోపల మీకు నచ్చిన ఏజెంట్‌ను నడపండి; ఒక మనిషి అవసరమైనప్పుడు Agent Alerts చెబుతాయి — అదే యాప్‌లో SFTP, tunnels, నిజమైన terminal కూడా ఉంటాయి.",
     tags: ["ఏ ఏజెంట్ అయినా", "నేరుగా SSH", "Agent Alerts", "Apache-2.0"],
-    playButton: "Google Playలో opt in చేయండి",
+    playButton: "Google Play లో పొందండి",
     iosButton: "iOS betaలో చేరండి",
     note: `Android closed testingలో ఉంది: మీరు పరీక్షించే Google accountతో opt in చేసి, ఆ opt-in linkను మీ mobile browserలో తెరవండి. ఇప్పటికే opt in చేశారా? నేరుగా <a href="{playUrl}" rel="noopener">Play listing</a>కు వెళ్లండి.`
   }

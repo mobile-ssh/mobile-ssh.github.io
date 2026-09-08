@@ -281,7 +281,7 @@ désormais. Il répond dès la première sonnerie.`
     heading: "Ni fleurs ni couronnes : fermez plutôt quelques onglets.",
     body: "Installez Mobile SSH, accordez à votre ordinateur portable le repos qu'il a mérité, et emportez un vrai terminal dans votre poche — gratuit, natif et open source.",
     tags: ["Pas de pubs", "Pas de compte", "Données sur l'appareil", "Apache-2.0"],
-    playButton: "S'inscrire sur Google Play",
+    playButton: "Disponible sur Google Play",
     iosButton: "Rejoindre la bêta iOS",
     note: `Android est en test fermé : inscrivez-vous avec le compte Google que vous utiliserez pour
 tester, et ouvrez le lien d'inscription dans le navigateur de votre mobile — le test fermé peut ne

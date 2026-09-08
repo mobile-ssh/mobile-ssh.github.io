@@ -352,7 +352,7 @@ export const pcm: FlightPost = {
           E free, no account, no ads, open source.`
     ],
     tags: ["No ads", "No account", "Data dey for di device", "Apache-2.0"],
-    playButton: "Opt in for Google Play",
+    playButton: "Get am for Google Play",
     iosButton: "Join di iOS beta",
     note: `Android dey closed testing — opt in wit di Google account wey you go take test,
       and open di link inside your mobile browser; di closed test fit no show inside di Google Play

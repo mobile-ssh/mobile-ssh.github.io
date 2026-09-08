@@ -271,7 +271,7 @@ e saiu do prédio. Agora ele cabe num bolso. E atende no primeiro toque.`
     heading: "Em vez de flores, feche algumas abas.",
     body: "Instale o Mobile SSH, dê ao seu laptop o descanso que ele merece e leve um terminal de verdade no bolso — gratuito, nativo e de código aberto.",
     tags: ["Sem anúncios", "Sem conta", "Dados no dispositivo", "Apache-2.0"],
-    playButton: "Participar pelo Google Play",
+    playButton: "Disponível no Google Play",
     iosButton: "Entrar na beta do iOS",
     note: `O Android está em teste fechado: faça a adesão com a conta Google que você vai usar no teste e abra
 o link de adesão no navegador do celular — o teste fechado pode não aparecer dentro do app do

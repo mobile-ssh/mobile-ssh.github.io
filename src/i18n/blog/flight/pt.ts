@@ -356,7 +356,7 @@ export const pt: FlightPost = {
           precisa de você. Gratuito, sem conta, sem anúncios, código aberto.`
     ],
     tags: ["Sem anúncios", "Sem conta", "Dados no dispositivo", "Apache-2.0"],
-    playButton: "Participar pelo Google Play",
+    playButton: "Disponível no Google Play",
     iosButton: "Entrar na beta do iOS",
     note: `O Android está em teste fechado — faça a adesão com a conta Google que você vai usar
       no teste e abra o link no navegador do celular; o teste fechado pode não aparecer dentro do app

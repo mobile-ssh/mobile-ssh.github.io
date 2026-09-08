@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
+import { PLAY_STORE_URL, PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../../i18n/version";
+import GooglePlayIcon from "../GooglePlayIcon.astro";
 import { defaultLocale } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getFlight } from "../../i18n/blog/flight";
@@ -428,7 +429,7 @@ const verdictClasses = ["ok", "hi", "hi"];
       </div>
       <p class="tags">{p.cta.tags.map((tag) => <span>{tag}</span>)}</p>
       <div class="btns">
-        <a class="btn" href={PLAY_STORE_BETA_URL} rel="noopener">{p.cta.playButton} →</a>
+        <a class="btn" href={PLAY_STORE_URL} rel="noopener"><GooglePlayIcon /> {p.cta.playButton} →</a>
         <a class="btn btn--ghost" href={TESTFLIGHT_URL} rel="noopener">{p.cta.iosButton} →</a>
       </div>
       <p class="cta-note">{p.cta.note}</p>
@@ -725,7 +726,7 @@ td.ok{color:var(--dim)}
   display:inline-block;text-decoration:none;font-weight:700;font-size:.92em;
   padding:.62em 1.15em;border:1px solid var(--green);color:var(--status-fg);
   background:var(--status);letter-spacing:.02em;
-}
+align-items:center;gap:.5rem;}
 .btn:hover{background:var(--green);color:var(--status-fg)}
 .btn--ghost{background:transparent;color:var(--green);border-color:var(--green-dk)}
 .btn--ghost:hover{background:rgba(92,232,144,.14);color:var(--green)}

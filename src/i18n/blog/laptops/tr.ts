@@ -266,7 +266,7 @@ hafif toplandı ve binayı terk etti. Artık bir cebe sığıyor. Telefonu ilk �
     heading: "Çelenk yerine birkaç sekme kapatın.",
     body: "Mobile SSH'yi kurun, dizüstünüze hak ettiği dinlenmeyi verin ve cebinizde gerçek bir terminal taşıyın — ücretsiz, yerel ve açık kaynak.",
     tags: ["Reklam yok", "Hesap yok", "Veriler cihazda", "Apache-2.0"],
-    playButton: "Google Play'de teste katılın",
+    playButton: "Google Play'den indirin",
     iosButton: "iOS betasına katılın",
     note: `Android kapalı testte: test edeceğiniz Google hesabıyla teste katılın ve katılım bağlantısını
 mobil tarayıcınızda açın — kapalı test, Google Play uygulamasının içinde görünmeyebilir. Zaten katıldınız

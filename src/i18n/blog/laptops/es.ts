@@ -273,7 +273,7 @@ timbre.`
     heading: "En lugar de flores, cierra unas cuantas pestañas.",
     body: "Instala Mobile SSH, dale a tu portátil el descanso que se ha ganado y lleva un terminal de verdad en el bolsillo — gratis, nativo y de código abierto.",
     tags: ["Sin anuncios", "Sin cuenta", "Datos en el dispositivo", "Apache-2.0"],
-    playButton: "Apuntarse en Google Play",
+    playButton: "Disponible en Google Play",
     iosButton: "Unirse a la beta de iOS",
     note: `Android está en pruebas cerradas: apúntate con la cuenta de Google con la que vayas a probar y abre
 el enlace de inscripción en el navegador del móvil — puede que la prueba cerrada no se vea dentro de la
