@@ -90,7 +90,7 @@ export const fr: Dict = {
     videoHead: "Voir en action",
     videoIntro: "Courtes démonstrations sur les deux plateformes. Android : l'écran d'accueil qui montre ce que vous pouvez reprendre, une barre d'outils de session qui n'affiche que ce dont dispose le serveur, l'envoi d'un fichier directement dans l'invite, puis les gestionnaires tmux, herdr et Zellij. iOS : l'ouverture directe sur une session de terminal en direct et l'écran d'accueil auquel vous revenez.",
     videoAlt: "Démonstration Android de l'écran d'accueil listant les sessions tmux à reprendre, de la barre d'outils de session, de l'ajout d'un fichier directement dans l'invite et des gestionnaires de sessions tmux, herdr et Zellij",
-    videoIosAlt: "Démonstration iOS de l'ouverture de Mobile SSH sur une session de terminal SSH en direct, puis du retour à l'écran d'accueil avec la liste Récents et les autres écrans de l'application",
+    videoIosAlt: "Démonstration iOS de l'ouverture de Mobile SSH sur une session de terminal SSH en direct, puis du retour à l'écran d'accueil, avec le gestionnaire tmux, les Paramètres et les autres écrans de l'application",
     muxHead: "Une vidéo par gestionnaire de sessions",
     muxIntro:
       "Dans les démos ci-dessus, tmux, herdr et Zellij se partagent une trentaine de secondes : assez pour montrer que la barre d'outils dessine une icône pour chacun, pas assez pour montrer ce que l'un d'eux fait. Voici les versions longues, filmées sur les deux plateformes face à un vrai serveur.",
@@ -142,9 +142,6 @@ export const fr: Dict = {
     lightboxClose: "Fermer",
     lightboxPrev: "Précédent",
     lightboxNext: "Suivant",
-    betaJoin: "Rejoindre la bêta",
-    betaOr: "ou envoyez un e-mail à",
-    betaRequest: "pour demander un accès à la bêta privée",
     galleryAlts: [
       "Écran d'accueil de Mobile SSH sur un téléphone Android avec une bannière Sessions actives et une liste Continuer de serveurs enregistrés à reprendre, au-dessus des boutons Serveurs, Identifiants, Réglages, À propos et Extensions.",
       "Boîte de dialogue Ajouter un serveur sur un téléphone avec les champs nom du serveur, hôte et port, adresses supplémentaires, identifiants, clé privée et redirections de ports.",
@@ -214,7 +211,7 @@ export const fr: Dict = {
           "Flux Ajouter une session avec recherche en premier : choisissez un serveur enregistré depuis une page de recherche dédiée et connectez-vous en un tap",
           "Plusieurs adresses par serveur enregistré pour l'itinérance LAN/VPN — composées dans l'ordre, la dernière adresse fonctionnelle essayée en premier, avec reconnexion déclenchée lors d'un changement de réseau",
           "Enregistrements d'identifiants réutilisables sélectionnables lors de la configuration d'un serveur",
-          "Un écran d'accueil pensé pour la reprise : les connexions actives à l'instant et les sessions tmux qui attendent sur vos serveurs — issues d'un instantané stocké, elles s'affichent donc sans réseau, chaque ligne portant son âge. iOS conserve en plus une liste Récents",
+          "Un écran d'accueil pensé pour la reprise : les connexions actives à l'instant et les sessions tmux qui attendent sur vos serveurs — issues d'un instantané stocké, elles s'affichent donc sans réseau, chaque ligne portant son âge. Sur iOS, la liste Récents est passée dans l'écran Nouvelle connexion, où un tap préremplit le formulaire",
           "IPv6 de bout en bout : littéraux entre crochets avec port facultatif dans les champs d'adresse, et destinations IPv6 entre crochets dans les règles de redirection de ports",
           "Journal des tentatives de connexion, réussies et échouées, enregistrant l'adresse exacte composée et, en cas d'échec, la raison",
           "Transport proxy Teleport (expérimental, Android) : connectez-vous avec nom d'utilisateur, mot de passe et OTP ou importez un fichier de configuration ou d'identité Teleport, parcourez les nœuds du cluster, puis exécutez terminaux, SFTP, tmux et plugins par le tunnel du proxy"

@@ -90,7 +90,7 @@ export const id: Dict = {
     videoHead: "Lihat dalam aksi",
     videoIntro: "Demo singkat di kedua platform. Android: layar beranda yang langsung menunjukkan apa saja yang bisa Anda lanjutkan, bilah alat sesi yang hanya menampilkan fitur yang tersedia di server itu, mengirim berkas langsung ke prompt, serta pengelola tmux, herdr, dan Zellij. iOS: membuka aplikasi langsung ke terminal aktif dan layar beranda tempat Anda kembali.",
     videoAlt: "Demo Android: layar beranda yang menampilkan daftar sesi tmux untuk dilanjutkan, bilah alat sesi, melampirkan berkas ke prompt, serta pengelola sesi tmux, herdr, dan Zellij",
-    videoIosAlt: "Demo iOS: membuka Mobile SSH langsung ke sesi terminal SSH aktif lalu kembali ke layar beranda, dengan daftar Terkini dan layar-layar lain di aplikasi",
+    videoIosAlt: "Demo iOS: membuka Mobile SSH langsung ke sesi terminal SSH aktif lalu kembali ke layar beranda, dengan pengelola tmux, Pengaturan, dan layar-layar lain di aplikasi",
     muxHead: "Satu video untuk tiap pengelola sesi",
     muxIntro:
       "Pada demo di atas, tmux, herdr, dan Zellij hanya berbagi sekitar tiga puluh detik — cukup untuk menunjukkan bahwa bilah alat menggambar ikon untuk masing-masing, tetapi tidak cukup untuk menunjukkan apa yang bisa dilakukan salah satunya. Ini versi panjangnya, difilmkan di kedua platform terhadap server sungguhan.",
@@ -142,9 +142,6 @@ export const id: Dict = {
     lightboxClose: "Tutup",
     lightboxPrev: "Sebelumnya",
     lightboxNext: "Berikutnya",
-    betaJoin: "Bergabung dengan beta",
-    betaOr: "atau kirim email ke",
-    betaRequest: "untuk meminta akses beta privat",
     galleryAlts: [
       "Layar beranda Mobile SSH di ponsel Android dengan spanduk Sesi Aktif dan daftar Lanjutkan berisi server tersimpan yang bisa dilanjutkan, di atas tombol Server, Kredensial, Pengaturan, Tentang, dan Plugin.",
       "Dialog Tambah Server di ponsel dengan kolom nama server, host dan port, alamat tambahan, kredensial, kunci privat, dan penerusan port.",
@@ -214,7 +211,7 @@ export const id: Dict = {
           "Alur Tambah Sesi berbasis pencarian: pilih server tersimpan dari halaman pencarian khusus dan sambung dengan satu ketuk",
           "Beberapa alamat per server tersimpan untuk roaming LAN/VPN — dihubungi berurutan dengan alamat terakhir yang berhasil dicoba lebih dulu, dan penyambungan ulang aktif saat jaringan berubah",
           "Catatan kredensial yang dapat dipakai ulang dan dipilih dari penyetelan server",
-          "Layar beranda yang dirancang untuk melanjutkan pekerjaan: koneksi yang aktif saat ini, dan sesi tmux yang menunggu di server Anda — diambil dari snapshot tersimpan, sehingga tetap terdaftar tanpa jaringan dan setiap baris ditandai umurnya. iOS juga tetap menyimpan daftar Terkini",
+          "Layar beranda yang dirancang untuk melanjutkan pekerjaan: koneksi yang aktif saat ini, dan sesi tmux yang menunggu di server Anda — diambil dari snapshot tersimpan, sehingga tetap terdaftar tanpa jaringan dan setiap baris ditandai umurnya. Di iOS, daftar Terkini pindah ke lembar Koneksi Baru, tempat satu ketuk langsung mengisi formulirnya",
           "IPv6 dari ujung ke ujung: literal dalam kurung siku dengan port opsional di kolom alamat, dan tujuan IPv6 dalam kurung siku pada aturan penerusan port",
           "Log upaya masuk berhasil dan gagal, mencatat alamat persis yang dihubungi dan, saat gagal, alasannya",
           "Transport proxy Teleport (eksperimental, Android): masuk dengan nama pengguna, kata sandi, dan OTP atau impor berkas konfigurasi atau identitas Teleport, telusuri node klaster, lalu jalankan terminal, SFTP, tmux, dan plugin melalui tunnel proxy"

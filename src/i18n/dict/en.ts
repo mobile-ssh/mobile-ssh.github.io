@@ -150,13 +150,6 @@ export const en: Dict = {
     lightboxClose: "Close",
     lightboxPrev: "Previous",
     lightboxNext: "Next",
-    betaJoin: "Join the beta",
-    betaOr: "or email",
-    betaRequest: "to request private beta access",
-    betaWantedTitle: "Android & iOS SSH users wanted",
-    betaWantedText: "Join the closed beta and help shape Mobile SSH.",
-    betaWantedCta: "See how to join →",
-    betaPlayNote: "Open the Google Play link in your mobile browser, not the Google Play app — the closed test may not be visible inside the app.",
     galleryAlts: [
       "Mobile SSH home screen on an Android phone with an Active Sessions banner and a Continue list of saved servers to resume, above buttons for Servers, Credentials, Settings, About, and Plugins.",
       "Add Server dialog on a phone with fields for a server name, host and port, additional addresses, credentials, private key, and port forwards.",

@@ -139,18 +139,11 @@ export interface Dict {
     lightboxClose: string;
     lightboxPrev: string;
     lightboxNext: string;
-    betaJoin: string;
-    betaOr: string;
-    betaRequest: string;
     // Optional: hero "testers wanted" banner. Components fall back to English
     // when a locale omits these (the closed test runs in English).
-    betaWantedTitle?: string;
-    betaWantedText?: string;
-    betaWantedCta?: string;
     // Optional: note telling Android testers to open the Play opt-in link in a
     // mobile browser (the closed test may be missing inside the Google Play
     // app). Falls back to English when a locale omits it.
-    betaPlayNote?: string;
     compareHead: string;
     compareIntro: string;
     compareGuideTitle: string;

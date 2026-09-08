@@ -90,7 +90,7 @@ export const tr: Dict = {
     videoHead: "Çalışırken görün",
     videoIntro: "Her iki platformda kısa demolar. Android: nereye geri dönebileceğinizi gösteren ana ekran, yalnızca o sunucuda bulunanları gösteren oturum araç çubuğu, bir dosyayı doğrudan komut istemine gönderme ve tmux, herdr ile Zellij yöneticileri. iOS: doğrudan canlı bir terminalde açılış ve geri döndüğünüz ana ekran.",
     videoAlt: "Android demosu: sürdürülecek tmux oturumlarını listeleyen ana ekran, oturum araç çubuğu, komut istemine dosya ekleme ve tmux, herdr ile Zellij oturum yöneticileri",
-    videoIosAlt: "iOS demosu: Mobile SSH uygulamasını açıp doğrudan canlı bir SSH terminal oturumuna girme ve Son Oturumlar listesiyle uygulamanın diğer ekranlarının bulunduğu ana ekrana dönme",
+    videoIosAlt: "iOS demosu: Mobile SSH uygulamasını açıp doğrudan canlı bir SSH terminal oturumuna girme ve ana ekrana dönme; tmux yöneticisi, Ayarlar ve uygulamanın diğer ekranları da görünüyor",
     muxHead: "Her oturum yöneticisi için bir video",
     muxIntro:
       "Yukarıdaki demolarda tmux, herdr ve Zellij toplamda otuz saniye kadar yer paylaşıyor — araç çubuğunun her biri için bir simge çizdiğini göstermeye yeter, ama hiçbirinin ne yaptığını göstermeye yetmez. Bunlar uzun sürümler; her iki platformda, canlı bir sunucuya karşı çekildi.",
@@ -142,9 +142,6 @@ export const tr: Dict = {
     lightboxClose: "Kapat",
     lightboxPrev: "Önceki",
     lightboxNext: "Sonraki",
-    betaJoin: "Beta'ya katıl",
-    betaOr: "veya e-posta gönderin",
-    betaRequest: "özel beta erişimi istemek için",
     galleryAlts: [
       "Bir Android telefonda Mobile SSH ana ekranı; Etkin Oturumlar başlığı ve kaldığı yerden devam edilebilecek kayıtlı sunucuların listesi, Sunucular, Kimlik Bilgileri, Ayarlar, Hakkında ve Eklentiler düğmelerinin üzerinde.",
       "Bir telefonda Sunucu Ekle iletişim kutusu; sunucu adı, ana bilgisayar ve port, ek adresler, kimlik bilgileri, özel anahtar ve port yönlendirme alanlarıyla.",
@@ -214,7 +211,7 @@ export const tr: Dict = {
           "Arama öncelikli Oturum Ekle akışı: ayrılmış bir arama sayfasından kayıtlı sunucu seç ve tek dokunuşla bağlan",
           "LAN/VPN dolaşımı için kayıtlı sunucu başına birden çok adres — sırayla denenir, en son çalışan adres önce denenir ve ağ değişiminde yeniden bağlanma devreye girer",
           "Sunucu kurulumunda seçilebilen yeniden kullanılabilir kimlik bilgisi kayıtları",
-          "Kaldığınız yerden devam etmek üzere kurulmuş bir ana ekran: şu anda canlı olan bağlantılar ve sunucularınızda bekleyen tmux oturumları — saklanan bir anlık görüntüden alınır, bu yüzden ağ olmadan da listelenir ve her satırda anlık görüntünün yaşı yazar. iOS ayrıca bir Son Oturumlar listesi tutar",
+          "Kaldığınız yerden devam etmek üzere kurulmuş bir ana ekran: şu anda canlı olan bağlantılar ve sunucularınızda bekleyen tmux oturumları — saklanan bir anlık görüntüden alınır, bu yüzden ağ olmadan da listelenir ve her satırda anlık görüntünün yaşı yazar. iOS'ta Son Oturumlar listesi Yeni Bağlantı ekranına taşındı; bir dokunuş formu dolduruyor",
           "Baştan sona IPv6: adres alanlarında isteğe bağlı portuyla birlikte köşeli parantezli adresler ve port yönlendirme kurallarında köşeli parantezli IPv6 hedefleri",
           "Başarılı ve başarısız giriş denemeleri günlüğü; tam olarak hangi adrese bağlanıldığını ve başarısızlık durumunda nedenini kaydeder",
           "Teleport proxy aktarımı (deneysel, Android): kullanıcı adı, parola ve OTP ile giriş yapın veya bir Teleport yapılandırma ya da kimlik dosyasını içe aktarın, küme düğümlerine göz atın, ardından proxy tüneli üzerinden terminaller, SFTP, tmux ve eklentiler çalıştırın"

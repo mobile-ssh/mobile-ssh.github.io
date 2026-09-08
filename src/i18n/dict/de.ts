@@ -91,7 +91,7 @@ export const de: Dict = {
     videoHead: "In Aktion sehen",
     videoIntro: "Kurze Demos auf beiden Plattformen. Android: der Startbildschirm, der zeigt, wo du wieder einsteigen kannst, eine Sitzungs-Symbolleiste, die nur anbietet, was der jeweilige Server kann, das Senden einer Datei direkt in die Eingabezeile sowie die Manager für tmux, herdr und Zellij. iOS: der Start direkt in ein laufendes Terminal und der Startbildschirm, zu dem du zurückkehrst.",
     videoAlt: "Android-Demo mit dem Startbildschirm, der fortsetzbare tmux-Sitzungen auflistet, der Sitzungs-Symbolleiste, dem Anhängen einer Datei an die Eingabezeile und den Sitzungsmanagern für tmux, herdr und Zellij",
-    videoIosAlt: "iOS-Demo, in der Mobile SSH direkt in eine laufende SSH-Terminalsitzung startet und danach zum Startbildschirm mit „Zuletzt“ und den übrigen Bildschirmen der App zurückkehrt",
+    videoIosAlt: "iOS-Demo, in der Mobile SSH direkt in eine laufende SSH-Terminalsitzung startet und danach zum Startbildschirm zurückkehrt, mit dem tmux-Manager, den Einstellungen und den übrigen Bildschirmen der App",
     muxHead: "Ein Video pro Sitzungsmanager",
     muxIntro:
       "In den Demos oben teilen sich tmux, herdr und Zellij rund dreißig Sekunden — genug, um zu zeigen, dass die Symbolleiste für jedes ein Symbol zeichnet, zu wenig, um zu zeigen, was eines davon tut. Dies sind die langen Fassungen, auf beiden Plattformen an einem echten Server gefilmt.",
@@ -143,9 +143,6 @@ export const de: Dict = {
     lightboxClose: "Schließen",
     lightboxPrev: "Zurück",
     lightboxNext: "Weiter",
-    betaJoin: "Beta beitreten",
-    betaOr: "oder E-Mail an",
-    betaRequest: "um Zugang zur privaten Beta anzufordern",
     galleryAlts: [
       "Startbildschirm von Mobile SSH auf einem Android-Telefon mit einem Banner „Aktive Sitzungen“ und einer Fortsetzen-Liste gespeicherter Server, darüber Schaltflächen für Server, Anmeldedaten, Einstellungen, Über und Plugins.",
       "Dialog „Server hinzufügen“ auf einem Telefon mit Feldern für Servername, Host und Port, weitere Adressen, Anmeldedaten, privaten Schlüssel und Portweiterleitungen.",
@@ -215,7 +212,7 @@ export const de: Dict = {
           "Suche-zuerst-Sitzung-hinzufügen-Ablauf: gespeicherten Server auf einer eigenen Suchseite auswählen und mit einem Tippen verbinden",
           "Mehrere Adressen pro gespeichertem Server für LAN/VPN-Roaming – der Reihe nach gewählt, wobei die zuletzt funktionierende Adresse zuerst versucht wird, und bei Netzwechsel setzt die Wiederverbindung ein",
           "Wiederverwendbare Anmeldedaten, die bei der Servereinrichtung ausgewählt werden können",
-          "Ein Startbildschirm rund ums Weitermachen: die gerade laufenden Verbindungen und die tmux-Sitzungen, die auf deinen Servern warten – aus einem gespeicherten Schnappschuss, sodass sie auch ohne Netzwerk erscheinen und jeder Eintrag mit seinem Alter versehen ist. iOS führt zusätzlich eine Liste „Zuletzt“",
+          "Ein Startbildschirm rund ums Weitermachen: die gerade laufenden Verbindungen und die tmux-Sitzungen, die auf deinen Servern warten – aus einem gespeicherten Schnappschuss, sodass sie auch ohne Netzwerk erscheinen und jeder Eintrag mit seinem Alter versehen ist. Unter iOS ist die Liste „Zuletzt“ in den Dialog „Neue Verbindung“ umgezogen, wo ein Tippen das Formular vorausfüllt",
           "IPv6 durchgehend: Literale in eckigen Klammern mit optionalem Port in den Adressfeldern und IPv6-Ziele in eckigen Klammern in Portweiterleitungsregeln",
           "Login-Log für erfolgreiche und fehlgeschlagene Versuche, das die genau gewählte Adresse und bei einem Fehlschlag auch den Grund festhält",
           "Teleport-Proxy-Transport (experimentell, Android): mit Benutzername, Passwort und OTP anmelden oder eine Teleport-Konfigurations- oder Identitätsdatei importieren, Cluster-Knoten durchsuchen und dann Terminals, SFTP, tmux und Plugins über den Proxy-Tunnel ausführen"

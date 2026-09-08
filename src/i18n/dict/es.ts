@@ -90,7 +90,7 @@ export const es: Dict = {
     videoHead: "Véalo en acción",
     videoIntro: "Demostraciones breves en ambas plataformas. Android: la pantalla de inicio que responde a qué puedes volver, una barra de herramientas de sesión que solo muestra lo que ese servidor tiene, el envío de un archivo directamente al prompt y los gestores de tmux, herdr y Zellij. iOS: la apertura directa en una terminal en vivo y la pantalla de inicio a la que vuelves.",
     videoAlt: "Demo en Android de la pantalla de inicio con las sesiones de tmux que puedes reanudar, la barra de herramientas de sesión, cómo adjuntar un archivo al prompt y los gestores de sesiones de tmux, herdr y Zellij",
-    videoIosAlt: "Demo en iOS que abre Mobile SSH directamente en una sesión de terminal SSH en vivo y vuelve a la pantalla de inicio, con la lista de Recientes y las demás pantallas de la app",
+    videoIosAlt: "Demo en iOS que abre Mobile SSH directamente en una sesión de terminal SSH en vivo y vuelve a la pantalla de inicio, con el gestor de tmux, Ajustes y las demás pantallas de la app",
     muxHead: "Un vídeo por gestor de sesiones",
     muxIntro:
       "En las demos de arriba, tmux, herdr y Zellij se reparten unos treinta segundos: suficiente para ver que la barra dibuja un icono para cada uno, insuficiente para ver qué hace ninguno. Estas son las versiones largas, filmadas en ambas plataformas contra un servidor real.",
@@ -142,9 +142,6 @@ export const es: Dict = {
     lightboxClose: "Cerrar",
     lightboxPrev: "Anterior",
     lightboxNext: "Siguiente",
-    betaJoin: "Unirse a la beta",
-    betaOr: "o escríbenos a",
-    betaRequest: "para solicitar acceso a la beta privada",
     galleryAlts: [
       "Pantalla de inicio de Mobile SSH en un teléfono Android con un aviso de Sesiones activas y una lista Continuar de servidores guardados que retomar, encima de los botones Servidores, Credenciales, Ajustes, Acerca de y Complementos.",
       "Diálogo Añadir servidor en un teléfono con campos de nombre del servidor, host y puerto, direcciones adicionales, credenciales, clave privada y reenvío de puertos.",
@@ -214,7 +211,7 @@ export const es: Dict = {
           "Flujo Añadir sesión con búsqueda primero: elige un servidor guardado en una página de búsqueda dedicada y conéctate con un toque",
           "Varias direcciones por servidor guardado para el roaming entre LAN y VPN — se marcan en orden probando primero la última dirección que funcionó, y la reconexión se activa al cambiar de red",
           "Registros de credenciales reutilizables que pueden seleccionarse al configurar un servidor",
-          "Una pantalla de inicio pensada para retomar el trabajo: las conexiones activas en este momento y las sesiones de tmux que te esperan en tus servidores — tomadas de una instantánea guardada, de modo que se listan sin red y cada fila indica su antigüedad. iOS mantiene además una lista de Recientes",
+          "Una pantalla de inicio pensada para retomar el trabajo: las conexiones activas en este momento y las sesiones de tmux que te esperan en tus servidores — tomadas de una instantánea guardada, de modo que se listan sin red y cada fila indica su antigüedad. En iOS la lista de Recientes pasó a la pantalla Nueva conexión, donde un toque rellena el formulario",
           "IPv6 de principio a fin: literales entre corchetes con un puerto opcional en los campos de dirección, y destinos IPv6 entre corchetes en las reglas de reenvío de puertos",
           "Registro de intentos de inicio de sesión, correctos y fallidos, que anota la dirección exacta marcada y, en caso de fallo, el motivo",
           "Transporte por proxy de Teleport (experimental, Android): inicia sesión con usuario, contraseña y OTP o importa un archivo de configuración o de identidad de Teleport, explora los nodos del clúster y luego ejecuta terminales, SFTP, tmux y complementos a través del túnel del proxy"

@@ -90,7 +90,7 @@ export const pcm: Dict = {
     videoHead: "See am as e dey work",
     videoIntro: "Short demos for di two platforms. Android: di home screen wey dey answer wetin you fit go back inside, session toolbar wey dey show only wetin dat server get, sending file straight enter di prompt, and di tmux, herdr and Zellij managers. iOS: opening straight enter live terminal, and di home screen wey you dey come back to.",
     videoAlt: "Android demo of di home screen wey dey list tmux sessions wey you fit resume, di session toolbar, attaching file enter di prompt, and di tmux, herdr and Zellij session managers",
-    videoIosAlt: "iOS demo of opening Mobile SSH straight enter live SSH terminal session and going back to di home screen, wit Recent and di oda screens wey di app get",
+    videoIosAlt: "iOS demo of opening Mobile SSH straight enter live SSH terminal session and going back to di home screen, wit di tmux manager, Settings and di oda screens wey di app get",
     muxHead: "One video for each session manager",
     muxIntro:
       "For di demos wey dey up there, tmux, herdr and Zellij share about thirty seconds between dem — e enough to show say di toolbar dey draw icon for each one, but e no enough to show wetin any of dem fit do. Dis na di long versions, wey we film for both platforms against server wey dey run true-true.",
@@ -142,9 +142,6 @@ export const pcm: Dict = {
     lightboxClose: "Close am",
     lightboxPrev: "Di one before",
     lightboxNext: "Di next one",
-    betaJoin: "Join di beta",
-    betaOr: "or email",
-    betaRequest: "to request private beta access",
     galleryAlts: [
       "Mobile SSH home screen for Android phone wit one Active Sessions banner and one Continue list of servers wey you save and fit go back to, on top di Servers, Credentials, Settings, About and Plugins buttons.",
       "Add Server dialog for phone wit fields for server name, host and port, extra addresses, credentials, private key and port forwards.",
@@ -214,7 +211,7 @@ export const pcm: Dict = {
           "Search-first Add Session flow: pick saved server from dedicated search page and connect wit one tap",
           "Plenty address for one saved server for LAN/VPN roaming — dem dey dial dem in order, di last address wey work go first, and reconnect go kick in wen network change",
           "Reusable credential record wey you fit pick for server setup",
-          "Home screen wey dem build around resuming: di connections wey dey live right now, and di tmux sessions wey dey wait for your servers — dem come from stored snapshot, so dem dey list even wen no network dey and each row carry di age of di snapshot. iOS still keep Recent list",
+          "Home screen wey dem build around resuming: di connections wey dey live right now, and di tmux sessions wey dey wait for your servers — dem come from stored snapshot, so dem dey list even wen no network dey and each row carry di age of di snapshot. For iOS di Recent list don move enter di New connection sheet, where one tap go fill di form for you",
           "IPv6 from end to end: bracketed literal wit optional port for di address fields, and bracketed IPv6 destination inside port-forward rules",
           "Login log for successful and failed try, wey dey record di exact address wey dem dial and, wen e fail, di reason",
           "Teleport proxy transport (experimental, Android): log in wit username, password, and OTP or import Teleport config or identity file, browse cluster nodes, then run terminals, SFTP, tmux, and plugins over di proxy tunnel"
