@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Encaminhamento de portas"
-description: "Sintaxe de encaminhamento de portas local do Mobile SSH, destinos IPv6 e como os túneis salvos sobem no Android e no iOS."
+description: "Sintaxe do encaminhamento local de portas do Mobile SSH, destinos IPv6 e como os túneis salvos sobem no Android e no iOS."
 ---
 
 # Encaminhamento de portas
 
-O Mobile SSH suporta encaminhamento de portas SSH local tanto no Android quanto no iOS. Uma porta local no dispositivo escuta em `127.0.0.1` e encaminha o tráfego pela conexão SSH para um host e porta remotos.
+O Mobile SSH suporta encaminhamento local de portas SSH tanto no Android quanto no iOS. Uma porta local no dispositivo escuta em `127.0.0.1` e encaminha o tráfego pela conexão SSH para um host e porta remotos.
 
 ## Sintaxe do túnel salvo
 

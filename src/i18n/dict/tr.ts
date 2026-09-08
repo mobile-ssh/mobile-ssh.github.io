@@ -43,7 +43,7 @@ export const tr: Dict = {
       { title: "Pro seviyesi yok, reklam yok", text: "Tüm özellikler aynı uygulamada. Temel akışları bir Pro yükseltmesinin ardına saklayan bir paywall yok, terminalde reklam afişi yok." },
       { title: "Verileriniz cihazınızda kalır", text: "Kaydedilen sunucular, kimlik bilgileri ve anahtarlar cihazda saklanır. Bulut hesabı yok; kapatılacak bir şey yok." },
       { title: "Kayıtlı sunucular, arayarak bağlan", text: "Sunucuyu bir kez ekleyin, arayın ve dokunarak bağlanın — anahtar, port ve tüneller birlikte gelir." },
-      { title: "Ajan uyarıları ve tek dokunuşla yanıt", text: "Claude Code, Codex veya başka bir ajanın size ihtiyaç duyduğu anı öğrenin: panel kehribar rengine döner, araç çubuğundaki bir rozet kaç ajanın beklediğini sayar ve Ajanlar listesi istemi tek dokunuşla yanıtlar — terminale hiçbir şey yazmadan." },
+      { title: "Ajan uyarıları ve tek dokunuşla yanıt", text: "Claude Code, Codex veya başka bir ajanın size ihtiyaç duyduğu anı öğrenin: bölme kehribar rengine döner, araç çubuğundaki bir rozet kaç ajanın beklediğini sayar ve Ajanlar listesi istemi tek dokunuşla yanıtlar — terminale hiçbir şey yazmadan." },
       { title: "Klavyenin üstünde terminal tuşları", text: "On üç tuşluk bir satır — ESC, TAB, CTRL, yön tuşları, Home, End, PgUp, PgDn — kaydırmak yerine ikinci bir satıra sarar; böylece hiçbir şey ekran dışında kalmaz. Hazır bir tuş paletinden F1–F12, Ctrl kombinasyonları veya kendi kaçış dizilerinizi ekleyin." },
       { title: "Komut yazmadan port yönlendirme", text: "Tüneller sunucu profiline bağlıdır ve bağlandığınız anda otomatik olarak yükselir." },
       { title: "Kilit ve ağ değişimine dayanıklı", text: "Kaydedilen bir sunucuya birden çok adres verin — bir ev LAN IP'si ve bir VPN IP'si — Mobile SSH hangisi yanıt verirse ona bağlanır, en son çalışan adresi önce dener ve ağ değiştiği anda yeniden bağlanır. Android'de bir ön plan servisi ve wake lock'lar, ekran kapalıyken oturumları canlı tutar; iOS'ta otomatik yeniden bağlanma ve tmux otomatik ekleme sizi kaldığınız yere geri getirir." },
@@ -52,15 +52,15 @@ export const tr: Dict = {
     ],
     sectionAHead: "Mobilde SSH çalışması için tasarlandı",
     sectionAIntro:
-      "Mobile SSH yaygın yönetim yolunu kısaltır: sunucuyu kaydet, bağlan, oturumları canlı tut, gerektiğinde dosya taşı ve hızlıca aktif terminallere geri dön.",
+      "Mobile SSH yaygın yönetim yolunu kısaltır: sunucuyu kaydet, bağlan, oturumları canlı tut, gerektiğinde dosya taşı ve hızlıca etkin terminallere geri dön.",
     features: [
       { title: "SSH terminali", text: "24-bit gerçek renk, italik, terminal içi arama, OSC 133 kabuk entegrasyonu ve sıkıştırarak metin boyutlandırmayla xterm-256color terminali — ayrıca Android ve iOS'ta yapılandırılabilir yazı tipi ve renk şeması ile Nerd Font powerline/simge glifleri." },
-      { title: "Çoklu oturum ızgarası", text: "Yeniden boyutlandırılabilir ızgarada sekiz SSH oturumuna kadar — odaklanmak için panele dokun, tam ekran için çift dokun, metni boyutlandırmak için sıkıştır." },
+      { title: "Çoklu oturum ızgarası", text: "Yeniden boyutlandırılabilir ızgarada sekiz SSH oturumuna kadar — odaklanmak için bölmeye dokun, tam ekran için çift dokun, metni boyutlandırmak için sıkıştır." },
       { title: "Tıklanabilir bağlantılar", text: "Terminaldeki URL'ler altı çizili olur ve bir dokunuşla tarayıcıda açılır — kopyalamaya veya uygulama değiştirmeye gerek kalmaz." },
       { title: "Sunucu klasörleri ve adları", text: "Kaydedilen sunucuları daraltılabilir gruplara düzenle ve bir sunucuya adresi yerine görünecek bir ad ver. Bir ad belirsiz kalacak olduğunda adres yeniden görünür; böylece satırlar birbirine karışmaz." },
-      { title: "Ajan uyarıları", text: "Ajanlar kendilerini terminal üzerinden bildirir; böylece uygulama hangisinin ne yüzünden takıldığını bilir. Ajanlar listesinden tek dokunuşla yanıtla; uyarılar üst üste birikmek yerine birbirinin yerini alır ve birine dokunmak zili çalan paneli açar." },
+      { title: "Ajan uyarıları", text: "Ajanlar kendilerini terminal üzerinden bildirir; böylece uygulama hangisinin ne yüzünden takıldığını bilir. Ajanlar listesinden tek dokunuşla yanıtla; uyarılar üst üste birikmek yerine birbirinin yerini alır ve birine dokunmak zili çalan bölmeyi açar." },
       { title: "Özel anahtarlar", text: "Parola veya özel anahtarla kimlik doğrulama. Cihazda Ed25519 veya ECDSA anahtarı oluşturun (Android'de ayrıca RSA); mevcut anahtarları içe aktarın veya yapıştırın." },
-      { title: "SFTP aktarımı", text: "Aktif SSH oturumuna bağlı çift panelli dosya gezgini. Yükleme ve indirme sırala; yeniden adlandır, sil ve uzak izinleri incele." },
+      { title: "SFTP aktarımı", text: "Etkin SSH oturumuna bağlı çift bölmeli dosya gezgini. Yükleme ve indirme sırala; yeniden adlandır, sil ve uzak izinleri incele." },
       { title: "Port yönlendirme", text: "Yerel tünel tanımlarını sunucu profiliyle kaydet; bağlandığında otomatik olarak açılırlar — yeni bir ağda yeniden bağlandıktan sonra bile, elle yeniden kurmana gerek kalmadan." },
       { title: "Yeniden bağlanma akışı", text: "Ağ değiştirdiğinde oturumlar ölü rotanın zaman aşımına uğramasını beklemeden hemen yeniden bağlanır; bekleme süresindeki bir oturum da kullanılabilir bir ağ belirir belirmez uyanır. iOS'ta sessizce yanıt vermeyi bırakmış bir sunucu fark edilir ve yeniden bağlanılır." },
       { title: "Yedekleme ve geri yükleme", text: "Kaydedilen sunucuları ve kimlik bilgilerini şifreli bir yedek dosyasına aktar; cihazlar arası geçiş için birleştir veya değiştir seçeneğiyle içe aktar — yedekler Android ve iOS arasında uyumludur." },
@@ -70,7 +70,7 @@ export const tr: Dict = {
     ],
     multiHead: "Tek ekran, birkaç canlı kabuk",
     multiP1:
-      "Terminal görünümü ızgarada birden çok aktif SSH oturumunu tutabilir. Yazmak için bir paneli seç, terminal kontrolleri için ek tuş satırını kullan, metin boyutunu sıkıştırarak ayarla ve tam ekran odaklanmak için bir panele çift dokun.",
+      "Terminal görünümü ızgarada birden çok etkin SSH oturumunu tutabilir. Yazmak için bir bölmeyi seç, terminal denetimleri için ek tuş satırını kullan, metin boyutunu sıkıştırarak ayarla ve tam ekran odaklanmak için bir bölmeye çift dokun.",
     multiP2:
       "Ana ekran «neye geri dönebilirim?» sorusunu yanıtlar — şu anda canlı olan bağlantılar ve kayıtlı sunucularında seni bekleyen tmux oturumları; saklanan bir anlık görüntüden yeniden oluşturuldukları için hiç ağ olmadan bile görünürler.",
     multiAlt:
@@ -80,7 +80,7 @@ export const tr: Dict = {
       "Telefon depolamasını ve uzak dizinleri taramak için bağlı bir oturumdan dosya aktarımını aç. Yüklemeleri ve indirmeleri sıraya al, dosyaları sırala, son kullanılan uzak yollara geri dön ve neyi taşıyacağına karar verirken uzak izinleri incele veya değiştir.",
     sftpCtaGuide: "Dosya aktarımı kılavuzu",
     sftpCtaAll: "Tüm özellikler",
-    sftpAlt: "Bir telefonda Mobile SSH dosya aktarımı ekranı; yerel ve uzak panellerle.",
+    sftpAlt: "Bir telefonda Mobile SSH dosya aktarımı ekranı; yerel ve uzak bölmelerle.",
     galleryHead: "Gerçek bir cihazda gör",
     galleryIntro:
       "Android telefonlardan ve iPhone'lardan ekran görüntüleri — sunucu eklemek, terminallerde çalışmak, birden çok oturum yürütmek ve SFTP ile dosya taşımak için kullanacağın aynı ekranlar.",
@@ -150,15 +150,15 @@ export const tr: Dict = {
       "Bir telefonda Sunucu Ekle iletişim kutusu; sunucu adı, ana bilgisayar ve port, ek adresler, kimlik bilgileri, özel anahtar ve port yönlendirme alanlarıyla.",
       "Bir telefonda tek oturumlu SSH terminali; oturum araç çubuğunun altında bir kodlama ajanının yaması ve geçen test koşusu görünüyor.",
       "Bir telefonda yan yana iki SSH oturumu bölünmüş görünümde.",
-      "Bir telefonda üst üste iki SSH oturumu; aktif panel vurgulu.",
-      "Bir telefonda SFTP dosya aktarımı ekranı; Telefonum ve Uzak Sunucu panelleri.",
+      "Bir telefonda üst üste iki SSH oturumu; etkin bölme vurgulu.",
+      "Bir telefonda SFTP dosya aktarımı ekranı; Telefonum ve Uzak Sunucu bölmeleri.",
       "Bir telefonda Hakkında iletişim kutusu; sürüm, yazar, lisans ve web sitesi alanları.",
       "Telefonda etiket, kullanıcı, anahtar türü ve parola alanlarını içeren SSH Anahtarı Oluştur iletişim kutusu.",
       "Telefonda oluşturulan anahtarı kopyalama, paylaşma ve kaydetme seçenekleriyle gösteren Genel Anahtar iletişim kutusu.",
       "Kaydedilen sunucuların daraltılabilir İş ve Kişisel klasör gruplarında düzenlendiğini gösteren Kaydedilen Sunucular ekranı.",
       "Bir telefonda SSH terminali; https:// URL'leri dokunulabilir tıklanabilir bağlantılar olarak altı çizili şekilde görünüyor.",
-      "Bir Android telefonda Zellij yöneticisi; oturumları, sekmeleri ve panelleri bağlan, yeniden adlandır, sonlandır ve odaklan düğmeleriyle listeliyor.",
-      "Bir telefonda tmux yöneticisi; tmux oturumlarını, pencerelerini ve panellerini listeliyor, bağlan, yeniden adlandır ve geçiş yap düğmeleriyle.",
+      "Bir Android telefonda Zellij yöneticisi; oturumları, sekmeleri ve bölmeleri bağlan, yeniden adlandır, sonlandır ve odaklan düğmeleriyle listeliyor.",
+      "Bir telefonda tmux yöneticisi; tmux oturumlarını, pencerelerini ve bölmelerini listeliyor, bağlan, yeniden adlandır ve geçiş yap düğmeleriyle.",
       "Bir telefonda Eklentiler ekranı; Tailscale, WireGuard ve VS Code içeren, kurulabilir bir eklenti kataloğu gösteriyor.",
       "Bir telefonda AI Chat eklentisi; uzak sunucuda SSH üzerinden çalışan yerel bir llama3.2 modelinden gelen yanıtı akıtıyor.",
       "Bir telefonda Sunucu Ekle iletişim kutusu; oturumların ağ kopmalarına dayanması için aktarım Eternal Terminal olarak ayarlanmış."
@@ -167,8 +167,8 @@ export const tr: Dict = {
       "Bir iPhone'da Mobile SSH bağlantı formu; sunucu, kimlik doğrulama, klasör ve aktarım alanlarıyla.",
       "Bir iPhone'da Kaydedilen Sunucular; sunucu aramasıyla Production ve Staging gruplarına düzenlenmiş.",
       "Bir iPhone'da canlı SSH terminali; tmux durum çubuğu ve en altta ek tuş satırıyla.",
-      "Bir iPhone'da ızgarada yan yana iki SSH oturumu; dokunarak odaklanılan panellerle.",
-      "Bir iPhone'da Dosya Aktarımı; Telefonum ve Uzak Sunucu panelleri ve tamamlanmış bir aktarım günlüğüyle.",
+      "Bir iPhone'da ızgarada yan yana iki SSH oturumu; dokunarak odaklanılan bölmelerle.",
+      "Bir iPhone'da Dosya Aktarımı; Telefonum ve Uzak Sunucu bölmeleri ve tamamlanmış bir aktarım günlüğüyle.",
       "Bir iPhone'da anahtarla kimlik doğrulama; cihazda oluşturulmuş bir Ed25519 anahtarı ve kopyalanabilir genel anahtarla.",
       "Bir iPhone'da tmux yöneticisi; oturumları ve pencereleri bağlan, yeniden adlandır ve sonlandır eylemleriyle listeliyor — girdi bekleyen bir ajanı zil simgesi işaretliyor.",
       "Bir iPhone'da bir tmux penceresine bağlı SSH terminali; uzak bir düzenleyicide kod gösteriyor.",
@@ -179,7 +179,7 @@ export const tr: Dict = {
     ],
     compareHead: "Termux ve Termius yanında yeri",
     compareIntro:
-      "Mobile SSH kasıtlı olarak dar tutulmuştur: ne tam bir Linux ortamıdır ne de çapraz platform takım kasası. Mobil kullanıcıların en çok ihtiyaç duyduğu oturum kontrollerine hızlı erişim sağlayan, Android ve iOS için yerel bir SSH/SFTP aracıdır.",
+      "Mobile SSH kasıtlı olarak dar tutulmuştur: ne tam bir Linux ortamıdır ne de çapraz platform takım kasası. Mobil kullanıcıların en çok ihtiyaç duyduğu oturum denetimlerine hızlı erişim sağlayan, Android ve iOS için yerel bir SSH/SFTP aracıdır.",
     compareGuideTitle: "Karşılaştırma kılavuzu",
     compareGuideText: "Telefonda veya tablette Mobile SSH, Termux veya Termius'tan hangisini ne zaman seçmeli.",
     privacyTitle: "Gizlilik politikası",
@@ -224,18 +224,18 @@ export const tr: Dict = {
         title: "Terminal",
         items: [
           "24-bit gerçek renk ve italik ile VT100/xterm-256color terminal davranışı — kabuğa TERM=xterm-256color ve COLORTERM=truecolor bildirilir",
-          "Android ve iOS'ta 1.000, 5.000, 10.000 veya 50.000 satıra ayarlanabilen geri kaydırma tamponu (varsayılan 5.000)",
+          "Android ve iOS'ta 1.000, 5.000, 10.000 veya 50.000 satıra ayarlanabilen geri kaydırma arabelleği (varsayılan 5.000)",
           "Terminalde bul — geri kaydırmayı ve görünür ekranı ara, eşleşmeler arasında atla (Android ve iOS)",
           "Kabuk entegrasyonu (OSC 133): istemler arasında adım adım gez, bir komutun çıktısının tamamını seç — yalnızca sonuncusunu değil, 300 satır geriden gelen derleme hatasını — ve uzun süren bir komut bittiğinde uyarı al (Android ve iOS)",
           "Kitty grafik protokolü aracılığıyla terminalde satır içi görüntüler; sıkıştırarak yakınlaştırma ve satır yeniden sarmalarında kaybolmak yerine yerinde kalır (Android ve iOS)",
           "Blok, braille ve sekstant mozaik glifleri uygulamanın kendisi tarafından çizilir; böylece chafa, timg ve ANSI sanatı boş kutular göstermek yerine tam olarak döşenir (Android)",
-          "Fare izlemeli bir TUI'de dokunuş bir tıklamadır — htop, vim ve panel seçimi dokunarak çalışır (Android)",
-          "Panel başlığı, tmux'tan sorulan veya kabuk tarafından OSC 7 ile bildirilen gerçek çalışma dizinini gösterir (Android)",
+          "Fare izlemeli bir TUI'de dokunuş bir tıklamadır — htop, vim ve bölme seçimi dokunarak çalışır (Android)",
+          "Bölme başlığı, tmux'tan sorulan veya kabuk tarafından OSC 7 ile bildirilen gerçek çalışma dizinini gösterir (Android)",
           "On üç tuşluk ek tuş satırı — ESC, TAB, CTRL, oklar, Home, End, PgUp, PgDn, klavye geçişi — kaydırmak yerine ikinci bir satıra sarar ve artakalanları bir taşma menüsüne katlar; böylece hiçbir tuş ekran dışında kalmaz",
           "Satırı Android ve iOS'ta özelleştir: F1–F12, Ctrl kombinasyonları ve simgeler dahil yaklaşık 45 hazır tuşluk bir paletten ekle; tuş kaldır, yeniden sırala, gizle, kendi kaçış dizisi tuşlarını tanımla ve canlı önizlemeyle varsayılanlara sıfırla",
           "Dokunarak odaklan, isteğe bağlı «dokununca klavyeyi göster», kopyala ve tümünü kopyala eylemleri",
           "Sıkıştırarak metin boyutunu değiştir ve uzak terminali yeniden boyutlandır",
-          "Çift dokunarak panel tam ekran modu",
+          "Çift dokunarak bölme tam ekran modu",
           "Kopyala, Paylaş ve Tümünü seç eylemleriyle terminal metni seçimi — uzun basış kelimeyi seçer ve Kopyala, seçimi paylaşmak veya yeniden kopyalamak için korur",
           "OSC 52 pano — uzak bir tmux veya vim oturumundaki metni doğrudan telefon panosuna kopyala (Android ve iOS)",
           "Yerel geçişli klavye girişi — otomatik düzeltme kabukla çakışmaz; ekran klavyesi sesli diktesi yine de çalışır",
@@ -243,7 +243,7 @@ export const tr: Dict = {
           "Köşeli parantezli yapıştırma (bracketed paste); böylece çok satırlı pano içeriği otomatik çalıştırılmaz",
           "Yerleşik Nerd Font, sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini Android ve iOS'ta işler",
           "Geniş CJK, emoji ve birleşen karakterler Android ve iOS'ta doğru şekilde ölçülür ve çizilir; grafem kümeleri ve sıfır genişlikli birleştiriciler dahil",
-          "Android ve iOS'ta yapılandırılabilir terminal yazı tipi (sistem tek aralıklı, JetBrains Mono veya Source Code Pro) ve ANSI renk şeması (Solarized, Gruvbox, Dracula, Nord); açık panellere anında uygulanır",
+          "Android ve iOS'ta yapılandırılabilir terminal yazı tipi (sistem tek aralıklı, JetBrains Mono veya Source Code Pro) ve ANSI renk şeması (Solarized, Gruvbox, Dracula, Nord); açık bölmelere anında uygulanır",
           "Ayarlar'da sıkıştırarak yakınlaştırmanın yanı sıra bir terminal metin boyutu kaydırıcısı ve Sistem, Açık ya da Koyu olarak ayarlanan bir uygulama teması"
         ]
       },
@@ -251,34 +251,34 @@ export const tr: Dict = {
         title: "Oturumlar",
         items: [
           "Eşzamanlı sekiz SSH oturumuna kadar",
-          "Aktif oturumlar için ızgara düzeni",
+          "Etkin oturumlar için ızgara düzeni",
           "Arka plan ve ekran kilidi dayanıklılığı: Android'de bir ön plan servisi, uygulamayı kaydırıp kapattıktan sonra bile kabukları ve ajanları çalışır tutar; iOS'ta tmux otomatik ekleme kabuğunuzu yeniden bağlar",
           "Üstel gerilemeli keepalive ve yeniden bağlanma denemeleri — en fazla on deneme; zaten ayrıldığınız bir ağda yaşanan başarısızlıklar bu sınıra sayılmaz",
           "Wi-Fi, hücresel veri veya VPN arasında geçmek, ölü rotanın zaman aşımını beklemek yerine anında yeniden bağlanmayı başlatır; bekleme süresindeki bir oturum da kullanılabilir bir ağ belirir belirmez yeniden dener",
           "Sessizce yanıt vermeyi bırakmış bir sunucu — askıya alınmış bir sanal makine, kilitlenmiş bir atlama ana bilgisayarı — yanıtsız kalan keepalive yoklamalarından fark edilir ve tuş vuruşlarınızı sessizce yutmak yerine yeniden bağlanılır (iOS)",
-          "Başlangıç ekranından Aktif Oturumlar girişi; süregelen bildirim oturumları listeler — açmak için dokunun",
+          "Başlangıç ekranından Etkin Oturumlar girişi; süregelen bildirim oturumları listeler — açmak için dokunun",
           "Kesintiye uğrayan iş için tmux komut izleme ve reattach ipuçları; ayrıca sunucu başına bağlanınca neye eklenileceği seçimi: otomatik algıla, hiçbiri, tmux, herdr veya Zellij (Android)",
-          "Ajanlar kendilerini terminal üzerinden bildirir; böylece uygulama hangi ajanın çalıştığını, hangi aracı kullandığını ve sizin yüzünüzden takılıp takılmadığını bilir — panel kehribar rengine döner, başlığında «claude · sizi bekliyor» yazar ve araç çubuğundaki bir rozet kaç ajanın beklediğini sayar",
+          "Ajanlar kendilerini terminal üzerinden bildirir; böylece uygulama hangi ajanın çalıştığını, hangi aracı kullandığını ve sizin yüzünüzden takılıp takılmadığını bilir — bölme kehribar rengine döner, başlığında «claude · sizi bekliyor» yazar ve araç çubuğundaki bir rozet kaç ajanın beklediğini sayar",
           "Bir ajanın sorusunu Ajanlar listesinden tek dokunuşla yanıtlayın; yanıt ayrı bir kanaldan gider, bu yüzden ekranda olanın içine hiçbir şey yazılmaz",
           "Ajan kancasını uygulamanın içinden bir sunucuya kurun — herhangi bir ajanın çağırabileceği küçük bir kabuk betiği; sağlayıcıya özel bir entegrasyon değil",
           "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) aktarımı; isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla",
-          "Tmux yöneticisi: oturumları, pencereleri ve panelleri listele ve aralarında geçiş yap — bağlan, yeniden adlandır, oluştur, böl, yakınlaştır veya sonlandır; ada/tarihe göre sıralama ve girdi bekleyen ajanlar için 🔔",
-          "Android ve iOS'ta herdr ve Zellij yöneticileri; her biri kendi oturumları, sekmeleri ve panelleri üzerinde aynı denetimi sunar — araç çubuğu bir simgeyi yalnızca o program sunucuda bulunduğunda gösterir"
+          "Tmux yöneticisi: oturumları, pencereleri ve bölmeleri listele ve aralarında geçiş yap — bağlan, yeniden adlandır, oluştur, böl, yakınlaştır veya sonlandır; ada/tarihe göre sıralama ve girdi bekleyen ajanlar için 🔔",
+          "Android ve iOS'ta herdr ve Zellij yöneticileri; her biri kendi oturumları, sekmeleri ve bölmeleri üzerinde aynı denetimi sunar — araç çubuğu bir simgeyi yalnızca o program sunucuda bulunduğunda gösterir"
         ]
       },
       {
         title: "Dosyalar ve tüneller",
         items: [
-          "Yerel ve uzak dosyalar için çift panelli SFTP gezgini; her aktarımı gösteren ve kaydırılabilen bir aktarım günlüğüyle",
+          "Yerel ve uzak dosyalar için çift bölmeli SFTP gezgini; her aktarımı gösteren ve kaydırılabilen bir aktarım günlüğüyle",
           "Sıraya alınmış yükleme ve indirme işlemleri; Android'de başka bir uygulamadan herhangi bir dosyayı çalışan oturuma paylaşın, uzak yolu komut istemine yazılır",
           "Telefon ve uzak ana bilgisayar arasında özyinelemeli klasör yükleme ve indirme",
           "Uzak yeniden adlandırma, silme, oluşturma, düzenleme, .tar.gz olarak sıkıştırma, izinler (chmod/chown) ve ayrıntılar",
           "İndirilen bir dosyayı her iki platformda da başka bir uygulamada açın — iOS'ta indirilenler ayrıca Dosyalar uygulamasında «iPhone'umda» altında görünür",
-          "Android'de Dosya Aktarımı, ilgili tmux oturumunun kaldığı yerden yeniden açılır ve oturumu panel başlığında adlandırır; hatırlanacak bir şey yoksa o ana bilgisayarda en çok kullandığınız dizinlere döner",
+          "Android'de Dosya Aktarımı, ilgili tmux oturumunun kaldığı yerden yeniden açılır ve oturumu bölme başlığında adlandırır; hatırlanacak bir şey yoksa o ana bilgisayarda en çok kullandığınız dizinlere döner",
           "Her ana bilgisayar için kalıcı, ada veya tarihe göre sıralama ve son kullanılan uzak yollara geri dönüş",
           "Dosya boyutları ikili birimlerde gösterilir; bir sekme ötedeki terminalde ls -h ne gösteriyorsa onunla eşleşir",
           "Sunucu profilleriyle kaydedilen ve bağlanıldığında otomatik olarak açılan yerel port yönlendirme",
-          "Uygulamanın tamamı ve dosya tarayıcısı sistemin açık veya koyu temasını takip eder — Android ve iOS'ta Sistem, Açık veya Koyu seçin"
+          "Uygulamanın tamamı ve dosya gezgini sistemin açık veya koyu temasını takip eder — Android ve iOS'ta Sistem, Açık veya Koyu seçin"
         ]
       },
       {
@@ -348,14 +348,14 @@ export const tr: Dict = {
         termius: "Ana bilgisayarları, anahtarları, parçacıkları ve kasaları Termius uygulama/hesap modeliyle oluştur veya eşitle."
       },
       {
-        need: "Mobil terminal kontrolleri",
-        mobileSsh: "Yerleşik ek tuş satırı, ızgara oturumları, tam ekran paneller, sıkıştırarak yakınlaştırma, kopya/paylaş ile seçim ve tmux uyumlu kaydırma — her iki platformda yerel geçişli yazım ve harici klavye desteğiyle.",
+        need: "Mobil terminal denetimleri",
+        mobileSsh: "Yerleşik ek tuş satırı, ızgara oturumları, tam ekran bölmeler, sıkıştırarak yakınlaştırma, kopya/paylaş ile seçim ve tmux uyumlu kaydırma — her iki platformda yerel geçişli yazım ve harici klavye desteğiyle.",
         termux: "Güçlü terminal ortamı; davranış yüklü araçlara ve yapılandırmaya bağlı.",
         termius: "Mobil klavye eklentisi, hareketler, sekmeler, otomatik tamamlama, parçacıklar ve cilalı terminal deneyimi."
       },
       {
         need: "Dosya aktarımı",
-        mobileSsh: "Aktif SSH oturumuna bağlı, yerleşik çift panelli SFTP aktarımı.",
+        mobileSsh: "Etkin SSH oturumuna bağlı, yerleşik çift bölmeli SFTP aktarımı.",
         termux: "scp, sftp, rsync gibi komut satırı araçlarını veya yüklü dosya yardımcılarını kullan.",
         termius: "Yerleşik SFTP ile ana bilgisayar/anahtar yönetimi."
       },
@@ -413,7 +413,7 @@ export const tr: Dict = {
       { category: "Terminal",  feature: "Terminal içi arama (geri kaydırma)",         mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",  feature: "Ek tuş satırı (ESC/TAB/CTRL/…)",            mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Terminal",  feature: "Sıkıştırarak metin boyutlandırma",           mobile: "yes",    termux: "yes",          termius: "yes" },
-      { category: "Terminal",  feature: "Çift dokunarak paneli tam ekrana al",        mobile: "yes",    termux: "no",           termius: "no" },
+      { category: "Terminal",  feature: "Çift dokunarak bölmeyi tam ekrana al",        mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",  feature: "Terminaldeki tıklanabilir URL'ler",          mobile: "yes",    termux: "kısmi",        termius: "yes" },
       { category: "Terminal",  feature: "Metin seçimi: kopyala / paylaş / tümünü seç", mobile: "yes", termux: "yes",          termius: "yes" },
       { category: "Terminal",  feature: "Donanım / Bluetooth klavye desteği",         mobile: "yes",    termux: "yes",          termius: "yes" },
@@ -423,7 +423,7 @@ export const tr: Dict = {
       { category: "Terminal",  feature: "Fare modlu TUI'lerde dokunuş tıklama sayılır", mobile: "Android", termux: "yes",        termius: "no" },
       { category: "Terminal",  feature: "Nerd Font / powerline glif oluşturma",       mobile: "yes",     termux: "yapılandırılabilir", termius: "kısmi" },
       { category: "Oturumlar", feature: "Eşzamanlı birden çok SSH oturumu",          mobile: "en fazla 8", termux: "en fazla 8", termius: "yes" },
-      { category: "Oturumlar", feature: "Izgara panel düzeni",                       mobile: "yes",    termux: "tmux ile",     termius: "sekmeler" },
+      { category: "Oturumlar", feature: "Izgara bölme düzeni",                       mobile: "yes",    termux: "tmux ile",     termius: "sekmeler" },
       { category: "Oturumlar", feature: "tmux uyumlu kaydırma",                     mobile: "yes",    termux: "yes",          termius: "no" },
       { category: "Oturumlar", feature: "Yeniden bağlanmada tmux reattach ipuçları", mobile: "yes",   termux: "no",           termius: "no" },
       { category: "Oturumlar", feature: "Ajan uyarıları (Claude Code / Codex)",      mobile: "yes",    termux: "no",           termius: "no" },
@@ -431,7 +431,7 @@ export const tr: Dict = {
       { category: "Oturumlar", feature: "Ön plan servisi ve wake lock",              mobile: "Android", termux: "yes",         termius: "kısmi" },
       { category: "Oturumlar", feature: "Geri çekilmeli otomatik yeniden bağlanma",  mobile: "yes",    termux: "autossh ile",  termius: "yes" },
       { category: "Dosyalar",  feature: "Yerleşik SFTP dosya aktarımı arayüzü",      mobile: "yes",    termux: "no",           termius: "yes" },
-      { category: "Dosyalar",  feature: "Çift panelli yerel + uzak gezgin",          mobile: "yes",    termux: "no",           termius: "yes" },
+      { category: "Dosyalar",  feature: "Çift bölmeli yerel + uzak gezgin",          mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "Dosyalar",  feature: "Yükleme / indirme kuyruğu",                mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "Dosyalar",  feature: "Uzak yeniden adlandır / sil / oluştur",     mobile: "yes",    termux: "no",           termius: "yes" },
       { category: "Dosyalar",  feature: "Uzak dosya izinleri görünümü",              mobile: "yes",    termux: "no",           termius: "no" },
@@ -513,8 +513,8 @@ export const tr: Dict = {
     permissionsHeading: "İzinler",
     permissions: [
       { label: "İnternet", body: "SSH sunucularına bağlanmak için gereklidir." },
-      { label: "Wake lock ve Wi-Fi lock", body: "cihaz uykudayken aktif SSH oturumlarını canlı tutmak için Android'de kullanılır." },
-      { label: "Ön plan servisi ve bildirimler", body: "arka planda aktif bağlantıları yönetmek için Android'de kullanılır; iOS'ta bildirimler ajan uyarıları için kullanılır." },
+      { label: "Wake lock ve Wi-Fi lock", body: "cihaz uykudayken etkin SSH oturumlarını canlı tutmak için Android'de kullanılır." },
+      { label: "Ön plan servisi ve bildirimler", body: "arka planda etkin bağlantıları yönetmek için Android'de kullanılır; iOS'ta bildirimler ajan uyarıları için kullanılır." },
       { label: "Dosya erişimi", body: "Android'de sistem seçicisiyle klasör bazında, iOS'ta ise sistemin belge ve fotoğraf seçicileri üzerinden verilir. Mobile SSH hiçbir platformda toptan depolama izni istemez." }
     ],
     securityHeading: "Güvenlik sorumlulukları",
@@ -532,7 +532,7 @@ export const tr: Dict = {
       "Mobile SSH'yi kurmak, bağlanmak, oturumları yönetmek, dosya aktarmak, port yönlendirmek ve sorunları çözmek için bu sayfaları genel kılavuz olarak kullanın.",
     cards: [
       { slug: "getting-started",  title: "Başlarken",        text: "Kur, uygulamayı aç, ilk sunucuna bağlan ve sık kullanılan ana bilgisayarları kaydet." },
-      { slug: "terminal",         title: "Terminal",          text: "Paneller, ek tuş satırı, kaydırma, kopyalama eylemleri, tmux davranışı ve klavye ayarları." },
+      { slug: "terminal",         title: "Terminal",          text: "Bölmeler, ek tuş satırı, kaydırma, kopyalama eylemleri, tmux davranışı ve klavye ayarları." },
       { slug: "file-transfer",    title: "Dosya aktarımı",   text: "Telefon ve sunucu dosyalarını gez, yükle, indir, sırala ve uzak ayrıntıları incele." },
       { slug: "port-forwarding",  title: "Port yönlendirme", text: "Yerel tünel dizeleri yaz, IPv6 hedeflerine yönlendir ve bağlandığında kendiliğinden açılmalarını sağla." },
       { slug: "troubleshooting",  title: "Sorun giderme",    text: "Bağlantı, kimlik doğrulama, klavye, depolama ve yeniden bağlanma sorunlarını çöz." }

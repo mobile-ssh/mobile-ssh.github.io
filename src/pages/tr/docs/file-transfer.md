@@ -19,7 +19,7 @@ Etkin bir SSH oturumu yoksa dosya aktarımı açılamaz.
 
 ## Yerel ve uzak bölmeler
 
-Dosya aktarım ekranında iki tarayıcı bölmesi vardır:
+Dosya aktarım ekranında iki gezgin bölmesi vardır:
 
 - **Yerel bölme:** telefon depolaması.
 - **Uzak bölme:** SFTP üzerinden sunucu dosyaları.
@@ -44,7 +44,7 @@ iOS'ta yerel bölme uygulamanın belgeler alanıdır ve dosyalar sistemin belge 
 
 iOS'ta yerel bölme, uygulamanın kendi belgeler alanıyla çalışır ve dosyaları sistem belge ve fotoğraf seçicileri aracılığıyla içeri alırsınız — fotoğrafların ve belgelerin çoklu seçimle içe aktarılması dahil. Ayrı bir depolama izni gerekmez.
 
-Özel anahtar içe aktarma işlemi dosya aktarımından bağımsızdır ve sistem dosya seçiciyi kullanır.
+Özel anahtar içe aktarma işlemi dosya aktarımından bağımsızdır ve sistem dosya seçicisini kullanır.
 
 ## Dosya yükleme
 

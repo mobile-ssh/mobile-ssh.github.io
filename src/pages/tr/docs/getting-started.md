@@ -12,8 +12,8 @@ Mobile SSH, kendi Linux, Unix, ağ, IoT veya geliştirme sunucularınıza bağla
 
 - Android 8.0 veya üzeri ya da iOS 16 veya üzeri (iPhone veya iPad).
 - Cihazdan SSH sunucunuza ağ erişimi.
-- SSH sunucusunun ana bilgisayar adı veya IP adresi, bağlantı noktası, kullanıcı adı ve bir parola ya da özel anahtar.
-- Android'de, telefonun yerel dosya tarayıcısıyla SFTP dosya aktarımı kullanmak isterseniz depolama erişimi; iOS bunun yerine sistemin dosya ve fotoğraf seçicilerini kullanır.
+- SSH sunucusunun ana bilgisayar adı veya IP adresi, port, kullanıcı adı ve bir parola ya da özel anahtar.
+- Android'de, telefonun yerel dosya gezginiyle SFTP dosya aktarımı kullanmak isterseniz depolama erişimi; iOS bunun yerine sistemin dosya ve fotoğraf seçicilerini kullanır.
 
 ## Uygulamayı yükleme
 
@@ -24,11 +24,11 @@ Mobile SSH, kendi Linux, Unix, ağ, IoT veya geliştirme sunucularınıza bağla
 
 1. Mobile SSH'yi açın.
 2. **+ Add Session** düğmesine dokunun ve kayıtlı bir sunucu arayın ya da o ekrandan yeni bir sunucu ekleyin.
-3. Yeni bir sunucu ekliyorsanız ana bilgisayarı, bağlantı noktasını, kullanıcı adını ve kimlik doğrulama ayrıntılarını girin.
+3. Yeni bir sunucu ekliyorsanız ana bilgisayarı, portu, kullanıcı adını ve kimlik doğrulama ayrıntılarını girin.
 4. Bir terminal oturumu açmak için sunucuya dokunun.
 5. Hâlâ çalışan oturumlara dönmek için başlangıç ekranındaki **Active Sessions** seçeneğini kullanın.
 
-Varsayılan SSH bağlantı noktası `22`'dir. Sunucunuz başka bir bağlantı noktası kullanıyorsa onu sunucu profiline girin.
+Varsayılan SSH portu `22`'dir. Sunucunuz başka bir port kullanıyorsa onu sunucu profiline girin.
 
 ## Aktarım seçme
 
@@ -42,17 +42,17 @@ Bir sunucu eklerken veya düzenlerken **Transport** seçicisi Mobile SSH'nin nas
 Kayıtlı sunucular, bağlantı hedefini ve isteğe bağlı tünel yapılandırmasını saklar. Kayıtlı bir sunucu şunları içerebilir:
 
 - Ana bilgisayar adı veya IP adresi.
-- SSH bağlantı noktası.
+- SSH portu.
 - Kullanıcı adı.
 - Parola veya özel anahtar ayrıntıları.
-- İsteğe bağlı yerel bağlantı noktası yönlendirme kuralları.
+- İsteğe bağlı yerel port yönlendirme kuralları.
 - Aynı makine için isteğe bağlı ek adresler (aşağıya bakın).
 
 Sık eriştiğiniz ana bilgisayarlar için kayıtlı sunucuları kullanın. Kayıtlı bir sunucu, mevcut etkin oturumunuzdan farklı bir ana bilgisayara işaret ediyorsa Mobile SSH seçilen hedef için yeni bir bağlantı başlatır.
 
 ### Birden çok adres (LAN/VPN dolaşımı)
 
-Aynı makineye, bulunduğunuz yere bağlı olarak genellikle farklı adreslerden erişilebilir — bir ev Wi-Fi IP'si ile bir VPN IP'si gibi. Sunucunun düzenleme iletişim kutusunda, gerekirse her biri kendi bağlantı noktasıyla, alternatif adresleri ekleyin. Bağlandığınızda Mobile SSH adresleri biri yanıt verene kadar sırayla dener ve en son çalışan adresi hatırlayıp bir sonraki sefer önce onu arar. Bir ağ değişikliği (örneğin VPN'den ayrılmak), ölü rotanın zaman aşımına uğramasını beklemek yerine artık erişilebilir olan adrese anında yeniden bağlanmayı tetikler.
+Aynı makineye, bulunduğunuz yere bağlı olarak genellikle farklı adreslerden erişilebilir — bir ev Wi-Fi IP'si ile bir VPN IP'si gibi. Sunucunun düzenleme iletişim kutusunda, gerekirse her biri kendi portuyla, alternatif adresleri ekleyin. Bağlandığınızda Mobile SSH adresleri biri yanıt verene kadar sırayla dener ve en son çalışan adresi hatırlayıp bir sonraki sefer önce onu arar. Bir ağ değişikliği (örneğin VPN'den ayrılmak), ölü rotanın zaman aşımına uğramasını beklemek yerine artık erişilebilir olan adrese anında yeniden bağlanmayı tetikler.
 
 ## Kimlik bilgilerini kaydetme
 
@@ -71,7 +71,7 @@ Bir özel anahtar kullanmak için:
 3. Anahtar şifreliyse parola/parola tümcesi alanına anahtar parola tümcesini girin.
 4. Kimlik bilgisini veya sunucuyu kaydedin.
 
-Özel anahtar içe aktarma işlemi, anahtar dosyaları için sistem dosya seçicisini kullanır. Android'de dosya aktarımı ayrı bir yerel dosya tarayıcısı kullanır ve daha yeni Android sürümlerinde daha geniş depolama erişimi isteyebilir; iOS'ta dosyalar sistemin belge ve fotoğraf seçicileri aracılığıyla gelir.
+Özel anahtar içe aktarma işlemi, anahtar dosyaları için sistem dosya seçicisini kullanır. Android'de dosya aktarımı ayrı bir yerel dosya gezgini kullanır ve daha yeni Android sürümlerinde daha geniş depolama erişimi isteyebilir; iOS'ta dosyalar sistemin belge ve fotoğraf seçicileri aracılığıyla gelir.
 
 ## Ana ekran
 
@@ -97,7 +97,7 @@ Servers ve Credentials ekranlarındaki **Export selected…**, listeyi onay kutu
 
 ## Etkin oturumlar
 
-Oturumlar çalışırken başlangıç ekranı bir sayıyla birlikte **Active Sessions** seçeneğini gösterir. Terminal ızgarasına dönmek için üzerine dokunun. Devam eden bir bildirim de etkin ana bilgisayarları listeler — doğrudan o terminale geçmek için bildirimdeki bir ana bilgisayara dokunun.
+Oturumlar çalışırken başlangıç ekranı bir sayıyla birlikte **Active Sessions** seçeneğini gösterir. Terminal ızgarasına dönmek için üzerine dokunun. Süregelen bir bildirim de etkin ana bilgisayarları listeler — doğrudan o terminale geçmek için bildirimdeki bir ana bilgisayara dokunun.
 
 Başlangıç ekranına dönmek etkin SSH oturumlarını kesmez; bölmeleri kapatmak veya terminal etkinliğini sonlandırmak oturumları keser.
 

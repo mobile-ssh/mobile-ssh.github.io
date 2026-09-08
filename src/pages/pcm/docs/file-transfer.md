@@ -6,14 +6,14 @@ description: "Mobile SSH SFTP file transfer guide for local files, remote files,
 
 # File transfer
 
-Mobile SSH get SFTP file transfer screen wey dey connected to di active SSH session. E dey useful for quick server maintenance from your phone or tablet: upload config file, download log, rename remote file, or check permissions — all without leaving di app.
+Mobile SSH get SFTP file transfer screen wey dey connected to di active SSH session. E dey useful for quick server maintenance from your phone or tablet: upload config file, download log, rename remote file, or check permissions — all witout leaving di app.
 
 ## Open file transfer
 
 1. Connect to one SSH server.
 2. Select di connected terminal pane.
 3. Open **Transfer** from di terminal toolbar, or long-press di pane header if di current screen support am.
-4. Di file transfer screen go open with one local pane and one remote pane.
+4. Di file transfer screen go open wit one local pane and one remote pane.
 
 If no active SSH session dey, file transfer no go fit open.
 
@@ -42,7 +42,7 @@ For Android you go grant **one folder** wit di system folder picker, and downloa
 
 For iOS, di local pane na di app documents area, and files dey enter through di system document and photo pickers.
 
-For iOS, di local pane dey work with di app own documents area, and you dey bring files in through di system document and photo pickers — including multi-select import of photos and documents. You no need any separate storage permission.
+For iOS, di local pane dey work wit di app own documents area, and you dey bring files in through di system document and photo pickers — including multi-select import of photos and documents. You no need any separate storage permission.
 
 Private key import dey separate from file transfer and e dey use di system file picker.
 
@@ -52,7 +52,7 @@ Private key import dey separate from file transfer and e dey use di system file 
 2. Navigate go di file wey you wan upload.
 3. Choose upload.
 4. Confirm di remote destination.
-5. Watch di transfer queue to see progress and when e finish.
+5. Watch di transfer queue to see progress and wen e finish.
 
 Uploads dey use di existing SSH/SFTP connection. If di connection cut, reconnect first then try again.
 
@@ -62,9 +62,9 @@ Uploads dey use di existing SSH/SFTP connection. If di connection cut, reconnect
 2. Navigate go di file wey you wan download.
 3. Choose download.
 4. Confirm di local destination.
-5. Watch di transfer queue to see progress and when e finish.
+5. Watch di transfer queue to see progress and wen e finish.
 
-Make you do big downloads on stable network when e possible.
+Make you do big downloads on stable network wen e possible.
 
 ## Copy whole folders
 
@@ -91,7 +91,7 @@ Dem dey show file size for binary units, so e go match wetin `ls -h` dey print f
 
 ## Sorting and recent paths
 
-Each pane fit sort by name or date, for ascending or descending order. Mobile SSH dey store di local and remote sort modes wey you choose per host, together with recent paths — so when you transfer to di same server again, e go start from familiar location.
+Each pane fit sort by name or date, for ascending or descending order. Mobile SSH dey store di local and remote sort modes wey you choose per host, together wit recent paths — so wen you transfer to di same server again, e go start from familiar location.
 
 ## Transfer queue
 

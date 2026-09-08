@@ -19,7 +19,7 @@ Jika tidak ada sesi SSH aktif, transfer berkas tidak dapat dibuka.
 
 ## Panel lokal dan jarak jauh
 
-Layar transfer berkas memiliki dua panel peramban:
+Layar transfer berkas memiliki dua panel penjelajah:
 
 - **Panel lokal:** penyimpanan ponsel.
 - **Panel jarak jauh:** berkas server melalui SFTP.

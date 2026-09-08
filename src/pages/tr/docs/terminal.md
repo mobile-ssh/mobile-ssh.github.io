@@ -11,9 +11,9 @@ Mobile SSH terminali telefon ve tablet kullanımı için tasarlanmıştır. Bir 
 ## Terminal temelleri
 
 - Terminal, renk desteği ve imleç tuşu işleme ile xterm tarzı davranış kullanır.
-- Geri kaydırma arabelleği varsayılan olarak 5000 satır tutar ve Ayarlar'dan 1.000, 10.000 veya 50.000 olarak değiştirilebilir.
+- Geri kaydırma arabelleği varsayılan olarak 5.000 satır tutar ve Ayarlar'dan 1.000, 10.000 veya 50.000 olarak değiştirilebilir.
 - Yazmadan önce bir bölmeyi seçmek için dokunun.
-- Metin boyutunu değiştirmek için bir terminal bölmesini kıstırın. Hareket durulduktan sonra Mobile SSH uzak PTY'yi yeniden boyutlandırır.
+- Metin boyutunu değiştirmek için bir terminal bölmesini iki parmağınızla sıkıştırın. Hareket durulduktan sonra Mobile SSH uzak PTY'yi yeniden boyutlandırır.
 - Tam ekran moduna girmek için bir bölmeye çift dokunun (veya bölmenin genişletme denetimini kullanın). Izgaraya dönmek için Android'de Geri'yi, iOS'ta ise daraltma denetimini kullanın.
 
 ## Çoklu oturum ızgarası
@@ -99,7 +99,7 @@ Tüm terminal arabelleğini — geri kaydırmayı ve görünür ekranı — aray
 Hem Android hem de iOS'ta Ayarlar, terminali özelleştirmenize olanak tanır:
 
 - **Yazı tipi:** sistem tek aralıklı yazı tipini, JetBrains Mono veya Source Code Pro'yu seçin.
-- **Renk şeması:** Varsayılan, Solarized Koyu veya Açık, Gruvbox, Dracula ya da Nord — açık panellere anında uygulanır.
+- **Renk şeması:** Varsayılan, Solarized Koyu veya Açık, Gruvbox, Dracula ya da Nord — açık bölmelere anında uygulanır.
 - **Ek tuş satırı:** tuş ekleyin, kaldırın, yeniden sıralayın ve gizleyin, kendi kaçış dizisi tuşlarınızı tanımlayın ve varsayılanlara sıfırlayın; canlı önizleme satırın tam olarak nasıl bölüneceğini gösterir. Android bunu bir **Keys** sekmesine koyar; iOS'ta **Extra keys → Customize keys** altındadır.
 - **Hazır tuşlardan ekleme:** altı grupta yaklaşık 45 tuşluk bir palet — `F1`–`F12`, `^C` `^D` `^Z` `^R` `^L` gibi Ctrl kombinasyonları, `|` `~` `/` `_` `:` gibi simgeler ve değiştiriciler. `F1`–`F12` sıradan kaçış dizileri olarak gönderilir, bu yüzden bir `FN` akoru gerektirmezler. Android ayrıca dosya seçicisini açıp canlı oturuma yükleme yapan bir 📎 **Attach a file** tuşu sunar; iOS ise `INS`, `DEL` ve bir rakam satırını açığa çıkaran bir `FN` tuşu sunar.
 - **Geri kaydırma boyutu:** 1.000, 5.000, 10.000 veya 50.000 satır (varsayılan 5.000). Yeni bölmelere uygulanır.
@@ -212,4 +212,4 @@ Vim, less, htop, ncurses araçları ve tmux bölmeleri gibi programlar için:
 
 - Giriş doğrudan programa iletilir — araya girecek otomatik düzeltme veya öneri arabelleği yoktur.
 - `ESC`, ok tuşları, `PGUP` ve `PGDN` için ek tuş satırını kullanın.
-- Metin çok küçükse kıstırarak yakınlaştırma kullanın, ardından uzak terminal boyutunun oturması için kısaca bekleyin.
+- Metin çok küçükse sıkıştırarak yakınlaştırmayı kullanın, ardından uzak terminal boyutunun oturması için kısaca bekleyin.

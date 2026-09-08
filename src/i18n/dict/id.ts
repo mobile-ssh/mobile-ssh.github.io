@@ -26,7 +26,7 @@ export const id: Dict = {
   home: {
     metaTitle: "Mobile SSH — Klien SSH untuk Android & iOS",
     metaDescription:
-      "Mobile SSH adalah klien SSH yang fokus untuk Android dan iOS dengan terminal multi-sesi, sesi tangguh Eternal Terminal, pengelola tmux, transfer SFTP, kunci pribadi, penerusan port, dan plugin.",
+      "Mobile SSH adalah klien SSH yang fokus untuk Android dan iOS dengan terminal multi-sesi, sesi tangguh Eternal Terminal, pengelola tmux, transfer SFTP, kunci privat, penerusan port, dan plugin.",
     eyebrow: "Klien SSH untuk Android & iOS",
     h1: "Mobile SSH",
     intro:
@@ -41,12 +41,12 @@ export const id: Dict = {
     advantagesIntro: "Dirancang untuk menjawab hal-hal yang biasa keliru pada klien SSH ponsel.",
     advantages: [
       { title: "Tanpa tingkatan Pro, tanpa iklan", text: "Semua fitur ada di aplikasi yang sama. Tidak ada paywall yang menyembunyikan alur kerja penting di balik upgrade Pro, tidak ada banner iklan di terminal." },
-      { title: "Data Anda tetap lokal", text: "Server, kredensial, dan kunci yang disimpan ada di perangkat. Tidak ada akun cloud; tidak ada yang bisa dihentikan." },
-      { title: "Host tersimpan, terhubung dengan satu tap", text: "Tambahkan host sekali dan hubungkan kembali dengan satu tap — termasuk kunci, port, dan tunnel yang sudah dikonfigurasi." },
+      { title: "Data Anda tetap lokal", text: "Server, kredensial, dan kunci yang disimpan ada di perangkat. Tidak ada akun awan; tidak ada yang bisa dihentikan." },
+      { title: "Host tersimpan, terhubung dengan satu ketuk", text: "Tambahkan host sekali dan hubungkan kembali dengan satu ketuk — termasuk kunci, port, dan tunnel yang sudah dikonfigurasi." },
       { title: "Peringatan agen, dan satu ketuk untuk menjawab", text: "Ketahui persis saat Claude Code, Codex, atau agen lain membutuhkan Anda: panel berubah kuning amber, lencana di bilah alat menghitung siapa saja yang menunggu, dan daftar Agents menjawab pertanyaannya dengan satu ketuk — tanpa perlu mengetik di terminal." },
       { title: "Tombol terminal di atas keyboard", text: "Baris berisi tiga belas tombol — ESC, TAB, CTRL, panah, Home, End, PgUp, PgDn — yang membungkus ke baris kedua alih-alih digulir, jadi tidak ada yang tersembunyi di luar layar. Tambahkan F1–F12, kombinasi Ctrl, atau escape sequence buatan Anda sendiri dari palet preset." },
       { title: "Penerusan port tanpa perintah", text: "Tunnel melekat pada profil server dan otomatis aktif saat tersambung." },
-      { title: "Bertahan saat layar terkunci dan roaming", text: "Beri satu server tersimpan beberapa alamat — IP LAN rumah dan IP VPN — dan Mobile SSH menghubungi mana pun yang merespons, mencoba alamat terakhir yang berhasil lebih dulu, lalu menyambung ulang begitu jaringan berubah. Di Android, layanan foreground dan wake lock menjaga shell tetap hidup saat layar mati; di iOS, koneksi ulang otomatis plus attach otomatis tmux mengembalikan Anda ke tempat terakhir Anda bekerja." },
+      { title: "Bertahan saat layar terkunci dan roaming", text: "Beri satu server tersimpan beberapa alamat — IP LAN rumah dan IP VPN — dan Mobile SSH menghubungi mana pun yang merespons, mencoba alamat terakhir yang berhasil lebih dulu, lalu menyambung ulang begitu jaringan berubah. Di Android, layanan latar depan dan wake lock menjaga shell tetap hidup saat layar mati; di iOS, penyambungan ulang otomatis plus attach otomatis tmux mengembalikan Anda ke tempat terakhir Anda bekerja." },
       { title: "Eternal Terminal", text: "Transport ET opsional menjaga shell jarak jauh tetap hidup saat koneksi jaringan terputus, perangkat tidur, dan IP berubah. Tidak ada etserver di host? Mobile SSH dapat memasangnya untuk Anda melalui SSH." },
       { title: "Perluas dengan plugin", text: "Telusuri katalog publik dan pasang plugin sesuai kebutuhan untuk menambah alur kerja baru. Setiap plugin diunduh dan diverifikasi SHA-256 ke penyimpanan privat aplikasi." }
     ],
@@ -56,14 +56,14 @@ export const id: Dict = {
     features: [
       { title: "Terminal SSH", text: "Terminal xterm-256color dengan warna sejati 24-bit, huruf miring, pencarian di dalam terminal, integrasi shell OSC 133, dan penyesuaian ukuran teks dengan cubit — plus font dan skema warna yang dapat dikonfigurasi serta glyph powerline/ikon Nerd Font di Android dan iOS." },
       { title: "Kisi multi-sesi", text: "Hingga delapan sesi SSH dalam kisi yang dapat diubah ukurannya — ketuk panel untuk fokus, ketuk ganda untuk layar penuh, cubit untuk ubah ukuran teks." },
-      { title: "Tautan yang dapat diklik", text: "URL di terminal digarisbawahi dan terbuka di browser dengan satu tap — tanpa menyalin atau berpindah aplikasi." },
+      { title: "Tautan yang dapat diklik", text: "URL di terminal digarisbawahi dan terbuka di peramban dengan satu ketuk — tanpa menyalin atau berpindah aplikasi." },
       { title: "Folder dan nama server", text: "Atur server tersimpan ke dalam grup yang dapat diciutkan, dan beri sebuah server nama yang ditampilkan menggantikan alamatnya. Alamatnya muncul kembali setiap kali sebuah nama menjadi ambigu, sehingga barisnya tidak pernah tampak seragam." },
       { title: "Peringatan agen", text: "Agen melapor lewat terminal, jadi aplikasi tahu agen mana yang tertahan dan karena apa. Jawab dari daftar Agents dengan satu ketuk; peringatan saling menggantikan alih-alih menumpuk, dan mengetuknya membuka panel yang berbunyi." },
-      { title: "Kunci pribadi", text: "Autentikasi kata sandi atau kunci pribadi. Buat kunci Ed25519 atau ECDSA di perangkat (RSA juga di Android); impor atau tempel kunci yang ada." },
+      { title: "Kunci privat", text: "Autentikasi kata sandi atau kunci privat. Buat kunci Ed25519 atau ECDSA di perangkat (RSA juga di Android); impor atau tempel kunci yang ada." },
       { title: "Transfer SFTP", text: "Penjelajah berkas dua panel yang terhubung ke sesi SSH aktif. Antrakan unggahan dan unduhan, ganti nama, hapus, dan periksa izin jarak jauh." },
       { title: "Penerusan port", text: "Simpan spesifikasi tunnel lokal bersama profil server dan tunnel itu terbuka otomatis saat tersambung — termasuk setelah penyambungan ulang di jaringan baru, tanpa perlu Anda bangun ulang secara manual." },
       { title: "Alur penyambungan ulang", text: "Ganti jaringan dan semua sesi langsung menghubungi ulang alih-alih menunggu rute mati kehabisan waktu, dan sesi yang sedang dalam backoff bangun begitu jaringan yang dapat dipakai muncul. Di iOS, server yang diam-diam berhenti menjawab akan terdeteksi dan disambungkan ulang." },
-      { title: "Cadangan & pemulihan", text: "Ekspor server dan kredensial tersimpan ke file cadangan terenkripsi; impor dengan gabung atau ganti untuk berpindah antar perangkat — cadangan dapat dipertukarkan antara Android dan iOS." },
+      { title: "Cadangan & pemulihan", text: "Ekspor server dan kredensial tersimpan ke berkas cadangan terenkripsi; impor dengan gabung atau ganti untuk berpindah antar perangkat — cadangan dapat dipertukarkan antara Android dan iOS." },
       { title: "Eternal Terminal", text: "Sambung melalui Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah — dengan opsi penyiapan etserver otomatis melalui SSH." },
       { title: "Pengelola multiplexer", text: "Kendalikan tmux tanpa kord prefix — attach, ganti nama, buat, pisah, zoom, atau kill. Kedua platform memberikan hal yang sama untuk herdr dan Zellij, dan ikon di bilah alat baru muncul setelah program itu ditemukan di server." },
       { title: "Plugin", text: "Telusuri, pasang, dan jalankan plugin untuk memperluas Mobile SSH. Plugin diunduh sesuai kebutuhan dari katalog publik dan diverifikasi SHA-256 ke penyimpanan privat aplikasi." }
@@ -96,9 +96,9 @@ export const id: Dict = {
       "Pada demo di atas, tmux, herdr, dan Zellij hanya berbagi sekitar tiga puluh detik — cukup untuk menunjukkan bahwa bilah alat menggambar ikon untuk masing-masing, tetapi tidak cukup untuk menunjukkan apa yang bisa dilakukan salah satunya. Ini versi panjangnya, difilmkan di kedua platform terhadap server sungguhan.",
     muxItems: [
         {
-          text: "Sesi, jendela, dan panel yang dijangkau langsung dari layar utama, dengan satu sesi ditandai lonceng karena ada sesuatu di sana yang menunggu jawaban. Lampirkan sebuah jendela dan terminal yang sedang berjalan ikut berpindah; buat jendela lalu beri nama — tanpa sekali pun mengetik kombinasi prefiks.",
-          androidAlt: "Demo pengelola tmux di Android: daftar sesi tersimpan di layar utama, lalu sesi, jendela, dan panel, melampirkan jendela sehingga terminal mengikutinya, dan membuat jendela bernama.",
-          iosAlt: "Demo pengelola tmux di iOS: sesi tmux beserta usianya dan lonceng pada sesi yang menunggu masukan, lalu jendela dan panel, tiap baris menawarkan Buka, Ganti nama, dan Hentikan."
+          text: "Sesi, jendela, dan panel yang dijangkau langsung dari layar beranda, dengan satu sesi ditandai lonceng karena ada sesuatu di sana yang menunggu jawaban. Attach sebuah jendela dan terminal yang sedang berjalan ikut berpindah; buat jendela lalu beri nama — tanpa sekali pun mengetik kord prefix.",
+          androidAlt: "Demo pengelola tmux di Android: daftar sesi tersimpan di layar beranda, lalu sesi, jendela, dan panel, meng-attach jendela sehingga terminal mengikutinya, dan membuat jendela bernama.",
+          iosAlt: "Demo pengelola tmux di iOS: sesi tmux beserta usianya dan lonceng pada sesi yang menunggu input, lalu jendela dan panel, tiap baris menawarkan Buka, Ganti nama, dan Kill."
         },
         {
           text: "Ruang kerja, tab, dan panel yang membawa keadaan agen yang sebenarnya — satu agen bekerja, satu lagi terblokir menunggu manusia. Pratinjau yang terblokir, jawab dari ponsel, lalu lihat herdr menggolongkannya kembali menjadi bekerja, kemudian selesai.",
@@ -106,9 +106,9 @@ export const id: Dict = {
           iosAlt: "Demo pengelola herdr di iOS: ruang kerja yang membawa keadaan agen dan lembar balasan yang mengirim ketikan ke agen yang terblokir, diikuti Enter."
         },
         {
-          text: "Sesi beserta usianya, lalu tab dan panel. Pratinjau keluaran sebuah panel, tambahkan tab bernama, bawa yang penting ke depan, lalu lampirkan — tanpa mengetik apa pun di prompt.",
-          androidAlt: "Demo pengelola Zellij di Android: sesi beserta usianya, tab dan panel, pratinjau keluaran panel, membuat tab bernama, dan melampirkan sesi.",
-          iosAlt: "Demo pengelola Zellij di iOS: sebuah sesi dengan tindakan lampirkan, ganti nama, hentikan, dan hapus, tab-tabnya, serta panel yang menawarkan pratinjau dan kedua arah pembagian."
+          text: "Sesi beserta usianya, lalu tab dan panel. Pratinjau keluaran sebuah panel, tambahkan tab bernama, bawa yang penting ke depan, lalu attach — tanpa mengetik apa pun di prompt.",
+          androidAlt: "Demo pengelola Zellij di Android: sesi beserta usianya, tab dan panel, pratinjau keluaran panel, membuat tab bernama, dan meng-attach sesi.",
+          iosAlt: "Demo pengelola Zellij di iOS: sebuah sesi dengan tindakan attach, ganti nama, kill, dan hapus, tab-tabnya, serta panel yang menawarkan pratinjau dan kedua arah pembagian."
         }
     ],
     demoHead: "Tiga lagi, difilmkan di Android",
@@ -136,9 +136,9 @@ export const id: Dict = {
     ],
     graphicsHead: "Grafik bergerak, di dalam terminal",
     graphicsBody:
-      "GIF 36 bingkai yang dialirkan lewat protokol grafis Kitty dan didekode aplikasi pada tempo bingkai berkas itu sendiri — bukan dimajukan dari luar. Lalu urutan escape yang menjadi ukuran sebuah terminal: OSC 8 mengubah nomor build dan nama dasbor menjadi sesuatu yang bisa diketuk, OSC 52 membiarkan sisi jauh menulis papan klip ponsel Anda, dan OSC 777 memunculkan notifikasi Android yang sungguhan.",
+      "GIF 36 bingkai yang dialirkan lewat protokol grafis Kitty dan didekode aplikasi pada tempo bingkai berkas itu sendiri — bukan dimajukan dari luar. Lalu escape sequence yang menjadi ukuran sebuah terminal: OSC 8 mengubah nomor build dan nama dasbor menjadi sesuatu yang bisa diketuk, OSC 52 membiarkan sisi jauh menulis clipboard ponsel Anda, dan OSC 777 memunculkan notifikasi Android yang sungguhan.",
     graphicsAlt:
-      "Demo Android berupa grafik latensi bergerak yang dialirkan ke terminal lewat protokol grafis Kitty, disusul tautan OSC 8, penulisan papan klip OSC 52, dan notifikasi OSC 777.",
+      "Demo Android berupa grafik latensi bergerak yang dialirkan ke terminal lewat protokol grafis Kitty, disusul tautan OSC 8, penulisan clipboard OSC 52, dan notifikasi OSC 777.",
     lightboxClose: "Tutup",
     lightboxPrev: "Sebelumnya",
     lightboxNext: "Berikutnya",
@@ -147,7 +147,7 @@ export const id: Dict = {
     betaRequest: "untuk meminta akses beta privat",
     galleryAlts: [
       "Layar beranda Mobile SSH di ponsel Android dengan spanduk Sesi Aktif dan daftar Lanjutkan berisi server tersimpan yang bisa dilanjutkan, di atas tombol Server, Kredensial, Pengaturan, Tentang, dan Plugin.",
-      "Dialog Tambah Server di ponsel dengan kolom nama server, host dan port, alamat tambahan, kredensial, kunci pribadi, dan penerusan port.",
+      "Dialog Tambah Server di ponsel dengan kolom nama server, host dan port, alamat tambahan, kredensial, kunci privat, dan penerusan port.",
       "Terminal SSH satu sesi di ponsel yang menampilkan tambalan dari agen pemrograman dan uji coba yang lulus, di bawah bilah alat sesi.",
       "Dua sesi SSH dalam tampilan terbagi berdampingan di ponsel.",
       "Dua sesi SSH bertumpuk secara vertikal di ponsel dengan panel aktif disorot.",
@@ -164,18 +164,18 @@ export const id: Dict = {
       "Dialog Tambah Server di ponsel dengan transport disetel ke Eternal Terminal agar sesi bertahan saat koneksi jaringan terputus."
     ],
     galleryIosAlts: [
-      "Formulir sambungan Mobile SSH di iPhone dengan kolom server, autentikasi, folder, dan transport.",
+      "Formulir koneksi Mobile SSH di iPhone dengan kolom server, autentikasi, folder, dan transport.",
       "Server Tersimpan di iPhone yang diatur dalam grup Production dan Staging dengan pencarian server.",
       "Terminal SSH langsung di iPhone dengan bilah status tmux dan baris tombol tambahan di bagian bawah.",
       "Dua sesi SSH berdampingan dalam kisi di iPhone dengan panel ketuk-untuk-fokus.",
       "Transfer Berkas di iPhone dengan panel Ponsel Saya dan Host Jarak Jauh serta log transfer yang selesai.",
       "Autentikasi kunci di iPhone dengan kunci Ed25519 yang dibuat di perangkat dan kunci publik yang dapat disalin.",
-      "Pengelola tmux di iPhone yang menampilkan daftar sesi dan jendela dengan aksi attach, ganti nama, dan kill — ikon bel menandai agen yang menunggu masukan.",
+      "Pengelola tmux di iPhone yang menampilkan daftar sesi dan jendela dengan aksi attach, ganti nama, dan kill — ikon bel menandai agen yang menunggu input.",
       "Terminal SSH di iPhone yang ter-attach ke jendela tmux menampilkan kode di editor jarak jauh.",
       "Katalog plugin di iPhone dengan Tailscale, WireGuard, VS Code, AI Chat, dan Open WebUI yang dapat dipasang.",
-      "Formulir sambungan di iPhone dengan transport disetel ke Eternal Terminal agar sesi bertahan saat koneksi jaringan terputus.",
+      "Formulir koneksi di iPhone dengan transport disetel ke Eternal Terminal agar sesi bertahan saat koneksi jaringan terputus.",
       "Pengaturan peringatan agen di iPhone dengan sakelar getaran, suara, dan hanya-headphone.",
-      "Layar beranda Mobile SSH di iPhone dengan daftar Terkini untuk menyambung ulang dengan satu tap, di atas ubin Server, Kredensial, Log, Pengaturan, Tentang, dan Plugin."
+      "Layar beranda Mobile SSH di iPhone dengan daftar Terkini untuk menyambung ulang dengan satu ketuk, di atas ubin Server, Kredensial, Log, Pengaturan, Tentang, dan Plugin."
     ],
     compareHead: "Tempatnya di samping Termux dan Termius",
     compareIntro:
@@ -188,7 +188,7 @@ export const id: Dict = {
   features: {
     metaTitle: "Fitur | Mobile SSH",
     metaDescription:
-      "Fitur utama Mobile SSH untuk SSH di Android dan iOS: terminal, Eternal Terminal, pengelola tmux, SFTP, kunci pribadi, penerusan port, dan plugin.",
+      "Fitur utama Mobile SSH untuk SSH di Android dan iOS: terminal, Eternal Terminal, pengelola tmux, SFTP, kunci privat, penerusan port, dan plugin.",
     eyebrow: "Daftar fitur",
     h1: "Fitur Mobile SSH",
     intro:
@@ -205,13 +205,13 @@ export const id: Dict = {
       {
         title: "Koneksi",
         items: [
-          "Autentikasi kata sandi dan kunci pribadi",
-          "Kunci pribadi Ed25519, ECDSA (P-256/384/521), dan RSA di Android; Ed25519 dan ECDSA di iOS. Kedua platform dapat membuka kunci yang terenkripsi frasa sandi",
-          "Profil server tersimpan dengan host, port, pengguna, kredensial, kunci pribadi, dan spesifikasi tunnel opsional — klon profil untuk menggandakan pengaturannya ke server baru",
+          "Autentikasi kata sandi dan kunci privat",
+          "Kunci privat Ed25519, ECDSA (P-256/384/521), dan RSA di Android; Ed25519 dan ECDSA di iOS. Kedua platform dapat membuka kunci yang terenkripsi frasa sandi",
+          "Profil server tersimpan dengan host, port, pengguna, kredensial, kunci privat, dan spesifikasi tunnel opsional — klon profil untuk menggandakan pengaturannya ke server baru",
           "Beri sebuah server nama dan daftarnya menampilkan nama itu alih-alih alamatnya — alamatnya kembali muncul setiap kali dua baris akan terlihat serupa",
           "Cari server tersimpan berdasarkan nama, host, port, kredensial, atau salah satu alamat alternatifnya",
           "Sambung dua kali ke mesin yang sama lewat dua baris tersimpan dan aplikasi menyadarinya — ia mencocokkan sidik jari kunci host lalu menawarkan untuk menggabungkannya menjadi satu server multi-alamat",
-          "Alur Tambah Sesi berbasis pencarian: pilih server tersimpan dari halaman pencarian khusus dan sambung dengan satu tap",
+          "Alur Tambah Sesi berbasis pencarian: pilih server tersimpan dari halaman pencarian khusus dan sambung dengan satu ketuk",
           "Beberapa alamat per server tersimpan untuk roaming LAN/VPN — dihubungi berurutan dengan alamat terakhir yang berhasil dicoba lebih dulu, dan penyambungan ulang aktif saat jaringan berubah",
           "Catatan kredensial yang dapat dipakai ulang dan dipilih dari penyetelan server",
           "Layar beranda yang dirancang untuk melanjutkan pekerjaan: koneksi yang aktif saat ini, dan sesi tmux yang menunggu di server Anda — diambil dari snapshot tersimpan, sehingga tetap terdaftar tanpa jaringan dan setiap baris ditandai umurnya. iOS juga tetap menyimpan daftar Terkini",
@@ -224,15 +224,15 @@ export const id: Dict = {
         title: "Terminal",
         items: [
           "Perilaku terminal bergaya VT100/xterm-256color dengan warna sejati 24-bit dan huruf miring — shell diberi tahu TERM=xterm-256color dan COLORTERM=truecolor",
-          "Buffer scrollback yang disetel ke 1.000, 5.000, 10.000, atau 50.000 baris di Android dan iOS (5.000 secara default)",
+          "Buffer scrollback yang disetel ke 1.000, 5.000, 10.000, atau 50.000 baris di Android dan iOS (5.000 secara bawaan)",
           "Cari di terminal — telusuri buffer scrollback dan layar yang terlihat serta lompat antar kecocokan (Android dan iOS)",
-          "Integrasi shell (OSC 133): melangkah antar prompt, pilih seluruh output sebuah perintah — galat build dari 300 baris ke belakang, bukan hanya yang terakhir — dan dapatkan peringatan saat perintah yang berjalan lama selesai (Android dan iOS)",
+          "Integrasi shell (OSC 133): melangkah antar prompt, pilih seluruh keluaran sebuah perintah — galat build dari 300 baris ke belakang, bukan hanya yang terakhir — dan dapatkan peringatan saat perintah yang berjalan lama selesai (Android dan iOS)",
           "Gambar inline di terminal melalui protokol grafis Kitty, yang bertahan saat zoom cubit dan pembungkusan ulang alih-alih lenyap (Android dan iOS)",
           "Glyph mosaik blok, braille, dan sekstan yang digambar sendiri oleh aplikasi, sehingga chafa, timg, dan ANSI art tersusun persis alih-alih tampil sebagai kotak kosong (Android)",
           "Di TUI yang melacak mouse, satu ketukan berarti satu klik — htop, vim, dan pemilihan panel bekerja lewat sentuhan (Android)",
           "Header panel menyebutkan direktori kerja sebenarnya dari panel itu, ditanyakan ke tmux atau dilaporkan shell melalui OSC 7 (Android)",
           "Baris tombol tambahan berisi tiga belas tombol — ESC, TAB, CTRL, panah, Home, End, PgUp, PgDn, toggle keyboard — yang membungkus ke baris kedua alih-alih digulir, dan melipat sisanya ke menu luapan sehingga tidak ada tombol yang berada di luar layar",
-          "Sesuaikan barisnya di Android dan iOS: tambahkan dari palet berisi sekitar 45 preset termasuk F1–F12, kombinasi Ctrl, dan simbol; hapus, susun ulang, sembunyikan, tentukan tombol escape-sequence Anda sendiri, dan reset ke default, dengan pratinjau langsung",
+          "Sesuaikan barisnya di Android dan iOS: tambahkan dari palet berisi sekitar 45 preset termasuk F1–F12, kombinasi Ctrl, dan simbol; hapus, susun ulang, sembunyikan, tentukan tombol escape sequence Anda sendiri, dan reset ke default, dengan pratinjau langsung",
           "Sentuh untuk fokus, opsi sentuh-untuk-tampilkan-keyboard, aksi salin dan salin semua",
           "Cubit untuk ukuran teks dengan resize terminal jarak jauh",
           "Mode layar penuh panel dengan ketuk ganda",
@@ -244,7 +244,7 @@ export const id: Dict = {
           "Nerd Font bawaan menampilkan glyph ikon powerline, starship, devicon, dan Material Design di Android dan iOS yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem",
           "Karakter CJK lebar, emoji, dan karakter penggabung diukur dan digambar dengan benar di Android dan iOS, termasuk klaster grafem dan zero-width joiner",
           "Font terminal yang dapat dikonfigurasi (monospace sistem, JetBrains Mono, atau Source Code Pro) dan skema warna ANSI (Solarized, Gruvbox, Dracula, Nord) di Android dan iOS, diterapkan secara langsung ke panel yang terbuka",
-          "Penggeser ukuran teks terminal di Setelan berdampingan dengan zoom cubit, serta tema aplikasi yang dapat disetel ke Sistem, Terang, atau Gelap"
+          "Penggeser ukuran teks terminal di Pengaturan berdampingan dengan zoom cubit, serta tema aplikasi yang dapat disetel ke Sistem, Terang, atau Gelap"
         ]
       },
       {
@@ -252,17 +252,17 @@ export const id: Dict = {
         items: [
           "Hingga delapan sesi SSH bersamaan",
           "Tata letak kisi untuk sesi aktif",
-          "Ketahanan latar belakang dan kunci layar: di Android, layanan foreground menjaga shell dan agen tetap berjalan setelah Anda menggeser aplikasi dari daftar terkini; di iOS, attach otomatis tmux menyambungkan kembali shell Anda",
+          "Ketahanan latar belakang dan kunci layar: di Android, layanan latar depan menjaga shell dan agen tetap berjalan setelah Anda menggeser aplikasi dari daftar terkini; di iOS, attach otomatis tmux menyambungkan kembali shell Anda",
           "Keepalive dan upaya penyambungan ulang dengan backoff eksponensial — hingga sepuluh percobaan, dan kegagalan pada jaringan yang sudah Anda tinggalkan tidak dihitung ke batas itu",
           "Beralih Wi-Fi, seluler, atau VPN langsung memicu penyambungan ulang alih-alih menunggu rute mati kehabisan waktu, dan sesi yang sudah dalam backoff mencoba lagi begitu jaringan yang dapat dipakai muncul",
           "Server yang diam-diam berhenti menjawab — VM yang ditangguhkan, jump host yang macet — terdeteksi lewat probe keepalive yang tak terjawab lalu disambungkan ulang, alih-alih diam-diam menelan ketikan Anda (iOS)",
-          "Titik masuk Sesi Aktif dari layar awal; notifikasi berkelanjutan menampilkan daftar sesi — ketuk untuk membuka",
+          "Titik masuk Sesi Aktif dari layar beranda; notifikasi berkelanjutan menampilkan daftar sesi — ketuk untuk membuka",
           "Pelacakan perintah tmux dan petunjuk reattach untuk pekerjaan terhenti, dengan pilihan per server tentang apa yang di-attach saat menyambung: deteksi otomatis, tidak ada, tmux, herdr, atau Zellij (Android)",
           "Agen melaporkan dirinya sendiri lewat terminal, sehingga aplikasi tahu agennya, alat yang sedang dijalankannya, dan apakah ia tertahan menunggu Anda — panel berubah kuning amber, headernya berbunyi \"claude · needs you\", dan lencana di bilah alat menghitung siapa saja yang menunggu",
           "Jawab pertanyaan agen dengan satu ketuk dari daftar Agents; balasannya dikirim melalui kanal terpisah, jadi ia tidak pernah mengetik ke apa pun yang sedang tampil di layar",
           "Pasang hook agen ke sebuah server dari dalam aplikasi — skrip shell kecil yang dapat dipanggil agen mana pun, bukan integrasi khusus satu vendor",
           "Transport Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah, dengan opsi penyiapan etserver otomatis melalui SSH",
-          "Pengelola tmux: lihat daftar dan beralih antar sesi, jendela, dan panel — attach, ganti nama, buat, pisah, zoom, atau kill, dengan pengurutan nama/tanggal dan 🔔 untuk agen yang menunggu masukan",
+          "Pengelola tmux: lihat daftar dan beralih antar sesi, jendela, dan panel — attach, ganti nama, buat, pisah, zoom, atau kill, dengan pengurutan nama/tanggal dan 🔔 untuk agen yang menunggu input",
           "Pengelola herdr dan Zellij di Android dan iOS, masing-masing dengan jangkauan yang sama atas sesi, tab, dan panelnya sendiri — bilah alat menampilkan ikonnya hanya setelah program itu ditemukan di server"
         ]
       },
@@ -285,7 +285,7 @@ export const id: Dict = {
         title: "Pelokalan",
         items: [
           "Terjemahan UI aplikasi: Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, dan Urdu — dua puluh bahasa di Android, yang menambahkan Pidgin Nigeria dan Arab Mesir, serta delapan belas di iOS",
-          "Mengikuti bahasa sistem secara default, dan Setelan menyediakan pemilih bahasa jika Anda ingin aplikasi dalam bahasa selain bahasa ponsel"
+          "Mengikuti bahasa sistem secara bawaan, dan Pengaturan menyediakan pemilih bahasa jika Anda ingin aplikasi dalam bahasa selain bahasa ponsel"
         ]
       },
       {
@@ -293,17 +293,17 @@ export const id: Dict = {
         items: [
           "Buat kunci Ed25519 atau ECDSA baru di perangkat (RSA juga di Android), dengan frasa sandi opsional",
           "Salin, bagikan, atau simpan kunci publik yang dibuat untuk ditambahkan ke authorized_keys server",
-          "Ekspor server dan kredensial tersimpan ke file cadangan — semuanya sekaligus, atau centang hanya baris yang Anda inginkan, di mana mengetuk header folder mengambil seluruh isi folder",
+          "Ekspor server dan kredensial tersimpan ke berkas cadangan — semuanya sekaligus, atau centang hanya baris yang Anda inginkan, di mana mengetuk header folder mengambil seluruh isi folder",
           "Frasa sandi opsional mengenkripsi cadangan; impor dengan gabung atau ganti",
-          "Cadangan tanpa enkripsi menyimpan kata sandi dan kunci dalam teks biasa — lindungi atau hapus file"
+          "Cadangan tanpa enkripsi menyimpan kata sandi dan kunci dalam teks biasa — lindungi atau hapus berkasnya"
         ]
       },
       {
         title: "Keamanan",
         items: [
           "Layar aman: di Android, memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari thumbnail aplikasi terkini; di iOS, mengosongkan pratinjau pengalih aplikasi dan memblokir perekaman serta mirroring layar (tangkapan layar manual tidak dapat diblokir di iOS) — pengaturan opt-in untuk saat kata sandi, kunci, atau token ada di layar",
-          "Server, kredensial, dan kunci yang disimpan tetap di perangkat — rahasia disimpan di Android Keystore dan iOS Keychain, tanpa akun cloud atau sinkronisasi",
-          "Hanya analitik penggunaan anonim — tidak pernah server, kredensial, perintah, atau isi berkas Anda. Android memiliki sakelar untuk mematikannya di Setelan; iOS belum memilikinya"
+          "Server, kredensial, dan kunci yang disimpan tetap di perangkat — rahasia disimpan di Android Keystore dan iOS Keychain, tanpa akun awan atau sinkronisasi",
+          "Hanya analitik penggunaan anonim — tidak pernah server, kredensial, perintah, atau isi berkas Anda. Android memiliki sakelar untuk mematikannya di Pengaturan; iOS belum memilikinya"
         ]
       },
       {
@@ -381,7 +381,7 @@ export const id: Dict = {
     cards: [
       {
         title: "Pilih Mobile SSH bila",
-        body: "Anda ingin akses SSH langsung dari ponsel atau tablet — Android atau iOS — tanpa menyiapkan lingkungan Linux penuh atau model akun yang disinkronkan ke cloud. Sangat cocok untuk server tersimpan, SFTP, sesi tmux, dan alur tunnel lokal yang cepat."
+        body: "Anda ingin akses SSH langsung dari ponsel atau tablet — Android atau iOS — tanpa menyiapkan lingkungan Linux penuh atau model akun yang disinkronkan ke awan. Sangat cocok untuk server tersimpan, SFTP, sesi tmux, dan alur tunnel lokal yang cepat."
       },
       {
         title: "Pilih Termux bila",
@@ -414,7 +414,7 @@ export const id: Dict = {
       { category: "Terminal",         feature: "Baris tombol tambahan (ESC/TAB/CTRL/…)",         mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Ukuran teks dengan cubit",                       mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Ketuk ganda panel ke layar penuh",               mobile: "yes",     termux: "no",            termius: "no" },
-      { category: "Terminal",         feature: "URL yang dapat diklik di output terminal",       mobile: "yes",     termux: "sebagian",      termius: "yes" },
+      { category: "Terminal",         feature: "URL yang dapat diklik di keluaran terminal",     mobile: "yes",     termux: "sebagian",      termius: "yes" },
       { category: "Terminal",         feature: "Seleksi teks: salin / bagikan / pilih semua",   mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Dukungan keyboard hardware / Bluetooth",         mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Integrasi shell (OSC 133)",                      mobile: "yes",     termux: "no",            termius: "no" },
@@ -428,7 +428,7 @@ export const id: Dict = {
       { category: "Sesi",             feature: "Petunjuk reattach tmux saat penyambungan ulang", mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sesi",             feature: "Peringatan agen (Claude Code / Codex)",          mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sesi",             feature: "Notifikasi berkelanjutan dengan daftar sesi",    mobile: "Android", termux: "sebagian",      termius: "no" },
-      { category: "Sesi",             feature: "Layanan foreground & wake lock",                 mobile: "Android", termux: "yes",           termius: "sebagian" },
+      { category: "Sesi",             feature: "Layanan latar depan & wake lock",                mobile: "Android", termux: "yes",           termius: "sebagian" },
       { category: "Sesi",             feature: "Penyambungan ulang otomatis dengan backoff",     mobile: "yes",     termux: "melalui autossh", termius: "yes" },
       { category: "Berkas",           feature: "UI transfer berkas SFTP bawaan",                 mobile: "yes",     termux: "no",            termius: "yes" },
       { category: "Berkas",           feature: "Penjelajah dua panel lokal + jarak jauh",        mobile: "yes",     termux: "no",            termius: "yes" },
@@ -440,11 +440,11 @@ export const id: Dict = {
       { category: "Tunnel",           feature: "Tunnel tersimpan bersama profil server",         mobile: "yes",     termux: "melalui ssh config", termius: "yes" },
       { category: "Tunnel",           feature: "Tambah / hapus tunnel saat runtime",             mobile: "no",      termux: "no",            termius: "yes" },
       { category: "Kunci",            feature: "Autentikasi kata sandi",                         mobile: "yes",     termux: "yes",           termius: "yes" },
-      { category: "Kunci",            feature: "Autentikasi kunci pribadi",                      mobile: "yes",     termux: "yes",           termius: "yes" },
+      { category: "Kunci",            feature: "Autentikasi kunci privat",                       mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Kunci",            feature: "Pembuatan kunci di perangkat",                   mobile: "yes",     termux: "melalui ssh-keygen", termius: "yes" },
       { category: "Kunci",            feature: "Bagikan / simpan kunci publik yang dibuat",      mobile: "yes",     termux: "yes",           termius: "yes" },
-      { category: "Cadangan",         feature: "Ekspor / impor cadangan server",                 mobile: "yes",     termux: "melalui termux-backup", termius: "brankas cloud Pro" },
-      { category: "Cadangan",         feature: "File cadangan lokal terenkripsi",                mobile: "yes",     termux: "no",            termius: "no" },
+      { category: "Cadangan",         feature: "Ekspor / impor cadangan server",                 mobile: "yes",     termux: "melalui termux-backup", termius: "brankas awan Pro" },
+      { category: "Cadangan",         feature: "Berkas cadangan lokal terenkripsi",              mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Cadangan",         feature: "Tidak perlu akun",                               mobile: "yes",     termux: "yes",           termius: "sebagian" },
       { category: "Privasi & biaya",  feature: "Tanpa paywall Pro",                              mobile: "yes",     termux: "yes",           termius: "sebagian" },
       { category: "Privasi & biaya",  feature: "Tanpa iklan",                                   mobile: "yes",     termux: "yes",           termius: "yes" },
@@ -494,11 +494,11 @@ export const id: Dict = {
     sections: [
       {
         heading: "Informasi yang tersimpan di perangkat Anda",
-        body: "Jika memilih menyimpan data aplikasi, Mobile SSH menyimpannya secara lokal di perangkat. Rahasia disimpan di Keychain sistem pada iOS; di Android rahasia dienkripsi dengan kunci yang disimpan di Android Keystore yang tidak dapat diekspor keluar perangkat, dan aplikasi menolak ikut serta dalam pencadangan awan Android. Ini dapat mencakup profil server tersimpan, nama pengguna, port, kata sandi, kunci pribadi, frasa-sandi kunci, aturan penerusan port, sesi terbaru, riwayat upaya masuk, jalur transfer berkas, preferensi urutan, snapshot sesi tmux dan petunjuk reattach, pengaturan aplikasi, dan log debug saat perekaman debug diaktifkan."
+        body: "Jika memilih menyimpan data aplikasi, Mobile SSH menyimpannya secara lokal di perangkat. Rahasia disimpan di Keychain sistem pada iOS; di Android rahasia dienkripsi dengan kunci yang disimpan di Android Keystore yang tidak dapat diekspor keluar perangkat, dan aplikasi menolak ikut serta dalam pencadangan awan Android. Ini dapat mencakup profil server tersimpan, nama pengguna, port, kata sandi, kunci privat, frasa sandi kunci, aturan penerusan port, sesi terbaru, riwayat upaya masuk, jalur transfer berkas, preferensi urutan, snapshot sesi tmux dan petunjuk reattach, pengaturan aplikasi, dan log debug saat perekaman debug diaktifkan."
       },
       {
         heading: "Informasi yang dikirim melalui jaringan",
-        body: "Mobile SSH mengirim data autentikasi SSH hanya ke server yang Anda konfigurasi dan sambungi. Input/output terminal, isi berkas SFTP, dan trafik penerusan port lokal dipertukarkan dengan server dan titik akhir jarak jauh pilihan Anda. Mobile SSH tidak mengirim data ini ke layanan analitik, iklan, telemetri, atau sinkronisasi awan Mobile SSH."
+        body: "Mobile SSH mengirim data autentikasi SSH hanya ke server yang Anda konfigurasi dan sambungi. Input dan keluaran terminal, isi berkas SFTP, dan trafik penerusan port lokal dipertukarkan dengan server dan titik akhir jarak jauh pilihan Anda. Mobile SSH tidak mengirim data ini ke layanan analitik, iklan, telemetri, atau sinkronisasi awan Mobile SSH."
       },
       {
         heading: "Transfer berkas dan akses penyimpanan",
@@ -508,18 +508,18 @@ export const id: Dict = {
         heading: "Log dan pemecahan masalah",
         body: "Riwayat masuk dan log debug opsional disimpan lokal untuk pemecahan masalah, dan keduanya mati atau kosong sampai Anda menyalakannya. Perekam debug Android menangkap peristiwa terminal, ukuran data SSH, diagnostik input sentuh, peristiwa resize, dan peristiwa siklus hidup tunnel — ia memperingatkan Anda sebelum mulai bahwa ini mencakup setiap tombol yang Anda ketik, termasuk kata sandi, lalu menulis arsip ke folder Downloads Anda. iOS merekam log yang berbeda dan lebih sempit: alamat yang dihubunginya dan alasan tiap kegagalan, penyambungan ulang dan backoff, koneksi yang putus, perubahan jaringan, serta perintah tmux beserta galatnya. Tinjau setiap log atau arsip debug sebelum membagikannya ke dukungan atau pihak lain."
       },
-      { heading: "Analitik penggunaan anonim", body: "Untuk memahami cara aplikasi digunakan dan menyempurnakannya, Mobile SSH mengirim analitik penggunaan anonim ke Aptabase, penyedia analitik yang berfokus pada privasi yang bertindak atas nama kami. Ini terbatas pada peristiwa anonim (seperti pembukaan aplikasi dan fitur yang digunakan) beserta versi aplikasi, versi sistem operasi, model perangkat, dan bahasa. Digunakan pengidentifikasi sesi acak yang disetel ulang secara berkala dan tidak terkait dengan Anda atau perangkat Anda. Ini tidak pernah mencakup server SSH, nama host, nama pengguna, kata sandi, kunci, perintah, atau isi file Anda. Data dikirim melalui koneksi terenkripsi (HTTPS). Analitik aktif secara default. Di Android Anda dapat mematikannya kapan saja di Setelan, dan saat dimatikan tidak ada yang dikirim; aplikasi iOS belum menyediakan sakelar itu, jadi di iOS peristiwa anonim ini dikirim selama aplikasi masih terpasang. Kami berniat menambahkan sakelar iOS tersebut — sampai saat itu, halaman ini menyatakan keadaan apa adanya." }
+      { heading: "Analitik penggunaan anonim", body: "Untuk memahami cara aplikasi digunakan dan menyempurnakannya, Mobile SSH mengirim analitik penggunaan anonim ke Aptabase, penyedia analitik yang berfokus pada privasi yang bertindak atas nama kami. Ini terbatas pada peristiwa anonim (seperti pembukaan aplikasi dan fitur yang digunakan) beserta versi aplikasi, versi sistem operasi, model perangkat, dan bahasa. Digunakan pengidentifikasi sesi acak yang disetel ulang secara berkala dan tidak terkait dengan Anda atau perangkat Anda. Ini tidak pernah mencakup server SSH, nama host, nama pengguna, kata sandi, kunci, perintah, atau isi berkas Anda. Data dikirim melalui koneksi terenkripsi (HTTPS). Analitik aktif secara bawaan. Di Android Anda dapat mematikannya kapan saja di Pengaturan, dan saat dimatikan tidak ada yang dikirim; aplikasi iOS belum menyediakan sakelar itu, jadi di iOS peristiwa anonim ini dikirim selama aplikasi masih terpasang. Kami berniat menambahkan sakelar iOS tersebut — sampai saat itu, halaman ini menyatakan keadaan apa adanya." }
     ],
     permissionsHeading: "Izin",
     permissions: [
       { label: "Internet", body: "diperlukan untuk menyambung ke server SSH." },
       { label: "Wake lock dan Wi-Fi lock", body: "digunakan di Android untuk menjaga sesi SSH tetap aktif saat perangkat tidur." },
-      { label: "Layanan foreground dan notifikasi", body: "digunakan di Android untuk menangani koneksi aktif di latar belakang; di iOS, notifikasi digunakan untuk peringatan agen." },
+      { label: "Layanan latar depan dan notifikasi", body: "digunakan di Android untuk menangani koneksi aktif di latar belakang; di iOS, notifikasi digunakan untuk peringatan agen." },
       { label: "Akses berkas", body: "diberikan per folder melalui pemilih sistem di Android, dan melalui pemilih dokumen dan foto sistem di iOS. Mobile SSH tidak meminta izin penyimpanan menyeluruh di kedua platform." }
     ],
     securityHeading: "Tanggung jawab keamanan",
     securityBody:
-      "Lindungi perangkat Anda dengan kunci layar kuat jika menyimpan kredensial atau kunci pribadi. Hanya sambungkan ke server yang Anda percayai. Implementasi saat ini menggunakan penyimpanan aplikasi lokal (dan Keychain iOS), bukan brankas awan terenkripsi terpisah. Pengaturan Layar aman opsional menambah perlindungan saat rahasia ada di layar: di Android ia memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari tampilan aplikasi terkini; di iOS ia mengosongkan pratinjau pengalih aplikasi dan memblokir perekaman serta mirroring layar (tangkapan layar manual tidak dapat diblokir di iOS).",
+      "Lindungi perangkat Anda dengan kunci layar kuat jika menyimpan kredensial atau kunci privat. Hanya sambungkan ke server yang Anda percayai. Implementasi saat ini menggunakan penyimpanan aplikasi lokal (dan Keychain iOS), bukan brankas awan terenkripsi terpisah. Pengaturan Layar aman opsional menambah perlindungan saat rahasia ada di layar: di Android ia memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari tampilan aplikasi terkini; di iOS ia mengosongkan pratinjau pengalih aplikasi dan memblokir perekaman serta mirroring layar (tangkapan layar manual tidak dapat diblokir di iOS).",
     contactHeading: "Kontak",
     contactBody: "Kontak dukungan: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },
@@ -531,7 +531,7 @@ export const id: Dict = {
     intro:
       "Gunakan halaman ini sebagai panduan publik untuk memasang, menyambung, mengelola sesi, memindahkan berkas, meneruskan port, dan memecahkan masalah Mobile SSH.",
     cards: [
-      { slug: "getting-started",  title: "Mulai cepat",       text: "Pasang, buka aplikasi, sambung ke server pertama, dan simpan host umum." },
+      { slug: "getting-started",  title: "Memulai",           text: "Pasang, buka aplikasi, sambung ke server pertama, dan simpan host umum." },
       { slug: "terminal",         title: "Terminal",          text: "Panel, baris tombol tambahan, gulir, aksi salin, perilaku tmux, dan pengaturan keyboard." },
       { slug: "file-transfer",    title: "Transfer berkas",   text: "Jelajahi berkas ponsel dan server, unggah, unduh, urutkan, dan lihat detail jarak jauh." },
       { slug: "port-forwarding",  title: "Penerusan port",    text: "Tulis string tunnel lokal, teruskan ke tujuan IPv6, dan biarkan semuanya aktif saat tersambung." },
@@ -540,7 +540,7 @@ export const id: Dict = {
   },
   docsNav: {
     home: "Beranda dokumentasi",
-    gettingStarted: "Mulai cepat",
+    gettingStarted: "Memulai",
     terminal: "Terminal",
     fileTransfer: "Transfer berkas",
     portForwarding: "Penerusan port",

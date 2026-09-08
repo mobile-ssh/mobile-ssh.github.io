@@ -117,6 +117,17 @@ require each to be over 500 characters and to reference
 `../../../layouts/DocLayout.astro` — the relative depth differs from the
 English pages in `src/pages/docs/`, so don't copy that frontmatter verbatim.
 
+Two further gates, both added after the failures they describe shipped:
+
+- **Section parity.** Each translated page must have the same `##`/`###`
+  headings as English, in the same count and at the same levels. A page can be
+  long, well-written and still be missing whole sections — nine locales were,
+  and Russian had gone without "Choose a transport" and "Plugins" entirely.
+- **A docs card must name the page it opens.** `docsIndex.cards[i].title`, the
+  page's frontmatter `title:` and its `#` H1 are three separate strings for one
+  page name. When they drift the link renames itself on click; that shipped in
+  fifteen locales at once.
+
 Editing an English doc means editing 19 translated copies too.
 
 ### Never translate
@@ -141,7 +152,7 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 ### Before you commit
 
 ```bash
-npx vitest run      # 1178 tests; structural parity + translation checks
+npx vitest run      # 1387 tests; structural parity + translation checks
 npx astro build     # 321 pages across 20 locales
 ```
 

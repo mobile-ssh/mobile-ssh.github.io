@@ -300,6 +300,67 @@ describe("doc files – not empty and appear translated", () => {
   }
 });
 
+// ── doc files – same sections as English ─────────────────────────────────────
+
+function headings(markdown: string): string[] {
+  return markdown.split("\n").filter((line) => /^#{2,3} /.test(line));
+}
+
+function frontmatterTitle(markdown: string): string | null {
+  const m = markdown.match(/^title:\s*"(.*)"/m);
+  return m ? m[1] : null;
+}
+
+function firstH1(markdown: string): string | null {
+  const m = markdown.match(/^# (.+)$/m);
+  return m ? m[1].trim() : null;
+}
+
+describe("doc files – section parity with English", () => {
+  // A translated page can be over 500 characters, use the right layout, and
+  // still be missing whole sections the English page has — Russian was short
+  // "Choose a transport" and "Plugins" for months, and nine locales were short
+  // somewhere. Nothing failed, because nothing compared the two.
+  for (const doc of DOCS) {
+    const en = readFileSync(join(PAGES_DIR, "docs", `${doc}.md`), "utf8");
+    const enCount = headings(en).length;
+
+    for (const locale of nonDefaultLocales) {
+      it(`${locale}/docs/${doc}.md has ${enCount} sections like English`, () => {
+        const content = readFileSync(join(PAGES_DIR, locale, "docs", `${doc}.md`), "utf8");
+        expect(
+          headings(content).length,
+          `${locale}/docs/${doc}.md has ${headings(content).length} headings, English has ${enCount}`,
+        ).toBe(enCount);
+      });
+
+      it(`${locale}/docs/${doc}.md keeps English's heading levels`, () => {
+        // Same count is not enough: a ### promoted to ## reorganises the page.
+        const content = readFileSync(join(PAGES_DIR, locale, "docs", `${doc}.md`), "utf8");
+        const level = (h: string) => h.match(/^#+/)![0].length;
+        expect(headings(content).map(level)).toEqual(headings(en).map(level));
+      });
+    }
+  }
+});
+
+describe("doc cards name the page they open", () => {
+  // The /docs card, the page's frontmatter title and its H1 are three separate
+  // strings for one page name. When they drift the link renames itself on
+  // click, which is how it shipped in 15 locales.
+  for (const locale of nonDefaultLocales) {
+    it(`${locale}: every docs card title matches its page`, () => {
+      const t = getDict(locale);
+      DOCS.forEach((doc, i) => {
+        const content = readFileSync(join(PAGES_DIR, locale, "docs", `${doc}.md`), "utf8");
+        const card = t.docsIndex.cards[i].title;
+        expect(card, `${locale}/${doc}: card vs frontmatter`).toBe(frontmatterTitle(content));
+        expect(card, `${locale}/${doc}: card vs H1`).toBe(firstH1(content));
+      });
+    });
+  }
+});
+
 // ── page route files ──────────────────────────────────────────────────────────
 
 describe("locale page directories exist", () => {

@@ -24,6 +24,17 @@ El encabezado del panel indica dónde estás. En Android muestra el directorio d
 
 Cerrar un panel desconecta esa sesión SSH. Volver a la pantalla de inicio mantiene las sesiones activas disponibles en **Active Sessions**.
 
+## Eternal Terminal (ET)
+
+Cada servidor guardado puede usar uno de dos transportes, que se eligen con el selector **Transport** al añadir o editar un servidor:
+
+- **SSH** — una conexión SSH estándar (la opción predeterminada).
+- **Eternal Terminal** — una sesión ET que sobrevive a los cortes de red, al modo de suspensión del dispositivo y a los cambios de dirección IP sin reiniciar tu shell.
+
+ET mantiene viva la sesión en el servidor, así que cuando tu teléfono cambia de red o despierta de la suspensión, Mobile SSH se vuelve a adjuntar al mismo shell en ejecución en lugar de abrir uno nuevo. Eso lo hace idóneo para los datos móviles, los saltos entre Wi-Fi y red móvil y los comandos de larga duración.
+
+ET necesita un proceso `etserver` en el host. Si el servidor no lo tiene, Mobile SSH puede instalarlo y arrancarlo por ti a través de la conexión SSH que ya existe — sin tener que configurar nada a mano en el servidor. Una vez que ET está disponible, conéctate con el transporte **Eternal Terminal** seleccionado.
+
 ## Fila de teclas extra
 
 Ambas plataformas ponen a tu alcance una fila de trece teclas de terminal — las que resultan incómodas o no existen en un teclado táctil. En Android es una franja en la parte inferior de la sesión (que se oculta sola cuando hay un teclado físico conectado); en iOS va montada sobre el teclado en pantalla.
@@ -123,6 +134,23 @@ Cuando una conexión se interrumpe mientras estabas en tmux, la app puede record
 
 Este comportamiento es de mejor esfuerzo. Si la sesión tmux remota ya no existe, el shell remoto sigue disponible.
 
+## Gestor de tmux
+
+Mobile SSH incluye un gestor de tmux para que puedas explorar y controlar tmux sin teclear combinaciones de prefijo. Ábrelo con el botón **Tmux** desde una sesión conectada. Lista, en tres secciones:
+
+- **Sesiones** — todas las sesiones de tmux del servidor.
+- **Ventanas** — las ventanas de la sesión seleccionada.
+- **Paneles** — los paneles de la ventana seleccionada.
+
+Desde el gestor puedes:
+
+- **Adjuntar** una sesión a la terminal actual.
+- **Crear** una sesión o una ventana nuevas, y **renombrarlas**.
+- **Dividir** un panel en horizontal o en vertical, **ampliar** un panel y **cerrar** sesiones, ventanas o paneles.
+- **Ordenar** las sesiones por nombre o por fecha de creación.
+
+Un 🔔 marca cualquier sesión cuyo agente esté esperando entrada, así que puedes ver de un vistazo una ejecución de Claude Code o de Codex en pausa y adjuntarte a ella. Esto complementa las pistas para volver a adjuntarse de más arriba: esa lógica restaura tu última sesión automáticamente al reconectar, mientras que el gestor te da el control manual completo.
+
 Ambas plataformas pueden además gestionar más de un servidor de tmux (socket) en el mismo host, y ordenar las sesiones por nombre o por fecha de creación.
 
 ## Herdr y Zellij (Android)
@@ -138,7 +166,7 @@ Cada servidor guardado tiene un ajuste **Attach on connect**: **Auto (detect)**,
 
 La app de iOS hoy funciona únicamente con tmux.
 
-## Agent alerts
+## Alertas de agente
 
 Mobile SSH te avisa cuando un agente remoto de programación con IA — Claude Code, Codex, Gemini — está bloqueado esperándote. No lo adivina leyendo la salida de tu terminal. Hay dos vías, y funcionan con distinto nivel de detalle.
 

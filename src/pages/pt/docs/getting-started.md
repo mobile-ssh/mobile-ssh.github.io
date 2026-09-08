@@ -45,7 +45,7 @@ Os servidores salvos guardam o destino da conexão e a configuração opcional d
 - Porta SSH.
 - Nome de usuário.
 - Detalhes de senha ou chave privada.
-- Regras opcionais de encaminhamento de portas local.
+- Regras opcionais de encaminhamento local de portas.
 - Endereços adicionais opcionais para a mesma máquina (veja abaixo).
 
 Use servidores salvos para hosts que você acessa com frequência. Se um servidor salvo apontar para um host diferente da sua sessão ativa atual, o Mobile SSH inicia uma nova conexão para o destino selecionado.

@@ -6,12 +6,12 @@ description: "Kontrol terminal Mobile SSH, tombol tambahan, panel, gulir, tmux, 
 
 # Terminal
 
-Terminal Mobile SSH dibuat untuk operasi di ponsel dan tablet. Ia menggabungkan kanvas terminal, baris tombol tambahan, panel multi-sesi, penanganan gulir, dan perilaku koneksi ulang.
+Terminal Mobile SSH dibuat untuk operasi di ponsel dan tablet. Ia menggabungkan kanvas terminal, baris tombol tambahan, panel multi-sesi, penanganan gulir, dan perilaku penyambungan ulang.
 
 ## Dasar terminal
 
 - Terminal memakai perilaku gaya xterm dengan dukungan warna dan penanganan tombol kursor.
-- Buffer gulir balik menyimpan 5000 baris secara bawaan, dan dapat disetel ke 1.000, 10.000, atau 50.000 di Settings.
+- Buffer scrollback menyimpan 5.000 baris secara bawaan, dan dapat disetel ke 1.000, 10.000, atau 50.000 di Settings.
 - Ketuk panel untuk memilihnya sebelum mengetik.
 - Cubit panel terminal untuk mengubah ukuran teks. Mobile SSH mengubah ukuran PTY jarak jauh setelah gerakan berhenti.
 - Ketuk dua kali panel (atau gunakan kontrol perluasnya) untuk masuk mode layar penuh. Gunakan Kembali di Android, atau kontrol ciutkan di iOS, untuk kembali ke kisi.
@@ -22,7 +22,7 @@ Mobile SSH dapat menjalankan hingga delapan sesi SSH sekaligus. Setiap sesi tamp
 
 Header panel menyebutkan di mana Anda berada. Di Android ia menampilkan direktori kerja sebenarnya dari panel itu, ditanyakan ke tmux atau dilaporkan shell melalui OSC 7 dan disegarkan selama aplikasi terbuka; di iOS ia menampilkan judul yang disetel sisi jarak jauh, dengan cadangan `user@host:port`.
 
-Menutup panel memutus sesi SSH tersebut. Kembali ke layar awal menjaga sesi aktif tetap tersedia melalui **Active Sessions**.
+Menutup panel memutus sesi SSH tersebut. Kembali ke layar beranda menjaga sesi aktif tetap tersedia melalui **Active Sessions**.
 
 ## Eternal Terminal (ET)
 
@@ -72,7 +72,7 @@ Menempel ke program yang memintanya (bash, Vim, dan aplikasi bracketed-paste lai
 
 Tekan lama di dalam terminal untuk memilih kata di bawah jari Anda, lalu seret pegangan untuk menyesuaikan. Bilah pemilihan menawarkan tiga tindakan:
 
-- **Copy** — menaruh teks terpilih ke papan klip sistem. Pemilihan tetap tersorot setelahnya, sehingga Anda dapat membagikannya, menyalin ulang, atau memperluasnya.
+- **Copy** — menaruh teks terpilih ke clipboard sistem. Pemilihan tetap tersorot setelahnya, sehingga Anda dapat membagikannya, menyalin ulang, atau memperluasnya.
 - **Share** — meneruskan teks terpilih ke lembar berbagi sistem (surel, catatan, perpesanan, dll.).
 - **Select all** — memperluas pemilihan ke seluruh buffer terminal yang terlihat, lalu Copy atau Share.
 
@@ -89,7 +89,7 @@ Telusuri seluruh buffer terminal — scrollback dan layar yang terlihat — dan 
 ## Integrasi shell dan gambar inline
 
 - **Integrasi shell (OSC 133):** saat shell Anda memancarkan penanda prompt OSC 133, Mobile SSH dapat melangkah antar prompt dan memberi peringatan saat perintah yang berjalan lama selesai. Berfungsi di Android dan iOS. Kedua aplikasi tidak menyuntikkan penandanya — shell Anda yang harus memancarkannya (hook `PROMPT_COMMAND`/`precmd`, atau starship). Di Android, navigasi prompt mati sampai Anda mengaktifkannya di **Settings → Shell integration**; di iOS menunya muncul sendiri begitu penanda mulai berdatangan.
-- **Pilih output:** sentuh di mana saja di dalam output sebuah perintah dan pilih seluruh blok itu — galat build dari 300 baris yang lalu, bukan hanya perintah terakhir — lalu salin, bagikan, atau perluas.
+- **Pilih keluaran:** sentuh di mana saja di dalam keluaran sebuah perintah dan pilih seluruh blok itu — galat build dari 300 baris yang lalu, bukan hanya perintah terakhir — lalu salin, bagikan, atau perluas.
 - **Gambar inline:** program yang memakai protokol grafis Kitty menggambar gambar langsung di terminal, di Android dan iOS. Gambar bertahan saat zoom cubit dan pembungkusan ulang: ia diukur dalam sel dan mengikuti barisnya, alih-alih dibuang dan meninggalkan celah kosong. Gambar merupakan fitur layar utama dan dibersihkan saat TUI layar penuh mengambil alih.
 - **Glyph mosaik (Android):** karakter blok, braille, sekstan, dan oktan digambar sendiri oleh aplikasi alih-alih diminta dari font, sehingga `chafa`, `timg`, dan ANSI art menyusun kisi dengan persis — tanpa sambungan, tanpa kotak kosong, apa pun font yang Anda pilih.
 - **Direktori kerja sebenarnya (Android):** header panel menampilkan di mana panel itu benar-benar berada, ditanyakan ke tmux atau dilaporkan shell melalui OSC 7, bukan apa pun yang kebetulan dicetak prompt terakhir.
@@ -100,7 +100,7 @@ Baik di Android maupun iOS, Settings memungkinkan Anda menyesuaikan terminal:
 
 - **Font:** pilih font monospace sistem, JetBrains Mono, atau Source Code Pro.
 - **Skema warna:** Default, Solarized Dark atau Light, Gruvbox, Dracula, atau Nord — diterapkan secara langsung ke panel yang terbuka.
-- **Baris tombol tambahan:** tambah, hapus, susun ulang, dan sembunyikan tombol, tentukan tombol escape-sequence Anda sendiri, dan reset ke default, dengan pratinjau langsung yang memperlihatkan persis pembagian baris yang akan Anda dapatkan. Android menaruhnya di tab **Keys**; iOS di bawah **Extra keys → Customize keys**.
+- **Baris tombol tambahan:** tambah, hapus, susun ulang, dan sembunyikan tombol, tentukan tombol escape sequence Anda sendiri, dan reset ke bawaan, dengan pratinjau langsung yang memperlihatkan persis pembagian baris yang akan Anda dapatkan. Android menaruhnya di tab **Keys**; iOS di bawah **Extra keys → Customize keys**.
 - **Tambah dari preset:** palet berisi sekitar 45 tombol dalam enam grup — `F1`–`F12`, kombinasi Ctrl seperti `^C` `^D` `^Z` `^R` `^L`, simbol seperti `|` `~` `/` `_` `:`, dan pengubah. `F1`–`F12` dikirim sebagai escape sequence biasa, jadi tidak perlu kord `FN`. Android juga menyediakan tombol 📎 **Attach a file** yang membuka pemilih berkas dan mengunggah ke sesi yang sedang berjalan; iOS menyediakan `INS`, `DEL`, dan tombol `FN` yang memunculkan baris angka.
 - **Ukuran scrollback:** 1.000, 5.000, 10.000, atau 50.000 baris (5.000 secara bawaan). Berlaku untuk panel baru.
 - **Ukuran teks:** sebuah penggeser, berdampingan dengan zoom cubit.
@@ -112,13 +112,13 @@ Reset mengembalikan bawaan yang dikirim bersama aplikasi alih-alih membekukan da
 
 Mobile SSH mengarahkan gerakan gulir berdasarkan status terminal:
 
-- Pada keluaran shell biasa, menggesek menggulir buffer gulir balik lokal.
-- Pada aplikasi terminal mode mouse, menggulir mengirim urutan escape roda mouse.
+- Pada keluaran shell biasa, menggesek menggulir buffer scrollback lokal.
+- Pada aplikasi terminal mode mouse, menggulir mengirim escape sequence roda mouse.
 - Pada aplikasi layar alternatif tanpa mode mouse, seperti banyak sesi tmux, menggulir masuk mode salin tmux dan mengirim perintah gulir per baris.
 
 Di Android, ketukan di dalam program yang melacak mouse dikirim sebagai klik kiri pada sel tersebut, sehingga htop, vim, dan panel klik-untuk-fokus merespons sentuhan. Di iOS, ketukan pada program yang sama memunculkan keyboard alih-alih mengeklik; hanya gulir roda yang dilaporkan.
 
-Jika Anda mengetik saat menggulir balik, Mobile SSH kembali ke tampilan terminal langsung.
+Jika Anda mengetik saat sedang menelusuri scrollback, Mobile SSH kembali ke tampilan terminal langsung.
 
 ## Perilaku tmux
 
@@ -149,7 +149,7 @@ Dari pengelola ini Anda dapat:
 - **Split** sebuah panel secara horizontal atau vertikal, **zoom** sebuah panel, dan **kill** sesi, jendela, atau panel.
 - **Sort** sesi berdasarkan nama atau tanggal pembuatan.
 
-Ikon 🔔 menandai setiap sesi yang agennya sedang menunggu masukan, sehingga Anda dapat langsung melihat proses Claude Code atau Codex yang berhenti dan meng-attach ke sana. Ini melengkapi petunjuk reattach di atas: logika reattach memulihkan sesi terakhir Anda secara otomatis saat tersambung ulang, sementara pengelola memberi Anda kendali manual penuh.
+Ikon 🔔 menandai setiap sesi yang agennya sedang menunggu input, sehingga Anda dapat langsung melihat proses Claude Code atau Codex yang berhenti dan meng-attach ke sana. Ini melengkapi petunjuk reattach di atas: logika reattach memulihkan sesi terakhir Anda secara otomatis saat tersambung ulang, sementara pengelola memberi Anda kendali manual penuh.
 
 Kedua platform juga dapat mengelola lebih dari satu server tmux (socket) di host yang sama, serta mengurutkan sesi berdasarkan nama atau tanggal pembuatan.
 

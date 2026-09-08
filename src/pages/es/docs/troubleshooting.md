@@ -65,7 +65,7 @@ Comprueba:
 - Desactiva la optimización de batería para Mobile SSH si tu dispositivo detiene agresivamente las apps en segundo plano.
 - Mantén el Wi-Fi o los datos móviles estables durante sesiones largas.
 - Vuelve a abrir Mobile SSH y toca **Active Sessions** tras desbloquear.
-- Comprueba que **Keep sessions running in background** esté activado en Settings si quieres que las shells sobrevivan a que descartes la app de recientes.
+- Comprueba que **Keep sessions running in background** esté activado en Settings si quieres que los shells sobrevivan a que descartes la app de recientes.
 - Si el servidor desconectó la sesión SSH, reconéctate desde la pantalla de inicio — **Continuar** lista lo que sigue activo, y **Sesiones de tmux** lista lo que te espera en el servidor.
 
 En iOS, el sistema suspende las apps en segundo plano, por lo que una conexión SSH en bruto no puede mantenerse abierta indefinidamente una vez que cambias de app o bloqueas la pantalla. Un breve período de gracia cubre los cambios rápidos de app; para cualquier cosa más larga, activa **Auto-attach tmux session** en el perfil del servidor (o usa el transporte **Eternal Terminal**) para que al reconectarte vuelvas al mismo shell donde lo dejaste.

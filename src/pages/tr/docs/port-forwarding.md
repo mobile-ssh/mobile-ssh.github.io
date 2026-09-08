@@ -1,16 +1,16 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: "Bağlantı noktası yönlendirme"
-description: "Mobile SSH yerel bağlantı noktası yönlendirme söz dizimi, IPv6 hedefleri ve kaydedilen tünellerin Android ile iOS'ta nasıl açıldığı."
+title: "Port yönlendirme"
+description: "Mobile SSH yerel port yönlendirme söz dizimi, IPv6 hedefleri ve kaydedilen tünellerin Android ile iOS'ta nasıl açıldığı."
 ---
 
-# Bağlantı noktası yönlendirme
+# Port yönlendirme
 
-Mobile SSH hem Android hem de iOS'ta yerel SSH bağlantı noktası yönlendirmeyi destekler. Cihazdaki yerel bir bağlantı noktası `127.0.0.1` üzerinde dinler ve trafiği SSH bağlantısı aracılığıyla uzak bir ana bilgisayara ve bağlantı noktasına yönlendirir.
+Mobile SSH hem Android hem de iOS'ta yerel SSH port yönlendirmeyi destekler. Cihazdaki yerel bir port `127.0.0.1` üzerinde dinler ve trafiği SSH bağlantısı aracılığıyla uzak bir ana bilgisayara ve porta yönlendirir.
 
 ## Kayıtlı tünel söz dizimi
 
-Bağlantı noktası yönlendirme kuralları virgülle ayrılır. Her girdi iki biçimden birini kullanır:
+Port yönlendirme kuralları virgülle ayrılır. Her girdi iki biçimden birini kullanır:
 
 ```text
 PORT
@@ -57,17 +57,17 @@ Bu bilinçli bir ödünleşimdir — profilde yaşayan bir tünel, siz elle yeni
 
 ## IPv6 hedefleri
 
-Bir IPv6 hedefi, iki nokta üst üste işaretlerinin bağlantı noktası ayırıcısıyla karıştırılmaması için köşeli parantez içine alınmalıdır:
+Bir IPv6 hedefi, iki nokta üst üste işaretlerinin port ayırıcısıyla karıştırılmaması için köşeli parantez içine alınmalıdır:
 
 ```text
 8080:[2001:db8::1]:80
 ```
 
-Köşeli parantezsiz, çıplak bir IPv6 adresi sessizce yanlış okunmak yerine belirsiz sayılarak reddedilir. Aynı köşeli parantez biçimi, sunucunun adres alanında da çalışır ve ardına isteğe bağlı bir bağlantı noktası eklenebilir (`[fe80::1]:22`).
+Köşeli parantezsiz, çıplak bir IPv6 adresi sessizce yanlış okunmak yerine belirsiz sayılarak reddedilir. Aynı köşeli parantez biçimi, sunucunun adres alanında da çalışır ve ardına isteğe bağlı bir port eklenebilir (`[fe80::1]:22`).
 
 ## Adres bağlama
 
-Mobile SSH yerel yönlendirmeleri cihazdaki `127.0.0.1`'e bağlar. Bu kasıtlıdır: tüneli cihaza yerel tutar ve yalnızca IPv6 geri döngü sürprizlerinden kaçınır. İşletim sistemi ağ erişimine izin verirse aynı cihazdaki diğer uygulamalar yönlendirilen yerel bağlantı noktasına bağlanabilir.
+Mobile SSH yerel yönlendirmeleri cihazdaki `127.0.0.1`'e bağlar. Bu kasıtlıdır: tüneli cihaza yerel tutar ve yalnızca IPv6 geri döngü sürprizlerinden kaçınır. İşletim sistemi ağ erişimine izin verirse aynı cihazdaki diğer uygulamalar yönlendirilen yerel porta bağlanabilir.
 
 ## Yaygın örnekler
 
@@ -94,7 +94,7 @@ SSH sunucusundan erişilebilen bir iç veritabanına erişim:
 ## Tünel sorun giderme
 
 - SSH oturumunun bağlı olduğundan emin olun — yönlendirmeler oturumdan sonra açılır.
-- Yerel bağlantı noktasının zaten kullanımda olmadığını kontrol edin.
-- Uzak ana bilgisayarın ve bağlantı noktasının SSH sunucusundan erişilebilir olduğunu kontrol edin.
+- Yerel portun zaten kullanımda olmadığını kontrol edin.
+- Uzak ana bilgisayarın ve portun SSH sunucusundan erişilebilir olduğunu kontrol edin.
 - Hedef hizmet SSH sunucusunun kendisinde olduğunda `localhost` kullanın.
 - SSH sunucusunun arkasındaki başka bir ana bilgisayara yönlendirirken sunucunun iç DNS adını veya IP adresini kullanın.

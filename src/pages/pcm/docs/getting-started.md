@@ -1,10 +1,10 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: "How to Start"
+title: "Getting started"
 description: "First steps to install Mobile SSH, connect to server, save profiles, credentials, and sessions."
 ---
 
-# How to Start
+# Getting started
 
 Mobile SSH na SSH client for Android and iOS wey you fit use connect to your own Linux, Unix, network, IoT, or development servers. You go provide di server address and credentials; di app go open one interactive SSH terminal.
 
@@ -13,7 +13,7 @@ Mobile SSH na SSH client for Android and iOS wey you fit use connect to your own
 - Android 8.0 or newer, or iOS 16 or newer (iPhone or iPad).
 - Network access from di device go your SSH server.
 - SSH server hostname or IP address, port, username, and either password or private key.
-- For Android, storage access if you wan use SFTP file transfer with di local phone file browser; iOS dey use di system file and photo pickers instead.
+- For Android, storage access if you wan use SFTP file transfer wit di local phone file browser; iOS dey use di system file and photo pickers instead.
 
 ## Install di app
 
@@ -29,6 +29,13 @@ Mobile SSH na SSH client for Android and iOS wey you fit use connect to your own
 5. Use **Active Sessions** for di start screen to go back to sessions wey still dey run.
 
 Di default SSH port na `22`. If your server dey use anoda port, enter dat port for di server profile.
+
+## Choose di transport
+
+Wen you dey add or edit server, di **Transport** selector na im dey decide how Mobile SSH go connect:
+
+- **SSH** -- ordinary SSH connection (na di default).
+- **Eternal Terminal** -- session wey strong: e dey survive network drop, sleep, and IP change. If di host no get `etserver`, Mobile SSH fit install one over SSH for you. Check di **Terminal** guide for di full gist.
 
 ## Save servers
 
@@ -51,7 +58,7 @@ Di same machine fit dey reachable for different addresses depending on where you
 
 Di **Credentials** screen dey store username/password or username/private-key records wey you fit reuse. You fit select saved credentials from di server setup dialog so you no go need enter di same login material for every host again.
 
-Credential records dey store local for di device — for iOS, di secrets dey stay inside di system Keychain. Protect di device with screen lock if you save passwords, passphrases, or private keys.
+Credential records dey store local for di device — for iOS, di secrets dey stay inside di system Keychain. Protect di device wit screen lock if you save passwords, passphrases, or private keys.
 
 ## Use private keys
 
@@ -80,7 +87,7 @@ If nothing dey live and nothing dey cached, di screen go tell you so and point y
 
 Saved server fit carry name — "Home NAS", "Prod web" — and di list go show dat one instead of di address. Di address dey come back by imsef wenever di name go confuse person: two rows wey share di same name, or search wey dey go on, so you fit always tell di rows apart.
 
-Tap di search field for di **Saved Servers** page to filter. Search dey match di name, di user, di host, di port, di credential, and any alternate address. Di **+ Add Session** screen also dey open with search so you fit find and connect to one saved server in one step.
+Tap di search field for di **Saved Servers** page to filter. Search dey match di name, di user, di host, di port, di credential, and any alternate address. Di **+ Add Session** screen also dey open wit search so you fit find and connect to one saved server in one step.
 
 You fit file servers enter folder. Folder fit collapse, e dey remember say e collapse, and you fit reorder or rename am; if you delete one, im servers dey move go **Ungrouped**, dem no dey delete dem.
 
@@ -90,7 +97,7 @@ You fit file servers enter folder. Folder fit collapse, e dey remember say e col
 
 ## Active sessions
 
-Wen sessions dey run, di start screen go show **Active Sessions** with di number. Tap am to return to di terminal grid. One notification wey dey ongoing go also list active hosts — tap any host for di notification to jump straight to dat terminal.
+Wen sessions dey run, di start screen go show **Active Sessions** wit di number. Tap am to return to di terminal grid. One notification wey dey ongoing go also list active hosts — tap any host for di notification to jump straight to dat terminal.
 
 Going back to di start screen no go disconnect active SSH sessions; na only wen you close panes or finish di terminal activity e go disconnect dem.
 
@@ -104,9 +111,19 @@ Open **Settings** from di start screen (e get im own page):
 - For Android, **Keep sessions running in background** dey on by default, so shell and agent dey survive wen you swipe di app comot.
 - For Android, turn off anonymous usage analytics if you prefer say no data go dey sent. Di iOS app never get dat switch yet.
 
+## Plugins
+
+Plugins dey add extra workflow give Mobile SSH. Open **Plugins** from di start screen make you:
+
+- Browse catalog of plugins wey dey available.
+- Install di ones wey you want -- each plugin dey download as you need am and dem dey verify am wit SHA-256 checksum enter di app private storage.
+- Run plugins wey you don install from di same screen.
+
+By default, na public catalog dem dey pull plugins from. If you dey run your own, you fit point Mobile SSH go custom or private catalog source. Na only plugins wey come from source wey you trust you suppose install.
+
 ## Languages
 
-Mobile SSH dey follow di system language by default. Di app dey ship with translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu — twenty language for Android, wey add Nigerian Pidgin and Egyptian Arabic, and eighteen for iOS.
+Mobile SSH dey follow di system language by default. Di app dey ship wit translations for Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu — twenty language for Android, wey add Nigerian Pidgin and Egyptian Arabic, and eighteen for iOS.
 
 If you want di app for language wey no be di phone own, **Settings → Language** get picker wit "System default" option. You fit still change am from Android **Settings → System → Languages** or iOS **Settings → General → Language & Region**.
 

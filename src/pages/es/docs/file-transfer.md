@@ -87,7 +87,7 @@ Según el elemento remoto seleccionado, Mobile SSH puede mostrar acciones como:
 
 Los detalles de un archivo remoto pueden incluir los bits de permiso, el propietario, el grupo y los valores de permiso en octal. Usa estos detalles antes de cambiar archivos del servidor gestionados por otro proceso o herramienta de despliegue.
 
-Los tamaños de archivo se muestran en unidades binarias, así que coinciden con lo que imprime `ls -h` en el terminal de la pestaña de al lado.
+Los tamaños de archivo se muestran en unidades binarias, así que coinciden con lo que imprime `ls -h` en la terminal de la pestaña de al lado.
 
 ## Ordenación y rutas recientes
 

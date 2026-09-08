@@ -47,7 +47,7 @@ O Mobile SSH envia as teclas diretamente ao shell com a autocorreção e as suge
 
 ## A rolagem do tmux não é o que você espera
 
-O Mobile SSH muda o comportamento de rolagem conforme o estado do terminal. No tmux ou em outros programas de tela alternativa, os gestos de rolagem podem enviar comandos do modo de cópia do tmux em vez de rolar o histórico local. Se o modo de mouse do tmux estiver ativado, o app envia sequências de escape de roda do mouse.
+O Mobile SSH muda o comportamento de rolagem conforme o estado do terminal. No tmux ou em outros programas de tela alternativa, os gestos de rolagem podem enviar comandos do modo de cópia do tmux em vez de rolar o scrollback local. Se o modo de mouse do tmux estiver ativado, o app envia sequências de escape de roda do mouse.
 
 Se a rolagem parecer errada:
 
@@ -65,7 +65,7 @@ Verifique:
 - Desative a otimização de bateria para o Mobile SSH se o seu aparelho interrompe agressivamente apps em segundo plano.
 - Mantenha o Wi-Fi ou os dados móveis estáveis durante sessões longas.
 - Reabra o Mobile SSH e toque em **Active Sessions** após desbloquear.
-- Verifique se **Keep sessions running in background** está ativado nas Configurações, caso queira que as shells sobrevivam a fechar o app na lista de recentes.
+- Verifique se **Keep sessions running in background** está ativado nas Configurações, caso queira que os shells sobrevivam a fechar o app na lista de recentes.
 - Se o servidor desconectou a sessão SSH, reconecte pela tela inicial — **Continue** lista o que ainda está ativo e **Tmux sessions** lista o que está esperando no servidor.
 
 No iOS, o sistema suspende os apps em segundo plano, então uma conexão SSH pura não pode ser mantida aberta indefinidamente depois que você troca de app ou bloqueia a tela. Um curto período de tolerância cobre trocas rápidas de app; para qualquer coisa mais longa, ative **Auto-attach tmux session** no perfil do servidor (ou use o transporte **Eternal Terminal**) para que a reconexão devolva você ao mesmo shell onde parou.
@@ -89,7 +89,7 @@ Verifique:
 - Há espaço livre suficiente no dispositivo.
 - A rede está estável para transferências grandes.
 
-## Falha no encaminhamento de porta
+## Falha no encaminhamento de portas
 
 Verifique:
 

@@ -12,7 +12,7 @@ O Mobile SSH inclui uma tela de transferência de arquivos por SFTP vinculada à
 
 1. Conecte a um servidor SSH.
 2. Selecione o painel de terminal conectado.
-3. Abra **Transferência** na barra de ferramentas do terminal, ou pressione e segure o cabeçalho do painel quando a tela atual permitir.
+3. Abra **Transfer** na barra de ferramentas do terminal, ou pressione e segure o cabeçalho do painel quando a tela atual permitir.
 4. A tela de transferência de arquivos abre com um painel local e um painel remoto.
 
 Se não houver uma sessão SSH ativa, a transferência de arquivos não pode abrir.

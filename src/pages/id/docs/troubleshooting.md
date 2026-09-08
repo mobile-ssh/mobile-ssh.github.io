@@ -47,7 +47,7 @@ Mobile SSH mengirim ketikan langsung ke shell dengan koreksi otomatis dan saran 
 
 ## Gulir tmux tidak seperti yang diharapkan
 
-Mobile SSH mengubah perilaku gulir berdasarkan status terminal. Di tmux atau program layar alternatif lain, gerakan gulir dapat mengirim perintah mode salin tmux alih-alih menggulir riwayat lokal. Jika mode mouse tmux aktif, aplikasi mengirim urutan escape roda mouse.
+Mobile SSH mengubah perilaku gulir berdasarkan status terminal. Di tmux atau program layar alternatif lain, gerakan gulir dapat mengirim perintah mode salin tmux alih-alih menggulir riwayat lokal. Jika mode mouse tmux aktif, aplikasi mengirim escape sequence roda mouse.
 
 Jika gulir terasa salah:
 
@@ -58,7 +58,7 @@ Jika gulir terasa salah:
 
 ## Sesi putus setelah layar terkunci
 
-Di Android, Mobile SSH memakai keepalive, layanan latar depan, wake lock, Wi-Fi lock, dan upaya koneksi ulang untuk mengurangi pemutusan. Kebijakan baterai Android tetap dapat menghentikan kerja latar belakang.
+Di Android, Mobile SSH memakai keepalive, layanan latar depan, wake lock, Wi-Fi lock, dan upaya penyambungan ulang untuk mengurangi pemutusan. Kebijakan baterai Android tetap dapat menghentikan kerja latar belakang.
 
 Periksa:
 
@@ -103,7 +103,7 @@ Periksa:
 
 Kedua platform merekam hal yang berbeda, jadi pilih yang sesuai dengan masalah Anda.
 
-**Android — terminal dan perenderan.** Aktifkan **Settings → Debugging → Show Debug and Logs buttons**, lalu gunakan tombol **Debug** yang muncul di layar awal. Ia merekam peristiwa terminal, ukuran data SSH, input sentuh, perilaku ubah ukuran, dan siklus hidup tunnel. Memulai perekaman lebih dulu memperingatkan Anda bahwa ia menangkap setiap tombol yang Anda ketik, termasuk kata sandi. Menghentikannya akan menulis arsip ke folder Downloads Anda.
+**Android — terminal dan perenderan.** Aktifkan **Settings → Debugging → Show Debug and Logs buttons**, lalu gunakan tombol **Debug** yang muncul di layar beranda. Ia merekam peristiwa terminal, ukuran data SSH, input sentuh, perilaku ubah ukuran, dan siklus hidup tunnel. Memulai perekaman lebih dulu memperingatkan Anda bahwa ia menangkap setiap tombol yang Anda ketik, termasuk kata sandi. Menghentikannya akan menulis arsip ke folder Downloads Anda.
 
 **iOS — koneksi dan penyambungan ulang.** Aktifkan **Settings → Diagnostics → Record debug log**. Ia merekam setiap alamat yang dihubungi dan alasan kegagalannya, upaya penyambungan ulang beserta backoff-nya, koneksi yang putus, "peer stopped answering keepalives", perubahan jaringan, serta perintah tmux beserta galatnya. Settings menampilkan jumlah baris secara langsung sehingga Anda dapat memastikan ia sedang merekam, dan **Export Debug Log** membagikannya sebagai berkas teks. Log ini disimpan di memori dan hanya mencakup sesi aplikasi saat ini.
 

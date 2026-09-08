@@ -47,7 +47,7 @@ Mobile SSH dey send keystrokes straight to di shell wit autocorrect and predicti
 
 ## tmux scrolling no be wetin you expect
 
-Mobile SSH dey change scroll behavior based on terminal state. For tmux or other alternate-screen programs, scroll gestures fit send tmux copy-mode commands instead of scrolling local history. If tmux mouse mode dey enabled, di app dey send mouse-wheel escape sequences.
+Mobile SSH dey change scroll behavior based on terminal state. For tmux or oda alternate-screen programs, scroll gestures fit send tmux copy-mode commands instead of scrolling local history. If tmux mouse mode dey enabled, di app dey send mouse-wheel escape sequences.
 
 If scrolling feel wrong:
 
@@ -68,7 +68,7 @@ Check:
 - Check say **Keep sessions running in background** dey on for Settings if you want make shell survive wen you swipe di app comot.
 - If di server don already disconnect di SSH session, reconnect from di home screen — **Continue** dey list wetin still dey live, and **Tmux sessions** dey list wetin dey wait for di server.
 
-For iOS, di system dey suspend apps for background, so raw SSH connection no fit stay open forever once you switch comot or lock di screen. Short grace period dey cover quick app switches; for anything wey long pass dat, enable **Auto-attach tmux session** for di server profile (or use di **Eternal Terminal** transport) so when you reconnect, e go drop you back inside di same shell where you stop.
+For iOS, di system dey suspend apps for background, so raw SSH connection no fit stay open forever once you switch comot or lock di screen. Short grace period dey cover quick app switches; for anything wey long pass dat, enable **Auto-attach tmux session** for di server profile (or use di **Eternal Terminal** transport) so wen you reconnect, e go drop you back inside di same shell where you stop.
 
 ## File transfer no fit browse phone files
 
@@ -103,8 +103,8 @@ Check:
 
 Di two platforms dey record different thing, so pick di one wey match your problem.
 
-**Android — terminal and rendering.** Enable **Settings → Debugging → Show Debug and Logs buttons**, then use di **Debug** button wey go show for di start screen. E dey record terminal event, SSH data size, touch input, resize behaviour, and tunnel lifecycle. Wen you start recording e go first warn you say e dey capture every key wey you type, password join. Wen you stop am, e dey write archive enter your Downloads folder.
+**Android — terminal and rendering.** Enable **Settings → Debugging → Show Debug and Logs buttons**, then use di **Debug** button wey go show for di start screen. E dey record terminal event, SSH data size, touch input, resize behavior, and tunnel lifecycle. Wen you start recording e go first warn you say e dey capture every key wey you type, password join. Wen you stop am, e dey write archive enter your Downloads folder.
 
 **iOS — connection and reconnect.** Turn on **Settings → Diagnostics → Record debug log**. E dey record each address wey e dial and why e fail, reconnect try and dem backoff, connection wey drop, "peer stopped answering keepalives", network change, and tmux command wit dem error. Settings dey show live line count so you fit confirm say e dey record, and **Export Debug Log** dey share am as text file. E dey hold am for memory and e dey cover only di current app session.
 
-Review any debug log or archive before you share am. Dem na for troubleshooting and dem fit reveal server names, addresses, timing, or other environment details — and for Android, anything wey you type.
+Review any debug log or archive before you share am. Dem na for troubleshooting and dem fit reveal server names, addresses, timing, or oda environment details — and for Android, anything wey you type.

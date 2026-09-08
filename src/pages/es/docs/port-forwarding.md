@@ -6,7 +6,7 @@ description: "Sintaxis de reenvío de puertos local de Mobile SSH, destinos IPv6
 
 # Reenvío de puertos
 
-Mobile SSH admite el reenvío de puertos SSH local tanto en Android como en iOS. Un puerto local en el dispositivo escucha en `127.0.0.1` y reenvía el tráfico a través de la conexión SSH a un host y puerto remotos.
+Mobile SSH admite el reenvío local de puertos SSH tanto en Android como en iOS. Un puerto local en el dispositivo escucha en `127.0.0.1` y reenvía el tráfico a través de la conexión SSH a un host y puerto remotos.
 
 ## Sintaxis del túnel guardado
 

@@ -10,7 +10,7 @@ Di Mobile SSH terminal na for phone and tablet operation. E dey combine terminal
 
 ## Terminal basics
 
-- Di terminal dey use xterm-style behavior with color support and cursor-key handling.
+- Di terminal dey use xterm-style behavior wit color support and cursor-key handling.
 - Di scrollback buffer dey keep 5000 lines by default, and you fit set am to 1,000, 10,000, or 50,000 for Settings.
 - Tap one pane make you select am before you type.
 - Pinch terminal pane to change text size. Mobile SSH go resize di remote PTY after di gesture settle.
@@ -24,6 +24,17 @@ Di pane header dey name where you dey. For Android e dey show di real working di
 
 Closing one pane dey disconnect dat SSH session. Returning to di start screen dey keep live sessions available through **Active Sessions**.
 
+## Eternal Terminal (ET)
+
+Each saved server fit use one of two transports, wey you dey pick wit di **Transport** selector wen you dey add or edit server:
+
+- **SSH** -- ordinary SSH connection (na di default).
+- **Eternal Terminal** -- ET session wey dey survive network drop, device sleep, and IP address change witout restarting your shell.
+
+ET dey keep di session alive for di server, so wen your phone change network or wake from sleep, Mobile SSH dey reattach to di same shell wey dey run instead of opening new one. Dat one make am fit mobile data, Wi-Fi/cellular hand-off, and command wey dey run long time.
+
+ET need `etserver` process for di host. If di server no get one, Mobile SSH fit install am and start am for you over di SSH connection wey don already dey -- you no need do any manual server setup. Once ET dey available, connect wit di **Eternal Terminal** transport selected.
+
 ## Extra key row
 
 Di two platforms dey put row of thirteen terminal key within reach — di ones wey hard or wey no dey for touch keyboard. For Android na strip wey dey for di bottom of di session (and e dey hide imsef wen hardware keyboard dey attached); for iOS e dey ride on top di software keyboard.
@@ -32,7 +43,7 @@ Di two default sets get di same size but dem no be di same:
 
 | | Android | iOS |
 |---|---|---|
-| Default dem | `ESC` `TAB` `CTRL` arrow dem `HOME` `PGUP` `END` `PGDN` `⌫` `⌨` | `ESC` `TAB` `CTRL` `⇧` arrow dem `HOME` `END` `PGUP` `PGDN` `⌨` |
+| Defaults | `ESC` `TAB` `CTRL` arrows `HOME` `PGUP` `END` `PGDN` `⌫` `⌨` | `ESC` `TAB` `CTRL` `⇧` arrows `HOME` `END` `PGUP` `PGDN` `⌨` |
 | Wetin different | e get backspace, but Shift no dey | e get sticky Shift, but backspace no dey |
 
 **Di row no dey scroll at all.** Wen di keys no fit enter di width again, dem dey divide di space evenly and wrap go second row; anything wey still remain dey fold enter `⋯` overflow menu. Nothing dey hide behind swipe or clip for di screen edge, and modifier wey you don arm still dey apply to key wey you pick from di overflow.
@@ -47,7 +58,7 @@ Di terminal dey use native pass-through connection to di on-screen keyboard: eve
 
 - **Tap terminal to show keyboard:** wen e dey enabled, tapping di terminal dey ask di system to show di on-screen keyboard.
 
-Soft-keyboard voice dictation still dey work: di dictated text dey commit straight to di shell like any other typed input.
+Soft-keyboard voice dictation still dey work: di dictated text dey commit straight to di shell like any oda typed input.
 
 ## Hardware keyboards
 
@@ -55,7 +66,7 @@ External and Bluetooth keyboards dey drive di terminal directly for both Android
 
 ## Paste
 
-Wen you paste enter program wey request am (bash, Vim, and other bracketed-paste apps), e dey wrap inside bracketed-paste markers, so multi-line clipboard content dey enter as text instead of make e run line by line by itself. Na only real paste dem dey wrap; typed and dictated text no dey touched.
+Wen you paste enter program wey request am (bash, Vim, and oda bracketed-paste apps), e dey wrap inside bracketed-paste markers, so multi-line clipboard content dey enter as text instead of make e run line by line by itself. Na only real paste dem dey wrap; typed and dictated text no dey touched.
 
 ## Select, copy, share
 
@@ -103,7 +114,7 @@ Mobile SSH dey route scroll gestures based on terminal state:
 
 - For normal shell output, swiping dey scroll di local scrollback buffer.
 - For mouse-mode terminal apps, scrolling dey send mouse-wheel escape sequences.
-- For alternate-screen apps without mouse mode, like plenty tmux sessions, scrolling dey enter tmux copy mode and send line scroll commands.
+- For alternate-screen apps witout mouse mode, like plenty tmux sessions, scrolling dey enter tmux copy mode and send line scroll commands.
 
 For Android, tap wey you do inside program wey dey track mouse dey deliver as left click for dat cell, so htop, vim, and click-to-focus panes dey answer touch. For iOS, tap inside di same program dey raise di keyboard instead of click; na only wheel scrolling e dey report.
 

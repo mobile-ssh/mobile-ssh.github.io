@@ -67,7 +67,7 @@ Bare IPv6 address wey no get bracket dem dey reject am as ambiguous instead of r
 
 ## Address binding
 
-Mobile SSH dey bind local forwards to `127.0.0.1` on di device. E be so on purpose: e dey keep di tunnel local to di device and e dey avoid IPv6-only loopback wahala. Other apps on di same device fit connect to di forwarded local port if di operating system allow dia network access.
+Mobile SSH dey bind local forwards to `127.0.0.1` on di device. E be so on purpose: e dey keep di tunnel local to di device and e dey avoid IPv6-only loopback wahala. Oda apps on di same device fit connect to di forwarded local port if di operating system allow dia network access.
 
 ## Common examples
 

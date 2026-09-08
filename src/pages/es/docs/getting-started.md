@@ -30,6 +30,13 @@ Mobile SSH es un cliente SSH para Android e iOS para conectarte a tus propios se
 
 El puerto SSH predeterminado es `22`. Si tu servidor usa otro puerto, indícalo en el perfil del servidor.
 
+## Elegir un transporte
+
+Al añadir o editar un servidor, el selector **Transport** decide cómo se conecta Mobile SSH:
+
+- **SSH** — una conexión SSH estándar (la opción predeterminada).
+- **Eternal Terminal** — una sesión resiliente que sobrevive a los cortes de red, al modo de suspensión y a los cambios de IP. Si el host no tiene `etserver`, Mobile SSH puede instalarte uno por SSH. Consulta la guía **Terminal** para más detalles.
+
 ## Guardar servidores
 
 Los servidores guardados conservan el destino de conexión y la configuración opcional de túneles. Un servidor guardado puede incluir:
@@ -38,7 +45,7 @@ Los servidores guardados conservan el destino de conexión y la configuración o
 - Puerto SSH.
 - Nombre de usuario.
 - Datos de contraseña o clave privada.
-- Reglas opcionales de reenvío de puertos local.
+- Reglas opcionales de reenvío local de puertos.
 - Direcciones adicionales opcionales para la misma máquina (ver más abajo).
 
 Usa servidores guardados para hosts a los que accedes con frecuencia. Si un servidor guardado apunta a un host distinto de tu sesión activa actual, Mobile SSH inicia una conexión nueva para el destino seleccionado.
@@ -90,7 +97,7 @@ Los servidores se pueden archivar en carpetas. Una carpeta se contrae, recuerda 
 
 ## Sesiones activas
 
-Cuando hay sesiones en ejecución, la pantalla de inicio muestra **Active Sessions** con un contador. Tócalo para volver a la cuadrícula de terminales. Una notificación persistente también lista los hosts activos: toca un host en la notificación para ir directamente a esa terminal.
+Cuando hay sesiones en ejecución, la pantalla de inicio muestra **Active Sessions** con un contador. Tócalo para volver a la cuadrícula de terminales. Una notificación permanente también lista los hosts activos: toca un host en la notificación para ir directamente a esa terminal.
 
 Volver a la pantalla de inicio no desconecta las sesiones SSH activas; cerrar paneles o finalizar la actividad de terminal sí las desconecta.
 
@@ -99,17 +106,27 @@ Volver a la pantalla de inicio no desconecta las sesiones SSH activas; cerrar pa
 Abre **Settings** desde la pantalla de inicio (tiene su propia página):
 
 - Decide si tocar la terminal levanta el teclado. Las dos plataformas parten de valores opuestos: en Android el teclado solo aparece con el botón ⌨, y en iOS un toque lo levanta.
-- Ajusta el **tamaño del texto**, la **fuente**, el **esquema de colores** y el tamaño del **scrollback** de la terminal, y elige un **tema** para la app (Sistema, Claro u Oscuro).
+- Ajusta el **tamaño del texto**, la **fuente**, el **esquema de colores** y el tamaño del **búfer de desplazamiento** de la terminal, y elige un **tema** para la app (Sistema, Claro u Oscuro).
 - Activa **Agent alerts** si ejecutas tareas largas en segundo plano (Claude Code, Codex, scripts de shell) y quieres que te avisen cuando el agente necesite tu intervención. Consulta la guía **Terminal** para ver cómo se identifican los agentes.
-- En Android, **Keep sessions running in background** está activado de forma predeterminada, así que las shells y los agentes sobreviven a que descartes la app de recientes.
+- En Android, **Keep sessions running in background** está activado de forma predeterminada, así que los shells y los agentes sobreviven a que descartes la app de recientes.
 - En Android, desactiva el envío de estadísticas de uso anónimas si prefieres que no se transmita ningún dato. La app de iOS todavía no tiene ese interruptor.
+
+## Complementos
+
+Los complementos amplían Mobile SSH con flujos de trabajo adicionales. Abre **Plugins** desde la pantalla de inicio para:
+
+- Explorar un catálogo de complementos disponibles.
+- Instalar los que quieras — cada complemento se descarga bajo demanda y se verifica con una suma de comprobación SHA-256 en el almacenamiento privado de la app.
+- Ejecutar desde esa misma pantalla los complementos instalados.
+
+De forma predeterminada, los complementos se descargan de un catálogo público. Si mantienes el tuyo propio, puedes apuntar Mobile SSH a una fuente de catálogo personalizada o privada. Instala complementos solo de fuentes en las que confíes.
 
 ## Idiomas
 
 Mobile SSH sigue el idioma del sistema de forma predeterminada. La app incluye traducciones a árabe, bengalí, chino (simplificado y tradicional), inglés, francés, alemán, hindi, indonesio, japonés, maratí, portugués, ruso, español, tamil, telugu, turco y urdu — veinte idiomas en Android, que añade además pidgin nigeriano y árabe egipcio, y dieciocho en iOS.
 
-Si quieres la app en un idioma distinto al del teléfono, **Ajustes → Idioma** incluye un selector con una opción de «Predeterminado del sistema». También puedes seguir cambiándolo desde **Ajustes → Sistema → Idiomas** en Android o **Ajustes → General → Idioma y región** en iOS.
+Si quieres la app en un idioma distinto al del teléfono, **Settings → Language** incluye un selector con una opción de «Predeterminado del sistema». También puedes seguir cambiándolo desde **Ajustes → Sistema → Idiomas** en Android o **Ajustes → General → Idioma y región** en iOS.
 
 ## Nota de seguridad
 
-Conéctate solo a servidores en los que confíes. La app actual almacena los datos de conexión guardados localmente y no ofrece un baúl en la nube ni sincronización entre dispositivos. La implementación actual tampoco presenta una confirmación de host conocido, así que evita conectarte por redes no confiables cuando la identidad del host sea importante.
+Conéctate solo a servidores en los que confíes. La app actual almacena los datos de conexión guardados localmente y no ofrece una bóveda en la nube ni sincronización entre dispositivos. La implementación actual tampoco presenta una confirmación de host conocido, así que evita conectarte por redes no confiables cuando la identidad del host sea importante.

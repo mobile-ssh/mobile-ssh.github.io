@@ -13,7 +13,7 @@ Mobile SSH adalah klien SSH untuk Android dan iOS untuk terhubung ke server Linu
 - Android 8.0 atau lebih baru, atau iOS 16 atau lebih baru (iPhone atau iPad).
 - Akses jaringan dari perangkat ke server SSH Anda.
 - Nama host atau alamat IP server SSH, port, nama pengguna, dan kata sandi atau kunci privat.
-- Di Android, akses penyimpanan jika Anda ingin menggunakan transfer berkas SFTP dengan peramban berkas lokal ponsel; iOS menggunakan pemilih berkas dan foto sistem sebagai gantinya.
+- Di Android, akses penyimpanan jika Anda ingin menggunakan transfer berkas SFTP dengan penjelajah berkas lokal ponsel; iOS menggunakan pemilih berkas dan foto sistem sebagai gantinya.
 
 ## Memasang aplikasi
 
@@ -26,7 +26,7 @@ Mobile SSH adalah klien SSH untuk Android dan iOS untuk terhubung ke server Linu
 2. Ketuk **+ Add Session** dan cari server tersimpan, atau tambahkan server baru dari layar tersebut.
 3. Masukkan host, port, nama pengguna, dan detail autentikasi jika menambahkan server baru.
 4. Ketuk server untuk membuka sesi terminal.
-5. Gunakan **Active Sessions** di layar awal untuk kembali ke sesi yang masih berjalan.
+5. Gunakan **Active Sessions** di layar beranda untuk kembali ke sesi yang masih berjalan.
 
 Port SSH default adalah `22`. Jika server Anda memakai port lain, masukkan port itu di profil server.
 
@@ -71,7 +71,7 @@ Untuk menggunakan kunci privat:
 3. Masukkan frasa sandi kunci di kolom kata sandi/frasa sandi jika kunci terenkripsi.
 4. Simpan kredensial atau server.
 
-Impor kunci privat menggunakan pemilih berkas sistem untuk berkas kunci. Di Android, transfer berkas menggunakan peramban berkas lokal terpisah dan dapat meminta akses penyimpanan yang lebih luas pada versi Android yang lebih baru; di iOS, berkas masuk melalui pemilih dokumen dan foto sistem.
+Impor kunci privat menggunakan pemilih berkas sistem untuk berkas kunci. Di Android, transfer berkas menggunakan penjelajah berkas lokal terpisah dan dapat meminta akses penyimpanan yang lebih luas pada versi Android yang lebih baru; di iOS, berkas masuk melalui pemilih dokumen dan foto sistem.
 
 ## Layar beranda
 
@@ -97,23 +97,23 @@ Server dapat disusun ke dalam folder. Folder dapat diciutkan, mengingat bahwa ia
 
 ## Sesi aktif
 
-Saat ada sesi berjalan, layar awal menampilkan **Active Sessions** beserta jumlahnya. Ketuk untuk kembali ke kisi terminal. Notifikasi yang sedang berjalan juga mencantumkan host aktif — ketuk host di notifikasi untuk langsung beralih ke terminal tersebut.
+Saat ada sesi berjalan, layar beranda menampilkan **Active Sessions** beserta jumlahnya. Ketuk untuk kembali ke kisi terminal. Notifikasi yang sedang berjalan juga mencantumkan host aktif — ketuk host di notifikasi untuk langsung beralih ke terminal tersebut.
 
-Kembali ke layar awal tidak memutus sesi SSH aktif; menutup panel atau mengakhiri aktivitas terminal akan memutusnya.
+Kembali ke layar beranda tidak memutus sesi SSH aktif; menutup panel atau mengakhiri aktivitas terminal akan memutusnya.
 
 ## Pengaturan pertama yang berguna
 
-Buka **Settings** dari layar awal (tersedia di halamannya sendiri):
+Buka **Settings** dari layar beranda (tersedia di halamannya sendiri):
 
 - Tentukan apakah mengetuk terminal memunculkan keyboard. Kedua platform datang dengan bawaan yang berlawanan: di Android keyboard hanya muncul dari tombol ⌨, di iOS satu ketukan memunculkannya.
 - Atur **ukuran teks**, **font**, **skema warna**, dan ukuran **scrollback** terminal, lalu pilih **tema** aplikasi (Sistem, Terang, atau Gelap).
-- Aktifkan **Agent alerts** jika Anda menjalankan tugas latar belakang yang lama (Claude Code, Codex, skrip shell) dan ingin diberi tahu saat agen membutuhkan masukan Anda. Lihat panduan **Terminal** untuk cara agen melaporkan dirinya.
+- Aktifkan **Agent alerts** jika Anda menjalankan tugas latar belakang yang lama (Claude Code, Codex, skrip shell) dan ingin diberi tahu saat agen membutuhkan input Anda. Lihat panduan **Terminal** untuk cara agen melaporkan dirinya.
 - Di Android, **Keep sessions running in background** aktif secara bawaan, sehingga shell dan agen tetap bertahan setelah Anda menggeser aplikasi dari daftar terkini.
 - Di Android, matikan analitik penggunaan anonim jika Anda tidak ingin data apa pun dikirimkan. Aplikasi iOS belum memiliki sakelar itu.
 
 ## Plugin
 
-Plugin memperluas Mobile SSH dengan alur kerja tambahan. Buka **Plugins** dari layar awal untuk:
+Plugin memperluas Mobile SSH dengan alur kerja tambahan. Buka **Plugins** dari layar beranda untuk:
 
 - Menelusuri katalog plugin yang tersedia.
 - Memasang yang Anda inginkan -- setiap plugin diunduh sesuai kebutuhan dan diverifikasi dengan checksum SHA-256 ke penyimpanan privat aplikasi.
@@ -129,4 +129,4 @@ Jika Anda ingin aplikasi dalam bahasa selain bahasa ponsel, **Settings → Langu
 
 ## Catatan keamanan
 
-Hanya terhubung ke server yang Anda percayai. Aplikasi saat ini menyimpan data koneksi secara lokal dan tidak menyediakan brankas cloud atau sinkronisasi lintas perangkat. Implementasi saat ini juga tidak menampilkan konfirmasi host yang dikenal, jadi hindari terhubung melalui jaringan yang tidak tepercaya ketika identitas host penting.
+Hanya terhubung ke server yang Anda percayai. Aplikasi saat ini menyimpan data koneksi secara lokal dan tidak menyediakan brankas awan atau sinkronisasi lintas perangkat. Implementasi saat ini juga tidak menampilkan konfirmasi host yang dikenal, jadi hindari terhubung melalui jaringan yang tidak tepercaya ketika identitas host penting.
