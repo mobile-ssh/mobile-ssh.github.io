@@ -233,7 +233,15 @@ export interface Dict {
     privacyLinkText: string;
     noticesHeading: string;
     noticesIntro: string;
-    notices: { name: string; license: string; url?: string }[];
+    notices: { name: string; license: string; url?: string; licenseUrl: string }[];
+    openvpnSourceHeading: string;
+    openvpnSourceBody: string;
+    openvpnSourceLabel: string;
+    certificatesHeading: string;
+    apkCertificateLabel: string;
+    apkCertificateBody: string;
+    serverCertificateBody: string;
+    signingHelpLabel: string;
     contactHeading: string;
     contactBody: string;
   };

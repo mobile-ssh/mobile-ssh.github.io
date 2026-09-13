@@ -4,6 +4,7 @@ import { defaultLocale, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
 import { versionDisplay } from "../../i18n/version";
+import openvpnRelease from "../../data/openvpn-release.json";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
@@ -39,14 +40,30 @@ const websiteUrl = "https://mobile-ssh.github.io";
         {t.about.notices.map((n) => (
           <li>
             {n.url
-              ? <><a href={n.url}>{n.name}</a> — {n.license}</>
-              : <>{n.name} — {n.license}</>}
+              ? <><a href={n.url}>{n.name}</a> — <a href={n.licenseUrl}>{n.license}</a></>
+              : <>{n.name} — <a href={n.licenseUrl}>{n.license}</a></>}
           </li>
         ))}
       </ul>
+
+      <h2 id="openvpn-sources">{t.about.openvpnSourceHeading}</h2>
+      <p>{t.about.openvpnSourceBody}</p>
+      <p><a href={openvpnRelease.archiveUrl} download>{t.about.openvpnSourceLabel}</a> · OpenVPN 3 Core {openvpnRelease.coreVersion}</p>
+      <p class="checksum" dir="ltr">SHA-256: <code>{openvpnRelease.sha256}</code></p>
+
+      <h2 id="certificates">{t.about.certificatesHeading}</h2>
+      <p>{t.about.apkCertificateBody}</p>
+      <p><a href="/certificates/mobile-ssh-sideload-signing.pem" download>{t.about.apkCertificateLabel}</a></p>
+      <p class="checksum" dir="ltr">SHA-256: <code>6def716eb76dc156948e4d5350b68665da6fff072431fdd1fe5a1ec5e7d0a9cb</code></p>
+      <p><a href="https://developer.android.com/studio/publish/app-signing#app-signing-google-play">{t.about.signingHelpLabel}</a></p>
+      <p>{t.about.serverCertificateBody}</p>
 
       <h2>{t.about.contactHeading}</h2>
       <p set:html={renderMd(t.about.contactBody)} />
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  .checksum { overflow-wrap: anywhere; }
+</style>
