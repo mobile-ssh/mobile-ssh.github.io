@@ -16,6 +16,7 @@ export const fr: Dict = {
     privacy: "Confidentialité"
   },
   footer: {
+    discordCommunity: "Communauté Mobile SSH sur Discord",
     beta: "Bêta-test",
     tagline: "Flux SSH, SFTP et terminal ciblés pour les appareils Android et iOS.",
     documentation: "Documentation",

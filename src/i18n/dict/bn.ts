@@ -16,6 +16,7 @@ export const bn: Dict = {
     privacy: "গোপনীয়তা"
   },
   footer: {
+    discordCommunity: "Discord-এ Mobile SSH সম্প্রদায়",
     beta: "বেটা টেস্টিং",
     tagline: "Android ও iOS ডিভাইসের জন্য কেন্দ্রীভূত SSH, SFTP ও টার্মিনাল ওয়ার্কফ্লো।",
     documentation: "ডকুমেন্টেশন",

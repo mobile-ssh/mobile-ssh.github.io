@@ -539,6 +539,12 @@ pre code {
   padding: 0.4rem 0.55rem;
 }
 
+.site-footer .discord-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 @media (max-width: 900px) {
   .site-header {
     align-items: flex-start;

@@ -16,6 +16,7 @@ export const id: Dict = {
     privacy: "Privasi"
   },
   footer: {
+    discordCommunity: "Komunitas Mobile SSH di Discord",
     beta: "Uji coba beta",
     tagline: "Alur kerja SSH, SFTP, dan terminal yang fokus untuk perangkat Android dan iOS.",
     documentation: "Dokumentasi",

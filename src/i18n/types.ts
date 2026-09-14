@@ -66,6 +66,7 @@ export interface Dict {
     blog: string;
   };
   footer: {
+    discordCommunity: string;
     tagline: string;
     documentation: string;
     comparison: string;

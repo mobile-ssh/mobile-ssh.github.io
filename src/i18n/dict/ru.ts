@@ -16,6 +16,7 @@ export const ru: Dict = {
     privacy: "Приватность"
   },
   footer: {
+    discordCommunity: "Сообщество Mobile SSH в Discord",
     beta: "Бета-тест",
     tagline: "Сфокусированные SSH-, SFTP- и терминальные рабочие процессы для устройств Android и iOS.",
     documentation: "Документация",

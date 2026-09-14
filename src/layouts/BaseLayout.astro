@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import DiscordIcon from "../components/DiscordIcon.astro";
 import { defaultLocale, locales, localeMap, localizedHref } from "../i18n/locales";
 import type { LocaleCode } from "../i18n/locales";
 import { getDict } from "../i18n";
@@ -123,6 +124,17 @@ function localePath(targetCode: LocaleCode): string {
         <a href="/beta/">{t.footer.beta ?? "Beta testing"}</a>
         <a href="mailto:mobile.ssh.info@gmail.com">{t.footer.contact}</a>
         <a href="https://x.com/mobile_ssh" target="_blank" rel="noopener">@mobile_ssh</a>
+        <a
+          class="discord-link"
+          href="https://discord.gg/eACZ8JjYq4"
+          target="_blank"
+          rel="noopener"
+          aria-label={t.footer.discordCommunity}
+          title={t.footer.discordCommunity}
+        >
+          <DiscordIcon />
+          <span>Discord</span>
+        </a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuyl6-O-dPuSjoBqAu2sVPPSj7_170tMIHoAs7tFS-4iLtlA/viewform?usp=header" target="_blank" rel="noopener">{t.footer.feedback}</a>
       </nav>
     </footer>

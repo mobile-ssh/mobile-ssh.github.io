@@ -16,6 +16,7 @@ export const arz: Dict = {
     privacy: "الخصوصية"
   },
   footer: {
+    discordCommunity: "مجتمع Mobile SSH على Discord",
     beta: "اختبار البيتا",
     tagline: "شغل SSH وSFTP وترمنال مركّز لأجهزة Android وiOS.",
     documentation: "التوثيق",

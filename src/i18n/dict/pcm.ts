@@ -16,6 +16,7 @@ export const pcm: Dict = {
     privacy: "Privacy"
   },
   footer: {
+    discordCommunity: "Mobile SSH community wey dey Discord",
     beta: "Join di beta",
     tagline: "Focused SSH, SFTP and terminal workflow wey dey work on Android and iOS.",
     documentation: "Documentation",

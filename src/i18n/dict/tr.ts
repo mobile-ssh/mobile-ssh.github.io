@@ -16,6 +16,7 @@ export const tr: Dict = {
     privacy: "Gizlilik"
   },
   footer: {
+    discordCommunity: "Discord'daki Mobile SSH topluluğu",
     beta: "Beta testi",
     tagline: "Android ve iOS cihazlar için odaklanmış SSH, SFTP ve terminal akışları.",
     documentation: "Belgeler",

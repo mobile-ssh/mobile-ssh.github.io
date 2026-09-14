@@ -16,6 +16,7 @@ export const te: Dict = {
     privacy: "గోప్యత"
   },
   footer: {
+    discordCommunity: "Discord లో Mobile SSH సంఘం",
     beta: "బీటా టెస్టింగ్",
     tagline: "Android మరియు iOS పరికరాల కోసం కేంద్రీకృత SSH, SFTP మరియు టర్మినల్ వర్క్‌ఫ్లోలు.",
     documentation: "డాక్యుమెంటేషన్",
