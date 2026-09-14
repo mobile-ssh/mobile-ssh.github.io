@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import DiscordIcon from "../components/DiscordIcon.astro";
+import XIcon from "../components/XIcon.astro";
 import { defaultLocale, locales, localeMap, localizedHref } from "../i18n/locales";
 import type { LocaleCode } from "../i18n/locales";
 import { getDict } from "../i18n";
@@ -123,7 +124,10 @@ function localePath(targetCode: LocaleCode): string {
         <a href={localizedHref(locale, "/privacy/")}>{t.footer.privacy}</a>
         <a href="/beta/">{t.footer.beta ?? "Beta testing"}</a>
         <a href="mailto:mobile.ssh.info@gmail.com">{t.footer.contact}</a>
-        <a href="https://x.com/mobile_ssh" target="_blank" rel="noopener">@mobile_ssh</a>
+        <a class="x-link" href="https://x.com/mobile_ssh" target="_blank" rel="noopener" aria-label="X: @mobile_ssh">
+          <XIcon />
+          <span>@mobile_ssh</span>
+        </a>
         <a
           class="discord-link"
           href="https://discord.gg/eACZ8JjYq4"
