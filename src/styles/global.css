@@ -188,6 +188,7 @@ h3 {
   margin: 0;
   line-height: 1.08;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 h1 {

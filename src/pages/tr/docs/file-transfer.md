@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Dosya aktarımı"
-description: "Yerel dosyalar, uzak dosyalar, yükleme, indirme, sıralama ve izinler için Mobile SSH SFTP dosya aktarım kılavuzu."
+description: "Mobile SSH SFTP aktarımı, hatırlanan klasörler, tmux oturum dizinleri, kuyruklar, izinler ve terminale dosya paylaşımı."
 ---
 
 # Dosya aktarımı
@@ -24,15 +24,15 @@ Dosya aktarım ekranında iki gezgin bölmesi vardır:
 - **Yerel bölme:** telefon depolaması.
 - **Uzak bölme:** SFTP üzerinden sunucu dosyaları.
 
-Uygulama, ana bilgisayar başına son on uzak yolu hatırlar — bunları Android'de uzak bölmenin başlığından, iOS'ta ise saat simgesinden açın. Sıralama ayarları her iki bölme için ana bilgisayar başına hatırlanır. Yerel yol geçmişi yoktur: Android'de yerel bölme, izin verdiğiniz klasördür; iOS'ta ise uygulamanın kendi belgeler alanıdır.
+Uygulama uzak son yolları ve sıralamayı sunucu başına hatırlar. Android'de uzak bölme başlığından, iOS'ta saat simgesinden açın. Yerel bölme seçtiğiniz klasörü gösterir; iOS siz değiştirene kadar uygulamanın Documents klasörünü kullanır.
 
 Dosya aktarım ekranı sisteminizin açık veya koyu temasını izler; böylece Mobile SSH'nin geri kalanıyla uyumlu görünür.
 
-### Her oturum nerede açılır (Android)
+### Her oturumun açıldığı yer
 
-Dosya Aktarımı'nı bir tmux oturumuna bağlı bir bölmeden açmak, uzak bölmeyi **o oturumun** en son çalıştığı yere geri götürür ve oturum adı bölme başlığında görünür. Daha önce açmadığınız bir oturum, o ana bilgisayarda en çok kullandığınız dizinlerden başlar, sonra ana bilgisayarın son dizini, sonra da ev dizininiz denenir.
+İki platformda tmux'tan Dosya Aktarımı açmak **o oturum ve soket** için hatırlanan dizini getirir. Yeni oturum önce sık kullanılan sunucu dizinlerini, sonra diğer kayıtlı veya giriş dizinlerini dener.
 
-Hatırlanan bir dizin o zamandan beri silinmişse uygulama, sizi bir hatayla baş başa bırakmak yerine gerçekten listelenen biri çıkana kadar bu listede aşağı iner — ve bozuk yolu geri yazmaz. iOS'ta ana bilgisayar başına tek bir uzak dizin hatırlanır.
+Dizin yoksa veya erişilemiyorsa sıradaki kullanılabilir yer denenir. Bağlantı hatası eksik klasör sanılmaz, bildirilir. Yenileme yeni ziyaret sayılmaz.
 
 ## Depolama erişimi
 
@@ -40,9 +40,9 @@ Mobile SSH hiçbir platformda toptan depolama izni istemez.
 
 Android'de sistemin klasör seçicisiyle **tek bir klasöre** izin verirsiniz ve indirilenler oraya yazılır — diğer tüm uygulamaların zaten okuyabildiği bir yere. Verilen izin uygulama açılışları arasında korunur.
 
-iOS'ta yerel bölme uygulamanın belgeler alanıdır ve dosyalar sistemin belge ve fotoğraf seçicileri aracılığıyla gelir.
+iOS'ta **Telefonum → Yerel klasör seç**, desteklenen iCloud Drive ve diğer sağlayıcılar dahil Dosyalar klasörüne izin verir. Seçim kalıcıdır. **Uygulama klasörünü kullan**, Mobile SSH Documents'a döner. Klasör erişilemezse tekrar seçin veya açıkça uygulama klasörüne geçin; indirmeler sessizce yönlendirilmez. Bu izin yedeklere girmez.
 
-iOS'ta yerel bölme, uygulamanın kendi belgeler alanıyla çalışır ve dosyaları sistem belge ve fotoğraf seçicileri aracılığıyla içeri alırsınız — fotoğrafların ve belgelerin çoklu seçimle içe aktarılması dahil. Ayrı bir depolama izni gerekmez.
+iOS belge ve fotoğraf seçicileri birden fazla öğe aktarır. Ad çakışmaları **Değiştir**, **İkisini de tut** veya **İptal** sunar. Zaten hedefteki dosya içe aktarılırken korunur.
 
 Özel anahtar içe aktarma işlemi dosya aktarımından bağımsızdır ve sistem dosya seçicisini kullanır.
 
@@ -54,7 +54,7 @@ iOS'ta yerel bölme, uygulamanın kendi belgeler alanıyla çalışır ve dosyal
 4. Uzak hedefi onaylayın.
 5. İlerleme ve tamamlanma için aktarım kuyruğunu izleyin.
 
-Yüklemeler mevcut SSH/SFTP bağlantısını kullanır. Bağlantı kesilirse yeniden bağlandıktan sonra tekrar deneyin.
+Yüklemeler, kayıtlı atlama sunucuları dahil seçilen sunucunun SSH yolunu izler. Bağlantı kesilirse yeniden bağlandıktan sonra deneyin.
 
 ## Dosya indirme
 
@@ -74,7 +74,7 @@ Yüklemeler ve indirmeler tek dosyalarla sınırlı değildir. Bir klasör seçi
 
 Seçili uzak öğeye bağlı olarak Mobile SSH şu işlemleri gösterebilir:
 
-- İndir ya da Android'de **Copy to phone**.
+- İndirmek için **Telefona kopyala**.
 - **Sunucuda** kopyala veya taşı — `cp -r` / `mv` ana bilgisayarda çalışır, baytlar telefonunuza uğramaz.
 - Yeniden adlandır.
 - Sil.
@@ -95,22 +95,26 @@ Her bölme ada veya tarihe göre artan ya da azalan sırada sıralanabilir. Mobi
 
 ## Aktarım kuyruğu
 
-Aktarımlar kuyruğa alınır ve duruma göre gösterilir; günlük her aktarımı gösterir ve kaydırılabilir — Android bunları Queued / Failed / Successful sekmelerine, iOS ise Active / Failed / Done sekmelerine ayırır. Başarısız aktarımlar, altta yatan SFTP işlemi bir neden sağladığında ilgili nedeni de gösterir. iOS'ta o an aktarılan dosya Active sekmesinin en üstünde kalır ve bir satır aktarım sürerken iptal edilebilir.
+Aktarımlar Android'de Kuyrukta / Başarısız / Başarılı; iOS'ta Etkin / Başarısız / Bitti durumlarında gösterilir. Hatalarda mevcut neden yazılır. iOS'ta geçerli aktarım Etkin'in başında kalır ve iptal edilebilir.
+
+iOS'ta kuyruk, başka yere göz atsanız da özgün klasörü korur. İndirme hedefi değiştirmeden önce geçici alanda tamamlanır; iptal veya hata eski dosyayı korur. Üzerine yazma onayından sonra hedef değiştiyse uygulama durur.
 
 ## Dosyaları uygulamadan dışarı çıkarma
 
 - **Android:** indirilenler izin verdiğiniz klasöre iner, bu yüzden diğer tüm uygulamalar tarafından zaten görülebilirler. **Open in another app** her iki bölmede de vardır; uzak bir dosya önce indirilir, sonra devredilir.
-- **iOS:** Mobile SSH, Dosyalar uygulamasında **iPhone'umda** altında görünür; böylece Telefonum bölmesindeki her şeye Mail'den, seçicilerden ve diğer uygulamalardan erişilebilir. İndirilen bir dosyaya uzun basıp **Open in another app** seçeneğini seçerek devredebilir, AirDrop ile gönderebilir veya başka bir yere kaydedebilirsiniz.
+- **iOS:** **Başka uygulamada aç** yerel ve uzak dosyalarda vardır. Uzak dosya önce indirilir, sonra paylaşım açılır. Uygulama klasörü **iPhone'umda → Mobile SSH** altında, dış klasör kendi Dosyalar konumunda kalır.
 
-## Bir oturuma dosya gönderme (Android)
+## Oturuma dosya gönderme
 
-Android, başka herhangi bir uygulamadan kendisine paylaşılan dosyaları kabul eder: Mobile SSH'ye paylaşın; dosya, bölmenin ana bilgisayarındaki `~/.cache/mobile-ssh` dizinine yüklenir ve uzak yolu komut istemine yazılır, böylece hemen kullanabilirsiniz. Terminal araç çubuğundaki 📎 düğmesi aynısını sistem dosya seçicisinden yapar ve ikisi de aynı anda birden çok dosya kabul eder.
+İki platform başka uygulamalardan paylaşımı kabul eder ve terminalde 📎 **Dosya ekle** sunar. Dosyalar seçilen sunucunun `~/.cache/mobile-ssh` dizinine yüklenir; yollar Enter basmadan komut satırına eklenebilir. Birden fazla dosya desteklenir.
 
-iOS'ta dosyaları ＋ düğmesiyle yerel bölmeye alın ve oradan yükleyin.
+Android'de paylaşım çalışan oturumu hedefler. iOS'ta ataş **Fotoğraf Arşivi** veya **Dosyalar** sunar. Paylaşım Uzantısı, Mobile SSH kapalıyken de kayıtlı SSH sunucusuna yükleyebilir; Eternal Terminal profilleri sunulmaz. Bilinmeyen kimliği önce ana uygulamada doğrulayın.
+
+iOS uzantısıyla yüklemeden sonra yollar panoya kopyalanır ve o sunucuya bağlı bölme bulunana kadar ekleme için bekler. Başka sunucunun bölmesine eklenmez.
 
 ## Pratik ipuçları
 
 - Hedefli dosya taşımaları için SFTP kullanın; büyük dizin eşitlemesi için sunucuda `rsync` gibi komut satırı araçlarını tercih edin.
 - Yedeğiniz veya dağıtım geri alma yolunuz olmadıkça canlı üretim dosyalarını düzenlemekten kaçının.
 - Yükledikten sonra bir dosya görünmüyorsa uzak bölmeyi yenileyin veya hedef yolu doğrulayın.
-- Android'de yerel bölme boşsa **Pick folder** ile bir klasör seçin — uygulamanın erişimi yalnızca ona verdiğiniz klasörledir. iOS'ta ise dosyaları yerel bölmeye eklemek için bunun yerine seçicileri kullanın.
+- Android yerel bölme boşsa **Klasör seç** kullanın. iOS'ta hedefe göre **Yerel klasör seç**, **Uygulama klasörünü kullan** veya içe aktarma seçicilerini kullanın.

@@ -28,11 +28,11 @@ export const tr: Dict = {
   home: {
     metaTitle: "Mobile SSH — Android ve iOS için SSH istemcisi",
     metaDescription:
-      "Mobile SSH; çoklu oturum terminalleri, Eternal Terminal dayanıklı oturumları, tmux yöneticisi, SFTP aktarımı, özel anahtarlar, port yönlendirme ve eklentiler sunan, Android ve iOS için odaklanmış bir SSH istemcisidir.",
+      "Android ve iOS için Mobile SSH: SSH terminalleri, atlama sunucuları, tmux, herdr, Zellij, SFTP, VNC masaüstleri ve yedekler. Android ayrıca VPN ve güvenlik anahtarları sunar.",
     eyebrow: "Android ve iOS için SSH istemcisi",
     h1: "Mobile SSH",
     intro:
-      "Android ve iOS için odaklanmış bir SSH istemcisi: çoklu oturum terminalleri, ağ kesintilerine dayanıklı Eternal Terminal oturumları, yerleşik bir tmux yöneticisi, SFTP dosya aktarımı, yerel port yönlendirme ve eklentiler — telefon ve tablet kullanımı için tasarlandı.",
+      "Telefon ve tabletler için SSH terminalleri, tmux, herdr, Zellij yöneticileri, SFTP, VNC masaüstleri, atlama sunucuları ve yerel tüneller. Eternal Terminal kesintilerde uzak kabuğu canlı tutar. Android VPN ve USB/NFC güvenlik anahtarıyla girişi de içerir.",
     versionLine: "{count} dilde mevcut · Android {version} · iOS {iosVersion} beta",
     ctaDocs: "Belgeleri oku",
     ctaPlay: "Google Play'den indirin",
@@ -61,14 +61,26 @@ export const tr: Dict = {
       { title: "Tıklanabilir bağlantılar", text: "Terminaldeki URL'ler altı çizili olur ve bir dokunuşla tarayıcıda açılır — kopyalamaya veya uygulama değiştirmeye gerek kalmaz." },
       { title: "Sunucu klasörleri ve adları", text: "Kaydedilen sunucuları daraltılabilir gruplara düzenle ve bir sunucuya adresi yerine görünecek bir ad ver. Bir ad belirsiz kalacak olduğunda adres yeniden görünür; böylece satırlar birbirine karışmaz." },
       { title: "Ajan uyarıları", text: "Ajanlar kendilerini terminal üzerinden bildirir; böylece uygulama hangisinin ne yüzünden takıldığını bilir. Ajanlar listesinden tek dokunuşla yanıtla; uyarılar üst üste birikmek yerine birbirinin yerini alır ve birine dokunmak zili çalan bölmeyi açar." },
-      { title: "Özel anahtarlar", text: "Parola veya özel anahtarla kimlik doğrulama. Cihazda Ed25519 veya ECDSA anahtarı oluşturun (Android'de ayrıca RSA); mevcut anahtarları içe aktarın veya yapıştırın." },
+      { title: "Özel anahtarlar", text: "Parola veya özel anahtar kullanın; cihazda Ed25519/ECDSA, Android'de ayrıca RSA üretin. Android USB/NFC FIDO2 ve sunucu başına SSH ajan yönlendirmesini destekler." },
       { title: "SFTP aktarımı", text: "Etkin SSH oturumuna bağlı çift bölmeli dosya gezgini. Yükleme ve indirme sırala; yeniden adlandır, sil ve uzak izinleri incele." },
       { title: "Port yönlendirme", text: "Yerel tünel tanımlarını sunucu profiliyle kaydet; bağlandığında otomatik olarak açılırlar — yeni bir ağda yeniden bağlandıktan sonra bile, elle yeniden kurmana gerek kalmadan." },
       { title: "Yeniden bağlanma akışı", text: "Ağ değiştirdiğinde oturumlar ölü rotanın zaman aşımına uğramasını beklemeden hemen yeniden bağlanır; bekleme süresindeki bir oturum da kullanılabilir bir ağ belirir belirmez uyanır. iOS'ta sessizce yanıt vermeyi bırakmış bir sunucu fark edilir ve yeniden bağlanılır." },
-      { title: "Yedekleme ve geri yükleme", text: "Kaydedilen sunucuları ve kimlik bilgilerini şifreli bir yedek dosyasına aktar; cihazlar arası geçiş için birleştir veya değiştir seçeneğiyle içe aktar — yedekler Android ve iOS arasında uyumludur." },
+      { title: "Yedekleme ve geri yükleme", text: "Sunucu, kimlik bilgisi ve ayarları isteğe bağlı parola şifrelemesi ve Birleştir/Değiştir önizlemesiyle yedekleyin. Android VPN profilleri içerir; güncel iki platform ortak biçim kullanır ve desteklenen özel ayarları korur." },
       { title: "Eternal Terminal", text: "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) üzerinden bağlanın — isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla." },
-      { title: "Çoğullayıcı yöneticileri", text: "tmux'u önek akorları olmadan yönetin — bağlanın, yeniden adlandırın, oluşturun, bölün, yakınlaştırın veya sonlandırın. Her iki platform da aynısını herdr ve Zellij için sunar; araç çubuğunda bir simge yalnızca o program sunucuda bulunduğunda belirir." },
-      { title: "Eklentiler", text: "Mobile SSH'yi genişletmek için eklentilere göz atın, kurun ve çalıştırın. Eklentiler genel bir katalogdan istek üzerine indirilir ve uygulamaya özel depolamaya SHA-256 ile doğrulanarak kaydedilir." }
+      { title: "Çoğullayıcı yöneticileri", text: "İki platformun tmux, herdr ve Zellij yöneticileriyle oturumlara bağlanın, yeniden adlandırın, oluşturun, bölün, yakınlaştırın veya sonlandırın. Ortak çoklayıcı düğmesi mevcut yöneticileri açar; sunucu profili bağlanınca eklenecek oturumu seçer." },
+      { title: "Eklentiler", text: "Eklentileri kategoriye göre gezin, arayın ve süzün; gereken iş akışlarını kurun. İndirmeler SHA-256 ile doğrulanıp özel uygulama alanına kaydedilir." },
+      {
+        "title": "Sunucu kimliği ve atlama sunucuları",
+        "text": "İki platformda kayıtlı bastionlarla erişin. Anahtar kontrolleri girişten önce yapılır, değişeni engeller. Android yeniyi otomatik kaydeder veya sorar; iOS bilinmeyeni onaylatır."
+      },
+      {
+        "title": "Uzak masaüstleri",
+        "text": "Android/iOS'ta SSH üzerinden VNC açın; dokunma, klavye, pano ve sunucu destekliyorsa uzak ekran boyutlandırma kullanın."
+      },
+      {
+        "title": "Android VPN istemcileri",
+        "text": "Ana ekrandan SSH VPN, yerel SOCKS5, WireGuard, Shadowsocks, OpenVPN yönetin. Profil seçip başlatın, Mobile SSH VPN Hızlı Ayarlar kutucuğuyla durdurup sürdürün."
+      }
     ],
     multiHead: "Tek ekran, birkaç canlı kabuk",
     multiP1:
@@ -79,7 +91,7 @@ export const tr: Dict = {
       "Bir telefonda Mobile SSH, yan yana iki canlı SSH terminal oturumunu bölünmüş görünümde gösteriyor.",
     sftpHead: "Terminal yetmediğinde SFTP",
     sftpBody:
-      "Telefon depolamasını ve uzak dizinleri taramak için bağlı bir oturumdan dosya aktarımını aç. Yüklemeleri ve indirmeleri sıraya al, dosyaları sırala, son kullanılan uzak yollara geri dön ve neyi taşıyacağına karar verirken uzak izinleri incele veya değiştir.",
+      "Yerel ve uzak klasörleri gezin, aktarımları sıraya alın, her tmux oturumunun dizinini hatırlayın ve uzak dosyaları başka uygulamada açın. İki platform terminale paylaşılan dosyaları kabul eder; iOS Dosyalar'dan seçilen klasörü hatırlar.",
     sftpCtaGuide: "Dosya aktarımı kılavuzu",
     sftpCtaAll: "Tüm özellikler",
     sftpAlt: "Bir telefonda Mobile SSH dosya aktarımı ekranı; yerel ve uzak bölmelerle.",
@@ -95,7 +107,7 @@ export const tr: Dict = {
     videoIosAlt: "iOS demosu: Mobile SSH uygulamasını açıp doğrudan canlı bir SSH terminal oturumuna girme ve ana ekrana dönme; tmux yöneticisi, Ayarlar ve uygulamanın diğer ekranları da görünüyor",
     muxHead: "Her oturum yöneticisi için bir video",
     muxIntro:
-      "Yukarıdaki demolarda tmux, herdr ve Zellij toplamda otuz saniye kadar yer paylaşıyor — araç çubuğunun her biri için bir simge çizdiğini göstermeye yeter, ama hiçbirinin ne yaptığını göstermeye yetmez. Bunlar uzun sürümler; her iki platformda, canlı bir sunucuya karşı çekildi.",
+      "Genel demolar tmux, herdr ve Zellij'i tanıtır. Bu uzun kayıtlar iki platformda canlı sunucuyla oturum, pencere, sekme ve bölme kontrollerini gösterir.",
     muxItems: [
         {
           text: "Ana ekrandan doğrudan oturumlara, pencerelere ve bölmelere. Bir oturum zille işaretli, çünkü orada bir şey yanıt bekliyor. Bir pencereye bağlanın, çalışan terminal onu izlesin; pencere oluşturup adlandırın — hiçbir noktada önek kısayolu yazmadan.",
@@ -119,7 +131,7 @@ export const tr: Dict = {
     demoItems: [
       {
         title: "Oturum uygulamadan uzun yaşar",
-        text: "Android bağlantıyı bir ön plan servisinde tutar ve süregelen bildirim, o bağlantının kendisidir — sunucunun adını yazar ve «Tümünün bağlantısını kes» eylemini sunar. Terminale bir günlük akarken ana ekrana geçin, geri döndüğünüzde akışın hiç durmadığını görün. iOS'ta arka planda çalıştırma yoktur; bunun yerine yeniden bağlanır ve tmux otomatik ekleme kullanır.",
+        text: "Android bağlantıyı ön plan hizmetinde tutar; kalıcı bildirim sunucuyu belirtir ve Tümünü kes sunar. Günlük akarken çıkıp çalışan oturuma dönün. iOS kısa arka plan süresinden sonra yeniden bağlanıp çoklayıcınıza eklenir.",
         androidAlt:
           "Arka planda çalışmayı sürdüren bir oturumun Android demosu: terminale canlı akan bir HTTP günlüğü, bildirim izni istemi, bağlı sunucunun adını yazan ve «Tümünün bağlantısını kes» sunan süregelen bildirim, ardından ana ekrana geçiş ve hâlâ akmakta olan aynı akışa dönüş."
       },
@@ -187,18 +199,18 @@ export const tr: Dict = {
   features: {
     metaTitle: "Özellikler | Mobile SSH",
     metaDescription:
-      "Android ve iOS'ta SSH için Mobile SSH'nin temel özellikleri: terminal, Eternal Terminal, tmux yöneticisi, SFTP, özel anahtarlar, port yönlendirme ve eklentiler.",
+      "Android/iOS için Mobile SSH terminal, atlama sunucusu, kimlik doğrulama, SFTP, VNC, yedek ve çoklayıcılarını; Android VPN ve güvenlik anahtarlarını keşfedin.",
     eyebrow: "Özellik listesi",
     h1: "Mobile SSH özellikleri",
     intro:
-      "Mobile SSH, Android ve iOS cihazlardan doğrudan SSH kullanımı için kurulmuştur: terminalleri aç, canlı tut, dosya taşı, sunucu kaydet ve mobil kesintilerden hızla kurtul.",
+      "Android/iOS'tan SSH terminali, doğrulanmış kimlikler, atlama sunucuları, SFTP, VNC ve oturum yöneticileriyle bağlanın. Android yerleşik VPN ve donanım anahtarları ekler; platform farkları aşağıda işaretlidir.",
     groups: [
       {
         title: "Platformlar",
         items: [
           "Android 8.0 veya üzeri — şu anda bir Google Play kapalı testi: katılım bağlantısını bir mobil tarayıcıda açın, ardından Play'den kurun",
           "iPhone ve iPad'de iOS 16 veya üzeri — TestFlight'taki genel betaya katılın",
-          "Şifreli yedekler birlikte çalışır: bir platformda dışa aktarın, diğerinde içe aktarın"
+          "Güncel Android/iOS sürümleri envanter ve ayarlar için yedek biçimi 2 kullanır; içe aktarma desteklenmeyen platform özelliklerini kullanılabilir yapmaz"
         ]
       },
       {
@@ -216,7 +228,10 @@ export const tr: Dict = {
           "Kaldığınız yerden devam etmek üzere kurulmuş bir ana ekran: şu anda canlı olan bağlantılar ve sunucularınızda bekleyen tmux oturumları — saklanan bir anlık görüntüden alınır, bu yüzden ağ olmadan da listelenir ve her satırda anlık görüntünün yaşı yazar. iOS'ta Son Oturumlar listesi Yeni Bağlantı ekranına taşındı; bir dokunuş formu dolduruyor",
           "Baştan sona IPv6: adres alanlarında isteğe bağlı portuyla birlikte köşeli parantezli adresler ve port yönlendirme kurallarında köşeli parantezli IPv6 hedefleri",
           "Başarılı ve başarısız giriş denemeleri günlüğü; tam olarak hangi adrese bağlanıldığını ve başarısızlık durumunda nedenini kaydeder",
-          "Teleport proxy aktarımı (deneysel, Android): kullanıcı adı, parola ve OTP ile giriş yapın veya bir Teleport yapılandırma ya da kimlik dosyasını içe aktarın, küme düğümlerine göz atın, ardından proxy tüneli üzerinden terminaller, SFTP, tmux ve eklentiler çalıştırın"
+          "Teleport proxy aktarımı (deneysel, Android): kullanıcı adı, parola ve OTP ile giriş yapın veya bir Teleport yapılandırma ya da kimlik dosyasını içe aktarın, küme düğümlerine göz atın, ardından proxy tüneli üzerinden terminaller, SFTP, tmux ve eklentiler çalıştırın",
+          "İki platformda kayıtlı SSH atlama sunucuları, sekiz genişletilmiş atlamaya kadar sıralı zincir; her atlamanın kimlik bilgisi ve kontrolü ayrı",
+          "Android SSH ajan yönlendirmesi: sunucu başına açın, uzak programlar kayıtlı anahtarla imza istesin; isteğe bağlı kullanım onayı, özel anahtar telefonda kalır",
+          "USB/NFC Android FIDO2: OpenSSH güvenlik anahtarı kaydedin/aktarın, dokunma/PIN isteğini yanıtlayın"
         ]
       },
       {
@@ -227,8 +242,8 @@ export const tr: Dict = {
           "Terminalde bul — geri kaydırmayı ve görünür ekranı ara, eşleşmeler arasında atla (Android ve iOS)",
           "Kabuk entegrasyonu (OSC 133): istemler arasında adım adım gez, bir komutun çıktısının tamamını seç — yalnızca sonuncusunu değil, 300 satır geriden gelen derleme hatasını — ve uzun süren bir komut bittiğinde uyarı al (Android ve iOS)",
           "Kitty grafik protokolü aracılığıyla terminalde satır içi görüntüler; sıkıştırarak yakınlaştırma ve satır yeniden sarmalarında kaybolmak yerine yerinde kalır (Android ve iOS)",
-          "Blok, braille ve sekstant mozaik glifleri uygulamanın kendisi tarafından çizilir; böylece chafa, timg ve ANSI sanatı boş kutular göstermek yerine tam olarak döşenir (Android)",
-          "Fare izlemeli bir TUI'de dokunuş bir tıklamadır — htop, vim ve bölme seçimi dokunarak çalışır (Android)",
+          "Uygulamanın çizdiği blok, braille ve altılı mozaik glifleri sayesinde chafa, timg ve ANSI sanatı Android/iOS ızgarasına doğru oturur",
+          "İki platformda da dokunma, fare izleyen terminal programlarına tıklama gönderir; sürükleme isteğe bağlıdır. iOS ayrıca bunun yerine imleci yerleştirme ayarı sunar",
           "Bölme başlığı, tmux'tan sorulan veya kabuk tarafından OSC 7 ile bildirilen gerçek çalışma dizinini gösterir (Android)",
           "On üç tuşluk ek tuş satırı — ESC, TAB, CTRL, oklar, Home, End, PgUp, PgDn, klavye geçişi — kaydırmak yerine ikinci bir satıra sarar ve artakalanları bir taşma menüsüne katlar; böylece hiçbir tuş ekran dışında kalmaz",
           "Satırı Android ve iOS'ta özelleştir: F1–F12, Ctrl kombinasyonları ve simgeler dahil yaklaşık 45 hazır tuşluk bir paletten ekle; tuş kaldır, yeniden sırala, gizle, kendi kaçış dizisi tuşlarını tanımla ve canlı önizlemeyle varsayılanlara sıfırla",
@@ -237,13 +252,15 @@ export const tr: Dict = {
           "Çift dokunarak bölme tam ekran modu",
           "Kopyala, Paylaş ve Tümünü seç eylemleriyle terminal metni seçimi — uzun basış kelimeyi seçer ve Kopyala, seçimi paylaşmak veya yeniden kopyalamak için korur",
           "OSC 52 pano — uzak bir tmux veya vim oturumundaki metni doğrudan telefon panosuna kopyala (Android ve iOS)",
-          "Yerel geçişli klavye girişi — otomatik düzeltme kabukla çakışmaz; ekran klavyesi sesli diktesi yine de çalışır",
+          "İki platformda fiziksel klavye ve sesle dikte; iOS Dikte ve önerileri otomatik düzeltmeyle varsayılan açar. Doğrudan giriş için kapatın",
           "Android ve iOS'ta harici ve Bluetooth klavye desteği; oklar, işlev tuşları ve Ctrl/Alt akorları dahil",
           "Köşeli parantezli yapıştırma (bracketed paste); böylece çok satırlı pano içeriği otomatik çalıştırılmaz",
           "Yerleşik Nerd Font, sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini Android ve iOS'ta işler",
           "Geniş CJK, emoji ve birleşen karakterler Android ve iOS'ta doğru şekilde ölçülür ve çizilir; grafem kümeleri ve sıfır genişlikli birleştiriciler dahil",
           "Android ve iOS'ta yapılandırılabilir terminal yazı tipi (sistem tek aralıklı, JetBrains Mono veya Source Code Pro) ve ANSI renk şeması (Solarized, Gruvbox, Dracula, Nord); açık bölmelere anında uygulanır",
-          "Ayarlar'da sıkıştırarak yakınlaştırmanın yanı sıra bir terminal metin boyutu kaydırıcısı ve Sistem, Açık ya da Koyu olarak ayarlanan bir uygulama teması"
+          "Ayarlar'da sıkıştırarak yakınlaştırmanın yanı sıra bir terminal metin boyutu kaydırıcısı ve Sistem, Açık ya da Koyu olarak ayarlanan bir uygulama teması",
+          "Trafik hızı ve takılma göstergeleri meşgul komutla yanıtsız bağlantıyı ayırır; isteğe bağlı karartma/titreşim",
+          "Ayarlar uzak bildirim, komut bitişi ve uzak pano okumayı kontrol eder; izinler varsayılan kapalıdır"
         ]
       },
       {
@@ -254,26 +271,26 @@ export const tr: Dict = {
           "Arka plan ve ekran kilidi dayanıklılığı: Android'de bir ön plan servisi, uygulamayı kaydırıp kapattıktan sonra bile kabukları ve ajanları çalışır tutar; iOS'ta tmux otomatik ekleme kabuğunuzu yeniden bağlar",
           "Üstel gerilemeli keepalive ve yeniden bağlanma denemeleri — en fazla on deneme; zaten ayrıldığınız bir ağda yaşanan başarısızlıklar bu sınıra sayılmaz",
           "Wi-Fi, hücresel veri veya VPN arasında geçmek, ölü rotanın zaman aşımını beklemek yerine anında yeniden bağlanmayı başlatır; bekleme süresindeki bir oturum da kullanılabilir bir ağ belirir belirmez yeniden dener",
-          "Sessizce yanıt vermeyi bırakmış bir sunucu — askıya alınmış bir sanal makine, kilitlenmiş bir atlama ana bilgisayarı — yanıtsız kalan keepalive yoklamalarından fark edilir ve tuş vuruşlarınızı sessizce yutmak yerine yeniden bağlanılır (iOS)",
+          "Yanıtsız keepalive yoklamaları duran sunucuyu algılayıp Android/iOS'ta yeniden bağlantıyı başlatır",
           "Başlangıç ekranından Etkin Oturumlar girişi; süregelen bildirim oturumları listeler — açmak için dokunun",
-          "Kesintiye uğrayan iş için tmux komut izleme ve reattach ipuçları; ayrıca sunucu başına bağlanınca neye eklenileceği seçimi: otomatik algıla, hiçbiri, tmux, herdr veya Zellij (Android)",
+          "tmux komut takibi ve yeniden ekleme; iki platformda sunucu başına Otomatik, Hiçbiri, tmux, herdr, Zellij seçenekleri; soket değişiminde oturum kimliği korunur",
           "Ajanlar kendilerini terminal üzerinden bildirir; böylece uygulama hangi ajanın çalıştığını, hangi aracı kullandığını ve sizin yüzünüzden takılıp takılmadığını bilir — bölme kehribar rengine döner, başlığında «claude · sizi bekliyor» yazar ve araç çubuğundaki bir rozet kaç ajanın beklediğini sayar",
           "Bir ajanın sorusunu Ajanlar listesinden tek dokunuşla yanıtlayın; yanıt ayrı bir kanaldan gider, bu yüzden ekranda olanın içine hiçbir şey yazılmaz",
           "Ajan kancasını uygulamanın içinden bir sunucuya kurun — herhangi bir ajanın çağırabileceği küçük bir kabuk betiği; sağlayıcıya özel bir entegrasyon değil",
           "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) aktarımı; isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla",
           "Tmux yöneticisi: oturumları, pencereleri ve bölmeleri listele ve aralarında geçiş yap — bağlan, yeniden adlandır, oluştur, böl, yakınlaştır veya sonlandır; ada/tarihe göre sıralama ve girdi bekleyen ajanlar için 🔔",
-          "Android ve iOS'ta herdr ve Zellij yöneticileri; her biri kendi oturumları, sekmeleri ve bölmeleri üzerinde aynı denetimi sunar — araç çubuğu bir simgeyi yalnızca o program sunucuda bulunduğunda gösterir"
+          "Tek çoklayıcı düğmesi tmux, herdr ve Zellij'i açar; Herdr bölme önizleme, odak ve yanıtı, Zellij canlı ve çıkılmış oturumları destekler"
         ]
       },
       {
         title: "Dosyalar ve tüneller",
         items: [
           "Yerel ve uzak dosyalar için çift bölmeli SFTP gezgini; her aktarımı gösteren ve kaydırılabilen bir aktarım günlüğüyle",
-          "Sıraya alınmış yükleme ve indirme işlemleri; Android'de başka bir uygulamadan herhangi bir dosyayı çalışan oturuma paylaşın, uzak yolu komut istemine yazılır",
+          "Kuyruklu yükleme/indirme; Android Mobile SSH veya iOS Paylaşım Uzantısıyla dosya paylaşın, bağlı oturuma yükleyip uzak yollarını ekleyin",
           "Telefon ve uzak ana bilgisayar arasında özyinelemeli klasör yükleme ve indirme",
           "Uzak yeniden adlandırma, silme, oluşturma, düzenleme, .tar.gz olarak sıkıştırma, izinler (chmod/chown) ve ayrıntılar",
           "İndirilen bir dosyayı her iki platformda da başka bir uygulamada açın — iOS'ta indirilenler ayrıca Dosyalar uygulamasında «iPhone'umda» altında görünür",
-          "Android'de Dosya Aktarımı, ilgili tmux oturumunun kaldığı yerden yeniden açılır ve oturumu bölme başlığında adlandırır; hatırlanacak bir şey yoksa o ana bilgisayarda en çok kullandığınız dizinlere döner",
+          "Dosya Aktarımı iki platformda host ve tmux oturumuna göre dizinleri hatırlar; iOS Dosyalar'dan seçilen dış klasörü de hatırlar",
           "Her ana bilgisayar için kalıcı, ada veya tarihe göre sıralama ve son kullanılan uzak yollara geri dönüş",
           "Dosya boyutları ikili birimlerde gösterilir; bir sekme ötedeki terminalde ls -h ne gösteriyorsa onunla eşleşir",
           "Sunucu profilleriyle kaydedilen ve bağlanıldığında otomatik olarak açılan yerel port yönlendirme",
@@ -283,7 +300,7 @@ export const tr: Dict = {
       {
         title: "Yerelleştirme",
         items: [
-          "Uygulama arayüzü çevirileri: Arapça, Bengalce, Çince (Basitleştirilmiş ve Geleneksel), İngilizce, Fransızca, Almanca, Hintçe, Endonezce, Japonca, Marathi, Portekizce, Rusça, İspanyolca, Tamilce, Telugu, Türkçe ve Urduca — Android'de yirmi dil (Nijerya Pidgin'i ve Mısır Arapçası da eklenir), iOS'ta on sekiz dil",
+          "İki platformda yirmi dil: Arapça, Mısır Arapçası, Bengalce, Basitleştirilmiş/Geleneksel Çince, İngilizce, Fransızca, Almanca, Hintçe, Endonezce, Japonca, Marathice, Nijerya Pidgin dili, Portekizce, Rusça, İspanyolca, Tamilce, Teluguca, Türkçe ve Urduca",
           "Varsayılan olarak sistem dilini takip eder; uygulamayı telefonun dilinden başka bir dilde kullanmak isterseniz Ayarlar'da bir dil seçici vardır"
         ]
       },
@@ -292,27 +309,48 @@ export const tr: Dict = {
         items: [
           "Cihazda yeni Ed25519 veya ECDSA anahtarları oluşturun (Android'de ayrıca RSA), isteğe bağlı parola ile",
           "Oluşturulan genel anahtarı kopyalayın, paylaşın veya kaydedin; sunucunun authorized_keys dosyasına ekleyin",
-          "Kayıtlı sunucuları ve kimlik bilgilerini bir yedek dosyasına aktarın — tümünü ya da yalnızca işaretlediğiniz satırları; bir klasör başlığına dokunmak klasörün tamamını alır",
-          "İsteğe bağlı parola yedeği şifreler; birleştir veya değiştir ile içe aktarın",
-          "Şifrelenmemiş yedek, parolaları ve anahtarları düz metin olarak saklar — dosyayı koruyun veya silin"
+          "Tam yedek sunucu, kimlik bilgisi, ayar, dil ve çoklayıcı sırasını; Android ayrıca SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN profillerini içerir",
+          "Dar kapsam için seçili veya yalnız envanter dışa aktarımı; tam yedeği önizleyip Birleştir/Değiştir seçin, isterseniz parolayla şifreleyin",
+          "Şifresiz yedek parola ve özel anahtar içerir. SSH güveni, etkin oturum, sistem/klasör izinleri taşınmaz; güvenlik anahtarı kimliği fiziksel anahtar ister"
         ]
       },
       {
         title: "Güvenlik",
         items: [
           "Güvenli ekran: Android'de ekran görüntülerini ve ekran kaydını engelle ve uygulamayı son kullanılanlar küçük resminden gizle; iOS'ta uygulama değiştirici önizlemesini boşalt ve ekran kaydını ve yansıtmayı engelle (iOS'ta elle alınan bir ekran görüntüsü engellenemez) — parolalar, anahtarlar veya belirteçler ekrandayken açılabilen bir ayar",
-          "Kaydedilen sunucular, kimlik bilgileri ve anahtarlar cihazda kalır — gizli veriler Android Keystore ve iOS Keychain'de tutulur, bulut hesabı veya eşitleme yoktur",
-          "Yalnızca anonim kullanım analizleri — asla sunucularınız, kimlik bilgileriniz, komutlarınız veya dosya içerikleriniz değil. Android'de Ayarlar'da bunu kapatan bir anahtar vardır; iOS'ta böyle bir anahtar henüz yok"
+          "Kaydedilen sunucular, kimlik bilgileri ve anahtarlar cihazda saklanır; bulut hesabı veya eşitleme zorunlu değildir. Depolama korumaları ve sınırları için gizlilik sayfasına bakın",
+          "Anonim analitik varsayılan açıktır, iki platformun Ayarlar'ından kapatılır; olaylar sunucu, kimlik bilgisi, komut veya dosya içeriği içermez",
+          "SSH kimliği girişten önce doğrulanır. Android yeni ham anahtarı varsayılan otomatik sabitler, onay seçeneği vardır; iOS bilinmeyeni sorar. İkisi değişeni reddeder",
+          "İki platform da kapsamı belirlenmiş OpenSSH host anahtarı iptal kayıtlarını içe aktarır. iOS, @revoked ile işaretli Ed25519/ECDSA anahtarlarını kabul eder; Android ayrıca host sertifika yetkililerini destekler. iOS host sertifikalarını veya CA içe aktarımını desteklemez. SSH güveni her cihazda kalır ve yedeklere dahil edilmez"
         ]
       },
       {
         title: "Eklentiler",
         items: [
-          "Mobile SSH'yi genişletmek için eklentilere göz atın, kurun ve çalıştırın",
+          "Eklentileri kategoriye göre gezin, arayın, kurun ve çalıştırın; kaynak değişince katalog yenilenir",
           "Eklentiler genel bir katalogdan istek üzerine indirilir ve uygulamaya özel depolamaya SHA-256 ile doğrulanarak kaydedilir",
           "Bir eklenti neye ihtiyaç duyduğunu bildirir — SSH komutları, bir tünel, depolama — ve uygulama, istemediği hiçbir şeye izin vermez",
           "Bir eklenti sunucunuzda bir şey kurduğunda, çalıştırılacak komutları önce olduğu gibi görür ve çalışmadan önce onaylarsınız",
           "Özel veya kişisel bir katalog kaynağı yapılandırın ya da kendi sunucunuzdaki bir klasörden kurun"
+        ]
+      },
+      {
+        "title": "Uzak masaüstleri",
+        "items": [
+          "Android/iOS'ta VNC portunu internete açmadan SSH tünelli masaüstü",
+          "Dokunmatik işaretçi, fiziksel/ekran klavyesi, pano alışverişi ve masaüstü zili",
+          "VNC sunucusu destekliyorsa hazır/özel ekran ölçüsü seçin; desteklenmeyen boyut isteği bildirilir"
+        ]
+      },
+      {
+        "title": "VPN istemcileri (Android)",
+        "items": [
+          "Ana ekrandaki VPN'den SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN profillerini yönetin",
+          "SSH VPN tüm/seçili uygulama ve alanların TCP/DNS trafiğini kayıtlı SSH'tan geçirir; diğer atanmış UDP engellenir",
+          "Kimlik doğrulamalı yerel SOCKS5 başka VPN ile çalışır; katılan uygulamalar proxy ve uzak DNS kullanmalıdır",
+          "WireGuard .conf, desteklenen Shadowsocks ss:// veya doğrulanmış sertifikalı bağımsız OpenVPN .ovpn aktarın",
+          "Profil başlatmak VPN'i değiştirir; Mobile SSH VPN kutucuğu hatırlanan VPN'i durdurur/başlatır, SOCKS içermez",
+          "Android tek cihaz VPN'i sunar. Tailscale ayrı uygulama, IKEv2/IPsec Android Ayarları kullanır. Sürekli açık/kilitleme garantisi yoktur"
         ]
       }
     ],
@@ -326,7 +364,7 @@ export const tr: Dict = {
     eyebrow: "Mobilde SSH seçenekleri",
     h1: "Mobile SSH, Termux ve Termius",
     intro:
-      "Bu araçlar SSH çevresinde örtüşür ama farklı işler için tasarlanmıştır. Mobile SSH Android ve iOS için odaklanmış SSH/SFTP istemcisidir, Termux yalnızca Android'de çalışan bir Linux ortamıdır ve Termius hesap tabanlı üretkenlik özellikleri olan çapraz platform bir SSH istemcisidir.",
+      "Mobile SSH, Android/iOS'ta SSH, SFTP, VNC ve çoklayıcıları, Android'de ayrıca VPN ve güvenlik anahtarı girişini birleştirir. Termux Android Linux ortamıdır; Termius hesap tabanlı üretkenlik özellikli çok platformlu SSH istemcisidir.",
     columns: {
       need: "İhtiyaç",
       mobileSsh: "Mobile SSH",
@@ -336,25 +374,25 @@ export const tr: Dict = {
     rows: [
       {
         need: "Temel amaç",
-        mobileSsh: "Android ve iOS için adanmış SSH, SFTP, yerel tünel ve terminal istemcisi.",
+        mobileSsh: "İki platformda SSH, SFTP, VNC, atlama sunucuları ve çoklayıcılar; Android'de VPN ve FIDO2.",
         termux: "APT paketli Android terminal emülatörü ve Linux ortamı.",
         termius: "Android, iOS, masaüstü ve web odaklı takım akışları için modern SSH istemcisi."
       },
       {
         need: "Kurulum tarzı",
-        mobileSsh: "Bir ana bilgisayar gir veya sunucu profili kaydet, sonra doğrudan bağlan.",
+        mobileSsh: "Sunucu/kimlik bilgilerini kaydedin, isterseniz atlama sunucusu seçin ve girişten önce kimlik kontrolüyle bağlanın.",
         termux: "OpenSSH gibi paketleri yükle, kabuk araçlarını yapılandır ve Linux benzeri komut satırından çalış.",
         termius: "Ana bilgisayarları, anahtarları, parçacıkları ve kasaları Termius uygulama/hesap modeliyle oluştur veya eşitle."
       },
       {
         need: "Mobil terminal denetimleri",
-        mobileSsh: "Yerleşik ek tuş satırı, ızgara oturumları, tam ekran bölmeler, sıkıştırarak yakınlaştırma, kopya/paylaş ile seçim ve tmux uyumlu kaydırma — her iki platformda yerel geçişli yazım ve harici klavye desteğiyle.",
+        mobileSsh: "Ek tuşlar, oturum ızgarası, tam ekran, kıstırarak yakınlaştırma, kopyala/paylaş, fare ve harici klavye. iOS Dikte ve öneriler doğrudan giriş için kapatılabilir.",
         termux: "Güçlü terminal ortamı; davranış yüklü araçlara ve yapılandırmaya bağlı.",
         termius: "Mobil klavye eklentisi, hareketler, sekmeler, otomatik tamamlama, parçacıklar ve cilalı terminal deneyimi."
       },
       {
         need: "Dosya aktarımı",
-        mobileSsh: "Etkin SSH oturumuna bağlı, yerleşik çift bölmeli SFTP aktarımı.",
+        mobileSsh: "İki bölmeli SFTP, tmux klasör geçmişi, uzak ve gelen dosya paylaşımı; iOS dış Dosyalar klasörünü hatırlar.",
         termux: "scp, sftp, rsync gibi komut satırı araçlarını veya yüklü dosya yardımcılarını kullan.",
         termius: "Yerleşik SFTP ile ana bilgisayar/anahtar yönetimi."
       },
@@ -366,7 +404,7 @@ export const tr: Dict = {
       },
       {
         need: "Veri modeli",
-        mobileSsh: "Yalnızca yerel olarak kaydedilen sunucular, kimlik bilgileri, geçmiş, ayarlar ve günlükler.",
+        mobileSsh: "Cihazda profil, kimlik bilgisi, host güveni ve ayarlar; isteğe bağlı taşınabilir envanter/ayar yedeği. Android VPN de içerir; SSH güveni cihazda kalır.",
         termux: "Termux uygulama ortamının içindeki Linux benzeri dosya sistemi ve paketler.",
         termius: "Ana bilgisayar, anahtar, parçacık, yönlendirme kuralları, known hosts ve takım paylaşımı için şifreli kasalar."
       },
@@ -418,8 +456,8 @@ export const tr: Dict = {
       { category: "Terminal",  feature: "Donanım / Bluetooth klavye desteği",         mobile: "yes",    termux: "yes",          termius: "yes" },
       { category: "Terminal",  feature: "Kabuk entegrasyonu (OSC 133)",               mobile: "yes",    termux: "no",           termius: "no" },
       { category: "Terminal",  feature: "Satır içi görüntüler (Kitty grafikleri)",     mobile: "yes",    termux: "no",           termius: "no" },
-      { category: "Terminal",  feature: "Uygulamanın çizdiği mozaik glifler (chafa, ANSI sanatı)", mobile: "Android", termux: "yazı tipine bağlı", termius: "no" },
-      { category: "Terminal",  feature: "Fare modlu TUI'lerde dokunuş tıklama sayılır", mobile: "Android", termux: "yes",        termius: "no" },
+      { category: "Terminal",  feature: "Uygulamanın çizdiği mozaik glifler (chafa, ANSI sanatı)", mobile: "yes", termux: "yazı tipine bağlı", termius: "no" },
+      { category: "Terminal",  feature: "Fare modlu TUI'lerde dokunuş tıklama sayılır", mobile: "yes", termux: "yes",        termius: "no" },
       { category: "Terminal",  feature: "Nerd Font / powerline glif oluşturma",       mobile: "yes",     termux: "yapılandırılabilir", termius: "kısmi" },
       { category: "Oturumlar", feature: "Eşzamanlı birden çok SSH oturumu",          mobile: "en fazla 8", termux: "en fazla 8", termius: "yes" },
       { category: "Oturumlar", feature: "Izgara bölme düzeni",                       mobile: "yes",    termux: "tmux ile",     termius: "sekmeler" },
@@ -447,7 +485,7 @@ export const tr: Dict = {
       { category: "Yedekleme", feature: "Hesap gerekmez",                            mobile: "yes",    termux: "yes",          termius: "kısmi" },
       { category: "Gizlilik ve maliyet", feature: "Pro paywall yok",                 mobile: "yes",    termux: "yes",          termius: "kısmi" },
       { category: "Gizlilik ve maliyet", feature: "Reklam yok",                      mobile: "yes",    termux: "yes",          termius: "yes" },
-      { category: "Gizlilik ve maliyet", feature: "Analitikten çıkma seçeneği",      mobile: "Android", termux: "analitik yok", termius: "no" },
+      { category: "Gizlilik ve maliyet", feature: "Analitikten çıkma seçeneği",      mobile: "yes", termux: "analitik yok", termius: "no" },
       { category: "Gizlilik ve maliyet", feature: "Yalnızca yerel veriler (bulut eşitlemesi yok)", mobile: "yes", termux: "yes", termius: "kısmi" },
       { category: "Gizlilik ve maliyet", feature: "Güvenli ekran (ekran yakalamayı engelle)", mobile: "yes",  termux: "no",         termius: "no" },
       { category: "Oturumlar", feature: "Eternal Terminal (dayanıklı oturumlar)",  mobile: "yes",    termux: "CLI ile",      termius: "no" },
@@ -471,7 +509,7 @@ export const tr: Dict = {
       { feature: "Yerel port yönlendirme",                                 mobile: "yes", onepilot: "yes",          happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "tmux oturum yöneticisi",                                 mobile: "yes", onepilot: "kısmi",        happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "Kendi kurduğunuz bir ajanla çalışır",                    mobile: "yes", onepilot: "yes",          happy: "yes",         omnara: "yes",     chatgpt: "no",           claude: "no" },
-      { feature: "Ajan uyarıları (ajanın girdiye ihtiyacı olduğunda bildirim)", mobile: "yes", onepilot: "yes",   happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "Ajan bildirimleri (bağlı ajan girdi beklediğinde)", mobile: "yes", onepilot: "yes",   happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "Ajan istemlerini tek dokunuşla onayla/reddet",           mobile: "yes", onepilot: "yes",          happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "Sıfır sunucu veya SSH kurulumu",                         mobile: "no",  onepilot: "no",           happy: "kısmi",       omnara: "kısmi",   chatgpt: "yes",          claude: "yes" },
       { feature: "Android ve iOS",                                         mobile: "yes", onepilot: "yalnızca iOS", happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
@@ -485,40 +523,56 @@ export const tr: Dict = {
   privacy: {
     metaTitle: "Gizlilik Politikası | Mobile SSH",
     metaDescription:
-      "Mobile SSH'nin gizlilik politikası: yerel depolama, SSH veri aktarımı, dosya aktarımı, günlükler ve Android ile iOS'taki uygulama izinleri.",
+      "Mobile SSH Android/iOS'ta verileri, kimlikleri, yedekleri, SSH/VPN trafiğini, dosyaları, analitik ve izinleri nasıl işler.",
     eyebrow: "Gizlilik",
     h1: "Gizlilik Politikası",
     intro:
-      "Mobile SSH, Android ve iOS için yerel bir SSH istemcisi olarak tasarlanmıştır. Mobile SSH hesabı gerektirmez ve Mobile SSH bulut eşitleme hizmeti sunmaz.",
+      "Mobile SSH yapılandırmayı cihazınızda saklar ve seçtiğiniz sunucu/hizmete bağlanır. Mobile SSH hesabı veya bulut eşitlemesi gerekmez. Android'in isteğe bağlı VPN'i seçilen cihaz trafiğini ayarladığınız sunucudan geçirir.",
     sections: [
       {
         heading: "Cihazınızda saklanan bilgiler",
-        body: "Uygulama verilerini kaydetmeyi seçerseniz Mobile SSH bunları cihazda yerel olarak saklar. Gizli bilgiler iOS'ta sistem Keychain'inde tutulur; Android'de ise cihazdan dışarı aktarılamayan, Android Keystore'da saklanan bir anahtarla şifrelenir ve uygulama Android bulut yedeklemesinin dışında kalır. Bu; kaydedilmiş sunucu profilleri, kullanıcı adları, portlar, parolalar, özel anahtarlar, anahtar parolaları, port yönlendirme kuralları, son oturumlar, giriş denemesi geçmişi, dosya aktarım yolları, sıralama tercihleri, tmux oturum anlık görüntüleri ve reattach ipuçları, uygulama ayarları ve hata ayıklama kaydı etkinken hata ayıklama günlüklerini içerebilir."
+        body: "Kayıtlı veriler sunucu profillerini, kimlik bilgilerini, özel anahtarları, host kimliklerini, atlama sunucularını, tünel kurallarını, oturum görüntülerini, giriş geçmişini, dosya yollarını, klasör erişim izinlerini ve uygulama ayarlarını içerir. Android ayrıca VPN/proxy yapılandırmalarını ve bunların gizli bilgilerini saklar. iOS gizli bilgiler için Keychain kullanır. Android envanteri Keystore destekli bir anahtarla şifreler; ancak şifreleme kullanılamıyorsa düz metin olarak kaydedebilir. WireGuard, Shadowsocks ve OpenVPN profillerinin saklanması şifreleme gerektirir. Android bulut yedeklemesi kapalıdır. İsteğe bağlı hata ayıklama günlükleri yerel olarak saklanır."
       },
       {
         heading: "Ağ üzerinden gönderilen bilgiler",
-        body: "Mobile SSH yalnızca yapılandırıp bağlandığınız sunuculara SSH kimlik doğrulama verisi gönderir. Terminal girişi/çıkışı, SFTP dosya içeriği ve yerel port yönlendirilmiş trafik, seçtiğiniz sunucu ve uzak uç noktalarla değiş tokuş edilir. Mobile SSH bu verileri herhangi bir Mobile SSH analitik, reklam, telemetri veya bulut eşitleme hizmetine göndermez."
+        body: "SSH giriş bilgisi kimlik kontrolünden sonra ayarlı sunucu/bastionlara gider. Terminal, SFTP, VNC ve yönlendirme seçtiğiniz hedefe gider. Eklenti kataloğu/indirme ayarlı kaynağa erişir. Android VPN/proxy, başka uygulama trafiği ve DNS'yi rotaya göre SSH, WireGuard, Shadowsocks veya OpenVPN üzerinden taşır. Bu trafik Mobile SSH analitiğine veya bulut depolamaya gönderilmez."
       },
       {
         heading: "Dosya aktarımı ve depolama erişimi",
-        body: "Dosya aktarımı özelliği, yerel telefon depolamasını ve uzak SFTP dizinlerini dosya yüklemek ve indirmek için tarar. Mobile SSH, Android'den geniş kapsamlı depolama izni istemez: sistemin klasör seçicisiyle tek bir klasör seçersiniz ve uygulama yalnızca onun içinde okuyup yazabilir. iOS'ta yerel dosyalara ve fotoğraflara sistemin belge ve fotoğraf seçicileri aracılığıyla erişilir."
+        body: "Aktarım genel depolama izni olmadan seçilen dosya/klasörleri kullanır. Android verilen klasör erişimini korur. iOS uygulama klasörünü veya hatırlanan Dosyalar klasörünü kullanır; sistem arayüzlerinden belge, fotoğraf ve paylaşım alır. Dosya sağlayıcısı kendi bulutunda saklayabilir. Açma/paylaşma seçtiğiniz uygulama veya hedefe gönderir."
       },
       {
         heading: "Günlükler ve sorun giderme",
-        body: "Giriş geçmişi ve isteğe bağlı hata ayıklama günlükleri sorun giderme için yerel olarak saklanır ve siz açana kadar ikisi de kapalı ya da boştur. Android'in hata ayıklama kaydedicisi terminal olaylarını, SSH veri boyutlarını, dokunma giriş tanılamalarını, yeniden boyutlandırma olaylarını ve tünel yaşam döngüsü olaylarını yakalar — başlamadan önce sizi, parolalar dahil yazdığınız her tuşun kaydedileceği konusunda uyarır ve İndirilenler klasörünüze bir arşiv yazar. iOS daha dar kapsamlı, farklı bir günlük tutar: bağlanmayı denediği adresler ve her birinin neden başarısız olduğu, yeniden bağlanmalar ve bekleme süreleri, düşen bağlantılar, ağ değişiklikleri ve tmux komutları ile hataları. Bir hata ayıklama günlüğünü veya arşivini destek ekibi ya da başka biriyle paylaşmadan önce gözden geçirin."
+        body: "Bağlanırken giriş denemeleri yerel kaydedilir. Hata kaydı isteğe bağlıdır: Android her tuşu, parolaları da içereceğini bildirir ve arşiv çıkarır. iOS adres, hata, yeniden bağlantı, ağ değişimi ve tmux tanısını kaydeder. Paylaşmadan inceleyin; sunucu ayrıntısı ve Android'de yazılmış sırlar içerebilir."
       },
-      { heading: "Anonim kullanım analizi", body: "Uygulamanın nasıl kullanıldığını anlamak ve geliştirmek için Mobile SSH, bizim adımıza hareket eden gizlilik odaklı analiz sağlayıcısı Aptabase'e anonim kullanım analizleri gönderir. Bu, yalnızca anonim olaylarla (uygulama açılışları ve hangi özelliklerin kullanıldığı gibi) birlikte uygulama sürümü, işletim sistemi sürümü, cihaz modeli ve dil ile sınırlıdır. Düzenli olarak sıfırlanan ve sizinle ya da cihazınızla ilişkilendirilmeyen rastgele bir oturum tanımlayıcısı kullanır. SSH sunucularınızı, ana bilgisayar adlarınızı, kullanıcı adlarınızı, parolalarınızı, anahtarlarınızı, komutlarınızı veya dosya içeriklerinizi asla içermez. Veriler şifreli (HTTPS) bir bağlantı üzerinden gönderilir. Analiz varsayılan olarak açıktır. Android'de Ayarlar'dan istediğiniz zaman kapatabilirsiniz ve kapalıyken hiçbir şey gönderilmez; iOS uygulamasında bu anahtar henüz yok, bu yüzden iOS'ta bu anonim olaylar uygulama kurulu kaldığı sürece gönderilir. iOS anahtarını eklemeyi planlıyoruz — o zamana kadar bu sayfa durumu olduğu gibi belirtir." }
+      { heading: "Anonim kullanım analizi", body: "Mobile SSH anonim uygulama/özellik olaylarını HTTPS ile Aptabase'e, uygulama/OS sürümü, model ve dille gönderir. Değişen rastgele oturum kimliği kullanılır; olaylarda sunucu adresi, kullanıcı, kimlik bilgisi, komut veya dosya içeriği yoktur. Analitik varsayılan açıktır. İki platformdaki ayar yeni toplamayı durdurur; iOS'ta önceden kuyruklanan olaylar hâlâ iletilebilir." },
+      {
+        "heading": "Dışa aktardığınız yedekler",
+        "body": "Tam yedek envanter/ayarları, Android ayrıca VPN/proxy içerir. Parola dosyayı şifreler; yoksa parola ve özel anahtar açık metindir. Kaydetme/paylaşma hedefini siz seçersiniz. SSH güveni, etkin oturum ve sistem klasör izni dışarıda kalır. Önizleme uygulanacak bölümleri ve güvenlik ayarlarını gösterir."
+      },
+      {
+        "heading": "Android VPN yönlendirmesi",
+        "body": "Cihaz VPN'i Android onayı ister ve durdurulana veya sistem bitirene kadar sürer. Tek cihaz VPN'i, yanında yerel SOCKS olabilir. SSH TCP/DNS taşır, diğer SSH yönlü UDP engellenir. Durdurma, değiştirme veya uygulamayı bitirme eski VPN korumasını sona erdirir; sürekli açık/kilitleme garantisi yoktur."
+      }
     ],
     permissionsHeading: "İzinler",
     permissions: [
-      { label: "İnternet", body: "SSH sunucularına bağlanmak için gereklidir." },
+      { label: "İnternet", body: "SSH, dosya, masaüstü, VPN, eklenti bağlantıları ve açık analitik için kullanılır." },
       { label: "Wake lock ve Wi-Fi lock", body: "cihaz uykudayken etkin SSH oturumlarını canlı tutmak için Android'de kullanılır." },
       { label: "Ön plan servisi ve bildirimler", body: "arka planda etkin bağlantıları yönetmek için Android'de kullanılır; iOS'ta bildirimler ajan uyarıları için kullanılır." },
-      { label: "Dosya erişimi", body: "Android'de sistem seçicisiyle klasör bazında, iOS'ta ise sistemin belge ve fotoğraf seçicileri üzerinden verilir. Mobile SSH hiçbir platformda toptan depolama izni istemez." }
+      { label: "Dosya erişimi", body: "sistem klasör/belge/fotoğraf seçicileriyle verilir; iOS dış Dosyalar klasörünü hatırlar. İki platform da genel depolama izni istemez." },
+      {
+        "label": "VPN onayı (Android)",
+        "body": "yerleşik VPN cihaz trafiğini yönlendirmeden gerekir. Yalnız SOCKS proxy VPN yuvasını kullanmaz."
+      },
+      {
+        "label": "USB ve NFC (Android)",
+        "body": "FIDO2 fiziksel anahtarla kayıt veya SSH imzası için kullanılır; gerektiğinde USB izni, dokunma/PIN onayı istenir."
+      }
     ],
     securityHeading: "Güvenlik sorumlulukları",
     securityBody:
-      "Kimlik bilgilerini veya özel anahtarları kaydederseniz cihazınızı güçlü bir ekran kilidiyle koruyun. Yalnızca güvendiğiniz sunuculara bağlanın. Mevcut uygulama, ayrı bir şifreli bulut kasası yerine yerel uygulama depolamasını (ve iOS'ta sistem Keychain'ini) kullanır. İsteğe bağlı bir Güvenli ekran ayarı, gizli veriler ekrandayken koruma ekler: Android'de ekran görüntülerini ve ekran kaydını engeller ve uygulamayı son kullanılanlar görünümünden gizler; iOS'ta uygulama değiştirici önizlemesini boşaltır ve ekran kaydını ve yansıtmayı engeller (iOS'ta elle alınan bir ekran görüntüsü engellenemez).",
+      "Cihazı ve dışa aktarılan yedekleri koruyun. Bilinmeyen SSH izlerini güvenilir kanaldan karşılaştırın: ilk kullanım onayı isterseniz Android otomatik kabulünü kapatın; iOS varsayılan sorar. Kaydı değiştirmeden anahtar değişimini araştırın. Güvenli ekran Android'de ekran görüntülerini ve kaydı engeller; iOS uygulama geçiş önizlemesi ve kayıt/yansıtmayı gizler, elle ekran görüntüsünü engelleyemez.",
     contactHeading: "İletişim",
     contactBody: "Destek iletişimi: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },
@@ -528,13 +582,13 @@ export const tr: Dict = {
     eyebrow: "Kullanıcı kılavuzu",
     h1: "Mobile SSH belgeleri",
     intro:
-      "Mobile SSH'yi kurmak, bağlanmak, oturumları yönetmek, dosya aktarmak, port yönlendirmek ve sorunları çözmek için bu sayfaları genel kılavuz olarak kullanın.",
+      "Platform farklarıyla SSH kimliği/atlamalar, terminal/VNC, çoklayıcı, SFTP, yedek, yerel tünel ve Android VPN kılavuzları.",
     cards: [
-      { slug: "getting-started",  title: "Başlarken",        text: "Kur, uygulamayı aç, ilk sunucuna bağlan ve sık kullanılan ana bilgisayarları kaydet." },
-      { slug: "terminal",         title: "Terminal",          text: "Bölmeler, ek tuş satırı, kaydırma, kopyalama eylemleri, tmux davranışı ve klavye ayarları." },
-      { slug: "file-transfer",    title: "Dosya aktarımı",   text: "Telefon ve sunucu dosyalarını gez, yükle, indir, sırala ve uzak ayrıntıları incele." },
-      { slug: "port-forwarding",  title: "Port yönlendirme", text: "Yerel tünel dizeleri yaz, IPv6 hedeflerine yönlendir ve bağlandığında kendiliğinden açılmalarını sağla." },
-      { slug: "troubleshooting",  title: "Sorun giderme",    text: "Bağlantı, kimlik doğrulama, klavye, depolama ve yeniden bağlanma sorunlarını çöz." }
+      { slug: "getting-started",  title: "Başlarken",        text: "Kurun, kimlik doğrulayın, atlama/anahtar ayarlayın ve yapılandırmayı yedekleyin." },
+      { slug: "terminal",         title: "Terminal",          text: "Terminal, tmux, herdr, Zellij, ajan uyarısı ve VNC masaüstü kullanın." },
+      { slug: "file-transfer",    title: "Dosya aktarımı",   text: "Dosya aktarın, klasörleri hatırlayın, oturuma veya başka uygulamaya paylaşın." },
+      { slug: "port-forwarding",  title: "Port yönlendirme", text: "Yerel tünel ve Android SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN ayarlayın." },
+      { slug: "troubleshooting",  title: "Sorun giderme",    text: "Kimlik, atlama, terminal, aktarım, yedek ve VPN sorunlarını tanılayın." }
     ]
   },
   docsNav: {
@@ -550,7 +604,7 @@ export const tr: Dict = {
     metaDescription: "Mobile SSH hakkında: Android ve iOS SSH istemcisinin sürümü, yazarı, lisansı ve açık kaynak bildirimleri.",
     eyebrow: "Hakkında",
     h1: "Mobile SSH hakkında",
-    intro: "tmux, port yönlendirme ve SFTP destekli çoklu oturum SSH istemcisi.",
+    intro: "Android/iOS için SSH, SFTP, VNC ve çoklayıcılar; yerel yedek, doğrulanmış kimlikler ve atlama sunucuları. Android VPN ve donanım güvenlik anahtarlarını da içerir.",
     appHeading: "Uygulama hakkında",
     versionLabel: "Sürüm",
     authorLabel: "Yazar",

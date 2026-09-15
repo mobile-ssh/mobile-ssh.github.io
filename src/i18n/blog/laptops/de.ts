@@ -255,11 +255,11 @@ ersten Klingeln ran.`
     },
     {
       heading: "Schlüssel, auf dem Gerät erzeugt",
-      body: "SSH-Schlüssel entstehen auf dem Gerät – Ed25519 und ECDSA – mit Passwort- oder Private-Key-Authentifizierung. Nichts verlässt das Telefon."
+      body: "SSH-Schlüssel direkt auf dem Gerät erzeugen — Ed25519 und ECDSA — mit Anmeldung per Passwort oder privatem Schlüssel. Die Schlüssel werden auf dem Gerät gespeichert; ein Mobile SSH-Cloudkonto ist nicht erforderlich."
     },
     {
       heading: "Coding-Agenten, mit Agenten-Benachrichtigungen",
-      body: "Lass Claude Code, Codex und andere Agenten auf deinen <em>eigenen</em> Servern laufen, direkt vom Smartphone aus. Agenten-Benachrichtigungen lösen eine Push-Meldung aus – mit Ton und Vibration –, sobald ein Agent deine Eingabe braucht. So kannst du weggehen und bleibst trotzdem im Bilde."
+      body: "Führe Claude Code, Codex und andere Agenten auf deinen <em>eigenen</em> Servern aus, direkt vom Handy. Agent Alerts melden sich mit Benachrichtigungen, Ton und Vibration, wenn ein verbundener Agent deine Eingabe braucht. Android hält Verbindungen über einen Vordergrunddienst; iOS schränkt die Zustellung im Hintergrund ein."
     },
     {
       heading: "Passend gekleidet für den Anlass",

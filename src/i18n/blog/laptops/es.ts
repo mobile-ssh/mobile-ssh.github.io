@@ -252,11 +252,11 @@ timbre.`
     },
     {
       heading: "Claves generadas en el dispositivo",
-      body: "Generación de claves SSH en el propio dispositivo — Ed25519 y ECDSA — con autenticación por contraseña o por clave privada. Nada sale del teléfono."
+      body: "Generación de claves SSH en el dispositivo — Ed25519 y ECDSA — con autenticación por contraseña o clave privada. Las claves se guardan en el dispositivo; no hace falta una cuenta en la nube de Mobile SSH."
     },
     {
       heading: "Agentes de programación, con Alertas de agente",
-      body: "Ejecuta Claude Code, Codex y otros agentes en tus <em>propios</em> servidores, directamente desde el teléfono. Las Alertas de agente disparan una notificación push — con sonido y vibración — en cuanto un agente necesita tu respuesta, así que puedes alejarte sin perder el hilo."
+      body: "Ejecuta Claude Code, Codex y otros agentes en tus <em>propios</em> servidores, directamente desde el móvil. Agent Alerts usa notificaciones, sonido y vibración cuando un agente conectado necesita tu respuesta. Android mantiene las conexiones con un servicio en primer plano; iOS limita la entrega en segundo plano."
     },
     {
       heading: "Vestido para la ocasión",

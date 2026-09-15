@@ -43,7 +43,7 @@ The test suite asserts element counts against English for `home.advantages`,
 `home.features`, `home.galleryAlts`, `home.galleryIosAlts`, `home.muxItems`,
 `home.demoItems`, `about.notices`, `compare.featureRows`,
 `compare.agentAppsRows`, `compare.rows`, `features.groups` **and each group's
-`items`**, `privacy.sections`, and `docsIndex.cards`.
+`items`**, `privacy.sections`, `privacy.permissions`, and `docsIndex.cards`.
 
 `home.muxItems` and `home.demoItems` are indexed **positionally** against fixed
 lists of video files in `Home.astro` (`muxDemos` and `featureDemos`). A short or
@@ -152,7 +152,7 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 ### Before you commit
 
 ```bash
-npx vitest run      # 1387 tests; structural parity + translation checks
+npx vitest run      # structural parity + translation checks
 npx astro build     # 321 pages across 20 locales
 ```
 
@@ -175,8 +175,8 @@ public history. A local override does not drift.
 ### Locale codes differ from the apps
 
 The site uses `id`, `zh`, plus `arz` and `yue`. Android uses `in` (legacy
-Indonesian), `zh-rCN`/`zh-rHK`, and `ar-rEG`; iOS uses `zh-Hans`/`zh-Hant` and
-has no `pcm`/`arz`/`yue`. The three lists are deliberately not identical —
+Indonesian), `zh-rCN`/`zh-rHK`, and `ar-rEG`; iOS uses `id`, `zh-Hans`/`zh-Hant`,
+`ar-EG`, and `pcm`, with no `arz` or `yue` locale codes. The three lists are deliberately not identical —
 `ar-rEG` (Arabic, Egypt region) and `arz` (Egyptian Arabic, a distinct
 language) are not the same identifier and don't map 1:1. Don't "fix" one list
 to match another without deciding which is correct.

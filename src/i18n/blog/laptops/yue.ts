@@ -234,11 +234,11 @@ shell 一直開住。Eternal Terminal 行多一步，改為命名會話而唔係
     },
     {
       heading: "密鑰喺裝置上面產生",
-      body: "喺裝置上面產生 SSH 密鑰 —— Ed25519 同 ECDSA —— 支援密碼或者私鑰驗證。乜都唔會離開部電話。"
+      body: "喺裝置上產生 SSH 金鑰——Ed25519 同 ECDSA——用密碼或者私鑰認證。金鑰儲存喺裝置上，唔使 Mobile SSH 雲端帳戶。"
     },
     {
       heading: "Coding agent，配 Agent 提示",
-      body: "喺你<em>自己</em>嘅伺服器上面跑 Claude Code、Codex 同其他 agent，直接喺電話度操作。Agent 一需要你回覆，Agent 提示就即刻推送通知 —— 有聲有震 —— 等你行得開之餘，又照樣跟得住進度。"
+      body: "直接用手機喺<em>自己嘅</em>伺服器上行 Claude Code、Codex 同其他代理。連緊線嘅代理需要你答覆嗰陣，Agent Alerts 會用通知、聲音同震動提醒你。Android 用前景服務保持連線；iOS 會限制背景通知送達。"
     },
     {
       heading: "為呢個場合盛裝出席",

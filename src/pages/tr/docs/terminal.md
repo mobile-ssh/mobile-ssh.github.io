@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Terminal"
-description: "Mobile SSH terminal denetimleri, ek tuşlar, bölmeler, kaydırma, tmux, herdr ve Zellij yöneticileri, ajan uyarıları, kopyalama işlemleri ve klavye ayarları."
+description: "Mobile SSH terminal kontrolleri, klavye, tmux, herdr ve Zellij yöneticileri, ajan uyarıları, pano, görseller ve uzak masaüstleri."
 ---
 
 # Terminal
@@ -22,18 +22,18 @@ Mobile SSH aynı anda sekiz SSH oturumuna kadar çalıştırabilir. Her oturum t
 
 Bölme başlığı nerede olduğunuzu adlandırır. Android'de bölmenin gerçek çalışma dizinini gösterir — tmux'tan sorulur ya da kabuk tarafından OSC 7 ile bildirilir ve uygulama açıkken tazelenir; iOS'ta ise uzak tarafın belirlediği başlığı, o yoksa `user@host:port` biçimini gösterir.
 
-Bir bölmeyi kapatmak o SSH oturumunu keser. Başlangıç ekranına dönmek etkin oturumları **Active Sessions** aracılığıyla erişilebilir tutar.
+Bölmeyi kapatmak SSH oturumunu keser. Ana ekrana dönünce canlı bağlantılar **Etkin Oturumlar** üzerinden kullanılabilir. Başlık yanıt vermeyen bağlantıları gösterir; Ayarlar aktarım hızı ve isteğe bağlı karartma veya titreşim sunar.
 
 ## Eternal Terminal (ET)
 
-Kaydedilen her sunucu, sunucu eklerken veya düzenlerken **Transport** seçiciyle belirlenen iki aktarımdan birini kullanabilir:
+Her iki platformda sunucu eklerken veya düzenlerken **Taşıma** seçicisinde şu seçenekler bulunur:
 
 - **SSH** — standart bir SSH bağlantısı (varsayılan).
 - **Eternal Terminal** — kabuğunuzu yeniden başlatmadan ağ kesintilerine, cihazın uyku moduna geçmesine ve IP adresi değişikliklerine dayanan bir ET oturumu.
 
 ET oturumu sunucuda canlı tutar; böylece telefonunuz ağ değiştirdiğinde veya uykudan uyandığında Mobile SSH yeni bir kabuk açmak yerine aynı çalışan kabuğa yeniden bağlanır. Bu, onu mobil veri, Wi-Fi/hücresel geçişleri ve uzun süren komutlar için iyi bir seçim yapar.
 
-ET, ana bilgisayarda bir `etserver` süreci gerektirir. Sunucuda yoksa Mobile SSH onu mevcut SSH bağlantısı üzerinden sizin için kurup başlatabilir — elle sunucu kurulumu gerekmez. ET kullanılabilir olduğunda **Eternal Terminal** aktarımı seçili şekilde bağlanın.
+ET, sunucuda `etserver` gerektirir. Yoksa Mobile SSH, SSH üzerinden kurup başlatmayı önerebilir. Komutları inceleyip onaylayın, ardından **Eternal Terminal** ile bağlanın. Atlama sunuculu yollar **SSH** gerektirir.
 
 ## Ek tuş satırı
 
@@ -54,11 +54,11 @@ Ok tuşu veya `PGDN` gibi bir tuşu basılı tutarsanız yinelenir.
 
 ## Klavye davranışı
 
-Terminal, ekran klavyesine yerel bir geçişli bağlantı kullanır: yazdıkça her karakter uzak kabuğa gönderilir; otomatik düzeltme ve tahmine dayalı öneriler kapalıdır; böylece klavye, giriş kabuğa ulaşmadan önce onu asla yeniden yazmaz. Bu; Vim, tmux, htop, less, alışılmadık tuş akorları kullanan kabuklar ve uzak parola istemlerini öngörülebilir tutar — devre dışı bırakılacak bir öneri arabelleği yoktur.
+Android'de normal yazım doğrudan uzak kabuğa iletilir; otomatik düzeltme ve tahminler varsayılan olarak kapalıdır. Sesle dikte yine klavye üzerinden metin gönderebilir.
 
-- **Klavyeyi göstermek için terminale dokun:** etkinleştirildiğinde terminale dokunmak sistemden ekran klavyesini göstermesini ister.
+iOS'ta **Ayarlar → Terminal → Dikte ve öneriler** varsayılan olarak açıktır; satır yazarken dikte, tahmin ve düzeltme sağlar. Tuşları doğrudan göndermek için bunu ve **Klavye önerileri** seçeneğini kapatıp yeni bölme açın.
 
-Ekran klavyesi sesli diktesi yine de çalışır: dikte edilen metin, yazılan diğer girdiler gibi doğrudan kabuğa iletilir.
+**Dokununca klavyeyi göster**, dokunmanın ekran klavyesini açıp açmadığını belirler. Android'de varsayılan kapalı, iOS'ta açıktır; araç çubuğundaki klavye düğmesi kullanılabilir.
 
 ## Donanım klavyeleri
 
@@ -70,11 +70,12 @@ Bunu isteyen bir programa (bash, Vim ve diğer köşeli parantezli yapıştırma
 
 ## Seç, kopyala, paylaş
 
-Parmağınızın altındaki kelimeyi seçmek için terminalin içine uzun basın, ardından ayarlamak için tutamakları sürükleyin. Seçim araç çubuğu üç işlem sunar:
+Sözcüğü seçmek için terminalde uzun basın, tutamaçlarla seçimi ayarlayın. Seçim çubuğu şunları içerir:
 
 - **Copy** — seçili metni sistem panosuna koyar. Seçim daha sonra da vurgulu kalır; böylece paylaşabilir, yeniden kopyalayabilir veya genişletebilirsiniz.
 - **Share** — seçili metni sistem paylaşım sayfasına (e-posta, notlar, mesajlaşma vb.) iletir.
 - **Select all** — seçimi görünür terminal arabelleğinin tamamına genişletir, ardından Copy veya Share uygulanabilir.
+- **Yapıştır**: pano metnini terminale ekler.
 
 ## Terminalde bul
 
@@ -83,15 +84,16 @@ Tüm terminal arabelleğini — geri kaydırmayı ve görünür ekranı — aray
 ## Renk, italik ve uzak pano
 
 - Terminal **24-bit gerçek renk** ve **italik** işler; böylece temalı istemler, sözdizimi vurgulaması ve TUI'ler masaüstündeki gibi görünür.
-- **OSC 52 panosu:** uzak bir program metni kopyaladığında (tmux `set-clipboard`, bir Vim/Neovim OSC 52 kopyalaması) bu, telefonunuzun panosuna düşer — böylece sunucudan kopyalayıp yerel bir uygulamaya yapıştırabilirsiniz.
+- **OSC 52 panosu:** uzak programlar telefona metin kopyalayabilir. Telefon panosunu okumak ayrı izin gerektirir ve varsayılan kapalıdır.
 - Hem Android hem de iOS'ta geniş CJK, emoji ve birleşen karakterler (grafem kümeleri ve sıfır genişlikli birleştiriciler) doğru şekilde ölçülür ve çizilir ve yerleşik bir **Nerd Font** sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini çizer.
 
 ## Kabuk entegrasyonu ve satır içi görüntüler
 
 - **Kabuk entegrasyonu (OSC 133):** kabuğunuz OSC 133 istem işaretleri yaydığında Mobile SSH istemler arasında adım adım gezebilir ve uzun süren bir komut bittiğinde sizi uyarabilir. Android ve iOS'ta çalışır. Hiçbir uygulama bu işaretleri kendisi eklemez — kabuğunuzun yayması gerekir (bir `PROMPT_COMMAND`/`precmd` kancası ya da starship). Android'de istem gezinmesi, **Settings → Shell integration** altında etkinleştirene kadar kapalıdır; iOS'ta ise işaretler gelmeye başlayınca menü kendiliğinden görünür.
 - **Çıktıyı seçme:** bir komutun çıktısının herhangi bir yerine dokunun ve o bloğun tamamını seçin — yalnızca son komutu değil, 300 satır önceki derleme hatasını — sonra kopyalayın, paylaşın veya seçimi genişletin.
-- **Satır içi görüntüler:** Kitty grafik protokolünü kullanan programlar görüntüleri doğrudan terminalde çizer; Android ve iOS'ta. Görüntüler sıkıştırarak yakınlaştırmaya ve satırların yeniden sarılmasına dayanır: hücre cinsinden ölçülür ve satırlarıyla birlikte hareket ederler, düşürülüp yerlerinde boşluk bırakmazlar. Bunlar ana ekrana ait bir özelliktir ve tam ekran bir TUI devraldığında temizlenirler.
-- **Mozaik glifler (Android):** blok, braille, sekstant ve oktant karakterleri bir yazı tipinden istenmek yerine uygulamanın kendisi tarafından çizilir; böylece `chafa`, `timg` ve ANSI sanatı ızgarayı tam olarak döşer — hangi yazı tipini seçerseniz seçin, ne dikiş izi ne de boş kutu kalır.
+- **Satır içi görseller:** Kitty kullanan programlar Android ve iOS terminalinde görsel gösterir. Hücre ve satıra bağlı olduklarından yakınlaştırma ve yeniden satırlamayı korurlar. Tam ekran uygulamalarda da normal geçmişten ayrı konumlarla gösterilirler.
+- **Mozaik glifleri:** blok, braille, altılı ve sekizli karakterleri uygulama çizer; `chafa`, `timg` ve ANSI sanatı yazı tipinden bağımsız olarak boşluksuz ve eksik kutusuz ızgaraya oturur.
+- **Görsel çözünürlüğü:** Görseller ayarı programlara tam, yarım veya üçte bir ekran çözünürlüğü bildirerek mobil ağda gönderilen pikselleri azaltabilir.
 - **Gerçek çalışma dizini (Android):** bölme başlığı, son istemin ne yazdırdığına bakmaksızın bölmenin gerçekte nerede olduğunu gösterir — tmux'tan sorularak ya da kabuk tarafından OSC 7 ile bildirilerek.
 
 ## Görünüm ve tuşlar
@@ -116,7 +118,7 @@ Mobile SSH kaydırma hareketlerini terminal durumuna göre yönlendirir:
 - Fare modlu terminal uygulamalarında kaydırma, fare tekerleği kaçış dizileri gönderir.
 - Fare modu olmayan alternatif ekran uygulamalarında, birçok tmux oturumu gibi, kaydırma tmux kopya moduna girer ve satır kaydırma komutları gönderir.
 
-Android'de, fare izleyen bir programın içindeki dokunuş o hücrede bir sol tıklama olarak iletilir; böylece htop, vim ve tıklayarak odaklanan bölmeler dokunuşa yanıt verir. iOS'ta aynı programda bir dokunuş tıklamak yerine klavyeyi açar; yalnızca tekerlek kaydırması bildirilir.
+Her iki platformda fare izleyen programa dokunmak normalde sol tıklama gönderir. iOS'ta **Dokunma imleci yerleştirir**, bunu imleç hareketiyle değiştirir; Shift-dokunma diğerini yapar. Basılı tutup sürükleyerek fare girişi varsayılan kapalıdır; normal kaydırma içeriği kaydırır.
 
 Geriye kaydırılmışken yazarsanız Mobile SSH canlı terminal görünümüne döner.
 
@@ -130,13 +132,13 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-tmux'tayken bağlantı düştüğünde uygulama o sunucunun son tmux oturum adını hatırlayabilir ve yeniden bağlandıktan sonra yeniden eklemeyi deneyebilir. Açık bir oturum adı gözlemlenmediyse ancak uygulama alternatif ekranlı tmux benzeri bir oturumda olduğunuzu tespit ettiyse genel bir `tmux attach` deneyebilir.
+Bağlantı kesildiğinde uygulama tmux oturumunu ve soketini hatırlayarak aynı hedefe döner. Aynı sunucudaki bölmeler kendi bağlı oturumlarını korur. Oturum yoksa kabuk kullanılabilir kalır.
 
-Bu davranış elden gelenin en iyisidir. Uzak tmux oturumu artık mevcut değilse uzak kabuk kullanılabilir kalmaya devam eder.
+iOS'ta soket değiştirmek Ctrl+B varsaymak yerine geçerli tmux önekini okur. Desteklenmeyen önek veya başarısız sorgu mesajla durur. Yazma, bölmeyi kapatma veya bağlantıyı kesme bekleyen bağlanma adımlarını iptal eder; tanınmayan tam ekran programa bağlanma komutları gönderilmez.
 
 ## Tmux yöneticisi
 
-Mobile SSH, önek akorları yazmadan tmux'u gezip yönetebilmeniz için bir tmux yöneticisi içerir. Bağlı bir oturumdan **Tmux** düğmesiyle açın. Üç bölüm halinde listeler:
+tmux yöneticisi önek kombinasyonları yazmadan yönetim sağlar. Bağlı oturumun çoklayıcı kontrolünden açın; birden fazla yönetici varsa tmux seçmek için uzun basın. Üç bölüm gösterir:
 
 - **Sessions** — sunucudaki tüm tmux oturumları.
 - **Windows** — seçili oturumdaki pencereler.
@@ -147,24 +149,22 @@ Yöneticiden şunları yapabilirsiniz:
 - Bir oturumu geçerli terminale **bağlayın (attach)**.
 - Yeni bir oturum veya pencere **oluşturun** ve bunları **yeniden adlandırın**.
 - Bir bölmeyi yatay veya dikey **bölün**, bir bölmeyi **yakınlaştırın** ve oturumları, pencereleri veya bölmeleri **sonlandırın**.
-- Oturumları ada veya oluşturulma tarihine göre **sıralayın**.
+- Oturumları Son kullanılan (varsayılan), ad veya oluşturulma tarihine göre **sıralayın**.
 
 🔔 simgesi, ajanı girdi bekleyen her oturumu işaretler; böylece duraklamış bir Claude Code veya Codex çalışmasını bir bakışta fark edip ona bağlanabilirsiniz. Bu, yukarıdaki reattach ipuçlarını tamamlar: reattach mantığı yeniden bağlanmada son oturumunuzu otomatik olarak geri yüklerken, yönetici size tam elle denetim sunar.
 
-Her iki platform da aynı ana bilgisayarda birden çok tmux sunucusunu (soket) yönetebilir ve oturumları ada veya oluşturulma tarihine göre sıralayabilir.
+Her iki platform aynı sunucuda birden fazla tmux sunucusunu (soketini) yönetir. Bağlanma göstergeleri sunucudaki başka istemciyi değil, kullandığınız terminali belirtir.
 
-## Herdr ve Zellij (Android)
+## Herdr ve Zellij
 
-Android aynı fikri iki çoğullayıcı için daha sunar. Her birinin kendi araç çubuğu simgesi vardır ve **bir simge yalnızca uygulama o programı sunucuda gerçekten bulduğunda belirir** — böylece araç çubuğu, siz `which` çalıştırmadan orada ne kurulu olduğunu söyler.
+Android ve iOS, Herdr ve Zellij'i de yönetir. Tek araç çubuğu kontrolü algılanan ana çoklayıcıyı açar; başka birini seçmek için uzun basın. Yalnızca sunucuda bulunan programlar sunulur. Yöneticide sunucu başlığı sunucuyu, çoklayıcı seçicisi yöneticiyi değiştirir.
 
-- **Herdr** kendi sözcük dağarcığını kullanır: oturumlar, çalışma alanları, sekmeler, bölmeler. Her bölme ajanının durumunu gösterir — çalışıyor, sizi bekliyor, boşta — ve takılmış bir ajan doğrudan listeden yanıtlanabilir. Herdr'in kendi durumu uygulamanın ajan rozetini besler, bu yüzden bu, sunucuya hiçbir kanca kurulmadan çalışır.
+- **Herdr**, oturumları, çalışma alanlarını, sekmeleri ve bölmeleri ajan durumuyla gösterir. Listeden önizleyin veya yanıtlayın. Yanıtlar seçilen bölme ve adlı oturuma gider; **Gönder** metni, **Yalnız Enter** boş onayı gönderir. Destekleniyorsa tam bölme odağı sunulur; değilse üst sekmenin Odakla eylemini kullanın. Herdr ek kanca olmadan durum sağlar.
 - **Zellij** oturumları, sekmeleri ve bölmeleri bağlanma, yeniden adlandırma, sonlandırma ve bölme işlemleriyle listeler. Sonlandırılmış oturumlar listede kalır; böylece bağlanmak onları diriltir, silmek ise tamamen unutturur. Sekme ve bölme ayrıntısı Zellij 0.44 veya üzerini gerektirir; daha eski bir sürümde sayfa sekme adlarını gösterir ve nedenini açıklar. Bölmeler, oturuma bağlı bir istemci gerektirir ve sayfa bunu, başarısız olacak bir düğme sunmak yerine açıklar.
 
 Herdr veya Zellij kurulu ama giriş kabuğunun `PATH`'inde değilse sayfa bunu eklemeyi önerir.
 
-Kaydedilen her sunucunun bir **Attach on connect** ayarı vardır: **Auto (detect)**, **Nothing**, **tmux**, **herdr** veya **Zellij**. Auto; önce o sunucuda en son kullandığınızı, sonra canlı oturumu olanı, sonra da kurulu olanı seçer — sunucuyu henüz yoklamadıysa tahmin yürütmek yerine hiçbir şeye bağlanmaz.
-
-iOS uygulaması bugün yalnızca tmux destekler.
+Her sunucunun **Bağlanınca ekle** seçimi vardır: **Otomatik (algıla)**, **Hiçbiri**, **tmux**, **herdr**, **Zellij**. Otomatik, algılama ve geçmişe göre önce kullanılanı, sonra canlı oturumlu olanı, sonra kurulu olanı seçer. Önbellek yoksa normal kabuk açılır. Sonraki algılama yalnızca gelecekteki bağlantıları etkiler, yazınızı kesmez.
 
 ## Ajan uyarıları
 
@@ -172,7 +172,7 @@ Mobile SSH, uzak bir yapay zeka kodlama ajanının — Claude Code, Codex, Gemin
 
 ### Zil
 
-Kutudan çıktığı haliyle, izlemediğiniz bir oturumdan gelen terminal zili bir uyarı doğurur; birçok aracın zaten yaydığı masaüstü bildirim kaçış dizileri (OSC 9, OSC 777) de öyle. Siz bir şey yazdıktan hemen sonra gelen ziller yok sayılır, böylece sıradan kabuk tamamlama gürültüsü sizi rahatsız etmez.
+Terminal zilleri ajan uyarısı oluşturabilir. Yazımdan hemen sonrakiler varsayılan olarak yok sayılır. Uzak bildirimler OSC 9/OSC 777 ve OSC 133 komut bitişi ayrı ayarlardır; iOS'ta ikisi de başta kapalıdır.
 
 Bu hiçbir kurulum gerektirmez, ama uygulama yalnızca *bir şeyin* çaldığını bilir.
 
@@ -200,7 +200,7 @@ Yanıtınız oturuma yazılmaz. Ayrı bir kanal üzerinden bir dosyaya yazılır
 
 ### Ayarlar
 
-Uyarılar her iki platformda da varsayılan olarak açıktır; bildirim, ses, titreşim ve o an baktığınız oturumun da uyarı verip vermeyeceği için ayrı anahtarlar bulunur.
+Ajan uyarıları iki platformda da varsayılan açıktır; bildirim, ses, titreşim ve etkin bölme için ayrı seçenekler vardır. iOS'ta etkin bölme uyarıları da açıktır ve yalnız arka planda iletim seçilebilir. Uyarılar ancak iOS uygulamayı çalıştırdığı sürece gelir; uzun askıya alma canlı SSH uyarılarını keser.
 
 Bilinmeye değer bir varsayılan var: **ses yalnızca kulaklıkla sınırlıdır**. Takılı veya eşleşmiş bir şey yoksa uyarı bildirir ve titreşir ama ses çalmaz. Uyarının telefon hoparlöründen duyulmasını istiyorsanız bunu kapatın.
 
@@ -210,6 +210,14 @@ Hassasiyet ayarı ve ses seçici yoktur — denetimler açık/kapalıdır.
 
 Vim, less, htop, ncurses araçları ve tmux bölmeleri gibi programlar için:
 
-- Giriş doğrudan programa iletilir — araya girecek otomatik düzeltme veya öneri arabelleği yoktur.
+- iOS'ta doğrudan giriş için **Dikte ve öneriler** ile **Klavye önerileri** seçeneklerini kapatıp yeni bölme açın.
 - `ESC`, ok tuşları, `PGUP` ve `PGDN` için ek tuş satırını kullanın.
 - Metin çok küçükse sıkıştırarak yakınlaştırmayı kullanın, ardından uzak terminal boyutunun oturması için kısaca bekleyin.
+
+## Uzak masaüstleri
+
+İki platform da SSH içinden taşınan VNC ile masaüstü açar. macOS Ekran Paylaşımı dahil mevcut ekranı kullanın veya desteklenen Linux masaüstü kurulumunu onaylayın. Masaüstünü sunucu sağlamalıdır; SSH erişimi tek başına grafik oturumu oluşturmaz. Linux yansıtması Wayland yerine X11 ister; macOS özel masaüstü oluşturmaz, mevcut ekranı paylaşır.
+
+Dokunarak tıklayın, sürükleyin ve yakınlaştırın; ekran veya fiziksel klavyeyle yazın. Pano kontrolleri telefon metnini masaüstüne yapıştırır; masaüstü de telefona metin kopyalayabilir.
+
+**Ekran boyutu**, sunucu başına hatırlanan hazır ve özel ölçüler sunar. iOS'ta her kenar 320–5120 piksel olmalıdır. Sunucu destekliyorsa canlı boyutlandırma uygulamaları korur. Yeniden başlatma onay ister ve yalnızca uygulamanın oluşturduğu özel masaüstlerine sunulur. Yeniden kullanılan masaüstleri veya paylaşılan konsollar boyutlandırma için başlatılmaz; Mac'te canlı destek yoksa Ekranlar ayarından değiştirin.

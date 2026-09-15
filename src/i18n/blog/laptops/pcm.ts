@@ -245,11 +245,11 @@ ring.`
     },
     {
       heading: "Keys wey di device isef make",
-      body: "SSH key generation for di device — Ed25519 and ECDSA — wit password or private-key authentication. Nothing dey comot for di phone."
+      body: "Generate SSH keys for the device — Ed25519 and ECDSA — and log in with password or private key. Keys dey stay for the device; you no need Mobile SSH cloud account."
     },
     {
       heading: "Coding agents, wit Agent Alerts",
-      body: "Run Claude Code, Codex and odda agents for your <em>own</em> servers, straight from your phone. Agent Alerts go fire push notification — sound and vibration — di moment wey agent need your input, so you fit waka comot and still dey inside di matter."
+      body: "Run Claude Code, Codex and other agents for your <em>own</em> servers, straight from your phone. Agent Alerts dey use notifications, sound and vibration when agent wey connect needs your answer. Android dey keep connections with foreground service; iOS dey limit alerts for background."
     },
     {
       heading: "E dress well for di occasion",

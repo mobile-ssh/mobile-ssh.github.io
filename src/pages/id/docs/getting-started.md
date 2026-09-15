@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Memulai"
-description: "Langkah pertama untuk memasang Mobile SSH, terhubung ke server, menyimpan profil, kredensial, dan sesi."
+description: "Pasang Mobile SSH, verifikasi identitas, atur host perantara dan kunci, serta cadangkan server, kredensial dan pengaturan."
 ---
 
 # Memulai
@@ -13,7 +13,7 @@ Mobile SSH adalah klien SSH untuk Android dan iOS untuk terhubung ke server Linu
 - Android 8.0 atau lebih baru, atau iOS 16 atau lebih baru (iPhone atau iPad).
 - Akses jaringan dari perangkat ke server SSH Anda.
 - Nama host atau alamat IP server SSH, port, nama pengguna, dan kata sandi atau kunci privat.
-- Di Android, akses penyimpanan jika Anda ingin menggunakan transfer berkas SFTP dengan penjelajah berkas lokal ponsel; iOS menggunakan pemilih berkas dan foto sistem sebagai gantinya.
+- Pilih folder atau berkas lokal melalui pemilih sistem. Kedua platform tidak memerlukan akses penyimpanan menyeluruh.
 
 ## Memasang aplikasi
 
@@ -30,12 +30,23 @@ Mobile SSH adalah klien SSH untuk Android dan iOS untuk terhubung ke server Linu
 
 Port SSH default adalah `22`. Jika server Anda memakai port lain, masukkan port itu di profil server.
 
+## Verifikasi identitas server
+
+Kedua aplikasi memeriksa identitas SSH sebelum kredensial. Kunci berubah menghentikan koneksi, termasuk alamat alternatif dan host perantara.
+
+- **Android:** **Terima identitas SSH baru secara otomatis** aktif secara bawaan. Kunci mentah pertama disimpan, berikutnya harus cocok. Matikan di **Pengaturan → Umum → Keamanan** untuk membandingkan sidik jari SHA-256 baru dengan administrator sebelum menerima dan menyambung ulang.
+- **iOS:** kunci asing perlu konfirmasi. Bandingkan SHA-256 melalui saluran tepercaya lalu pilih **Percayai dan hubungkan ulang**.
+
+Tinjau identitas tersimpan di Pengaturan. Kedua platform mendukung pencabutan kunci host dari administrator; Android juga mendukung otoritas sertifikat host. Di iOS, gunakan **Pengaturan → Identitas server → Impor kunci yang dicabut** untuk entri OpenSSH `@revoked` Ed25519/ECDSA dengan lingkup tertentu. Kunci yang dicabut diblokir saat koneksi baru dan koneksi ulang, termasuk kunci yang sebelumnya dipercaya; mengimpor pencabutan tidak menutup koneksi yang sudah ada. iOS tidak mendukung sertifikat host atau impor CA. Kepercayaan tetap pada tiap perangkat dan tidak diimpor dari cadangan. Jangan hapus kunci yang berubah atau dicabut sebelum memeriksa alasan pemblokirannya.
+
 ## Memilih transport
 
 Saat menambah atau mengedit server, pemilih **Transport** menentukan cara Mobile SSH menyambung:
 
 - **SSH** -- koneksi SSH standar (bawaan).
 - **Eternal Terminal** -- sesi tangguh yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah. Jika host belum punya `etserver`, Mobile SSH dapat memasangnya untuk Anda melalui SSH. Lihat panduan **Terminal** untuk detailnya.
+
+Android juga menawarkan koneksi proxy **Teleport** eksperimental. Rute host perantara memerlukan SSH dan tidak dapat digabung Eternal Terminal.
 
 ## Menyimpan server
 
@@ -47,12 +58,17 @@ Server tersimpan menyimpan tujuan koneksi dan konfigurasi tunnel opsional. Serve
 - Detail kata sandi atau kunci privat.
 - Aturan penerusan port lokal opsional.
 - Alamat tambahan opsional untuk mesin yang sama (lihat di bawah).
+- Host perantara opsional dan **Lampirkan saat terhubung**: Otomatis, Tidak ada, tmux, herdr atau Zellij.
 
 Gunakan server tersimpan untuk host yang sering Anda akses. Jika server tersimpan menunjuk ke host yang berbeda dari sesi aktif Anda saat ini, Mobile SSH memulai koneksi baru untuk tujuan yang dipilih.
 
 ### Beberapa alamat (roaming LAN/VPN)
 
 Mesin yang sama sering dapat dijangkau di alamat berbeda tergantung lokasi Anda — IP Wi-Fi rumah versus IP VPN. Tambahkan alamat alternatif di dialog edit server, masing-masing dengan portnya sendiri bila perlu. Saat Anda menyambung, Mobile SSH mencoba alamat-alamat itu secara berurutan hingga salah satu merespons, dan mengingat alamat yang terakhir berhasil lalu menghubunginya lebih dulu di lain waktu. Perubahan jaringan (misalnya keluar dari VPN) memicu penyambungan ulang langsung ke alamat mana pun yang kini dapat dijangkau, alih-alih menunggu rute mati kehabisan waktu.
+
+### Host perantara
+
+Simpan bastion dahulu lalu pilih urutannya di server tujuan. Kedua platform mendukung delapan lompatan SSH diperluas. Setiapnya memakai kredensial dan verifikasi sendiri; tujuan cukup terjangkau dari sebelumnya. Server hilang, siklus atau kegagalan menghentikan rute tanpa beralih langsung. Terminal, SFTP, penerusan lokal dan fungsi SSH yang didukung mengikuti rute tersimpan.
 
 ## Menyimpan kredensial
 
@@ -71,7 +87,9 @@ Untuk menggunakan kunci privat:
 3. Masukkan frasa sandi kunci di kolom kata sandi/frasa sandi jika kunci terenkripsi.
 4. Simpan kredensial atau server.
 
-Impor kunci privat menggunakan pemilih berkas sistem untuk berkas kunci. Di Android, transfer berkas menggunakan penjelajah berkas lokal terpisah dan dapat meminta akses penyimpanan yang lebih luas pada versi Android yang lebih baru; di iOS, berkas masuk melalui pemilih dokumen dan foto sistem.
+Impor kunci menggunakan pemilih sistem, tanpa memberi akses ke penyimpanan lainnya. Transfer berkas memiliki pilihan folder dan berkas sendiri.
+
+Android mendukung **kunci FIDO2** lewat USB/NFC: daftarkan atau impor kredensial OpenSSH lalu ikuti sentuhan/PIN. Kunci fisik masih diperlukan setelah ekspor/pemulihan. **Penerusan agen SSH** diaktifkan per server: kredensial tersimpan menjawab permintaan tanda tangan dengan persetujuan opsional tiap penggunaan. Aktifkan hanya bagi server yang dipercaya meminta tanda tangan. iOS tidak mendukung autentikasi kunci fisik atau penerusan agen.
 
 ## Layar beranda
 
@@ -79,7 +97,9 @@ Layar beranda dibangun untuk menjawab "apa yang bisa saya lanjutkan?", bukan unt
 
 - **Continue** mencantumkan koneksi yang aktif saat ini, lengkap dengan jumlah panel bila sebuah koneksi punya lebih dari satu. Mengetuk sebuah baris membawa Anda kembali ke sana.
 - **Tmux sessions** mencantumkan apa yang sedang berjalan di server tersimpan Anda. Daftar ini diambil dari snapshot yang sudah disimpan aplikasi, jadi muncul seketika bahkan tanpa jaringan sama sekali — setiap baris ditandai umur snapshot-nya, dan mengetuk salah satunya akan menyambung lalu meng-attach sesi itu. Snapshot meredup setelah beberapa jam dan dibuang setelah seminggu.
-- Di iOS ada daftar **Recent** di bawah keduanya; aplikasi Android menghapusnya, karena "apa yang bisa saya lanjutkan?" ternyata pertanyaan yang lebih berguna daripada "kapan terakhir saya menyambung?".
+- Di iOS, **Terbaru** berada di **Koneksi baru**; memilih entri mengisi formulir.
+
+Ubin **VPN** Android membuka klien bawaan; **Tentang** berada di Pengaturan. Panduan VPN merupakan bagian **Penerusan port** situs ini.
 
 Jika tidak ada yang aktif dan tidak ada yang tersimpan di cache, layar itu mengatakannya dan mengarahkan Anda ke **Servers**.
 
@@ -95,9 +115,15 @@ Server dapat disusun ke dalam folder. Folder dapat diciutkan, mengingat bahwa ia
 
 **Export selected…** di layar Servers dan Credentials mengubah daftar menjadi pemilih dengan kotak centang, sehingga Anda dapat menyerahkan tiga server tanpa mengekspor semuanya. Mengetuk header folder mengambil seluruh isi folder. Ekspor terenkripsi jika Anda memberinya frasa sandi — tanpa frasa sandi, berkasnya memuat kata sandi dan kunci privat dalam teks biasa, dan aplikasi menyatakan hal itu sebelum menulisnya.
 
+Untuk cadangan lengkap pilih **Ekspor semua (cadangan)** di Android atau **Cadangkan dan Pulihkan** di iOS. Memuat server, kredensial dan preferensi seperti bahasa, tombol tambahan dan urutan multiplexer. Android menambah profil VPN/SOCKS. Lindungi seluruh berkas dengan frasa sandi.
+
+Keduanya membaca format 2 dan inventaris lama. Tinjau pratinjau: **Gabungkan** menerapkan bagian sambil mempertahankan item; **Ganti** mengganti bagian yang ada dan mereset preferensi yang tidak disebut dalam bagian pengaturan ke bawaan. Bagian yang hilang tetap utuh. Opsi tak didukung ditandai; impor tidak membuat fitur itu tersedia pada aplikasi lain. Impor tidak menjalankan VPN.
+
+Identitas, sesi aktif, izin sistem dan akses folder tidak dipulihkan. Verifikasi host dan beri akses lokal pada perangkat tujuan. Versi lama tidak membaca format lengkap baru.
+
 ## Sesi aktif
 
-Saat ada sesi berjalan, layar beranda menampilkan **Active Sessions** beserta jumlahnya. Ketuk untuk kembali ke kisi terminal. Notifikasi yang sedang berjalan juga mencantumkan host aktif — ketuk host di notifikasi untuk langsung beralih ke terminal tersebut.
+Saat sesi berjalan, **Sesi aktif** menampilkan jumlah dan membuka kisi terminal. Di Android, notifikasi tetap juga mencantumkan host dan membuka kontrol koneksi.
 
 Kembali ke layar beranda tidak memutus sesi SSH aktif; menutup panel atau mengakhiri aktivitas terminal akan memutusnya.
 
@@ -109,13 +135,15 @@ Buka **Settings** dari layar beranda (tersedia di halamannya sendiri):
 - Atur **ukuran teks**, **font**, **skema warna**, dan ukuran **scrollback** terminal, lalu pilih **tema** aplikasi (Sistem, Terang, atau Gelap).
 - Aktifkan **Agent alerts** jika Anda menjalankan tugas latar belakang yang lama (Claude Code, Codex, skrip shell) dan ingin diberi tahu saat agen membutuhkan input Anda. Lihat panduan **Terminal** untuk cara agen melaporkan dirinya.
 - Di Android, **Keep sessions running in background** aktif secara bawaan, sehingga shell dan agen tetap bertahan setelah Anda menggeser aplikasi dari daftar terkini.
-- Di Android, matikan analitik penggunaan anonim jika Anda tidak ingin data apa pun dikirimkan. Aplikasi iOS belum memiliki sakelar itu.
+- Kedua platform memiliki sakelar analitik anonim. Mematikannya menghentikan pengumpulan peristiwa baru.
+- Di iOS, **Dikte dan saran** aktif secara bawaan. Matikan dan buka panel baru untuk masukan langsung tanpa dikte/koreksi.
+- Notifikasi jarak jauh, perintah selesai dan pembacaan papan klip jarak jauh memerlukan izin terpisah. Aktifkan hanya yang diinginkan.
 
 ## Plugin
 
 Plugin memperluas Mobile SSH dengan alur kerja tambahan. Buka **Plugins** dari layar beranda untuk:
 
-- Menelusuri katalog plugin yang tersedia.
+- Jelajahi katalog menurut kategori dan cari plugin.
 - Memasang yang Anda inginkan -- setiap plugin diunduh sesuai kebutuhan dan diverifikasi dengan checksum SHA-256 ke penyimpanan privat aplikasi.
 - Menjalankan plugin terpasang dari layar yang sama.
 
@@ -123,10 +151,10 @@ Secara bawaan plugin diambil dari katalog publik. Jika Anda mengelola katalog se
 
 ## Bahasa
 
-Mobile SSH mengikuti bahasa sistem secara bawaan. Aplikasi disertai terjemahan untuk bahasa Arab, Bengali, Tionghoa (Sederhana dan Tradisional), Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki, dan Urdu — dua puluh bahasa di Android, yang menambahkan Pidgin Nigeria dan Arab Mesir, serta delapan belas di iOS.
+Mobile SSH mengikuti bahasa sistem secara bawaan. Kedua aplikasi memiliki dua puluh bahasa: Arab, Arab Mesir, Bengali, Mandarin Sederhana dan Tradisional, Inggris, Prancis, Jerman, Hindi, Indonesia, Jepang, Marathi, Pidgin Nigeria, Portugis, Rusia, Spanyol, Tamil, Telugu, Turki dan Urdu.
 
 Jika Anda ingin aplikasi dalam bahasa selain bahasa ponsel, **Settings → Language** menyediakan pemilih dengan opsi "System default". Anda juga tetap dapat mengubahnya dari **Settings → System → Languages** di Android atau **Settings → General → Language & Region** di iOS.
 
 ## Catatan keamanan
 
-Hanya terhubung ke server yang Anda percayai. Aplikasi saat ini menyimpan data koneksi secara lokal dan tidak menyediakan brankas awan atau sinkronisasi lintas perangkat. Implementasi saat ini juga tidak menampilkan konfirmasi host yang dikenal, jadi hindari terhubung melalui jaringan yang tidak tepercaya ketika identitas host penting.
+Hubungkan hanya ke server tepercaya. Data tetap di perangkat kecuali diekspor/dibagikan; tidak ada brankas awan atau sinkronisasi otomatis. Lindungi perangkat/cadangan, verifikasi sidik jari asing dan periksa perubahan kunci sebelum menyambung ulang.

@@ -340,7 +340,7 @@ export const pt: FlightPost = {
             código está. Eles não pagam o imposto do satélite; você só paga quando responde a eles.`
     },
     {
-      title: "push-quando-importa",
+      title: "alertas-quando-necessário",
       bellLabel: " (sino)",
       body: `Os Alertas de agente disparam quando algo realmente precisa de um humano — assim o voo é
             gasto revisando e decidindo, não encarando um prompt à espera de um eco.`
@@ -351,9 +351,7 @@ export const pt: FlightPost = {
     cmdComment: "gratuito · código aberto · Apache-2.0",
     heading: "Seu próximo voo de longo curso são onze horas de tempo de servidor.",
     prose: [
-      `O Mobile SSH é um cliente nativo de SSH, SFTP e terminal para Android, iPhone e iPad. Várias
-          sessões, gerenciador de tmux embutido, Eternal Terminal e alertas push quando um agente
-          precisa de você. Gratuito, sem conta, sem anúncios, código aberto.`
+      `Mobile SSH é um cliente nativo de SSH, SFTP e terminal para Android, iPhone e iPad. Várias sessões, gerenciador de tmux integrado, Eternal Terminal e notificações quando um agente conectado precisa de você; o iOS limita a entrega em segundo plano. Gratuito, sem conta, sem anúncios e de código aberto.`
     ],
     tags: ["Sem anúncios", "Sem conta", "Dados no dispositivo", "Apache-2.0"],
     playButton: "Disponível no Google Play",

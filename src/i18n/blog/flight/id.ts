@@ -348,7 +348,7 @@ export const id: FlightPost = {
             berada. Mereka tidak membayar pajak satelit; Anda baru membayarnya saat menjawab mereka.`
     },
     {
-      title: "push-saat-memang-penting",
+      title: "peringatan-saat-dibutuhkan",
       bellLabel: " (bel)",
       body: `Peringatan Agen berbunyi ketika ada sesuatu yang benar-benar butuh manusia — jadi
             penerbangannya dihabiskan untuk meninjau dan memutuskan, bukan menatap prompt menunggu echo.`
@@ -359,9 +359,7 @@ export const id: FlightPost = {
     cmdComment: "gratis · open source · Apache-2.0",
     heading: "Penerbangan jauh Anda berikutnya adalah sebelas jam waktu server.",
     prose: [
-      `Mobile SSH adalah klien SSH, SFTP, dan terminal native untuk Android, iPhone, dan iPad. Banyak
-          sesi sekaligus, pengelola tmux bawaan, Eternal Terminal, dan notifikasi push saat sebuah agen
-          membutuhkan Anda. Gratis, tanpa akun, tanpa iklan, open source.`
+      `Mobile SSH adalah klien SSH, SFTP, dan terminal native untuk Android, iPhone, dan iPad. Banyak sesi, pengelola tmux bawaan, Eternal Terminal, dan notifikasi saat agen yang terhubung membutuhkan Anda; iOS membatasi pengiriman di latar belakang. Gratis, tanpa akun, tanpa iklan, dan sumber terbuka.`
     ],
     tags: ["Tanpa iklan", "Tanpa akun", "Data di perangkat", "Apache-2.0"],
     playButton: "Dapatkan di Google Play",

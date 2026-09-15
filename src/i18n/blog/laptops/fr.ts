@@ -260,11 +260,11 @@ désormais. Il répond dès la première sonnerie.`
     },
     {
       heading: "Des clés générées sur l'appareil",
-      body: "Génération de clés SSH sur l'appareil — Ed25519 et ECDSA — avec authentification par mot de passe ou par clé privée. Rien ne quitte le téléphone."
+      body: "Génération de clés SSH sur l’appareil — Ed25519 et ECDSA — avec authentification par mot de passe ou clé privée. Les clés sont stockées sur l’appareil ; aucun compte cloud Mobile SSH n’est nécessaire."
     },
     {
       heading: "Des agents de code, avec les alertes agent",
-      body: "Faites tourner Claude Code, Codex et d'autres agents sur <em>vos propres</em> serveurs, directement depuis votre téléphone. Les alertes agent envoient une notification push — son et vibration — à l'instant où un agent a besoin de votre réponse : vous pouvez vous éloigner sans perdre le fil."
+      body: "Lancez Claude Code, Codex et d’autres agents sur vos <em>propres</em> serveurs, directement depuis votre téléphone. Agent Alerts utilise des notifications, des sons et des vibrations lorsqu’un agent connecté attend votre réponse. Android maintient les connexions avec un service de premier plan ; iOS limite les alertes en arrière-plan."
     },
     {
       heading: "Habillé pour l'occasion",

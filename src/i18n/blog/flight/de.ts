@@ -350,7 +350,7 @@ export const de: FlightPost = {
             liegt. Sie zahlen die Satellitensteuer nicht; du zahlst sie nur, wenn du ihnen antwortest.`
     },
     {
-      title: "push-wenn-es-darauf-ankommt",
+      title: "meldungen-bei-bedarf",
       bellLabel: " (Glocke)",
       body: `Agenten-Benachrichtigungen melden sich, wenn wirklich ein Mensch gebraucht wird – so
             vergeht der Flug mit Prüfen und Entscheiden statt mit Starren auf einen Prompt, der auf ein
@@ -362,9 +362,7 @@ export const de: FlightPost = {
     cmdComment: "kostenlos · quelloffen · Apache-2.0",
     heading: "Dein nächster Langstreckenflug sind elf Stunden Serverzeit.",
     prose: [
-      `Mobile SSH ist ein nativer SSH-, SFTP- und Terminal-Client für Android, iPhone und iPad. Mehrere
-          Sitzungen, ein eingebauter tmux-Manager, Eternal Terminal und Push-Meldungen, wenn ein Agent
-          dich braucht. Kostenlos, kein Konto, keine Werbung, quelloffen.`
+      `Mobile SSH ist ein nativer SSH-, SFTP- und Terminalclient für Android, iPhone und iPad. Mehrere Sitzungen, ein integrierter tmux-Manager, Eternal Terminal und Benachrichtigungen, wenn ein verbundener Agent dich braucht; iOS schränkt die Zustellung im Hintergrund ein. Kostenlos, ohne Konto, ohne Werbung, quelloffen.`
     ],
     tags: ["Keine Werbung", "Kein Konto", "Daten bleiben lokal", "Apache-2.0"],
     playButton: "Jetzt bei Google Play",

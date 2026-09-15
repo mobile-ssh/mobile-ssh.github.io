@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Dateiübertragung"
-description: "SFTP-Dateiübertragungsanleitung von Mobile SSH für lokale und entfernte Dateien, Hochladen, Herunterladen, Sortieren und Berechtigungen."
+description: "SFTP-Dateitransfers, gespeicherte Ordner, tmux-Sitzungsverzeichnisse, Warteschlangen, Rechte und Dateifreigaben ins Terminal mit Mobile SSH."
 ---
 
 # Dateiübertragung
@@ -24,15 +24,15 @@ Der Dateiübertragungsbildschirm hat zwei Browserbereiche:
 - **Lokaler Bereich:** Telefonspeicher.
 - **Entfernter Bereich:** Serverdateien über SFTP.
 
-Die App merkt sich die letzten zehn entfernten Pfade pro Host — öffne sie auf Android über die Kopfzeile des entfernten Bereichs, auf iOS über das Uhrensymbol. Die Sortiereinstellungen werden pro Host für beide Bereiche gemerkt. Einen lokalen Pfadverlauf gibt es nicht: Auf Android ist der lokale Bereich der Ordner, den du freigegeben hast, und auf iOS der eigene Dokumentenbereich der App.
+Die App merkt sich entfernte Pfade und Sortierung je Host. Öffne die Pfade über die entfernte Kopfzeile unter Android oder das Uhrsymbol unter iOS. Lokal erscheint der gewählte Ordner; iOS nutzt bis zur anderen Auswahl den Documents-Ordner der App.
 
 Der Dateiübertragungsbildschirm folgt dem hellen oder dunklen Systemdesign und passt damit zum Rest von Mobile SSH.
 
-### Wo jede Sitzung öffnet (Android)
+### Wo jede Sitzung startet
 
-Öffnest du die Dateiübertragung aus einem Bereich, der an einer tmux-Sitzung hängt, landet der entfernte Bereich wieder dort, wo **diese Sitzung** zuletzt gearbeitet hat, mit dem Namen der Sitzung in der Bereichskopfzeile. Eine Sitzung, aus der du sie noch nie geöffnet hast, startet bei den Verzeichnissen, die du auf diesem Host am häufigsten nutzt, dann beim zuletzt genutzten Verzeichnis des Hosts, dann in deinem Heimatverzeichnis.
+Auf beiden Plattformen stellt Dateiübertragung aus tmux das Verzeichnis für **diese Sitzung und diesen Socket** wieder her. Eine neue Sitzung probiert häufige Host-Verzeichnisse, dann andere gespeicherte Orte oder das Anmeldeverzeichnis.
 
-Wurde ein gemerktes Verzeichnis inzwischen gelöscht, arbeitet sich die App diese Liste hinunter, bis sich eines tatsächlich auflisten lässt, statt dich auf einer Fehlermeldung sitzen zu lassen — und sie schreibt den kaputten Pfad nicht zurück. Auf iOS wird ein entferntes Verzeichnis pro Host gemerkt.
+Fehlt ein Verzeichnis oder ist es nicht zugänglich, wird der nächste nutzbare Ort versucht. Verbindungsfehler werden gemeldet statt als fehlender Ordner behandelt. Aktualisieren zählt nicht als neuer Besuch.
 
 ## Speicherzugriff
 
@@ -40,9 +40,9 @@ Mobile SSH verlangt auf keiner der beiden Plattformen eine pauschale Speicherber
 
 Auf Android gibst du mit der Ordnerauswahl des Systems **einen Ordner** frei, und Downloads werden dorthin geschrieben — an einen Ort, den jede andere App ohnehin lesen kann. Die Freigabe bleibt über Neustarts hinweg bestehen.
 
-Auf iOS ist der lokale Bereich der Dokumentenbereich der App, und Dateien kommen über die Dokument- und Fotoauswahl des Systems herein.
+Unter iOS gibt **Mein Telefon → Lokalen Ordner wählen** einen Dateien-Ordner frei, einschließlich iCloud Drive und unterstützter Anbieter. Die Wahl bleibt gespeichert. **App-Ordner verwenden** kehrt zu Mobile SSH Documents zurück. Wird der Ordner unzugänglich, wähle ihn erneut oder wechsle ausdrücklich zum App-Ordner; Downloads werden nicht still umgeleitet. Die Freigabe ist nicht im Backup.
 
-Auf iOS arbeitet der lokale Bereich mit dem eigenen Dokumentenbereich der App, und du bringst Dateien über die Dokument- und Fotoauswahl des Systems herein — einschließlich Mehrfachauswahl beim Import von Fotos und Dokumenten. Eine separate Speicherberechtigung ist nicht nötig.
+Die iOS-Dokument- und Fotoauswahl importiert mehrere Elemente. Bei Namenskonflikten gibt es **Ersetzen**, **Beide behalten** und **Abbrechen**. Eine bereits am Ziel liegende Datei bleibt beim Import unverändert.
 
 Der Import des privaten Schlüssels ist von der Dateiübertragung getrennt und nutzt die Dateiauswahl des Systems.
 
@@ -54,7 +54,7 @@ Der Import des privaten Schlüssels ist von der Dateiübertragung getrennt und n
 4. Bestätige das entfernte Ziel.
 5. Beobachte die Übertragungswarteschlange für Fortschritt und Abschluss.
 
-Uploads nutzen die bestehende SSH/SFTP-Verbindung. Wenn die Verbindung abbricht, versuche es nach dem Wiederverbinden erneut.
+Uploads folgen der SSH-Route des gewählten Servers einschließlich gespeicherter Sprungserver. Nach Verbindungsabbruch erneut verbinden und wiederholen.
 
 ## Dateien herunterladen
 
@@ -74,7 +74,7 @@ Uploads und Downloads sind nicht auf einzelne Dateien beschränkt. Wähle einen 
 
 Je nach ausgewähltem entferntem Element kann Mobile SSH Aktionen anzeigen wie:
 
-- Herunterladen, auf Android **Copy to phone**.
+- **Aufs Telefon kopieren** zum Herunterladen.
 - Kopieren oder Verschieben **auf dem Server** — `cp -r` / `mv` laufen auf dem Host, ohne dass die Bytes dein Telefon berühren.
 - Umbenennen.
 - Löschen.
@@ -95,22 +95,26 @@ Jeder Bereich kann nach Name oder Datum auf- oder absteigend sortieren. Mobile S
 
 ## Übertragungswarteschlange
 
-Übertragungen werden in eine Warteschlange gestellt und nach Status angezeigt, und das Protokoll zeigt jede Übertragung und lässt sich scrollen — Android sortiert sie in die Reiter Queued / Failed / Successful, iOS in Active / Failed / Done. Fehlgeschlagene Übertragungen enthalten einen Grund, wenn die zugrunde liegende SFTP-Operation einen liefert. Auf iOS bleibt die gerade laufende Datei oben im Reiter Active, und eine Zeile lässt sich mitten in der Übertragung abbrechen.
+Transfers sind nach Status sortiert: Wartend / Fehlgeschlagen / Erfolgreich unter Android, Aktiv / Fehlgeschlagen / Fertig unter iOS. Fehler zeigen den verfügbaren Grund. Unter iOS bleibt die aktuelle Übertragung oben in Aktiv und kann abgebrochen werden.
+
+Unter iOS behalten vorgemerkte Transfers ihren ursprünglichen Ordner auch beim Weiterblättern. Downloads werden erst temporär abgeschlossen, dann am Ziel ersetzt; Abbruch oder Fehler erhält die vorhandene Datei. Hat sich das Ziel nach der Überschreibfreigabe geändert, stoppt die App.
 
 ## Dateien aus der App herausbekommen
 
 - **Android:** Downloads landen in dem Ordner, den du freigegeben hast, und sind damit schon für jede andere App sichtbar. **In einer anderen App öffnen** gibt es in beiden Bereichen; eine entfernte Datei wird zuerst heruntergeladen und dann übergeben.
-- **iOS:** Mobile SSH erscheint in der Dateien-App unter **Auf meinem iPhone**, sodass alles im Bereich „Mein Telefon“ aus Mail, Auswahldialogen und anderen Apps erreichbar ist. Halte eine heruntergeladene Datei gedrückt und wähle **In einer anderen App öffnen**, um sie zu übergeben, per AirDrop zu senden oder anderswo zu sichern.
+- **iOS:** **In anderer App öffnen** gibt es für lokale und entfernte Dateien. Entfernte Dateien werden vor dem Teilen heruntergeladen. Der App-Ordner steht unter **Auf meinem iPhone → Mobile SSH**; externe Ordner bleiben an ihrem ursprünglichen Dateien-Ort.
 
-## Eine Datei in eine Sitzung schicken (Android)
+## Eine Datei in eine Sitzung senden
 
-Android nimmt Dateien entgegen, die aus jeder anderen App hineingeteilt werden: Teile an Mobile SSH, und die Datei wird nach `~/.cache/mobile-ssh` auf dem Host des Bereichs hochgeladen, wobei ihr entfernter Pfad an der Eingabeaufforderung eingetippt wird, sodass du sie sofort verwenden kannst. Die Schaltfläche 📎 in der Terminal-Symbolleiste macht dasselbe aus der Dateiauswahl des Systems heraus, und beide nehmen mehrere Dateien auf einmal an.
+Beide Plattformen empfangen Dateien anderer Apps und bieten 📎 **Datei anhängen** im Terminal. Uploads landen in `~/.cache/mobile-ssh` auf dem gewählten Host; Pfade lassen sich ohne Enter am Prompt einfügen. Mehrere Dateien werden unterstützt.
 
-Auf iOS bringst du Dateien mit der Schaltfläche ＋ in den lokalen Bereich und lädst sie von dort hoch.
+Unter Android zielt Teilen auf die laufende Sitzung. Unter iOS bietet die Büroklammer **Fotomediathek** oder **Dateien**. Die iOS-Teilen-Erweiterung lädt auch bei geschlossener App auf gespeicherte SSH-Server hoch; Eternal-Terminal-Profile werden nicht angeboten. Unbekannte Identitäten zuerst in der Hauptapp prüfen.
+
+Nach dem Upload über die iOS-Erweiterung kommen Pfade in die Zwischenablage und warten auf ein verbundenes Pane für diesen Server. In Panes anderer Hosts werden sie nicht eingefügt.
 
 ## Praktische Tipps
 
 - Nutze SFTP für gezielte Dateiverschiebungen; nutze Kommandozeilenwerkzeuge wie `rsync` auf dem Server für die Synchronisierung großer Verzeichnisse.
 - Vermeide das Bearbeiten von Live-Produktionsdateien, sofern du kein Backup oder keinen Rollback-Pfad der Bereitstellung hast.
 - Wenn eine Datei nach dem Hochladen nicht erscheint, aktualisiere den entfernten Bereich oder prüfe den Zielpfad.
-- Wenn der lokale Bereich auf Android leer ist, wähle mit **Pick folder** einen Ordner — die App hat nur Zugriff auf den Ordner, den du ihr freigibst. Füge auf iOS Dateien stattdessen über die Auswahldialoge zum lokalen Bereich hinzu.
+- Bei leerem lokalen Android-Pane **Ordner wählen** nutzen. Unter iOS je nach Ziel **Lokalen Ordner wählen**, **App-Ordner verwenden** oder die Importauswahl verwenden.

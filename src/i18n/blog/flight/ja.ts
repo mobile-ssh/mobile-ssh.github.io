@@ -315,7 +315,7 @@ export const ja: FlightPost = {
             払っているのは彼らではない。あなたが払うのは、彼らに返事をするときだけだ。`
     },
     {
-      title: "必要なときだけ通知",
+      title: "必要なときに通知",
       bellLabel: "（ベル）",
       body: `エージェント アラートは、本当に人間が要るときに鳴る — おかげでフライトの時間は、エコーを待って
             プロンプトを見つめることではなく、レビューと判断に使える。`
@@ -326,9 +326,7 @@ export const ja: FlightPost = {
     cmdComment: "無料 · オープンソース · Apache-2.0",
     heading: "次の長距離フライトは、11 時間ぶんのサーバー時間だ。",
     prose: [
-      `Mobile SSH は、Android・iPhone・iPad 向けのネイティブな SSH／SFTP／ターミナル クライアントです。
-          複数セッション、内蔵の tmux マネージャー、Eternal Terminal、そしてエージェントがあなたを必要とした
-          ときのプッシュ通知。無料、アカウント不要、広告なし、オープンソース。`
+      `Mobile SSH は Android、iPhone、iPad 向けのネイティブな SSH・SFTP・ターミナルクライアントです。複数セッション、内蔵 tmux マネージャー、Eternal Terminal に対応し、接続中のエージェントが応答を求めると通知します。iOS はバックグラウンドでの通知を制限します。無料、アカウント不要、広告なし、オープンソース。`
     ],
     tags: ["広告なし", "アカウント不要", "データは端末内", "Apache-2.0"],
     playButton: "Google Play で手に入れよう",

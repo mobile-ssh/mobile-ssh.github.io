@@ -45,7 +45,7 @@ export const pt = defineGoOutside({
     `Então o telefone fica no bolso até existir uma pergunta de verdade. Aí ele vibra, você lê o prompt, toca uma resposta e guarda o aparelho. É essa a interação inteira, e ela funciona da praia, do início de uma trilha ou da fila da raspadinha.`,
     `O que a ilha não resolve`,
     `Dois limites honestos, porque um texto que só lista virtudes é anúncio.`,
-    `A diferença entre plataformas é real e vale planejar em torno dela. No Android, um serviço em primeiro plano mantém a conexão enquanto o app está em segundo plano — a notificação permanente <em>é</em> a sessão. O iOS não tem execução em segundo plano nenhuma; ele reconecta e volta a se anexar ao seu multiplexador quando você retorna. De um jeito ou de outro, o agente no servidor nunca parou, e esse é o ponto. Só a janela se fechou.`,
+    `A diferença entre plataformas é real e vale planejar em torno dela. No Android, um serviço em primeiro plano mantém a conexão enquanto o app está em segundo plano — a notificação permanente <em>é</em> a sessão. O iOS dá ao app apenas um breve período em segundo plano; após a suspensão, ele reconecta e volta a se anexar ao seu multiplexador quando você retorna. Os alertas dependem de uma conexão ativa. De um jeito ou de outro, o agente no servidor nunca parou, e esse é o ponto. Só a janela se fechou.`,
     `Aloha não é desculpa para descuido`,
     `Sair bem é uma pequena disciplina. Nada que você não deixaria rodando sozinho por duas horas deve ser iniciado na hora em que você cruza a porta — um agente no meio de uma migração não melhora com a distância. Dê a ele uma tarefa com um ponto de parada natural, peça que inspecione antes de editar e deixe que o diff seja o que você revisa na volta.`,
     `E trate a notificação com o mesmo cuidado que teria com um pager. Se tudo alerta, nada alerta. O hook dispara nos estados que valem interromper uma pessoa; deixe assim e a vibração continua significando alguma coisa.`,
@@ -88,8 +88,8 @@ export const pt = defineGoOutside({
       { item: "Arquivos, diffs e saída dos testes", value: "No disco do servidor", survives: true },
       { item: "Seu lugar na sessão", value: "Reanexado quando você volta", survives: true },
       { item: "A conexão, no Android", value: "Mantida por um serviço em primeiro plano", survives: true },
-      { item: "A conexão, no iOS", value: "Sem execução em segundo plano — ele reconecta", survives: false },
-      { item: "Um alerta sem sinal para entregá-lo", value: "Chega quando o telefone volta a ficar acessível", survives: false }
+      { item: "A conexão, no iOS", value: "Breve período em segundo plano — depois reconecta", survives: false },
+      { item: "Um alerta sem sinal para entregá-lo", value: "Requer uma ligação ativa; a entrega não é garantida", survives: false }
     ],
     note: "O agente continua rodando em todas as linhas. O que varia é apenas se o seu telefone ainda estava com a janela aberta."
   },

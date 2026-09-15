@@ -247,11 +247,11 @@ building. It fits in a pocket now. It answers on the first ring.`
     },
     {
       heading: "Keys generated on the device",
-      body: "On-device SSH key generation — Ed25519 and ECDSA — with password or private-key authentication. Nothing leaves the phone."
+      body: "On-device SSH key generation — Ed25519 and ECDSA — with password or private-key authentication. Keys are stored on the device; no Mobile SSH cloud account is required."
     },
     {
       heading: "Coding agents, with Agent Alerts",
-      body: "Run Claude Code, Codex and other agents on your <em>own</em> servers, straight from your phone. Agent Alerts fire a push notification — sound and vibration — the moment an agent needs your input, so you can step away and stay in the loop."
+      body: "Run Claude Code, Codex and other agents on your <em>own</em> servers, straight from your phone. Agent Alerts use notifications, sound and vibration when a connected agent needs your input. Android keeps connections in a foreground service; iOS limits background delivery."
     },
     {
       heading: "Dressed for the occasion",

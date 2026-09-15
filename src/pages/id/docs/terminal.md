@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Terminal"
-description: "Kontrol terminal Mobile SSH, tombol tambahan, panel, gulir, tmux, pengelola herdr dan Zellij, peringatan agen, tindakan salin, dan pengaturan keyboard."
+description: "Kontrol terminal Mobile SSH, papan ketik, pengelola tmux, herdr dan Zellij, peringatan agen, papan klip, gambar dan desktop jarak jauh."
 ---
 
 # Terminal
@@ -22,18 +22,18 @@ Mobile SSH dapat menjalankan hingga delapan sesi SSH sekaligus. Setiap sesi tamp
 
 Header panel menyebutkan di mana Anda berada. Di Android ia menampilkan direktori kerja sebenarnya dari panel itu, ditanyakan ke tmux atau dilaporkan shell melalui OSC 7 dan disegarkan selama aplikasi terbuka; di iOS ia menampilkan judul yang disetel sisi jarak jauh, dengan cadangan `user@host:port`.
 
-Menutup panel memutus sesi SSH tersebut. Kembali ke layar beranda menjaga sesi aktif tetap tersedia melalui **Active Sessions**.
+Menutup panel memutus sesi SSH itu. Kembali ke beranda tetap menyediakan koneksi melalui **Sesi aktif**. Header menandai koneksi macet; Pengaturan menawarkan laju transfer serta peredupan atau getaran opsional saat koneksi tidak merespons.
 
 ## Eternal Terminal (ET)
 
-Setiap server tersimpan dapat memakai salah satu dari dua transport, dipilih lewat pemilih **Transport** saat Anda menambah atau mengedit server:
+Kedua platform menawarkan transportasi berikut pada pilihan **Transportasi** saat menambah atau menyunting server:
 
 - **SSH** -- koneksi SSH standar (bawaan).
 - **Eternal Terminal** -- sesi ET yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan alamat IP berubah, tanpa memulai ulang shell Anda.
 
 ET menjaga sesi tetap hidup di server, jadi saat ponsel Anda berganti jaringan atau bangun dari tidur, Mobile SSH menyambungkan diri kembali ke shell yang sama alih-alih membuka yang baru. Ini cocok untuk data seluler, perpindahan Wi-Fi/seluler, dan perintah yang berjalan lama.
 
-ET memerlukan proses `etserver` di host. Jika server belum punya, Mobile SSH dapat memasang dan menjalankannya untuk Anda melalui koneksi SSH yang ada -- tanpa penyiapan server manual. Setelah ET tersedia, sambunglah dengan transport **Eternal Terminal** terpilih.
+ET memerlukan `etserver` pada host. Jika belum ada, Mobile SSH dapat menawarkan pemasangan dan menjalankannya melalui SSH. Tinjau dan setujui perintahnya, lalu hubungkan dengan **Eternal Terminal**. Rute melalui host perantara memerlukan transportasi **SSH**.
 
 ## Baris tombol tambahan
 
@@ -54,11 +54,11 @@ Tahan sebuah tombol seperti panah atau `PGDN` dan ia akan berulang.
 
 ## Perilaku keyboard
 
-Terminal menggunakan koneksi pass-through native ke keyboard di layar: setiap karakter dikirim ke shell jarak jauh saat Anda mengetik, dengan koreksi otomatis dan saran prediktif dimatikan sehingga keyboard tidak pernah menulis ulang input sebelum mencapai shell. Ini menjaga Vim, tmux, htop, less, shell dengan kord tombol tak biasa, dan prompt kata sandi jarak jauh tetap dapat diprediksi — tidak ada buffer saran yang perlu dinonaktifkan.
+Di Android, ketikan biasa langsung dikirim ke shell jarak jauh dengan koreksi otomatis dan saran prediktif nonaktif secara bawaan. Dikte suara tetap dapat mengirim teks melalui papan ketik.
 
-- **Tap terminal to show keyboard:** saat aktif, mengetuk terminal meminta sistem menampilkan keyboard di layar.
+Di iOS, **Pengaturan → Terminal → Dikte dan saran** aktif secara bawaan untuk dikte, prediksi dan koreksi saat menyusun baris. Untuk mengirim tombol langsung, nonaktifkan pilihan ini, biarkan **Saran papan ketik** nonaktif dan buka panel baru.
 
-Dikte suara keyboard di layar tetap berfungsi: teks yang didiktekan langsung dikirim ke shell seperti input yang diketik lainnya.
+**Tampilkan papan ketik saat diketuk** menentukan apakah ketukan membuka papan ketik layar. Bawaannya nonaktif di Android dan aktif di iOS; tombol papan ketik tetap tersedia di bilah alat.
 
 ## Keyboard hardware
 
@@ -70,11 +70,12 @@ Menempel ke program yang memintanya (bash, Vim, dan aplikasi bracketed-paste lai
 
 ## Pilih, salin, bagikan
 
-Tekan lama di dalam terminal untuk memilih kata di bawah jari Anda, lalu seret pegangan untuk menyesuaikan. Bilah pemilihan menawarkan tiga tindakan:
+Tekan lama kata di terminal, lalu geser gagang untuk menyesuaikan pilihan. Bilah pilihan mencakup:
 
 - **Copy** — menaruh teks terpilih ke clipboard sistem. Pemilihan tetap tersorot setelahnya, sehingga Anda dapat membagikannya, menyalin ulang, atau memperluasnya.
 - **Share** — meneruskan teks terpilih ke lembar berbagi sistem (surel, catatan, perpesanan, dll.).
 - **Select all** — memperluas pemilihan ke seluruh buffer terminal yang terlihat, lalu Copy atau Share.
+- **Tempel**: masukkan teks papan klip ke terminal.
 
 ## Cari di terminal
 
@@ -83,15 +84,16 @@ Telusuri seluruh buffer terminal — scrollback dan layar yang terlihat — dan 
 ## Warna, huruf miring, dan clipboard jarak jauh
 
 - Terminal menampilkan **warna sejati 24-bit** dan **huruf miring**, sehingga prompt bertema, penyorotan sintaks, dan TUI tampil seperti di desktop.
-- **Clipboard OSC 52:** saat program jarak jauh menyalin teks (tmux `set-clipboard`, yank OSC 52 Vim/Neovim), teks itu mendarat di clipboard ponsel Anda — sehingga Anda dapat menyalin dari server dan menempel ke aplikasi lokal.
+- **Papan klip OSC 52:** program jarak jauh dapat menyalin teks ke ponsel. Membaca papan klip ponsel memerlukan izin terpisah yang nonaktif secara bawaan.
 - Baik di Android maupun iOS, karakter CJK lebar, emoji, dan karakter penggabung (klaster grafem dan zero-width joiner) diukur dan digambar dengan benar, dan **Nerd Font** bawaan menggambar glyph ikon powerline, starship, devicon, dan Material Design yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem.
 
 ## Integrasi shell dan gambar inline
 
 - **Integrasi shell (OSC 133):** saat shell Anda memancarkan penanda prompt OSC 133, Mobile SSH dapat melangkah antar prompt dan memberi peringatan saat perintah yang berjalan lama selesai. Berfungsi di Android dan iOS. Kedua aplikasi tidak menyuntikkan penandanya — shell Anda yang harus memancarkannya (hook `PROMPT_COMMAND`/`precmd`, atau starship). Di Android, navigasi prompt mati sampai Anda mengaktifkannya di **Settings → Shell integration**; di iOS menunya muncul sendiri begitu penanda mulai berdatangan.
 - **Pilih keluaran:** sentuh di mana saja di dalam keluaran sebuah perintah dan pilih seluruh blok itu — galat build dari 300 baris yang lalu, bukan hanya perintah terakhir — lalu salin, bagikan, atau perluas.
-- **Gambar inline:** program yang memakai protokol grafis Kitty menggambar gambar langsung di terminal, di Android dan iOS. Gambar bertahan saat zoom cubit dan pembungkusan ulang: ia diukur dalam sel dan mengikuti barisnya, alih-alih dibuang dan meninggalkan celah kosong. Gambar merupakan fitur layar utama dan dibersihkan saat TUI layar penuh mengambil alih.
-- **Glyph mosaik (Android):** karakter blok, braille, sekstan, dan oktan digambar sendiri oleh aplikasi alih-alih diminta dari font, sehingga `chafa`, `timg`, dan ANSI art menyusun kisi dengan persis — tanpa sambungan, tanpa kotak kosong, apa pun font yang Anda pilih.
+- **Gambar sebaris:** program Kitty menampilkan gambar di terminal Android dan iOS. Ukurannya mengikuti sel dan baris sehingga bertahan saat diperbesar atau baris ditata ulang. Gambar juga tampil di aplikasi layar penuh dengan penempatan terpisah dari riwayat biasa.
+- **Glif mosaik:** aplikasi menggambar blok, braille, sekstan dan oktan sendiri; `chafa`, `timg` dan seni ANSI pas pada kisi tanpa celah atau kotak kosong, apa pun fontnya.
+- **Resolusi gambar:** pengaturan Gambar dapat melaporkan resolusi penuh, setengah atau sepertiga kepada program untuk mengurangi piksel yang dikirim melalui jaringan seluler.
 - **Direktori kerja sebenarnya (Android):** header panel menampilkan di mana panel itu benar-benar berada, ditanyakan ke tmux atau dilaporkan shell melalui OSC 7, bukan apa pun yang kebetulan dicetak prompt terakhir.
 
 ## Tampilan dan tombol
@@ -116,7 +118,7 @@ Mobile SSH mengarahkan gerakan gulir berdasarkan status terminal:
 - Pada aplikasi terminal mode mouse, menggulir mengirim escape sequence roda mouse.
 - Pada aplikasi layar alternatif tanpa mode mouse, seperti banyak sesi tmux, menggulir masuk mode salin tmux dan mengirim perintah gulir per baris.
 
-Di Android, ketukan di dalam program yang melacak mouse dikirim sebagai klik kiri pada sel tersebut, sehingga htop, vim, dan panel klik-untuk-fokus merespons sentuhan. Di iOS, ketukan pada program yang sama memunculkan keyboard alih-alih mengeklik; hanya gulir roda yang dilaporkan.
+Di kedua platform, mengetuk program pelacak tetikus biasanya mengirim klik kiri. Di iOS, **Ketuk menempatkan kursor** menukarnya dengan gerakan kursor; Shift-ketuk menjalankan tindakan satunya. Masukan tetikus tekan-lalu-seret nonaktif secara bawaan sehingga gesekan biasa menggulir.
 
 Jika Anda mengetik saat sedang menelusuri scrollback, Mobile SSH kembali ke tampilan terminal langsung.
 
@@ -130,13 +132,13 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-Saat koneksi putus ketika Anda berada di tmux, aplikasi dapat mengingat nama sesi tmux terakhir untuk server itu dan mencoba menyambung ulang setelah terhubung kembali. Jika tidak ada nama sesi eksplisit yang teramati tetapi aplikasi tahu Anda berada dalam sesi mirip tmux layar alternatif, ia dapat mencoba `tmux attach` umum.
+Saat koneksi terputus, aplikasi mengingat sesi tmux dan soketnya untuk kembali ke tujuan yang sama. Setiap panel pada host yang sama mempertahankan lampirannya sendiri. Jika sesi sudah hilang, shell tetap tersedia.
 
-Perilaku ini bersifat upaya terbaik. Jika sesi tmux jarak jauh tidak ada lagi, shell jarak jauh tetap tersedia.
+Di iOS, pergantian soket membaca prefiks tmux saat ini, bukan menganggap Ctrl+B. Prefiks tak didukung atau pencarian gagal menghentikan proses dengan pesan. Mengetik, menutup panel atau memutus koneksi membatalkan langkah pelampiran tertunda; program layar penuh yang belum dikenal tidak menerima perintah pelampiran.
 
 ## Pengelola tmux
 
-Mobile SSH menyertakan pengelola tmux agar Anda dapat menelusuri dan mengendalikan tmux tanpa mengetik kord prefix. Buka dengan tombol **Tmux** dari sesi yang tersambung. Ia menampilkan tiga bagian:
+Pengelola tmux memungkinkan penelusuran dan kontrol tanpa kombinasi prefiks. Buka dari kontrol multiplexer pada sesi terhubung; tekan lama untuk memilih tmux jika ada beberapa pengelola. Ada tiga bagian:
 
 - **Sessions** -- setiap sesi tmux di server.
 - **Windows** -- jendela dalam sesi yang dipilih.
@@ -147,24 +149,22 @@ Dari pengelola ini Anda dapat:
 - **Attach** sebuah sesi ke terminal saat ini.
 - **Create** sesi atau jendela baru, dan **rename** keduanya.
 - **Split** sebuah panel secara horizontal atau vertikal, **zoom** sebuah panel, dan **kill** sesi, jendela, atau panel.
-- **Sort** sesi berdasarkan nama atau tanggal pembuatan.
+- **Urutkan** sesi menurut Terbaru (bawaan), nama atau tanggal pembuatan.
 
 Ikon 🔔 menandai setiap sesi yang agennya sedang menunggu input, sehingga Anda dapat langsung melihat proses Claude Code atau Codex yang berhenti dan meng-attach ke sana. Ini melengkapi petunjuk reattach di atas: logika reattach memulihkan sesi terakhir Anda secara otomatis saat tersambung ulang, sementara pengelola memberi Anda kendali manual penuh.
 
-Kedua platform juga dapat mengelola lebih dari satu server tmux (socket) di host yang sama, serta mengurutkan sesi berdasarkan nama atau tanggal pembuatan.
+Kedua platform mengelola beberapa server tmux (soket) pada host yang sama. Indikator pelampiran menunjukkan terminal yang Anda gunakan, bukan klien lain di server.
 
-## Herdr dan Zellij (Android)
+## Herdr dan Zellij
 
-Android menghadirkan gagasan yang sama untuk dua multiplexer lain. Masing-masing punya ikon sendiri di bilah alat, dan **sebuah ikon baru muncul setelah aplikasi benar-benar menemukan program itu di server** — jadi bilah alat memberi tahu Anda apa yang terpasang di sana tanpa perlu menjalankan `which`.
+Android dan iOS juga mengelola Herdr dan Zellij. Satu kontrol membuka multiplexer utama yang terdeteksi; tekan lama untuk memilih yang lain. Hanya program yang ditemukan di server ditawarkan. Di dalam pengelola, judul server mengganti server dan pemilih multiplexer mengganti pengelola.
 
-- **Herdr** memakai kosakatanya sendiri: sesi, workspace, tab, panel. Setiap panel menampilkan status agennya — sedang bekerja, membutuhkan Anda, menganggur — dan agen yang tertahan dapat dijawab langsung dari daftarnya. Status milik herdr sendiri mengisi lencana agen aplikasi, jadi ini bekerja tanpa hook terpasang di server.
+- **Herdr** menampilkan sesi, ruang kerja, tab dan panel beserta status agen. Pratinjau atau jawab dari daftar. Balasan tetap menuju panel dan sesi yang dipilih; **Kirim** mengirim teks dan **Hanya Enter** konfirmasi kosong. Fokus panel tepat tersedia jika didukung; jika tidak, gunakan Fokus pada tab induk. Herdr memberi status tanpa hook tambahan.
 - **Zellij** menampilkan sesi, tab, dan panel dengan attach, ganti nama, kill, dan split. Sesi yang di-kill tetap terdaftar sehingga meng-attach akan menghidupkannya kembali, sedangkan delete melupakannya untuk selamanya. Detail tab dan panel memerlukan Zellij 0.44 atau lebih baru; pada versi lama halamannya menampilkan nama tab dan menjelaskan alasannya. Split memerlukan klien yang ter-attach ke sesi, dan halaman itu menjelaskannya alih-alih menawarkan tombol yang pasti gagal.
 
 Jika herdr atau Zellij terpasang tetapi tidak ada di `PATH` shell login, halaman itu menawarkan untuk menambahkannya.
 
-Setiap server tersimpan punya pengaturan **Attach on connect**: **Auto (detect)**, **Nothing**, **tmux**, **herdr**, atau **Zellij**. Auto memilih yang terakhir Anda pakai di server itu, lalu yang punya sesi aktif, lalu yang terpasang — dan tidak meng-attach apa pun alih-alih menebak bila ia belum memeriksa servernya.
-
-Aplikasi iOS saat ini hanya mendukung tmux.
+Setiap server memiliki **Lampirkan saat terhubung**: **Otomatis (deteksi)**, **Tidak ada**, **tmux**, **herdr** atau **Zellij**. Otomatis menggunakan deteksi dan riwayat: yang pernah dipakai, lalu yang memiliki sesi aktif, lalu yang terpasang. Tanpa deteksi tersimpan, shell biasa dibuka. Deteksi berikutnya hanya memengaruhi koneksi mendatang, bukan ketikan Anda saat ini.
 
 ## Agent alerts
 
@@ -172,7 +172,7 @@ Mobile SSH memberi tahu Anda saat agen pemrograman AI jarak jauh — Claude Code
 
 ### Bel
 
-Tanpa penyiapan apa pun, bel terminal dari sesi yang tidak sedang Anda lihat akan memunculkan peringatan, begitu pula escape sequence notifikasi desktop (OSC 9, OSC 777) yang sudah dipancarkan banyak alat. Bel yang datang tepat setelah Anda mengetik diabaikan, sehingga bunyi pelengkapan shell biasa tidak mengganggu Anda.
+Bel terminal dapat memicu peringatan agen. Bel tepat setelah mengetik diabaikan secara bawaan. Notifikasi jarak jauh OSC 9/OSC 777 dan peringatan perintah selesai OSC 133 memiliki pengaturan tersendiri; keduanya nonaktif secara bawaan di iOS.
 
 Ini tidak memerlukan penyiapan, tetapi aplikasi hanya tahu bahwa *sesuatu* berbunyi.
 
@@ -200,7 +200,7 @@ Jawaban Anda tidak diketikkan ke dalam sesi. Ia ditulis ke sebuah berkas melalui
 
 ### Pengaturan
 
-Peringatan aktif secara bawaan di kedua platform, dengan sakelar terpisah untuk notifikasi, suara, getaran, dan apakah sesi yang sedang Anda lihat juga perlu memberi peringatan.
+Peringatan agen aktif secara bawaan pada kedua platform, dengan kontrol notifikasi, suara, getaran dan panel aktif. Di iOS peringatan panel aktif juga aktif dan tersedia pilihan hanya di latar belakang. Peringatan hanya terkirim selama iOS mengizinkan aplikasi berjalan; penangguhan lama memutus peringatan SSH langsung.
 
 Satu bawaan yang perlu diketahui: **suara dibatasi pada headphone**. Bila tidak ada yang tercolok atau terhubung, peringatan tetap memberi notifikasi dan bergetar tetapi tidak membunyikan nada. Matikan opsi itu jika Anda ingin peringatan terdengar di pengeras suara ponsel.
 
@@ -210,6 +210,14 @@ Tidak ada pengaturan sensitivitas dan tidak ada pemilih suara — kontrolnya han
 
 Untuk program seperti Vim, less, htop, alat ncurses, dan panel tmux:
 
-- Input diteruskan langsung ke program — tidak ada koreksi otomatis atau buffer saran yang mengganggu.
+- Untuk masukan langsung di iOS, matikan **Dikte dan saran** serta **Saran papan ketik**, lalu buka panel baru.
 - Gunakan baris tombol tambahan untuk `ESC`, panah, `PGUP`, dan `PGDN`.
 - Gunakan zoom cubit jika teks terlalu kecil, lalu tunggu sebentar agar ukuran terminal jarak jauh stabil.
+
+## Desktop jarak jauh
+
+Kedua platform membuka desktop jarak jauh melalui VNC di dalam SSH. Gunakan layar bersama yang ada, termasuk Berbagi Layar macOS, atau setujui penyiapan desktop Linux yang didukung. Server harus menyediakan desktop; akses SSH saja tidak membuat sesi grafis. Pencerminan Linux memerlukan X11, bukan Wayland; macOS memakai layar bersama yang sudah ada, bukan membuat desktop pribadi.
+
+Gunakan sentuhan untuk klik, seret dan perbesar, serta papan ketik layar atau fisik untuk mengetik. Kontrol papan klip menempel teks ponsel ke desktop; desktop juga dapat menyalin teks ke ponsel.
+
+**Ukuran layar** menawarkan ukuran siap pakai atau khusus yang diingat per server. Di iOS tiap sisi harus 320–5120 piksel. Pengubahan ukuran langsung mempertahankan aplikasi jika didukung server. Alternatif mulai ulang memerlukan persetujuan dan hanya untuk desktop pribadi yang dibuat aplikasi. Desktop yang dipakai ulang dan konsol bersama tidak dimulai ulang untuk mengubah ukuran; atur resolusi Mac di pengaturan Layar jika pengubahan langsung tidak tersedia.

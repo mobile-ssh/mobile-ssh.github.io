@@ -342,7 +342,7 @@ export const tr: FlightPost = {
             çalışır. Uydu vergisini onlar ödemiyor; siz de yalnızca onlara yanıt verirken ödüyorsunuz.`
     },
     {
-      title: "onemli-oldugunda-bildirim",
+      title: "gerektiğinde-bildirim",
       bellLabel: " (zil)",
       body: `Ajan Uyarıları gerçekten bir insan gerektiğinde devreye girer — böylece uçuş, bir yankıyı
             bekleyen komut istemine bakarak değil, inceleyip karar vererek geçer.`
@@ -353,9 +353,7 @@ export const tr: FlightPost = {
     cmdComment: "ücretsiz · açık kaynak · Apache-2.0",
     heading: "Bir sonraki uzun uçuşunuz on bir saatlik sunucu zamanı.",
     prose: [
-      `Mobile SSH, Android, iPhone ve iPad için yerel bir SSH, SFTP ve terminal istemcisidir. Çoklu
-          oturum, yerleşik bir tmux yöneticisi, Eternal Terminal ve bir ajanın size ihtiyacı olduğunda
-          anlık bildirim. Ücretsiz, hesap yok, reklam yok, açık kaynak.`
+      `Mobile SSH, Android, iPhone ve iPad için yerel bir SSH, SFTP ve terminal istemcisidir. Birden fazla oturum, yerleşik tmux yöneticisi, Eternal Terminal ve bağlı bir ajan size ihtiyaç duyduğunda bildirimler; iOS arka planda bildirim iletimini sınırlar. Ücretsiz, hesapsız, reklamsız ve açık kaynak.`
     ],
     tags: ["Reklam yok", "Hesap yok", "Veriler cihazda", "Apache-2.0"],
     playButton: "Google Play'den indirin",

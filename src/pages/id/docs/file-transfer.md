@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Transfer berkas"
-description: "Panduan transfer berkas SFTP Mobile SSH untuk berkas lokal, berkas jarak jauh, unggah, unduh, pengurutan, dan izin."
+description: "Transfer SFTP Mobile SSH, folder tersimpan, direktori sesi tmux, antrean, izin dan berbagi berkas ke terminal."
 ---
 
 # Transfer berkas
@@ -24,15 +24,15 @@ Layar transfer berkas memiliki dua panel penjelajah:
 - **Panel lokal:** penyimpanan ponsel.
 - **Panel jarak jauh:** berkas server melalui SFTP.
 
-Aplikasi mengingat sepuluh jalur jarak jauh terakhir per host — buka dari header panel jarak jauh di Android, atau ikon jam di iOS. Pengaturan pengurutan diingat per host untuk kedua panel. Tidak ada riwayat jalur lokal: di Android panel lokal adalah folder yang Anda berikan izinnya, dan di iOS ia adalah area dokumen milik aplikasi sendiri.
+Aplikasi mengingat jalur jarak jauh terbaru dan urutan per host. Buka melalui header panel jarak jauh di Android atau ikon jam di iOS. Panel lokal menampilkan folder pilihan; iOS memakai Documents aplikasi sampai Anda memilih yang lain.
 
 Layar transfer berkas mengikuti tema terang atau gelap sistem Anda, sehingga selaras dengan bagian lain Mobile SSH.
 
-### Di mana setiap sesi terbuka (Android)
+### Lokasi awal setiap sesi
 
-Membuka File Transfer dari panel yang ter-attach ke sesi tmux mengembalikan panel jarak jauh ke tempat **sesi itu** terakhir bekerja, dengan nama sesinya tertera di header panel. Sesi yang belum pernah Anda gunakan untuk membukanya dimulai dari direktori yang paling sering Anda pakai di host itu, lalu direktori terakhir host tersebut, lalu direktori home Anda.
+Pada kedua platform, membuka Transfer Berkas dari tmux memulihkan direktori untuk **sesi dan soket tersebut**. Sesi baru mencoba direktori yang sering dipakai pada host, lalu lokasi tersimpan lainnya atau direktori masuk.
 
-Jika direktori yang diingat ternyata sudah dihapus, aplikasi menuruni daftar itu sampai ada yang benar-benar dapat ditampilkan, alih-alih meninggalkan Anda pada pesan galat — dan ia tidak menuliskan kembali jalur yang rusak itu. Di iOS satu direktori jarak jauh diingat per host.
+Jika direktori hilang atau tidak dapat diakses, penjelajah mencoba lokasi berikutnya. Kegagalan koneksi dilaporkan, bukan dianggap folder hilang. Memuat ulang tidak dihitung sebagai kunjungan baru.
 
 ## Akses penyimpanan
 
@@ -40,9 +40,9 @@ Mobile SSH tidak meminta izin penyimpanan menyeluruh di kedua platform.
 
 Di Android Anda memberikan izin untuk **satu folder** dengan pemilih folder sistem, dan unduhan ditulis ke sana — tempat yang sudah dapat dibaca setiap aplikasi lain. Izin itu bertahan di seluruh peluncuran berikutnya.
 
-Di iOS panel lokal adalah area dokumen milik aplikasi, dan berkas masuk melalui pemilih dokumen dan foto sistem.
+Di iOS, **Ponsel saya → Pilih folder lokal** memberi akses ke folder Files, termasuk iCloud Drive dan penyedia yang didukung. Pilihan bertahan setelah aplikasi dibuka ulang. **Gunakan folder aplikasi** kembali ke Documents Mobile SSH. Jika folder tidak tersedia, pilih lagi atau pindah secara eksplisit; unduhan tidak dialihkan diam-diam. Izin folder perangkat tidak disertakan dalam cadangan.
 
-Di iOS, panel lokal bekerja dengan area dokumen milik aplikasi sendiri, dan Anda memasukkan berkas melalui pemilih dokumen dan foto sistem — termasuk impor multi-pilih untuk foto dan dokumen. Tidak diperlukan izin penyimpanan terpisah.
+Pemilih dokumen dan foto iOS juga mengimpor beberapa item. Konflik nama menawarkan **Ganti**, **Simpan keduanya** atau **Batal**. Berkas yang sudah berada di tujuan tetap utuh saat diimpor.
 
 Impor kunci privat terpisah dari transfer berkas dan menggunakan pemilih berkas sistem.
 
@@ -54,7 +54,7 @@ Impor kunci privat terpisah dari transfer berkas dan menggunakan pemilih berkas 
 4. Konfirmasi tujuan jarak jauh.
 5. Pantau antrean transfer untuk kemajuan dan penyelesaian.
 
-Unggahan menggunakan koneksi SSH/SFTP yang ada. Jika koneksi putus, coba lagi setelah terhubung kembali.
+Unggahan mengikuti rute SSH server terpilih, termasuk host perantara tersimpan. Jika koneksi putus, coba lagi setelah tersambung.
 
 ## Mengunduh berkas
 
@@ -74,7 +74,7 @@ Unggahan dan unduhan tidak terbatas pada satu berkas. Pilih sebuah folder dan Mo
 
 Bergantung pada item jarak jauh yang dipilih, Mobile SSH dapat menampilkan tindakan seperti:
 
-- Unduh, atau **Copy to phone** di Android.
+- **Salin ke ponsel** untuk mengunduh.
 - Salin atau pindahkan **di server** — `cp -r` / `mv` dijalankan di host tanpa datanya melewati ponsel Anda.
 - Ganti nama.
 - Hapus.
@@ -95,22 +95,26 @@ Setiap panel dapat mengurutkan berdasarkan nama atau tanggal secara naik atau tu
 
 ## Antrean transfer
 
-Transfer diantrekan dan ditampilkan menurut status, dan lognya menampilkan setiap transfer serta dapat digulir — Android membaginya dalam tab Queued / Failed / Successful, iOS dalam Active / Failed / Done. Transfer yang gagal menyertakan alasan bila operasi SFTP yang mendasari menyediakannya. Di iOS, berkas yang sedang ditransfer tetap berada di puncak tab Active, dan sebuah baris dapat dibatalkan di tengah jalan.
+Transfer ditampilkan menurut status: Antrean / Gagal / Berhasil di Android dan Aktif / Gagal / Selesai di iOS. Kegagalan menyertakan alasan yang tersedia. Di iOS, transfer saat ini tetap di atas Aktif dan dapat dibatalkan.
+
+Di iOS, antrean tetap memakai folder awal walaupun Anda berpindah. Unduhan selesai di penyimpanan sementara sebelum mengganti tujuan; pembatalan atau kegagalan mempertahankan berkas lama. Jika tujuan berubah setelah izin penimpaan, aplikasi berhenti.
 
 ## Mengeluarkan berkas dari aplikasi
 
 - **Android:** unduhan mendarat di folder yang Anda berikan izinnya, jadi sudah terlihat oleh setiap aplikasi lain. **Open in another app** tersedia di kedua panel; berkas jarak jauh diunduh lebih dulu, lalu diserahkan.
-- **iOS:** Mobile SSH muncul di aplikasi Files di bawah **On My iPhone**, sehingga apa pun di panel My Phone dapat dijangkau dari Mail, pemilih berkas, dan aplikasi lain. Tekan lama berkas yang sudah diunduh lalu pilih **Open in another app** untuk menyerahkannya, meng-AirDrop-kannya, atau menyimpannya di tempat lain.
+- **iOS:** **Buka di aplikasi lain** tersedia untuk berkas lokal dan jarak jauh. Berkas jarak jauh diunduh dahulu, lalu lembar berbagi terbuka. Folder aplikasi ada di **Di iPhone Saya → Mobile SSH**; folder eksternal tetap di lokasi Files semula.
 
-## Mengirim berkas ke dalam sesi (Android)
+## Mengirim berkas ke sesi
 
-Android menerima berkas yang dibagikan ke dalamnya dari aplikasi mana pun: bagikan ke Mobile SSH dan berkasnya diunggah ke `~/.cache/mobile-ssh` di host panel tersebut, dengan jalur jarak jauhnya diketikkan di prompt sehingga Anda bisa langsung memakainya. Tombol 📎 di bilah alat terminal melakukan hal yang sama dari pemilih berkas sistem, dan keduanya menerima beberapa berkas sekaligus.
+Kedua platform menerima berkas yang dibagikan aplikasi lain dan menawarkan 📎 **Lampirkan berkas** di terminal. Berkas diunggah ke `~/.cache/mobile-ssh` pada host terpilih; jalurnya dapat dimasukkan ke prompt tanpa Enter. Beberapa berkas didukung.
 
-Di iOS, masukkan berkas ke panel lokal dengan tombol ＋ lalu unggah dari sana.
+Di Android, berbagi menuju sesi berjalan. Di iOS, klip menawarkan **Perpustakaan Foto** atau **Files**. Ekstensi Berbagi iOS juga mengunggah ke server SSH tersimpan ketika Mobile SSH ditutup; profil Eternal Terminal tidak ditawarkan. Verifikasi identitas asing di aplikasi utama dahulu.
+
+Setelah unggahan lewat ekstensi iOS, jalur disalin ke papan klip dan menunggu panel yang terhubung ke server itu. Jalur tidak dimasukkan ke panel host lain.
 
 ## Tips praktis
 
 - Gunakan SFTP untuk pemindahan berkas tertentu; gunakan alat baris perintah seperti `rsync` di server untuk sinkronisasi direktori besar.
 - Hindari mengedit berkas produksi langsung kecuali Anda memiliki cadangan atau jalur rollback penyebaran.
 - Jika berkas tidak muncul setelah diunggah, segarkan panel jarak jauh atau verifikasi jalur tujuan.
-- Jika panel lokal Android kosong, pilih sebuah folder dengan **Pick folder** — aplikasi hanya punya akses ke folder yang Anda berikan. Di iOS, gunakan pemilih sistem untuk menambahkan berkas ke panel lokal.
+- Jika panel lokal Android kosong, gunakan **Pilih folder**. Di iOS pilih **Pilih folder lokal**, **Gunakan folder aplikasi** atau pemilih impor sesuai lokasi yang diinginkan.

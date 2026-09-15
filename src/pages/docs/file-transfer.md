@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/DocLayout.astro
 title: File transfer
-description: Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions.
+description: Mobile SSH SFTP file transfer, remembered phone folders, tmux session directories, queued transfers, permissions, and sharing files into a terminal.
 ---
 
 # File transfer
@@ -24,15 +24,15 @@ The file transfer screen has two browser panes:
 - **Local pane:** phone storage.
 - **Remote pane:** server files over SFTP.
 
-The app remembers the last ten remote paths per host — open them from the remote pane's header on Android, or the clock icon on iOS. Sort settings are remembered per host for both panes. There is no local path history: on Android the local pane is the folder you granted, and on iOS it is the app's own documents area.
+The app remembers recent remote paths and sort settings per host. Open recent paths from the remote pane's header on Android or the clock icon on iOS. The local pane shows the folder you selected; iOS uses the app's Documents folder until you choose another.
 
 The file transfer screen follows your system light or dark theme, so it matches the rest of Mobile SSH.
 
-### Where each session opens (Android)
+### Where each session opens
 
-Opening File Transfer from a pane attached to a tmux session puts the remote pane back where **that session** was last working, with the session named in the pane header. A session you have not opened it from before starts at the directories you use most on that host, then the host's last directory, then your home directory.
+On both platforms, opening File Transfer from tmux restores the remote directory remembered for **that session and socket**. A new session tries frequently used directories on the host, then other remembered or login directories.
 
-If a remembered directory has since been deleted, the app steps down that list until one actually lists, instead of leaving you on an error — and it does not write the broken path back. On iOS one remote directory is remembered per host.
+If a remembered directory is missing or inaccessible, the browser tries the next usable location. Connection failures are reported rather than mistaken for a missing folder. Refreshing does not make a directory count as a new visit.
 
 ## Storage access
 
@@ -40,9 +40,9 @@ Mobile SSH does not ask for blanket storage permission on either platform.
 
 On Android you grant **one folder** with the system folder picker, and downloads are written there — somewhere every other app can already read. The grant persists across launches.
 
-On iOS the local pane is the app's documents area, and files come in through the system document and photo pickers.
+On iOS, **My Phone → Choose local folder** grants access to a folder in Files, including supported iCloud Drive and other file providers. The choice persists across launches. **Use app folder** returns to Mobile SSH's Documents folder. If a selected folder becomes unavailable, reselect it or explicitly switch to the app folder; downloads are not silently redirected. This device's folder access is not included in backups.
 
-On iOS, the local pane works with the app's own documents area, and you bring files in through the system document and photo pickers — including multi-select import of photos and documents. No separate storage permission is needed.
+The iOS document and photo pickers also import multiple items. Filename conflicts offer **Replace**, **Keep Both**, or **Cancel**. Importing a file already in the destination leaves it intact.
 
 Private key import is separate from file transfer and uses the system file picker.
 
@@ -54,7 +54,7 @@ Private key import is separate from file transfer and uses the system file picke
 4. Confirm the remote destination.
 5. Watch the transfer queue for progress and completion.
 
-Uploads use the existing SSH/SFTP connection. If the connection drops, retry after reconnecting.
+Uploads follow the selected server's SSH route, including any saved jump hosts. If the connection drops, retry after reconnecting.
 
 ## Download files
 
@@ -74,7 +74,7 @@ Uploads and downloads are not limited to single files. Choose a folder and Mobil
 
 Depending on the selected remote item, Mobile SSH can show actions such as:
 
-- Download, or **Copy to phone** on Android.
+- **Copy to Phone** to download.
 - Copy or move **on the server** — `cp -r` / `mv` run on the host without the bytes touching your phone.
 - Rename.
 - Delete.
@@ -95,22 +95,26 @@ Each pane can sort by name or date in ascending or descending order. Mobile SSH 
 
 ## Transfer queue
 
-Transfers are queued and displayed by status, and the log shows every transfer and scrolls — Android tabs them as Queued / Failed / Successful, iOS as Active / Failed / Done. Failed transfers include a reason when the underlying SFTP operation provides one. On iOS the file currently transferring stays at the top of the Active tab, and a row can be cancelled mid-flight.
+Transfers are queued and displayed by status — Android tabs them as Queued / Failed / Successful, iOS as Active / Failed / Done. Failed transfers include the available error reason. On iOS the current transfer stays at the top of Active and can be cancelled.
+
+On iOS, queued transfers keep their original folder even if you browse elsewhere. Downloads finish in temporary storage before replacing a destination; cancellation or failure preserves an existing file. If the destination changed since overwrite approval, the app stops rather than replacing the changed file.
 
 ## Getting files out of the app
 
 - **Android:** downloads land in the folder you granted, so they are already visible to every other app. **Open in another app** is on both panes; a remote file is downloaded first, then handed over.
-- **iOS:** Mobile SSH appears in the Files app under **On My iPhone**, so anything in the My Phone pane is reachable from Mail, pickers, and other apps. Long-press a downloaded file and choose **Open in another app** to hand it over, AirDrop it, or save it elsewhere.
+- **iOS:** **Open in another app** is available for local and remote files. A remote file downloads first, then opens the share sheet. Files in the app folder appear under **On My iPhone → Mobile SSH**; a chosen external folder remains at its original Files location.
 
-## Sending a file into a session (Android)
+## Sending a file into a session
 
-Android accepts files shared into it from any other app: share to Mobile SSH and the file is uploaded to `~/.cache/mobile-ssh` on the pane's host, with its remote path typed at the prompt so you can use it immediately. The 📎 button in the terminal toolbar does the same from the system file picker, and both accept several files at once.
+Both platforms accept files shared from other apps and offer a 📎 **Attach a file** control in the terminal. Files upload to `~/.cache/mobile-ssh` on the selected host, and their paths can be inserted at the prompt without pressing Enter. Multiple files are supported.
 
-On iOS, bring files into the local pane with the ＋ button and upload them from there.
+On Android, sharing targets the running session. On iOS, the paperclip offers **Photo Library** or **Files**. The iOS Share Extension can also upload to a saved SSH server while Mobile SSH is closed; Eternal Terminal profiles are not offered. Verify any unknown server identity in the main app first.
+
+After an iOS Share Extension upload, paths are copied to the clipboard and queued for insertion when a connected pane for that server is available in the app. They are not inserted into a pane connected to a different host.
 
 ## Practical tips
 
 - Use SFTP for targeted file moves; use command-line tools such as `rsync` on the server for large directory synchronization.
 - Avoid editing live production files unless you have a backup or deployment rollback path.
 - If a file does not appear after upload, refresh the remote pane or verify the destination path.
-- If the Android local pane is empty, pick a folder with **Pick folder** — the app has access only to the folder you grant it. On iOS, use the pickers to add files to the local pane instead.
+- If the Android local pane is empty, use **Pick folder**. On iOS, use **Choose local folder**, **Use app folder**, or the import pickers, depending on where you want the files.

@@ -245,11 +245,11 @@ hafif toplandı ve binayı terk etti. Artık bir cebe sığıyor. Telefonu ilk �
     },
     {
       heading: "Anahtarlar cihazda üretilir",
-      body: "Cihaz üzerinde SSH anahtarı üretimi — Ed25519 ve ECDSA — parola veya özel anahtar kimlik doğrulamasıyla. Hiçbir şey telefondan çıkmaz."
+      body: "Cihazda SSH anahtarı üretimi — Ed25519 ve ECDSA — ve parola ya da özel anahtarla kimlik doğrulama. Anahtarlar cihazda saklanır; Mobile SSH bulut hesabı gerekmez."
     },
     {
       heading: "Kodlama ajanları ve Ajan Uyarıları",
-      body: "Claude Code, Codex ve diğer ajanları doğrudan telefonunuzdan, <em>kendi</em> sunucularınızda çalıştırın. Bir ajanın girdinize ihtiyaç duyduğu anda Ajan Uyarıları anlık bildirim gönderir — sesli ve titreşimli — böylece başınızı kaldırıp uzaklaşabilir, yine de olan bitenden haberdar kalırsınız."
+      body: "Claude Code, Codex ve diğer ajanları doğrudan telefonunuzdan <em>kendi</em> sunucularınızda çalıştırın. Bağlı bir ajan yanıtınızı beklediğinde Agent Alerts bildirim, ses ve titreşim kullanır. Android bağlantıları bir ön plan hizmetiyle korur; iOS arka planda bildirim iletimini sınırlar."
     },
     {
       heading: "Duruma uygun giyinmiş",

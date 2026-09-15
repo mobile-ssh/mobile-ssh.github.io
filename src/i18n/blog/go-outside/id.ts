@@ -45,7 +45,7 @@ export const id = defineGoOutside({
     `Jadi ponsel tetap di saku sampai benar-benar ada pertanyaan. Lalu ia bergetar, Anda membaca promptnya, mengetuk jawaban, dan menyimpannya kembali. Hanya itu seluruh interaksinya, dan itu berfungsi dari pantai, dari awal jalur pendakian, atau dari antrean es serut.`,
     `Yang tidak bisa diperbaiki oleh pulau ini`,
     `Dua batasan yang jujur, karena tulisan yang hanya mendaftar kelebihan itu namanya iklan.`,
-    `Perbedaan platform ini nyata dan layak diperhitungkan. Di Android, sebuah foreground service menahan koneksi selama aplikasi berada di latar belakang — notifikasi yang menetap itu <em>adalah</em> sesinya. iOS sama sekali tidak punya eksekusi di latar belakang; ia menyambung ulang dan menempel kembali ke multiplexer Anda saat Anda kembali. Bagaimanapun juga, agen di server tidak pernah berhenti, dan itulah intinya. Hanya jendelanya yang tertutup.`,
+    `Perbedaan platform ini nyata dan layak diperhitungkan. Di Android, sebuah foreground service menahan koneksi selama aplikasi berada di latar belakang — notifikasi yang menetap itu <em>adalah</em> sesinya. iOS hanya memberi aplikasi waktu singkat di latar belakang; setelah ditangguhkan, aplikasi menyambung ulang dan kembali terhubung ke multiplexer saat Anda kembali. Peringatan membutuhkan koneksi yang aktif. Bagaimanapun juga, agen di server tidak pernah berhenti, dan itulah intinya. Hanya jendelanya yang tertutup.`,
     `Aloha bukan alasan untuk ceroboh`,
     `Pergi dengan baik adalah disiplin kecil. Apa pun yang tidak ingin Anda biarkan berjalan tanpa pengawasan selama dua jam sebaiknya jangan dimulai tepat saat Anda melangkah keluar pintu — agen yang sedang di tengah migrasi tidak menjadi lebih baik karena jarak. Berikan tugas dengan titik henti yang wajar, minta ia memeriksa sebelum mengedit, dan biarkan diff menjadi hal yang Anda tinjau ketika pulang.`,
     `Dan perlakukan notifikasi dengan kehati-hatian yang sama seperti pager. Kalau semuanya memicu peringatan, tidak ada satu pun yang berarti. Hook itu menyala pada keadaan yang memang layak mengganggu seseorang; biarkan tetap begitu dan getarannya akan tetap bermakna.`,
@@ -88,8 +88,8 @@ export const id = defineGoOutside({
       { item: "Berkas, diff, dan keluaran pengujian", value: "Ada di disk server", survives: true },
       { item: "Posisi Anda dalam sesi", value: "Ditempelkan kembali saat Anda kembali", survives: true },
       { item: "Koneksi, di Android", value: "Ditahan oleh foreground service", survives: true },
-      { item: "Koneksi, di iOS", value: "Tanpa eksekusi latar belakang — ia menyambung ulang", survives: false },
-      { item: "Peringatan tanpa sinyal untuk mengirimkannya", value: "Tiba saat ponsel terjangkau lagi", survives: false }
+      { item: "Koneksi, di iOS", value: "Sebentar di latar belakang — lalu menyambung ulang", survives: false },
+      { item: "Peringatan tanpa sinyal untuk mengirimkannya", value: "Memerlukan koneksi aktif; pengiriman tidak dijamin", survives: false }
     ],
     note: "Agen tetap berjalan di setiap baris. Yang berbeda hanyalah apakah ponsel Anda masih menahan jendelanya tetap terbuka."
   },

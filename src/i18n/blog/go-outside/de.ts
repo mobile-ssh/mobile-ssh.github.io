@@ -45,7 +45,7 @@ export const de = defineGoOutside({
     `Das Handy bleibt also in der Tasche, bis es eine echte Frage gibt. Dann vibriert es, du liest den Prompt, tippst eine Antwort und steckst es wieder weg. Das ist die gesamte Interaktion, und sie funktioniert vom Strand, vom Wanderparkplatz oder aus der Schlange am Shave-Ice-Stand.`,
     `Was die Insel nicht richten kann`,
     `Zwei ehrliche Grenzen, denn ein Beitrag, der nur Stärken aufzählt, ist eine Anzeige.`,
-    `Der Plattformunterschied ist real und sollte eingeplant werden. Unter Android hält ein Vordergrunddienst die Verbindung, während die App im Hintergrund ist – die dauerhafte Benachrichtigung <em>ist</em> die Sitzung. iOS führt im Hintergrund überhaupt nichts aus; es verbindet sich neu und hängt sich wieder an deinen Multiplexer, sobald du zurückkommst. So oder so hat der Agent auf dem Server nie aufgehört, und darum geht es. Geschlossen hat sich nur das Fenster.`,
+    `Der Plattformunterschied ist real und sollte eingeplant werden. Unter Android hält ein Vordergrunddienst die Verbindung, während die App im Hintergrund ist – die dauerhafte Benachrichtigung <em>ist</em> die Sitzung. iOS gibt der App nur kurz Zeit im Hintergrund; nach einer Unterbrechung verbindet sie sich bei deiner Rückkehr neu und hängt sich wieder an deinen Multiplexer. Benachrichtigungen setzen eine aktive Verbindung voraus. So oder so hat der Agent auf dem Server nie aufgehört, und darum geht es. Geschlossen hat sich nur das Fenster.`,
     `Aloha ist keine Ausrede für Nachlässigkeit`,
     `Gut zu gehen ist eine kleine Disziplin. Was du nicht zwei Stunden unbeaufsichtigt laufen lassen möchtest, solltest du nicht im Hinausgehen starten – ein Agent mitten in einer Migration wird durch Entfernung nicht besser. Gib ihm eine Aufgabe mit einem natürlichen Haltepunkt, bitte ihn, vor dem Bearbeiten zu prüfen, und lass den Diff das sein, was du bei der Rückkehr durchsiehst.`,
     `Und behandle die Benachrichtigung so sorgfältig wie einen Pager. Wenn alles meldet, meldet nichts. Der Hook löst bei den Zuständen aus, für die es sich lohnt, einen Menschen zu unterbrechen; lass es dabei, dann bleibt das Vibrieren bedeutsam.`,
@@ -88,8 +88,8 @@ export const de = defineGoOutside({
       { item: "Dateien, Diffs und Testausgaben", value: "Auf dem Datenträger des Servers", survives: true },
       { item: "Dein Platz in der Sitzung", value: "Bei der Rückkehr wieder angehängt", survives: true },
       { item: "Die Verbindung unter Android", value: "Von einem Vordergrunddienst gehalten", survives: true },
-      { item: "Die Verbindung unter iOS", value: "Keine Hintergrundausführung – sie wird neu aufgebaut", survives: false },
-      { item: "Eine Meldung ohne Empfang für die Zustellung", value: "Kommt an, sobald das Handy wieder erreichbar ist", survives: false }
+      { item: "Die Verbindung unter iOS", value: "Kurz im Hintergrund — dann neu verbinden", survives: false },
+      { item: "Eine Meldung ohne Empfang für die Zustellung", value: "Benötigt eine aktive Verbindung; Zustellung nicht garantiert", survives: false }
     ],
     note: "Der Agent läuft in jeder Zeile weiter. Unterschiedlich ist nur, ob dein Handy das Fenster noch offen hielt."
   },

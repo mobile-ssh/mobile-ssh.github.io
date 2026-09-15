@@ -45,7 +45,7 @@ export const fr = defineGoOutside({
     `Le téléphone reste donc dans votre poche jusqu’à ce qu’une vraie question se pose. Il vibre alors, vous lisez l’invite, vous tapez une réponse et vous le rangez. Toute l’interaction tient là, et elle fonctionne depuis une plage, un départ de sentier ou la file d’attente pour une glace pilée.`,
     `Ce que l’île ne peut pas réparer`,
     `Deux limites honnêtes, car un billet qui ne liste que des points forts est une publicité.`,
-    `La différence entre les plateformes est réelle et mérite d’être anticipée. Sur Android, un service de premier plan maintient la connexion pendant que l’app est en arrière-plan — la notification persistante <em>est</em> la session. iOS n’a aucune exécution en arrière-plan ; il se reconnecte et se rattache à votre multiplexeur à votre retour. Dans les deux cas, l’agent sur le serveur ne s’est jamais arrêté, et c’est bien là l’essentiel. Seule la fenêtre s’est fermée.`,
+    `La différence entre les plateformes est réelle et mérite d’être anticipée. Sur Android, un service de premier plan maintient la connexion pendant que l’app est en arrière-plan — la notification persistante <em>est</em> la session. iOS n’accorde à l’app qu’un bref délai en arrière-plan ; après une suspension, elle se reconnecte et se rattache à votre multiplexeur à votre retour. Les alertes nécessitent une connexion active. Dans les deux cas, l’agent sur le serveur ne s’est jamais arrêté, et c’est bien là l’essentiel. Seule la fenêtre s’est fermée.`,
     `L’aloha n’excuse pas la négligence`,
     `Bien partir demande une petite discipline. Tout ce que vous ne voudriez pas laisser tourner sans surveillance pendant deux heures ne doit pas être lancé au moment de franchir la porte — un agent au milieu d’une migration ne s’améliore pas avec la distance. Donnez-lui une tâche avec un point d’arrêt naturel, demandez-lui d’inspecter avant de modifier, et laissez le diff être ce que vous relirez à votre retour.`,
     `Et traitez la notification avec le même soin qu’un bipeur. Si tout alerte, plus rien n’alerte. Le hook se déclenche sur les états qui méritent d’interrompre une personne ; laissez-le ainsi et la vibration gardera son sens.`,
@@ -88,8 +88,8 @@ export const fr = defineGoOutside({
       { item: "Fichiers, diffs et sortie des tests", value: "Sur le disque du serveur", survives: true },
       { item: "Votre place dans la session", value: "Rattachée à votre retour", survives: true },
       { item: "La connexion, sur Android", value: "Maintenue par un service de premier plan", survives: true },
-      { item: "La connexion, sur iOS", value: "Aucune exécution en arrière-plan — il se reconnecte", survives: false },
-      { item: "Une alerte sans réseau pour la transmettre", value: "Arrive dès que le téléphone est de nouveau joignable", survives: false }
+      { item: "La connexion, sur iOS", value: "Bref délai en arrière-plan — puis reconnexion", survives: false },
+      { item: "Une alerte sans réseau pour la transmettre", value: "Nécessite une connexion active ; réception non garantie", survives: false }
     ],
     note: "L’agent continue de tourner à chaque ligne. Seul varie le fait que votre téléphone gardait ou non la fenêtre ouverte."
   },

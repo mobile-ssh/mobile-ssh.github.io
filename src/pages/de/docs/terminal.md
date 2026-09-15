@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Terminal"
-description: "Terminalsteuerung von Mobile SSH, Zusatztasten, Bereiche, Scrollen, tmux-, herdr- und Zellij-Manager, Agenten-Benachrichtigungen, Kopieraktionen und Tastatureinstellungen."
+description: "Mobile-SSH-Terminalsteuerung, Tastatur, tmux-, herdr- und Zellij-Verwaltung, Agentenalarme, Zwischenablage, Bilder und entfernte Desktops."
 ---
 
 # Terminal
@@ -22,18 +22,18 @@ Mobile SSH kann bis zu acht SSH-Sitzungen gleichzeitig ausführen. Jede Sitzung 
 
 Die Bereichskopfzeile nennt, wo du gerade bist. Auf Android zeigt sie das tatsächliche Arbeitsverzeichnis des Bereichs, bei tmux erfragt oder von der Shell über OSC 7 gemeldet und aktualisiert, solange die App offen ist; auf iOS zeigt sie den Titel, den die Gegenstelle setzt, und fällt sonst auf `user@host:port` zurück.
 
-Das Schließen eines Bereichs trennt diese SSH-Sitzung. Das Zurückgehen zum Startbildschirm hält aktive Sitzungen über **Active Sessions** verfügbar.
+Ein geschlossenes Pane trennt seine SSH-Sitzung. Auf der Startseite bleiben laufende Verbindungen über **Aktive Sitzungen** erreichbar. Die Kopfzeile zeigt hängende Verbindungen; Einstellungen bieten Übertragungsraten sowie optionales Abdunkeln oder Vibrieren, wenn die Verbindung nicht antwortet.
 
 ## Eternal Terminal (ET)
 
-Jeder gespeicherte Server kann einen von zwei Transporten nutzen, gewählt über die Auswahl **Transport** beim Hinzufügen oder Bearbeiten eines Servers:
+Beide Plattformen bieten beim Anlegen oder Bearbeiten eines Servers unter **Transport** diese Verbindungsarten:
 
 - **SSH** -- eine gewöhnliche SSH-Verbindung (die Vorgabe).
 - **Eternal Terminal** -- eine ET-Sitzung, die Netzwerkausfälle, den Schlafmodus des Geräts und IP-Wechsel übersteht, ohne deine Shell neu zu starten.
 
 ET hält die Sitzung auf dem Server am Leben, sodass Mobile SSH sich beim Netzwechsel oder Aufwachen des Telefons wieder an dieselbe laufende Shell hängt, statt eine neue zu öffnen. Das passt gut zu mobilen Daten, zum Wechsel zwischen WLAN und Mobilfunk und zu lang laufenden Befehlen.
 
-ET benötigt einen `etserver`-Prozess auf dem Host. Hat der Server keinen, kann Mobile SSH ihn über die bestehende SSH-Verbindung für dich installieren und starten -- ganz ohne manuelle Servereinrichtung. Sobald ET verfügbar ist, verbinde dich mit ausgewähltem Transport **Eternal Terminal**.
+ET benötigt `etserver` auf dem Host. Fehlt es, kann Mobile SSH Installation und Start über SSH anbieten. Prüfe und bestätige die Befehle und verbinde dann mit **Eternal Terminal**. Routen über Sprungserver erfordern **SSH**.
 
 ## Zusatztastenreihe
 
@@ -54,11 +54,11 @@ Halte eine Taste wie einen Pfeil oder `PGDN` gedrückt, und sie wiederholt sich.
 
 ## Tastaturverhalten
 
-Das Terminal nutzt eine native durchgereichte Verbindung zur Bildschirmtastatur: Jedes Zeichen wird während des Tippens an die entfernte Shell gesendet, wobei Autokorrektur und Vorschläge deaktiviert sind, sodass die Tastatur die Eingabe niemals umschreibt, bevor sie die Shell erreicht. Das hält Vim, tmux, htop, less, Shells mit ungewöhnlichen Tastenfolgen und entfernte Passwortabfragen vorhersehbar – es gibt keinen Vorschlagspuffer, den man deaktivieren müsste.
+Unter Android geht normales Tippen direkt an die entfernte Shell; Autokorrektur und Wortvorschläge sind standardmäßig aus. Spracheingabe kann weiterhin Text über die Tastatur senden.
 
-- **Terminal antippen, um die Tastatur anzuzeigen:** wenn aktiviert, bittet ein Tippen auf das Terminal das System, die Bildschirmtastatur anzuzeigen.
+Unter iOS ist **Einstellungen → Terminal → Diktat und Vorschläge** standardmäßig an: Diktat, Vorhersagen und Korrekturen funktionieren beim Schreiben einer Zeile. Für direkte Tasteneingaben schalte dies und **Tastaturvorschläge** aus und öffne ein neues Pane.
 
-Die Spracheingabe der Bildschirmtastatur funktioniert weiterhin: Der diktierte Text wird wie jede andere getippte Eingabe direkt an die Shell übergeben.
+**Tastatur beim Tippen anzeigen** steuert, ob Antippen die Bildschirmtastatur öffnet. Standardmäßig aus unter Android, an unter iOS; die Tastaturschaltfläche bleibt verfügbar.
 
 ## Hardware-Tastaturen
 
@@ -70,11 +70,12 @@ Das Einfügen in ein Programm, das es anfordert (bash, Vim und andere Bracketed-
 
 ## Auswählen, kopieren, teilen
 
-Halte im Terminal gedrückt, um das Wort unter deinem Finger auszuwählen, und ziehe dann die Griffe, um die Auswahl anzupassen. Die Auswahlleiste bietet drei Aktionen:
+Drücke lange auf ein Wort im Terminal und passe die Auswahl über die Griffe an. Die Auswahlleiste enthält:
 
 - **Copy** -- legt den ausgewählten Text in die System-Zwischenablage. Die Auswahl bleibt danach hervorgehoben, sodass du sie teilen, erneut kopieren oder erweitern kannst.
 - **Share** -- übergibt den ausgewählten Text an das System-Teilen-Menü (Mail, Notizen, Messaging usw.).
 - **Select all** -- erweitert die Auswahl auf den gesamten sichtbaren Terminalpuffer, danach Copy oder Share.
+- **Einfügen**: Text aus der Zwischenablage ins Terminal einfügen.
 
 ## Im Terminal suchen
 
@@ -83,15 +84,16 @@ Durchsuche den gesamten Terminalpuffer – den Scrollback und den sichtbaren Bil
 ## Farbe, Kursivschrift und entfernte Zwischenablage
 
 - Das Terminal stellt **24-bit True Color** und **Kursivschrift** dar, sodass gestylte Prompts, Syntaxhervorhebung und TUIs so aussehen wie auf dem Desktop.
-- **OSC 52-Zwischenablage:** wenn ein entferntes Programm Text kopiert (tmux `set-clipboard`, ein OSC-52-Yank in Vim/Neovim), landet er in der Zwischenablage deines Telefons – so kannst du auf dem Server kopieren und in eine lokale App einfügen.
+- **OSC-52-Zwischenablage:** entfernte Programme können Text aufs Telefon kopieren. Das Lesen seiner Zwischenablage erfordert eine eigene Freigabe, die standardmäßig aus ist.
 - Auf sowohl Android als auch iOS werden breite CJK-, Emoji- und kombinierende Zeichen (Graphem-Cluster und Zero-Width-Joiner) korrekt vermessen und gezeichnet, und eine mitgelieferte **Nerd Font** stellt Powerline-, Starship-, Devicon- und Material-Design-Icon-Glyphen dar, die die Systemschrift sonst als leere Kästchen zeigen würde.
 
 ## Shell-Integration und Inline-Bilder
 
 - **Shell-Integration (OSC 133):** wenn deine Shell OSC-133-Prompt-Markierungen ausgibt, kann Mobile SSH von Prompt zu Prompt springen und dich benachrichtigen, wenn ein lang laufender Befehl fertig ist. Funktioniert auf Android und iOS. Keine der beiden Apps schleust die Markierungen ein – deine Shell muss sie ausgeben (ein `PROMPT_COMMAND`/`precmd`-Hook oder starship). Auf Android ist die Prompt-Navigation aus, bis du sie unter **Settings → Shell integration** aktivierst; auf iOS erscheint das Menü von selbst, sobald Markierungen eintreffen.
 - **Ausgabe auswählen:** Berühre eine beliebige Stelle innerhalb der Ausgabe eines Befehls und wähle diesen ganzen Block aus – den Build-Fehler von vor 300 Zeilen, nicht nur den letzten Befehl – und kopiere, teile oder erweitere ihn dann.
-- **Inline-Bilder:** Programme, die das Kitty-Grafikprotokoll verwenden, zeichnen Bilder direkt im Terminal, auf Android und iOS. Die Bilder überstehen Pinch-Zoom und Neuumbruch: Sie werden in Zellen vermessen und folgen ihrer Zeile, statt verworfen zu werden und eine Lücke zu hinterlassen. Sie gehören zum Hauptbildschirm und werden gelöscht, wenn eine Vollbild-TUI übernimmt.
-- **Mosaikglyphen (Android):** Block-, Braille-, Sextanten- und Oktantenzeichen zeichnet die App selbst, statt sie von einer Schrift anzufordern, sodass `chafa`, `timg` und ANSI-Art das Raster exakt kacheln – keine Nähte, keine leeren Kästchen, egal welche Schrift du gewählt hast.
+- **Eingebettete Bilder:** Kitty-Programme zeigen Bilder im Terminal beider Plattformen. Sie folgen Zellen und Zeilen und überstehen Zoom und Zeilenumbruch. Sie erscheinen auch in Vollbildprogrammen, mit getrennten Platzierungen vom normalen Verlauf.
+- **Mosaikglyphen:** die App zeichnet Blöcke, Braille, Sextanten und Oktanten selbst; `chafa`, `timg` und ANSI-Kunst füllen das Raster ohne Lücken oder leere Kästchen, unabhängig von der Schrift.
+- **Bildauflösung:** die Einstellung Bilder meldet volle, halbe oder ein Drittel der Displayauflösung an Programme und reduziert so die übertragenen Pixel im Mobilfunk.
 - **Echtes Arbeitsverzeichnis (Android):** Die Bereichskopfzeile zeigt, wo der Bereich tatsächlich steht, bei tmux erfragt oder von der Shell über OSC 7 gemeldet, statt dessen, was der letzte Prompt zufällig ausgegeben hat.
 
 ## Aussehen und Tasten
@@ -116,7 +118,7 @@ Mobile SSH leitet Scroll-Gesten je nach Terminalzustand:
 - In Terminal-Apps mit Maus-Modus sendet das Scrollen Mausrad-Escape-Sequenzen.
 - In Apps mit alternativem Bildschirm ohne Maus-Modus, etwa vielen tmux-Sitzungen, wechselt das Scrollen in den tmux-Kopiermodus und sendet zeilenweise Scroll-Befehle.
 
-Auf Android wird ein Tippen innerhalb eines Programms mit Maus-Tracking als Linksklick auf dieser Zelle zugestellt, sodass htop, vim und Bereiche mit Klick-Fokus auf Berührung reagieren. Auf iOS blendet ein Tippen im selben Programm die Tastatur ein, statt zu klicken; gemeldet wird dort nur das Rad-Scrollen.
+Auf beiden Plattformen sendet Antippen in Programmen mit Mausverfolgung normalerweise einen Linksklick. Unter iOS tauscht **Tippen setzt den Cursor** dies mit Cursorbewegung; Umschalt-Tippen führt die andere Aktion aus. Gedrückthalten und Ziehen als Mauseingabe ist standardmäßig aus, sodass normales Wischen scrollt.
 
 Wenn du tippst, während du zurückgescrollt hast, kehrt Mobile SSH zur Live-Ansicht des Terminals zurück.
 
@@ -130,13 +132,13 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-Wenn eine Verbindung abbricht, während du in tmux warst, kann sich die App den Namen der letzten tmux-Sitzung für diesen Server merken und nach der Wiederverbindung versuchen, sich erneut anzuhängen. Wenn kein expliziter Sitzungsname beobachtet wurde, die App aber weiß, dass du in einer tmux-ähnlichen Sitzung mit alternativem Bildschirm warst, kann sie ein generisches `tmux attach` versuchen.
+Nach einem Verbindungsabbruch merkt sich die App tmux-Sitzung und Socket für die Wiederverbindung. Jedes Pane auf demselben Host behält seine eigene Zuordnung. Existiert die Sitzung nicht mehr, bleibt die Shell verfügbar.
 
-Dieses Verhalten erfolgt nach bestem Bemühen. Wenn die entfernte tmux-Sitzung nicht mehr existiert, bleibt die entfernte Shell verfügbar.
+Unter iOS liest ein Socketwechsel das aktuelle tmux-Präfix, statt Ctrl+B anzunehmen. Nicht unterstützte Präfixe oder fehlgeschlagene Abfragen stoppen mit einer Meldung. Tippen, Schließen oder Trennen verwirft ausstehende Attach-Schritte; unbekannte Vollbildprogramme erhalten keine Attach-Befehle.
 
 ## Tmux-Manager
 
-Mobile SSH bringt einen tmux-Manager mit, damit du tmux durchsuchen und steuern kannst, ohne Prefix-Tastenfolgen zu tippen. Öffne ihn aus einer verbundenen Sitzung über die Schaltfläche **Tmux**. Er listet in drei Abschnitten:
+Der tmux-Manager steuert tmux ohne Präfixkombinationen. Öffne ihn über die Multiplexer-Schaltfläche einer verbundenen Sitzung; langes Drücken wählt tmux, wenn mehrere Manager verfügbar sind. Er zeigt drei Bereiche:
 
 - **Sessions** -- jede tmux-Sitzung auf dem Server.
 - **Windows** -- Fenster in der ausgewählten Sitzung.
@@ -147,24 +149,22 @@ Aus dem Manager heraus kannst du:
 - Eine Sitzung an das aktuelle Terminal **anhängen**.
 - Eine neue Sitzung oder ein neues Fenster **erstellen** und beide **umbenennen**.
 - Einen Bereich waagerecht oder senkrecht **teilen**, einen Bereich **zoomen** und Sitzungen, Fenster oder Bereiche **beenden**.
-- Sitzungen nach Name oder Erstellungsdatum **sortieren**.
+- Sitzungen nach Zuletzt verwendet (Standard), Name oder Erstellungsdatum **sortieren**.
 
 Ein 🔔 markiert jede Sitzung, deren Agent auf Eingabe wartet, sodass du einen pausierten Lauf von Claude Code oder Codex auf einen Blick erkennst und dich daran hängen kannst. Das ergänzt die Reattach-Hinweise weiter oben: Die Reattach-Logik stellt deine letzte Sitzung beim Wiederverbinden automatisch wieder her, während dir der Manager die volle manuelle Kontrolle gibt.
 
-Beide Plattformen können außerdem mehr als einen tmux-Server (Socket) auf demselben Host verwalten und Sitzungen nach Name oder Erstellungsdatum sortieren.
+Beide Plattformen verwalten mehrere tmux-Server (Sockets) auf einem Host. Attach-Anzeigen beziehen sich auf dein Terminal, nicht auf einen anderen Client am Server.
 
-## Herdr und Zellij (Android)
+## Herdr und Zellij
 
-Android liefert dieselbe Idee für zwei weitere Multiplexer. Jeder bekommt sein eigenes Symbol in der Symbolleiste, und **ein Symbol erscheint erst, wenn die App das Programm tatsächlich auf dem Server gefunden hat** – so verrät dir die Symbolleiste, was dort installiert ist, ohne dass du `which` ausführst.
+Android und iOS verwalten auch Herdr und Zellij. Eine Schaltfläche öffnet den bevorzugten erkannten Multiplexer; langes Drücken wählt einen anderen. Nur erkannte Programme stehen zur Wahl. Im Manager wechselt der Servertitel den Server und die Multiplexer-Auswahl den Manager.
 
-- **Herdr** nutzt sein eigenes Vokabular: Sessions, Workspaces, Tabs, Panes. Jeder Bereich zeigt den Status seines Agenten – arbeitet, braucht dich, untätig –, und ein blockierter Agent lässt sich direkt aus der Liste beantworten. Herdrs eigener Status speist den Agenten-Zähler der App, das funktioniert also ganz ohne auf dem Server installierten Hook.
+- **Herdr** zeigt Sitzungen, Arbeitsbereiche, Tabs und Panes mit Agentenstatus. Vorschau und Antworten sind direkt in der Liste möglich. Antworten bleiben beim ausgewählten Pane und der benannten Sitzung; **Senden** übermittelt Text, **Nur Enter** eine leere Bestätigung. Exakter Pane-Fokus wird angeboten, wenn unterstützt; sonst nutze Fokus am übergeordneten Tab. Herdr liefert den Status ohne zusätzlichen Hook.
 - **Zellij** listet Sitzungen, Tabs und Bereiche mit Anhängen, Umbenennen, Beenden und Teilen. Beendete Sitzungen bleiben gelistet, sodass ein Anhängen sie wiederbelebt, während Löschen sie endgültig vergisst. Details zu Tabs und Bereichen brauchen Zellij 0.44 oder neuer; auf einer älteren Version zeigt die Seite Tab-Namen und nennt den Grund. Teilen setzt einen an der Sitzung hängenden Client voraus, und die Seite erklärt das, statt eine Schaltfläche anzubieten, die scheitern würde.
 
 Ist herdr oder Zellij installiert, aber nicht im `PATH` der Login-Shell, bietet die Seite an, es zu ergänzen.
 
-Jeder gespeicherte Server hat eine Einstellung **Attach on connect**: **Auto (detect)**, **Nothing**, **tmux**, **herdr** oder **Zellij**. Auto wählt zuerst das, was du auf diesem Server zuletzt benutzt hast, dann das mit laufenden Sitzungen, dann das Installierte – und hängt lieber nichts an, als zu raten, solange es den Server noch nicht geprüft hat.
-
-Die iOS-App unterstützt heute ausschließlich tmux.
+Jeder Server bietet **Beim Verbinden anhängen**: **Auto (erkennen)**, **Nichts**, **tmux**, **herdr** oder **Zellij**. Auto nutzt Erkennung und Verlauf: zuvor verwendeter Multiplexer, dann einer mit laufenden Sitzungen, dann ein installierter. Ohne gespeicherte Erkennung öffnet sich eine normale Shell. Spätere Erkennung wirkt erst auf künftige Verbindungen und unterbricht keine Eingaben.
 
 ## Agent alerts
 
@@ -172,7 +172,7 @@ Mobile SSH sagt dir, wenn ein entfernter KI-Coding-Agent – Claude Code, Codex,
 
 ### Die Glocke
 
-Von Haus aus löst eine Terminalglocke aus einer Sitzung, die du gerade nicht ansiehst, eine Benachrichtigung aus, ebenso die Escape-Sequenzen für Desktop-Benachrichtigungen (OSC 9, OSC 777), die viele Werkzeuge ohnehin ausgeben. Glocken, die unmittelbar nach deiner Eingabe eintreffen, werden ignoriert, damit gewöhnliches Geräusch der Shell-Vervollständigung dich nicht anpiept.
+Terminalglocken können Agentenalarme auslösen. Unmittelbar nach dem Tippen werden sie standardmäßig ignoriert. Entfernte Meldungen OSC 9/OSC 777 und OSC-133-Befehlsabschluss haben eigene Einstellungen; unter iOS sind beide zunächst aus.
 
 Das braucht keine Einrichtung, aber die App weiß dann nur, dass *irgendetwas* geläutet hat.
 
@@ -200,7 +200,7 @@ Deine Antwort wird nicht in die Sitzung getippt. Sie wird über einen eigenen Ka
 
 ### Einstellungen
 
-Die Benachrichtigungen sind auf beiden Plattformen standardmäßig aktiv, mit einzelnen Schaltern für Benachrichtigung, Ton, Vibration und dafür, ob auch die gerade angesehene Sitzung melden soll.
+Agentenalarme sind auf beiden Plattformen standardmäßig an, mit Schaltern für Benachrichtigung, Ton, Vibration und aktives Pane. Unter iOS sind auch Alarme fürs aktive Pane an; optional kommen sie nur im Hintergrund. Das funktioniert nur, solange iOS die App ausführen lässt; längere Unterbrechung beendet laufende SSH-Alarme.
 
 Eine Voreinstellung ist wichtig zu kennen: **Der Ton ist auf Kopfhörer beschränkt.** Ist nichts eingesteckt oder gekoppelt, benachrichtigt und vibriert ein Alarm, spielt aber keinen Ton. Schalte das ab, wenn du den Alarm über den Telefonlautsprecher hören willst.
 
@@ -210,6 +210,14 @@ Es gibt keine Empfindlichkeitseinstellung und keine Tonauswahl – die Bedienele
 
 Für Programme wie Vim, less, htop, ncurses-Tools und tmux-Bereiche:
 
-- Die Eingabe wird direkt an das Programm durchgereicht – es gibt keine Autokorrektur und keinen Vorschlagspuffer, der stören könnte.
+- Für direkte Eingabe unter iOS **Diktat und Vorschläge** sowie **Tastaturvorschläge** ausschalten und ein neues Pane öffnen.
 - Nutze die Zusatztastenreihe für `ESC`, Pfeile, `PGUP` und `PGDN`.
 - Nutze den Pinch-Zoom, wenn der Text zu klein ist, und warte dann kurz, bis sich die entfernte Terminalgröße einpendelt.
+
+## Entfernte Desktops
+
+Beide Plattformen öffnen entfernte Desktops per VNC durch SSH. Nutze eine vorhandene Bildschirmfreigabe, auch macOS, oder bestätige die Einrichtung eines unterstützten Linux-Desktops. Der Server muss den Desktop bereitstellen; SSH allein erzeugt keine grafische Sitzung. Linux-Spiegelung benötigt X11 statt Wayland; macOS teilt den vorhandenen Bildschirm und erzeugt keinen privaten Desktop.
+
+Berührung erlaubt Klicken, Ziehen und Zoom; tippe mit Bildschirm- oder Hardwaretastatur. Über die Zwischenablage fügst du Telefontext im Desktop ein und kopierst Desktoptext zurück aufs Telefon.
+
+**Bildschirmgröße** bietet Vorgaben und eigene Abmessungen, die pro Server gespeichert werden. Unter iOS muss jede Seite 320 bis 5120 Pixel messen. Live-Anpassung erhält Programme, wenn der Server sie unterstützt. Ein Neustart erfordert Bestätigung und wird nur für von der App erstellte private Desktops angeboten. Wiederverwendete Desktops und geteilte Konsolen werden dafür nicht neu gestartet; ändere die Mac-Auflösung unter Displays, falls Live-Anpassung fehlt.

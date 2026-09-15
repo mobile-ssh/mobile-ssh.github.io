@@ -336,7 +336,7 @@ export const en: FlightPost = {
             are not paying the satellite tax; you are only paying it when you answer them.`
     },
     {
-      title: "push-when-it-matters",
+      title: "alerts-when-needed",
       bellLabel: " (bell)",
       body: `Agent Alerts fire when something actually needs a human — so the flight is spent reviewing
             and deciding, not staring at a prompt waiting for an echo.`
@@ -347,9 +347,7 @@ export const en: FlightPost = {
     cmdComment: "free · open source · Apache-2.0",
     heading: "Your next long-haul is eleven hours of server time.",
     prose: [
-      `Mobile SSH is a native SSH, SFTP and terminal client for Android, iPhone and iPad. Multiple
-          sessions, a built-in tmux manager, Eternal Terminal, and push alerts when an agent needs you.
-          Free, no account, no ads, open source.`
+      `Mobile SSH is a native SSH, SFTP and terminal client for Android, iPhone and iPad. Multiple sessions, a built-in tmux manager, Eternal Terminal, and notifications when a connected agent needs you; iOS limits background delivery. Free, no account, no ads, open source.`
     ],
     tags: ["No ads", "No account", "On-device data", "Apache-2.0"],
     playButton: "Get it on Google Play",

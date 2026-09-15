@@ -28,11 +28,11 @@ export const pcm: Dict = {
   home: {
     metaTitle: "Mobile SSH — SSH client for Android & iOS",
     metaDescription:
-      "Mobile SSH na focused SSH client for Android and iOS wey carry multi-session terminals, Eternal Terminal resilient sessions, tmux manager, SFTP transfer, private keys, port forwarding, and plugins.",
+      "Mobile SSH for Android and iOS: SSH terminals, jump hosts, tmux, herdr, Zellij, SFTP, VNC desktop and backup. Android still get VPN clients and security keys.",
     eyebrow: "SSH client for Android & iOS",
     h1: "Mobile SSH",
     intro:
-      "Na one focused SSH client for Android and iOS: multi-session terminals, Eternal Terminal sessions wey dey survive network drop, built-in tmux manager, SFTP file transfer, local port forwarding, and plugins — dem build am for phone and tablet use.",
+      "SSH terminals, tmux, herdr and Zellij managers, SFTP, VNC desktop, jump hosts and local tunnels — all built for phone and tablet. Eternal Terminal dey keep remote shells alive when network cut. Android still get VPN clients and login with USB/NFC security key.",
     versionLine: "Dey for {count} language · Android {version} · iOS {iosVersion} beta",
     ctaDocs: "Read di docs",
     ctaPlay: "Get am for Google Play",
@@ -61,14 +61,26 @@ export const pcm: Dict = {
       { title: "Clickable links", text: "URLs wey dey inside di terminal dey underline and go open for browser wit one tap — no need to copy or switch app." },
       { title: "Server folders and name", text: "Arrange saved servers for collapsible groups, and give server name wey go show instead of im address. Di address dey come back wenever name go confuse person, so di rows no dey blur together." },
       { title: "Agent alerts", text: "Agents dey report demsef through di terminal, so di app sabi which one block and na for wetin. Answer from di Agents list wit one tap; alerts dey replace demsef instead of stack, and wen you tap one e dey open di pane wey ring." },
-      { title: "Private keys", text: "Password or private key login. Generate Ed25519 or ECDSA keys on device (RSA too for Android); import or paste existing keys." },
+      { title: "Private keys", text: "Use password or private key, and create Ed25519 or ECDSA key for your device (Android fit create RSA too). Android still support FIDO2 security keys through USB/NFC and SSH agent forwarding wey you fit enable for each server." },
       { title: "SFTP transfer", text: "Dual-pane file browser wey dey tie to active SSH session. Queue uploads and downloads, rename, delete, and check remote permissions." },
       { title: "Port forwarding", text: "Save local tunnel spec wit server profile and dem dey open automatic wen you connect — including after reconnect on new network, witout you rebuilding dem by hand." },
       { title: "Reconnect workflow", text: "Change network and di sessions go re-dial one time instead of waiting make di dead route timeout, and session wey dey backoff go wake di moment usable network show. For iOS, wen server quietly stop to answer, di app go notice am and reconnect." },
-      { title: "Backup & restore", text: "Export saved servers and credentials to encrypted backup file; import wit merge or replace to move between devices — di backups dey work between Android and iOS." },
+      { title: "Backup & restore", text: "Back up servers, credentials and app settings; you fit encrypt am with passphrase and preview Merge or Replace. Android backup include VPN profiles. Current Android and iOS backups use di same format, with platform settings kept where dem support am." },
       { title: "Eternal Terminal", text: "Connect over Eternal Terminal (ET) for sessions wey dey survive network drop, sleep, and IP change — wit optional automatic etserver setup over SSH." },
-      { title: "Multiplexer managers", text: "Drive tmux witout prefix chords — attach, rename, create, split, zoom, or kill. Di two platforms both add di same thing for herdr and Zellij, and di toolbar icon dey show only wen di app don find dat program for di server." },
-      { title: "Plugins", text: "Browse, install, and run plugins to extend Mobile SSH. Plugins dey download as you need dem from public catalog and dem dey SHA-256 verified enter app-private storage." }
+      { title: "Multiplexer managers", text: "Attach, rename, create, split, zoom or kill sessions with tmux, herdr and Zellij managers for both platforms. One multiplexer toolbar button opens di managers wey dey available; saved servers let you choose wetin go attach when you connect." },
+      { title: "Plugins", text: "Browse, search and filter plugins by category, then install di workflows wey you need. Downloads pass SHA-256 check before dem enter storage wey na only di app fit access." },
+      {
+        "title": "Server identity and jump hosts",
+        "text": "Reach servers through saved bastions for either platform. Host-key checks happen before login and block keys wey change. Android fit pin new keys automatically or ask first; iOS asks you to confirm unknown keys."
+      },
+      {
+        "title": "Remote desktops",
+        "text": "Open VNC desktop through SSH for Android and iOS, with touch controls, keyboard input, clipboard and remote screen sizing if di server supports am."
+      },
+      {
+        "title": "VPN clients for Android",
+        "text": "Manage SSH VPN, local SOCKS5 proxy, WireGuard, Shadowsocks and OpenVPN from home screen. Choose profile, start routing, then use Mobile SSH VPN Quick Settings tile to stop or resume am."
+      }
     ],
     multiHead: "One screen, plenty live shell",
     multiP1:
@@ -79,7 +91,7 @@ export const pcm: Dict = {
       "Mobile SSH for phone wey dey show two live SSH terminal session for side-by-side split view.",
     sftpHead: "SFTP wen terminal no reach",
     sftpBody:
-      "Open file transfer from connected session to browse phone storage and remote folder. Queue upload and download, sort file, jump back go recent remote path, and check or change remote permission before you decide wetin you go move.",
+      "Browse local and remote folders, queue transfers, remember each tmux session remote folder, and open remote files for other apps. Both platforms fit collect shared files into terminal session; iOS fit remember folder wey you choose for Files.",
     sftpCtaGuide: "File transfer guide",
     sftpCtaAll: "All features",
     sftpAlt: "Mobile SSH file transfer screen for phone, wit local and remote panes.",
@@ -95,7 +107,7 @@ export const pcm: Dict = {
     videoIosAlt: "iOS demo of opening Mobile SSH straight enter live SSH terminal session and going back to di home screen, wit di tmux manager, Settings and di oda screens wey di app get",
     muxHead: "One video for each session manager",
     muxIntro:
-      "For di demos wey dey up there, tmux, herdr and Zellij share about thirty seconds between dem — e enough to show say di toolbar dey draw icon for each one, but e no enough to show wetin any of dem fit do. Dis na di long versions, wey we film for both platforms against server wey dey run true-true.",
+      "Di overview demos introduce tmux, herdr and Zellij. These longer recordings show how to control sessions, windows, tabs and panes for both platforms against live server.",
     muxItems: [
         {
           text: "Sessions, windows and panes wey you fit reach from di home screen, wit one session wey bell mark because something for inside dey wait make person answer am. Attach one window and di terminal wey dey run go follow am; create window and give am name — you no go type any prefix chord at all.",
@@ -119,7 +131,7 @@ export const pcm: Dict = {
     demoItems: [
       {
         title: "Di session dey run even wen you comot for di app",
-        text: "Android dey hold di connection inside foreground service, and dat ongoing notification na di connection itself — e dey call di server name and e dey give you Disconnect all. Comot go home screen while log dey stream, come back and you go see say e never stop. iOS no get background execution at all, na reconnect plus tmux auto-attach e dey use instead.",
+        text: "Android keeps di connection for foreground service; di ongoing notification names di server and get Disconnect all. Leave while log dey stream and return to di session wey still dey run. iOS only allows short time for background, then reconnects and attaches to your multiplexer again.",
         androidAlt:
           "Android demo of session wey dey keep running for background: live HTTP log wey dey stream for di terminal, di notification permission prompt, di ongoing notification wey dey call di server wey connect wit Disconnect all, then comot go home screen and come back meet di same stream wey still dey enter."
       },
@@ -187,18 +199,18 @@ export const pcm: Dict = {
   features: {
     metaTitle: "Features | Mobile SSH",
     metaDescription:
-      "Top Mobile SSH features for SSH on Android and iOS: terminal, Eternal Terminal, tmux manager, SFTP, private keys, port forwarding, and plugins.",
+      "See Mobile SSH terminals, jump hosts, server identity checks, SFTP, VNC, backups and multiplexer managers for Android and iOS, plus Android VPN and security keys.",
     eyebrow: "Feature list",
     h1: "Mobile SSH features",
     intro:
-      "Mobile SSH dey build for direct SSH use from Android and iOS devices: open terminal, keep am alive, move file, save server, and recover quick wen mobile wahala interrupt you.",
+      "Connect to your servers from Android and iOS with SSH terminals, checked server identities, jump hosts, SFTP, VNC and session managers. Android adds built-in VPN routing and hardware security keys; we mark features wey depend on platform below.",
     groups: [
       {
         title: "Platforms",
         items: [
           "Android 8.0 or newer — right now na Google Play closed test: open di opt-in link inside mobile browser, then install am from Play",
           "iOS 16 or newer for iPhone and iPad — join di public beta for TestFlight",
-          "Encrypted backups dey work for both sides: export for one platform, import for di oda one"
+          "Current Android and iOS versions use backup format 2 for inventory and settings; importing backup no go make unsupported platform features begin work"
         ]
       },
       {
@@ -216,7 +228,10 @@ export const pcm: Dict = {
           "Home screen wey dem build around resuming: di connections wey dey live right now, and di tmux sessions wey dey wait for your servers — dem come from stored snapshot, so dem dey list even wen no network dey and each row carry di age of di snapshot. For iOS di Recent list don move enter di New connection sheet, where one tap go fill di form for you",
           "IPv6 from end to end: bracketed literal wit optional port for di address fields, and bracketed IPv6 destination inside port-forward rules",
           "Login log for successful and failed try, wey dey record di exact address wey dem dial and, wen e fail, di reason",
-          "Teleport proxy transport (experimental, Android): log in wit username, password, and OTP or import Teleport config or identity file, browse cluster nodes, then run terminals, SFTP, tmux, and plugins over di proxy tunnel"
+          "Teleport proxy transport (experimental, Android): log in wit username, password, and OTP or import Teleport config or identity file, browse cluster nodes, then run terminals, SFTP, tmux, and plugins over di proxy tunnel",
+          "Both platforms get saved SSH jump hosts, including ordered chains up to eight expanded hops; each hop uses its own credentials and server identity checks",
+          "Android SSH agent forwarding: enable am for each server so remote programs fit request signatures from saved keys, with optional approval before use; private keys stay for phone",
+          "Android FIDO2 security keys work through USB or NFC: enroll or import OpenSSH security-key credentials, then follow touch and PIN prompts"
         ]
       },
       {
@@ -227,8 +242,8 @@ export const pcm: Dict = {
           "Find for di terminal — search di scrollback and di visible screen and jump between di matches (Android and iOS)",
           "Shell integration (OSC 133): step between prompts, select di whole output of one command — di build error wey happen 300 lines back, no be just di last one — and get alert wen long-running command finish (Android and iOS)",
           "Inline images for di terminal via di Kitty graphics protocol, wey dey survive pinch-zoom and re-wrap instead of make dem just disappear (Android and iOS)",
-          "Block, braille, and sextant mosaic glyphs wey di app imsef dey draw, so chafa, timg, and ANSI art dey tile correct instead of showing empty boxes (Android)",
-          "Inside TUI wey dey track mouse, one tap na click — htop, vim, and pane selection dey work wit touch (Android)",
+          "Di app itself draws block, braille and sextant mosaic symbols, so chafa, timg and ANSI art fit tile correctly for Android and iOS",
+          "Touch dey send mouse clicks to terminal programs wey track mouse for both platforms, and you fit enable dragging; iOS still get setting to place cursor instead",
           "Di pane header dey name di real working directory of di pane, wey e ask tmux or wey di shell report over OSC 7 (Android)",
           "Extra key row of thirteen key — ESC, TAB, CTRL, arrows, Home, End, PgUp, PgDn, keyboard toggle — wey dey wrap go second row instead of scroll, and any remainder dey fold enter overflow menu so no key dey comot for screen",
           "Customize di row for Android and iOS: add from palette of about 45 preset wey include F1–F12, Ctrl combos, and symbols; remove, reorder, hide, define your own escape-sequence keys, and reset to defaults, wit live preview",
@@ -237,13 +252,15 @@ export const pcm: Dict = {
           "Double-tap pane fullscreen mode",
           "Terminal text selection wit Copy, Share and Select all — long-press dey select di word, and Copy dey keep di selection so you fit share or re-copy am",
           "OSC 52 clipboard — copy text from remote tmux or vim session straight go di phone clipboard (Android and iOS)",
-          "Native pass-through keyboard input — no autocorrect dey fight di shell; soft-keyboard voice dictation still dey work",
+          "Hardware keyboards and voice dictation work for both platforms; iOS enables Dictation & suggestions by default, including autocorrection. Turn am off if you want direct terminal input",
           "External and Bluetooth keyboard support for Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
           "Bracketed paste so multi-line clipboard content no go run by itself",
           "Bundled Nerd Font dey render powerline, starship, devicon, and Material Design icon glyphs for Android and iOS wey di system font for don show as empty boxes",
           "Wide CJK, emoji, and combining characters dey measured and drawn correctly for Android and iOS, including grapheme clusters and zero-width joiners",
           "Terminal font wey you fit configure (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) for Android and iOS, wey dey apply live to open panes",
-          "Terminal text-size slider for Settings, along wit pinch-to-zoom, plus app theme wey you fit set to System, Light, or Dark"
+          "Terminal text-size slider for Settings, along wit pinch-to-zoom, plus app theme wey you fit set to System, Light, or Dark",
+          "Connection speed and stalled-link indicators help you know whether remote command dey busy or connection no dey answer; dimming and vibration na optional",
+          "Settings controls remote notifications, command-finished alerts and remote clipboard reads; these permissions dey off by default"
         ]
       },
       {
@@ -254,26 +271,26 @@ export const pcm: Dict = {
           "Background and screen-lock survival: for Android, foreground service dey keep shell and agent dey run even after you swipe di app comot; for iOS, tmux auto-attach dey reattach your shell",
           "Keepalive and reconnect try wit exponential backoff — up to ten try, and failure against network wey you don already comot no dey count for di limit",
           "Wen you switch Wi-Fi, cellular, or VPN e dey re-dial one time instead of waiting make di dead route timeout, and session wey don dey backoff dey retry di moment usable network show",
-          "Server wey quietly stop to answer — VM wey dem suspend, jump host wey wedge — di app dey notice am through keepalive probe wey no get reply and e go reconnect instead of quietly chop your keystrokes (iOS)",
+          "When server no answer keepalive checks, di app detects am and starts reconnect for Android and iOS",
           "Active Sessions entry from start screen; ongoing notification wey dey list session — tap to open",
-          "tmux command tracking and reattach hint wen work break, wit per-server choice of wetin e go attach wen you connect: auto-detect, nothing, tmux, herdr, or Zellij (Android)",
+          "tmux command tracking and reattach hints, with Auto, Nothing, tmux, herdr or Zellij choice for each server on Android and iOS; session identity stays correct when you switch tmux sockets",
           "Agents dey report demsef through di terminal, so di app sabi di agent, di tool wey e dey run, and whether e block dey wait for you — di pane go turn amber, im header go read \"claude · needs you\", and badge for di toolbar dey count who dey wait",
           "Answer agent question wit one tap from di Agents list; di reply dey pass separate channel, so e no dey type anything inside wetin dey for screen",
           "Install di agent hook go server from inside di app — small shell script wey any agent fit call, no be vendor integration",
           "Eternal Terminal (ET) transport for sessions wey dey survive network drop, sleep, and IP change, wit optional automatic etserver setup over SSH",
           "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, wit name/date sorting and 🔔 for agents wey dey wait for input",
-          "Herdr and Zellij managers for Android and iOS, each one get di same reach over im own sessions, tabs, and panes — di toolbar dey show icon only wen di app don find dat program for di server"
+          "One multiplexer toolbar button opens tmux, herdr and Zellij managers; Herdr get pane preview, focus and replies, while Zellij handles sessions wey dey live or don exit"
         ]
       },
       {
         title: "Files and tunnels",
         items: [
           "Dual-pane SFTP browser for local and remote file, wit transfer log wey dey show every transfer and dey scroll",
-          "Upload and download queue wey dey line up; for Android, share any file from anoda app enter di session wey dey run and e go type di remote path for di prompt",
+          "Uploads and downloads fit enter queue; share files into Mobile SSH for Android or through iOS Share Extension, then upload dem into connected session and insert their remote paths",
           "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit, compress go .tar.gz, permissions (chmod/chown), and details",
           "Open file wey you don download inside anoda app for di two platforms — for iOS, download dey also show inside di Files app under \"On My iPhone\"",
-          "For Android, File Transfer dey reopen where dat tmux session stop, e dey name di session for di pane header, and wen nothing dey to remember e dey fall back to di directories wey you dey use pass for dat host",
+          "File Transfer remembers remote folders by host and tmux session for both platforms; iOS still remembers external local folder wey you choose through Files",
           "Sort by name or date wit per-host memory, and jump back go recent remote path",
           "File size for binary units, wey match wetin ls -h dey show for di terminal wey dey one tab away",
           "Local port forwarding wey dey save wit server profile and dey come up automatic wen you connect",
@@ -283,7 +300,7 @@ export const pcm: Dict = {
       {
         title: "Localization",
         items: [
-          "App UI translations: Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish, and Urdu — twenty language for Android, wey add Nigerian Pidgin and Egyptian Arabic, and eighteen for iOS",
+          "Both platforms get twenty app languages: Arabic, Egyptian Arabic, Bengali, Chinese (Simplified and Traditional), English, French, German, Hindi, Indonesian, Japanese, Marathi, Nigerian Pidgin, Portuguese, Russian, Spanish, Tamil, Telugu, Turkish and Urdu",
           "E dey follow di system language by default, and Settings get language picker if you want di app for language wey no be di phone own"
         ]
       },
@@ -292,27 +309,48 @@ export const pcm: Dict = {
         items: [
           "Generate new Ed25519 or ECDSA keys for di device (RSA too for Android), wit optional passphrase",
           "Copy, share, or save di public key wey you generate to add am to di server authorized_keys",
-          "Export saved servers and credentials to backup file — all of dem, or tick just di rows wey you want, and wen you tap folder header e go carry di whole folder",
-          "Optional passphrase dey encrypt di backup; import wit merge or replace",
-          "Backup wey no get encryption dey store passwords and keys as plain text — protect or delete di file"
+          "Full backups include servers, credentials, app settings, language and multiplexer sorting; Android still includes SSH VPN, SOCKS5, WireGuard, Shadowsocks and OpenVPN profiles",
+          "Use selected or inventory-only exports if you want smaller scope; preview full backup and choose Merge or Replace, with passphrase encryption if you want",
+          "Backup wey no get encryption contains passwords and private keys. SSH host trust, active sessions, system permissions and local folder access no dey portable; security-key credentials still need di physical key"
         ]
       },
       {
         title: "Security",
         items: [
           "Secure screen: for Android, block screenshots and screen recording and hide di app from di recents thumbnail; for iOS, blank di app-switcher preview and block screen recording and mirroring (you no fit block manual screenshot for iOS) — na opt-in setting for wen password, key, or token dey for screen",
-          "Saved servers, credentials, and keys dey stay for di device — secrets dey live for di Android Keystore and di iOS Keychain, no cloud account or sync",
-          "Na anonymous usage analytics only — e no dey ever touch your servers, credentials, commands, or file content. Android get switch for Settings to off am; iOS never get one yet"
+          "Saved servers, credentials and keys dey stay for di device; cloud account or sync no dey compulsory. Check di privacy page for how storage protection dey work and where e get limits",
+          "Anonymous usage analytics dey on by default, but you fit turn am off for Settings on Android and iOS; events no include servers, credentials, commands or file contents",
+          "SSH host identity checks happen before login. Android pins new raw keys automatically by default, with setting to require approval; iOS asks before trusting unknown key. Both reject changed keys",
+          "Both platforms fit import OpenSSH host-key revocations wey get specific scope. iOS accepts Ed25519/ECDSA keys wey carry @revoked; Android still supports host certificate authorities. iOS no support host certificates or CA imports. SSH trust dey stay for each device and no enter backups"
         ]
       },
       {
         title: "Plugins",
         items: [
-          "Browse, install, and run plugins to extend Mobile SSH",
+          "Browse plugins by category, search, install and run dem; catalogs refresh when you change sources",
           "Plugins dey download as you need dem from public catalog and dem dey SHA-256 verified enter app-private storage",
           "Plugin dey declare wetin e need — SSH commands, tunnel, storage — and di app dey refuse anything wey e no ask for",
           "Wen plugin wan set up something for your server, you go first see di exact commands and approve dem before dem run",
           "Configure your own custom or private catalog source, or install from folder wey dey your own server"
+        ]
+      },
+      {
+        "title": "Remote desktops",
+        "items": [
+          "VNC desktop through SSH tunnel for Android and iOS, without exposing VNC port to public internet",
+          "Touch pointer controls, hardware and on-screen keyboard input, clipboard exchange and desktop bell support dey available",
+          "Choose remote screen-size preset or custom dimensions if di VNC server supports resize; di app reports resize requests wey no dey supported"
+        ]
+      },
+      {
+        "title": "VPN clients (Android)",
+        "items": [
+          "Open VPN from home screen to manage SSH VPN, SOCKS5 proxy, WireGuard, Shadowsocks and OpenVPN profiles",
+          "SSH VPN routes TCP and DNS through saved SSH server for all or selected apps and domains; other UDP wey dey assigned to SSH gets blocked",
+          "Di authenticated local SOCKS5 proxy works alongside another VPN; apps wey join must use di proxy and remote DNS",
+          "Import WireGuard .conf files, supported Shadowsocks ss:// links, or self-contained OpenVPN .ovpn profiles with checked server certificates",
+          "Start profile to switch VPNs; use Mobile SSH VPN Quick Settings tile to stop or start di remembered VPN profile. Di tile no include SOCKS proxies",
+          "Android allows one device VPN at a time. Tailscale uses its separate app; IKEv2/IPsec stays for Android Settings. Mobile SSH no promise always-on or lockdown protection"
         ]
       }
     ],
@@ -326,7 +364,7 @@ export const pcm: Dict = {
     eyebrow: "Mobile SSH options",
     h1: "Mobile SSH vs Termux vs Termius",
     intro:
-      "Di three tools dey overlap around SSH, but dem build for different job. Mobile SSH na focused SSH/SFTP client for Android and iOS, Termux na Linux environment wey dey only for Android, and Termius na cross-platform SSH client wit account-based productivity feature.",
+      "Mobile SSH joins SSH, SFTP, VNC and multiplexer managers for Android and iOS, with built-in VPN clients and security-key login for Android. Termux na Linux environment for Android, while Termius na SSH client for different platforms with productivity features wey use account.",
     columns: {
       need: "Need",
       mobileSsh: "Mobile SSH",
@@ -336,25 +374,25 @@ export const pcm: Dict = {
     rows: [
       {
         need: "Main purpose",
-        mobileSsh: "Dedicated SSH, SFTP, local tunnel and terminal client for Android and iOS.",
+        mobileSsh: "SSH, SFTP, VNC, jump hosts and multiplexer managers for both platforms; Android still get VPN clients and FIDO2 security keys.",
         termux: "Android terminal emulator and Linux environment wit APT packages.",
         termius: "Modern SSH client for Android, iOS, desktop and web-oriented team workflow."
       },
       {
         need: "Setup style",
-        mobileSsh: "Enter host or save server profile, then connect direct.",
+        mobileSsh: "Save server and credentials, choose jump hosts if you need dem, then connect with server identity checks before login.",
         termux: "Install packages like OpenSSH, set up shell tools, work from Linux-like command line.",
         termius: "Create or sync host, key, snippet and vault through Termius app/account model."
       },
       {
         need: "Mobile terminal control",
-        mobileSsh: "Built-in extra key row, grid session, fullscreen pane, pinch zoom, text selection wit copy/share, and tmux-friendly scroll — wit native pass-through typing and external-keyboard support for both platform.",
+        mobileSsh: "Extra keys, grid sessions, fullscreen panes, pinch zoom, copy/share, mouse support and external keyboards. You fit turn iOS Dictation & suggestions off for direct terminal input.",
         termux: "Powerful terminal environment; behavior depend on di tool and config wey you install.",
         termius: "Mobile keyboard add-on, gesture, tab, autocomplete, snippet and polished terminal UX."
       },
       {
         need: "File transfer",
-        mobileSsh: "Built-in SFTP dual-pane transfer tied to di active SSH session.",
+        mobileSsh: "Dual-pane SFTP, folder history wey knows tmux, remote file sharing and incoming shared files for both platforms; iOS fit remember external Files folder.",
         termux: "Use command-line tool like scp, sftp, rsync, or installed file utility.",
         termius: "Built-in SFTP and host/key management."
       },
@@ -366,7 +404,7 @@ export const pcm: Dict = {
       },
       {
         need: "Data model",
-        mobileSsh: "Local only saved server, credential, history, settings and log.",
+        mobileSsh: "Profiles, credentials, host trust and settings stay for device; you fit export portable inventory/settings backups. Android backups include VPN profiles too; SSH trust stays for each device.",
         termux: "Linux-like file system and package inside di Termux app environment.",
         termius: "Encrypted vault for host, key, snippet, forwarding rule, known hosts and team sharing."
       },
@@ -418,8 +456,8 @@ export const pcm: Dict = {
       { category: "Terminal",         feature: "Hardware / Bluetooth keyboard support",       mobile: "yes",     termux: "yes",           termius: "yes" },
       { category: "Terminal",         feature: "Shell integration (OSC 133)",                 mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Terminal",         feature: "Inline images (Kitty graphics)",              mobile: "yes",     termux: "no",            termius: "no" },
-      { category: "Terminal",         feature: "Mosaic glyphs wey di app dey draw (chafa, ANSI art)", mobile: "Android", termux: "e depend on font", termius: "no" },
-      { category: "Terminal",         feature: "Tap dey act like click for mouse-mode TUI",   mobile: "Android", termux: "yes",           termius: "no" },
+      { category: "Terminal",         feature: "Mosaic glyphs wey di app dey draw (chafa, ANSI art)", mobile: "yes", termux: "e depend on font", termius: "no" },
+      { category: "Terminal",         feature: "Tap dey act like click for mouse-mode TUI",   mobile: "yes", termux: "yes",           termius: "no" },
       { category: "Terminal",         feature: "Nerd Font / powerline glyph rendering",       mobile: "yes",     termux: "you fit configure am", termius: "partial" },
       { category: "Sessions",         feature: "Plenty SSH session same time",                mobile: "up to 8", termux: "up to 8",       termius: "yes" },
       { category: "Sessions",         feature: "Grid pane layout",                            mobile: "yes",     termux: "via tmux",      termius: "tabs" },
@@ -447,7 +485,7 @@ export const pcm: Dict = {
       { category: "Backup",           feature: "No account needed",                           mobile: "yes",     termux: "yes",           termius: "partial" },
       { category: "Privacy & cost",   feature: "No Pro paywall",                              mobile: "yes",     termux: "yes",           termius: "partial" },
       { category: "Privacy & cost",   feature: "No ads",                                      mobile: "yes",     termux: "yes",           termius: "yes" },
-      { category: "Privacy & cost",   feature: "Analytics opt-out",                           mobile: "Android", termux: "no analytics",  termius: "no" },
+      { category: "Privacy & cost",   feature: "Analytics opt-out",                           mobile: "yes", termux: "no analytics",  termius: "no" },
       { category: "Privacy & cost",   feature: "Local-only data (no cloud sync)",             mobile: "yes",     termux: "yes",           termius: "partial" },
       { category: "Privacy & cost",   feature: "Secure screen (block screen capture)",        mobile: "yes",     termux: "no",            termius: "no" },
       { category: "Sessions",         feature: "Eternal Terminal (sessions wey no dey die)",  mobile: "yes",     termux: "via CLI",       termius: "no" },
@@ -471,7 +509,7 @@ export const pcm: Dict = {
       { feature: "Local port forwarding",                           mobile: "yes", onepilot: "yes",      happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "tmux session manager",                            mobile: "yes", onepilot: "partial",  happy: "no",          omnara: "no",      chatgpt: "no",           claude: "no" },
       { feature: "E dey work wit agent wey you install yourself",   mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "no",           claude: "no" },
-      { feature: "Agent alert (push wen di agent need input)",      mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
+      { feature: "Agent alerts (when agent wey connect need your input)",      mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "One-tap approve/deny for agent prompt",           mobile: "yes", onepilot: "yes",      happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
       { feature: "No server or SSH setup at all",                   mobile: "no",  onepilot: "no",       happy: "partial",     omnara: "partial", chatgpt: "yes",          claude: "yes" },
       { feature: "Android and iOS",                                 mobile: "yes", onepilot: "iOS just", happy: "yes",         omnara: "yes",     chatgpt: "yes",          claude: "yes" },
@@ -485,40 +523,56 @@ export const pcm: Dict = {
   privacy: {
     metaTitle: "Privacy Policy | Mobile SSH",
     metaDescription:
-      "Privacy policy for Mobile SSH, including local storage, SSH data transmission, file transfer, log and app permission for Android and iOS.",
+      "How Mobile SSH handles saved data, server identities, backups, SSH and VPN traffic, files, analytics and permissions for Android and iOS.",
     eyebrow: "Privacy",
     h1: "Privacy Policy",
     intro:
-      "Mobile SSH na local SSH client for Android and iOS. E no need Mobile SSH account, and e no provide Mobile SSH cloud sync service.",
+      "Mobile SSH stores its setup for your device and connects to servers and services wey you choose. E no need Mobile SSH account or cloud sync. Android optional VPN clients still route selected device traffic through di servers wey you configure.",
     sections: [
       {
         heading: "Information wey dey store on your device",
-        body: "If you choose to save app data, Mobile SSH go store am local on di device. For iOS, secrets dey stay inside di system Keychain; for Android, dem dey encrypt am wit key wey dey inside di Android Keystore wey nobody fit export comot for di device, and di app dey opt out of Android cloud backup. E fit include saved server profile, username, port, password, private key, key passphrase, port-forwarding rule, recent session, login attempt history, file-transfer path, file-sort preference, tmux session snapshot and reattach hint, app setting, and debug log wen you turn on debug recording."
+        body: "Saved data include server profiles, credentials, private keys, host identities, jump hosts, tunnel rules, session snapshots, login history, file paths, folder-access grants and app settings. Android still stores VPN/proxy setup and their secrets. iOS dey use Keychain for secrets. Android dey encrypt inventory with key wey Keystore protects, but e fit save am as plain text if encryption no dey available; WireGuard, Shadowsocks and OpenVPN profile storage must use encryption. Android cloud backup dey disabled. Optional debug logs dey stay local."
       },
       {
         heading: "Information wey dey send over network",
-        body: "Mobile SSH dey send SSH authentication data only to di server wey you configure and connect. Terminal input/output, SFTP file content and local port-forwarded traffic dey exchange between di server and remote endpoint wey you choose. Mobile SSH no dey send dis data to any Mobile SSH analytics, advertising, telemetry or cloud sync service."
+        body: "SSH login goes to your configured servers and jump hosts after their identity checks. Terminal, SFTP, VNC and forwarded traffic go to endpoints wey you choose. Plugin catalogs and downloads contact their configured sources. Android VPN/proxy profiles fit send other apps traffic and DNS through your SSH, WireGuard, Shadowsocks or OpenVPN servers, based on di routes wey you choose. This traffic no dey go to Mobile SSH analytics or cloud storage."
       },
       {
         heading: "File transfer and storage access",
-        body: "Di file transfer feature dey browse local phone storage and remote SFTP folder so you fit upload and download file. Mobile SSH no dey ask Android for broad storage permission: you go pick one folder wit di system folder picker and na only inside dat one di app fit read and write. For iOS, di app dey reach local files and photos through di system document and photo pickers."
+        body: "File transfer uses folders and files wey you select, without broad storage permission. Android keeps access to di folder wey you grant. iOS fit use app folder or remember folder wey you choose for Files, and imports documents, photos and shared files through system controls. File provider wey you select fit store data for its own cloud. Opening or sharing file sends am to di app or destination wey you choose."
       },
       {
         heading: "Log and troubleshooting",
-        body: "Login history and optional debug log dey store local for troubleshooting, and di two of dem dey off or empty until you turn dem on. Di Android debug recorder dey capture terminal event, SSH data size, touch input diagnostic, resize event and tunnel lifecycle event — e dey warn you before e start say e dey capture every key wey you type, password join, and e dey write archive enter your Downloads folder. iOS dey record different log wey narrow pass: di addresses wey e dial and why each one fail, reconnect and backoff, connection wey drop, network change, and tmux command wit dem error. Check any debug log or archive before you share am wit support or anybody else."
+        body: "Di app records login attempts locally as you connect. Debug recording na optional: Android recorder warns say terminal diagnostics include every key wey you type, passwords too, and exports archive. iOS debug logs record connection addresses, failures, reconnects, network changes and tmux diagnostics. Check logs before you share dem; dem fit reveal server details and, for Android, secrets wey you type."
       },
-      { heading: "Anonymous usage analytics", body: "To understand how people dey use di app and make am better, Mobile SSH dey send anonymous usage analytics go Aptabase, a privacy-focused analytics provider wey dey work for our behalf. Na only anonymous events (like app opens and which features dem use) plus your app version, operating-system version, device model, and language. E dey use random session ID wey dey reset regularly and no dey tie to you or your device. E no dey ever include your SSH servers, hostnames, usernames, passwords, keys, commands, or file content. Dem dey send di data through encrypted (HTTPS) connection. Analytics dey on by default. For Android you fit off am anytime for Settings, and wen e off nothing dey go out; di iOS app never get dat switch yet, so for iOS dis anonymous events dey go out for as long as di app dey installed. We wan add di iOS switch — until den, dis page dey talk di true position as e be." }
+      { heading: "Anonymous usage analytics", body: "Mobile SSH sends anonymous app and feature-use events to Aptabase through HTTPS, with app/system versions, device model and language. E uses random session identifier wey dey change; events never include server addresses, usernames, credentials, commands or file contents. Analytics dey on by default. Android and iOS both get Settings switch wey stops collecting new events; events wey already enter queue fit still send for iOS." },
+      {
+        "heading": "Backups wey you export",
+        "body": "Full backups include inventory and app settings, plus VPN/proxy profiles for Android. Passphrase encrypts di file; without am, passwords and private keys dey plain text. You choose where to save or share am. SSH host trust, active sessions and system folder grants no dey included. Import preview shows di sections and security preferences wey go apply."
+      },
+      {
+        "heading": "VPN routing for Android",
+        "body": "Device VPN routing needs Android consent and continues until you stop am or system ends am. Only one device VPN fit run at a time; local SOCKS proxy fit work with another VPN. SSH routing carries TCP and DNS, while other UDP assigned to SSH gets blocked. Stopping, switching or terminating di app ends di old VPN protection; Mobile SSH no provide always-on or lockdown guarantees."
+      }
     ],
     permissionsHeading: "Permissions",
     permissions: [
-      { label: "Internet", body: "needed to connect to SSH server." },
+      { label: "Internet", body: "e dey work for your SSH, file-transfer, desktop, VPN and plugin connections, plus analytics if enabled." },
       { label: "Wake lock and Wi-Fi lock", body: "use for Android to keep active SSH session alive while device dey sleep." },
       { label: "Foreground service and notifications", body: "use for Android to handle active connection for background; for iOS, notifications na for agent alerts." },
-      { label: "File access", body: "dem dey grant am folder by folder through di system picker for Android, and through di system document and photo pickers for iOS. Mobile SSH no dey request blanket storage permission for any of di two platforms." }
+      { label: "File access", body: "you grant am through system folder, document and photo pickers; iOS fit remember external Files folder. Neither platform asks for blanket storage access." },
+      {
+        "label": "VPN consent (Android)",
+        "body": "Android must grant am before built-in VPN client fit route device traffic. SOCKS-only proxy no occupy di device VPN slot."
+      },
+      {
+        "label": "USB and NFC (Android)",
+        "body": "dem dey communicate with physical FIDO2 security key for enrollment or SSH signing, with USB access and touch/PIN confirmation when needed."
+      }
     ],
     securityHeading: "Security responsibilities",
     securityBody:
-      "Protect your device wit strong screen lock if you dey save credential or private key. Only connect to server wey you trust. Di current version use local app storage (and di iOS Keychain), no be separate encrypted cloud vault. Optional Secure screen setting dey add protection wen secrets dey for screen: for Android e dey block screenshots and screen recording and e dey hide di app from di recents view; for iOS e dey blank di app-switcher preview and block screen recording and mirroring (you no fit block manual screenshot for iOS).",
+      "Protect your device and exported backups. Compare unknown SSH fingerprints through trusted channel: disable Android automatic acceptance of new identities if you want approve first use; iOS asks by default. Find why key change before you replace saved identity. Secure screen blocks screenshots and recording for Android; iOS hides app-switcher preview and recording/mirroring, but e no fit block manual screenshots.",
     contactHeading: "Contact",
     contactBody: "Support contact: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },
@@ -528,13 +582,13 @@ export const pcm: Dict = {
     eyebrow: "User guide",
     h1: "Mobile SSH documentation",
     intro:
-      "Use dis pages as di public guide to install Mobile SSH, connect, manage session, transfer file, do port forwarding, and troubleshoot.",
+      "Guides for SSH identity checks and jump hosts, terminals and VNC, multiplexer managers, SFTP, backups, local tunnels and Android VPN clients, with explanation of platform differences.",
     cards: [
-      { slug: "getting-started",  title: "Getting started",   text: "Install, open di app, connect to your first server and save common host." },
-      { slug: "terminal",         title: "Terminal",          text: "Pane, extra key row, scroll, copy action, tmux behavior and keyboard setting." },
-      { slug: "file-transfer",    title: "File transfer",     text: "Browse phone and server file, upload, download, sort, and check remote detail." },
-      { slug: "port-forwarding",  title: "Port forwarding",   text: "Write local tunnel string, forward go IPv6 destination, and make dem come up wen you connect." },
-      { slug: "troubleshooting",  title: "Troubleshooting",   text: "Fix connection, authentication, keyboard, storage and reconnect issue." }
+      { slug: "getting-started",  title: "Getting started",   text: "Install, check server identities, set jump hosts and keys, and back up your setup." },
+      { slug: "terminal",         title: "Terminal",          text: "Use terminal controls, tmux, herdr, Zellij, agent alerts and VNC desktops." },
+      { slug: "file-transfer",    title: "File transfer",     text: "Transfer files, remember folders, and share files into sessions or other apps." },
+      { slug: "port-forwarding",  title: "Port forwarding",   text: "Set up local tunnels and Android SSH VPN, SOCKS5, WireGuard, Shadowsocks and OpenVPN." },
+      { slug: "troubleshooting",  title: "Troubleshooting",   text: "Find causes of identity, jump-host, terminal, transfer, backup and VPN problems." }
     ]
   },
   docsNav: {
@@ -550,7 +604,7 @@ export const pcm: Dict = {
     metaDescription: "About Mobile SSH: version, author, license, and open-source notice for di Android and iOS SSH client.",
     eyebrow: "About",
     h1: "About Mobile SSH",
-    intro: "Multi-session SSH client wit tmux, port forwarding, and SFTP.",
+    intro: "SSH, SFTP, VNC and multiplexer managers for Android and iOS, with local backups, checked server identities and jump hosts. Android still get VPN clients and hardware security-key support.",
     appHeading: "About di app",
     versionLabel: "Version",
     authorLabel: "Author",

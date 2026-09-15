@@ -231,11 +231,11 @@ Ylönen 在 Helsinki University of Technology 写下了它——此前校园网�
     },
     {
       heading: "密钥在设备上生成",
-      body: "在设备上生成 SSH 密钥——Ed25519 与 ECDSA——支持密码或私钥认证。没有任何东西离开这台手机。"
+      body: "在设备上生成 SSH 密钥——Ed25519 和 ECDSA——通过密码或私钥认证。密钥保存在设备上，无需 Mobile SSH 云端账号。"
     },
     {
       heading: "编程智能体，配智能体提醒",
-      body: "在你<em>自己</em>的服务器上运行 Claude Code、Codex 和其他智能体，直接从手机操作。智能体一需要你输入，智能体提醒就推送通知——带声音和振动——于是你可以走开，又不会脱节。"
+      body: "直接用手机在<em>自己的</em>服务器上运行 Claude Code、Codex 等智能体。已连接的智能体需要你回复时，Agent Alerts 会通过通知、声音和振动提醒你。Android 使用前台服务保持连接；iOS 限制后台通知的送达。"
     },
     {
       heading: "为这个场合盛装出席",

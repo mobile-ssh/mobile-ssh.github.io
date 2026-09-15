@@ -73,7 +73,7 @@ export const en: GoOutsidePost = {
     { kind: "truth" },
     {
       kind: "p",
-      html: `The platform difference is real and worth planning around. On Android a foreground service holds the connection while the app is in the background — the ongoing notification <em>is</em> the session. iOS has no background execution at all; it reconnects and re-attaches to your multiplexer when you come back. Either way the agent on the server never stopped, which is the point. Only the window closed.`
+      html: `The platform difference is real and worth planning around. On Android a foreground service holds the connection while the app is in the background — the ongoing notification <em>is</em> the session. iOS gives the app only a short background window; after suspension, it reconnects and re-attaches to your multiplexer when you come back. Alerts depend on the connection being active. Either way the agent on the server never stopped, which is the point. Only the window closed.`
     },
     { kind: "h2", html: "Aloha is not an excuse to be careless" },
     {
@@ -123,8 +123,8 @@ export const en: GoOutsidePost = {
       { item: "Files, diffs and test output", value: "On the server's disk", survives: true },
       { item: "Your place in the session", value: "Re-attached when you return", survives: true },
       { item: "The connection, on Android", value: "Held by a foreground service", survives: true },
-      { item: "The connection, on iOS", value: "No background execution — it reconnects", survives: false },
-      { item: "An alert with no signal to deliver it", value: "Arrives when the phone is reachable again", survives: false }
+      { item: "The connection, on iOS", value: "Brief background time — then reconnects", survives: false },
+      { item: "An alert with no signal to deliver it", value: "Needs an active connection; delivery is not guaranteed", survives: false }
     ],
     note: "The agent keeps running in every row. What varies is only whether your phone was still holding the window open."
   },

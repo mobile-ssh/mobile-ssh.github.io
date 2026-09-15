@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Pemecahan masalah"
-description: "Panduan pemecahan masalah Mobile SSH untuk koneksi, autentikasi, keyboard, tmux, transfer berkas, dan tunnel."
+description: "Atasi masalah koneksi Mobile SSH, identitas, kunci keamanan, terminal, berkas, VPN, cadangan dan desktop jarak jauh."
 ---
 
 # Pemecahan masalah
@@ -20,6 +20,20 @@ Periksa:
 
 Jika host yang sama berfungsi dari perangkat lain, bandingkan secara persis host, port, nama pengguna, kunci, dan jalur jaringan.
 
+## Identitas server memerlukan perhatian
+
+Kedua platform memeriksa identitas SSH sebelum mengirim kredensial. Di iOS, kunci asing perlu konfirmasi sidik jari dan **Percayai dan hubungkan ulang**. Di Android, **Pengaturan → Umum → Keamanan → Terima identitas SSH baru secara otomatis** aktif secara bawaan: kunci mentah pertama disimpan, koneksi berikutnya harus cocok. Matikan untuk memeriksa sidik jari baru sebelum menyambung.
+
+Bandingkan sidik jari SHA-256 baru atau berubah dengan administrator melalui saluran tepercaya. Perubahan bisa berarti server diganti atau server tak terduga; jangan hapus identitas lama sebelum memastikan alasannya. Tinjau identitas di Pengaturan. Alamat alternatif dan bastion tidak melewati pemeriksaan.
+
+Android juga mendukung otoritas sertifikat host dengan lingkup tertentu dan pencabutan. Otoritas asing, sertifikat kedaluwarsa atau tidak valid, dan kunci yang dicabut tetap diblokir meskipun penerimaan otomatis saat pertama digunakan aktif. Di iOS, **Pengaturan → Identitas server → Impor kunci yang dicabut** menerima entri OpenSSH `@revoked` Ed25519/ECDSA dengan lingkup tertentu. Tempelan yang memuat entri tidak didukung ditolak seluruhnya; entri CA, sertifikat, kunci RSA, dan nama host yang di-hash tidak didukung. Pencabutan mengesampingkan kepercayaan sebelumnya saat koneksi baru dan koneksi ulang, tetapi tidak menutup koneksi yang sudah ada. Identitas dan pencabutan tidak disertakan dalam cadangan. Di iOS, verifikasi server asing di aplikasi utama sebelum mengunggah melalui Ekstensi Berbagi.
+
+## Tidak dapat terhubung melalui host perantara
+
+Periksa alamat/kredensial setiap bastion dan akses ponsel ke yang pertama. Host selanjutnya harus terjangkau dari sebelumnya. Bastion harus mengizinkan TCP termasuk batas `permitopen`. Rute harus SSH, tanpa siklus, maksimal delapan lompatan diperluas.
+
+Bastion terhapus atau tidak ditemukan tidak menyebabkan koneksi langsung. Perbaiki rute lalu hubungkan ulang. Status dan log Android membedakan lompatan gagal dari server tujuan.
+
 ## Autentikasi gagal
 
 Periksa:
@@ -32,6 +46,8 @@ Periksa:
 
 Untuk kunci privat terenkripsi, masukkan frasa sandi di kolom kata sandi/frasa sandi.
 
+Di Android, `ssh` atau `git` jarak jauh perlu **Teruskan agen SSH** pada profil dan izin server. Hanya kunci tersimpan yang dapat digunakan ditawarkan. Permintaan Izinkan/Tolak atau kunci fisik dapat menjeda terminal, berkas dan terowongan hingga 30 detik; jawab dari aplikasi atau notifikasinya.
+
 ## Impor kunci privat gagal
 
 Impor kunci privat menggunakan pemilih berkas sistem. Jika impor gagal:
@@ -41,9 +57,17 @@ Impor kunci privat menggunakan pemilih berkas sistem. Jika impor gagal:
 - Coba tempel kunci secara manual ke kolom kunci privat.
 - Pastikan tipe kunci didukung: Ed25519, ECDSA (P-256/384/521), atau RSA di Android; Ed25519 atau ECDSA di iOS. DSA (`ssh-dss`) tidak berfungsi di keduanya, dan iOS tidak mendukung RSA — buatlah kunci Ed25519 sebagai gantinya.
 
+## Kunci keamanan tidak merespons di Android
+
+Android mendukung CTAP2/FIDO2 `ed25519-sk` dan `ecdsa-sk` melalui USB/NFC. Gunakan kunci fisik pembuat berkas impor. USB butuh mode host dan izin; aktifkan NFC dan tahan kunci di ponsel hingga selesai. Masukkan PIN saat diminta lalu sentuh kuncinya.
+
+Server memerlukan OpenSSH 8.2+ dengan algoritme `sk-*` yang diizinkan. Kunci U2F saja dan penemuan kredensial residen tidak didukung. Waktu login bisa habis saat mencari kunci: siapkan dahulu. Untuk permintaan latar belakang, buka notifikasi atau kembali ke aplikasi. iOS tidak mendukung autentikasi kunci keamanan fisik.
+
 ## Input keyboard tertunda atau berubah
 
-Mobile SSH mengirim ketikan langsung ke shell dengan koreksi otomatis dan saran prediktif dimatikan, sehingga keyboard seharusnya tidak menulis ulang teks sebelum mencapai sisi jarak jauh. Jika keyboard Anda masih mengubah input, pastikan tidak ada alat penggantian atau clipboard tingkat sistem yang mencegatnya, dan gunakan baris tombol tambahan untuk tombol terminal seperti `ESC`, `TAB`, `CTRL`, panah, `HOME`, `END`, `PGUP`, dan `PGDN`.
+Android mengirim tombol langsung tanpa koreksi otomatis/prediksi. Di iOS, **Dikte dan saran** aktif secara bawaan untuk suara dan koreksi baris. Jika mengubah masukan shell tak terduga, matikan, tinjau **Saran papan ketik**, lalu buka panel baru.
+
+Gunakan baris tambahan untuk `ESC`, `TAB`, `CTRL`, panah, `HOME`, `END`, `PGUP` dan `PGDN`. Jaringan macet juga menunda masukan. Header Android menunjukkan **tidak ada balasan** atau **tidak terkirim**; ketikan saat menyambung ulang dibuang, tidak diulang di shell baru. Tunggu, periksa prompt dan ketik ulang yang perlu saja.
 
 ## Gulir tmux tidak seperti yang diharapkan
 
@@ -55,6 +79,8 @@ Jika gulir terasa salah:
 - Gunakan `PGUP` dan `PGDN` dari baris tombol tambahan.
 - Ketuk dua kali panel untuk layar penuh sebelum menggulir keluaran padat.
 - Lepas dan sambung ulang tmux jika ukuran terminal jarak jauh tampak usang.
+
+Di Android, menggulir ke bawah keluar otomatis dari mode salin tmux buatan aplikasi jika indikator standar terlihat. Tata letak khusus atau terbagi tanpa indikator mungkin perlu keluar manual. Saat berpindah sesi, periksa server, soket tmux dan nama sesi di pengelola.
 
 ## Sesi putus setelah layar terkunci
 
@@ -68,7 +94,7 @@ Periksa:
 - Pastikan **Keep sessions running in background** aktif di Settings jika Anda ingin shell bertahan setelah aplikasi digeser dari daftar terkini.
 - Jika server memutus sesi SSH, sambung kembali dari layar beranda — **Continue** mencantumkan apa yang masih aktif, dan **Tmux sessions** mencantumkan apa yang menunggu di server.
 
-Di iOS, sistem menangguhkan aplikasi di latar belakang, sehingga koneksi SSH mentah tidak dapat dibiarkan terbuka tanpa batas begitu Anda berpindah aplikasi atau mengunci layar. Masa tenggang singkat mencakup perpindahan aplikasi yang cepat; untuk durasi yang lebih lama, aktifkan **Auto-attach tmux session** pada profil server (atau gunakan transport **Eternal Terminal**) sehingga saat tersambung kembali Anda langsung berada di shell yang sama tempat Anda meninggalkannya.
+iOS menangguhkan aplikasi latar belakang sehingga SSH tidak dapat terus aktif setelah berpindah atau mengunci layar. Ada waktu singkat untuk perpindahan cepat. Pilih tmux, Herdr atau Zellij pada **Lampirkan saat terhubung**, atau **Eternal Terminal**, untuk melanjutkan setelah tersambung ulang. Multiplexer harus tetap berjalan di server; Eternal Terminal tidak memakai bastion.
 
 ## Transfer berkas tidak dapat menjelajahi berkas ponsel
 
@@ -76,7 +102,7 @@ Mobile SSH tidak meminta izin penyimpanan apa pun di Android. Sebagai gantinya, 
 
 Jika berkas jarak jauh dimuat tetapi berkas lokal tidak, koneksi SSH baik-baik saja dan Anda memang belum memberikan izin folder apa pun.
 
-Di iOS panel lokal menampilkan area dokumen aplikasi, dan Anda menambahkan berkas melalui pemilih dokumen dan foto sistem. Unduhan di sana juga terlihat di aplikasi Files di bawah **On My iPhone**.
+Di iOS, panel lokal dimulai di Documents aplikasi. **Ponsel saya → Pilih folder lokal** mengingat folder Files lain. Jika penyedia atau izin tidak tersedia, pilih lagi atau kembali ke folder aplikasi. Unduhan aplikasi muncul di **Di iPhone Saya**; folder eksternal tetap di penyedia aslinya. Izin folder tidak dipindahkan lewat cadangan.
 
 ## Unggah atau unduh gagal
 
@@ -98,6 +124,28 @@ Periksa:
 - String tunnel berupa `PORT` atau `LOCAL:REMOTEHOST:REMOTE`.
 - Host jarak jauh dan port jarak jauh dapat dijangkau dari server SSH.
 - Server SSH mengizinkan penerusan TCP.
+
+## VPN atau proxy tidak membawa trafik di Android
+
+- Mulai profil dari **VPN** dan izinkan Android. VPN perangkat mengganti sebelumnya; gunakan SOCKS5 lokal jika VPN lain harus tetap berjalan.
+- Untuk SSH VPN, periksa server, bastion, identitas, izin TCP serta pilihan aplikasi/situs. SSH membawa TCP/DNS, bukan UDP umum.
+- Untuk SOCKS5, atur alamat lokal, port, sandi dan DNS jarak jauh pada klien. Proxy aktif tidak mengalihkan semua aplikasi.
+- Untuk WireGuard, periksa jabat tangan, kunci, `AllowedIPs` dan DNS. Untuk Shadowsocks, cocokkan cipher/sandi dan relai UDP untuk DNS.
+- Untuk OpenVPN, gunakan profil mandiri kompatibel, verifikasi CA/identitas serta kredensial, sediakan DNS VPN bagi terowongan penuh. Perbaiki kesalahan autentikasi/sertifikat lalu mulai ulang profil.
+
+SSH VPN, Shadowsocks dan OpenVPN dapat menahan trafik selama menyambung ulang tanpa beralih langsung. Menghentikan mengakhiri perlindungan. VPN tidak melewati batas internet dari penyedia atau administrator server.
+
+## Cadangan tidak memulihkan semuanya
+
+Tinjau pratinjau dan pilihan **Gabungkan** atau **Ganti**. Bagian yang tidak ada pada cadangan lama/parsial tetap tak berubah. Cadangan lengkap memuat preferensi yang didukung; Android juga menyertakan VPN/proxy. Tidak semua fitur platform dapat dibawa ke iOS; versi lama dapat menolak format cadangan baru.
+
+Identitas, izin sistem dan akses folder tetap lokal. Verifikasi host dan beri izin folder/VPN pada perangkat baru. Kredensial perangkat keras tetap memerlukan kunci fisik. Impor tidak menjalankan VPN; tinjau profil sebelum memulainya.
+
+## Desktop jarak jauh tidak tersedia atau tidak dapat diubah ukurannya
+
+Buka dari sesi SSH terhubung dan periksa izin penerusan TCP lokal. Di Linux, ikuti pesan paket yang kurang untuk memasang desktop/VNC. Android tidak mencerminkan konsol Wayland; gunakan desktop virtual yang didukung.
+
+Di macOS, aktifkan Berbagi Layar di pengaturan Mac. Android mendukung autentikasi akun Mac; iOS memerlukan akses kata sandi VNC klasik yang diaktifkan dalam Berbagi Layar, menggunakan kata sandi berbagi layar, bukan kata sandi akun Mac. Penampil menunjukkan layar Mac yang sudah ada. Resolusinya mungkin perlu diubah pada Mac. Desktop virtual hanya dapat diubah ukurannya langsung jika server mendukung; memulai ulang desktop buatan aplikasi memerlukan konfirmasi dan menutup programnya. Keluar dari penampil membiarkan desktop jarak jauh tetap berjalan.
 
 ## Log debug
 

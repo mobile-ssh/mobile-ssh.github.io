@@ -48,7 +48,7 @@ export const pcm = defineGoOutside({
     `So phone go stay for your pocket until real question show. Then e go buzz, you read the prompt, tap answer, and put am back. Na the whole interaction be that, and e dey work from beach, from trail head, or from the queue wey you dey stand buy shave ice.`,
     `Wetin the island no fit fix`,
     `Two honest limits, because post wey only list strength na advert.`,
-    `The platform difference dey real and e worth to plan for am. For Android, foreground service dey hold the connection while the app dey background — that notification wey no dey comot <em>na</em> the session. iOS no get background execution at all; e dey reconnect and re-attach to your multiplexer when you come back. Either way, the agent for the server never stop, na that be the point. Na only the window close.`,
+    `The platform difference dey real and e worth to plan for am. For Android, foreground service dey hold the connection while the app dey background — that notification wey no dey comot <em>na</em> the session. iOS dey give the app only small time for background; after e suspend, e go reconnect and attach back to your multiplexer when you return. Alerts need the connection to still dey active. Either way, the agent for the server never stop, na that be the point. Na only the window close.`,
     `Aloha no be excuse to careless`,
     `To comot well na small discipline. Anything wey you no go gree make e run alone for two hours no suppose start as you dey waka comot door — agent wey dey middle of migration no dey better because you far. Give am task wey get natural stopping point, tell am make e inspect before e edit, and make the diff be the thing wey you go review when you come back.`,
     `And take the same care for the notification like say na pager. If everything dey alert, nothing dey alert. The hook dey fire for the states wey worth to disturb person; leave am like that and the buzz go still mean something.`,
@@ -91,8 +91,8 @@ export const pcm = defineGoOutside({
       { item: "Files, diffs and test output", value: "For the server disk", survives: true },
       { item: "Your place inside the session", value: "E re-attach when you come back", survives: true },
       { item: "The connection, for Android", value: "Foreground service dey hold am", survives: true },
-      { item: "The connection, for iOS", value: "No background execution — e dey reconnect", survives: false },
-      { item: "Alert wey no get signal to carry am", value: "E go land when the phone fit reach network again", survives: false }
+      { item: "The connection, for iOS", value: "Small background time — then e reconnect", survives: false },
+      { item: "Alert wey no get signal to carry am", value: "E needs active connection; delivery no dey guaranteed", survives: false }
     ],
     note: "The agent dey run for every row. Na only whether your phone still hold the window open dey change."
   },

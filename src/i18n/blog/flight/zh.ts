@@ -301,7 +301,7 @@ export const zh: FlightPost = {
             它们不交卫星税；只有你回答它们的时候你才交。`
     },
     {
-      title: "该响的时候才响",
+      title: "需要时提醒",
       bellLabel: "（响铃）",
       body: `真正需要人的时候，智能体提醒才会响——于是这趟飞行花在审查和决策上，
             而不是盯着提示符等回显。`
@@ -312,9 +312,7 @@ export const zh: FlightPost = {
     cmdComment: "免费 · 开源 · Apache-2.0",
     heading: "你的下一趟长途，是十一个小时的服务器时间。",
     prose: [
-      `Mobile SSH 是面向 Android、iPhone 和 iPad 的原生 SSH、SFTP 与终端客户端。多会话、
-          内置 tmux 管理器、Eternal Terminal，还有智能体需要你时的推送提醒。
-          免费，无需账号，没有广告，开源。`
+      `Mobile SSH 是面向 Android、iPhone 和 iPad 的原生 SSH、SFTP 与终端客户端。支持多个会话、内置 tmux 管理器、Eternal Terminal，并在已连接的智能体需要你时发送通知；iOS 限制后台通知的送达。免费，无需账号，没有广告，开源。`
     ],
     tags: ["无广告", "无需账号", "数据留在设备上", "Apache-2.0"],
     playButton: "在 Google Play 上获取",

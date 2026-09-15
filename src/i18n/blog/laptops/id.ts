@@ -246,11 +246,11 @@ berkemas lebih ringan dan meninggalkan gedung. Kini ia muat di saku. Ia menjawab
     },
     {
       heading: "Kunci dibuat di perangkat",
-      body: "Pembuatan kunci SSH langsung di perangkat — Ed25519 dan ECDSA — dengan autentikasi kata sandi atau kunci pribadi. Tidak ada yang keluar dari ponsel."
+      body: "Pembuatan kunci SSH di perangkat — Ed25519 dan ECDSA — dengan autentikasi kata sandi atau kunci privat. Kunci disimpan di perangkat; akun cloud Mobile SSH tidak diperlukan."
     },
     {
       heading: "Agen coding, lengkap dengan Peringatan Agen",
-      body: "Jalankan Claude Code, Codex, dan agen lain di server <em>Anda sendiri</em>, langsung dari ponsel. Peringatan Agen mengirim notifikasi push — bersuara dan bergetar — begitu sebuah agen membutuhkan masukan Anda, jadi Anda bisa beranjak pergi tanpa kehilangan kabar."
+      body: "Jalankan Claude Code, Codex, dan agen lain di server <em>milik Anda sendiri</em>, langsung dari ponsel. Agent Alerts memakai notifikasi, suara, dan getaran saat agen yang terhubung membutuhkan masukan Anda. Android mempertahankan koneksi melalui layanan latar depan; iOS membatasi pengiriman di latar belakang."
     },
     {
       heading: "Berbusana untuk acaranya",

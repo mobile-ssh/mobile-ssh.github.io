@@ -28,11 +28,11 @@ export const es: Dict = {
   home: {
     metaTitle: "Mobile SSH — Cliente SSH para Android e iOS",
     metaDescription:
-      "Mobile SSH es un cliente SSH enfocado para Android e iOS con terminales multi-sesión, sesiones resilientes de Eternal Terminal, un gestor de tmux, transferencia SFTP, claves privadas, reenvío de puertos y complementos.",
+      "Mobile SSH para Android e iOS: terminales SSH, bastiones, tmux, herdr, Zellij, SFTP, escritorios VNC y copias de seguridad. Android añade clientes VPN y claves de seguridad.",
     eyebrow: "Cliente SSH para Android e iOS",
     h1: "Mobile SSH",
     intro:
-      "Un cliente SSH enfocado para Android e iOS con terminales multi-sesión, sesiones de Eternal Terminal que sobreviven a cortes de red, un gestor de tmux integrado, transferencia de archivos SFTP, reenvío local de puertos y complementos — diseñado para teléfonos y tabletas.",
+      "Terminales SSH, gestores tmux, herdr y Zellij, SFTP, escritorios VNC, bastiones y túneles locales para teléfonos y tabletas. Eternal Terminal mantiene los shells remotos durante las interrupciones. Android también incluye VPN y autenticación con claves de seguridad USB/NFC.",
     versionLine: "Disponible en {count} idiomas · Android {version} · iOS {iosVersion} beta",
     ctaDocs: "Leer la documentación",
     ctaPlay: "Disponible en Google Play",
@@ -61,14 +61,26 @@ export const es: Dict = {
       { title: "Enlaces que se pueden tocar", text: "Las URL en la terminal aparecen subrayadas y se abren en el navegador con un toque — sin copiar ni cambiar de app." },
       { title: "Carpetas y nombres de servidores", text: "Organiza los servidores guardados en grupos contraíbles y ponle a un servidor un nombre que se muestre en lugar de su dirección. La dirección reaparece siempre que un nombre resulte ambiguo, para que las filas nunca se confundan entre sí." },
       { title: "Alertas de agente", text: "Los agentes informan a través de la terminal, así que la app sabe cuál está bloqueado y por qué. Responde desde la lista de agentes con un toque; las alertas se sustituyen en lugar de acumularse, y al tocar una se abre el panel que avisó." },
-      { title: "Claves privadas", text: "Autenticación por contraseña o clave privada. Genera claves Ed25519 o ECDSA en el dispositivo (RSA también en Android); importa o pega claves existentes." },
+      { title: "Claves privadas", text: "Usa contraseñas o claves privadas y genera Ed25519 o ECDSA en el dispositivo, también RSA en Android. Android admite FIDO2 por USB/NFC y reenvío del agente SSH por servidor." },
       { title: "Transferencia SFTP", text: "Explorador de archivos de doble panel vinculado a una sesión SSH activa. Encola subidas y descargas, renombra, elimina e inspecciona permisos remotos." },
       { title: "Reenvío de puertos", text: "Guarda especificaciones de túnel locales con un perfil de servidor y se abren automáticamente al conectar — también tras una reconexión en una red nueva, sin tener que rehacerlas a mano." },
       { title: "Flujo de reconexión", text: "Cambia de red y las sesiones vuelven a marcar de inmediato en lugar de esperar a que expire una ruta muerta, y una sesión en retroceso despierta en cuanto aparece una red utilizable. En iOS se detecta y se reconecta un servidor que ha dejado de responder en silencio." },
-      { title: "Copia de seguridad y restauración", text: "Exporta servidores y credenciales guardados a un archivo de copia de seguridad cifrado; importa con fusión o reemplazo para cambiar de dispositivo — las copias son interoperables entre Android e iOS." },
+      { title: "Copia de seguridad y restauración", text: "Guarda servidores, credenciales y ajustes con cifrado opcional mediante frase de contraseña y vistas previas de Combinar/Reemplazar. Android incluye perfiles VPN; las copias actuales de ambas plataformas comparten formato y conservan los ajustes específicos compatibles." },
       { title: "Eternal Terminal", text: "Conéctate mediante Eternal Terminal (ET) para sesiones que sobreviven a cortes de red, modo de suspensión y cambios de IP — con instalación automática opcional de etserver por SSH." },
-      { title: "Gestores de multiplexores", text: "Maneja tmux sin combinaciones de prefijo — adjunta, renombra, crea, divide, amplía o cierra. Ambas plataformas ofrecen lo mismo para herdr y Zellij, y el icono de la barra de herramientas solo aparece cuando ese programa se encuentra en el servidor." },
-      { title: "Complementos", text: "Explora, instala y ejecuta complementos para ampliar Mobile SSH. Los complementos se descargan bajo demanda desde un catálogo público y se verifican con SHA-256 en el almacenamiento privado de la app." }
+      { title: "Gestores de multiplexores", text: "Adjunta, renombra, crea, divide, amplía o termina sesiones con los gestores tmux, herdr y Zellij de ambas plataformas. Un botón común abre los gestores disponibles; cada servidor elige qué adjuntar al conectar." },
+      { title: "Complementos", text: "Explora, busca y filtra plugins por categoría e instala los flujos que necesites. Las descargas se verifican mediante SHA-256 y se guardan en el almacenamiento privado de la app." },
+      {
+        "title": "Identidad y servidores de salto",
+        "text": "Accede mediante bastiones guardados en ambas plataformas. La verificación previa a autenticar bloquea claves cambiadas. Android puede guardar claves nuevas automáticamente o preguntar; iOS exige confirmar las desconocidas."
+      },
+      {
+        "title": "Escritorios remotos",
+        "text": "Abre VNC por SSH en Android/iOS con controles táctiles, teclado, portapapeles y ajuste de pantalla cuando el servidor lo admite."
+      },
+      {
+        "title": "Clientes VPN en Android",
+        "text": "Gestiona SSH VPN, proxy SOCKS5 local, WireGuard, Shadowsocks y OpenVPN desde el inicio. Elige un perfil e inicia el tráfico; el mosaico Mobile SSH VPN permite detenerlo o reanudarlo."
+      }
     ],
     multiHead: "Una pantalla, varios shells activos",
     multiP1:
@@ -79,7 +91,7 @@ export const es: Dict = {
       "Mobile SSH en un teléfono mostrando dos sesiones SSH activas en una vista dividida en paralelo.",
     sftpHead: "SFTP cuando la terminal no basta",
     sftpBody:
-      "Abre la transferencia de archivos desde una sesión conectada para explorar el almacenamiento del teléfono y los directorios remotos. Encola subidas y descargas, ordena los archivos, vuelve de un salto a rutas remotas recientes e inspecciona o cambia los permisos remotos antes de decidir qué mover.",
+      "Explora carpetas locales y remotas, pon transferencias en cola, recuerda el directorio de cada sesión tmux y abre archivos remotos en otras apps. Ambas plataformas aceptan archivos compartidos al terminal; iOS recuerda una carpeta elegida en Archivos.",
     sftpCtaGuide: "Guía de transferencia de archivos",
     sftpCtaAll: "Todas las funciones",
     sftpAlt: "Pantalla de transferencia de archivos de Mobile SSH en un teléfono con paneles local y remoto.",
@@ -95,7 +107,7 @@ export const es: Dict = {
     videoIosAlt: "Demo en iOS que abre Mobile SSH directamente en una sesión de terminal SSH en vivo y vuelve a la pantalla de inicio, con el gestor de tmux, Ajustes y las demás pantallas de la app",
     muxHead: "Un vídeo por gestor de sesiones",
     muxIntro:
-      "En las demos de arriba, tmux, herdr y Zellij se reparten unos treinta segundos: suficiente para ver que la barra dibuja un icono para cada uno, insuficiente para ver qué hace ninguno. Estas son las versiones largas, filmadas en ambas plataformas contra un servidor real.",
+      "Los vídeos generales presentan tmux, herdr y Zellij. Estas grabaciones largas muestran sus controles de sesiones, ventanas, pestañas y paneles en ambas plataformas con un servidor activo.",
     muxItems: [
         {
           text: "Sesiones, ventanas y paneles alcanzados desde la pantalla de inicio, con una sesión marcada por una campana porque algo en ella reclama atención. Adjunta una ventana y la terminal en vivo la sigue; crea una ventana y ponle nombre, sin teclear ni un solo atajo de prefijo.",
@@ -119,7 +131,7 @@ export const es: Dict = {
     demoItems: [
       {
         title: "La sesión sobrevive a la app",
-        text: "Android mantiene la conexión en un servicio en primer plano, y la notificación permanente es esa conexión: nombra el servidor y ofrece Desconectar todo. Vete a la pantalla de inicio del teléfono mientras se transmite un registro y vuelve para encontrar que no se ha detenido en ningún momento. iOS no tiene ejecución en segundo plano y en su lugar se reconecta y vuelve a adjuntarse a tmux.",
+        text: "Android mantiene la conexión mediante un servicio en primer plano; la notificación indica el servidor y ofrece Desconectar todo. Sal mientras fluye un registro y vuelve a la sesión activa. iOS solo permite un breve tiempo en segundo plano y después reconecta y se adjunta al multiplexor.",
         androidAlt:
           "Demo en Android de una sesión que sigue ejecutándose en segundo plano: un registro HTTP en vivo transmitiéndose en la terminal, el aviso de permiso de notificaciones, la notificación permanente que nombra el servidor conectado con Desconectar todo, y luego la salida a la pantalla de inicio del teléfono y la vuelta al mismo flujo, que sigue llegando."
       },
@@ -187,18 +199,18 @@ export const es: Dict = {
   features: {
     metaTitle: "Funciones | Mobile SSH",
     metaDescription:
-      "Funciones clave de Mobile SSH para SSH en Android e iOS: terminal, Eternal Terminal, gestor de tmux, SFTP, claves privadas, reenvío de puertos y complementos.",
+      "Descubre terminales Mobile SSH, bastiones, verificación, SFTP, VNC, copias y multiplexores en Android/iOS, además de VPN y claves de seguridad en Android.",
     eyebrow: "Lista de funciones",
     h1: "Funciones de Mobile SSH",
     intro:
-      "Mobile SSH está pensado para un uso directo de SSH desde dispositivos Android e iOS: abrir terminales, mantenerlas activas, mover archivos, guardar servidores y recuperarse rápido de interrupciones móviles.",
+      "Conecta a tus servidores desde Android e iOS con terminales SSH, identidades verificadas, bastiones, SFTP, VNC y gestores de sesiones. Android añade VPN integradas y claves físicas; abajo se indican las diferencias entre plataformas.",
     groups: [
       {
         title: "Plataformas",
         items: [
           "Android 8.0 o posterior — actualmente es una prueba cerrada de Google Play: abre el enlace de inscripción en un navegador móvil y luego instálala desde Play",
           "iOS 16 o posterior en iPhone y iPad — únete a la beta pública en TestFlight",
-          "Las copias de seguridad cifradas son interoperables: exporta en una plataforma e importa en la otra"
+          "Las versiones actuales Android/iOS comparten el formato de copia 2 para inventario y ajustes; importar no activa funciones incompatibles de otra plataforma"
         ]
       },
       {
@@ -216,7 +228,10 @@ export const es: Dict = {
           "Una pantalla de inicio pensada para retomar el trabajo: las conexiones activas en este momento y las sesiones de tmux que te esperan en tus servidores — tomadas de una instantánea guardada, de modo que se listan sin red y cada fila indica su antigüedad. En iOS la lista de Recientes pasó a la pantalla Nueva conexión, donde un toque rellena el formulario",
           "IPv6 de principio a fin: literales entre corchetes con un puerto opcional en los campos de dirección, y destinos IPv6 entre corchetes en las reglas de reenvío de puertos",
           "Registro de intentos de inicio de sesión, correctos y fallidos, que anota la dirección exacta marcada y, en caso de fallo, el motivo",
-          "Transporte por proxy de Teleport (experimental, Android): inicia sesión con usuario, contraseña y OTP o importa un archivo de configuración o de identidad de Teleport, explora los nodos del clúster y luego ejecuta terminales, SFTP, tmux y complementos a través del túnel del proxy"
+          "Transporte por proxy de Teleport (experimental, Android): inicia sesión con usuario, contraseña y OTP o importa un archivo de configuración o de identidad de Teleport, explora los nodos del clúster y luego ejecuta terminales, SFTP, tmux y complementos a través del túnel del proxy",
+          "Bastiones SSH guardados en ambas plataformas, con cadenas ordenadas de hasta ocho saltos expandidos; cada salto tiene sus credenciales y verificación de identidad",
+          "Reenvío del agente SSH en Android: actívalo por servidor para solicitudes de firma con claves guardadas, con aprobación opcional; las claves privadas permanecen en el teléfono",
+          "FIDO2 Android por USB/NFC: registra o importa credenciales OpenSSH y responde a solicitudes de toque y PIN"
         ]
       },
       {
@@ -227,8 +242,8 @@ export const es: Dict = {
           "Búsqueda dentro de la terminal — busca en el búfer de desplazamiento y en la pantalla visible y salta entre coincidencias (Android e iOS)",
           "Integración con el shell (OSC 133): recorre los prompts uno a uno, selecciona la salida completa de un comando — el error de compilación de 300 líneas atrás, no solo el último — y recibe un aviso cuando termina un comando de larga duración (Android e iOS)",
           "Imágenes en línea en la terminal mediante el protocolo de gráficos Kitty, que sobreviven al zoom con pellizco y al reajuste de líneas en lugar de desaparecer (Android e iOS)",
-          "Glifos de mosaico de bloques, braille y sextantes dibujados por la propia app, para que chafa, timg y el arte ANSI encajen exactamente en lugar de mostrar cuadros vacíos (Android)",
-          "En una TUI con seguimiento del ratón, un toque equivale a un clic — htop, vim y la selección de paneles funcionan al tacto (Android)",
+          "La app dibuja bloques, braille y mosaicos de sextantes para que chafa, timg y arte ANSI encajen correctamente en Android e iOS",
+          "El tacto envía clics a los programas de terminal con seguimiento de ratón en ambas plataformas, con arrastre opcional; iOS también ofrece un ajuste para colocar el cursor en su lugar",
           "El encabezado del panel indica el directorio de trabajo real del panel, consultado a tmux o comunicado por el shell mediante OSC 7 (Android)",
           "Fila de teclas extra de trece teclas — ESC, TAB, CTRL, flechas, Home, End, PgUp, PgDn y alternar teclado — que salta a una segunda fila en lugar de desplazarse y recoge el resto en un menú desbordado, para que ninguna tecla quede fuera de la pantalla",
           "Personaliza la fila en Android e iOS: añade desde una paleta de unos 45 predefinidos que incluye F1–F12, combinaciones con Ctrl y símbolos; quita, reordena, oculta, define tus propias teclas de secuencia de escape y restablece los valores predeterminados, con vista previa en vivo",
@@ -237,13 +252,15 @@ export const es: Dict = {
           "Modo pantalla completa con doble toque",
           "Selección de texto de la terminal con acciones Copiar, Compartir y Seleccionar todo — una pulsación larga selecciona la palabra, y Copiar mantiene la selección para compartirla o volver a copiarla",
           "Portapapeles OSC 52 — copia texto de una sesión remota de tmux o vim directamente al portapapeles del teléfono (Android e iOS)",
-          "Entrada de teclado nativa de paso directo — sin autocorrección peleando con el shell; el dictado por voz del teclado en pantalla sigue funcionando",
+          "Teclados físicos y dictado en ambas plataformas; iOS activa Dictado y sugerencias con autocorrección por defecto. Desactívalo para entrada directa",
           "Compatibilidad con teclados externos y Bluetooth en Android e iOS, incluyendo flechas, teclas de función y combinaciones Ctrl/Alt",
           "Pegado entre corchetes (bracketed paste) para que el contenido multilínea del portapapeles no se ejecute automáticamente",
           "La Nerd Font incluida muestra glifos powerline, starship, devicon e iconos de Material Design en Android e iOS que la fuente del sistema mostraría como cuadros vacíos",
           "Los caracteres CJK anchos, los emoji y los caracteres combinantes se miden y dibujan correctamente en Android e iOS, incluyendo clústeres de grafemas y uniones de ancho cero (zero-width joiners)",
           "Fuente de terminal configurable (monoespaciada del sistema, JetBrains Mono o Source Code Pro) y esquema de colores ANSI (Solarized, Gruvbox, Dracula, Nord) en Android e iOS, aplicados en vivo a los paneles abiertos",
-          "Un control deslizante del tamaño del texto de la terminal en Ajustes, junto al zoom con pellizco, y un tema de la app configurable en Sistema, Claro u Oscuro"
+          "Un control deslizante del tamaño del texto de la terminal en Ajustes, junto al zoom con pellizco, y un tema de la app configurable en Sistema, Claro u Oscuro",
+          "El caudal y los indicadores de conexión detenida distinguen un comando ocupado de una conexión sin respuesta; atenuación y vibración opcionales",
+          "Ajustes controla notificaciones remotas, avisos de comando terminado y lecturas remotas del portapapeles; los permisos vienen desactivados"
         ]
       },
       {
@@ -254,26 +271,26 @@ export const es: Dict = {
           "Resiliencia en segundo plano y con la pantalla bloqueada: en Android, un servicio en primer plano mantiene en marcha shells y agentes aunque descartes la app de recientes; en iOS, al reconectar la app vuelve a adjuntar tu shell a tmux",
           "Keepalives e intentos de reconexión con retroceso exponencial — hasta diez intentos, y los fallos frente a una red que ya has abandonado no cuentan para ese límite",
           "Cambiar de Wi-Fi, datos móviles o VPN vuelve a marcar de inmediato en lugar de esperar a que expire la ruta muerta, y una sesión que ya está en retroceso lo reintenta en cuanto aparece una red utilizable",
-          "Un servidor que ha dejado de responder en silencio — una máquina virtual suspendida, un host de salto atascado — se detecta por los sondeos keepalive sin respuesta y se reconecta, en lugar de tragarse tus pulsaciones sin decir nada (iOS)",
+          "Las sondas keepalive sin respuesta detectan servidores que dejaron de responder y activan la reconexión en Android e iOS",
           "Acceso a Sesiones activas desde la pantalla inicial; la notificación permanente lista las sesiones — toca para abrir",
-          "Seguimiento de comandos de tmux y sugerencias para volver a adjuntarse cuando se interrumpe el trabajo, con una opción por servidor de qué adjuntar al conectar: detección automática, nada, tmux, herdr o Zellij (Android)",
+          "Seguimiento de comandos tmux y reanudación con Auto, Nada, tmux, herdr o Zellij por servidor en ambas plataformas; se conserva la identidad al cambiar de socket tmux",
           "Los agentes se identifican a través de la terminal, así que la app sabe qué agente es, qué herramienta está ejecutando y si está bloqueado esperándote — el panel se tiñe de ámbar, su encabezado indica «claude · te necesita» y un distintivo de la barra de herramientas cuenta cuántos esperan",
           "Responde a la pregunta de un agente con un toque desde la lista de agentes; la respuesta viaja por un canal aparte, así que nunca se escribe sobre lo que hay en pantalla",
           "Instala el hook de agente en un servidor desde la propia app — un pequeño script de shell que cualquier agente puede invocar, no la integración de un proveedor concreto",
           "Transporte Eternal Terminal (ET) para sesiones que sobreviven a cortes de red, modo de suspensión y cambios de IP, con instalación automática opcional de etserver por SSH",
           "Gestor de tmux: lista y cambia entre sesiones, ventanas y paneles — adjunta, renombra, crea, divide, amplía o cierra, con ordenación por nombre/fecha y un 🔔 para los agentes que esperan intervención",
-          "Gestores de herdr y Zellij en Android e iOS, cada uno con el mismo alcance sobre sus propias sesiones, pestañas y paneles — la barra de herramientas muestra un icono solo cuando ese programa se encuentra en el servidor"
+          "Un botón de multiplexores abre tmux, herdr y Zellij; Herdr permite previsualización, enfoque y respuestas por panel, y Zellij sesiones activas o terminadas"
         ]
       },
       {
         title: "Archivos y túneles",
         items: [
           "Explorador SFTP de doble panel para archivos locales y remotos, con un registro que muestra todas las transferencias y se puede desplazar",
-          "Operaciones de subida y descarga en cola; en Android, comparte cualquier archivo desde otra app hacia la sesión en curso y su ruta remota se escribe en el prompt",
+          "Subidas y descargas en cola; comparte archivos con Mobile SSH en Android o la extensión de iOS, súbelos a una sesión conectada e inserta sus rutas remotas",
           "Subida y descarga recursiva de carpetas entre el teléfono y el host remoto",
           "Acciones remotas de renombrar, borrar, crear, editar, comprimir a .tar.gz, permisos (chmod/chown) y ver detalles",
           "Abre un archivo descargado en otra app en ambas plataformas — en iOS las descargas aparecen además en la app Archivos, dentro de «En mi iPhone»",
-          "En Android, la transferencia de archivos se reabre donde lo dejó esa sesión de tmux, con el nombre de la sesión en el encabezado del panel, y recurre a los directorios que más usas en ese host cuando no hay nada que recordar",
+          "Transferencia de archivos recuerda directorios por host y sesión tmux en ambas plataformas; iOS recuerda además una carpeta externa elegida en Archivos",
           "Ordenar por nombre o fecha con persistencia por host, y volver de un salto a rutas remotas recientes",
           "Tamaños de archivo en unidades binarias, iguales a los que muestra ls -h en la terminal de la pestaña de al lado",
           "Reenvío local de puertos guardado con el perfil del servidor y levantado automáticamente al conectar",
@@ -283,7 +300,7 @@ export const es: Dict = {
       {
         title: "Localización",
         items: [
-          "Traducciones de la interfaz: árabe, bengalí, chino (simplificado y tradicional), inglés, francés, alemán, hindi, indonesio, japonés, marathi, portugués, ruso, español, tamil, telugu, turco y urdu — veinte idiomas en Android, que añade además pidgin nigeriano y árabe egipcio, y dieciocho en iOS",
+          "Veinte idiomas en ambas plataformas: árabe, árabe egipcio, bengalí, chino simplificado y tradicional, inglés, francés, alemán, hindi, indonesio, japonés, maratí, pidgin nigeriano, portugués, ruso, español, tamil, telugu, turco y urdu",
           "Sigue el idioma del sistema de forma predeterminada, y Ajustes incluye un selector de idioma si quieres la app en un idioma distinto al del teléfono"
         ]
       },
@@ -292,27 +309,48 @@ export const es: Dict = {
         items: [
           "Genera nuevas claves Ed25519 o ECDSA en el dispositivo (RSA también en Android), con una frase de contraseña opcional",
           "Copia, comparte o guarda una clave pública generada para añadirla al authorized_keys del servidor",
-          "Exporta servidores y credenciales guardados a un archivo de copia de seguridad — todos, o marca solo las filas que quieras; tocar la cabecera de una carpeta selecciona la carpeta entera",
-          "Una frase de contraseña opcional cifra la copia; importa con fusión o reemplazo",
-          "Una copia sin cifrar guarda contraseñas y claves en texto plano: protege o elimina el archivo"
+          "Las copias completas incluyen servidores, credenciales, ajustes, idioma y orden de multiplexores; Android añade perfiles SSH VPN, SOCKS5, WireGuard, Shadowsocks y OpenVPN",
+          "Exporta una selección o solo el inventario para reducir el alcance; previsualiza la copia completa y elige Combinar o Reemplazar, con cifrado opcional",
+          "Las copias sin cifrar contienen contraseñas y claves privadas. La confianza SSH, sesiones activas, permisos del sistema y carpetas no son portables; las credenciales físicas siguen necesitando su clave"
         ]
       },
       {
         title: "Seguridad",
         items: [
           "Pantalla segura: en Android, bloquea las capturas de pantalla y la grabación de pantalla y oculta la app de la miniatura de recientes; en iOS, oculta la vista previa del selector de apps y bloquea la grabación de pantalla y la duplicación de pantalla (en iOS no se puede bloquear una captura de pantalla manual) — un ajuste opcional para cuando hay contraseñas, claves o tokens en pantalla",
-          "Los servidores, las credenciales y las claves guardados permanecen en el dispositivo — los secretos residen en el Keystore de Android y en el Keychain de iOS, sin cuenta ni sincronización en la nube",
-          "Solo analíticas de uso anónimas — nunca tus servidores, credenciales, comandos ni el contenido de tus archivos. Android tiene un interruptor en Ajustes para desactivarlas; iOS todavía no lo tiene"
+          "Los servidores, las credenciales y las claves guardados se almacenan en el dispositivo, sin exigir cuenta ni sincronización en la nube; consulta la página de privacidad para conocer las protecciones del almacenamiento y sus límites",
+          "Las estadísticas anónimas están activadas por defecto y pueden desactivarse en Ajustes de Android e iOS; no incluyen servidores, credenciales, comandos ni contenidos de archivos",
+          "La identidad SSH se verifica antes de autenticar. Android fija automáticamente nuevas claves sin certificado por defecto, con opción de aprobación; iOS pregunta antes de confiar. Ambos rechazan claves cambiadas",
+          "Ambas plataformas importan revocaciones de claves de host OpenSSH con ámbitos definidos. iOS acepta claves Ed25519/ECDSA con @revoked; Android también admite autoridades de certificados de host. iOS no admite certificados de host ni importación de CA. La confianza SSH permanece en cada dispositivo y se excluye de las copias de seguridad"
         ]
       },
       {
         title: "Complementos",
         items: [
-          "Explora, instala y ejecuta complementos para ampliar Mobile SSH",
+          "Explora plugins por categoría, búscalos, instálalos y ejecútalos; el catálogo se actualiza al cambiar de fuente",
           "Los complementos se descargan bajo demanda desde un catálogo público y se verifican con SHA-256 en el almacenamiento privado de la app",
           "Un complemento declara lo que necesita — comandos SSH, un túnel, almacenamiento — y la app le niega todo lo que no haya pedido",
           "Cuando un complemento configura algo en tu servidor, ves antes los comandos exactos y los apruebas antes de que se ejecuten",
           "Configura una fuente de catálogo personalizada o privada, o instala desde una carpeta en tu propio servidor"
+        ]
+      },
+      {
+        "title": "Escritorios remotos",
+        "items": [
+          "Escritorios VNC por túnel SSH en Android/iOS sin exponer el puerto VNC a internet",
+          "Puntero táctil, teclados físico y virtual, intercambio del portapapeles y campana del escritorio",
+          "Tamaños de pantalla predefinidos o personalizados si el servidor VNC permite redimensionar; se notifican solicitudes incompatibles"
+        ]
+      },
+      {
+        "title": "Clientes VPN (Android)",
+        "items": [
+          "Abre VPN desde el inicio para perfiles SSH VPN, SOCKS5, WireGuard, Shadowsocks y OpenVPN",
+          "SSH VPN lleva TCP y DNS por un servidor guardado para todas o algunas apps/dominios; bloquea el resto de UDP asignado a SSH",
+          "El proxy SOCKS5 local autenticado funciona junto a otra VPN; las apps deben configurar el proxy y DNS remoto",
+          "Importa WireGuard .conf, enlaces Shadowsocks ss:// compatibles u OpenVPN .ovpn autocontenido con certificados verificados",
+          "Inicia un perfil para cambiar de VPN; el mosaico Mobile SSH VPN detiene/inicia el perfil recordado y excluye proxies SOCKS",
+          "Android admite una VPN de dispositivo. Tailscale usa su app; IKEv2/IPsec se gestiona en Ajustes Android. No se garantiza VPN permanente ni bloqueo"
         ]
       }
     ],
@@ -326,7 +364,7 @@ export const es: Dict = {
     eyebrow: "Opciones SSH móviles",
     h1: "Mobile SSH vs Termux vs Termius",
     intro:
-      "Estas herramientas coinciden en torno a SSH, pero están pensadas para trabajos distintos. Mobile SSH es un cliente SSH/SFTP enfocado para Android e iOS, Termux es un entorno Linux solo para Android y Termius es un cliente SSH multiplataforma con funciones de productividad basadas en cuenta.",
+      "Mobile SSH combina SSH, SFTP, VNC y gestores de multiplexores en Android e iOS, con VPN y autenticación mediante claves de seguridad en Android. Termux es un entorno Linux para Android; Termius es un cliente SSH multiplataforma con funciones de productividad basadas en cuentas.",
     columns: {
       need: "Necesidad",
       mobileSsh: "Mobile SSH",
@@ -336,25 +374,25 @@ export const es: Dict = {
     rows: [
       {
         need: "Propósito principal",
-        mobileSsh: "Cliente dedicado de SSH, SFTP, túnel local y terminal para Android e iOS.",
+        mobileSsh: "SSH, SFTP, VNC, bastiones y multiplexores en ambas plataformas; clientes VPN y FIDO2 en Android.",
         termux: "Emulador de terminal y entorno Linux para Android con paquetes APT.",
         termius: "Cliente SSH moderno para Android, iOS, escritorio y flujos de trabajo en equipo orientados a la web."
       },
       {
         need: "Estilo de configuración",
-        mobileSsh: "Introduce un host o guarda un perfil de servidor y conéctate directamente.",
+        mobileSsh: "Guarda servidor y credenciales, elige bastiones si los necesitas y conecta con verificación de identidad previa a la autenticación.",
         termux: "Instala paquetes como OpenSSH, configura herramientas de shell y trabaja desde una línea de comandos al estilo Linux.",
         termius: "Crea o sincroniza hosts, claves, snippets y bóveda a través de la app y la cuenta de Termius."
       },
       {
         need: "Controles de terminal móviles",
-        mobileSsh: "Fila de teclas extra integrada, sesiones en cuadrícula, paneles a pantalla completa, zoom con pellizco, selección de texto con copiar/compartir y desplazamiento compatible con tmux — con escritura nativa de paso directo y compatibilidad con teclados externos en ambas plataformas.",
+        mobileSsh: "Teclas adicionales, cuadrícula, paneles a pantalla completa, zoom táctil, copiar/compartir, ratón y teclados externos. Puedes desactivar Dictado y sugerencias de iOS para entrada directa.",
         termux: "Entorno de terminal potente; el comportamiento depende de las herramientas y la configuración instaladas.",
         termius: "Complemento de teclado móvil, gestos, pestañas, autocompletado, snippets y una UX de terminal pulida."
       },
       {
         need: "Transferencia de archivos",
-        mobileSsh: "Transferencia SFTP de doble panel integrada vinculada a la sesión SSH activa.",
+        mobileSsh: "SFTP de doble panel, historial de carpetas tmux y archivos compartidos entrantes y remotos en ambas plataformas; iOS recuerda carpetas externas de Archivos.",
         termux: "Utiliza herramientas de línea de comandos como scp, sftp, rsync o utilidades de archivos instaladas.",
         termius: "Funciones integradas de SFTP y gestión de hosts/claves."
       },
@@ -366,7 +404,7 @@ export const es: Dict = {
       },
       {
         need: "Modelo de datos",
-        mobileSsh: "Servidores guardados, credenciales, historial, ajustes y registros solo locales.",
+        mobileSsh: "Perfiles, credenciales, confianza y ajustes en el dispositivo; copias portables opcionales del inventario y ajustes. Android incluye VPN; la confianza SSH permanece en cada dispositivo.",
         termux: "Sistema de archivos al estilo Linux y paquetes dentro del entorno de la app Termux.",
         termius: "Bóvedas cifradas para hosts, claves, snippets, reglas de reenvío, known hosts y uso compartido en equipo."
       },
@@ -418,8 +456,8 @@ export const es: Dict = {
       { category: "Terminal",          feature: "Compatibilidad con teclado por hardware / Bluetooth", mobile: "yes",   termux: "yes",          termius: "yes" },
       { category: "Terminal",          feature: "Integración con el shell (OSC 133)",                mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Terminal",          feature: "Imágenes en línea (gráficos Kitty)",                mobile: "yes",     termux: "no",           termius: "no" },
-      { category: "Terminal",          feature: "Glifos de mosaico dibujados por la app (chafa, arte ANSI)", mobile: "Android", termux: "depende de la fuente", termius: "no" },
-      { category: "Terminal",          feature: "El toque actúa como clic en las TUI con modo de ratón", mobile: "Android", termux: "yes",      termius: "no" },
+      { category: "Terminal",          feature: "Glifos de mosaico dibujados por la app (chafa, arte ANSI)", mobile: "yes", termux: "depende de la fuente", termius: "no" },
+      { category: "Terminal",          feature: "El toque actúa como clic en las TUI con modo de ratón", mobile: "yes", termux: "yes",      termius: "no" },
       { category: "Terminal",          feature: "Representación de glifos Nerd Font / powerline",     mobile: "yes",     termux: "configurable", termius: "parcial" },
       { category: "Sesiones",          feature: "Varias sesiones SSH simultáneas",                   mobile: "hasta 8", termux: "hasta 8",      termius: "yes" },
       { category: "Sesiones",          feature: "Disposición en cuadrícula",                         mobile: "yes",     termux: "mediante tmux", termius: "pestañas" },
@@ -447,7 +485,7 @@ export const es: Dict = {
       { category: "Copia de seguridad", feature: "Sin cuenta requerida",                            mobile: "yes",     termux: "yes",          termius: "parcial" },
       { category: "Privacidad y coste", feature: "Sin muro de pago Pro",                            mobile: "yes",     termux: "yes",          termius: "parcial" },
       { category: "Privacidad y coste", feature: "Sin anuncios",                                    mobile: "yes",     termux: "yes",          termius: "yes" },
-      { category: "Privacidad y coste", feature: "Desactivar analíticas",                           mobile: "Android", termux: "sin analíticas", termius: "no" },
+      { category: "Privacidad y coste", feature: "Desactivar analíticas",                           mobile: "yes", termux: "sin analíticas", termius: "no" },
       { category: "Privacidad y coste", feature: "Datos solo locales (sin sincronización en la nube)", mobile: "yes", termux: "yes",          termius: "parcial" },
       { category: "Privacidad y coste", feature: "Pantalla segura (bloquear la captura de pantalla)", mobile: "yes",     termux: "no",           termius: "no" },
       { category: "Sesiones",          feature: "Eternal Terminal (sesiones resilientes)",             mobile: "yes",     termux: "mediante CLI",      termius: "no" },
@@ -471,7 +509,7 @@ export const es: Dict = {
       { feature: "Reenvío local de puertos",                                      mobile: "yes", onepilot: "yes",       happy: "no",         omnara: "no",        chatgpt: "no",               claude: "no" },
       { feature: "Gestor de sesiones de tmux",                                    mobile: "yes", onepilot: "parcial",   happy: "no",         omnara: "no",        chatgpt: "no",               claude: "no" },
       { feature: "Funciona con un agente que hayas instalado tú",                 mobile: "yes", onepilot: "yes",       happy: "yes",        omnara: "yes",       chatgpt: "no",               claude: "no" },
-      { feature: "Alertas de agente (aviso push cuando el agente necesita entrada)", mobile: "yes", onepilot: "yes",   happy: "yes",        omnara: "yes",       chatgpt: "yes",              claude: "yes" },
+      { feature: "Avisos del agente (cuando un agente conectado necesita tu respuesta)", mobile: "yes", onepilot: "yes",   happy: "yes",        omnara: "yes",       chatgpt: "yes",              claude: "yes" },
       { feature: "Aprobar/denegar las solicitudes del agente con un toque",       mobile: "yes", onepilot: "yes",       happy: "yes",        omnara: "yes",       chatgpt: "yes",              claude: "yes" },
       { feature: "Cero configuración de servidor o SSH",                          mobile: "no",  onepilot: "no",        happy: "parcial",    omnara: "parcial",   chatgpt: "yes",              claude: "yes" },
       { feature: "Android e iOS",                                                 mobile: "yes", onepilot: "Solo iOS",  happy: "yes",        omnara: "yes",       chatgpt: "yes",              claude: "yes" },
@@ -485,40 +523,56 @@ export const es: Dict = {
   privacy: {
     metaTitle: "Política de privacidad | Mobile SSH",
     metaDescription:
-      "Política de privacidad de Mobile SSH, incluyendo almacenamiento local, transmisión de datos SSH, transferencia de archivos, registros y permisos de la app en Android e iOS.",
+      "Cómo trata Mobile SSH los datos, identidades, copias, tráfico SSH/VPN, archivos, estadísticas y permisos en Android e iOS.",
     eyebrow: "Privacidad",
     h1: "Política de privacidad",
     intro:
-      "Mobile SSH está diseñado como un cliente SSH local para Android e iOS. No requiere una cuenta de Mobile SSH ni ofrece un servicio de sincronización en la nube.",
+      "Mobile SSH guarda su configuración en tu dispositivo y conecta a los servidores y servicios que eliges. No necesita cuenta Mobile SSH ni sincronización en la nube. Los clientes VPN opcionales de Android también llevan tráfico seleccionado del dispositivo por tus servidores.",
     sections: [
       {
         heading: "Información almacenada en tu dispositivo",
-        body: "Si decides guardar datos en la app, Mobile SSH los almacena localmente en el dispositivo. En iOS los secretos se guardan en el Keychain del sistema; en Android se cifran con una clave alojada en el Keystore de Android que no se puede exportar fuera del dispositivo, y la app se excluye de la copia de seguridad en la nube de Android. Esto puede incluir perfiles de servidor guardados, nombres de usuario, puertos, contraseñas, claves privadas, frases de contraseña, reglas de reenvío de puertos, sesiones recientes, historial de intentos de inicio de sesión, rutas de transferencia, preferencias de orden de archivos, instantáneas de sesiones de tmux y sugerencias para volver a adjuntarse, ajustes de la app y registros de depuración cuando la grabación de depuración está activa."
+        body: "Los datos guardados incluyen perfiles de servidores, credenciales, claves privadas, identidades de host, bastiones, reglas de túnel, instantáneas de sesiones, historial de acceso, rutas de archivos, permisos de carpetas y ajustes de la app. Android también almacena configuraciones VPN/proxy y sus secretos. Los secretos de iOS usan el Llavero. Android cifra el inventario con una clave respaldada por Keystore, pero puede guardarlo en texto sin cifrar si el cifrado no está disponible; el almacenamiento de perfiles WireGuard, Shadowsocks y OpenVPN exige cifrado. La copia de Android en la nube está desactivada. Los registros de depuración opcionales se almacenan localmente."
       },
       {
         heading: "Información enviada a través de la red",
-        body: "Mobile SSH envía datos de autenticación SSH solo a los servidores que tú configuras y a los que te conectas. La entrada/salida de la terminal, el contenido de los archivos SFTP y el tráfico reenviado por puertos locales se intercambian con los servidores y puntos finales remotos que tú eliges. Mobile SSH no envía esos datos a ningún servicio de analíticas, publicidad, telemetría o sincronización en la nube de Mobile SSH."
+        body: "La autenticación SSH va a los servidores y bastiones configurados después de verificar sus identidades. Terminal, SFTP, VNC y reenvíos llegan a los destinos elegidos. Los catálogos y descargas de plugins contactan con sus fuentes. Los perfiles VPN/proxy de Android pueden enviar tráfico de otras apps y DNS por SSH, WireGuard, Shadowsocks u OpenVPN según las rutas. Este tráfico no se envía a estadísticas ni almacenamiento en la nube de Mobile SSH."
       },
       {
         heading: "Transferencia de archivos y acceso al almacenamiento",
-        body: "La función de transferencia de archivos navega por el almacenamiento local del teléfono y los directorios remotos por SFTP para que puedas subir y bajar archivos. Mobile SSH no pide a Android un permiso de almacenamiento amplio: eliges una única carpeta con el selector de carpetas del sistema y la app solo puede leer y escribir dentro de ella. En iOS, se accede a los archivos locales y a las fotos a través de los selectores de documentos y fotos del sistema."
+        body: "Las transferencias usan los archivos y carpetas elegidos sin permiso general de almacenamiento. Android conserva la autorización de la carpeta. iOS usa la carpeta de la app o recuerda una de Archivos e importa documentos, fotos y archivos compartidos mediante interfaces del sistema. El proveedor elegido puede guardar datos en su nube. Abrir o compartir envía el archivo a la app o destino que eliges."
       },
       {
         heading: "Registros y solución de problemas",
-        body: "El historial de inicios de sesión y los registros opcionales de depuración se guardan localmente para diagnóstico, y ambos están desactivados o vacíos hasta que tú los actives. El grabador de depuración de Android captura eventos de la terminal, tamaños de datos SSH, diagnósticos de entrada táctil, eventos de redimensionamiento y eventos de ciclo de vida de túneles — antes de empezar te advierte de que eso incluye todas las teclas que pulses, contraseñas incluidas, y guarda un archivo comprimido en tu carpeta de Descargas. iOS registra un log distinto y más acotado: las direcciones que marcó y por qué falló cada una, las reconexiones y su retroceso, las conexiones caídas, los cambios de red y los comandos de tmux con sus errores. Revisa cualquier registro o archivo de depuración antes de compartirlo con soporte u otra persona."
+        body: "Los intentos de inicio se registran localmente al conectar. La depuración es opcional: Android advierte que incluye cada tecla, contraseñas también, y exporta un archivo. iOS registra direcciones, fallos, reconexiones, cambios de red y diagnósticos tmux. Revisa antes de compartir: pueden revelar detalles de servidores y, en Android, secretos escritos."
       },
-      { heading: "Analíticas de uso anónimas", body: "Para entender cómo se usa la app y mejorarla, Mobile SSH envía analíticas de uso anónimas a Aptabase, un proveedor de analíticas centrado en la privacidad que actúa en nuestro nombre. Se limita a eventos anónimos (como aperturas de la app y qué funciones se usan) junto con la versión de la app, la versión del sistema operativo, el modelo del dispositivo y el idioma. Usa un identificador de sesión aleatorio que se restablece con regularidad y no está vinculado a ti ni a tu dispositivo. Nunca incluye tus servidores SSH, nombres de host, usuarios, contraseñas, claves, comandos ni el contenido de archivos. Los datos se envían por una conexión cifrada (HTTPS). Las analíticas están activadas de forma predeterminada. En Android puedes desactivarlas en cualquier momento en Ajustes y, cuando están desactivadas, no se envía nada; la app de iOS todavía no ofrece ese interruptor, así que en iOS estos eventos anónimos se envían mientras la app siga instalada. Tenemos previsto añadir el interruptor en iOS — hasta entonces, esta página describe la situación tal y como es." }
+      { heading: "Analíticas de uso anónimas", body: "Mobile SSH envía eventos anónimos de uso de la app y sus funciones a Aptabase por HTTPS, con versiones de app y sistema, modelo e idioma. Usa un identificador de sesión aleatorio que cambia; los eventos nunca contienen direcciones de servidores, usuarios, credenciales, comandos ni archivos. Las estadísticas vienen activadas. Ambas plataformas permiten detener la recogida en Ajustes; en iOS todavía pueden entregarse eventos previamente en cola." },
+      {
+        "heading": "Copias que exportas",
+        "body": "Las copias completas incluyen inventario y ajustes, además de VPN/proxy en Android. Una frase de contraseña cifra el archivo; sin ella contiene contraseñas y claves privadas en texto plano. Eliges dónde guardarlo o compartirlo. Se excluyen confianza SSH, sesiones activas y permisos de carpetas. La vista previa muestra secciones y ajustes de seguridad que se aplicarán."
+      },
+      {
+        "heading": "Enrutamiento VPN en Android",
+        "body": "La VPN requiere autorización de Android y continúa hasta detenerla o que el sistema la termine. Solo funciona una VPN de dispositivo; un proxy SOCKS local puede acompañar otra. SSH transporta TCP/DNS y bloquea otro UDP asignado. Detener, cambiar o terminar la app acaba la protección anterior; Mobile SSH no garantiza VPN permanente ni bloqueo."
+      }
     ],
     permissionsHeading: "Permisos",
     permissions: [
-      { label: "Internet", body: "necesario para conectarse a servidores SSH." },
+      { label: "Internet", body: "se usa para conexiones SSH, archivos, escritorio, VPN y plugins, y estadísticas activadas." },
       { label: "Wake lock y Wi-Fi lock", body: "se usan en Android para mantener activas las sesiones SSH mientras el dispositivo duerme." },
       { label: "Servicio en primer plano y notificaciones", body: "se usan en Android para gestionar conexiones activas en segundo plano; en iOS, las notificaciones se usan para las alertas de agente." },
-      { label: "Acceso a archivos", body: "se concede por carpeta mediante el selector de carpetas del sistema en Android, y a través de los selectores de documentos y fotos del sistema en iOS. Mobile SSH no solicita un permiso de almacenamiento general en ninguna de las dos plataformas." }
+      { label: "Acceso a archivos", body: "se concede mediante selectores del sistema de carpetas, documentos y fotos; iOS puede recordar una carpeta externa de Archivos. Ninguna plataforma pide acceso general al almacenamiento." },
+      {
+        "label": "Autorización VPN (Android)",
+        "body": "necesaria antes de que un cliente integrado dirija tráfico del dispositivo. Un proxy solo SOCKS no ocupa la conexión VPN del sistema."
+      },
+      {
+        "label": "USB y NFC (Android)",
+        "body": "se usan con claves FIDO2 físicas para registro o firma SSH, con permiso USB y confirmación de toque/PIN según corresponda."
+      }
     ],
     securityHeading: "Responsabilidades de seguridad",
     securityBody:
-      "Protege tu dispositivo con un bloqueo de pantalla fuerte si guardas credenciales o claves privadas. Conéctate solo a servidores en los que confíes. La implementación actual usa almacenamiento local de la app (y el Keychain de iOS), no una bóveda cifrada en la nube. Un ajuste opcional de Pantalla segura añade protección cuando hay secretos en pantalla: en Android bloquea las capturas de pantalla y la grabación de pantalla y oculta la app de la vista de recientes; en iOS oculta la vista previa del selector de apps y bloquea la grabación de pantalla y la duplicación de pantalla (en iOS no se puede bloquear una captura de pantalla manual).",
+      "Protege el dispositivo y las copias exportadas. Compara huellas SSH desconocidas por un canal fiable: desactiva la aceptación automática de Android si quieres aprobar el primer uso; iOS pregunta por defecto. Investiga claves cambiadas antes de reemplazarlas. Pantalla segura bloquea capturas y grabaciones en Android; iOS oculta la vista previa del selector y la grabación/duplicación, pero no puede bloquear capturas manuales.",
     contactHeading: "Contacto",
     contactBody: "Contacto de soporte: [mobile.ssh.info@gmail.com](mailto:mobile.ssh.info@gmail.com)."
   },
@@ -528,13 +582,13 @@ export const es: Dict = {
     eyebrow: "Guía de usuario",
     h1: "Documentación de Mobile SSH",
     intro:
-      "Usa estas páginas como guía pública para instalar, conectar, gestionar sesiones, transferir archivos, reenviar puertos y solucionar problemas de Mobile SSH.",
+      "Guías de identidad SSH, bastiones, terminales/VNC, multiplexores, SFTP, copias, túneles locales y clientes VPN de Android, con sus diferencias entre plataformas.",
     cards: [
-      { slug: "getting-started",  title: "Primeros pasos",            text: "Instala, abre la app, conéctate a tu primer servidor y guarda hosts habituales." },
-      { slug: "terminal",         title: "Terminal",                  text: "Usa paneles, la fila de teclas extra, el desplazamiento, las acciones de copia, el comportamiento de tmux y los ajustes de teclado." },
-      { slug: "file-transfer",    title: "Transferencia de archivos", text: "Explora archivos del teléfono y del servidor, sube, descarga, ordena e inspecciona detalles remotos." },
-      { slug: "port-forwarding",  title: "Reenvío de puertos",        text: "Escribe cadenas de túnel locales, reenvía a destinos IPv6 y haz que se levanten al conectar." },
-      { slug: "troubleshooting",  title: "Solución de problemas",     text: "Soluciona problemas de conexión, autenticación, teclado, almacenamiento y reconexión." }
+      { slug: "getting-started",  title: "Primeros pasos",            text: "Instala, verifica identidades, configura bastiones y claves y guarda tu configuración." },
+      { slug: "terminal",         title: "Terminal",                  text: "Usa controles del terminal, tmux, herdr, Zellij, alertas de agentes y escritorios VNC." },
+      { slug: "file-transfer",    title: "Transferencia de archivos", text: "Transfiere archivos, recuerda carpetas y comparte con sesiones u otras apps." },
+      { slug: "port-forwarding",  title: "Reenvío de puertos",        text: "Configura túneles locales y SSH VPN, SOCKS5, WireGuard, Shadowsocks y OpenVPN en Android." },
+      { slug: "troubleshooting",  title: "Solución de problemas",     text: "Diagnostica problemas de identidad, bastiones, terminal, transferencias, copias y VPN." }
     ]
   },
   docsNav: {
@@ -550,7 +604,7 @@ export const es: Dict = {
     metaDescription: "Acerca de Mobile SSH: versión, autor, licencia y avisos de código abierto del cliente SSH para Android e iOS.",
     eyebrow: "Acerca de",
     h1: "Acerca de Mobile SSH",
-    intro: "Cliente SSH multi-sesión con tmux, reenvío de puertos y SFTP.",
+    intro: "SSH, SFTP, VNC y multiplexores para Android e iOS, con copias locales, identidades verificadas y bastiones. Android también incluye VPN y claves de seguridad físicas.",
     appHeading: "Acerca de la app",
     versionLabel: "Versión",
     authorLabel: "Autor",

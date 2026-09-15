@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Premiers pas"
-description: "Premiers pas pour installer Mobile SSH, se connecter à un serveur et enregistrer des profils, des identifiants et des sessions."
+description: "Installer Mobile SSH, vérifier les identités, configurer bastions et clés, sauvegarder serveurs, identifiants et réglages."
 ---
 
 # Premiers pas
@@ -13,7 +13,7 @@ Mobile SSH est un client SSH pour Android et iOS permettant de vous connecter à
 - Android 8.0 ou plus récent, ou iOS 16 ou plus récent (iPhone ou iPad).
 - Un accès réseau de l'appareil vers votre serveur SSH.
 - Le nom d'hôte ou l'adresse IP du serveur SSH, le port, le nom d'utilisateur et un mot de passe ou une clé privée.
-- Sur Android, un accès au stockage si vous souhaitez utiliser le transfert de fichiers SFTP avec l'explorateur de fichiers local du téléphone ; iOS utilise à la place les sélecteurs de fichiers et de photos du système.
+- Pour les fichiers locaux, choisissez dossiers ou fichiers avec le sélecteur système. Aucune plateforme ne nécessite d'accès global au stockage.
 
 ## Installer l'app
 
@@ -30,12 +30,23 @@ Mobile SSH est un client SSH pour Android et iOS permettant de vous connecter à
 
 Le port SSH par défaut est `22`. Si votre serveur utilise un autre port, indiquez-le dans le profil du serveur.
 
+## Vérifier les identités des serveurs
+
+Les deux apps vérifient l'identité SSH avant les identifiants. Une clé modifiée bloque la connexion, y compris avec adresses alternatives et bastions.
+
+- **Android :** **Accepter automatiquement les nouvelles identités SSH** est activé par défaut. La première clé brute est enregistrée ; les suivantes doivent correspondre. Désactivez-le dans **Réglages → Général → Sécurité** pour comparer chaque nouvelle empreinte SHA-256 avec l'administrateur avant acceptation et reconnexion.
+- **iOS :** une clé inconnue exige confirmation. Comparez son empreinte SHA-256 par un canal fiable, puis choisissez **Faire confiance et reconnecter**.
+
+Consultez les identités enregistrées dans les réglages. Les deux plateformes acceptent les révocations de clés d’hôte fournies par l’administrateur ; Android prend aussi en charge les autorités de certification d’hôtes. Sur iOS, utilisez **Réglages → Identités des serveurs → Importer des clés révoquées** pour les entrées OpenSSH `@revoked` Ed25519/ECDSA à portée définie. Les clés révoquées sont bloquées lors des nouvelles connexions et reconnexions, même si elles étaient déjà approuvées ; importer une révocation ne ferme pas les connexions existantes. iOS ne prend en charge ni les certificats d’hôte ni l’importation de CA. La confiance reste propre à chaque appareil et n’est pas importée depuis une sauvegarde. Ne retirez pas une clé modifiée ou révoquée sans avoir vérifié pourquoi elle a été bloquée.
+
 ## Choisir un transport
 
 Lors de l'ajout ou de la modification d'un serveur, le sélecteur **Transport** détermine la façon dont Mobile SSH se connecte :
 
 - **SSH** — une connexion SSH standard (par défaut).
 - **Eternal Terminal** — une session résiliente qui survit aux coupures réseau, à la mise en veille et aux changements d'IP. Si l'hôte n'a pas d'`etserver`, Mobile SSH peut en installer un pour vous via SSH. Voyez le guide **Terminal** pour les détails.
+
+Android propose aussi des connexions expérimentales par proxy **Teleport**. Les routes par bastions nécessitent SSH et ne se combinent pas avec Eternal Terminal.
 
 ## Enregistrer des serveurs
 
@@ -47,12 +58,17 @@ Les serveurs enregistrés conservent la cible de connexion et la configuration d
 - Les informations de mot de passe ou de clé privée.
 - Des règles facultatives de redirection de ports locale.
 - Des adresses supplémentaires facultatives pour la même machine (voir ci-dessous).
+- Bastions enregistrés facultatifs et choix **Rattacher à la connexion** : Auto, Rien, tmux, herdr ou Zellij.
 
 Utilisez les serveurs enregistrés pour les hôtes auxquels vous accédez régulièrement. Si un serveur enregistré pointe vers un hôte différent de votre session active actuelle, Mobile SSH démarre une nouvelle connexion pour la cible sélectionnée.
 
 ### Plusieurs adresses (itinérance LAN/VPN)
 
 La même machine est souvent joignable à différentes adresses selon l'endroit où vous vous trouvez — une IP Wi-Fi domestique ou une IP VPN. Ajoutez les alternatives dans la boîte de dialogue d'édition du serveur, chacune avec son propre port si nécessaire. Lors de la connexion, Mobile SSH essaie les adresses dans l'ordre jusqu'à ce que l'une réponde, et il mémorise l'adresse qui a fonctionné en dernier pour la composer en premier la fois suivante. Un changement de réseau (par exemple en quittant le VPN) déclenche une reconnexion immédiate vers l'adresse désormais joignable, au lieu d'attendre l'expiration de la route morte.
+
+### Bastions
+
+Enregistrez d'abord les bastions, puis choisissez leur ordre dans les réglages du serveur cible. Les deux plateformes acceptent huit sauts SSH développés maximum. Chaque saut a ses identifiants et vérifications ; la cible doit être accessible depuis le saut précédent. Hôtes absents, boucles et échecs arrêtent la route sans connexion directe silencieuse. Terminal, SFTP, redirections locales et fonctions SSH compatibles utilisent cette route.
 
 ## Enregistrer des identifiants
 
@@ -71,7 +87,9 @@ Pour utiliser une clé privée :
 3. Saisissez la phrase secrète de la clé dans le champ mot de passe/phrase secrète si la clé est chiffrée.
 4. Enregistrez l'identifiant ou le serveur.
 
-L'importation de la clé privée utilise le sélecteur de fichiers du système pour les fichiers de clé. Sur Android, le transfert de fichiers utilise un explorateur de fichiers local distinct et peut demander un accès au stockage plus large sur les versions récentes d'Android ; sur iOS, les fichiers passent par les sélecteurs de documents et de photos du système.
+L'import de clé utilise le sélecteur système et ne donne pas accès au reste du stockage. Le transfert de fichiers a sa propre sélection de dossiers et fichiers.
+
+Android accepte les **clés de sécurité FIDO2** par USB/NFC : enregistrez une clé ou importez son identifiant OpenSSH, puis suivez les demandes de toucher/PIN. La clé physique reste nécessaire après export/restauration. **Transfert d'agent SSH** s'active par serveur : les clés enregistrées répondent aux demandes de signature, avec approbation facultative par usage. N'activez que pour des serveurs auxquels vous faites confiance pour signer. iOS ne prend en charge ni ces clés ni le transfert d'agent.
 
 ## L'écran d'accueil
 
@@ -79,7 +97,9 @@ L'écran d'accueil est conçu pour répondre à la question « où puis-je repre
 
 - **Continue** liste les connexions actives à l'instant, avec un compteur de panneaux lorsqu'une connexion en compte plusieurs. Touchez une ligne pour y revenir.
 - **Tmux sessions** liste ce qui tourne sur vos serveurs enregistrés. La liste provient d'un instantané que l'app a déjà stocké : elle s'affiche donc instantanément, sans aucun réseau — chaque ligne porte l'âge de l'instantané, et en toucher une connecte puis attache cette session. Les instantanés s'estompent au bout de quelques heures et sont supprimés après une semaine.
-- Sur iOS, une liste **Recent** figure sous ces sections ; l'app Android l'a abandonnée, car « où puis-je reprendre ? » s'est révélé plus utile que « quand me suis-je connecté pour la dernière fois ? ».
+- Sur iOS, **Récents** se trouve dans **Nouvelle connexion** ; choisir une entrée remplit le formulaire.
+
+La tuile **VPN** d'Android ouvre les clients intégrés ; **À propos** se trouve dans les réglages. Le guide VPN fait partie de **Redirection de ports** sur ce site.
 
 Si rien n'est actif et que rien n'est en cache, l'écran le signale et vous renvoie vers **Servers**.
 
@@ -95,9 +115,15 @@ Les serveurs peuvent être classés dans des dossiers. Un dossier se replie, se 
 
 **Export selected…** sur les écrans Servers et Credentials transforme la liste en sélecteur à cases à cocher : vous pouvez transmettre trois serveurs sans tout exporter. Toucher l'en-tête d'un dossier prend tout le dossier. Les exports sont chiffrés si vous fournissez une phrase secrète — sans elle, le fichier contient les mots de passe et les clés privées en clair, et l'app vous le dit avant d'écrire.
 
+Pour une sauvegarde complète, choisissez **Tout exporter (sauvegarde)** sur Android ou **Sauvegarde et restauration** sur iOS. Elle inclut serveurs, identifiants et préférences : langue, touches, tri des multiplexeurs. Android ajoute les profils VPN/SOCKS. Protégez le fichier entier avec une phrase de passe.
+
+Les deux apps lisent le format 2 et les anciens inventaires. Vérifiez l'aperçu : **Fusionner** applique les sections en conservant les éléments existants ; **Remplacer** remplace les sections incluses et rétablit les valeurs par défaut des préférences omises dans une section de réglages fournie. Les sections absentes restent intactes. Les options incompatibles sont signalées ; les importer ne crée pas ces fonctions dans l'autre app. Aucun VPN ne démarre à l'import.
+
+Identités, sessions actives, permissions système et accès aux dossiers ne sont pas restaurés. Vérifiez les hôtes et autorisez les dossiers sur le nouvel appareil. Les anciennes versions ne lisent pas le nouveau format complet.
+
 ## Sessions actives
 
-Lorsque des sessions sont en cours, l'écran d'accueil affiche **Active Sessions** avec un compteur. Touchez-le pour revenir à la grille de terminaux. Une notification persistante liste également les hôtes actifs — touchez un hôte dans la notification pour accéder directement à ce terminal.
+Lorsque des sessions tournent, **Sessions actives** affiche leur nombre et ouvre la grille. Sur Android, une notification persistante liste aussi les hôtes et ouvre les commandes de connexion.
 
 Revenir à l'écran d'accueil ne déconnecte pas les sessions SSH actives ; fermer des volets ou terminer l'activité de terminal les déconnecte.
 
@@ -109,13 +135,15 @@ Ouvrez **Settings** depuis l'écran d'accueil (il dispose de sa propre page) :
 - Réglez la **taille du texte**, la **police**, le **jeu de couleurs** et la taille du **scrollback** du terminal, puis choisissez un **thème** d'application (Système, Clair ou Sombre).
 - Activez **Agent alerts** si vous exécutez de longues tâches en arrière-plan (Claude Code, Codex, scripts shell) et souhaitez être prévenu lorsque l'agent a besoin de votre intervention. Voyez le guide **Terminal** pour savoir comment les agents se signalent.
 - Sur Android, **Keep sessions running in background** est activé par défaut : les shells et les agents survivent au balayage de l'app hors des récentes.
-- Sur Android, désactivez l'envoi d'analyses d'utilisation anonymes si vous préférez qu'aucune donnée ne soit transmise. L'app iOS ne propose pas encore cet interrupteur.
+- Les deux plateformes ont un interrupteur d'analyse anonyme ; le désactiver arrête la collecte de nouveaux événements.
+- Sur iOS, **Dictée et suggestions** est activé. Désactivez-le et ouvrez un nouveau volet pour une saisie directe sans dictée ni correction.
+- Notifications distantes, fin de commande et lecture distante du presse-papiers ont des autorisations séparées. N'activez que les actions souhaitées.
 
 ## Plugins
 
 Les plugins étendent Mobile SSH avec des flux de travail supplémentaires. Ouvrez **Plugins** depuis l'écran d'accueil pour :
 
-- Parcourir un catalogue de plugins disponibles.
+- Parcourez le catalogue par catégorie et recherchez des plugins.
 - Installer ceux que vous voulez — chaque plugin est téléchargé à la demande et vérifié par somme de contrôle SHA-256 dans le stockage privé de l'app.
 - Exécuter les plugins installés depuis le même écran.
 
@@ -123,10 +151,10 @@ Les plugins sont récupérés depuis un catalogue public par défaut. Si vous ma
 
 ## Langues
 
-Mobile SSH suit la langue du système par défaut. L'app est livrée avec des traductions en arabe, bengali, chinois (simplifié et traditionnel), anglais, français, allemand, hindi, indonésien, japonais, marathi, portugais, russe, espagnol, tamoul, télougou, turc et ourdou — vingt langues sur Android, qui ajoute le pidgin nigérian et l'arabe égyptien, et dix-huit sur iOS.
+Mobile SSH suit la langue système par défaut. Les deux apps proposent vingt langues : arabe, arabe égyptien, bengali, chinois simplifié et traditionnel, anglais, français, allemand, hindi, indonésien, japonais, marathi, pidgin nigérian, portugais, russe, espagnol, tamoul, télougou, turc et ourdou.
 
 Si vous voulez l'app dans une autre langue que celle du téléphone, **Settings → Language** propose un sélecteur avec une option « System default ». Vous pouvez aussi toujours en changer dans **Settings → System → Languages** d'Android ou dans **Settings → General → Language & Region** sur iOS.
 
 ## Note de sécurité
 
-Connectez-vous uniquement à des serveurs de confiance. L'app actuelle stocke les données de connexion enregistrées localement et n'offre ni coffre-fort cloud ni synchronisation entre appareils. L'implémentation actuelle ne présente pas non plus de confirmation d'hôte connu ; évitez donc de vous connecter via des réseaux non fiables lorsque l'identité de l'hôte est importante.
+Connectez-vous uniquement à des serveurs fiables. Les données restent sur l'appareil sauf export ou partage ; Mobile SSH n'a ni coffre cloud ni synchronisation automatique. Protégez appareil et sauvegardes, vérifiez les empreintes inconnues et examinez les changements de clé avant reconnexion.

@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Transferência de arquivos"
-description: "Guia de transferência de arquivos por SFTP do Mobile SSH para arquivos locais e remotos, upload, download, ordenação e permissões."
+description: "Transferências SFTP do Mobile SSH, pastas lembradas, diretórios por sessão tmux, filas, permissões e compartilhamento com o terminal."
 ---
 
 # Transferência de arquivos
@@ -24,15 +24,15 @@ A tela de transferência de arquivos tem dois painéis de navegação:
 - **Painel local:** armazenamento do telefone.
 - **Painel remoto:** arquivos do servidor por SFTP.
 
-O app lembra os últimos dez caminhos remotos por host — abra-os pelo cabeçalho do painel remoto no Android, ou pelo ícone de relógio no iOS. As configurações de ordenação são lembradas por host para ambos os painéis. Não há histórico de caminhos locais: no Android, o painel local é a pasta que você concedeu e, no iOS, é a área de documentos do próprio app.
+O app lembra caminhos remotos recentes e ordenação por host. Abra-os pelo cabeçalho remoto no Android ou relógio no iOS. O painel local mostra a pasta escolhida; iOS usa Documentos do app até você escolher outra.
 
 A tela de transferência de arquivos segue o tema claro ou escuro do seu sistema, para que combine com o restante do Mobile SSH.
 
-### Onde cada sessão abre (Android)
+### Onde cada sessão abre
 
-Abrir a Transferência de arquivos a partir de um painel anexado a uma sessão tmux coloca o painel remoto de volta onde **aquela sessão** estava trabalhando por último, com o nome da sessão no cabeçalho do painel. Uma sessão a partir da qual você ainda não a abriu começa nos diretórios que você mais usa naquele host, depois no último diretório do host e, por fim, no seu diretório pessoal.
+Nas duas plataformas, abrir Transferência de arquivos pelo tmux restaura o diretório lembrado para **essa sessão e esse socket**. Uma sessão nova tenta pastas frequentes do host e depois outros diretórios lembrados ou de login.
 
-Se um diretório lembrado tiver sido apagado desde então, o app desce por essa lista até que um deles realmente liste o conteúdo, em vez de deixar você diante de um erro — e não regrava o caminho quebrado. No iOS, é lembrado um diretório remoto por host.
+Se um diretório sumiu ou está inacessível, o navegador tenta o próximo local utilizável. Falhas de conexão são informadas sem confundi-las com pastas ausentes. Atualizar não conta como nova visita.
 
 ## Acesso ao armazenamento
 
@@ -40,9 +40,9 @@ O Mobile SSH não pede permissão irrestrita de armazenamento em nenhuma das pla
 
 No Android, você concede **uma pasta** com o seletor de pastas do sistema, e os downloads são gravados nela — em um lugar que todos os outros apps já conseguem ler. A concessão continua valendo entre as aberturas do app.
 
-No iOS, o painel local é a área de documentos do app, e os arquivos entram pelos seletores de documentos e de fotos do sistema.
+No iOS, **Meu telefone → Escolher pasta local** permite acesso a uma pasta de Arquivos, incluindo iCloud Drive e provedores compatíveis. A escolha persiste. **Usar pasta do app** volta a Documentos do Mobile SSH. Se a pasta ficar indisponível, escolha-a de novo ou volte explicitamente à pasta do app; downloads não são redirecionados silenciosamente. Essa permissão não entra no backup.
 
-No iOS, o painel local trabalha com a área de documentos do próprio app, e você traz arquivos por meio dos seletores de documentos e de fotos do sistema — incluindo a importação com seleção múltipla de fotos e documentos. Nenhuma permissão de armazenamento separada é necessária.
+Os seletores de documentos e fotos do iOS também importam vários itens. Conflitos oferecem **Substituir**, **Manter ambos** ou **Cancelar**. Importar um arquivo que já está no destino o deixa intacto.
 
 A importação de chave privada é separada da transferência de arquivos e usa o seletor de arquivos do sistema.
 
@@ -54,7 +54,7 @@ A importação de chave privada é separada da transferência de arquivos e usa 
 4. Confirme o destino remoto.
 5. Acompanhe a fila de transferência para ver o progresso e a conclusão.
 
-Os uploads usam a conexão SSH/SFTP existente. Se a conexão cair, tente novamente após reconectar.
+Uploads seguem a rota SSH do servidor escolhido, incluindo bastiões salvos. Se a conexão cair, tente novamente depois de reconectar.
 
 ## Baixar arquivos (download)
 
@@ -74,7 +74,7 @@ Os uploads e downloads não se limitam a arquivos individuais. Escolha uma pasta
 
 Dependendo do item remoto selecionado, o Mobile SSH pode mostrar ações como:
 
-- Baixar, ou **Copy to phone** no Android.
+- **Copiar para o telefone** para baixar.
 - Copiar ou mover **no servidor** — `cp -r` / `mv` são executados no host sem que os bytes passem pelo seu telefone.
 - Renomear.
 - Excluir.
@@ -95,22 +95,26 @@ Cada painel pode ordenar por nome ou data, em ordem crescente ou decrescente. O 
 
 ## Fila de transferência
 
-As transferências são enfileiradas e exibidas por status, e o log mostra todas elas e pode ser rolado — o Android as organiza em abas Queued / Failed / Successful; o iOS, em Active / Failed / Done. As transferências com falha incluem um motivo quando a operação SFTP subjacente fornece um. No iOS, o arquivo que está sendo transferido no momento fica no topo da aba Active, e uma linha pode ser cancelada no meio do caminho.
+Transferências são organizadas por estado: Na fila / Falhas / Sucesso no Android, Ativas / Falhas / Concluídas no iOS. Falhas incluem o motivo disponível. No iOS, a transferência atual fica no topo de Ativas e pode ser cancelada.
+
+No iOS, a fila mantém a pasta original mesmo se você navegar para outra. Downloads terminam em armazenamento temporário antes de substituir o destino; cancelamento ou falha preserva o arquivo existente. Se o destino mudou após autorizar sobrescrita, o app para.
 
 ## Tirar arquivos de dentro do app
 
 - **Android:** os downloads caem na pasta que você concedeu, então já ficam visíveis para todos os outros apps. **Open in another app** está nos dois painéis; um arquivo remoto é baixado primeiro e depois entregue.
-- **iOS:** o Mobile SSH aparece no app Arquivos em **No meu iPhone**, então tudo o que está no painel My Phone fica acessível pelo Mail, por seletores e por outros apps. Pressione e segure um arquivo baixado e escolha **Open in another app** para entregá-lo, enviá-lo por AirDrop ou salvá-lo em outro lugar.
+- **iOS:** **Abrir em outro app** funciona para arquivos locais e remotos. O remoto é baixado antes de abrir o compartilhamento. A pasta do app aparece em **No Meu iPhone → Mobile SSH**; pastas externas continuam na localização original em Arquivos.
 
-## Enviar um arquivo para dentro de uma sessão (Android)
+## Enviar um arquivo para uma sessão
 
-O Android aceita arquivos compartilhados a partir de qualquer outro app: compartilhe com o Mobile SSH e o arquivo é enviado para `~/.cache/mobile-ssh` no host daquele painel, com o caminho remoto dele digitado no prompt, para que você possa usá-lo imediatamente. O botão 📎 na barra de ferramentas do terminal faz o mesmo a partir do seletor de arquivos do sistema, e ambos aceitam vários arquivos de uma vez.
+As duas plataformas aceitam arquivos compartilhados por outros apps e oferecem 📎 **Anexar um arquivo** no terminal. Eles são enviados a `~/.cache/mobile-ssh` no host escolhido, e seus caminhos podem entrar no prompt sem pressionar Enter. Vários arquivos são aceitos.
 
-No iOS, traga arquivos para o painel local com o botão ＋ e envie-os a partir dali.
+No Android, compartilhar usa a sessão em execução. No iOS, o clipe oferece **Fototeca** ou **Arquivos**. A extensão de compartilhamento também envia a um servidor SSH salvo com Mobile SSH fechado; perfis Eternal Terminal não aparecem. Verifique identidades desconhecidas no app principal primeiro.
+
+Após upload pela extensão iOS, os caminhos são copiados e ficam na fila para inserção quando houver um painel conectado àquele servidor. Não entram em um painel de outro host.
 
 ## Dicas práticas
 
 - Use o SFTP para mover arquivos pontuais; use ferramentas de linha de comando como o `rsync` no servidor para sincronizar diretórios grandes.
 - Evite editar arquivos de produção em uso, a menos que tenha um backup ou um caminho de reversão da implantação.
 - Se um arquivo não aparecer após o upload, atualize o painel remoto ou verifique o caminho de destino.
-- Se o painel local do Android estiver vazio, escolha uma pasta com **Pick folder** — o app só tem acesso à pasta que você conceder a ele. No iOS, use os seletores para adicionar arquivos ao painel local.
+- Se o painel local Android estiver vazio, use **Escolher pasta**. No iOS, escolha **Escolher pasta local**, **Usar pasta do app** ou os seletores de importação conforme o destino desejado.

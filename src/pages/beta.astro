@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { PLAY_STORE_BETA_URL, TESTFLIGHT_URL } from "../i18n/version";
+import { PLAY_STORE_BETA_URL, TESTFLIGHT_URL, VERSION_NAME, IOS_VERSION_NAME } from "../i18n/version";
 
 // Standalone, English-only recruitment page. The closed test, feedback form,
 // and target communities are English, so this page opts out of i18n routing
@@ -28,12 +28,12 @@ const steps = [
   {
     n: "2",
     title: "Install Mobile SSH",
-    text: "After opting in, Mobile SSH installs from Google Play (Android) or TestFlight (iOS) like any other app — you'll get beta updates automatically."
+    text: "After opting in, install Mobile SSH from Google Play (Android) or TestFlight (iOS). Keep it updated as new builds become available."
   },
   {
     n: "3",
     title: "Use it for real — for about two weeks",
-    text: "Connect to your own servers and run the checklist below. The closed test needs testers opted in for 14 continuous days, so please keep it installed for the run."
+    text: "Connect to your own servers and run the checklist below. The Android closed test needs testers opted in for 14 continuous days, so please keep it installed for the run."
   },
   {
     n: "4",
@@ -43,36 +43,44 @@ const steps = [
 ];
 
 const checklist = [
-  "Connect to one of your servers with a password or a private key",
+  "Connect with a password or private key, verifying the server's SSH fingerprint with your administrator before trusting it",
   "Save it as a host, then reconnect to it with one tap",
+  "Connect through a saved SSH jump host if your server needs one",
   "Open two sessions side by side in the multi-session grid",
+  "Attach to tmux, herdr, or Zellij, switch sessions, and return to the same work after reconnecting",
   "Transfer a file both ways over SFTP",
+  "On iOS, choose a local folder in Files, reopen the app, and check that the folder is remembered",
   "Set up a local port forward on a saved server",
-  "Lock your screen mid-session, come back, and confirm it reconnects",
+  "Export an encrypted backup including app settings, then check the import preview and restore on a test device",
+  "On Android, try an SSH VPN, SOCKS5 proxy, WireGuard, Shadowsocks, or OpenVPN profile with your own server configuration",
+  "On Android, try a USB or NFC security key if you have one",
+  "Lock your screen mid-session and return to your multiplexer — Android keeps connections in a foreground service; iOS has only a short background window before it needs to reconnect",
+  "Turn off anonymous usage analytics in Settings on either platform",
   "Submit the feedback form once you've tried a few of these"
 ];
 
 const reasons = [
   { tag: "Free, no ads", text: "Every feature is in the one app. No Pro paywall, no ad banners on the terminal." },
-  { tag: "Stays on your device", text: "Saved servers, credentials, and keys are local. No cloud account, nothing to leak." },
+  { tag: "Local storage", text: "Saved servers, credentials, and keys are stored on your device. No Mobile SSH account is required; you choose where to save exported backups and files." },
   { tag: "Real influence", text: "This is a small project. Feedback during the beta goes straight into the next releases." }
 ];
 ---
 
 <BaseLayout
   title="Beta testers wanted | Mobile SSH"
-  description="Help test Mobile SSH, a focused SSH/SFTP client for Android and iOS. Join the closed beta on Google Play or TestFlight and shape the app with your feedback."
+  description="Help test Mobile SSH, an SSH/SFTP client for Android and iOS. Join the Android closed test on Google Play or the iOS public beta on TestFlight and share your feedback."
   localized={false}
 >
   <main>
     <section class="page-header">
-      <p class="eyebrow">Closed beta</p>
+      <p class="eyebrow">Beta testing</p>
       <h1>Android &amp; iOS SSH users wanted</h1>
       <p>
         Mobile SSH is a focused SSH, SFTP, and terminal client for Android and iOS. We're running a
-        closed test on Google Play and TestFlight and looking for people who actually SSH from a phone or
+        closed test on Google Play and a public beta on TestFlight, and looking for people who actually SSH from a phone or
         tablet to put it through real use — and tell us what to fix.
       </p>
+      <p class="fineprint">Latest source versions: Android {VERSION_NAME} · iOS {IOS_VERSION_NAME}. iOS {IOS_VERSION_NAME} is for private TestFlight testers; the public beta remains on an earlier build.</p>
       <div class="cta-row">
         <a class="button" href={PLAY_STORE_BETA_URL} rel="noopener">Opt in on Google Play</a>
         <a class="button" href={TESTFLIGHT_URL} rel="noopener">Test on iOS (TestFlight)</a>
@@ -230,14 +238,14 @@ const reasons = [
   }
   .checklist li {
     position: relative;
-    padding-left: 2rem;
+    padding-inline-start: 2rem;
     color: var(--ink);
     line-height: 1.6;
   }
   .checklist li::before {
     content: "✓";
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     color: var(--green);
     font-weight: 800;

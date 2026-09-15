@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Transfert de fichiers"
-description: "Guide de transfert de fichiers SFTP de Mobile SSH pour les fichiers locaux et distants, l'envoi, le téléchargement, le tri et les permissions."
+description: "Transferts SFTP Mobile SSH, dossiers mémorisés, répertoires des sessions tmux, files d'attente, permissions et partage vers le terminal."
 ---
 
 # Transfert de fichiers
@@ -24,15 +24,15 @@ L'écran de transfert de fichiers comporte deux volets de navigation :
 - **Volet local :** le stockage du téléphone.
 - **Volet distant :** les fichiers du serveur via SFTP.
 
-L'app mémorise les dix derniers chemins distants par hôte — ouvrez-les depuis l'en-tête du volet distant sur Android, ou l'icône d'horloge sur iOS. Les réglages de tri sont mémorisés par hôte pour les deux volets. Il n'y a pas d'historique des chemins locaux : sur Android, le volet local est le dossier que vous avez accordé, et sur iOS c'est la zone de documents propre à l'app.
+L'app mémorise les chemins distants récents et le tri par hôte. Ouvrez ces chemins depuis l'en-tête distant sur Android ou l'horloge sur iOS. Le volet local montre le dossier choisi ; iOS utilise Documents de l'app jusqu'à ce que vous en choisissiez un autre.
 
 L'écran de transfert de fichiers suit le thème clair ou sombre de votre système, pour rester cohérent avec le reste de Mobile SSH.
 
-### Où chaque session s'ouvre (Android)
+### Où chaque session s'ouvre
 
-Ouvrir le transfert de fichiers depuis un volet attaché à une session tmux replace le volet distant là où **cette session** travaillait en dernier, avec le nom de la session dans l'en-tête du volet. Une session depuis laquelle vous ne l'aviez encore jamais ouvert démarre dans les dossiers que vous utilisez le plus sur cet hôte, puis le dernier répertoire de l'hôte, puis votre répertoire personnel.
+Sur les deux plateformes, ouvrir Transfert de fichiers depuis tmux restaure le répertoire associé à **cette session et ce socket**. Une nouvelle session essaie les dossiers fréquents de l'hôte, puis les autres emplacements mémorisés ou le répertoire de connexion.
 
-Si un répertoire mémorisé a depuis été supprimé, l'app descend cette liste jusqu'à en trouver un qui s'affiche réellement, au lieu de vous laisser sur une erreur — et elle ne réécrit pas le chemin cassé. Sur iOS, un seul répertoire distant est mémorisé par hôte.
+Si un répertoire manque ou est inaccessible, le navigateur essaie l'emplacement utilisable suivant. Une panne de connexion est signalée, sans la confondre avec un dossier absent. Actualiser ne compte pas comme une nouvelle visite.
 
 ## Accès au stockage
 
@@ -40,9 +40,9 @@ Mobile SSH ne demande d'autorisation de stockage globale sur aucune des deux pla
 
 Sur Android, vous accordez **un seul dossier** avec le sélecteur de dossiers du système, et les téléchargements y sont écrits — à un endroit que toutes les autres applications peuvent déjà lire. L'autorisation persiste d'un lancement à l'autre.
 
-Sur iOS, le volet local est la zone de documents de l'app, et les fichiers y entrent via les sélecteurs de documents et de photos du système.
+Sur iOS, **Mon téléphone → Choisir un dossier local** autorise un dossier de Fichiers, notamment iCloud Drive et les fournisseurs compatibles. Le choix persiste. **Utiliser le dossier de l'app** revient à Documents de Mobile SSH. Si le dossier devient indisponible, sélectionnez-le à nouveau ou revenez explicitement au dossier de l'app ; les téléchargements ne sont pas redirigés silencieusement. L'autorisation de dossier n'est pas sauvegardée.
 
-Sur iOS, le volet local fonctionne avec la zone de documents propre à l'app, et vous importez des fichiers via les sélecteurs de documents et de photos du système — y compris l'importation en sélection multiple de photos et de documents. Aucune permission de stockage distincte n'est nécessaire.
+Les sélecteurs de documents et photos iOS importent aussi plusieurs éléments. Un conflit de nom propose **Remplacer**, **Conserver les deux** ou **Annuler**. Un fichier déjà situé à destination reste intact.
 
 L'importation de la clé privée est distincte du transfert de fichiers et utilise le sélecteur de fichiers du système.
 
@@ -54,7 +54,7 @@ L'importation de la clé privée est distincte du transfert de fichiers et utili
 4. Confirmez la destination distante.
 5. Surveillez la file de transfert pour la progression et la fin.
 
-Les envois utilisent la connexion SSH/SFTP existante. Si la connexion tombe, réessayez après reconnexion.
+Les envois suivent la route SSH du serveur choisi, y compris ses bastions enregistrés. Après une coupure, réessayez après reconnexion.
 
 ## Télécharger des fichiers
 
@@ -74,7 +74,7 @@ Les envois et les téléchargements ne se limitent pas aux fichiers isolés. Cho
 
 Selon l'élément distant sélectionné, Mobile SSH peut afficher des actions telles que :
 
-- Télécharger, ou **Copy to phone** sur Android.
+- **Copier sur le téléphone** pour télécharger.
 - Copier ou déplacer **sur le serveur** — `cp -r` / `mv` s'exécutent sur l'hôte, sans que les octets passent par votre téléphone.
 - Renommer.
 - Supprimer.
@@ -95,22 +95,26 @@ Chaque volet peut trier par nom ou par date, en ordre croissant ou décroissant.
 
 ## File de transfert
 
-Les transferts sont mis en file et affichés par statut, et le journal montre chaque transfert et se fait défiler — Android les répartit en onglets Queued / Failed / Successful, iOS en Active / Failed / Done. Les transferts échoués indiquent un motif lorsque l'opération SFTP sous-jacente en fournit un. Sur iOS, le fichier en cours de transfert reste en haut de l'onglet Active, et une ligne peut être annulée en cours de route.
+Les transferts sont classés par état : En attente / Échec / Réussite sur Android, Actifs / Échec / Terminés sur iOS. Les échecs affichent le motif disponible. Sur iOS, le transfert courant reste en tête d'Actifs et peut être annulé.
+
+Sur iOS, les transferts en attente conservent leur dossier d'origine même si vous naviguez ailleurs. Les téléchargements se terminent dans un espace temporaire avant remplacement ; annulation ou échec préserve le fichier existant. Si la destination a changé après l'accord d'écrasement, l'app s'arrête.
 
 ## Sortir des fichiers de l'app
 
 - **Android :** les téléchargements atterrissent dans le dossier que vous avez accordé, ils sont donc déjà visibles par toutes les autres applications. **Open in another app** est disponible dans les deux volets ; un fichier distant est d'abord téléchargé, puis transmis.
-- **iOS :** Mobile SSH apparaît dans l'app Fichiers sous **Sur mon iPhone**, si bien que tout ce qui se trouve dans le volet My Phone est accessible depuis Mail, les sélecteurs et d'autres applications. Appuyez longuement sur un fichier téléchargé et choisissez **Open in another app** pour le transmettre, l'envoyer par AirDrop ou l'enregistrer ailleurs.
+- **iOS :** **Ouvrir dans une autre app** concerne les fichiers locaux et distants. Un fichier distant est téléchargé avant l'ouverture de la feuille de partage. Le dossier de l'app apparaît sous **Sur mon iPhone → Mobile SSH** ; un dossier externe reste à son emplacement Fichiers d'origine.
 
-## Envoyer un fichier dans une session (Android)
+## Envoyer un fichier dans une session
 
-Android accepte les fichiers partagés vers lui depuis n'importe quelle autre application : partagez vers Mobile SSH et le fichier est téléversé dans `~/.cache/mobile-ssh` sur l'hôte du volet, son chemin distant étant saisi à l'invite pour que vous puissiez l'utiliser immédiatement. Le bouton 📎 de la barre d'outils du terminal fait la même chose depuis le sélecteur de fichiers du système, et les deux acceptent plusieurs fichiers à la fois.
+Les deux plateformes acceptent les fichiers partagés par d'autres apps et proposent 📎 **Joindre un fichier** dans le terminal. Ils sont envoyés dans `~/.cache/mobile-ssh` de l'hôte choisi ; leurs chemins peuvent être insérés à l'invite sans appuyer sur Entrée. Plusieurs fichiers sont acceptés.
 
-Sur iOS, importez des fichiers dans le volet local avec le bouton ＋ et envoyez-les depuis là.
+Sur Android, le partage vise la session en cours. Sur iOS, le trombone propose **Photothèque** ou **Fichiers**. L'extension de partage iOS peut envoyer vers un serveur SSH enregistré même lorsque Mobile SSH est fermé ; les profils Eternal Terminal sont exclus. Vérifiez d'abord toute identité inconnue dans l'app principale.
+
+Après un envoi par l'extension iOS, les chemins sont copiés au presse-papiers et attendent un volet connecté à ce serveur pour être insérés. Ils ne sont jamais insérés dans un volet connecté à un autre hôte.
 
 ## Conseils pratiques
 
 - Utilisez SFTP pour des déplacements de fichiers ponctuels ; utilisez des outils en ligne de commande comme `rsync` sur le serveur pour synchroniser de grands répertoires.
 - Évitez de modifier des fichiers de production en service sans sauvegarde ni possibilité de retour arrière du déploiement.
 - Si un fichier n'apparaît pas après l'envoi, actualisez le volet distant ou vérifiez le chemin de destination.
-- Si le volet local d'Android est vide, choisissez un dossier avec **Pick folder** — l'app n'a accès qu'au dossier que vous lui accordez. Sur iOS, utilisez plutôt les sélecteurs pour ajouter des fichiers au volet local.
+- Si le volet local Android est vide, utilisez **Choisir un dossier**. Sur iOS, choisissez **Choisir un dossier local**, **Utiliser le dossier de l'app** ou les sélecteurs d'importation selon l'emplacement souhaité.

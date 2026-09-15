@@ -39,12 +39,12 @@ describe("locale dicts – structure", () => {
       expect(() => getDict(locale)).not.toThrow();
     });
 
-    it(`${locale}: advantages has 9 items`, () => {
+    it(`${locale}: advantages has ${en.home.advantages.length} items`, () => {
       const t = getDict(locale);
       expect(t.home.advantages).toHaveLength(en.home.advantages.length);
     });
 
-    it(`${locale}: features has 13 items`, () => {
+    it(`${locale}: features has ${en.home.features.length} items`, () => {
       const t = getDict(locale);
       expect(t.home.features).toHaveLength(en.home.features.length);
     });
@@ -172,6 +172,15 @@ describe("locale dicts – structure", () => {
     it(`${locale}: privacy sections has ${en.privacy.sections.length} sections`, () => {
       const t = getDict(locale);
       expect(t.privacy.sections).toHaveLength(en.privacy.sections.length);
+    });
+
+    it(`${locale}: privacy permissions match English and are complete`, () => {
+      const t = getDict(locale);
+      expect(t.privacy.permissions).toHaveLength(en.privacy.permissions.length);
+      for (const permission of t.privacy.permissions) {
+        expect(permission.label.trim()).not.toBe("");
+        expect(permission.body.trim()).not.toBe("");
+      }
     });
 
     it(`${locale}: docsIndex cards has ${en.docsIndex.cards.length} cards`, () => {

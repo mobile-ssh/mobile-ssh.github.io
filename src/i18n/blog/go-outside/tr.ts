@@ -45,7 +45,7 @@ export const tr = defineGoOutside({
     `Yani gerçek bir soru ortaya çıkana kadar telefon cebinizde kalır. Sonra titrer, istemi okursunuz, bir yanıta dokunur ve telefonu kaldırırsınız. Etkileşimin tamamı budur ve bir kumsaldan, bir patika başından ya da shave ice kuyruğundan işler.`,
     `Adanın düzeltemeyecekleri`,
     `İki dürüst sınır — çünkü yalnızca güçlü yanları sıralayan bir yazı, reklamdır.`,
-    `Platform farkı gerçektir ve buna göre plan yapmakta yarar var. Android'de, uygulama arka plandayken bağlantıyı bir ön plan hizmeti tutar — kalıcı bildirim oturumun <em>kendisidir</em>. iOS'ta arka planda çalıştırma diye bir şey hiç yoktur; siz döndüğünüzde yeniden bağlanır ve multiplexer'ınıza yeniden iliştirilir. Her iki durumda da sunucudaki ajan hiç durmadı; asıl mesele bu. Kapanan yalnızca pencereydi.`,
+    `Platform farkı gerçektir ve buna göre plan yapmakta yarar var. Android'de, uygulama arka plandayken bağlantıyı bir ön plan hizmeti tutar — kalıcı bildirim oturumun <em>kendisidir</em>. iOS uygulamaya arka planda yalnızca kısa bir süre tanır; askıya alındıktan sonra geri döndüğünüzde yeniden bağlanıp çoklayıcınıza tekrar iliştirilir. Uyarılar için bağlantının etkin olması gerekir. Her iki durumda da sunucudaki ajan hiç durmadı; asıl mesele bu. Kapanan yalnızca pencereydi.`,
     `Aloha, dikkatsizliğin mazereti değildir`,
     `İyi ayrılmak küçük bir disiplindir. İki saat gözetimsiz çalışmasını istemeyeceğiniz hiçbir şeyi kapıdan çıkarken başlatmayın — bir migration'ın ortasındaki ajan, mesafeyle daha iyi hâle gelmez. Ona doğal bir durma noktası olan bir görev verin, düzenlemeden önce incelemesini isteyin ve döndüğünüzde gözden geçireceğiniz şey diff olsun.`,
     `Bildirime de bir çağrı cihazına göstereceğiniz özeni gösterin. Her şey uyarı üretiyorsa hiçbir şey uyarı üretmiyordur. Hook, bir insanı bölmeye değer durumlarda tetiklenir; öyle bırakın ki titreşim anlamlı kalsın.`,
@@ -88,8 +88,8 @@ export const tr = defineGoOutside({
       { item: "Dosyalar, diff'ler ve test çıktısı", value: "Sunucunun diskinde", survives: true },
       { item: "Oturumdaki yeriniz", value: "Döndüğünüzde yeniden iliştirilir", survives: true },
       { item: "Android'de bağlantı", value: "Bir ön plan hizmeti tutar", survives: true },
-      { item: "iOS'ta bağlantı", value: "Arka planda çalıştırma yok — yeniden bağlanır", survives: false },
-      { item: "İletecek sinyali olmayan bir uyarı", value: "Telefon yeniden erişilebilir olduğunda ulaşır", survives: false }
+      { item: "iOS'ta bağlantı", value: "Kısa süre arka planda — ardından yeniden bağlanır", survives: false },
+      { item: "İletecek sinyali olmayan bir uyarı", value: "Etkin bağlantı gerekir; teslim garantisi yoktur", survives: false }
     ],
     note: "Ajan her satırda çalışmaya devam eder. Değişen tek şey, telefonunuzun pencereyi açık tutmayı sürdürüp sürdürmediğidir."
   },

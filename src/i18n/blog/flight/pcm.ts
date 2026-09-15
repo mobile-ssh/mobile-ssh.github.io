@@ -336,7 +336,7 @@ export const pcm: FlightPost = {
             No be dem dey pay di satellite tax; na only wen you dey answer dem you dey pay am.`
     },
     {
-      title: "push-wen-e-matter",
+      title: "alerts-when-you-need-am",
       bellLabel: " (bell)",
       body: `Agent Alerts dey fire wen something actually need human — so di flight go be time to
             review and decide, no be to dey look prompt dey wait for echo.`
@@ -347,9 +347,7 @@ export const pcm: FlightPost = {
     cmdComment: "free · open source · Apache-2.0",
     heading: "Your next long-haul na eleven hours of server time.",
     prose: [
-      `Mobile SSH na native SSH, SFTP and terminal client for Android, iPhone and iPad. Plenty
-          session, tmux manager wey dey inside, Eternal Terminal, and push alert wen agent need you.
-          E free, no account, no ads, open source.`
+      `Mobile SSH na native SSH, SFTP and terminal client for Android, iPhone and iPad. Plenty sessions, tmux manager wey follow the app, Eternal Terminal, and notifications when agent wey connect needs you; iOS dey limit alerts for background. E free, no account, no ads, and na open source.`
     ],
     tags: ["No ads", "No account", "Data dey for di device", "Apache-2.0"],
     playButton: "Get am for Google Play",

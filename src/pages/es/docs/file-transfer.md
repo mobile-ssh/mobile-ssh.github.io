@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Transferencia de archivos"
-description: "Guía de transferencia de archivos por SFTP de Mobile SSH para archivos locales y remotos, subida, descarga, ordenación y permisos."
+description: "Transferencias SFTP de Mobile SSH, carpetas recordadas, directorios por sesión tmux, colas, permisos y archivos compartidos con el terminal."
 ---
 
 # Transferencia de archivos
@@ -24,15 +24,15 @@ La pantalla de transferencia de archivos tiene dos paneles de exploración:
 - **Panel local:** almacenamiento del teléfono.
 - **Panel remoto:** archivos del servidor por SFTP.
 
-La app recuerda las diez últimas rutas remotas por host — ábrelas desde el encabezado del panel remoto en Android, o desde el icono del reloj en iOS. Los ajustes de ordenación se recuerdan por host para ambos paneles. No hay historial de rutas locales: en Android el panel local es la carpeta que hayas concedido, y en iOS es el área de documentos propia de la app.
+La app recuerda las rutas remotas recientes y el orden por host. Ábrelas desde la cabecera remota en Android o el reloj en iOS. El panel local muestra la carpeta elegida; iOS usa Documentos de la app hasta que elijas otra.
 
 La pantalla de transferencia de archivos sigue el tema claro u oscuro del sistema, así que encaja con el resto de Mobile SSH.
 
-### Dónde se abre cada sesión (Android)
+### Dónde se abre cada sesión
 
-Abrir la transferencia de archivos desde un panel adjunto a una sesión de tmux devuelve el panel remoto al lugar donde **esa sesión** estaba trabajando por última vez, con el nombre de la sesión en el encabezado del panel. Una sesión desde la que no la hayas abierto antes empieza en los directorios que más usas en ese host, después en el último directorio del host y después en tu directorio personal.
+En ambas plataformas, abrir Transferencia de archivos desde tmux recupera el directorio recordado para **esa sesión y ese socket**. Una sesión nueva prueba los directorios frecuentes del host y después otros recordados o el de inicio de sesión.
 
-Si un directorio recordado se ha eliminado desde entonces, la app va bajando por esa lista hasta que alguno se pueda listar de verdad, en lugar de dejarte en un error — y no vuelve a guardar la ruta rota. En iOS se recuerda un directorio remoto por host.
+Si un directorio recordado falta o no es accesible, el navegador prueba la siguiente ubicación utilizable. Los fallos de conexión se notifican, sin confundirlos con carpetas ausentes. Actualizar no cuenta como una nueva visita.
 
 ## Acceso al almacenamiento
 
@@ -40,9 +40,9 @@ Mobile SSH no pide un permiso de almacenamiento general en ninguna de las dos pl
 
 En Android concedes **una carpeta** con el selector de carpetas del sistema, y las descargas se escriben ahí — en un sitio que todas las demás apps ya pueden leer. La concesión se mantiene entre arranques.
 
-En iOS el panel local es el área de documentos de la app, y los archivos entran mediante los selectores de documentos y fotos del sistema.
+En iOS, **Mi teléfono → Elegir carpeta local** concede acceso a una carpeta de Archivos, incluidos iCloud Drive y proveedores compatibles. La elección persiste. **Usar carpeta de la app** vuelve a Documentos de Mobile SSH. Si la carpeta deja de estar disponible, selecciónala de nuevo o cambia explícitamente a la carpeta de la app; las descargas no se redirigen sin avisar. El permiso local no se incluye en las copias de seguridad.
 
-En iOS, el panel local funciona con el área de documentos propia de la app, y los archivos se incorporan mediante los selectores de documentos y fotos del sistema, incluida la importación con selección múltiple de fotos y documentos. No se necesita un permiso de almacenamiento aparte.
+Los selectores de documentos y fotos de iOS también importan varios elementos. Si coinciden nombres, ofrecen **Reemplazar**, **Conservar ambos** o **Cancelar**. Importar un archivo que ya está en el destino lo deja intacto.
 
 La importación de la clave privada es independiente de la transferencia de archivos y usa el selector de archivos del sistema.
 
@@ -54,7 +54,7 @@ La importación de la clave privada es independiente de la transferencia de arch
 4. Confirma el destino remoto.
 5. Observa la cola de transferencia para ver el progreso y la finalización.
 
-Las subidas usan la conexión SSH/SFTP existente. Si la conexión se cae, reinténtalo tras reconectar.
+Las subidas siguen la ruta SSH del servidor seleccionado, incluidos sus servidores de salto guardados. Si se corta la conexión, vuelve a intentarlo tras reconectar.
 
 ## Descargar archivos
 
@@ -74,7 +74,7 @@ Las subidas y descargas no se limitan a archivos sueltos. Elige una carpeta y Mo
 
 Según el elemento remoto seleccionado, Mobile SSH puede mostrar acciones como:
 
-- Descargar, o **Copy to phone** en Android.
+- **Copiar al teléfono** para descargar.
 - Copiar o mover **en el servidor** — `cp -r` / `mv` se ejecutan en el host sin que los bytes pasen por tu teléfono.
 - Renombrar.
 - Eliminar.
@@ -95,22 +95,26 @@ Cada panel puede ordenar por nombre o fecha, en orden ascendente o descendente. 
 
 ## Cola de transferencia
 
-Las transferencias se ponen en cola y se muestran por estado, y el registro muestra todas las transferencias y se puede desplazar — Android las agrupa en pestañas En cola / Fallidas / Correctas, e iOS en Activas / Fallidas / Hechas. Las transferencias fallidas incluyen un motivo cuando la operación SFTP subyacente lo proporciona. En iOS, el archivo que se está transfiriendo se mantiene arriba del todo en la pestaña Activas, y una fila se puede cancelar a mitad de vuelo.
+Las transferencias se muestran por estado: En cola / Fallidas / Completadas en Android y Activas / Fallidas / Hechas en iOS. Los fallos incluyen el motivo disponible. En iOS, la transferencia actual permanece arriba en Activas y puede cancelarse.
+
+En iOS, la cola conserva la carpeta original aunque navegues a otra. Las descargas terminan en almacenamiento temporal antes de reemplazar el destino; cancelar o fallar conserva el archivo existente. Si el destino cambió después de autorizar la sobrescritura, la app se detiene.
 
 ## Sacar archivos de la app
 
 - **Android:** las descargas aterrizan en la carpeta que has concedido, así que ya son visibles para todas las demás apps. **Abrir en otra app** está en ambos paneles; un archivo remoto se descarga primero y luego se entrega.
-- **iOS:** Mobile SSH aparece en la app Archivos, dentro de **En mi iPhone**, así que todo lo que hay en el panel Mi teléfono es accesible desde Mail, los selectores y otras apps. Mantén pulsado un archivo descargado y elige **Abrir en otra app** para entregarlo, enviarlo por AirDrop o guardarlo en otro sitio.
+- **iOS:** **Abrir en otra app** está disponible para archivos locales y remotos. Los remotos se descargan antes de abrir la hoja para compartir. La carpeta de la app aparece en **En mi iPhone → Mobile SSH**; una carpeta externa conserva su ubicación original en Archivos.
 
-## Enviar un archivo a una sesión (Android)
+## Enviar un archivo a una sesión
 
-Android acepta archivos compartidos desde cualquier otra app: comparte con Mobile SSH y el archivo se sube a `~/.cache/mobile-ssh` en el host de ese panel, con su ruta remota escrita en el prompt para que puedas usarlo de inmediato. El botón 📎 de la barra de herramientas de la terminal hace lo mismo desde el selector de archivos del sistema, y ambos aceptan varios archivos a la vez.
+Ambas plataformas aceptan archivos compartidos por otras apps y tienen un control 📎 **Adjuntar un archivo** en el terminal. Se suben a `~/.cache/mobile-ssh` del host elegido y sus rutas pueden insertarse en el prompt sin pulsar Intro. Se admiten varios archivos.
 
-En iOS, incorpora archivos al panel local con el botón ＋ y súbelos desde ahí.
+En Android se comparte con la sesión en ejecución. En iOS, el clip ofrece **Fototeca** o **Archivos**. La extensión para compartir de iOS también sube a un servidor SSH guardado con Mobile SSH cerrado; no ofrece perfiles Eternal Terminal. Verifica primero las identidades desconocidas en la app principal.
+
+Después de subir mediante la extensión de iOS, las rutas se copian al portapapeles y esperan para insertarse cuando haya un panel conectado a ese servidor. No se insertan en un panel de otro host.
 
 ## Consejos prácticos
 
 - Usa SFTP para mover archivos puntuales; usa herramientas de línea de comandos como `rsync` en el servidor para sincronizar directorios grandes.
 - Evita editar archivos de producción en uso a menos que tengas una copia de seguridad o una vía de reversión del despliegue.
 - Si un archivo no aparece tras subirlo, actualiza el panel remoto o verifica la ruta de destino.
-- Si el panel local de Android está vacío, elige una carpeta con **Pick folder** — la app solo tiene acceso a la carpeta que le concedas. En iOS, usa en su lugar los selectores para añadir archivos al panel local.
+- Si el panel local de Android está vacío, usa **Elegir carpeta**. En iOS, usa **Elegir carpeta local**, **Usar carpeta de la app** o los selectores de importación según dónde quieras los archivos.

@@ -308,7 +308,7 @@ export const yue: FlightPost = {
             佢哋唔使畀衛星稅；淨係你答佢哋嗰陣，你先要畀。`
     },
     {
-      title: "有事先響",
+      title: "有需要先通知",
       bellLabel: "（響鈴）",
       body: `真係需要人嗰陣，Agent 提示先會響 —— 於是呢程機就花咗喺審查同落決定上面，
             而唔係望住個提示符等回顯。`
@@ -319,9 +319,7 @@ export const yue: FlightPost = {
     cmdComment: "免費 · 開源 · Apache-2.0",
     heading: "你下一程長途，就係十一個鐘嘅伺服器時間。",
     prose: [
-      `Mobile SSH 係一款為 Android、iPhone 同 iPad 而設嘅原生 SSH、SFTP 同終端機客戶端。多會話、
-          內建 tmux 管理器、Eternal Terminal，仲有 agent 需要你嗰陣嘅推送提示。
-          免費，唔使開帳號，冇廣告，開源。`
+      `Mobile SSH 係 Android、iPhone 同 iPad 嘅原生 SSH、SFTP 同終端機客戶端。支援多個工作階段、內置 tmux 管理器、Eternal Terminal，同埋喺連緊線嘅代理需要你嗰陣發通知；iOS 會限制背景通知送達。免費、唔使帳戶、冇廣告、開源。`
     ],
     tags: ["冇廣告", "唔使開帳號", "資料留喺部機", "Apache-2.0"],
     playButton: "喺 Google Play 下載",

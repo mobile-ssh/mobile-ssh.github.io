@@ -250,11 +250,11 @@ e saiu do prédio. Agora ele cabe num bolso. E atende no primeiro toque.`
     },
     {
       heading: "Chaves geradas no próprio aparelho",
-      body: "Geração de chaves SSH no dispositivo — Ed25519 e ECDSA — com autenticação por senha ou por chave privada. Nada sai do celular."
+      body: "Geração de chaves SSH no dispositivo — Ed25519 e ECDSA — com autenticação por senha ou chave privada. As chaves ficam armazenadas no dispositivo; não é preciso ter uma conta na nuvem do Mobile SSH."
     },
     {
       heading: "Agentes de programação, com Alertas de agente",
-      body: "Rode o Claude Code, o Codex e outros agentes nos <em>seus próprios</em> servidores, direto do celular. Os Alertas de agente disparam uma notificação push — com som e vibração — no instante em que um agente precisa de você, para que você possa se afastar sem perder o fio."
+      body: "Execute Claude Code, Codex e outros agentes nos seus <em>próprios</em> servidores, direto do celular. Agent Alerts usa notificações, som e vibração quando um agente conectado precisa da sua resposta. O Android mantém conexões com um serviço em primeiro plano; o iOS limita a entrega em segundo plano."
     },
     {
       heading: "Vestido para a ocasião",

@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "File transfer"
-description: "Mobile SSH SFTP file transfer guide for local files, remote files, upload, download, sorting, and permissions."
+description: "Mobile SSH SFTP transfers, folders wey e remember, tmux session directories, transfer queue, permissions and files wey you share into terminal."
 ---
 
 # File transfer
@@ -24,15 +24,15 @@ Di file transfer screen get two browser panes:
 - **Local pane:** phone storage.
 - **Remote pane:** server files over SFTP.
 
-Di app dey remember di last ten remote path for each host — open dem from di remote pane header for Android, or di clock icon for iOS. Sort settings dey saved per host for both panes. No local path history dey: for Android, di local pane na di folder wey you grant, and for iOS na di app own documents area.
+Di app remember recent remote paths and sort settings per host. Open dem from remote pane header for Android or clock icon for iOS. Local pane show folder wey you choose; iOS use app Documents until you choose another.
 
 Di file transfer screen dey follow your system light or dark theme, so e dey match di rest of Mobile SSH.
 
-### Where each session dey open (Android)
+### Where each session dey open
 
-If you open File Transfer from pane wey attach to tmux session, e go put di remote pane back where **dat session** last dey work, wit di session name for di pane header. Session wey you never open am from before dey start from di directories wey you dey use pass for dat host, then di host last directory, then your home directory.
+For both platforms, File Transfer wey you open from tmux return to directory wey e remember for **dat session and socket**. New session try frequent host directories, then other saved or login directories.
 
-If dem don delete one directory wey e remember, di app dey step down dat list until one actually list, instead of leaving you for error — and e no dey write di broken path back. For iOS, na one remote directory e dey remember for each host.
+If remembered directory no dey or you no fit access am, browser try di next usable place. E report connection failure, e no mistake am for missing folder. Refresh no count as new visit.
 
 ## Storage access
 
@@ -40,9 +40,9 @@ Mobile SSH no dey ask for blanket storage permission for any of di two platforms
 
 For Android you go grant **one folder** wit di system folder picker, and download dey write go dia — place wey every oda app fit already read. Di grant dey persist across launch.
 
-For iOS, di local pane na di app documents area, and files dey enter through di system document and photo pickers.
+For iOS, **My Phone → Choose local folder** grant access to folder inside Files, including supported iCloud Drive and other providers. Di choice remain after you reopen app. **Use app folder** return to Mobile SSH Documents. If folder no dey available, choose am again or deliberately switch to app folder; downloads no change destination quietly. Folder access for this device no dey inside backup.
 
-For iOS, di local pane dey work wit di app own documents area, and you dey bring files in through di system document and photo pickers — including multi-select import of photos and documents. You no need any separate storage permission.
+iOS document and photo pickers fit import many items. If names clash, choose **Replace**, **Keep Both** or **Cancel**. File wey already dey di destination remain intact when you import am.
 
 Private key import dey separate from file transfer and e dey use di system file picker.
 
@@ -54,7 +54,7 @@ Private key import dey separate from file transfer and e dey use di system file 
 4. Confirm di remote destination.
 5. Watch di transfer queue to see progress and wen e finish.
 
-Uploads dey use di existing SSH/SFTP connection. If di connection cut, reconnect first then try again.
+Uploads follow di chosen server SSH route, including saved jump hosts. If connection drop, reconnect then try again.
 
 ## Download files
 
@@ -74,7 +74,7 @@ Upload and download no dey limited to single file. Choose one folder and Mobile 
 
 Depending on di remote item wey you select, Mobile SSH fit show actions like:
 
-- Download, or **Copy to phone** for Android.
+- **Copy to Phone** to download.
 - Copy or move **for di server** — `cp -r` / `mv` dey run for di host witout di bytes touching your phone.
 - Rename.
 - Delete.
@@ -95,22 +95,26 @@ Each pane fit sort by name or date, for ascending or descending order. Mobile SS
 
 ## Transfer queue
 
-Transfers dey queued and e show by status, and di log dey show every transfer and e dey scroll — Android dey tab dem as Queued / Failed / Successful, iOS as Active / Failed / Done. Failed transfers go show reason wen di underlying SFTP operation provide one. For iOS, di file wey dey transfer right now dey stay for di top of di Active tab, and you fit cancel one row for middle of di work.
+Transfers dey queue by status: Queued / Failed / Successful for Android, Active / Failed / Done for iOS. Failed ones show di reason wey dey available. For iOS, current transfer stay top of Active and you fit cancel am.
+
+For iOS, queued transfers keep their original folder even if you browse elsewhere. Downloads finish for temporary storage before dem replace destination; cancel or failure preserve old file. If destination change after you approve overwrite, app stop.
 
 ## How to comot file from di app
 
 - **Android:** download dey land inside di folder wey you grant, so every oda app fit already see am. **Open inside anoda app** dey for di two panes; e go first download remote file, then hand am over.
-- **iOS:** Mobile SSH dey show inside di Files app under **On My iPhone**, so anything wey dey di My Phone pane dey reachable from Mail, pickers, and oda app. Long-press file wey you don download and choose **Open inside anoda app** to hand am over, AirDrop am, or save am somewhere else.
+- **iOS:** **Open in another app** dey for local and remote files. Remote file download first before share sheet open. App folder dey under **On My iPhone → Mobile SSH**; external folder remain for im original Files location.
 
-## Send file enter session (Android)
+## Send file into session
 
-Android dey accept file wey you share enter am from any oda app: share go Mobile SSH and e go upload di file go `~/.cache/mobile-ssh` for di pane host, and e go type im remote path for di prompt so you fit use am one time. Di 📎 button for di terminal toolbar dey do di same thing from di system file picker, and di two dey accept plenty file at once.
+Both platforms accept files wey other apps share and get 📎 **Attach a file** for terminal. Files upload to `~/.cache/mobile-ssh` for selected host, and their paths fit enter prompt without Enter. You fit send many files.
 
-For iOS, bring file enter di local pane wit di ＋ button and upload dem from dia.
+For Android, sharing target di running session. For iOS, paperclip offer **Photo Library** or **Files**. iOS Share Extension fit upload to saved SSH server even when Mobile SSH close; Eternal Terminal profiles no dey. Verify unknown server identity for main app first.
+
+After iOS Share Extension upload, paths enter clipboard and wait to insert when pane wey connect to dat server dey available. Dem no enter pane wey connect to another host.
 
 ## Practical tips
 
 - Use SFTP for targeted file moves; use command-line tools like `rsync` on di server for large directory synchronization.
 - Avoid editing live production files unless you get backup or deployment rollback path.
 - If file no appear after upload, refresh di remote pane or verify di destination path.
-- If di Android local pane empty, pick folder wit **Pick folder** — na only di folder wey you grant di app get access to. For iOS, use di pickers instead to add files go di local pane.
+- If Android local pane empty, use **Pick folder**. For iOS, use **Choose local folder**, **Use app folder** or import pickers, depending on where you want files.

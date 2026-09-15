@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Sorun giderme"
-description: "Bağlantı, kimlik doğrulama, klavye, tmux, dosya aktarımı ve tünel sorunları için Mobile SSH sorun giderme kılavuzu."
+description: "Mobile SSH bağlantı, kimlik, güvenlik anahtarı, terminal, dosya, VPN, yedek ve uzak masaüstü sorunlarını çözün."
 ---
 
 # Sorun giderme
@@ -20,6 +20,20 @@ Bu sayfa yaygın Mobile SSH sorunlarını ve sunucu tarafı SSH ayarlarını de�
 
 Aynı sunucu başka bir cihazdan çalışıyorsa tam olarak ana bilgisayarı, portu, kullanıcı adını, anahtarı ve ağ yolunu karşılaştırın.
 
+## Sunucu kimliği dikkat gerektiriyor
+
+İki platform kimlik bilgisi göndermeden SSH kimliğini kontrol eder. iOS'ta yeni anahtar parmak izi onayı ve **Güven ve yeniden bağlan** ister. Android'de **Ayarlar → Genel → Güvenlik → Yeni SSH kimliklerini otomatik kabul et** varsayılan açıktır: ilk ham anahtar kaydedilir, sonrakiler eşleşmelidir. Bağlanmadan yeni izi incelemek için kapatın.
+
+Yeni veya değişen SHA-256 izini yöneticinizle güvenilir kanaldan karşılaştırın. Değişim yenilenmiş veya beklenmedik sunucu olabilir; nedenini doğrulamadan eski kimliği silmeyin. Ayarlar'da kimlikleri inceleyin. Alternatif adresler ve bastionlar doğrulamayı atlamaz.
+
+Android kapsamı belirlenmiş host sertifika yetkililerini ve iptal kayıtlarını da destekler. Bilinmeyen yetkililer, süresi dolmuş veya geçersiz sertifikalar ve iptal edilmiş anahtarlar, ilk kullanımda otomatik kabul açıkken bile engellenir. iOS'ta **Ayarlar → Sunucu kimlikleri → İptal edilmiş anahtarları içe aktar**, kapsamı belirlenmiş OpenSSH `@revoked` Ed25519/ECDSA girdilerini kabul eder. Desteklenmeyen girdiler içeren yapıştırılmış metnin tamamı reddedilir; CA girdileri, sertifikalar, RSA anahtarları ve hash uygulanmış host adları desteklenmez. İptaller yeni bağlantılarda ve yeniden bağlanmalarda önceki güveni geçersiz kılar, ancak mevcut bağlantıları kapatmaz. Kimlikler ve iptal kayıtları yedeklere dahil edilmez. iOS'ta paylaşım uzantısından yüklemeden önce bilinmeyen sunucuyu ana uygulamada doğrulayın.
+
+## Atlama sunucusundan bağlanılamıyor
+
+Her bastionun adresini ve kimlik bilgilerini, telefonun ilkine erişimini kontrol edin. Sonrakiler öncekinden erişilebilir olmalıdır. Bastionlar `permitopen` sınırları dahil TCP yönlendirmesini açmalıdır. Rota SSH olmalı, döngü içermemeli ve sekiz genişletilmiş atlamayı aşmamalıdır.
+
+Silinmiş veya çözümlenemeyen bastion doğrudan bağlantıya dönüşmez. Rotayı düzeltip yeniden bağlanın. Android durumu ve giriş günlüğü hatalı atlamayı son sunucudan ayırır.
+
 ## Kimlik doğrulama başarısız
 
 Şunları kontrol edin:
@@ -32,6 +46,8 @@ Aynı sunucu başka bir cihazdan çalışıyorsa tam olarak ana bilgisayarı, po
 
 Şifreli özel anahtarlar için parola/parola tümcesi alanına parola tümcesini girin.
 
+Android'de uzak `ssh`/`git` için profilde **SSH ajanını yönlendir** ve sunucu izni gerekir. Yalnızca kullanılabilir kayıtlı anahtarlar sunulur. İzin ver/Reddet veya fiziksel anahtar isteği terminal, aktarım ve tünelleri 30 saniyeye kadar duraklatabilir; uygulamadan veya bildirimden yanıtlayın.
+
 ## Özel anahtar içe aktarma başarısız
 
 Özel anahtar içe aktarma sistem dosya seçicisini kullanır. İçe aktarma başarısız olursa:
@@ -41,9 +57,17 @@ Aynı sunucu başka bir cihazdan çalışıyorsa tam olarak ana bilgisayarı, po
 - Anahtarı özel anahtar alanına elle yapıştırmayı deneyin.
 - Anahtar türünün desteklendiğini doğrulayın: Android'de Ed25519, ECDSA (P-256/384/521) veya RSA; iOS'ta Ed25519 veya ECDSA. DSA (`ssh-dss`) hiçbirinde çalışmaz ve iOS RSA'yı desteklemez — bunun yerine bir Ed25519 anahtarı oluşturun.
 
+## Android'de güvenlik anahtarı yanıt vermiyor
+
+Android, USB/NFC ile CTAP2/FIDO2 `ed25519-sk` ve `ecdsa-sk` destekler. İçe aktarılan dosyayı oluşturan fiziksel anahtarı kullanın. USB host desteği ve izin ister; NFC açık olmalı, işlem bitene kadar anahtar telefonda tutulmalıdır. İstenirse PIN girip anahtara dokunun.
+
+Sunucu, seçilen `sk-*` algoritmasına izin veren OpenSSH 8.2+ ister. Yalnız U2F ve yerleşik kimlik keşfi desteklenmez. Anahtarı ararken giriş süresi dolabilir; önceden hazırlayın. Arka plan istekleri için bildirimi açın veya uygulamaya dönün. iOS donanım anahtarıyla girişi desteklemez.
+
 ## Klavye girişi gecikiyor veya değişiyor
 
-Mobile SSH tuş vuruşlarını, otomatik düzeltme ve tahmine dayalı öneriler kapalı olarak doğrudan kabuğa gönderir; bu yüzden klavye, metni uzak tarafa ulaşmadan önce yeniden yazmamalıdır (devre dışı bırakılacak bir öneri ayarı yoktur). Klavyeniz girişi yine de değiştiriyorsa, sistem düzeyinde bir değiştirme veya pano aracının araya girmediğinden emin olun ve `ESC`, `TAB`, `CTRL`, oklar, `HOME`, `END`, `PGUP` ve `PGDN` gibi terminal tuşları için ek tuş satırını kullanın.
+Android girişleri düzeltme/tahmin olmadan doğrudan gönderir. iOS'ta **Dikte ve öneriler** ses ve satır düzeltmeleri için varsayılan açıktır. Beklenmedik değiştirirse kapatın, **Klavye önerileri** ayarını inceleyip yeni bölme açın.
+
+`ESC`, `TAB`, `CTRL`, oklar, `HOME`, `END`, `PGUP`, `PGDN` için ek sırayı kullanın. Takılan ağ da girişi geciktirir. Android başlığı **yanıt yok** veya **gönderilmedi** gösterir; yeniden bağlanırken yazılanlar yeni kabukta tekrarlanmaz, atılır. Bağlantıyı bekleyin, komut satırını kontrol edin, yalnız gerekeni yeniden yazın.
 
 ## tmux kaydırması beklediğiniz gibi değil
 
@@ -55,6 +79,8 @@ Kaydırma yanlış geliyorsa:
 - Ek tuş satırındaki `PGUP` ve `PGDN`'yi kullanın.
 - Yoğun çıktıyı kaydırmadan önce tam ekran için bölmeye çift dokunun.
 - Uzak terminal boyutu eski görünüyorsa tmux'u ayırıp yeniden ekleyin.
+
+Android'de standart gösterge görünüyorsa en alta kaydırmak uygulamanın tmux kopyalama modundan çıkar. Gösterge olmayan özel/bölünmüş düzenlerde elle çıkış gerekebilir. Oturum değiştirirken sunucu, tmux soketi ve oturum adını kontrol edin.
 
 ## Ekran kilidinden sonra oturum düştü
 
@@ -68,7 +94,7 @@ Android'de Mobile SSH kesintileri azaltmak için keepalive, ön plan servisi, wa
 - Uygulamayı kaydırıp kapattıktan sonra kabukların hayatta kalmasını istiyorsanız Ayarlar'da **Keep sessions running in background** seçeneğinin açık olduğunu kontrol edin.
 - Sunucu SSH oturumunu kestiyse ana ekrandan yeniden bağlanın — **Continue** hâlâ canlı olanları, **Tmux sessions** ise sunucuda bekleyenleri listeler.
 
-iOS'ta sistem, arka plandaki uygulamaları askıya alır; bu yüzden başka bir uygulamaya geçtiğinizde veya ekranı kilitlediğinizde ham bir SSH bağlantısı süresiz açık tutulamaz. Kısa bir ek süre hızlı uygulama geçişlerini karşılar; daha uzun süreler için sunucu profilinde **Auto-attach tmux session** seçeneğini etkinleştirin (veya **Eternal Terminal** aktarımını kullanın); böylece yeniden bağlandığınızda kaldığınız kabuğa geri dönersiniz.
+iOS arka plan uygulamalarını askıya alır; uygulama değiştirince veya kilitlenince SSH süresiz açık kalmaz. Hızlı geçişlere kısa süre tanınır. Devam etmek için **Bağlanınca ekle** seçeneğinde tmux, Herdr, Zellij veya **Eternal Terminal** kullanın. Çoklayıcı sunucuda çalışmalıdır; Eternal Terminal bastion yolu kullanamaz.
 
 ## Dosya aktarımı telefon dosyalarını tarayamıyor
 
@@ -76,7 +102,7 @@ Mobile SSH, Android'de hiçbir depolama izni istemez. Bunun yerine yerel bölme,
 
 Uzak dosyalar yükleniyor ama yerel dosyalar yüklenmiyorsa SSH bağlantısı sorunsuzdur; yalnızca henüz izin verilmiş bir klasörünüz yoktur.
 
-iOS'ta yerel bölme uygulamanın belgeler alanını gösterir ve dosyaları sistemin belge ve fotoğraf seçicileri aracılığıyla eklersiniz. Oradaki indirilenler ayrıca Dosyalar uygulamasında **iPhone'umda** altında görünür.
+iOS yerel bölmesi uygulamanın Documents alanında başlar. **Telefonum → Yerel klasör seç** başka Dosyalar klasörünü hatırlar. Sağlayıcı/izin yoksa yeniden seçin veya uygulama klasörüne dönün. Uygulama indirmeleri **iPhone'umda**, dış dosyalar sağlayıcı konumunda kalır. Klasör izinleri yedekle taşınmaz.
 
 ## Yükleme veya indirme başarısız
 
@@ -98,6 +124,28 @@ iOS'ta yerel bölme uygulamanın belgeler alanını gösterir ve dosyaları sist
 - Tünel dizesi `PORT` veya `LOCAL:REMOTEHOST:REMOTE`.
 - Uzak ana bilgisayar ve uzak port SSH sunucusundan erişilebilir.
 - SSH sunucusu TCP yönlendirmeye izin veriyor.
+
+## Android'de VPN veya proxy trafik taşımıyor
+
+- **VPN** profilini başlatıp Android'e izin verin. Cihaz VPN'i öncekini değiştirir; diğeri kalmalıysa yerel SOCKS5 kullanın.
+- SSH VPN'de sunucu, bastion, kimlik, TCP izni ve uygulama/site seçimini kontrol edin. TCP/DNS taşır, genel UDP değil.
+- SOCKS5 istemcisinde yerel adres, port, parola ve uzak DNS ayarlayın. Proxy tüm uygulamaları otomatik yönlendirmez.
+- WireGuard'da el sıkışma, anahtar, `AllowedIPs`, DNS; Shadowsocks'ta şifreleme/parola ve DNS için UDP aktarımını kontrol edin.
+- OpenVPN'de desteklenen bağımsız profil kullanın, CA/kimlik ve giriş bilgilerini doğrulayın, tam tünel için VPN DNS sağlayın. Giriş/sertifika hatalarını düzeltip profili yeniden başlatın.
+
+SSH VPN, Shadowsocks ve OpenVPN yeniden bağlantıda doğrudana dönmek yerine yakalanan trafiği engelleyebilir. Durdurma korumayı bitirir. VPN, sunucu sağlayıcısı veya yöneticisinin internet kısıtlamasını aşmaz.
+
+## Yedek her şeyi geri yüklemedi
+
+Önizlemeyi ve **Birleştir** veya **Değiştir** seçimini inceleyin. Eski/kısmi yedekte eksik bölümler değişmez. Tam yedekler uyumlu ayarları, Android ayrıca VPN/proxy profillerini içerir. Her platform verisi iOS'a taşınmaz; eski sürüm yeni tam biçimi reddedebilir.
+
+Host kimliği, sistem izni ve klasör erişimi cihazda kalır. Yeni cihazda hostları doğrulayıp klasör/VPN izni verin. Donanım kimliği fiziksel anahtar ister. İçe aktarma VPN başlatmaz; profilleri önce inceleyin.
+
+## Uzak masaüstü yok veya boyutlandırılamıyor
+
+Bağlı SSH oturumundan açıp yerel TCP yönlendirme iznini kontrol edin. Linux'ta eksik paket mesajına göre masaüstü/VNC kurun. Android Wayland konsolu yansıtmaz; uyumlu sanal masaüstü kullanın.
+
+macOS'ta Mac ayarlarından Ekran Paylaşımı'nı açın. Android Mac hesabıyla kimlik doğrulamayı destekler; iOS ise Ekran Paylaşımı'nda klasik VNC parolası erişiminin açılmasını gerektirir ve Mac hesabı parolası yerine ekran paylaşımı parolasını kullanır. Görüntüleyici Mac'in mevcut ekranını gösterir. Çözünürlüğü Mac'ten değiştirmeniz gerekebilir. Sanal masaüstü yalnızca sunucusu destekliyorsa çalışırken boyutlandırılabilir; uygulamanın oluşturduğu masaüstünü yeniden başlatmak onay ister ve çalışan programlarını kapatır. Görüntüleyiciden çıkmak uzak masaüstünü çalışır bırakır.
 
 ## Hata ayıklama günlükleri
 

@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: "Erste Schritte"
-description: "Erste Schritte zur Installation von Mobile SSH, zum Verbinden mit einem Server und zum Speichern von Profilen, Zugangsdaten und Sitzungen."
+description: "Mobile SSH installieren, Identitäten prüfen, Sprungserver und Schlüssel einrichten sowie Server, Zugangsdaten und Einstellungen sichern."
 ---
 
 # Erste Schritte
@@ -13,7 +13,7 @@ Mobile SSH ist ein SSH-Client für Android und iOS, um sich mit deinen eigenen L
 - Android 8.0 oder neuer, oder iOS 16 oder neuer (iPhone oder iPad).
 - Netzwerkzugriff vom Gerät zu deinem SSH-Server.
 - Hostname oder IP-Adresse des SSH-Servers, Port, Benutzername und ein Passwort oder ein privater Schlüssel.
-- Auf Android Speicherzugriff, wenn du die SFTP-Dateiübertragung mit dem lokalen Dateibrowser des Telefons nutzen möchtest; iOS verwendet stattdessen die Datei- und Fotoauswahl des Systems.
+- Für lokale Dateien Ordner oder Dateien über die Systemauswahl wählen. Keine Plattform benötigt pauschalen Speicherzugriff.
 
 ## App installieren
 
@@ -30,12 +30,23 @@ Mobile SSH ist ein SSH-Client für Android und iOS, um sich mit deinen eigenen L
 
 Der Standard-SSH-Port ist `22`. Wenn dein Server einen anderen Port verwendet, gib ihn im Serverprofil an.
 
+## Serveridentitäten prüfen
+
+Beide Apps prüfen die SSH-Identität vor Zugangsdaten. Geänderte Schlüssel stoppen die Verbindung, auch mit alternativen Adressen und Sprungservern.
+
+- **Android:** **Neue SSH-Identitäten automatisch akzeptieren** ist standardmäßig an. Der erste Rohschlüssel wird gespeichert, spätere müssen passen. Unter **Einstellungen → Allgemein → Sicherheit** ausschalten, um neue SHA-256-Fingerabdrücke vor Annahme und Neuverbindung mit dem Administrator abzugleichen.
+- **iOS:** unbekannte Schlüssel erfordern Bestätigung. Vergleiche SHA-256 über einen sicheren Kanal und wähle **Vertrauen und neu verbinden**.
+
+Prüfe gespeicherte Identitäten in den Einstellungen. Beide Plattformen unterstützen vom Administrator bereitgestellte Hostschlüssel-Widerrufe; Android unterstützt zusätzlich Host-Zertifizierungsstellen. Unter iOS importierst du über **Einstellungen → Serveridentitäten → Widerrufene Schlüssel importieren** OpenSSH-Einträge mit `@revoked` für Ed25519/ECDSA mit festgelegtem Geltungsbereich. Widerrufene Schlüssel werden bei neuen Verbindungen und Neuverbindungen blockiert, auch wenn ihnen zuvor vertraut wurde; der Import eines Widerrufs beendet keine bestehenden Verbindungen. iOS unterstützt weder Host-Zertifikate noch CA-Importe. Vertrauen bleibt auf dem jeweiligen Gerät und wird nicht aus Backups importiert. Entferne geänderte oder widerrufene Schlüssel erst, wenn du den Grund für die Sperre geprüft hast.
+
 ## Transport wählen
 
 Beim Hinzufügen oder Bearbeiten eines Servers legt die Auswahl **Transport** fest, wie Mobile SSH sich verbindet:
 
 - **SSH** -- eine gewöhnliche SSH-Verbindung (die Vorgabe).
 - **Eternal Terminal** -- eine ausfallsichere Sitzung, die Netzwerkausfälle, Schlafmodus und IP-Wechsel übersteht. Hat der Host keinen `etserver`, kann Mobile SSH ihn für dich über SSH installieren. Details stehen in der Anleitung **Terminal**.
+
+Android bietet auch experimentelle **Teleport**-Proxyverbindungen. Sprungserverrouten erfordern SSH und lassen sich nicht mit Eternal Terminal kombinieren.
 
 ## Server speichern
 
@@ -47,12 +58,17 @@ Gespeicherte Server bewahren das Verbindungsziel und die optionale Tunnel-Konfig
 - Passwort- oder Schlüsseldetails.
 - Optionale Regeln für lokale Portweiterleitung.
 - Optionale zusätzliche Adressen für dieselbe Maschine (siehe unten).
+- Optionale Sprungserver und **Beim Verbinden anhängen**: Auto, Nichts, tmux, herdr oder Zellij.
 
 Nutze gespeicherte Server für Hosts, auf die du wiederholt zugreifst. Wenn ein gespeicherter Server auf einen anderen Host als deine aktuelle aktive Sitzung zeigt, startet Mobile SSH eine neue Verbindung für das ausgewählte Ziel.
 
 ### Mehrere Adressen (LAN/VPN-Roaming)
 
 Dieselbe Maschine ist je nach Standort oft unter verschiedenen Adressen erreichbar – eine WLAN-IP zu Hause gegenüber einer VPN-IP. Füge die Alternativen im Bearbeitungsdialog des Servers hinzu, bei Bedarf jede mit eigenem Port. Beim Verbinden probiert Mobile SSH die Adressen der Reihe nach durch, bis eine antwortet, und merkt sich die zuletzt funktionierende Adresse, um sie beim nächsten Mal zuerst zu wählen. Ein Netzwechsel (zum Beispiel das Verlassen des VPN) löst eine sofortige Wiederverbindung mit der nun erreichbaren Adresse aus, statt auf das Timeout der toten Route zu warten.
+
+### Sprungserver
+
+Speichere zunächst Bastionen und wähle ihre Reihenfolge am Zielserver. Beide Plattformen unterstützen acht aufgelöste SSH-Sprünge. Jeder nutzt eigene Zugangsdaten und Identitätsprüfung; das Ziel muss vom vorherigen erreichbar sein. Fehlende Server, Schleifen und Fehler stoppen die Route statt direkt zu verbinden. Terminal, SFTP, lokale Weiterleitungen und unterstützte SSH-Funktionen nutzen die Route.
 
 ## Zugangsdaten speichern
 
@@ -71,7 +87,9 @@ So verwendest du einen privaten Schlüssel:
 3. Gib die Schlüssel-Passphrase im Passwort-/Passphrasenfeld ein, falls der Schlüssel verschlüsselt ist.
 4. Speichere die Zugangsdaten oder den Server.
 
-Der Import des privaten Schlüssels nutzt die Dateiauswahl des Systems für Schlüsseldateien. Auf Android nutzt die Dateiübertragung einen separaten lokalen Dateibrowser und kann auf neueren Android-Versionen einen umfassenderen Speicherzugriff anfordern; auf iOS kommen Dateien über die Dokument- und Fotoauswahl des Systems herein.
+Schlüsselimport nutzt die Systemauswahl ohne Zugriff auf den übrigen Speicher. Dateiübertragung hat eigene Ordner- und Dateiauswahlen.
+
+Android unterstützt **FIDO2-Sicherheitsschlüssel** über USB/NFC: registriere oder importiere OpenSSH-Zugangsdaten und beantworte Touch-/PIN-Anfragen. Der physische Schlüssel bleibt nach Export/Wiederherstellung nötig. **SSH-Agent-Weiterleitung** ist pro Server optional: gespeicherte Schlüssel beantworten Signaturanfragen mit optionaler Freigabe je Nutzung. Aktiviere nur für vertrauenswürdige Signaturanfrager. iOS unterstützt weder Hardwarekey-Anmeldung noch Agent-Weiterleitung.
 
 ## Der Startbildschirm
 
@@ -79,7 +97,9 @@ Der Startbildschirm ist darauf ausgelegt, die Frage „Wohin kann ich zurückkeh
 
 - **Continue** listet die Verbindungen auf, die gerade laufen, mit einer Anzahl der Bereiche, wenn eine Verbindung mehr als einen hat. Ein Tippen auf einen Eintrag bringt dich dorthin zurück.
 - **Tmux sessions** listet auf, was auf deinen gespeicherten Servern läuft. Die Liste stammt aus einem Schnappschuss, den die App bereits gespeichert hat, und erscheint deshalb sofort und ganz ohne Netzwerk — jeder Eintrag ist mit dem Alter des Schnappschusses versehen, und ein Tippen verbindet und hängt diese Sitzung an. Schnappschüsse werden nach einigen Stunden ausgegraut und nach einer Woche verworfen.
-- Auf iOS steht darunter eine Liste **Recent**; die Android-App hat sie fallengelassen, weil sich „Wohin kann ich zurückkehren?“ als nützlichere Frage erwies als „Wann habe ich zuletzt verbunden?“.
+- Unter iOS steht **Zuletzt verwendet** im Dialog **Neue Verbindung**; eine Auswahl füllt das Formular.
+
+Androids **VPN**-Kachel öffnet integrierte Routingclients; **Über** steht unter Einstellungen. Der VPN-Leitfaden gehört hier zu **Portweiterleitung**.
 
 Läuft nichts und ist nichts zwischengespeichert, sagt der Bildschirm das und verweist dich auf **Servers**.
 
@@ -95,9 +115,15 @@ Server lassen sich in Ordner einsortieren. Ein Ordner klappt ein, merkt sich, da
 
 **Export selected…** auf den Bildschirmen Servers und Credentials verwandelt die Liste in eine Auswahl mit Häkchen, sodass du drei Server weitergeben kannst, ohne alles zu exportieren. Ein Tippen auf eine Ordner-Kopfzeile nimmt den ganzen Ordner mit. Exporte sind verschlüsselt, wenn du eine Passphrase vergibst — ohne sie enthält die Datei Passwörter und private Schlüssel im Klartext, und die App weist vor dem Schreiben darauf hin.
 
+Für Vollbackups **Alles exportieren (Backup)** unter Android oder **Sichern und Wiederherstellen** unter iOS wählen. Enthalten sind Server, Zugangsdaten und Einstellungen wie Sprache, Tasten und Multiplexersortierung; Android ergänzt VPN/SOCKS. Schütze die gesamte Datei mit einer Passphrase.
+
+Beide lesen Format 2 und ältere Inventarbackups. Prüfe die Vorschau: **Zusammenführen** wendet Bereiche unter Beibehaltung bestehender Elemente an; **Ersetzen** ersetzt enthaltene Bereiche und setzt fehlende Einzelwerte eines vorhandenen Einstellungsbereichs auf Standard. Fehlende Bereiche bleiben unverändert. Inkompatible Optionen werden benannt; Import macht sie nicht auf der anderen App verfügbar. Import startet kein VPN.
+
+Identitäten, aktive Sitzungen, Systemrechte und Ordnerfreigaben werden nicht wiederhergestellt. Prüfe Hosts und erteile Rechte am Zielgerät. Alte Appversionen lesen das neue Vollformat nicht.
+
 ## Aktive Sitzungen
 
-Wenn Sitzungen laufen, zeigt der Startbildschirm **Active Sessions** mit einer Anzahl an. Tippe darauf, um zum Terminalraster zurückzukehren. Eine laufende Benachrichtigung listet außerdem die aktiven Hosts auf — tippe in der Benachrichtigung auf einen Host, um direkt zu diesem Terminal zu springen.
+**Aktive Sitzungen** zeigt die Anzahl und öffnet das Terminalraster. Unter Android listet eine dauerhafte Benachrichtigung Hosts und öffnet Verbindungssteuerungen.
 
 Das Zurückgehen zum Startbildschirm trennt aktive SSH-Sitzungen nicht; das Schließen von Bereichen oder das Beenden der Terminal-Aktivität trennt sie.
 
@@ -109,13 +135,15 @@ Das Zurückgehen zum Startbildschirm trennt aktive SSH-Sitzungen nicht; das Schl
 - Stelle **Textgröße**, **Schrift**, **Farbschema** und **Scrollback**-Größe des Terminals ein und wähle ein App-**Design** (System, Hell oder Dunkel).
 - Aktiviere **Agent alerts**, wenn du lange Hintergrundaufgaben (Claude Code, Codex, Shell-Skripte) ausführst und benachrichtigt werden möchtest, sobald der Agent deine Eingabe benötigt. Wie Agenten sich melden, steht in der Anleitung **Terminal**.
 - Auf Android ist **Sitzungen im Hintergrund weiterlaufen lassen** standardmäßig aktiv, sodass Shells und Agenten das Wegwischen der App überstehen.
-- Deaktiviere auf Android die anonyme Nutzungsanalyse, wenn du keine Daten senden möchtest. Die iOS-App hat diesen Schalter noch nicht.
+- Beide Plattformen haben einen Schalter für anonyme Nutzungsanalyse. Ausschalten beendet das Sammeln neuer Ereignisse.
+- Unter iOS ist **Diktat und Vorschläge** standardmäßig an. Für direkte Eingaben ohne Diktat/Autokorrektur ausschalten und neues Pane öffnen.
+- Entfernte Meldungen, Befehlsabschluss und entfernte Zwischenablageabfragen benötigen eigene Freigaben. Aktiviere nur gewünschte Aktionen.
 
 ## Plugins
 
 Plugins erweitern Mobile SSH um zusätzliche Workflows. Öffne **Plugins** auf dem Startbildschirm, um:
 
-- Einen Katalog verfügbarer Plugins zu durchsuchen.
+- Katalog nach Kategorien durchsuchen und Plugins suchen.
 - Die gewünschten zu installieren -- jedes Plugin wird bei Bedarf heruntergeladen und per SHA-256-Prüfsumme verifiziert im app-privaten Speicher abgelegt.
 - Installierte Plugins vom selben Bildschirm aus auszuführen.
 
@@ -123,10 +151,10 @@ Plugins werden standardmäßig aus einem öffentlichen Katalog geladen. Wenn du 
 
 ## Sprachen
 
-Mobile SSH folgt standardmäßig der Systemsprache. Die App enthält Übersetzungen für Arabisch, Bengali, Chinesisch (vereinfacht und traditionell), Englisch, Französisch, Deutsch, Hindi, Indonesisch, Japanisch, Marathi, Portugiesisch, Russisch, Spanisch, Tamil, Telugu, Türkisch und Urdu — zwanzig Sprachen auf Android, das zusätzlich Nigerianisches Pidgin und Ägyptisch-Arabisch mitbringt, und achtzehn auf iOS.
+Mobile SSH folgt standardmäßig der Systemsprache. Beide Apps bieten zwanzig Sprachen: Arabisch, Ägyptisch-Arabisch, Bengalisch, vereinfachtes und traditionelles Chinesisch, Englisch, Französisch, Deutsch, Hindi, Indonesisch, Japanisch, Marathi, Nigerianisches Pidgin, Portugiesisch, Russisch, Spanisch, Tamil, Telugu, Türkisch und Urdu.
 
 Wenn du die App in einer anderen Sprache als der des Telefons möchtest, gibt es unter **Settings → Language** eine Auswahl mit der Option „System default“. Du kannst die Sprache weiterhin auch in Android **Settings → System → Languages** oder auf iOS in **Settings → General → Language & Region** ändern.
 
 ## Sicherheitshinweis
 
-Verbinde dich nur mit Servern, denen du vertraust. Die aktuelle App speichert Verbindungsdaten lokal und bietet keinen Cloud-Tresor und keine geräteübergreifende Synchronisierung. Die aktuelle Implementierung zeigt außerdem keine Bestätigung des bekannten Hosts an; vermeide daher Verbindungen über nicht vertrauenswürdige Netzwerke, wenn die Host-Identität wichtig ist.
+Verbinde nur mit vertrauenswürdigen Servern. Daten bleiben auf dem Gerät außer bei Export/Teilen; es gibt keinen Cloudtresor oder automatischen Geräteabgleich. Schütze Gerät und Backups, prüfe unbekannte Fingerabdrücke und kläre geänderte Schlüssel vor Neuverbindung.

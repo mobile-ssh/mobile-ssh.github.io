@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/DocLayout.astro
 title: Terminal
-description: Mobile SSH terminal controls, extra keys, panes, scrolling, tmux, herdr and Zellij managers, agent alerts, copy actions, and keyboard settings.
+description: Mobile SSH terminal controls, keyboard settings, tmux, herdr and Zellij managers, agent alerts, clipboard, inline images, and remote desktops.
 ---
 
 # Terminal
@@ -22,18 +22,18 @@ Mobile SSH can run up to eight SSH sessions at the same time. Each session appea
 
 The pane header names where you are. On Android it shows the pane's real working directory, asked from tmux or reported by the shell over OSC 7 and refreshed while the app is open; on iOS it shows the title the remote sets, falling back to `user@host:port`.
 
-Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**.
+Closing a pane disconnects that SSH session. Returning to the start screen keeps live sessions available through **Active Sessions**. The header reports stalled connections; Settings offers transfer rates and optional dimming or vibration when the link stops answering.
 
 ## Eternal Terminal (ET)
 
-Each saved server can use one of two transports, chosen with the **Transport** selector when you add or edit a server:
+Both platforms offer these transports in the **Transport** selector when you add or edit a server:
 
 - **SSH** -- a standard SSH connection (the default).
 - **Eternal Terminal** -- an ET session that survives network drops, device sleep, and IP address changes without restarting your shell.
 
 ET keeps the session alive on the server, so when your phone changes networks or wakes from sleep, Mobile SSH reattaches to the same running shell instead of opening a new one. This makes it a good fit for mobile data, Wi-Fi/cellular hand-offs, and long-running commands.
 
-ET needs an `etserver` process on the host. If the server does not have one, Mobile SSH can install and start it for you over the existing SSH connection -- no manual server setup required. Once ET is available, connect with the **Eternal Terminal** transport selected.
+ET needs an `etserver` process on the host. If it is missing, Mobile SSH can offer to install and start it over SSH. Review and approve the setup commands, then connect with **Eternal Terminal** selected. SSH jump-host routes require the **SSH** transport.
 
 ## Extra key row
 
@@ -54,11 +54,11 @@ Hold a key like an arrow or `PGDN` and it repeats.
 
 ## Keyboard behavior
 
-The terminal uses a native pass-through connection to the on-screen keyboard: each character is sent to the remote shell as you type, with autocorrect and predictive suggestions turned off so the keyboard never rewrites input before it reaches the shell. This keeps Vim, tmux, htop, less, shells with unusual key chords, and remote password prompts predictable — there is no suggestion buffer to disable.
+On Android, ordinary terminal typing passes directly to the remote shell, with autocorrect and predictive suggestions off by default. Voice dictation can still commit text through the keyboard.
 
-- **Tap terminal to show keyboard:** when enabled, tapping the terminal asks the system to show the on-screen keyboard.
+On iOS, **Settings → Terminal → Dictation and suggestions** is on by default. It enables dictation, predictive text, and corrections while you compose a line. For raw keystrokes, turn it off, leave **Keyboard suggestions** off, and open a new pane.
 
-Soft-keyboard voice dictation still works: the dictated text is committed straight to the shell like any other typed input.
+**Show keyboard on tap** controls whether a tap raises the software keyboard. It defaults to off on Android and on on iOS; the toolbar keyboard button remains available.
 
 ## Hardware keyboards
 
@@ -70,11 +70,12 @@ Pasting into a program that requests it (bash, Vim, and other bracketed-paste ap
 
 ## Select, copy, share
 
-Long-press inside the terminal to select the word under your finger, then drag the handles to adjust. The selection toolbar offers three actions:
+Long-press inside the terminal to select the word under your finger, then drag the handles to adjust. The selection toolbar includes:
 
 - **Copy** -- place the selected text on the system clipboard. The selection stays highlighted afterward, so you can share it, re-copy, or extend it.
 - **Share** -- pass the selected text to the system share sheet (mail, notes, messaging, etc.).
 - **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
+- **Paste** -- insert clipboard text into the terminal.
 
 ## Find in the terminal
 
@@ -83,15 +84,16 @@ Search the whole terminal buffer — scrollback and the visible screen — and j
 ## Color, italics, and remote clipboard
 
 - The terminal renders **24-bit true color** and **italics**, so themed prompts, syntax highlighting, and TUIs look the way they do on the desktop.
-- **OSC 52 clipboard:** when a remote program copies text (tmux `set-clipboard`, a Vim/Neovim OSC 52 yank), it lands on your phone's clipboard — so you can copy from the server and paste into a local app.
+- **OSC 52 clipboard:** remote programs can copy text to the phone clipboard. Reading the phone clipboard from a remote program requires a separate opt-in setting and is off by default.
 - On both Android and iOS, wide CJK, emoji, and combining characters (grapheme clusters and zero-width joiners) are measured and drawn correctly, and a bundled **Nerd Font** draws powerline, starship, devicon, and Material Design icon glyphs that the system font would otherwise show as empty boxes.
 
 ## Shell integration and inline images
 
 - **Shell integration (OSC 133):** when your shell emits OSC 133 prompt markers, Mobile SSH can step between prompts and alert you when a long-running command finishes. Works on Android and iOS. Neither app injects the markers — your shell has to emit them (a `PROMPT_COMMAND`/`precmd` hook, or starship). On Android, prompt navigation is off until you enable it under **Settings → Shell integration**; on iOS the menu appears by itself once marks start arriving.
 - **Select output:** touch anywhere inside a command's output and select that whole block — the build error from 300 lines ago, not just the last command — then copy, share, or extend it.
-- **Inline images:** programs that use the Kitty graphics protocol draw images directly in the terminal, on Android and iOS. Images survive pinch-zoom and re-wrap: they are measured in cells and follow their line, instead of being dropped and leaving a gap. They are a main-screen feature and are cleared when a full-screen TUI takes over.
-- **Mosaic glyphs (Android):** block, braille, sextant, and octant characters are drawn by the app itself rather than requested from a font, so `chafa`, `timg`, and ANSI art tile the grid exactly — no seams, no empty boxes, whatever font you picked.
+- **Inline images:** programs that use the Kitty graphics protocol draw images directly in the terminal, on Android and iOS. Images survive pinch-zoom and re-wrap: they are measured in cells and follow their line, instead of being dropped and leaving a gap. They also render in full-screen applications, with placements kept separate from normal scrollback.
+- **Mosaic glyphs:** block, braille, sextant, and octant characters are drawn by the app itself rather than requested from a font, so `chafa`, `timg`, and ANSI art tile the grid exactly — no seams, no empty boxes, whatever font you picked.
+- **Image resolution:** the Images setting can report Full, Half, or A third of the display resolution to terminal image programs, reducing the pixels sent over a mobile connection.
 - **Real working directory (Android):** the pane header shows where the pane actually is, asked from tmux or reported by the shell over OSC 7, rather than whatever the last prompt happened to print.
 
 ## Appearance and keys
@@ -116,7 +118,7 @@ Mobile SSH routes scroll gestures based on terminal state:
 - In mouse-mode terminal apps, scrolling sends mouse-wheel escape sequences.
 - In alternate-screen apps without mouse mode, such as many tmux sessions, scrolling enters tmux copy mode and sends line scroll commands.
 
-On Android, a tap inside a mouse-tracking program is delivered as a left click at that cell, so htop, vim, and click-to-focus panes respond to touch. On iOS a tap in the same program raises the keyboard rather than clicking; only wheel scrolling is reported.
+On both platforms, a tap inside a mouse-tracking program normally sends a left click. On iOS, **Tap places the cursor** swaps this with cursor movement; Shift-tap performs the other action. Optional hold-then-drag mouse input is off by default, so an ordinary swipe scrolls.
 
 If you type while scrolled back, Mobile SSH returns to the live terminal view.
 
@@ -130,13 +132,13 @@ tmux a -t work
 tmux new -A -s work
 ```
 
-When a connection drops while you were in tmux, the app can remember the last tmux session name for that server and attempt to reattach after reconnect. If no explicit session name was observed but the app knows you were in an alternate-screen tmux-like session, it may try a generic `tmux attach`.
+When a connection drops, the app remembers the attached tmux session and socket so reconnecting can return the terminal to that target. Separate panes on the same host retain their own attachment. If the session no longer exists, the shell remains available.
 
-This behavior is best-effort. If the remote tmux session no longer exists, the remote shell remains available.
+On iOS, changing sockets reads the current tmux prefix rather than assuming Ctrl+B. Unsupported prefixes or failed lookups stop with a message. Typing, closing the pane, or disconnecting cancels pending attachment steps; an unidentified full-screen program is not sent attach commands.
 
 ## Tmux manager
 
-Mobile SSH includes a tmux manager so you can browse and control tmux without typing prefix chords. Open it with the **Tmux** button from a connected session. It lists, in three sections:
+Mobile SSH includes a tmux manager so you can browse and control tmux without typing prefix chords. Open it from the multiplexer control in a connected session; long-press that control to choose tmux when several managers are available. It lists, in three sections:
 
 - **Sessions** -- every tmux session on the server.
 - **Windows** -- windows in the selected session.
@@ -147,24 +149,22 @@ From the manager you can:
 - **Attach** a session to the current terminal.
 - **Create** a new session or window, and **rename** them.
 - **Split** a pane horizontally or vertically, **zoom** a pane, and **kill** sessions, windows, or panes.
-- **Sort** sessions by name or creation date.
+- **Sort** sessions by Recent (the default), name, or creation date.
 
 A 🔔 marks any session whose agent is awaiting input, so you can spot a paused Claude Code or Codex run at a glance and attach to it. This complements the reattach hints above: the reattach logic restores your last session automatically on reconnect, while the manager gives you full manual control.
 
-Both platforms can also manage more than one tmux server (socket) on the same host, and sort sessions by name or creation date.
+Both platforms can manage more than one tmux server (socket) on the same host. Manager attachment indicators refer to the terminal you are using, not another client on the server.
 
-## Herdr and Zellij (Android)
+## Herdr and Zellij
 
-Android ships the same idea for two other multiplexers. Each gets its own toolbar icon, and **an icon only appears once the app has actually found that program on the server** — so the toolbar tells you what is installed there without you running `which`.
+Android and iOS also manage Herdr and Zellij. One toolbar control opens the primary detected multiplexer; long-press it to choose another. Only programs found on that server are offered. Inside a manager, the server title changes servers and the multiplexer selector switches managers.
 
-- **Herdr** uses its own vocabulary: sessions, workspaces, tabs, panes. Each pane shows its agent's status — working, needs you, idle — and a blocked agent can be answered straight from the list. Herdr's own status feeds the app's agent badge, so this works with no hook installed on the server.
+- **Herdr** shows sessions, workspaces, tabs, and panes with agent status. Preview or answer a blocked agent from the list. Replies stay with the selected pane and named session; **Send** submits the text and **Just Enter** sends a bare confirmation. Exact pane focus is offered where supported; otherwise use the parent tab's Focus action. Herdr supplies agent state without an additional hook.
 - **Zellij** lists sessions, tabs, and panes with attach, rename, kill, and split. Killed sessions stay listed so attaching resurrects them, while delete forgets them for good. Tab and pane detail needs Zellij 0.44 or newer; on an older version the page shows tab names and says why. Splits need a client attached to the session, and the page explains that instead of offering a button that would fail.
 
 If herdr or Zellij is installed but not on the login shell's `PATH`, the page offers to add it.
 
-Each saved server has an **Attach on connect** setting: **Auto (detect)**, **Nothing**, **tmux**, **herdr**, or **Zellij**. Auto picks whichever one you last used on that server, then whichever has live sessions, then whichever is installed — and attaches to nothing rather than guessing when it has not probed the server yet.
-
-The iOS app is tmux-only today.
+Each saved server has an **Attach on connect** setting: **Auto (detect)**, **Nothing**, **tmux**, **herdr**, or **Zellij**. Auto uses the available detection and attachment history, preferring a previously used multiplexer, then one with live sessions, then one installed. Without cached detection it opens a plain shell. A later probe affects future connections; it does not launch over your current input.
 
 ## Agent alerts
 
@@ -172,7 +172,7 @@ Mobile SSH tells you when a remote AI coding agent — Claude Code, Codex, Gemin
 
 ### The bell
 
-Out of the box, a terminal bell from a session you are not watching raises an alert, as do the desktop-notification escape sequences (OSC 9, OSC 777) that many tools already emit. Bells that arrive immediately after you typed are ignored, so ordinary shell completion noise does not page you.
+Terminal bells can raise an agent-attention alert. Bells immediately after typing are ignored by default. Remote desktop-notification sequences (OSC 9, OSC 777) and OSC 133 command-finished alerts have separate settings; on iOS both are off until enabled.
 
 This needs no setup, but the app only knows that *something* rang.
 
@@ -200,7 +200,7 @@ Your answer does not get typed into the session. It is written to a file over a 
 
 ### Settings
 
-Alerts are on by default on both platforms, with individual switches for the notification, sound, vibration, and whether the session you are currently viewing should alert too.
+Agent alerts are on by default on both platforms, with individual switches for notifications, sound, vibration, and alerts for the active pane. On iOS active-pane alerts are on by default, and Settings also offers background-only delivery. iOS can deliver these only while the app is allowed to run; long background suspension interrupts live SSH alerts.
 
 One default is worth knowing: **sound is limited to headphones**. With nothing plugged in or paired, an alert notifies and vibrates but plays no tone. Turn that off if you want the alert audible on the phone speaker.
 
@@ -210,6 +210,14 @@ There is no sensitivity setting and no sound picker — the controls are on/off.
 
 For programs such as Vim, less, htop, ncurses tools, and tmux panes:
 
-- Input passes straight through to the program — there is no autocorrect or suggestion buffer to interfere.
+- For raw terminal input on iOS, turn off **Dictation and suggestions** and **Keyboard suggestions**, then open a new pane.
 - Use the extra key row for `ESC`, arrows, `PGUP`, and `PGDN`.
 - Use pinch zoom if text is too small, then wait briefly for the remote terminal size to settle.
+
+## Remote desktops
+
+Both platforms can open a remote desktop over a VNC connection carried through SSH. Reuse an existing shared screen, including macOS Screen Sharing, or approve setup of a supported Linux desktop. The remote server must provide the desktop; SSH access alone does not create a graphical session. Linux screen mirroring requires X11 rather than Wayland, and macOS uses an existing shared screen rather than creating a private desktop.
+
+Use touch to click, drag, and zoom, and the on-screen or hardware keyboard to type. Clipboard controls let you paste phone text into the desktop. The desktop can also copy text back to the phone.
+
+**Screen Size** offers presets and custom dimensions, remembered per server. On iOS each edge must be between 320 and 5120 pixels. Live resizing preserves applications when the server supports it. A restart fallback requires confirmation and is offered only for a private desktop created by the app. Reused desktops and shared console screens are not restarted to resize them; change a Mac's resolution in its Displays settings when live resizing is unavailable.
