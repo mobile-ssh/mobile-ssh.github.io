@@ -519,7 +519,7 @@ export const yue: Dict = {
     ],
     agentAppsNote:
       "原生嘅 ChatGPT 同 Claude App 係零設定運行單一供應商代理最順滑嘅方法 —— 唔使伺服器，淨係要個帳號 —— 而且佢哋加咗一個精緻嘅一撳批准／拒絕畫面。但問題係：佢哋淨係喺自己嘅雲端運行自己嘅模型，冇通用終端機、冇 SFTP 或者通道，亦唔可以用你自己嘅機器，而且要俾錢或者要帳號。Onepilot、Happy 同 Omnara 就將代理保留喺你控制嘅硬件上（Onepilot 經直連 SSH；Happy 同 Omnara 經雲端中繼，而 Omnara 仲要帳號）。Mobile SSH 直接連去你自己嘅伺服器，唔使帳號亦冇供應商中繼，可以喺完整終端機、SFTP 同連接埠轉發旁邊運行任何代理，而且每個功能都免費。而家佢回覆代理提示嘅方式同佢哋一樣 —— 有個 Agents 清單列出每條連線上面嘅每個代理，每個選項一個掣 —— 分別在於個代理係喺你自己部機上面跑，而回覆係行你自己條 SSH 連線。取捨仍然係一路以嚟嗰個：伺服器要你自己提供，而 agent hook 要喺上面裝一次。",
-    agentAppsSourcesNote: "核查日期：2026-09-19。Moshi 嘅直連 SSH 終端，同佢用嚟處理代理事件同審批嘅可選後端係分開嘅。佢嘅 Android 商店頁面話支援 SFTP，但詳細文件講嘅係 SCP 上載同開發伺服器預覽，所以表格相關格仔都有註明限制。Orca 手機 App 會同電腦上嘅 Orca 配對：用 LAN/Tailscale 可以唔使 Orca 帳戶，但 Relay 就要帳戶。淨係桌面版有嘅功能，同文件冇講明嘅功能，都喺表格標咗出嚟。官方來源：",
+    agentAppsSourcesNote: "核查日期：2026-09-19。Moshi 嘅直連 SSH 終端，同佢用嚟處理代理事件同審批嘅可選後端係分開嘅。佢嘅 Android 商店頁面話支援 SFTP，但詳細文件講嘅係 SCP 上載同開發伺服器預覽，所以表格相關格仔都有註明限制。Orca 手機 App 會同電腦上嘅 Orca 配對：用 LAN/Tailscale 可以唔使 Orca 帳戶，但 Relay 就要帳戶。淨係桌面版有嘅功能，同文件冇講明嘅功能，都喺表格標咗出嚟。",
   },
   privacy: {
     metaTitle: "私隱政策 | Mobile SSH",
