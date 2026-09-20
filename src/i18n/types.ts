@@ -178,14 +178,15 @@ export interface Dict {
     featureHeading: string;
     featureRows: { category: string; feature: string; mobile: string; termux: string; termius: string }[];
     // Second comparison: Mobile SSH vs apps built to run coding agents (Claude
-    // Code / Codex) from your phone — both third-party (Onepilot/Happy/Omnara)
+    // Code / Codex) from your phone — both third-party clients and companions
     // and the native vendor apps (OpenAI's ChatGPT app runs Codex; Anthropic's
     // Claude app runs Claude Code). App names are proper nouns rendered in the
     // component; values are yes/no/short text.
     agentAppsHeading: string;
     agentAppsIntro: string;
-    agentAppsRows: { feature: string; mobile: string; onepilot: string; happy: string; omnara: string; chatgpt: string; claude: string }[];
+    agentAppsRows: { feature: string; mobile: string; onepilot: string; happy: string; omnara: string; moshi: string; orca: string; chatgpt: string; claude: string }[];
     agentAppsNote: string;
+    agentAppsSourcesNote: string;
   };
   privacy: {
     metaTitle: string;

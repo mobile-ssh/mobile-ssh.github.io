@@ -9,6 +9,16 @@ const t = getDict(locale);
 
 const featureRows = t.compare.featureRows;
 const categories = [...new Set(featureRows.map(r => r.category))];
+const agentApps = [
+  { key: "mobile", name: "Mobile SSH", url: undefined },
+  { key: "onepilot", name: "Onepilot", url: undefined },
+  { key: "happy", name: "Happy", url: undefined },
+  { key: "omnara", name: "Omnara", url: undefined },
+  { key: "moshi", name: "Moshi", url: "https://getmoshi.app/" },
+  { key: "orca", name: "Orca", url: "https://www.onorca.dev/" },
+  { key: "chatgpt", name: "ChatGPT", url: undefined },
+  { key: "claude", name: "Claude", url: undefined }
+] as const;
 ---
 
 <BaseLayout title={t.compare.metaTitle} description={t.compare.metaDescription} locale={locale} pathKey="compare">
@@ -79,29 +89,28 @@ const categories = [...new Set(featureRows.map(r => r.category))];
       </table>
       </div>
 
-      <h2 class="feat-heading">{t.compare.agentAppsHeading}</h2>
+      <h2 class="feat-heading" id="agent-apps-heading">{t.compare.agentAppsHeading}</h2>
       <p class="agent-intro">{t.compare.agentAppsIntro}</p>
 
-      <div class="feat-scroll">
+      <div class="feat-scroll" tabindex="0" role="region" aria-labelledby="agent-apps-heading">
         <table class="feat-table agent-table">
           <thead>
             <tr>
-              <th class="feat-col-feature">{t.compare.columns.need}</th>
-              <th class="feat-col-app highlight-col">Mobile SSH</th>
-              <th class="feat-col-app">Onepilot</th>
-              <th class="feat-col-app">Happy</th>
-              <th class="feat-col-app">Omnara</th>
-              <th class="feat-col-app">ChatGPT</th>
-              <th class="feat-col-app">Claude</th>
+              <th class="feat-col-feature" scope="col">{t.compare.columns.need}</th>
+              {agentApps.map(app => (
+                <th class={`feat-col-app ${app.key === "mobile" ? "highlight-col" : ""}`} scope="col">
+                  {app.url ? <a href={app.url}>{app.name}</a> : app.name}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
             {t.compare.agentAppsRows.map((row) => (
               <tr>
                 <td class="feat-name">{row.feature}</td>
-                {[["mobile", row.mobile, true], ["onepilot", row.onepilot, false], ["happy", row.happy, false], ["omnara", row.omnara, false], ["chatgpt", row.chatgpt, false], ["claude", row.claude, false]].map(([, v, hi]) => (
-                  <td class={`feat-cell ${hi ? "highlight-col " : ""}${v === "yes" ? "yes" : v === "no" ? "no" : "partial"}`}>
-                    {v === "yes" ? "✓" : v === "no" ? "✗" : v}
+                {agentApps.map(app => (
+                  <td class={`feat-cell ${app.key === "mobile" ? "highlight-col " : ""}${row[app.key] === "yes" ? "yes" : row[app.key] === "no" ? "no" : "partial"}`}>
+                    {row[app.key] === "yes" ? "✓" : row[app.key] === "no" ? "✗" : row[app.key]}
                   </td>
                 ))}
               </tr>
@@ -109,6 +118,16 @@ const categories = [...new Set(featureRows.map(r => r.category))];
           </tbody>
         </table>
       </div>
+      <p class="agent-note">{t.compare.agentAppsSourcesNote}</p>
+      <ul class="agent-sources">
+        <li><a href="https://getmoshi.app/privacy">Moshi — {t.nav.privacy}</a></li>
+        <li><a href="https://getmoshi.app/docs/subscription">Moshi Pro</a></li>
+        <li><a href="https://getmoshi.app/compare/termius">Moshi / Termius</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=app.getmoshi.android">Moshi — Google Play</a></li>
+        <li><a href="https://www.onorca.dev/docs/mobile">Orca — {t.footer.documentation}</a></li>
+        <li><a href="https://www.onorca.dev/docs/ssh">Orca — SSH</a></li>
+        <li><a href="https://github.com/stablyai/orca/blob/main/LICENSE">Orca — MIT</a></li>
+      </ul>
       <p class="agent-note">{t.compare.agentAppsNote}</p>
     </section>
   </main>
@@ -146,7 +165,7 @@ const categories = [...new Set(featureRows.map(r => r.category))];
 
   .feat-table thead th {
     padding: 0.75rem 1rem;
-    text-align: left;
+    text-align: start;
     background: #edf3f5;
     font-size: 0.9rem;
     font-weight: 700;
@@ -160,13 +179,22 @@ const categories = [...new Set(featureRows.map(r => r.category))];
   .feat-col-feature { width: 38%; }
   .feat-col-app     { width: 20.5%; }
 
-  /* Agent-apps comparison (5 columns) */
+  /* Feature column plus eight app columns; scroll within the table on phones. */
   .agent-intro { margin: 0 0 1.25rem; }
   .agent-note { margin: 1rem 0 0; font-size: 0.9rem; color: var(--muted); }
+  .agent-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin: 0.5rem 0 1rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.85rem;
+  }
   .feat-scroll { overflow-x: auto; }
-  .agent-table { min-width: 760px; }
+  .agent-table { min-width: 1080px; }
   .agent-table .feat-col-feature { width: 28%; }
-  .agent-table .feat-col-app     { width: 12%; }
+  .agent-table .feat-col-app     { width: 9%; }
 
   /* Category header rows */
   .cat-row td {

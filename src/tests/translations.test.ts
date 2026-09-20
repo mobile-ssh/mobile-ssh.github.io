@@ -139,12 +139,13 @@ describe("locale dicts – structure", () => {
       expect(t.compare.agentAppsHeading).toBeTruthy();
       expect(t.compare.agentAppsIntro).toBeTruthy();
       expect(t.compare.agentAppsNote).toBeTruthy();
+      expect(t.compare.agentAppsSourcesNote).toBeTruthy();
     });
 
     it(`${locale}: every agentAppsRow has all app columns filled`, () => {
       const t = getDict(locale);
       for (const row of t.compare.agentAppsRows) {
-        for (const col of ["mobile", "onepilot", "happy", "omnara", "chatgpt", "claude"] as const) {
+        for (const col of ["mobile", "onepilot", "happy", "omnara", "moshi", "orca", "chatgpt", "claude"] as const) {
           expect(row[col], `${locale} agentAppsRow "${row.feature}" missing ${col}`).toBeTruthy();
         }
       }

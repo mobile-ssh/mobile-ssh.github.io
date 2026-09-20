@@ -53,7 +53,7 @@ Add one bullet to an English feature group and you have broken 19 locales. Add
 it everywhere in the same change.
 
 Every `compare.agentAppsRows` entry must fill all app columns: `mobile`,
-`onepilot`, `happy`, `omnara`, `chatgpt`, `claude`.
+`onepilot`, `happy`, `omnara`, `moshi`, `orca`, `chatgpt`, `claude`.
 
 ### Placeholders and versions
 
