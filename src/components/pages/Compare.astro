@@ -16,6 +16,8 @@ const agentApps = [
   { key: "omnara", name: "Omnara" },
   { key: "moshi", name: "Moshi" },
   { key: "orca", name: "Orca" },
+  { key: "t3code", name: "T3 Code" },
+  { key: "paseo", name: "Paseo" },
   { key: "chatgpt", name: "ChatGPT" },
   { key: "claude", name: "Claude" }
 ] as const;
@@ -170,13 +172,13 @@ const agentApps = [
   .feat-col-feature { width: 38%; }
   .feat-col-app     { width: 20.5%; }
 
-  /* Feature column plus eight app columns; scroll within the table on phones. */
+  /* Feature column plus ten app columns; scroll within the table on phones. */
   .agent-intro { margin: 0 0 1.25rem; }
   .agent-note { margin: 1rem 0 0; font-size: 0.9rem; color: var(--muted); }
   .feat-scroll { overflow-x: auto; }
-  .agent-table { min-width: 1080px; }
-  .agent-table .feat-col-feature { width: 28%; }
-  .agent-table .feat-col-app     { width: 9%; }
+  .agent-table { min-width: 1300px; }
+  .agent-table .feat-col-feature { width: 24%; }
+  .agent-table .feat-col-app     { width: 7.6%; }
 
   /* Category header rows */
   .cat-row td {

@@ -184,7 +184,7 @@ export interface Dict {
     // component; values are yes/no/short text.
     agentAppsHeading: string;
     agentAppsIntro: string;
-    agentAppsRows: { feature: string; mobile: string; onepilot: string; happy: string; omnara: string; moshi: string; orca: string; chatgpt: string; claude: string }[];
+    agentAppsRows: { feature: string; mobile: string; onepilot: string; happy: string; omnara: string; moshi: string; orca: string; t3code: string; paseo: string; chatgpt: string; claude: string }[];
     agentAppsNote: string;
     agentAppsSourcesNote: string;
   };
