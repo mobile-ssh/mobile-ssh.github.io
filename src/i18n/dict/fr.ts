@@ -199,18 +199,19 @@ export const fr: Dict = {
   features: {
     metaTitle: "Fonctionnalités | Mobile SSH",
     metaDescription:
-      "Découvrez les terminaux, hôtes de rebond, vérifications de serveurs, SFTP, VNC, sauvegardes et gestionnaires de multiplexeurs de Mobile SSH sur Android et iOS, ainsi que les VPN et clés de sécurité sur Android.",
+      "Découvrez les terminaux, outils Git distants, redirections de ports en session, clients VPN, SFTP, VNC et gestionnaires de sessions de Mobile SSH sur Android et iOS, ainsi que son assistant vocal expérimental sur Android.",
     eyebrow: "Liste des fonctionnalités",
     h1: "Fonctionnalités de Mobile SSH",
     intro:
-      "Accédez à vos serveurs sur Android et iOS avec des terminaux SSH, des identités vérifiées, des hôtes de rebond, SFTP, VNC et des gestionnaires de sessions. Android ajoute le routage VPN intégré et les clés de sécurité physiques ; les fonctions propres à chaque plateforme sont précisées ci-dessous.",
+      "Accédez à vos serveurs sur Android et iOS avec des terminaux SSH, des outils Git distants, SFTP, VNC, des clients VPN et des gestionnaires de sessions. Android propose aussi des clés de sécurité physiques et un assistant vocal expérimental ; les fonctions propres à chaque plateforme sont précisées ci-dessous.",
     groups: [
       {
         title: "Plateformes",
         items: [
-          "Android 8.0 ou plus récent — actuellement un test fermé sur Google Play : ouvrez le lien d'inscription dans un navigateur mobile, puis installez depuis Play",
+          "Android 8.0 ou version ultérieure — la disponibilité sur Google Play dépend du canal de diffusion ; les versions de test fermé nécessitent une inscription",
           "iOS 16 ou plus récent sur iPhone et iPad — rejoignez la bêta publique sur TestFlight",
-          "Les versions Android et iOS actuelles partagent le format de sauvegarde 2 pour l’inventaire et les réglages ; importer une sauvegarde ne rend pas disponibles les fonctions absentes de la plateforme"
+          "Les versions Android et iOS actuelles partagent le format de sauvegarde 2 pour l’inventaire et les réglages ; importer une sauvegarde ne rend pas disponibles les fonctions absentes de la plateforme",
+          "Cette liste reflète le code source le plus récent des applications ; la disponibilité varie selon la boutique et la version bêta, et les fonctions expérimentales sont signalées"
         ]
       },
       {
@@ -260,7 +261,9 @@ export const fr: Dict = {
           "Police de terminal configurable (police monospace du système, JetBrains Mono ou Source Code Pro) et jeu de couleurs ANSI (Solarized, Gruvbox, Dracula, Nord) sur Android et iOS, appliqués en direct aux panneaux ouverts",
           "Un curseur de taille du texte du terminal dans les Réglages, en plus du zoom par pincement, et un thème d'application réglable sur Système, Clair ou Sombre",
           "Les indicateurs de débit et de connexion sans réponse aident à distinguer une commande distante occupée d’une connexion bloquée ; assombrissement et vibrations sont facultatifs",
-          "Les réglages contrôlent les notifications distantes, alertes de fin de commande et lectures distantes du presse-papiers ; ces autorisations sont désactivées par défaut"
+          "Les réglages contrôlent les notifications distantes, alertes de fin de commande et lectures distantes du presse-papiers ; ces autorisations sont désactivées par défaut",
+          "Les jeux de terminal peuvent activer des gestes directionnels envoyant les touches fléchées sur Android et iOS ; le défilement normal reste le comportement par défaut",
+          "Sur Android, réorganisez ou masquez les actions de la barre de session, ajoutez des raccourcis vers les plugins installés et choisissez si la barre et les touches supplémentaires se masquent en plein écran"
         ]
       },
       {
@@ -279,14 +282,15 @@ export const fr: Dict = {
           "Installez le hook d'agent sur un serveur depuis l'application — un petit script shell que n'importe quel agent peut appeler, pas une intégration propre à un fournisseur",
           "Transport Eternal Terminal (ET) pour des sessions qui survivent aux coupures réseau, à la mise en veille et aux changements d'IP, avec installation automatique optionnelle d'etserver via SSH",
           "Gestionnaire tmux : listez et basculez entre sessions, fenêtres et panneaux — attachez, renommez, créez, divisez, zoomez ou tuez, avec tri par nom/date et un 🔔 pour les agents en attente d'intervention",
-          "Un seul bouton de multiplexeur ouvre les gestionnaires tmux, herdr et Zellij ; Herdr propose aperçus, focus et réponses par volet, et Zellij gère les sessions actives et terminées"
+          "Un seul bouton de multiplexeur ouvre les gestionnaires tmux, herdr et Zellij ; Herdr propose aperçus, focus et réponses par volet, et Zellij gère les sessions actives et terminées",
+          "Recherchez parmi les sessions, sockets, fenêtres/onglets et volets chargés de tmux, herdr et Zellij, en conservant les résultats dans leur hiérarchie ; les branches distantes non ouvertes ne sont pas recherchées"
         ]
       },
       {
         title: "Fichiers et tunnels",
         items: [
           "Explorateur SFTP à deux panneaux pour fichiers locaux et distants, avec un journal de transfert qui affiche chaque transfert et se fait défiler",
-          "Envois et téléchargements en file d’attente ; partagez des fichiers avec Mobile SSH sur Android ou via l’extension de partage iOS, envoyez-les à une session connectée et insérez leurs chemins distants",
+          "Envois et téléchargements en file d’attente ; partagez des fichiers vers Mobile SSH sur Android. L’extension de partage iOS les envoie au dernier serveur connecté avec succès et met les chemins terminés en attente pour un terminal correspondant",
           "Envoi et téléchargement récursifs de dossiers entre le téléphone et l'hôte distant",
           "Actions distantes renommer, supprimer, créer, éditer, compresser en .tar.gz, permissions (chmod/chown) et détails",
           "Ouvrez un fichier téléchargé dans une autre application sur les deux plateformes — sur iOS, les téléchargements apparaissent aussi dans l'app Fichiers sous « Sur mon iPhone »",
@@ -294,7 +298,9 @@ export const fr: Dict = {
           "Tri par nom ou par date avec persistance par hôte, et retour rapide aux chemins distants récents",
           "Tailles de fichiers en unités binaires, identiques à ce qu'affiche ls -h dans le terminal de l'onglet d'à côté",
           "Redirection locale de ports enregistrée avec le profil du serveur et activée automatiquement à la connexion",
-          "Suit le thème clair ou sombre du système dans toute l'application et l'explorateur de fichiers — choisissez Système, Clair ou Sombre sur Android et iOS"
+          "Suit le thème clair ou sombre du système dans toute l'application et l'explorateur de fichiers — choisissez Système, Clair ou Sombre sur Android et iOS",
+          "Ajoutez, modifiez ou supprimez des redirections de ports locaux dans une session active sur Android et iOS ; les modifications survivent aux reconnexions sans réécrire le profil de serveur enregistré",
+          "Lors de l’envoi de pièces jointes, iOS vérifie la fin du transfert et la taille du fichier avant de publier son nom définitif ou d’insérer son chemin, en préservant les fichiers existants"
         ]
       },
       {
@@ -309,7 +315,7 @@ export const fr: Dict = {
         items: [
           "Générez de nouvelles clés Ed25519 ou ECDSA sur l'appareil (RSA aussi sur Android), avec une phrase secrète facultative",
           "Copiez, partagez ou enregistrez une clé publique générée pour l'ajouter au authorized_keys du serveur",
-          "Les sauvegardes complètes incluent serveurs, identifiants, réglages, langue et tri des multiplexeurs ; Android inclut aussi les profils SSH VPN, SOCKS5, WireGuard, Shadowsocks et OpenVPN",
+          "Les sauvegardes complètes comprennent les serveurs, identifiants, réglages, langue, tri des multiplexeurs et profils VPN sur les deux plateformes ; Android ne conserve pas les profils VPN iOS gérés lors de la réexportation d’une sauvegarde",
           "Utilisez une exportation sélective ou limitée à l’inventaire pour réduire le contenu ; examinez l’aperçu de la sauvegarde complète et choisissez Fusionner ou Remplacer, avec chiffrement facultatif par phrase secrète",
           "Les sauvegardes non chiffrées contiennent mots de passe et clés privées. La confiance SSH, les sessions actives, les autorisations système et l’accès aux dossiers locaux ne sont pas portables ; les identifiants de clé de sécurité nécessitent toujours la clé physique"
         ]
@@ -319,9 +325,9 @@ export const fr: Dict = {
         items: [
           "Écran sécurisé : sur Android, bloquez les captures et l'enregistrement d'écran et masquez l'application de l'aperçu des applications récentes ; sur iOS, masquez l'aperçu du sélecteur d'applications et bloquez l'enregistrement et la recopie d'écran (une capture manuelle ne peut pas être bloquée sur iOS) — une option à activer quand des mots de passe, des clés ou des jetons sont à l'écran",
           "Les serveurs, identifiants et clés enregistrés restent sur l’appareil, sans compte cloud ni synchronisation obligatoires ; consultez la page de confidentialité pour connaître les protections du stockage et leurs limites",
-          "Les statistiques d’utilisation anonymes sont activées par défaut, mais peuvent être désactivées dans les réglages Android et iOS ; les événements ne contiennent ni serveurs, ni identifiants, ni commandes, ni contenu de fichiers",
-          "Les identités SSH sont vérifiées avant l’authentification. Android enregistre automatiquement les nouvelles clés brutes par défaut, avec option d’approbation préalable ; iOS demande confirmation avant de faire confiance à une clé inconnue. Les deux refusent les clés modifiées",
-          "Les deux plateformes importent des révocations de clés d’hôte OpenSSH à portée définie. iOS accepte les clés Ed25519/ECDSA marquées @revoked ; Android prend aussi en charge les autorités de certification d’hôtes. iOS ne prend en charge ni les certificats d’hôte ni l’importation de CA. La confiance SSH reste propre à chaque appareil et n’entre pas dans les sauvegardes"
+          "Les statistiques d’utilisation facultatives nécessitent un consentement explicite sur Android et iOS ; toutes les fonctions restent disponibles sans elles, et les événements excluent les serveurs, identifiants, commandes et contenus des fichiers",
+          "Les identités des hôtes SSH sont vérifiées avant l’authentification. Les deux plateformes font automatiquement confiance aux nouvelles clés d’hôte sans certificat par défaut, proposent d’exiger une approbation et refusent les clés modifiées",
+          "Les deux plateformes importent les autorités de certification d’hôtes et révocations de clés d’hôte OpenSSH à portée limitée. iOS prend en charge les certificats d’hôte Ed25519/ECDSA et un nom d’hôte explicite pour le certificat lors des connexions par IP. La confiance SSH reste sur chaque appareil et est exclue des sauvegardes"
         ]
       },
       {
@@ -335,22 +341,46 @@ export const fr: Dict = {
         ]
       },
       {
-        "title": "Bureaux distants",
-        "items": [
+        title: "Bureaux distants",
+        items: [
           "Bureaux VNC via un tunnel SSH sur Android et iOS, sans exposer de port VNC à l’internet public",
           "Contrôle tactile du pointeur, claviers physique et virtuel, échange du presse-papiers et prise en charge du signal sonore du bureau",
-          "Choisissez une taille prédéfinie ou des dimensions personnalisées si le serveur VNC le permet ; les demandes de redimensionnement non prises en charge sont signalées"
+          "Choisissez une taille prédéfinie ou des dimensions personnalisées si le serveur VNC le permet ; les demandes de redimensionnement non prises en charge sont signalées",
+          "iOS prend en charge l’authentification par compte du Partage d’écran Mac avec des identifiants de bureau distincts de ceux de SSH, et utilise votre disposition enregistrée des touches supplémentaires"
         ]
       },
       {
-        "title": "Clients VPN (Android)",
-        "items": [
-          "Ouvrez VPN depuis l’accueil pour gérer les profils SSH VPN, proxy SOCKS5, WireGuard, Shadowsocks et OpenVPN",
-          "SSH VPN achemine TCP et DNS via un serveur SSH enregistré pour l’ensemble des applications ou une sélection d’applications et de domaines ; les autres paquets UDP affectés à SSH sont bloqués",
-          "Le proxy SOCKS5 local authentifié fonctionne avec un autre VPN ; les applications participantes doivent utiliser le proxy et le DNS distant",
+        title: "Clients VPN et proxy",
+        items: [
+          "Gérez les profils SSH VPN, proxy SOCKS5, WireGuard, Shadowsocks et OpenVPN depuis l’écran d’accueil sur Android et iOS",
+          "SSH VPN transporte TCP et DNS via un serveur SSH enregistré, avec routage par domaine ; les autres flux UDP affectés à SSH sont bloqués. WireGuard et OpenVPN utilisent leur propre configuration de routage",
+          "SOCKS5 sert les applications configurées pour utiliser le proxy local. Android peut l’exécuter avec un autre VPN ; sur iOS, il s’arrête quand Mobile SSH passe en arrière-plan",
           "Importez des fichiers WireGuard .conf, des liens Shadowsocks ss:// pris en charge ou des profils OpenVPN .ovpn autonomes avec vérification des certificats du serveur",
-          "Lancez un profil pour changer de VPN et utilisez la tuile Mobile SSH VPN des réglages rapides pour arrêter ou lancer le profil mémorisé ; la tuile ne couvre pas les proxies SOCKS",
-          "Android autorise un seul VPN de l’appareil à la fois. Tailscale utilise son application séparée ; IKEv2/IPsec se gère dans les réglages Android. Mobile SSH ne promet ni VPN permanent ni blocage des connexions hors VPN"
+          "Android permet de sélectionner les applications ; le VPN par application sur iOS nécessite une gestion de l’appareil. Les sélections d’applications Android ne peuvent pas sélectionner directement des applications iOS",
+          "Sur Android, changez de profil ou utilisez la tuile Mobile SSH VPN des réglages rapides pour arrêter ou démarrer le profil VPN mémorisé ; cette tuile exclut les proxys SOCKS",
+          "Android autorise un seul VPN système à la fois ; iOS autorise un seul VPN ou proxy Mobile SSH à la fois. Ces clients ne garantissent ni connexion permanente ni blocage du trafic hors VPN ; Tailscale utilise sa propre application"
+        ]
+      },
+      {
+        title: "Outils Git distants",
+        items: [
+          "Ouvrez lazygit dans un terminal SSH séparé sur Android et iOS, avec le dépôt courant ; iOS accepte aussi un chemin explicite. Git et lazygit doivent être installés sur le serveur",
+          "Les différences affichées avec delta, en option, suivent la palette du terminal avec les versions compatibles de lazygit ; votre shell d’origine reste ouvert",
+          "Android peut aussi ouvrir le plugin Git installé séparément pour consulter les différences et l’historique, indexer des fichiers entiers, créer des commits, récupérer les références, effectuer un pull en avance rapide et pousser les modifications ; les dépôts restent sur le serveur"
+        ]
+      },
+      {
+        title: "Navigateur intégré",
+        items: [
+          "Ouvrez les services HTTP ou HTTPS redirigés dans Mobile SSH sur Android et iOS ; HTTPS exige toujours un certificat valide",
+          "Android ajoute des actions sur les liens du terminal, la recherche dans la page, les favoris, l’historique, le mode ordinateur et les préférences de navigation par site"
+        ]
+      },
+      {
+        title: "Assistant vocal (expérimental, Android)",
+        items: [
+          "Activez l’assistance vocale dans les réglages et configurez un serveur SSH Linux pour l’héberger ; envoyez des messages dictés ou saisis avec relecture facultative de la transcription, ou conversez en direct avec des réponses orales",
+          "Choisissez l’assistant du serveur, Codex ou Claude et consultez les assistants de programmation sur les hôtes connectés ; la saisie dans le terminal et les modifications des multiplexeurs nécessitent une autorisation distincte"
         ]
       }
     ],

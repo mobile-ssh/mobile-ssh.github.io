@@ -199,18 +199,19 @@ export const id: Dict = {
   features: {
     metaTitle: "Fitur | Mobile SSH",
     metaDescription:
-      "Jelajahi terminal Mobile SSH, host perantara, verifikasi server, SFTP, VNC, cadangan dan multiplexer Android/iOS, ditambah VPN serta kunci keamanan Android.",
+      "Jelajahi terminal Mobile SSH, alat Git jarak jauh, penerusan port pada sesi aktif, klien VPN, SFTP, VNC, dan pengelola sesi di Android dan iOS, serta asisten suara eksperimental di Android.",
     eyebrow: "Daftar fitur",
     h1: "Fitur Mobile SSH",
     intro:
-      "Hubungkan server dari Android/iOS dengan terminal SSH, identitas terverifikasi, host perantara, SFTP, VNC dan pengelola sesi. Android menambah VPN bawaan serta kunci keamanan fisik; fitur khusus platform ditandai di bawah.",
+      "Hubungkan ke server Anda dari Android dan iOS dengan terminal SSH, alat Git jarak jauh, SFTP, VNC, klien VPN, dan pengelola sesi. Android juga menyediakan kunci keamanan perangkat keras dan asisten suara eksperimental; fitur khusus platform ditandai di bawah.",
     groups: [
       {
         title: "Platform",
         items: [
-          "Android 8.0 atau lebih baru — saat ini berupa uji tertutup di Google Play: buka tautan pendaftaran di peramban ponsel, lalu pasang dari Play",
+          "Android 8.0 atau lebih baru — ketersediaan di Google Play bergantung pada jalur rilis; versi pengujian tertutup memerlukan pendaftaran",
           "iOS 16 atau lebih baru di iPhone dan iPad — ikuti beta publik di TestFlight",
-          "Versi Android/iOS terbaru memakai format cadangan 2 untuk inventaris dan pengaturan; impor tidak menyediakan fitur platform yang tidak didukung"
+          "Versi Android/iOS terbaru memakai format cadangan 2 untuk inventaris dan pengaturan; impor tidak menyediakan fitur platform yang tidak didukung",
+          "Daftar ini mengikuti kode sumber aplikasi terbaru; ketersediaan berbeda menurut toko dan versi beta, dan fitur eksperimental diberi tanda"
         ]
       },
       {
@@ -260,7 +261,9 @@ export const id: Dict = {
           "Font terminal yang dapat dikonfigurasi (monospace sistem, JetBrains Mono, atau Source Code Pro) dan skema warna ANSI (Solarized, Gruvbox, Dracula, Nord) di Android dan iOS, diterapkan secara langsung ke panel yang terbuka",
           "Penggeser ukuran teks terminal di Pengaturan berdampingan dengan zoom cubit, serta tema aplikasi yang dapat disetel ke Sistem, Terang, atau Gelap",
           "Laju trafik dan indikator koneksi macet membedakan perintah sibuk dari koneksi tanpa respons; peredupan/getaran opsional",
-          "Pengaturan mengontrol notifikasi jarak jauh, perintah selesai dan pembacaan papan klip jarak jauh; izin tersebut nonaktif secara bawaan"
+          "Pengaturan mengontrol notifikasi jarak jauh, perintah selesai dan pembacaan papan klip jarak jauh; izin tersebut nonaktif secara bawaan",
+          "Gim terminal dapat mengaktifkan usapan berarah yang mengirim tombol panah di Android dan iOS; pengguliran biasa tetap menjadi perilaku bawaan",
+          "Di Android, atur ulang atau sembunyikan tindakan pada bilah alat sesi, tambahkan pintasan plugin terpasang, dan pilih apakah bilah alat serta tombol tambahan disembunyikan saat layar penuh"
         ]
       },
       {
@@ -279,14 +282,15 @@ export const id: Dict = {
           "Pasang hook agen ke sebuah server dari dalam aplikasi — skrip shell kecil yang dapat dipanggil agen mana pun, bukan integrasi khusus satu vendor",
           "Transport Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah, dengan opsi penyiapan etserver otomatis melalui SSH",
           "Pengelola tmux: lihat daftar dan beralih antar sesi, jendela, dan panel — attach, ganti nama, buat, pisah, zoom, atau kill, dengan pengurutan nama/tanggal dan 🔔 untuk agen yang menunggu input",
-          "Satu tombol multiplexer membuka tmux, herdr dan Zellij; Herdr mendukung pratinjau panel, fokus dan balasan, Zellij sesi aktif maupun berhenti"
+          "Satu tombol multiplexer membuka tmux, herdr dan Zellij; Herdr mendukung pratinjau panel, fokus dan balasan, Zellij sesi aktif maupun berhenti",
+          "Cari sesi, soket, jendela/tab, dan panel tmux, herdr, serta Zellij yang sudah dimuat sambil mempertahankan hasil dalam hierarki induknya; cabang jarak jauh yang belum dibuka tidak dicari"
         ]
       },
       {
         title: "Berkas dan tunnel",
         items: [
           "Penjelajah SFTP dua panel untuk berkas lokal dan jarak jauh, dengan log transfer yang menampilkan setiap transfer dan dapat digulir",
-          "Unggahan/unduhan berantre; bagikan berkas ke Mobile SSH Android atau Ekstensi Berbagi iOS, unggah ke sesi terhubung dan masukkan jalur jarak jauhnya",
+          "Antrean unggahan dan unduhan; bagikan berkas ke Mobile SSH di Android. Ekstensi Berbagi iOS mengunggah ke server terakhir yang berhasil terhubung dan mengantrekan jalur yang selesai untuk terminal yang sesuai",
           "Unggah dan unduh folder rekursif antara ponsel dan host jarak jauh",
           "Aksi jarak jauh: ganti nama, hapus, buat, edit, kompres ke .tar.gz, izin (chmod/chown), dan detail",
           "Buka berkas yang diunduh di aplikasi lain di kedua platform — di iOS, unduhan juga muncul di aplikasi Files di bawah \"On My iPhone\"",
@@ -294,7 +298,9 @@ export const id: Dict = {
           "Urutkan berdasarkan nama atau tanggal dengan persistensi per host, dan lompat kembali ke jalur jarak jauh terbaru",
           "Ukuran berkas dalam satuan biner, sesuai dengan yang ditampilkan ls -h di terminal satu tab di sebelahnya",
           "Penerusan port lokal yang disimpan bersama profil server dan otomatis aktif saat tersambung",
-          "Mengikuti tema terang atau gelap sistem di seluruh aplikasi dan penjelajah berkas — pilih Sistem, Terang, atau Gelap di Android dan iOS"
+          "Mengikuti tema terang atau gelap sistem di seluruh aplikasi dan penjelajah berkas — pilih Sistem, Terang, atau Gelap di Android dan iOS",
+          "Tambahkan, edit, atau hapus penerusan port lokal dalam sesi aktif di Android dan iOS; perubahan tetap berlaku setelah tersambung kembali tanpa menulis ulang profil server tersimpan",
+          "Unggahan lampiran iOS memeriksa penyelesaian dan ukuran berkas sebelum menerbitkan nama akhir berkas atau menyisipkan jalurnya, sehingga berkas yang sudah ada tetap terjaga"
         ]
       },
       {
@@ -309,7 +315,7 @@ export const id: Dict = {
         items: [
           "Buat kunci Ed25519 atau ECDSA baru di perangkat (RSA juga di Android), dengan frasa sandi opsional",
           "Salin, bagikan, atau simpan kunci publik yang dibuat untuk ditambahkan ke authorized_keys server",
-          "Cadangan lengkap memuat server, kredensial, pengaturan, bahasa dan urutan multiplexer; Android menambah profil SSH VPN, SOCKS5, WireGuard, Shadowsocks serta OpenVPN",
+          "Cadangan lengkap mencakup server, kredensial, pengaturan aplikasi, bahasa, urutan multiplexer, dan profil VPN pada kedua platform; Android tidak mempertahankan profil VPN iOS yang dikelola saat mengekspor ulang cadangan",
           "Pilih ekspor sebagian atau inventaris saja untuk lingkup lebih kecil; pratinjau cadangan lengkap lalu Gabungkan/Ganti, dengan enkripsi frasa sandi opsional",
           "Cadangan tanpa enkripsi memuat sandi dan kunci privat. Kepercayaan SSH, sesi aktif, izin sistem dan folder tidak portabel; kredensial kunci keamanan tetap perlu kunci fisik"
         ]
@@ -319,9 +325,9 @@ export const id: Dict = {
         items: [
           "Layar aman: di Android, memblokir tangkapan layar dan perekaman layar serta menyembunyikan aplikasi dari thumbnail aplikasi terkini; di iOS, mengosongkan pratinjau pengalih aplikasi dan memblokir perekaman serta mirroring layar (tangkapan layar manual tidak dapat diblokir di iOS) — pengaturan opt-in untuk saat kata sandi, kunci, atau token ada di layar",
           "Server, kredensial, dan kunci tersimpan berada di perangkat, tanpa akun awan atau sinkronisasi wajib; lihat halaman privasi untuk perlindungan penyimpanan dan batasannya",
-          "Analitik anonim aktif secara bawaan dan dapat dimatikan di Pengaturan Android/iOS; peristiwa tidak memuat server, kredensial, perintah atau isi berkas",
-          "Identitas SSH diverifikasi sebelum autentikasi. Android menyimpan kunci mentah baru otomatis secara bawaan, dengan pilihan persetujuan; iOS meminta kepercayaan kunci asing. Keduanya menolak perubahan",
-          "Kedua platform mengimpor pencabutan kunci host OpenSSH dengan lingkup tertentu. iOS menerima kunci Ed25519/ECDSA bertanda @revoked; Android juga mendukung otoritas sertifikat host. iOS tidak mendukung sertifikat host atau impor CA. Kepercayaan SSH tetap pada tiap perangkat dan tidak disertakan dalam cadangan"
+          "Analitik penggunaan opsional memerlukan persetujuan eksplisit di Android dan iOS; semua fitur berfungsi tanpa analitik, dan peristiwa tidak memuat server, kredensial, perintah, atau isi berkas",
+          "Identitas host SSH diverifikasi sebelum autentikasi. Kedua platform secara bawaan otomatis memercayai kunci host baru tanpa sertifikat, menyediakan pengaturan untuk meminta persetujuan, dan menolak kunci yang berubah",
+          "Kedua platform mengimpor otoritas sertifikat host dan pencabutan kunci host OpenSSH dengan cakupan terbatas. iOS mendukung sertifikat host Ed25519/ECDSA serta nama host sertifikat eksplisit untuk koneksi melalui IP. Kepercayaan SSH tetap pada setiap perangkat dan tidak disertakan dalam cadangan"
         ]
       },
       {
@@ -335,22 +341,46 @@ export const id: Dict = {
         ]
       },
       {
-        "title": "Desktop jarak jauh",
-        "items": [
+        title: "Desktop jarak jauh",
+        items: [
           "Desktop VNC lewat terowongan SSH Android/iOS tanpa membuka port VNC ke internet publik",
           "Kontrol penunjuk sentuh, papan ketik fisik/layar, pertukaran papan klip dan bel desktop",
-          "Pilih ukuran layar siap pakai atau khusus jika server VNC mendukungnya; permintaan tak didukung dilaporkan"
+          "Pilih ukuran layar siap pakai atau khusus jika server VNC mendukungnya; permintaan tak didukung dilaporkan",
+          "iOS mendukung autentikasi akun Berbagi Layar Mac dengan kredensial desktop yang terpisah dari SSH, serta menggunakan tata letak tombol tambahan yang Anda simpan"
         ]
       },
       {
-        "title": "Klien VPN (Android)",
-        "items": [
-          "Buka VPN dari beranda untuk profil SSH VPN, SOCKS5, WireGuard, Shadowsocks dan OpenVPN",
-          "SSH VPN merutekan TCP/DNS lewat server tersimpan untuk semua atau aplikasi/domain terpilih; UDP lain yang ditugaskan diblokir",
-          "Proxy SOCKS5 lokal berautentikasi berdampingan dengan VPN lain; aplikasi peserta harus memakai proxy dan DNS jarak jauh",
+        title: "Klien VPN dan proxy",
+        items: [
+          "Kelola profil SSH VPN, proxy SOCKS5, WireGuard, Shadowsocks, dan OpenVPN dari layar utama di Android dan iOS",
+          "SSH VPN membawa TCP dan DNS melalui server SSH tersimpan, dengan perutean domain; UDP lain yang diarahkan ke SSH diblokir. WireGuard dan OpenVPN menggunakan konfigurasi rute masing-masing",
+          "SOCKS5 melayani aplikasi yang dikonfigurasi untuk menggunakan proxy lokal. Android dapat menjalankannya bersama VPN lain; di iOS, layanan ini berhenti ketika Mobile SSH masuk ke latar belakang",
           "Impor WireGuard .conf, tautan Shadowsocks ss:// yang didukung atau OpenVPN .ovpn mandiri dengan sertifikat server terverifikasi",
-          "Mulai profil untuk mengganti VPN; ubin Mobile SSH VPN menghentikan/menjalankan profil VPN tersimpan, tanpa proxy SOCKS",
-          "Android mengizinkan satu VPN perangkat. Tailscale memakai aplikasi terpisah; IKEv2/IPsec di Pengaturan Android. Tidak ada jaminan selalu aktif/penguncian"
+          "Android mendukung pemilihan aplikasi; VPN per aplikasi di iOS memerlukan pengelolaan perangkat. Pilihan aplikasi Android tidak dapat langsung memilih aplikasi iOS",
+          "Di Android, ganti profil atau gunakan ubin Mobile SSH VPN pada Setelan Cepat untuk menghentikan atau memulai profil VPN yang diingat; ubin ini tidak mencakup proxy SOCKS",
+          "Android mengizinkan satu VPN perangkat pada satu waktu; iOS mengizinkan satu VPN atau proxy Mobile SSH pada satu waktu. Klien ini tidak menjamin koneksi selalu aktif atau pemblokiran lalu lintas di luar VPN; Tailscale menggunakan aplikasinya sendiri"
+        ]
+      },
+      {
+        title: "Alat Git jarak jauh",
+        items: [
+          "Buka lazygit di terminal SSH terpisah pada Android dan iOS menggunakan repositori saat ini; iOS juga menerima jalur eksplisit. Git dan lazygit harus terpasang di server",
+          "Tampilan perbedaan opsional dengan delta mengikuti palet terminal pada versi lazygit yang didukung; shell awal Anda tetap terbuka",
+          "Android juga dapat membuka plugin Git yang dipasang terpisah untuk melihat perbedaan dan riwayat, memasukkan seluruh berkas ke staging, membuat commit, fetch, pull fast-forward, serta push; repositori tetap berada di server"
+        ]
+      },
+      {
+        title: "Peramban dalam aplikasi",
+        items: [
+          "Buka layanan HTTP atau HTTPS yang diteruskan di dalam Mobile SSH pada Android dan iOS; HTTPS tetap memerlukan sertifikat yang valid",
+          "Android menambahkan tindakan tautan terminal, pencarian halaman, markah, riwayat, mode desktop, dan preferensi peramban per situs"
+        ]
+      },
+      {
+        title: "Asisten suara (eksperimental, Android)",
+        items: [
+          "Aktifkan asisten suara di Pengaturan dan konfigurasikan server SSH Linux sebagai host; kirim pesan melalui dikte atau ketikan dengan peninjauan transkrip opsional, atau gunakan percakapan langsung dengan balasan suara",
+          "Pilih asisten server, Codex, atau Claude dan lihat asisten pemrograman pada host yang terhubung; masukan terminal dan perubahan multiplexer memerlukan izin terpisah"
         ]
       }
     ],

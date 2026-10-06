@@ -197,18 +197,19 @@ export const en: Dict = {
   features: {
     metaTitle: "Features | Mobile SSH",
     metaDescription:
-      "Explore Mobile SSH terminals, jump hosts, server verification, SFTP, VNC, backups and multiplexer managers on Android and iOS, plus Android VPN and security keys.",
+      "Explore Mobile SSH terminals, remote Git tools, live port forwards, VPN clients, SFTP, VNC and session managers on Android and iOS, plus experimental Android voice assistance.",
     eyebrow: "Feature list",
     h1: "Mobile SSH features",
     intro:
-      "Connect to your servers from Android and iOS with SSH terminals, verified server identities, jump hosts, SFTP, VNC and session managers. Android adds built-in VPN routing and hardware security keys; platform-specific features are marked below.",
+      "Connect to your servers from Android and iOS with SSH terminals, remote Git tools, SFTP, VNC, VPN clients and session managers. Android also offers hardware security keys and an experimental voice assistant; platform-specific features are marked below.",
     groups: [
       {
         title: "Platforms",
         items: [
-          "Android 8.0 or newer — currently a Google Play closed test: open the opt-in link in a mobile browser, then install from Play",
+          "Android 8.0 or newer — Google Play availability depends on the release track; closed-test builds require opt-in",
           "iOS 16 or newer on iPhone and iPad — join the public beta on TestFlight",
-          "Current Android and iOS versions share backup format 2 for inventory and settings; unsupported platform features do not become available by importing a backup"
+          "Current Android and iOS versions share backup format 2 for inventory and settings; unsupported platform features do not become available by importing a backup",
+          "This list follows the latest app source; availability varies by store and beta build, and experimental features are marked"
         ]
       },
       {
@@ -258,7 +259,9 @@ export const en: Dict = {
           "Configurable terminal font (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) on Android and iOS, applied live to open panes",
           "A terminal text-size slider in Settings alongside pinch-to-zoom, and an app theme set to System, Light, or Dark",
           "Connection throughput and stalled-link indicators help distinguish a busy remote command from an unresponsive connection; optional dimming and vibration",
-          "Settings control remote notifications, command-finished alerts and remote clipboard reads; these permissions are off by default"
+          "Settings control remote notifications, command-finished alerts and remote clipboard reads; these permissions are off by default",
+          "Terminal games can opt into directional swipes that send arrow keys on Android and iOS; ordinary scrolling remains the default",
+          "On Android, reorder or hide session toolbar actions, add installed-plugin shortcuts, and choose whether the toolbar and extra keys hide in fullscreen"
         ]
       },
       {
@@ -277,14 +280,15 @@ export const en: Dict = {
           "Install the agent hook onto a server from inside the app — a small shell script that any agent can call, not a vendor integration",
           "Eternal Terminal (ET) transport for sessions that survive network drops, sleep, and IP changes, with optional automatic etserver setup over SSH",
           "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, with name/date sorting and a 🔔 for agents awaiting input",
-          "One multiplexer toolbar button opens the tmux, herdr and Zellij managers; Herdr supports pane previews, focus and replies, and Zellij supports live and exited sessions"
+          "One multiplexer toolbar button opens the tmux, herdr and Zellij managers; Herdr supports pane previews, focus and replies, and Zellij supports live and exited sessions",
+          "Search loaded tmux, herdr and Zellij sessions, sockets, windows/tabs and panes while keeping matching results in their parent context; unopened remote branches are not searched"
         ]
       },
       {
         title: "Files and tunnels",
         items: [
           "Dual-pane SFTP browser for local and remote files, with a transfer log that shows every transfer and scrolls",
-          "Queued uploads and downloads; share files into Mobile SSH on Android or through the iOS Share Extension, then upload them into a connected session and insert their remote paths",
+          "Queued uploads and downloads; share files into Mobile SSH on Android. The iOS Share Extension uploads to the last successfully connected server and queues completed paths for a matching terminal",
           "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit, compress to .tar.gz, permissions (chmod/chown), and details flows",
           "Open a downloaded file in another app on both platforms — on iOS downloads also appear in the Files app under \"On My iPhone\"",
@@ -292,7 +296,9 @@ export const en: Dict = {
           "Sort by name or date with per-host persistence, and jump back to recent remote paths",
           "File sizes in binary units, matching what ls -h shows in the terminal one tab away",
           "Local port forwarding saved with server profiles and brought up automatically on connect",
-          "Follows the system light or dark theme across the app and file browser — choose System, Light, or Dark on Android and iOS"
+          "Follows the system light or dark theme across the app and file browser — choose System, Light, or Dark on Android and iOS",
+          "Add, edit or remove local port forwards in a live session on Android and iOS; changes survive reconnects without rewriting the saved server profile",
+          "iOS attachment uploads verify completion and file size before publishing the final filename or inserting its path, preserving existing files"
         ]
       },
       {
@@ -307,7 +313,7 @@ export const en: Dict = {
         items: [
           "Generate new Ed25519 or ECDSA keys on the device (RSA too on Android), with an optional passphrase",
           "Copy, share, or save a generated public key to add to the server's authorized_keys",
-          "Full backups include servers, credentials, app settings, language and multiplexer sorting; Android also includes SSH VPN, SOCKS5, WireGuard, Shadowsocks and OpenVPN profiles",
+          "Full backups include servers, credentials, app settings, language, multiplexer sorting and VPN profiles on both platforms; Android does not preserve managed iOS VPN profiles when re-exporting a backup",
           "Use selected or inventory-only exports for a smaller scope; preview a full backup and choose Merge or Replace, with optional passphrase encryption",
           "Unencrypted backups contain passwords and private keys. SSH host trust, active sessions, system permissions and local folder grants are not portable; security-key credentials still need the physical key"
         ]
@@ -317,9 +323,9 @@ export const en: Dict = {
         items: [
           "Secure screen: on Android, block screenshots and screen recording and hide the app from the recents thumbnail; on iOS, blank the app-switcher preview and block screen recording and mirroring (a manual screenshot cannot be blocked on iOS) — an opt-in setting for when passwords, keys, or tokens are on screen",
           "Saved servers, credentials and keys are stored on the device, with no required cloud account or sync; see the privacy page for storage protections and their limits",
-          "Anonymous usage analytics are on by default, with an opt-out in Settings on Android and iOS; events do not include servers, credentials, commands or file contents",
-          "SSH host identities are verified before authentication. Android automatically pins new raw keys by default, with a setting to require approval; iOS asks before trusting an unknown key. Both reject changed keys",
-          "Both platforms import scoped OpenSSH host-key revocations. iOS accepts @revoked Ed25519/ECDSA keys; Android also supports host certificate authorities. iOS does not support host certificates or CA imports. SSH trust stays on each device and is excluded from backups"
+          "Optional usage analytics require explicit consent on Android and iOS; all features work without analytics, and events exclude servers, credentials, commands and file contents",
+          "SSH host identities are verified before authentication. Both platforms automatically trust new raw host keys by default, offer a setting to require approval, and reject changed keys",
+          "Both platforms import scoped OpenSSH host certificate authorities and host-key revocations. iOS supports Ed25519/ECDSA host certificates and an explicit certificate hostname for connecting by IP. SSH trust stays on each device and is excluded from backups"
         ]
       },
       {
@@ -337,18 +343,42 @@ export const en: Dict = {
         items: [
           "VNC desktops through an SSH tunnel on Android and iOS, without exposing a VNC port to the public internet",
           "Touch pointer controls, hardware and on-screen keyboard input, clipboard exchange and desktop bell support",
-          "Choose a remote screen-size preset or custom dimensions when the VNC server supports resizing; unsupported resize requests are reported"
+          "Choose a remote screen-size preset or custom dimensions when the VNC server supports resizing; unsupported resize requests are reported",
+          "iOS supports Mac Screen Sharing account authentication with desktop credentials separate from SSH, and uses your saved extra-key layout"
         ]
       },
       {
-        title: "VPN clients (Android)",
+        title: "VPN and proxy clients",
         items: [
-          "Open VPN from the home screen to manage SSH VPN, SOCKS5 proxy, WireGuard, Shadowsocks and OpenVPN profiles",
-          "SSH VPN routes TCP and DNS through a saved SSH server for all or selected apps and domains; other UDP assigned to SSH is blocked",
-          "The authenticated local SOCKS5 proxy works alongside another VPN; participating apps must use the proxy and remote DNS",
+          "Manage SSH VPN, SOCKS5 proxy, WireGuard, Shadowsocks and OpenVPN profiles from the home screen on Android and iOS",
+          "SSH VPN carries TCP and DNS through a saved SSH server, with domain routing; other UDP assigned to SSH is blocked. WireGuard and OpenVPN use their own route configuration",
+          "SOCKS5 serves apps configured to use the local proxy. Android can run it alongside another VPN; on iOS it stops when Mobile SSH enters the background",
           "Import WireGuard .conf files, supported Shadowsocks ss:// links, or self-contained OpenVPN .ovpn profiles with verified server certificates",
-          "Start a profile to switch VPNs, and use the Mobile SSH VPN Quick Settings tile to stop or start the remembered VPN profile; the tile excludes SOCKS proxies",
-          "Android allows one device VPN at a time. Tailscale uses its separate app; IKEv2/IPsec is managed in Android Settings. Mobile SSH does not promise always-on or lockdown protection"
+          "Android supports app selection; iOS per-app VPN requires device management. Android app selections cannot directly select iOS apps",
+          "On Android, switch profiles or use the Mobile SSH VPN Quick Settings tile to stop or start the remembered VPN profile; the tile excludes SOCKS proxies",
+          "Android allows one device VPN at a time; iOS allows one Mobile SSH VPN or proxy at a time. These clients do not provide always-on or lockdown guarantees; Tailscale uses its separate app"
+        ]
+      },
+      {
+        title: "Remote Git tools",
+        items: [
+          "Open lazygit in a separate SSH terminal on Android and iOS, using the current repository; iOS also accepts an explicit path. Git and lazygit must be installed on the server",
+          "Optional delta diffs follow the terminal palette with supported lazygit versions; your original shell stays open",
+          "Android can also open the separately installed Git plugin for diffs, history, whole-file staging, commits, fetch, fast-forward pull and push; repositories stay on the server"
+        ]
+      },
+      {
+        title: "In-app browser",
+        items: [
+          "Open forwarded HTTP or HTTPS services inside Mobile SSH on Android and iOS; HTTPS still requires a valid certificate",
+          "Android adds terminal link actions, page search, bookmarks, history, desktop mode and per-site browser preferences"
+        ]
+      },
+      {
+        title: "Voice assistant (experimental, Android)",
+        items: [
+          "Enable voice assistance in Settings and configure a Linux SSH server to host it; send dictated or typed messages with optional transcript review, or use live conversation with spoken replies",
+          "Choose the server assistant, Codex or Claude and inspect coding assistants across connected hosts; terminal input and multiplexer changes require a separate opt-in"
         ]
       }
     ],

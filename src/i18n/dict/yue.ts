@@ -199,18 +199,19 @@ export const yue: Dict = {
   features: {
     metaTitle: "功能 | Mobile SSH",
     metaDescription:
-      "睇吓 Android 同 iOS 嘅 Mobile SSH 終端、跳板機、身份驗證、SFTP、VNC、備份同多工器，以及 Android VPN 同安全金鑰。",
+      "了解 Mobile SSH 喺 Android 同 iOS 嘅終端、遠端 Git 工具、即時通訊埠轉發、VPN 客戶端、SFTP、VNC 同工作階段管理器，以及 Android 實驗性語音助手。",
     eyebrow: "功能清單",
     h1: "Mobile SSH 功能",
     intro:
-      "用 SSH 終端、已驗證身份、跳板機、SFTP、VNC 同管理器，由 Android 或 iOS 連伺服器。Android 仲有內置 VPN 路由同硬件安全金鑰；下面標明各平台專用功能。",
+      "用 SSH 終端、遠端 Git 工具、SFTP、VNC、VPN 客戶端同工作階段管理器，由 Android 或 iOS 連接伺服器。Android 仲支援硬件安全金鑰同實驗性語音助手；下面標明各平台專用功能。",
     groups: [
       {
         title: "平台",
         items: [
-          "Android 8.0 或以上 —— 而家係 Google Play 嘅封閉測試：喺手機瀏覽器打開加入連結，之後再喺 Play 安裝",
+          "Android 8.0 或更新版本 — Google Play 有邊個版本視乎發佈渠道；封閉測試版本要先加入測試",
           "iPhone 同 iPad 上嘅 iOS 16 或以上 —— 喺 TestFlight 加入公測",
-          "目前 Android 同 iOS 共用清單同設定備份格式 2；匯入唔會令目標平台原本唔支援嘅功能變成可用"
+          "目前 Android 同 iOS 共用清單同設定備份格式 2；匯入唔會令目標平台原本唔支援嘅功能變成可用",
+          "呢個列表跟最新應用程式原始碼；功能供應會因商店同測試版本而唔同，實驗性功能都有標明"
         ]
       },
       {
@@ -260,7 +261,9 @@ export const yue: Dict = {
           "可設定嘅終端機字型（系統等寬字型、JetBrains Mono 或 Source Code Pro）同 ANSI 配色（Solarized、Gruvbox、Dracula、Nord），喺 Android 同 iOS 上即時套用到開住嘅窗格",
           "設定入面除咗捏住縮放，仲有終端機文字大細滑桿，App 主題亦可以設做 System、Light 或者 Dark",
           "連線速度同停頓標記分清繁忙指令同冇回應連線，可選調暗同震動",
-          "設定控制遠端通知、完成提示同讀取剪貼簿，呢啲權限預設關閉"
+          "設定控制遠端通知、完成提示同讀取剪貼簿，呢啲權限預設關閉",
+          "終端遊戲可以喺 Android 同 iOS 主動啟用方向滑動，將手指滑動變成方向鍵；預設仍然係一般捲動",
+          "喺 Android，可以重新排列或隱藏工作階段工具列操作、加入已安裝插件嘅捷徑，同埋選擇全螢幕時隱唔隱藏工具列同額外按鍵"
         ]
       },
       {
@@ -279,14 +282,15 @@ export const yue: Dict = {
           "可以喺 App 入面將 agent hook 裝落伺服器 —— 佢係一個任何代理都調用得到嘅細細 shell 腳本，唔係綁死某個供應商嘅整合",
           "Eternal Terminal（ET）傳輸令工作階段喺斷網、休眠同 IP 轉變之間都唔斷，仲可以選擇經 SSH 自動裝好 etserver",
           "Tmux 管理器：列出並切換工作階段、視窗同窗格 —— attach、重新命名、新建、分割、放大或者 kill，可按名稱／日期排序，🔔 標示等緊輸入嘅代理",
-          "一個多工器工具列掣開 tmux、herdr 同 Zellij；Herdr 有窗格預覽、聚焦同回覆，Zellij 支援執行緊同已退出工作階段"
+          "一個多工器工具列掣開 tmux、herdr 同 Zellij；Herdr 有窗格預覽、聚焦同回覆，Zellij 支援執行緊同已退出工作階段",
+          "搜尋已載入嘅 tmux、herdr 同 Zellij 工作階段、socket、視窗／分頁同窗格，符合結果會保留上層結構；唔會搜尋未開啟嘅遠端分支"
         ]
       },
       {
         title: "檔案同通道",
         items: [
           "本機同遠端雙窗格 SFTP 瀏覽器，仲有一個會列出每一次傳輸、可以捲動嘅傳輸日誌",
-          "排隊上載同下載；Android 或 iOS 分享擴充將檔案分享去 Mobile SSH，再上載入已連線工作階段並插入遠端路徑",
+          "上傳同下載可以排隊；Android 可以將檔案分享到 Mobile SSH。iOS 分享延伸功能會上傳去最近一次成功連線嘅伺服器，並將已完成上傳嘅路徑排隊插入相符嘅終端",
           "喺手機同遠端主機之間遞迴上載同下載成個資料夾",
           "遠端重新命名、刪除、新增、編輯、壓縮做 .tar.gz、權限（chmod/chown）同詳細資料",
           "兩個平台都可以用另一個 App 開啟已下載嘅檔案 —— 喺 iOS，下載嘅檔案仲會喺「檔案」App 嘅 On My iPhone 入面見到",
@@ -294,7 +298,9 @@ export const yue: Dict = {
           "每部主機個別記住按名或日期排序，仲可以一撳返去最近用過嘅遠端路徑",
           "檔案大細用二進位單位顯示，同你隔籬個分頁終端機入面 ls -h 見到嘅一樣",
           "本機連接埠轉發隨伺服器設定檔一齊儲存，連線時自動開起",
-          "整個 App 同檔案瀏覽器都會跟隨系統嘅淺色或者深色主題 —— 喺 Android 同 iOS 都可以揀 System、Light 或者 Dark"
+          "整個 App 同檔案瀏覽器都會跟隨系統嘅淺色或者深色主題 —— 喺 Android 同 iOS 都可以揀 System、Light 或者 Dark",
+          "喺 Android 同 iOS 嘅連線中工作階段新增、編輯或移除本機通訊埠轉發；重連後仍然保留改動，唔會改寫已儲存嘅伺服器設定",
+          "iOS 上傳附件會先核實傳輸完成同檔案大小，先至確定最終檔名或插入路徑，已有檔案會保留"
         ]
       },
       {
@@ -309,7 +315,7 @@ export const yue: Dict = {
         items: [
           "喺裝置上產生新嘅 Ed25519 或 ECDSA 金鑰（Android 仲支援 RSA），可選密碼短語",
           "複製、分享或儲存產生嘅公鑰，以加入伺服器嘅 authorized_keys",
-          "完整備份有伺服器、憑證、設定、語言同多工器排序；Android 仲有 SSH VPN、SOCKS5、WireGuard、Shadowsocks 同 OpenVPN 設定",
+          "兩個平台嘅完整備份都包括伺服器、憑證、應用程式設定、語言、多工器排序同 VPN 設定；Android 再匯出備份時唔會保留受管理嘅 iOS VPN 設定",
           "可只匯出選取項目或清單；完整備份有合併／取代預覽，可用密碼加密",
           "冇加密備份含密碼同私鑰。SSH 主機信任、活動工作階段、系統權限同資料夾授權唔可以搬；安全金鑰憑證仍要實體金鑰"
         ]
@@ -319,9 +325,9 @@ export const yue: Dict = {
         items: [
           "Secure screen：喺 Android，阻止截圖同螢幕錄影，並喺最近應用程式縮圖入面收埋個 App；喺 iOS，將 App 切換器嘅預覽變空白，並阻止螢幕錄影同鏡像輸出（喺 iOS 冇辦法阻止手動截圖）—— 當畫面上有密碼、金鑰或者 token 嗰陣用嘅可選設定",
           "儲存嘅伺服器、憑證同金鑰留喺裝置，唔使雲端帳戶或同步；儲存保護同限制請睇私隱頁面",
-          "匿名使用分析預設開啟，兩個平台都可喺設定退出；事件唔包括伺服器、憑證、指令或檔案內容",
-          "SSH 認證前驗證身份。Android 預設自動固定新原始金鑰，可改為先批准；iOS 先問未知金鑰。兩者都拒絕變咗嘅金鑰",
-          "兩個平台都可匯入限定範圍嘅 OpenSSH 主機金鑰撤銷。iOS 接受 @revoked Ed25519/ECDSA 金鑰；Android 仲支援主機憑證機構。iOS 唔支援主機憑證或 CA 匯入。SSH 信任留喺各裝置，唔會備份"
+          "Android 同 iOS 嘅選用使用分析都要明確同意先會啟用；唔開分析都用到全部功能，事件唔會包含伺服器、憑證、指令或檔案內容",
+          "SSH 主機身份會喺登入驗證之前檢查。兩個平台預設都會自動信任新嘅原始主機金鑰，亦可以設定為要先批准；變更咗嘅金鑰會被拒絕",
+          "兩個平台都可以匯入限定範圍嘅 OpenSSH 主機證書認證機構同主機金鑰撤銷記錄。iOS 支援 Ed25519/ECDSA 主機證書，亦可以指定證書主機名稱嚟用 IP 連線。SSH 信任記錄只留喺各自裝置，唔包括喺備份入面"
         ]
       },
       {
@@ -335,22 +341,46 @@ export const yue: Dict = {
         ]
       },
       {
-        "title": "遠端桌面",
-        "items": [
+        title: "遠端桌面",
+        items: [
           "兩個平台用 SSH 隧道連 VNC 桌面，唔使向公網暴露 VNC 連接埠",
           "觸控指標、實體及螢幕鍵盤、剪貼簿交換同桌面響鈴",
-          "VNC 伺服器支援時揀螢幕預設或自訂尺寸；唔支援嘅請求會顯示錯誤"
+          "VNC 伺服器支援時揀螢幕預設或自訂尺寸；唔支援嘅請求會顯示錯誤",
+          "iOS 支援用 Mac 螢幕共享帳戶驗證，桌面憑證同 SSH 憑證分開儲存，並使用你儲存咗嘅額外按鍵排列"
         ]
       },
       {
-        "title": "VPN 客戶端（Android）",
-        "items": [
-          "由主畫面開 VPN，管理 SSH VPN、SOCKS5、WireGuard、Shadowsocks 同 OpenVPN 設定",
-          "SSH VPN 為所有或指定應用程式同網域，經儲存 SSH 伺服器傳 TCP 同 DNS；其他交畀 SSH 嘅 UDP 被擋",
-          "有認證嘅本機 SOCKS5 可同另一個 VPN 一齊用；參與應用程式要設代理同遠端 DNS",
+        title: "VPN 同代理客戶端",
+        items: [
+          "喺 Android 同 iOS 主畫面管理 SSH VPN、SOCKS5 代理、WireGuard、Shadowsocks 同 OpenVPN 設定",
+          "SSH VPN 經已儲存嘅 SSH 伺服器傳送 TCP 同 DNS，支援網域路由；分配畀 SSH 嘅其他 UDP 流量會被封鎖。WireGuard 同 OpenVPN 用自己嘅路由設定",
+          "SOCKS5 供設定咗用本機代理嘅應用程式使用。Android 可以同另一個 VPN 一齊行；iOS 上 Mobile SSH 一入背景，代理就會停止",
           "匯入 WireGuard .conf、支援嘅 Shadowsocks ss://，或者自包含且驗證伺服器憑證嘅 OpenVPN .ovpn",
-          "啟動設定就切換 VPN，用 Mobile SSH VPN 磚塊停止或開始記住嘅設定；唔控制 SOCKS 代理",
-          "Android 同時只准一個裝置 VPN。Tailscale 用自己應用程式；IKEv2/IPsec 喺 Android 設定管理。Mobile SSH 唔保證永久開啟或鎖定保護"
+          "Android 支援揀應用程式；iOS 按應用程式分配 VPN 要有裝置管理。Android 揀咗嘅應用程式唔可以直接用嚟揀 iOS 應用程式",
+          "喺 Android 切換設定，或者用 Mobile SSH VPN 快速設定圖塊停止或啟動記住咗嘅 VPN 設定；圖塊唔包括 SOCKS 代理",
+          "Android 同一時間只容許一個裝置 VPN；iOS 同一時間只容許一個 Mobile SSH VPN 或代理。呢啲客戶端唔保證永遠連線或鎖定保護；Tailscale 用佢自己嘅應用程式"
+        ]
+      },
+      {
+        title: "遠端 Git 工具",
+        items: [
+          "喺 Android 同 iOS，用目前嘅儲存庫喺獨立 SSH 終端開 lazygit；iOS 仲可以手動指定路徑。伺服器要先裝好 Git 同 lazygit",
+          "用支援嘅 lazygit 版本時，可選用嘅 delta 差異畫面會跟終端配色；原本嘅 shell 會繼續開住",
+          "Android 仲可以開另外安裝嘅 Git 插件，用嚟睇差異同歷史、暫存成個檔案、提交、擷取、快轉拉取同推送；儲存庫會留喺伺服器"
+        ]
+      },
+      {
+        title: "應用程式內瀏覽器",
+        items: [
+          "喺 Android 同 iOS 嘅 Mobile SSH 入面開轉發嘅 HTTP 或 HTTPS 服務；HTTPS 仍然要有效證書",
+          "Android 仲有終端連結操作、頁面搜尋、書籤、歷史、桌面模式同每個網站獨立嘅瀏覽器偏好設定"
+        ]
+      },
+      {
+        title: "語音助手（實驗性，Android）",
+        items: [
+          "喺設定啟用語音輔助，再設定一部 Linux SSH 伺服器運行助手；可以口述或打字發訊息，選擇先檢查轉錄文字，或者即時傾偈並聽語音回覆",
+          "揀伺服器助手、Codex 或 Claude，並查看已連線主機上嘅編程助手；向終端輸入或更改多工器要另外啟用"
         ]
       }
     ],

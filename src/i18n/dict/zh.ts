@@ -199,18 +199,19 @@ export const zh: Dict = {
   features: {
     metaTitle: "功能 | Mobile SSH",
     metaDescription:
-      "探索 Android 和 iOS 上的 Mobile SSH 终端、跳板机、身份验证、SFTP、VNC、备份与多路复用器，以及 Android VPN 和安全密钥。",
+      "了解 Mobile SSH 在 Android 和 iOS 上的终端、远程 Git 工具、实时端口转发、VPN 客户端、SFTP、VNC 和会话管理器，以及 Android 实验性语音助手。",
     eyebrow: "功能清单",
     h1: "Mobile SSH 功能",
     intro:
-      "通过 SSH 终端、已验证身份、跳板机、SFTP、VNC 和会话管理器，从 Android 或 iOS 连接服务器。Android 另含内置 VPN 路由和硬件安全密钥；下文标明平台专属功能。",
+      "通过 SSH 终端、远程 Git 工具、SFTP、VNC、VPN 客户端和会话管理器，从 Android 或 iOS 连接服务器。Android 还支持硬件安全密钥和实验性语音助手；下文标明平台专属功能。",
     groups: [
       {
         title: "平台",
         items: [
-          "Android 8.0 或更高版本——目前是 Google Play 上的封闭测试：在手机浏览器中打开加入链接，然后从 Play 安装",
+          "Android 8.0 或更新版本 — Google Play 的可用版本取决于发布渠道；封闭测试版本需要先加入测试",
           "iPhone 和 iPad 上的 iOS 16 或更高版本——在 TestFlight 上加入公测",
-          "当前 Android 和 iOS 共用版本 2 清单及设置备份格式；导入备份不会启用目标平台不支持的功能"
+          "当前 Android 和 iOS 共用版本 2 清单及设置备份格式；导入备份不会启用目标平台不支持的功能",
+          "此列表以最新应用源码为准；功能可用性因商店和测试版本而异，实验性功能均有标注"
         ]
       },
       {
@@ -260,7 +261,9 @@ export const zh: Dict = {
           "在 Android 和 iOS 上可配置终端字体（系统等宽字体、JetBrains Mono 或 Source Code Pro）与 ANSI 配色方案（Solarized、Gruvbox、Dracula、Nord），并实时应用到已打开的窗格",
           "「设置」中除捏合缩放外还提供终端字号滑块，应用主题可设为「跟随系统」、「浅色」或「深色」",
           "连接速度与停滞标记区分繁忙命令和无响应连接，可选调暗及振动",
-          "远程通知、命令完成提醒和远程读取剪贴板由设置控制，默认关闭"
+          "远程通知、命令完成提醒和远程读取剪贴板由设置控制，默认关闭",
+          "终端游戏可在 Android 和 iOS 上主动启用方向滑动，将滑动转换为方向键；默认仍为普通滚动",
+          "在 Android 上，可重新排列或隐藏会话工具栏操作、添加已安装插件的快捷方式，并选择全屏时是否隐藏工具栏和附加按键"
         ]
       },
       {
@@ -279,14 +282,15 @@ export const zh: Dict = {
           "可在应用内把智能体钩子安装到服务器上——那是一个任何智能体都能调用的小 shell 脚本，而不是绑定某个厂商的集成",
           "Eternal Terminal（ET）传输，使会话在网络中断、休眠和 IP 变化后仍能存活，可选择通过 SSH 自动部署 etserver",
           "Tmux 管理器：列出并切换会话、窗口与窗格——附加、重命名、创建、拆分、缩放或结束，支持按名称/日期排序，🔔 标记等待输入的智能体",
-          "一个多路复用器按钮打开 tmux、herdr 和 Zellij 管理器；Herdr 支持窗格预览、聚焦及回复，Zellij 支持运行中与已退出会话"
+          "一个多路复用器按钮打开 tmux、herdr 和 Zellij 管理器；Herdr 支持窗格预览、聚焦及回复，Zellij 支持运行中与已退出会话",
+          "搜索已加载的 tmux、herdr 和 Zellij 会话、套接字、窗口/标签页和窗格，匹配结果保留上级层次；不会搜索尚未打开的远程分支"
         ]
       },
       {
         title: "文件与隧道",
         items: [
           "本地与远程双窗格 SFTP 浏览器，并带有可滚动、逐条显示每一次传输的传输日志",
-          "排队上传与下载；Android 或 iOS 分享扩展将文件分享至 Mobile SSH，再上传至已连接会话并插入远程路径",
+          "上传和下载可排队执行；Android 可将文件分享至 Mobile SSH。iOS 分享扩展会上传到最近一次成功连接的服务器，并将已上传文件的路径排队插入匹配的终端",
           "在手机与远程主机之间递归上传和下载文件夹",
           "远程重命名、删除、创建、编辑、压缩为 .tar.gz、权限（chmod/chown）与详情等操作",
           "两个平台都可以用其他应用打开已下载的文件——在 iOS 上，下载内容还会出现在「文件」应用的「我的 iPhone」下",
@@ -294,7 +298,9 @@ export const zh: Dict = {
           "按名称或日期排序并按主机持久化，还可快速跳回最近访问过的远程路径",
           "文件大小以二进制单位显示，与隔壁标签页终端里 ls -h 的输出保持一致",
           "随服务器配置保存的本地端口转发，连接时自动建立",
-          "整个应用与文件浏览器都跟随系统的浅色或深色主题——在 Android 和 iOS 上均可选择「跟随系统」、「浅色」或「深色」"
+          "整个应用与文件浏览器都跟随系统的浅色或深色主题——在 Android 和 iOS 上均可选择「跟随系统」、「浅色」或「深色」",
+          "在 Android 和 iOS 的活动会话中添加、编辑或移除本地端口转发；更改在重新连接后保留，不会改写已保存的服务器配置",
+          "iOS 附件上传会在确定最终文件名或插入路径前验证传输完成情况和文件大小，并保留已有文件"
         ]
       },
       {
@@ -309,7 +315,7 @@ export const zh: Dict = {
         items: [
           "在设备上生成新的 Ed25519 或 ECDSA 密钥（Android 上还支持 RSA），可选口令",
           "复制、分享或保存生成的公钥，以添加到服务器的 authorized_keys",
-          "完整备份包含服务器、凭据、应用设置、语言和多路复用器排序；Android 另含 SSH VPN、SOCKS5、WireGuard、Shadowsocks 和 OpenVPN 配置",
+          "两个平台的完整备份均包含服务器、凭据、应用设置、语言、多路复用器排序和 VPN 配置；Android 重新导出备份时不会保留受管理的 iOS VPN 配置",
           "可只导出所选项目或清单；完整备份有预览及合并／替换选择，并可用密码加密",
           "未加密备份含密码和私钥。SSH 主机信任、活动会话、系统权限和本地文件夹授权不可移植；安全密钥凭据仍需实体密钥"
         ]
@@ -319,9 +325,9 @@ export const zh: Dict = {
         items: [
           "安全屏幕：在 Android 上，阻止截图与屏幕录制，并在最近任务缩略图中隐藏应用；在 iOS 上，遮盖应用切换器的预览并阻止屏幕录制与镜像（iOS 上无法阻止手动截图）——在密码、密钥或令牌显示在屏幕上时可选择开启的设置",
           "已保存服务器、凭据和密钥存储在设备，无需云账户或同步；存储保护及其限制请参阅隐私页面",
-          "匿名使用分析默认开启，Android 和 iOS 均可在设置退出；事件不含服务器、凭据、命令或文件内容",
-          "SSH 认证前验证主机。Android 默认自动固定新原始密钥，可改为必须批准；iOS 先询问未知密钥。两者都拒绝改变的密钥",
-          "两个平台均可导入限定范围的 OpenSSH 主机密钥吊销记录。iOS 接受 @revoked Ed25519/ECDSA 密钥；Android 还支持主机证书颁发机构。iOS 不支持主机证书或 CA 导入。SSH 信任保留在各设备，不纳入备份"
+          "Android 和 iOS 上的可选使用分析均须获得明确同意；关闭分析不影响任何功能，事件不包含服务器、凭据、命令或文件内容",
+          "SSH 主机身份会在身份验证之前进行检查。两个平台默认自动信任新的原始主机密钥，也可设置为必须批准；已变更的密钥会被拒绝",
+          "两个平台均可导入限定作用范围的 OpenSSH 主机证书颁发机构和主机密钥吊销记录。iOS 支持 Ed25519/ECDSA 主机证书，也可指定证书主机名以通过 IP 连接。SSH 信任记录仅保存在各自设备上，不包含在备份中"
         ]
       },
       {
@@ -335,22 +341,46 @@ export const zh: Dict = {
         ]
       },
       {
-        "title": "远程桌面",
-        "items": [
+        title: "远程桌面",
+        items: [
           "两个平台通过 SSH 隧道使用 VNC 桌面，无需向公网暴露 VNC 端口",
           "触摸指针、硬件与软键盘输入、剪贴板交换和桌面响铃",
-          "VNC 服务器支持时选择屏幕预设或自定义尺寸；不支持的调整请求会报告"
+          "VNC 服务器支持时选择屏幕预设或自定义尺寸；不支持的调整请求会报告",
+          "iOS 支持使用 Mac 屏幕共享账户进行身份验证，桌面凭据与 SSH 凭据分开保存，并使用已保存的附加按键布局"
         ]
       },
       {
-        "title": "VPN 客户端（Android）",
-        "items": [
-          "从主页打开 VPN，管理 SSH VPN、SOCKS5、WireGuard、Shadowsocks 和 OpenVPN 配置",
-          "SSH VPN 为全部或指定应用及域名通过保存的 SSH 服务器传送 TCP 和 DNS；分配给 SSH 的其他 UDP 被阻止",
-          "带认证的本地 SOCKS5 可与其他 VPN 同用；参与应用须配置代理和远程 DNS",
+        title: "VPN 与代理客户端",
+        items: [
+          "在 Android 和 iOS 主屏幕上管理 SSH VPN、SOCKS5 代理、WireGuard、Shadowsocks 和 OpenVPN 配置",
+          "SSH VPN 通过已保存的 SSH 服务器传输 TCP 和 DNS，并支持域名路由；分配给 SSH 的其他 UDP 流量会被阻止。WireGuard 和 OpenVPN 使用各自的路由配置",
+          "SOCKS5 为配置为使用本地代理的应用提供服务。Android 可将其与另一个 VPN 同时运行；iOS 上 Mobile SSH 进入后台时代理会停止",
           "导入 WireGuard .conf、支持的 Shadowsocks ss://，或内含已验证服务器证书的自包含 OpenVPN .ovpn",
-          "启动配置切换 VPN，并用 Mobile SSH VPN 快捷磁贴停止或启动记住的配置；磁贴不控制 SOCKS 代理",
-          "Android 同时仅允许一个设备 VPN。Tailscale 使用独立应用；IKEv2/IPsec 在系统设置管理。Mobile SSH 不保证始终开启或锁定保护"
+          "Android 支持选择应用；iOS 的按应用 VPN 需要设备管理。Android 的应用选择无法直接用于选择 iOS 应用",
+          "在 Android 上切换配置，或使用 Mobile SSH VPN 快捷设置图块停止或启动记住的 VPN 配置；该图块不适用于 SOCKS 代理",
+          "Android 同一时间只允许运行一个设备 VPN；iOS 同一时间只允许运行一个 Mobile SSH VPN 或代理。这些客户端不保证始终在线或锁定保护；Tailscale 使用其独立应用"
+        ]
+      },
+      {
+        title: "远程 Git 工具",
+        items: [
+          "在 Android 和 iOS 上，使用当前仓库在独立 SSH 终端中打开 lazygit；iOS 也可手动指定路径。服务器须已安装 Git 和 lazygit",
+          "使用受支持的 lazygit 版本时，可选的 delta 差异视图会跟随终端配色；原始 shell 保持打开",
+          "Android 还可打开单独安装的 Git 插件，查看差异和历史、暂存整个文件、提交、获取、快进拉取和推送；仓库始终保留在服务器上"
+        ]
+      },
+      {
+        title: "应用内浏览器",
+        items: [
+          "在 Android 和 iOS 的 Mobile SSH 内打开转发的 HTTP 或 HTTPS 服务；HTTPS 仍须使用有效证书",
+          "Android 还提供终端链接操作、页内搜索、书签、历史记录、桌面模式和按网站保存的浏览器偏好设置"
+        ]
+      },
+      {
+        title: "语音助手（实验性，Android）",
+        items: [
+          "在设置中启用语音辅助，并配置一台 Linux SSH 服务器来运行助手；发送口述或输入的消息，可选择先检查转写文本，也可进行带语音回复的实时对话",
+          "选择服务器助手、Codex 或 Claude，并查看已连接主机上的编程助手；向终端输入或更改多路复用器需要另行启用"
         ]
       }
     ],

@@ -199,18 +199,19 @@ export const tr: Dict = {
   features: {
     metaTitle: "Özellikler | Mobile SSH",
     metaDescription:
-      "Android/iOS için Mobile SSH terminal, atlama sunucusu, kimlik doğrulama, SFTP, VNC, yedek ve çoklayıcılarını; Android VPN ve güvenlik anahtarlarını keşfedin.",
+      "Android ve iOS için Mobile SSH terminallerini, uzak Git araçlarını, etkin oturumlarda port yönlendirmeyi, VPN istemcilerini, SFTP, VNC ve oturum yöneticilerini; Android için deneysel sesli asistanı keşfedin.",
     eyebrow: "Özellik listesi",
     h1: "Mobile SSH özellikleri",
     intro:
-      "Android/iOS'tan SSH terminali, doğrulanmış kimlikler, atlama sunucuları, SFTP, VNC ve oturum yöneticileriyle bağlanın. Android yerleşik VPN ve donanım anahtarları ekler; platform farkları aşağıda işaretlidir.",
+      "Android ve iOS üzerinden SSH terminalleri, uzak Git araçları, SFTP, VNC, VPN istemcileri ve oturum yöneticileriyle sunucularınıza bağlanın. Android ayrıca donanım güvenlik anahtarları ve deneysel bir sesli asistan sunar; platforma özgü özellikler aşağıda belirtilmiştir.",
     groups: [
       {
         title: "Platformlar",
         items: [
-          "Android 8.0 veya üzeri — şu anda bir Google Play kapalı testi: katılım bağlantısını bir mobil tarayıcıda açın, ardından Play'den kurun",
+          "Android 8.0 veya üzeri — Google Play kullanılabilirliği yayın kanalına bağlıdır; kapalı test sürümleri için katılım gerekir",
           "iPhone ve iPad'de iOS 16 veya üzeri — TestFlight'taki genel betaya katılın",
-          "Güncel Android/iOS sürümleri envanter ve ayarlar için yedek biçimi 2 kullanır; içe aktarma desteklenmeyen platform özelliklerini kullanılabilir yapmaz"
+          "Güncel Android/iOS sürümleri envanter ve ayarlar için yedek biçimi 2 kullanır; içe aktarma desteklenmeyen platform özelliklerini kullanılabilir yapmaz",
+          "Bu liste uygulamaların en güncel kaynak kodunu yansıtır; kullanılabilirlik mağazaya ve beta sürümüne göre değişir, deneysel özellikler ayrıca belirtilir"
         ]
       },
       {
@@ -260,7 +261,9 @@ export const tr: Dict = {
           "Android ve iOS'ta yapılandırılabilir terminal yazı tipi (sistem tek aralıklı, JetBrains Mono veya Source Code Pro) ve ANSI renk şeması (Solarized, Gruvbox, Dracula, Nord); açık bölmelere anında uygulanır",
           "Ayarlar'da sıkıştırarak yakınlaştırmanın yanı sıra bir terminal metin boyutu kaydırıcısı ve Sistem, Açık ya da Koyu olarak ayarlanan bir uygulama teması",
           "Trafik hızı ve takılma göstergeleri meşgul komutla yanıtsız bağlantıyı ayırır; isteğe bağlı karartma/titreşim",
-          "Ayarlar uzak bildirim, komut bitişi ve uzak pano okumayı kontrol eder; izinler varsayılan kapalıdır"
+          "Ayarlar uzak bildirim, komut bitişi ve uzak pano okumayı kontrol eder; izinler varsayılan kapalıdır",
+          "Terminal oyunları, Android ve iOS üzerinde ok tuşlarını gönderen yönlü kaydırmaları etkinleştirebilir; normal kaydırma varsayılan davranış olarak kalır",
+          "Android üzerinde oturum araç çubuğu eylemlerini yeniden sıralayın veya gizleyin, kurulu eklenti kısayolları ekleyin ve araç çubuğuyla ek tuşların tam ekranda gizlenip gizlenmeyeceğini seçin"
         ]
       },
       {
@@ -279,14 +282,15 @@ export const tr: Dict = {
           "Ajan kancasını uygulamanın içinden bir sunucuya kurun — herhangi bir ajanın çağırabileceği küçük bir kabuk betiği; sağlayıcıya özel bir entegrasyon değil",
           "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) aktarımı; isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla",
           "Tmux yöneticisi: oturumları, pencereleri ve bölmeleri listele ve aralarında geçiş yap — bağlan, yeniden adlandır, oluştur, böl, yakınlaştır veya sonlandır; ada/tarihe göre sıralama ve girdi bekleyen ajanlar için 🔔",
-          "Tek çoklayıcı düğmesi tmux, herdr ve Zellij'i açar; Herdr bölme önizleme, odak ve yanıtı, Zellij canlı ve çıkılmış oturumları destekler"
+          "Tek çoklayıcı düğmesi tmux, herdr ve Zellij'i açar; Herdr bölme önizleme, odak ve yanıtı, Zellij canlı ve çıkılmış oturumları destekler",
+          "Yüklenmiş tmux, herdr ve Zellij oturumlarında, soketlerinde, pencerelerinde/sekmelerinde ve bölmelerinde arama yapın; sonuçlar üst öğeleriyle birlikte gösterilir. Henüz açılmamış uzak dallarda arama yapılmaz"
         ]
       },
       {
         title: "Dosyalar ve tüneller",
         items: [
           "Yerel ve uzak dosyalar için çift bölmeli SFTP gezgini; her aktarımı gösteren ve kaydırılabilen bir aktarım günlüğüyle",
-          "Kuyruklu yükleme/indirme; Android Mobile SSH veya iOS Paylaşım Uzantısıyla dosya paylaşın, bağlı oturuma yükleyip uzak yollarını ekleyin",
+          "Kuyruğa alınan yükleme ve indirmeler; Android üzerinde dosyaları Mobile SSH ile paylaşın. iOS Paylaşım Uzantısı son başarıyla bağlanılan sunucuya yükler ve tamamlanan yolları uygun bir terminal için kuyruğa alır",
           "Telefon ve uzak ana bilgisayar arasında özyinelemeli klasör yükleme ve indirme",
           "Uzak yeniden adlandırma, silme, oluşturma, düzenleme, .tar.gz olarak sıkıştırma, izinler (chmod/chown) ve ayrıntılar",
           "İndirilen bir dosyayı her iki platformda da başka bir uygulamada açın — iOS'ta indirilenler ayrıca Dosyalar uygulamasında «iPhone'umda» altında görünür",
@@ -294,7 +298,9 @@ export const tr: Dict = {
           "Her ana bilgisayar için kalıcı, ada veya tarihe göre sıralama ve son kullanılan uzak yollara geri dönüş",
           "Dosya boyutları ikili birimlerde gösterilir; bir sekme ötedeki terminalde ls -h ne gösteriyorsa onunla eşleşir",
           "Sunucu profilleriyle kaydedilen ve bağlanıldığında otomatik olarak açılan yerel port yönlendirme",
-          "Uygulamanın tamamı ve dosya gezgini sistemin açık veya koyu temasını takip eder — Android ve iOS'ta Sistem, Açık veya Koyu seçin"
+          "Uygulamanın tamamı ve dosya gezgini sistemin açık veya koyu temasını takip eder — Android ve iOS'ta Sistem, Açık veya Koyu seçin",
+          "Android ve iOS üzerinde etkin oturumlarda yerel port yönlendirmelerini ekleyin, düzenleyin veya kaldırın; değişiklikler kayıtlı sunucu profili yeniden yazılmadan tekrar bağlanmalarda korunur",
+          "iOS, ekleri yüklerken son dosya adını kullanıma sunmadan veya yolunu eklemeden önce tamamlanmayı ve dosya boyutunu doğrular; mevcut dosyaları korur"
         ]
       },
       {
@@ -309,7 +315,7 @@ export const tr: Dict = {
         items: [
           "Cihazda yeni Ed25519 veya ECDSA anahtarları oluşturun (Android'de ayrıca RSA), isteğe bağlı parola ile",
           "Oluşturulan genel anahtarı kopyalayın, paylaşın veya kaydedin; sunucunun authorized_keys dosyasına ekleyin",
-          "Tam yedek sunucu, kimlik bilgisi, ayar, dil ve çoklayıcı sırasını; Android ayrıca SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN profillerini içerir",
+          "Tam yedekler her iki platformda sunucuları, kimlik bilgilerini, uygulama ayarlarını, dili, çoklayıcı sıralamasını ve VPN profillerini içerir; Android, yedeği yeniden dışa aktarırken yönetilen iOS VPN profillerini korumaz",
           "Dar kapsam için seçili veya yalnız envanter dışa aktarımı; tam yedeği önizleyip Birleştir/Değiştir seçin, isterseniz parolayla şifreleyin",
           "Şifresiz yedek parola ve özel anahtar içerir. SSH güveni, etkin oturum, sistem/klasör izinleri taşınmaz; güvenlik anahtarı kimliği fiziksel anahtar ister"
         ]
@@ -319,9 +325,9 @@ export const tr: Dict = {
         items: [
           "Güvenli ekran: Android'de ekran görüntülerini ve ekran kaydını engelle ve uygulamayı son kullanılanlar küçük resminden gizle; iOS'ta uygulama değiştirici önizlemesini boşalt ve ekran kaydını ve yansıtmayı engelle (iOS'ta elle alınan bir ekran görüntüsü engellenemez) — parolalar, anahtarlar veya belirteçler ekrandayken açılabilen bir ayar",
           "Kaydedilen sunucular, kimlik bilgileri ve anahtarlar cihazda saklanır; bulut hesabı veya eşitleme zorunlu değildir. Depolama korumaları ve sınırları için gizlilik sayfasına bakın",
-          "Anonim analitik varsayılan açıktır, iki platformun Ayarlar'ından kapatılır; olaylar sunucu, kimlik bilgisi, komut veya dosya içeriği içermez",
-          "SSH kimliği girişten önce doğrulanır. Android yeni ham anahtarı varsayılan otomatik sabitler, onay seçeneği vardır; iOS bilinmeyeni sorar. İkisi değişeni reddeder",
-          "İki platform da kapsamı belirlenmiş OpenSSH host anahtarı iptal kayıtlarını içe aktarır. iOS, @revoked ile işaretli Ed25519/ECDSA anahtarlarını kabul eder; Android ayrıca host sertifika yetkililerini destekler. iOS host sertifikalarını veya CA içe aktarımını desteklemez. SSH güveni her cihazda kalır ve yedeklere dahil edilmez"
+          "İsteğe bağlı kullanım analizi Android ve iOS üzerinde açık onay gerektirir; tüm özellikler analiz olmadan çalışır ve olaylar sunucu, kimlik bilgisi, komut veya dosya içeriği barındırmaz",
+          "SSH sunucu kimlikleri kimlik doğrulamadan önce denetlenir. Her iki platform da varsayılan olarak yeni, sertifikasız sunucu anahtarlarına otomatik güvenir, onay gerektiren bir ayar sunar ve değişen anahtarları reddeder",
+          "Her iki platform da kapsamı sınırlanmış OpenSSH sunucu sertifika yetkililerini ve sunucu anahtarı iptallerini içe aktarır. iOS, Ed25519/ECDSA sunucu sertifikalarını ve IP ile bağlanırken açıkça belirtilen sertifika sunucu adını destekler. SSH güven bilgileri her cihazda kalır ve yedeklere dahil edilmez"
         ]
       },
       {
@@ -335,22 +341,46 @@ export const tr: Dict = {
         ]
       },
       {
-        "title": "Uzak masaüstleri",
-        "items": [
+        title: "Uzak masaüstleri",
+        items: [
           "Android/iOS'ta VNC portunu internete açmadan SSH tünelli masaüstü",
           "Dokunmatik işaretçi, fiziksel/ekran klavyesi, pano alışverişi ve masaüstü zili",
-          "VNC sunucusu destekliyorsa hazır/özel ekran ölçüsü seçin; desteklenmeyen boyut isteği bildirilir"
+          "VNC sunucusu destekliyorsa hazır/özel ekran ölçüsü seçin; desteklenmeyen boyut isteği bildirilir",
+          "iOS, SSH bilgilerinden ayrı masaüstü kimlik bilgileriyle Mac Ekran Paylaşımı hesap doğrulamasını destekler ve kaydettiğiniz ek tuş düzenini kullanır"
         ]
       },
       {
-        "title": "VPN istemcileri (Android)",
-        "items": [
-          "Ana ekrandaki VPN'den SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN profillerini yönetin",
-          "SSH VPN tüm/seçili uygulama ve alanların TCP/DNS trafiğini kayıtlı SSH'tan geçirir; diğer atanmış UDP engellenir",
-          "Kimlik doğrulamalı yerel SOCKS5 başka VPN ile çalışır; katılan uygulamalar proxy ve uzak DNS kullanmalıdır",
+        title: "VPN ve proxy istemcileri",
+        items: [
+          "Android ve iOS üzerinde ana ekrandan SSH VPN, SOCKS5 proxy, WireGuard, Shadowsocks ve OpenVPN profillerini yönetin",
+          "SSH VPN, alan adına göre yönlendirmeyle TCP ve DNS trafiğini kayıtlı bir SSH sunucusu üzerinden taşır; SSH için atanmış diğer UDP trafiği engellenir. WireGuard ve OpenVPN kendi rota yapılandırmalarını kullanır",
+          "SOCKS5, yerel proxy kullanacak şekilde yapılandırılan uygulamalara hizmet verir. Android bunu başka bir VPN ile birlikte çalıştırabilir; iOS üzerinde Mobile SSH arka plana geçtiğinde durur",
           "WireGuard .conf, desteklenen Shadowsocks ss:// veya doğrulanmış sertifikalı bağımsız OpenVPN .ovpn aktarın",
-          "Profil başlatmak VPN'i değiştirir; Mobile SSH VPN kutucuğu hatırlanan VPN'i durdurur/başlatır, SOCKS içermez",
-          "Android tek cihaz VPN'i sunar. Tailscale ayrı uygulama, IKEv2/IPsec Android Ayarları kullanır. Sürekli açık/kilitleme garantisi yoktur"
+          "Android uygulama seçimini destekler; iOS üzerinde uygulama başına VPN, cihaz yönetimi gerektirir. Android uygulama seçimleri doğrudan iOS uygulamalarını seçemez",
+          "Android üzerinde profil değiştirin veya hatırlanan VPN profilini durdurup başlatmak için Hızlı Ayarlar’daki Mobile SSH VPN kutucuğunu kullanın; kutucuk SOCKS proxy’lerini kapsamaz",
+          "Android aynı anda tek bir cihaz VPN’ine; iOS aynı anda tek bir Mobile SSH VPN veya proxy’sine izin verir. Bu istemciler sürekli açık bağlantı veya VPN dışı trafiği engelleme garantisi sunmaz; Tailscale kendi uygulamasını kullanır"
+        ]
+      },
+      {
+        title: "Uzak Git araçları",
+        items: [
+          "Android ve iOS üzerinde mevcut depoyu kullanarak lazygit’i ayrı bir SSH terminalinde açın; iOS ayrıca açıkça belirtilen bir yolu da kabul eder. Git ve lazygit sunucuda kurulu olmalıdır",
+          "İsteğe bağlı delta fark görünümleri, desteklenen lazygit sürümlerinde terminal paletini izler; ilk kabuğunuz açık kalır",
+          "Android ayrıca farklar, geçmiş, dosyaların tamamını hazırlama alanına alma, commit, fetch, fast-forward pull ve push için ayrı kurulan Git eklentisini açabilir; depolar sunucuda kalır"
+        ]
+      },
+      {
+        title: "Uygulama içi tarayıcı",
+        items: [
+          "Yönlendirilen HTTP veya HTTPS hizmetlerini Android ve iOS üzerinde Mobile SSH içinde açın; HTTPS yine geçerli bir sertifika gerektirir",
+          "Android ayrıca terminal bağlantı eylemleri, sayfada arama, yer imleri, geçmiş, masaüstü modu ve siteye özel tarayıcı tercihleri sunar"
+        ]
+      },
+      {
+        title: "Sesli asistan (deneysel, Android)",
+        items: [
+          "Ayarlar’dan sesli asistanı etkinleştirin ve barındırmak için bir Linux SSH sunucusu yapılandırın; isteğe bağlı döküm incelemesiyle dikte ettiğiniz veya yazdığınız mesajları gönderin ya da sesli yanıtlarla canlı konuşun",
+          "Sunucu asistanını, Codex’i veya Claude’u seçin ve bağlı sunuculardaki kodlama asistanlarını inceleyin; terminal girdisi ve çoklayıcı değişiklikleri için ayrı izin gerekir"
         ]
       }
     ],

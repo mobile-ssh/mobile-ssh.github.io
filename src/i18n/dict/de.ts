@@ -200,18 +200,19 @@ export const de: Dict = {
   features: {
     metaTitle: "Funktionen | Mobile SSH",
     metaDescription:
-      "Entdecke Mobile-SSH-Terminals, Sprungserver, Identitätsprüfung, SFTP, VNC, Backups und Multiplexer auf Android/iOS sowie Android-VPN und Sicherheitsschlüssel.",
+      "Entdecke Mobile SSH: Terminals, Git-Werkzeuge auf dem Server, Portweiterleitungen in laufenden Sitzungen, VPN-Clients, SFTP, VNC und Sitzungsmanager für Android und iOS sowie experimentelle Sprachassistenz für Android.",
     eyebrow: "Funktionsliste",
     h1: "Mobile-SSH-Funktionen",
     intro:
-      "Verbinde deine Server von Android und iOS aus mit SSH-Terminals, geprüften Identitäten, Sprungservern, SFTP, VNC und Sitzungsmanagern. Android ergänzt integriertes VPN-Routing und Hardware-Sicherheitsschlüssel; Plattformunterschiede sind unten markiert.",
+      "Verbinde dich unter Android und iOS mit deinen Servern: mit SSH-Terminals, Git-Werkzeugen auf dem Server, SFTP, VNC, VPN-Clients und Sitzungsmanagern. Android bietet außerdem Hardware-Sicherheitsschlüssel und einen experimentellen Sprachassistenten; plattformspezifische Funktionen sind unten gekennzeichnet.",
     groups: [
       {
         title: "Plattformen",
         items: [
-          "Android 8.0 oder neuer – derzeit ein geschlossener Test bei Google Play: Öffne den Opt-in-Link in einem mobilen Browser und installiere danach über Play",
+          "Android 8.0 oder neuer — die Verfügbarkeit bei Google Play hängt vom Veröffentlichungskanal ab; für geschlossene Testversionen ist eine Anmeldung erforderlich",
           "iOS 16 oder neuer auf iPhone und iPad – öffentliche Beta über TestFlight",
-          "Aktuelle Android- und iOS-Versionen nutzen Backupformat 2 für Inventar und Einstellungen; ein Import macht nicht unterstützte Plattformfunktionen nicht verfügbar"
+          "Aktuelle Android- und iOS-Versionen nutzen Backupformat 2 für Inventar und Einstellungen; ein Import macht nicht unterstützte Plattformfunktionen nicht verfügbar",
+          "Diese Liste entspricht dem neuesten Quellcode der Apps; die Verfügbarkeit hängt vom Store und der Betaversion ab. Experimentelle Funktionen sind gekennzeichnet"
         ]
       },
       {
@@ -261,7 +262,9 @@ export const de: Dict = {
           "Konfigurierbare Terminalschrift (System-Monospace, JetBrains Mono oder Source Code Pro) und ANSI-Farbschema (Solarized, Gruvbox, Dracula, Nord) auf Android und iOS, live auf offene Panels angewendet",
           "Ein Schieberegler für die Terminal-Textgröße in den Einstellungen, ergänzend zum Pinch-Zoom, und ein App-Design mit den Optionen System, Hell oder Dunkel",
           "Durchsatz und Anzeigen hängender Verbindungen unterscheiden ausgelastete Befehle von fehlender Antwort; optionales Abdunkeln und Vibrieren",
-          "Einstellungen steuern entfernte Meldungen, Befehlsabschlussalarme und entfernte Zwischenablageabfragen; Freigaben sind standardmäßig aus"
+          "Einstellungen steuern entfernte Meldungen, Befehlsabschlussalarme und entfernte Zwischenablageabfragen; Freigaben sind standardmäßig aus",
+          "Terminalspiele können auf Android und iOS Wischgesten aktivieren, die Pfeiltasten senden; standardmäßig dienen Wischgesten weiterhin zum Scrollen",
+          "Unter Android kannst du Aktionen der Sitzungswerkzeugleiste umordnen oder ausblenden, Verknüpfungen zu installierten Plugins hinzufügen und festlegen, ob die Werkzeugleiste und Zusatztasten im Vollbild ausgeblendet werden"
         ]
       },
       {
@@ -280,14 +283,15 @@ export const de: Dict = {
           "Installiere den Agenten-Hook aus der App heraus auf einem Server – ein kleines Shell-Skript, das jeder Agent aufrufen kann, keine Anbieter-Integration",
           "Eternal-Terminal-Transport (ET) für Sitzungen, die Netzwerkausfälle, Schlafmodus und IP-Wechsel überstehen, mit optionaler automatischer etserver-Einrichtung über SSH",
           "Tmux-Manager: Sitzungen, Fenster und Panels auflisten und wechseln – anhängen, umbenennen, erstellen, teilen, zoomen oder beenden, mit Sortierung nach Name/Datum und einem 🔔 für Agenten, die auf Eingabe warten",
-          "Eine Multiplexer-Schaltfläche öffnet tmux-, herdr- und Zellij-Manager; Herdr bietet Pane-Vorschau, Fokus und Antworten, Zellij aktive und beendete Sitzungen"
+          "Eine Multiplexer-Schaltfläche öffnet tmux-, herdr- und Zellij-Manager; Herdr bietet Pane-Vorschau, Fokus und Antworten, Zellij aktive und beendete Sitzungen",
+          "Durchsuche geladene tmux-, herdr- und Zellij-Sitzungen, Sockets, Fenster/Tabs und Bereiche; Treffer bleiben in ihrer übergeordneten Struktur sichtbar. Noch nicht geöffnete Zweige auf dem Server werden nicht durchsucht"
         ]
       },
       {
         title: "Dateien und Tunnel",
         items: [
           "SFTP-Browser mit zwei Panels für lokale und entfernte Dateien, mit einem Übertragungsprotokoll, das jede Übertragung zeigt und scrollt",
-          "Uploads und Downloads mit Warteschlange; teile Dateien mit Mobile SSH unter Android oder der iOS-Teilen-Erweiterung, lade sie in eine verbundene Sitzung und füge ihre entfernten Pfade ein",
+          "Uploads und Downloads mit Warteschlange; teile Dateien unter Android mit Mobile SSH. Die iOS-Teilen-Erweiterung lädt sie auf den zuletzt erfolgreich verbundenen Server hoch und hält die fertigen Pfade für ein passendes Terminal bereit",
           "Rekursiver Ordner-Upload und -Download zwischen Telefon und entferntem Host",
           "Entferntes Umbenennen, Löschen, Erstellen, Bearbeiten, Komprimieren zu .tar.gz, Berechtigungen (chmod/chown) und Details",
           "Eine heruntergeladene Datei auf beiden Plattformen in einer anderen App öffnen – auf iOS erscheinen Downloads zusätzlich in der Dateien-App unter „Auf meinem iPhone“",
@@ -295,7 +299,9 @@ export const de: Dict = {
           "Sortieren nach Name oder Datum mit Persistenz pro Host und Rücksprung zu zuletzt verwendeten entfernten Pfaden",
           "Dateigrößen in Binäreinheiten – passend zu dem, was ls -h im Terminal einen Tab weiter anzeigt",
           "Lokale Portweiterleitung im Serverprofil gespeichert und beim Verbinden automatisch aufgebaut",
-          "Folgt dem hellen oder dunklen Systemdesign in der gesamten App und im Dateibrowser – wähle System, Hell oder Dunkel auf Android und iOS"
+          "Folgt dem hellen oder dunklen Systemdesign in der gesamten App und im Dateibrowser – wähle System, Hell oder Dunkel auf Android und iOS",
+          "Füge in laufenden Sitzungen unter Android und iOS lokale Portweiterleitungen hinzu, bearbeite oder entferne sie; Änderungen bleiben nach einer erneuten Verbindung erhalten, ohne das gespeicherte Serverprofil zu ändern",
+          "Beim Hochladen von Anhängen prüft iOS Abschluss und Dateigröße, bevor der endgültige Dateiname bereitgestellt oder der Pfad eingefügt wird; vorhandene Dateien bleiben erhalten"
         ]
       },
       {
@@ -310,7 +316,7 @@ export const de: Dict = {
         items: [
           "Erzeuge neue Ed25519- oder ECDSA-Schlüssel auf dem Gerät (auf Android auch RSA), mit optionaler Passphrase",
           "Kopiere, teile oder speichere einen erzeugten öffentlichen Schlüssel für die authorized_keys des Servers",
-          "Vollbackups enthalten Server, Zugangsdaten, Einstellungen, Sprache und Multiplexersortierung; Android zusätzlich SSH-VPN-, SOCKS5-, WireGuard-, Shadowsocks- und OpenVPN-Profile",
+          "Vollständige Backups enthalten auf beiden Plattformen Server, Zugangsdaten, App-Einstellungen, Sprache, Multiplexer-Sortierung und VPN-Profile; Android erhält verwaltete iOS-VPN-Profile beim erneuten Export eines Backups nicht",
           "Für kleineren Umfang ausgewählte Einträge oder nur Inventar exportieren; Vollbackup vorab prüfen und Zusammenführen oder Ersetzen wählen, optional mit Passphrase verschlüsselt",
           "Unverschlüsselte Backups enthalten Passwörter und private Schlüssel. SSH-Vertrauen, aktive Sitzungen, Systemrechte und Ordnerfreigaben sind nicht übertragbar; Sicherheitsschlüssel-Zugangsdaten benötigen weiterhin den physischen Schlüssel"
         ]
@@ -320,9 +326,9 @@ export const de: Dict = {
         items: [
           "Sicherer Bildschirm: Auf Android werden Screenshots und Bildschirmaufnahmen blockiert und die App aus der Vorschau der letzten Apps ausgeblendet; auf iOS wird die Vorschau im App-Umschalter geleert und Bildschirmaufnahme und -spiegelung blockiert (ein manueller Screenshot lässt sich auf iOS nicht blockieren) – eine Opt-in-Einstellung für Momente, in denen Passwörter, Schlüssel oder Tokens auf dem Bildschirm sind",
           "Gespeicherte Server, Zugangsdaten und Schlüssel liegen auf dem Gerät, ohne verpflichtendes Cloud-Konto oder Synchronisation; die Datenschutzseite erklärt den Speicherschutz und seine Grenzen",
-          "Anonyme Nutzungsanalyse ist standardmäßig an und kann unter Android und iOS in Einstellungen abgeschaltet werden; Ereignisse enthalten weder Server noch Zugangsdaten, Befehle oder Dateiinhalte",
-          "SSH-Identitäten werden vor Anmeldung geprüft. Android speichert neue Rohschlüssel standardmäßig automatisch, auf Wunsch mit Freigabe; iOS fragt bei unbekannten Schlüsseln. Beide lehnen Änderungen ab",
-          "Beide Plattformen importieren OpenSSH-Hostschlüssel-Widerrufe mit festgelegtem Geltungsbereich. iOS akzeptiert mit @revoked markierte Ed25519-/ECDSA-Schlüssel; Android unterstützt zusätzlich Host-Zertifizierungsstellen. iOS unterstützt weder Host-Zertifikate noch CA-Importe. SSH-Vertrauen bleibt auf dem jeweiligen Gerät und ist von Backups ausgeschlossen"
+          "Optionale Nutzungsanalysen erfordern unter Android und iOS eine ausdrückliche Zustimmung; alle Funktionen arbeiten auch ohne Analysen. Ereignisse enthalten keine Server, Zugangsdaten, Befehle oder Dateiinhalte",
+          "SSH-Serveridentitäten werden vor der Anmeldung geprüft. Beide Plattformen vertrauen neuen Hostschlüsseln ohne Zertifikat standardmäßig automatisch, bieten eine Einstellung zur Bestätigung und lehnen geänderte Schlüssel ab",
+          "Beide Plattformen importieren OpenSSH-Zertifizierungsstellen für Hostzertifikate und Hostschlüsselsperren mit begrenztem Geltungsbereich. iOS unterstützt Ed25519/ECDSA-Hostzertifikate und einen expliziten Zertifikats-Hostnamen für Verbindungen per IP. SSH-Vertrauensdaten bleiben auf dem jeweiligen Gerät und sind nicht in Backups enthalten"
         ]
       },
       {
@@ -336,22 +342,46 @@ export const de: Dict = {
         ]
       },
       {
-        "title": "Entfernte Desktops",
-        "items": [
+        title: "Entfernte Desktops",
+        items: [
           "VNC-Desktops durch SSH-Tunnel auf Android/iOS, ohne einen VNC-Port ins öffentliche Internet zu stellen",
           "Touch-Zeigersteuerung, Hardware-/Bildschirmtastatur, Zwischenablageaustausch und Desktopglocke",
-          "Wähle Bildschirmvorgaben oder eigene Maße bei unterstützter VNC-Größenanpassung; nicht unterstützte Anfragen werden gemeldet"
+          "Wähle Bildschirmvorgaben oder eigene Maße bei unterstützter VNC-Größenanpassung; nicht unterstützte Anfragen werden gemeldet",
+          "iOS unterstützt die Kontoanmeldung für die Mac-Bildschirmfreigabe mit von SSH getrennten Desktop-Zugangsdaten und verwendet deine gespeicherte Zusatztastenbelegung"
         ]
       },
       {
-        "title": "VPN-Clients (Android)",
-        "items": [
-          "VPN auf der Startseite verwaltet SSH VPN, SOCKS5-Proxy, WireGuard, Shadowsocks und OpenVPN",
-          "SSH VPN leitet TCP/DNS für alle oder ausgewählte Apps und Domains durch gespeichertes SSH; anderes zugewiesenes UDP wird blockiert",
-          "Authentifizierter lokaler SOCKS5-Proxy neben anderem VPN; teilnehmende Apps müssen Proxy und entferntes DNS verwenden",
+        title: "VPN- und Proxy-Clients",
+        items: [
+          "Verwalte Profile für SSH VPN, SOCKS5-Proxys, WireGuard, Shadowsocks und OpenVPN auf Android und iOS vom Startbildschirm aus",
+          "SSH VPN überträgt TCP und DNS über einen gespeicherten SSH-Server und unterstützt Routing nach Domain; sonstiger UDP-Verkehr, der SSH zugewiesen ist, wird blockiert. WireGuard und OpenVPN verwenden ihre eigene Routing-Konfiguration",
+          "SOCKS5 bedient Apps, die für den lokalen Proxy eingerichtet sind. Unter Android kann es parallel zu einem anderen VPN laufen; unter iOS endet es, sobald Mobile SSH in den Hintergrund wechselt",
           "Import von WireGuard-.conf, unterstützten Shadowsocks-ss://-Links und eigenständigen OpenVPN-.ovpn-Profilen mit geprüften Serverzertifikaten",
-          "Profilstart wechselt VPN; Mobile SSH VPN in Schnelleinstellungen startet/stoppt das gemerkte VPN-Profil und schließt SOCKS-Proxys aus",
-          "Android erlaubt ein Geräte-VPN. Tailscale nutzt seine App, IKEv2/IPsec Android-Einstellungen. Mobile SSH verspricht weder Always-on noch Lockdown"
+          "Android unterstützt die Auswahl einzelner Apps; VPN pro App erfordert unter iOS eine Geräteverwaltung. Eine Android-App-Auswahl kann nicht direkt iOS-Apps auswählen",
+          "Wechsle unter Android zwischen Profilen oder nutze die Mobile SSH VPN-Kachel in den Schnelleinstellungen, um das zuletzt verwendete VPN-Profil zu stoppen oder zu starten; SOCKS-Proxys sind von der Kachel ausgeschlossen",
+          "Android erlaubt jeweils ein Geräte-VPN; iOS erlaubt jeweils ein VPN oder einen Proxy von Mobile SSH. Diese Clients bieten keine Garantie für Always-on- oder Lockdown-Schutz; Tailscale verwendet seine eigene App"
+        ]
+      },
+      {
+        title: "Git-Werkzeuge auf dem Server",
+        items: [
+          "Öffne lazygit unter Android und iOS in einem separaten SSH-Terminal für das aktuelle Repository; iOS akzeptiert auch einen ausdrücklich angegebenen Pfad. Git und lazygit müssen auf dem Server installiert sein",
+          "Optionale delta-Diffs übernehmen bei unterstützten lazygit-Versionen die Terminal-Farbpalette; deine ursprüngliche Shell bleibt geöffnet",
+          "Android kann außerdem das separat installierte Git-Plugin für Diffs, Verlauf, Staging ganzer Dateien, Commits, Fetch, Fast-forward-Pull und Push öffnen; die Repositorys bleiben auf dem Server"
+        ]
+      },
+      {
+        title: "Integrierter Browser",
+        items: [
+          "Öffne weitergeleitete HTTP- oder HTTPS-Dienste unter Android und iOS direkt in Mobile SSH; HTTPS benötigt weiterhin ein gültiges Zertifikat",
+          "Android bietet zusätzlich Aktionen für Terminal-Links, Seitensuche, Lesezeichen, Verlauf, Desktop-Modus und Browser-Einstellungen pro Website"
+        ]
+      },
+      {
+        title: "Sprachassistent (experimentell, Android)",
+        items: [
+          "Aktiviere die Sprachassistenz in den Einstellungen und richte einen Linux-SSH-Server als Host ein; sende diktierte oder getippte Nachrichten mit optionaler Prüfung der Transkription oder führe ein Live-Gespräch mit gesprochenen Antworten",
+          "Wähle den Server-Assistenten, Codex oder Claude und sieh dir Coding-Assistenten auf verbundenen Hosts an; Terminaleingaben und Multiplexer-Änderungen müssen separat erlaubt werden"
         ]
       }
     ],
