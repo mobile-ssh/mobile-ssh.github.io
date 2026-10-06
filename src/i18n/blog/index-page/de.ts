@@ -9,6 +9,14 @@ export const de: BlogIndexContent = {
   intro:
     "Meinungen, Erfahrungsberichte und gelegentlich ein Nachruf – vom Team hinter Mobile SSH, dem nativen SSH-, SFTP- und Terminal-Client für Android, iPhone und iPad.",
   posts: {
+    "your-server-your-rules": {
+      "tag": "Eigentum",
+      "dateLabel": "5. Oktober 2026",
+      "readingTime": "7 Min. Lesezeit",
+      "title": "Dein Agent. Dein Server. Deine Regeln.",
+      "excerpt": "Ein vorinstallierter Coding-Agent spart Einrichtungszeit. Entscheide, wer seine Arbeitsumgebung kontrolliert, wohin Modellanfragen gehen und wie du deine Arbeit mitnehmen kannst, auf eigener Hardware oder in deinem Cloud-Konto.",
+      "cta": "Manifest lesen"
+    },
     "go-outside": {
       tag: "Feldnotiz",
       dateLabel: "7. September 2026",

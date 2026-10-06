@@ -153,7 +153,7 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 
 ```bash
 npx vitest run      # structural parity + translation checks
-npx astro build     # 321 pages across 20 locales
+npx astro build     # 341 pages across 20 locales
 ```
 
 ### Commit as the project, not as your employer

@@ -9,6 +9,12 @@ export const ja: BlogIndexContent = {
   intro:
     "オピニオン、現場レポート、そしてときどき訃報。Android・iPhone・iPad 向けのネイティブな SSH／SFTP／ターミナル クライアント、Mobile SSH のチームより。",
   posts: {
+    "your-server-your-rules": {
+      tag: "所有権", dateLabel: "2026年10月5日", readingTime: "読了約7分",
+      title: "あなたのエージェント。あなたのサーバー。あなたのルール。",
+      excerpt: "プリインストールされたコーディングエージェントは設定時間を省けます。自分のハードウェアでも自分のクラウドアカウントでも、作業環境を誰が管理し、モデルへのリクエストがどこへ行き、仕事をどう持ち出せるかを決めましょう。",
+      cta: "宣言を読む",
+    },
     "go-outside": {
       tag: "現場ノート",
       dateLabel: "2026年9月7日",

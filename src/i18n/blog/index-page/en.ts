@@ -11,6 +11,14 @@ export const en: BlogIndexContent = {
   intro:
     "Opinions, field reports and the occasional obituary — from the team behind Mobile SSH, the\nnative SSH, SFTP and terminal client for Android, iPhone and iPad.",
   posts: {
+    "your-server-your-rules": {
+      tag: "Ownership",
+      dateLabel: "October 5, 2026",
+      readingTime: "7 min read",
+      title: "Your agent. Your server. Your rules.",
+      excerpt: "A preinstalled coding agent saves setup time. Decide who controls its workspace, where model requests go, and how you can take your work with you — on your own hardware or in your cloud account.",
+      cta: "Read the manifesto",
+    },
     "go-outside": {
       tag: "Field note",
       dateLabel: "September 7, 2026",

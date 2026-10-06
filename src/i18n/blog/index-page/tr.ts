@@ -9,6 +9,14 @@ export const tr: BlogIndexContent = {
   intro:
     "Görüşler, saha raporları ve arada bir bir veda yazısı — Android, iPhone ve iPad için yerel SSH, SFTP ve terminal istemcisi Mobile SSH'nin arkasındaki ekipten.",
   posts: {
+    "your-server-your-rules": {
+      "tag": "Sahiplik",
+      "dateLabel": "5 Ekim 2026",
+      "readingTime": "7 dk. okuma",
+      "title": "Senin ajanın. Senin sunucun. Senin kuralların.",
+      "excerpt": "Önceden kurulmuş bir kodlama ajanı kurulum süresinden kazandırır. Kendi donanımında veya bulut hesabında, çalışma ortamını kimin kontrol edeceğine, model isteklerinin nereye gideceğine ve işini nasıl yanında götüreceğine karar ver.",
+      "cta": "Manifestoyu oku"
+    },
     "go-outside": {
       tag: "Saha notu",
       dateLabel: "7 Eylül 2026",

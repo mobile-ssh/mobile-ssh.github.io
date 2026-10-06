@@ -9,6 +9,14 @@ export const id: BlogIndexContent = {
   intro:
     "Opini, laporan lapangan, dan sesekali obituari — dari tim di balik Mobile SSH, klien SSH, SFTP, dan terminal native untuk Android, iPhone, dan iPad.",
   posts: {
+    "your-server-your-rules": {
+      "tag": "Kepemilikan",
+      "dateLabel": "5 Oktober 2026",
+      "readingTime": "7 menit baca",
+      "title": "Agen Anda. Server Anda. Aturan Anda.",
+      "excerpt": "Agen pemrograman yang sudah terpasang menghemat waktu penyiapan. Tentukan siapa yang mengendalikan ruang kerjanya, ke mana permintaan model dikirim, dan bagaimana membawa pekerjaan Anda, di perangkat sendiri atau akun awan Anda.",
+      "cta": "Baca manifesto"
+    },
     "go-outside": {
       tag: "Catatan lapangan", dateLabel: "7 September 2026", readingTime: "Baca 7 mnt",
       title: "Pergilah keluar. Agennya tetap bekerja.",

@@ -9,6 +9,14 @@ export const es: BlogIndexContent = {
   intro:
     "Opiniones, informes de campo y alguna que otra esquela — del equipo que hay detrás de Mobile SSH, el cliente nativo de SSH, SFTP y terminal para Android, iPhone y iPad.",
   posts: {
+    "your-server-your-rules": {
+      "tag": "Propiedad",
+      "dateLabel": "5 de octubre de 2026",
+      "readingTime": "7 min de lectura",
+      "title": "Tu agente. Tu servidor. Tus reglas.",
+      "excerpt": "Un agente de programación preinstalado ahorra tiempo de preparación. Decide quién controla su entorno, adónde van las solicitudes al modelo y cómo llevarte tu trabajo, ya sea en tu propio equipo o en tu cuenta de la nube.",
+      "cta": "Leer el manifiesto"
+    },
     "go-outside": {
       tag: "Nota de campo", dateLabel: "7 de septiembre de 2026", readingTime: "7 min de lectura",
       title: "Sal a la calle. El agente sigue trabajando.",

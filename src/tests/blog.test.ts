@@ -5,6 +5,8 @@ import { getFlight } from "../i18n/blog/flight";
 import { getSwitchAgents } from "../i18n/blog/switch-agents";
 import { getBlogIndex } from "../i18n/blog/index-page";
 import { getGoOutside } from "../i18n/blog/go-outside";
+import { getYourServer } from "../i18n/blog/your-server";
+import { defineYourServer } from "../i18n/blog/your-server/define";
 
 // The blog posts render from per-locale content modules whose arrays are indexed
 // positionally by the components. A locale that drops or reorders an entry does
@@ -17,6 +19,7 @@ const enFlight = getFlight("en");
 const enSwitchAgents = getSwitchAgents("en");
 const enIndex = getBlogIndex("en");
 const enGoOutside = getGoOutside("en");
+const enYourServer = getYourServer("en");
 
 // "Blog | Mobile SSH" is genuinely identical in several languages, so metaTitle
 // is a bad translation signal. These fields are prose and must differ.
@@ -30,6 +33,7 @@ describe("blog content parity", () => {
       expect(getSwitchAgents(locale)).not.toBe(enSwitchAgents);
       expect(getBlogIndex(locale)).not.toBe(enIndex);
       expect(getGoOutside(locale)).not.toBe(enGoOutside);
+      expect(getYourServer(locale)).not.toBe(enYourServer);
     });
 
     it(`${locale}: go-outside post matches the English shape`, () => {
@@ -125,6 +129,20 @@ describe("blog content parity", () => {
     });
 
     if (!PROSE_MUST_DIFFER.includes(locale)) {
+      it(`${locale}: ownership article prose is translated`, () => {
+        const t = getYourServer(locale);
+        expect(t.title).not.toBe(enYourServer.title);
+        expect(t.standfirst).not.toBe(enYourServer.standfirst);
+        t.body.forEach((block, i) => {
+          const source = enYourServer.body[i];
+          if ("html" in block && "html" in source) {
+            expect(block.html, `body block ${i}`).not.toBe(source.html);
+          }
+        });
+        expect(getBlogIndex(locale).posts["your-server-your-rules"].excerpt)
+          .not.toBe(enIndex.posts["your-server-your-rules"].excerpt);
+      });
+
       it(`${locale}: blog index intro is translated`, () => {
         expect(getBlogIndex(locale).intro).not.toBe(enIndex.intro);
       });
@@ -137,7 +155,73 @@ describe("blog content parity", () => {
       expect(getFlight(code).masthead.headline).toBeTruthy();
       expect(getSwitchAgents(code).body.length).toBeGreaterThan(0);
       expect(getGoOutside(code).body.length).toBeGreaterThan(0);
+      expect(getYourServer(code).body.length).toBeGreaterThan(0);
       expect(Object.keys(getBlogIndex(code).posts).length).toBeGreaterThan(0);
     }
+  });
+});
+
+describe("ownership article", () => {
+  it("includes the comparison and checklist once in the shared article structure", () => {
+    expect(enYourServer.body.filter(block => block.kind === "comparison")).toHaveLength(1);
+    expect(enYourServer.body.filter(block => block.kind === "checklist")).toHaveLength(1);
+  });
+
+  // Check all fields, including figure/table copy and the source labels: those
+  // are just as visible as prose and must never silently disappear in a locale.
+  function expectComplete(actual: unknown, source: unknown, path = "post") {
+    if (typeof source === "string") {
+      expect(typeof actual, path).toBe("string");
+      expect((actual as string).trim().length, path).toBeGreaterThan(0);
+    } else if (Array.isArray(source)) {
+      expect(Array.isArray(actual), path).toBe(true);
+      expect(actual, path).toHaveLength(source.length);
+      source.forEach((item, i) => expectComplete((actual as unknown[])[i], item, `${path}[${i}]`));
+    } else if (source && typeof source === "object") {
+      expect(actual, path).toBeTruthy();
+      expect(Object.keys(actual as object).sort(), path).toEqual(Object.keys(source).sort());
+      for (const [key, value] of Object.entries(source)) {
+        expectComplete((actual as Record<string, unknown>)[key], value, `${path}.${key}`);
+      }
+    }
+  }
+
+  for (const { code } of locales) {
+    it(`${code}: keeps complete content and hosting model identities`, () => {
+      const t = getYourServer(code);
+      expectComplete(t, enYourServer);
+      expect(t.body.map(block => block.kind)).toEqual(enYourServer.body.map(block => block.kind));
+      expect(t.figure.hosts.map(host => host.id)).toEqual(["owned", "cloud"]);
+      expect(t.comparison.models.map(model => model.id)).toEqual(["managed", "cloud", "owned"]);
+      expect(t.comparison.rows.map(row => row.id)).toEqual([
+        "hardware", "admin", "storage", "access", "portability", "maintenance",
+      ]);
+      expect(t.checklist.steps).toHaveLength(6);
+    });
+
+    it(`${code}: keeps citations and product names in the article`, () => {
+      const t = getYourServer(code);
+      const body = t.body.map(block => "html" in block ? block.html : "").join(" ");
+      expect([...body.matchAll(/href="(#[^"]+)"/g)].map(match => match[1])).toEqual([
+        "#source-cloud", "#source-claude", "#source-gemini",
+      ]);
+      for (const product of ["Mobile SSH", "Codex", "Claude Code", "Gemini CLI", "tmux", "herdr", "Zellij"]) {
+        expect(body).toContain(product);
+      }
+    });
+
+    it(`${code}: card names the article it opens`, () => {
+      const t = getYourServer(code);
+      const card = getBlogIndex(code).posts["your-server-your-rules"];
+      expect(card.title).toBe(t.title);
+      expect(card.tag).toBe(t.eyebrow);
+      expect(card.dateLabel).toBe(t.date);
+      expect(card.readingTime).toBe(t.readingTime);
+    });
+  }
+
+  it("rejects incomplete body translations instead of shifting later paragraphs", () => {
+    const body = enYourServer.body.flatMap(block => "html" in block ? [block.html] : []);
+    expect(() => defineYourServer({ ...enYourServer, body: body.slice(1) })).toThrow(/expected 22/);
   });
 });

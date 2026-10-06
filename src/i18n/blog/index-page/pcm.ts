@@ -11,6 +11,14 @@ export const pcm: BlogIndexContent = {
   intro:
     "Our own talk, report from ground, and tribute once in a while — from di team wey dey behind Mobile SSH, di native SSH, SFTP and terminal client for Android, iPhone and iPad.",
   posts: {
+    "your-server-your-rules": {
+      "tag": "Ownership",
+      "dateLabel": "5 October 2026",
+      "readingTime": "7 minutes to read",
+      "title": "Na your agent. Na your server. Na your rules.",
+      "excerpt": "Coding agent wey dem don install saves setup time. Decide who controls im workspace, where model requests dey go, and how you fit carry your work comot, whether na your own hardware or your cloud account.",
+      "cta": "Read di manifesto"
+    },
     "go-outside": {
       tag: "Note from ground", dateLabel: "7 September 2026", readingTime: "7 min read",
       title: "Comot go outside. Agent still dey work.",
