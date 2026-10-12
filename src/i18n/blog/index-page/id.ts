@@ -9,6 +9,14 @@ export const id: BlogIndexContent = {
   intro:
     "Opini, laporan lapangan, dan sesekali obituari — dari tim di balik Mobile SSH, klien SSH, SFTP, dan terminal native untuk Android, iPhone, dan iPad.",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      "tag": "Alur kerja suara",
+      "dateLabel": "11 Oktober 2026",
+      "readingTime": "7 menit baca",
+      "title": "Tulisan blog yang bermula dalam perjalanan pulang",
+      "excerpt": "Satu perjalanan bayangan, empat alur suara. Bandingkan T3 Code, Moshi, Mobile SSH, dan paseo.sh untuk membuat draf, mengedit berkas, menulis kode sumber, dan menyiapkan perubahan, dengan batasan yang jelas tentang apa yang dapat disimpulkan dari bukti kebisingan jalan.",
+      "cta": "Baca ceritanya"
+    },
     "your-server-your-rules": {
       "tag": "Kepemilikan",
       "dateLabel": "5 Oktober 2026",

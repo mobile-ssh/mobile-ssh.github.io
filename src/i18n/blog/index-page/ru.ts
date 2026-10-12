@@ -9,6 +9,14 @@ export const ru: BlogIndexContent = {
   intro:
     "Мнения, полевые отчёты и изредка некролог — от команды, которая делает Mobile SSH, нативный клиент SSH, SFTP и терминала для Android, iPhone и iPad.",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "Работа голосом",
+      dateLabel: "11 октября 2026 г.",
+      readingTime: "7 мин чтения",
+      title: "Статья, которая началась по дороге домой",
+      excerpt: "Одна воображаемая поездка и четыре способа работать голосом. Сравниваем T3 Code, Moshi, Mobile SSH и paseo.sh для черновиков, правки файлов, написания кода и подготовки коммита — с ясными границами того, что известно о работе при дорожном шуме.",
+      cta: "Читать историю",
+    },
     "your-server-your-rules": {
       tag: "Владение",
       dateLabel: "5 октября 2026 г.",

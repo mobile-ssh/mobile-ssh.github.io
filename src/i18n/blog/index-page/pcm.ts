@@ -11,6 +11,14 @@ export const pcm: BlogIndexContent = {
   intro:
     "Our own talk, report from ground, and tribute once in a while — from di team wey dey behind Mobile SSH, di native SSH, SFTP and terminal client for Android, iPhone and iPad.",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      "tag": "Work wey you fit do with voice",
+      "dateLabel": "11 October 2026",
+      "readingTime": "7 minutes to read",
+      "title": "Di blog post wey start as you dey drive go house",
+      "excerpt": "One drive wey we imagine, four voice workflows. Compare T3 Code, Moshi, Mobile SSH and paseo.sh for writing drafts, editing files, writing source code and staging changes, with clear limits on wetin road-noise evidence fit tell us.",
+      "cta": "Read di story"
+    },
     "your-server-your-rules": {
       "tag": "Ownership",
       "dateLabel": "5 October 2026",

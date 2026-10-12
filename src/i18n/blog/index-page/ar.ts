@@ -9,6 +9,12 @@ export const ar: BlogIndexContent = {
   intro:
     "آراء وتقارير ميدانية ونعيٌ بين الحين والآخر — من الفريق الذي يقف خلف Mobile SSH، عميل SSH وSFTP والطرفية الأصلي لأجهزة Android وiPhone وiPad.",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "سير العمل الصوتي", dateLabel: "11 أكتوبر 2026", readingTime: "قراءة في 7 دقائق",
+      title: "تدوينة بدأت في طريق العودة إلى المنزل",
+      excerpt: "رحلة متخيّلة وأربعة مسارات للعمل بالصوت. نقارن T3 Code وMoshi وMobile SSH وpaseo.sh في إعداد المسودات وتحرير الملفات وكتابة الشيفرة وتجهيز التغييرات، مع توضيح حدود ما تكشفه أدلة ضوضاء الطريق.",
+      cta: "اقرأ القصة",
+    },
     "your-server-your-rules": {
       tag: "الملكية", dateLabel: "5 أكتوبر 2026", readingTime: "قراءة في 7 دقائق",
       title: "وكيلك. خادمك. قواعدك.",

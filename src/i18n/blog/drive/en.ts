@@ -1,0 +1,80 @@
+import type { DrivePost } from "./types";
+
+export const en: DrivePost = {
+  metaTitle: "The blog post that started on the drive home | Mobile SSH",
+  metaDescription: "An imagined voice-first writing session compares T3 Code, Moshi, Mobile SSH and paseo.sh: drafting, editing files, writing code, staging changes and dealing with noise.",
+  back: "Blog",
+  eyebrow: "Voice workflows",
+  title: "The blog post that started on the drive home",
+  standfirst: "An idea arrives before the journey ends. Can you turn it into a draft, a source change and a carefully staged diff without living on a touchscreen? Four products offer different parts of that conversation.",
+  author: "The Mobile SSH Editorial Board",
+  date: "October 11, 2026",
+  readingTime: "7 min read",
+  evidence: "An imagined journey, not a driving test. Capabilities were checked against official documentation and current source on October 11, 2026. No comparative microphone or road-noise test was performed. Set up while parked; driving takes priority, and screen review or approvals wait for a safe stop.",
+  body: [
+    { kind: "lead", html: "The post begins in a parked car. You have a repository on a reachable computer, a coding agent ready, and an idea that will probably disappear if you promise to remember it after dinner. Before setting off, you choose the project and establish the connection. The first request is ordinary speech." },
+    { kind: "quote", html: "Draft a blog post about our new search feature. Start with the reader's problem. Save a draft in the blog directory, and leave it uncommitted." },
+    { kind: "p", html: "The drive supplies the setting, but the useful question is what happens after the microphone hears you. Does speech merely fill a text box? Does someone still need to press Send? Can you hear an answer and ask a follow-up? T3 Code, Moshi, Mobile SSH and paseo.sh do not give the same answer." },
+    { kind: "h2", html: "One request, four different conversations" },
+    { kind: "p", html: "T3 Code puts the coding agent and its repository work into a mobile interface. Its documented built-in voice input transcribes locally on supported iPhones running iOS 26 or later. Crucially, transcription changes the composer draft; it does not submit the agent turn. That suits speaking a substantial writing brief while parked, checking it, and sending it. It does not establish a continuous conversation with spoken replies. The work can continue on the host after submission, but dictation alone does not complete the hands-free loop. <a href=\"#source-t3-voice\">[1]</a>" },
+    { kind: "p", html: "Moshi takes the terminal route. Its voice documentation describes speech becoming terminal input, with optional Enter submission, or an editable composer. Its own comparison with Paseo calls this one-way dictation, rather than conversational talk-back. A coding agent already running in that terminal can receive the writing brief. The missing step in our imagined drive is hearing and negotiating the result through a documented two-way voice mode. A microphone button and automatic Enter are useful, but neither proves spoken feedback or voice approvals. <a href=\"#source-moshi-voice\">[3]</a> <a href=\"#source-moshi-conversation\">[4]</a>" },
+    { kind: "p", html: "paseo.sh documents both dictation and voice conversations: speech recognition carries your request to an agent, and speech synthesis supplies replies. Its voice workflow can launch and control coding agents, making it a direct candidate for the imagined exchange. That is a documented interaction design, not a result from this journey. There are lifecycle limits too: the reviewed Android implementation pauses audio when backgrounded. Do not assume that conversational voice also means an uninterrupted locked-phone session. <a href=\"#source-paseo-voice\">[5]</a> <a href=\"#source-paseo-background\">[7]</a>" },
+    { kind: "p", html: "Mobile SSH's experimental Android assistant adds a different attraction: voice can work with the SSH sessions you already use. Its Live mode supports spoken interaction; its controls can discover hosts and multiplexer resources, read selected terminal output and, after a separate opt-in, send terminal input or perform supported commands. For someone juggling an editor, a coding agent and a test pane, naming the existing target is useful. This is the supported advantage to emphasize: voice integrated with general SSH work, with control permissions kept explicit. It is not evidence of better speech recognition than the other three. <a href=\"#source-mobile-voice\">[8]</a>" },
+    { kind: "p", html: "The platform qualifier matters. Mobile SSH's new iOS voice implementation is foreground dictation, review and explicit Send, with spoken replies and read-only access to the selected terminal. Its release notes describe a private test build. It does not provide the Android assistant's terminal-writing control or continuous listening. Nor is the Android Auto development adapter a released car integration. The story must follow the build you actually have. <a href=\"#source-mobile-ios\">[11]</a> <a href=\"#source-mobile-car\">[12]</a>" },
+    { kind: "comparison" },
+    { kind: "h2", html: "The draft becomes a file, then a source change" },
+    { kind: "p", html: "Imagine the outline being ready by the next safe stop. Now the task becomes more precise. You want the introduction shortened, an example corrected, and a small change to the site's source. You can still express those changes by voice; there is no need to dictate every brace and semicolon." },
+    { kind: "quote", html: "Shorten the introduction in the draft. Then add a reading-time label to the article component, following this project's conventions. Run the relevant tests and tell me which files changed." },
+    { kind: "p", html: "Here the coding agent does the writing. The voice interface carries the instruction; repository access, available tools and permissions determine whether it can edit the files and implement the component. Applying those capabilities to this particular blog is a proposed workflow, not a verified demonstration that all four products completed it. T3 Code exposes agent editing and Git actions; Moshi supplies a real terminal; Paseo documents agent development workflows; Mobile SSH on Android can address a permitted terminal or command target. The chosen agent still has to understand the task." },
+    { kind: "p", html: "Mobile SSH remains useful when the voice session ends: the same app has an SSH terminal, SFTP text editing and access to remote lazygit. That gives you a practical place to inspect the actual files and diff while parked. These are interactive review tools, not proof that their buttons can all be operated by voice. <a href=\"#source-mobile-voice\">[8]</a>" },
+    { kind: "h2", html: "Staging deserves its own sentence" },
+    { kind: "quote", html: "Stage only the blog draft and the article component we just reviewed. Leave every other change untouched. Do not commit or push." },
+    { kind: "p", html: "Staging selects content for the next Git commit; it is separate from saving, committing and publishing. T3 Code's mobile commit workflow selects files and stages them as part of committing. That is not the same as documenting a standalone spoken staging action. In Moshi, Paseo or a write-enabled Mobile SSH Android session, asking a capable agent to stage specific files is a reasonable use of its shell tools, subject to permissions. None of that proves reliable voice-only approval of an arbitrary diff. Check the staged diff at the safe stop. <a href=\"#source-t3-git\">[2]</a> <a href=\"#source-paseo-work\">[6]</a>" },
+    { kind: "h2", html: "Then the road gets louder" },
+    { kind: "p", html: "In our imagined drive, rain arrives, the fan speeds up and a passenger starts talking. This is where a polished demo stops answering the important question. We found no controlled, comparable road-noise results for these four products. There is no evidence here for a recognition winner, a reliable distance from the microphone, or a promise that background conversation will never become a command." },
+    { kind: "p", html: "T3 Code's on-device transcription describes where recognition happens, not its accuracy in a noisy cabin. Moshi offers several recognition engines on iOS and suggests hosted transcription when local recognition struggles with noise; that suggestion is not a benchmark. Paseo offers local speech services and configurable cloud alternatives, but provider choice alone does not establish performance in your car. Road noise, competing speech, microphone placement and the selected recognition model all need evaluation in the actual setup. <a href=\"#source-t3-voice\">[1]</a> <a href=\"#source-moshi-voice\">[3]</a> <a href=\"#source-paseo-voice\">[5]</a>" },
+    { kind: "p", html: "Mobile SSH offers useful controls to evaluate on Android: the phone audio path enables platform noise suppression and echo cancellation when available, and the voice host has optional RNNoise filtering and an enrolled-speaker gate. Those are verified implementation choices, not verified superiority. Input protection is off by default, requires setup and can reject the intended speaker or accept unwanted speech. Its documentation explicitly says the recorded synthetic checks do not measure human headset or car-noise accuracy. <a href=\"#source-mobile-noise\">[10]</a>" },
+    { kind: "p", html: "For Mobile SSH's Android server-recognition path, documented headset controls can start or resume a configured conversation and control an active session in the background, subject to Android's routing and other apps taking priority. That is relevant to reducing screen interaction. It still needs testing with your phone and headset while parked; it is not a guarantee about steering-wheel buttons, wake words or every car. If the conversation demands correction or attention, pause it. <a href=\"#source-mobile-headset\">[9]</a>" },
+    { kind: "h2", html: "Arrive with something worth reviewing" },
+    { kind: "p", html: "The useful finish is a draft and a small, inspectable change waiting when the journey ends. T3 Code and Moshi offer different ways to speak instructions into an existing coding workflow. Paseo offers a documented conversational alternative. Mobile SSH is especially worth evaluating for Android users who want voice alongside existing SSH terminals and multiplexer sessions, then full terminal and file tools for review. That judgment follows the capabilities, not a noise contest we have not run." },
+    { kind: "p", html: "All four belong in the comparison. Choose the interaction that matches your device and the work, keep requests specific, and let the road have your attention. The draft can wait. The final diff deserves yours." }
+  ],
+  comparison: {
+    heading: "What the imagined journey can reasonably ask of each product",
+    productHeading: "Product",
+    voiceHeading: "Verified voice path",
+    fitHeading: "Fit and boundary",
+    rows: [
+      { id: "t3", voice: "Supported iOS devices: dictation into a draft; submission is separate.", fit: "Agent editing and mobile Git actions; continuous spoken dialogue not established." },
+      { id: "moshi", voice: "Dictation into the terminal or composer; optional Enter.", fit: "Use an existing terminal agent; documented voice is one-way." },
+      { id: "mobile", voice: "Experimental Android Live conversation and opt-in terminal control.", fit: "Existing SSH and multiplexer targets; the new iOS assistant is read-only and requires Send." },
+      { id: "paseo", voice: "Dictation plus speech recognition and spoken replies in voice mode.", fit: "Conversational agent control; background audio behavior depends on platform and build." }
+    ],
+    note: "Documentation and source establish mechanisms, not successful completion of this scenario. No comparative road-noise performance is established for any of the four."
+  },
+  sources: {
+    heading: "Sources for this comparison",
+    mobileAudit: "Mobile SSH references record our review of private Android and iOS repositories at the revisions shown. They are source findings, not public release confirmations or in-car test results.",
+    t3Voice: "T3 Code: voice input and its draft-only submission boundary",
+    t3Ios: "T3 Code: iOS voice availability",
+    t3Git: "T3 Code: mobile file selection for commits",
+    t3Stage: "T3 Code: staging selected files on the server",
+    moshiVoice: "Moshi: voice engines, terminal input and composer behavior",
+    moshiConversation: "Moshi: its description of dictation versus conversation",
+    paseoVoice: "paseo.sh: dictation and voice conversations",
+    paseoWork: "paseo.sh: repository development workflows",
+    paseoBackground: "Paseo: Android audio lifecycle in v0.11.2",
+    mobileVoice: "Mobile SSH: Android voice controls and ordinary terminal/file workflows",
+    mobileHeadset: "Mobile SSH: headset controls and their limits",
+    mobileNoise: "Mobile SSH: optional input protection and audio implementation",
+    mobileAudio: "Mobile SSH: platform audio processing",
+    mobileIos: "Mobile SSH: iOS voice implementation and private-build limits",
+    mobileCar: "Mobile SSH: development-only Android Auto adapter"
+  },
+  cta: {
+    heading: "Keep the conversation close to the work.",
+    body: "Explore Mobile SSH's documented workflows and check the capabilities of your platform and build before setting up a voice session.",
+    docsLink: "Read the documentation",
+    featuresLink: "Check platform features"
+  }
+};

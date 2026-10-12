@@ -9,6 +9,12 @@ export const ja: BlogIndexContent = {
   intro:
     "オピニオン、現場レポート、そしてときどき訃報。Android・iPhone・iPad 向けのネイティブな SSH／SFTP／ターミナル クライアント、Mobile SSH のチームより。",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "音声ワークフロー", dateLabel: "2026年10月11日", readingTime: "読了約7分",
+      title: "帰り道の車内で始まったブログ記事",
+      excerpt: "1つの想像上のドライブと、4つの音声ワークフロー。T3 Code、Moshi、Mobile SSH、paseo.sh を下書き、ファイル編集、ソースコード作成、変更のステージングで比較し、走行音について証拠から言える範囲を明確にします。",
+      cta: "物語を読む",
+    },
     "your-server-your-rules": {
       tag: "所有権", dateLabel: "2026年10月5日", readingTime: "読了約7分",
       title: "あなたのエージェント。あなたのサーバー。あなたのルール。",

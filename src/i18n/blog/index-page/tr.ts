@@ -9,6 +9,14 @@ export const tr: BlogIndexContent = {
   intro:
     "Görüşler, saha raporları ve arada bir bir veda yazısı — Android, iPhone ve iPad için yerel SSH, SFTP ve terminal istemcisi Mobile SSH'nin arkasındaki ekipten.",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      "tag": "Sesle çalışma akışları",
+      "dateLabel": "11 Ekim 2026",
+      "readingTime": "7 dk. okuma",
+      "title": "Eve dönüş yolunda başlayan blog yazısı",
+      "excerpt": "Hayali bir yolculuk, dört ses iş akışı. Taslak hazırlama, dosya düzenleme, kaynak kodu yazma ve değişiklikleri hazırlama için T3 Code, Moshi, Mobile SSH ve paseo.sh'yi karşılaştır; yol gürültüsü kanıtlarının ne söyleyebileceğine ilişkin sınırlar açık olsun.",
+      "cta": "Hikâyeyi oku"
+    },
     "your-server-your-rules": {
       "tag": "Sahiplik",
       "dateLabel": "5 Ekim 2026",

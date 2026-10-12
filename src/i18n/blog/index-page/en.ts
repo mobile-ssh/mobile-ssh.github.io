@@ -11,6 +11,14 @@ export const en: BlogIndexContent = {
   intro:
     "Opinions, field reports and the occasional obituary — from the team behind Mobile SSH, the\nnative SSH, SFTP and terminal client for Android, iPhone and iPad.",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "Voice workflows",
+      dateLabel: "October 11, 2026",
+      readingTime: "7 min read",
+      title: "The blog post that started on the drive home",
+      excerpt: "One imagined drive, four voice workflows. Compare T3 Code, Moshi, Mobile SSH and paseo.sh for drafting, editing files, writing source code and staging changes — with clear limits on what road-noise evidence can tell us.",
+      cta: "Read the story",
+    },
     "your-server-your-rules": {
       tag: "Ownership",
       dateLabel: "October 5, 2026",

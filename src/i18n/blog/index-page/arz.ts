@@ -11,6 +11,12 @@ export const arz: BlogIndexContent = {
   intro:
     "آراء، وتقارير ميدانية، ونعي من وقت للتاني — من الفريق اللي ورا Mobile SSH، برنامج SSH وSFTP والترمنال الأصلي لـ Android وiPhone وiPad.",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "شغل بالصوت", dateLabel: "11 أكتوبر 2026", readingTime: "قراءة في 7 دقايق",
+      title: "التدوينة اللي بدأت وإنت راجع بالعربية",
+      excerpt: "مشوار متخيّل وأربع طرق للشغل بالصوت. بنقارن T3 Code وMoshi وMobile SSH وpaseo.sh في كتابة المسودات وتعديل الملفات وكتابة الكود وتجهيز التغييرات، وبنوضح حدود اللي أدلة دوشة الطريق تقدر تقولهولنا.",
+      cta: "اقرا الحكاية",
+    },
     "your-server-your-rules": {
       tag: "الملكية", dateLabel: "5 أكتوبر 2026", readingTime: "قراءة في 7 دقايق",
       title: "وكيلك. سيرفرك. قواعدك.",

@@ -9,6 +9,14 @@ export const hi: BlogIndexContent = {
   intro:
     "राय, फ़ील्ड रिपोर्ट और कभी-कभार एक शोक-संदेश — Mobile SSH बनाने वाली टीम की ओर से, जो Android, iPhone और iPad के लिए नेटिव SSH, SFTP और टर्मिनल क्लाइंट है।",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "आवाज़ से काम करने के तरीके",
+      dateLabel: "11 अक्टूबर 2026",
+      readingTime: "पढ़ने में 7 मिनट",
+      title: "घर लौटते सफ़र में शुरू हुआ ब्लॉग लेख",
+      excerpt: "एक कल्पित सफ़र, आवाज़ से काम करने के चार तरीके। मसौदा बनाने, फ़ाइलें संपादित करने, सोर्स कोड लिखने और बदलाव स्टेज करने के लिए T3 Code, Moshi, Mobile SSH और paseo.sh की तुलना करें — सड़क के शोर से जुड़े प्रमाण क्या बता सकते हैं, इसकी स्पष्ट सीमाओं के साथ।",
+      cta: "कहानी पढ़ें",
+    },
     "your-server-your-rules": {
       tag: "स्वामित्व",
       dateLabel: "5 अक्टूबर 2026",

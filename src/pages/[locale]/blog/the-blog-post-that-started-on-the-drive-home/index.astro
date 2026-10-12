@@ -1,0 +1,12 @@
+---
+import Drive from "../../../../components/blog/Drive.astro";
+import { nonDefaultLocales } from "../../../../i18n/locales";
+import type { LocaleCode } from "../../../../i18n/locales";
+
+export function getStaticPaths() {
+  return nonDefaultLocales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as LocaleCode;
+---
+<Drive locale={locale} />

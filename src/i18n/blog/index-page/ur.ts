@@ -9,6 +9,12 @@ export const ur: BlogIndexContent = {
   intro:
     "آرا، میدانی رپورٹس اور کبھی کبھار کوئی تعزیت نامہ — اُس ٹیم کی جانب سے جو Mobile SSH بناتی ہے، یعنی Android، iPhone اور iPad کے لیے نیٹو SSH، SFTP اور ٹرمینل کلائنٹ۔",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "آواز سے کام کرنے کے طریقے", dateLabel: "11 اکتوبر 2026", readingTime: "7 منٹ کا مطالعہ",
+      title: "وہ بلاگ پوسٹ جس کا آغاز گھر واپسی کے سفر میں ہوا",
+      excerpt: "ایک تصوراتی ڈرائیو، آواز سے کام کرنے کے چار طریقے۔ مسودہ بنانے، فائلیں بدلنے، سورس کوڈ لکھنے اور تبدیلیاں اسٹیج کرنے کے لیے T3 Code، Moshi، Mobile SSH اور paseo.sh کا موازنہ، ساتھ اس بات کی واضح حدود کہ سڑک کے شور کے شواہد کیا بتا سکتے ہیں۔",
+      cta: "کہانی پڑھیں",
+    },
     "your-server-your-rules": {
       tag: "ملکیت", dateLabel: "5 اکتوبر 2026", readingTime: "7 منٹ کا مطالعہ",
       title: "آپ کا ایجنٹ۔ آپ کا سرور۔ آپ کے اصول۔",

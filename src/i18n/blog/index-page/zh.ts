@@ -9,6 +9,12 @@ export const zh: BlogIndexContent = {
   intro:
     "观点、现场报告，偶尔还有一篇讣告——来自 Mobile SSH 团队，这是一款面向 Android、iPhone 和 iPad 的原生 SSH、SFTP 与终端客户端。",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "语音工作流", dateLabel: "2026年10月11日", readingTime: "阅读约 7 分钟",
+      title: "那篇始于回家路上的博客",
+      excerpt: "一段设想的车程，四种语音工作流。对比 T3 Code、Moshi、Mobile SSH 和 paseo.sh 在起草文章、编辑文件、编写源码及暂存更改方面的用途，并清楚说明道路噪声证据能支持哪些结论、有哪些局限。",
+      cta: "阅读故事",
+    },
     "your-server-your-rules": {
       tag: "所有权", dateLabel: "2026年10月5日", readingTime: "阅读约 7 分钟",
       title: "你的智能体。你的服务器。你的规则。",

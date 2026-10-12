@@ -6,6 +6,7 @@
 
 /** Post slugs, newest first. Also the key each locale must supply copy for. */
 export type BlogPostSlug =
+  | "the-blog-post-that-started-on-the-drive-home"
   | "your-server-your-rules"
   | "go-outside"
   | "switch-agents-not-apps"

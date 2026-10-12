@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { defaultLocale, localeMap, localizedHref } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+import { getDrive } from "../../i18n/blog/drive";
+import type { ProductId } from "../../i18n/blog/drive/types";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const c = getDrive(locale);
+const backArrow = localeMap[locale].dir === "rtl" ? "→" : "←";
+const products: Record<ProductId, string> = { t3: "T3 Code", moshi: "Moshi", mobile: "Mobile SSH", paseo: "paseo.sh" };
+const t3Revision = "https://github.com/pingdotgg/t3code/blob/821a6d7e0685a5876d8ad12a7a72b23c2becb505";
+---
+
+<BaseLayout title={c.metaTitle} description={c.metaDescription} locale={locale} pathKey="blog">
+  <main class="post">
+    <p class="back"><a href={localizedHref(locale, "/blog/")}>{backArrow} {c.back}</a></p>
+    <header class="post-head">
+      <p class="eyebrow">{c.eyebrow}</p>
+      <h1>{c.title}</h1>
+      <p class="standfirst">{c.standfirst}</p>
+      <ul class="products">{c.comparison.rows.map(row => <li><a href={`#product-${row.id}`}>{products[row.id]}</a></li>)}</ul>
+      <p class="byline">
+        <span class="who"><span class="avatar" aria-hidden="true">MS</span> {c.author}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime="2026-10-11">{c.date}</time>
+        <span aria-hidden="true">·</span>
+        <span>{c.readingTime}</span>
+      </p>
+    </header>
+
+    <aside class="evidence"><p>{c.evidence}</p></aside>
+
+    <article class="prose">
+      {c.body.map(block => (
+        <>
+          {block.kind === "lead" && <p class="lead" set:html={block.html}></p>}
+          {block.kind === "p" && <p set:html={block.html}></p>}
+          {block.kind === "h2" && <h2 set:html={block.html}></h2>}
+          {block.kind === "quote" && <blockquote class="spoken"><p set:html={block.html}></p></blockquote>}
+          {block.kind === "comparison" && (
+            <figure class="comparison">
+              <div class="table-scroll" role="region" aria-labelledby="comparison-heading" tabindex="0">
+                <table>
+                  <caption id="comparison-heading">{c.comparison.heading}</caption>
+                  <thead><tr>
+                    <th scope="col">{c.comparison.productHeading}</th>
+                    <th scope="col">{c.comparison.voiceHeading}</th>
+                    <th scope="col">{c.comparison.fitHeading}</th>
+                  </tr></thead>
+                  <tbody>{c.comparison.rows.map(row => (
+                    <tr id={`product-${row.id}`}>
+                      <th scope="row"><bdi>{products[row.id]}</bdi></th>
+                      <td>{row.voice}</td>
+                      <td>{row.fit}</td>
+                    </tr>
+                  ))}</tbody>
+                </table>
+              </div>
+              <figcaption>{c.comparison.note}</figcaption>
+            </figure>
+          )}
+        </>
+      ))}
+    </article>
+
+    <aside class="sources" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">{c.sources.heading}</h2>
+      <p class="audit-note">{c.sources.mobileAudit}</p>
+      <ol>
+        <li id="source-t3-voice"><a href={`${t3Revision}/docs/internals/voice-input.md`}>{c.sources.t3Voice}</a> · <a href="https://apps.apple.com/us/app/t3-code-remote-claude-more/id6787819824">{c.sources.t3Ios}</a></li>
+        <li id="source-t3-git"><a href={`${t3Revision}/apps/mobile/src/features/threads/git/GitCommitSheet.tsx`}>{c.sources.t3Git}</a> · <a href={`${t3Revision}/apps/server/src/git/GitManager.ts`}>{c.sources.t3Stage}</a></li>
+        <li id="source-moshi-voice"><a href="https://getmoshi.app/docs/voice">{c.sources.moshiVoice}</a> · <a href="https://getmoshi.app/docs/subscription">Moshi Pro</a></li>
+        <li id="source-moshi-conversation"><a href="https://getmoshi.app/compare/paseo">{c.sources.moshiConversation}</a></li>
+        <li id="source-paseo-voice"><a href="https://paseo.sh/docs/voice">{c.sources.paseoVoice}</a></li>
+        <li id="source-paseo-work"><a href="https://paseo.sh/docs/parallel-development">{c.sources.paseoWork}</a></li>
+        <li id="source-paseo-background"><a href="https://github.com/getpaseo/paseo/blob/v0.11.2/packages/expo-two-way-audio/android/src/main/java/expo/modules/twowayaudio/ExpoTwoWayAudioLifeCycleListener.kt">{c.sources.paseoBackground}</a></li>
+        <li id="source-mobile-voice">{c.sources.mobileVoice} <code>Android a33fbef · docs/voice-prototype.md</code><a href={localizedHref(locale, "/features/")}>{c.cta.featuresLink}</a></li>
+        <li id="source-mobile-headset">{c.sources.mobileHeadset} <code>Android a33fbef · docs/voice-headphones.md</code></li>
+        <li id="source-mobile-noise">{c.sources.mobileNoise} <code>Android a33fbef · voice-server/LOCAL.md</code>{c.sources.mobileAudio} <code>Android a33fbef · VoiceAudio.java</code></li>
+        <li id="source-mobile-ios">{c.sources.mobileIos} <code>iOS d0bd6e2 · docs/releases/2.56.md</code></li>
+        <li id="source-mobile-car">{c.sources.mobileCar} <code>Android a33fbef · docs/android-auto-voice.md</code></li>
+      </ol>
+    </aside>
+
+    <aside class="cta" aria-labelledby="cta-heading">
+      <h2 id="cta-heading">{c.cta.heading}</h2>
+      <p>{c.cta.body}</p>
+      <div class="cta-links">
+        <a href={localizedHref(locale, "/docs/")}>{c.cta.docsLink}</a>
+        <a href={localizedHref(locale, "/features/")}>{c.cta.featuresLink}</a>
+      </div>
+    </aside>
+  </main>
+</BaseLayout>
+
+<style>
+  .post { max-width: 760px; margin: 0 auto; padding: 0 1.25rem 4rem; overflow-wrap: anywhere; }
+  .back { margin: 1.5rem 0 0; font-size: .9rem; }
+  .back a { color: var(--muted); }
+  .post-head { text-align: center; padding: 1.5rem 0 .5rem; }
+  .eyebrow { margin: 0 0 .9rem; color: var(--green); font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  h1 { margin: 0; color: var(--ink); font-size: clamp(2.2rem, 7vw, 3.8rem); line-height: 1.1; letter-spacing: -.04em; }
+  .standfirst { max-width: 49ch; margin: 1.2rem auto 0; color: var(--muted); font-size: clamp(1.05rem, 2.5vw, 1.24rem); line-height: 1.55; }
+  .products { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin: 1.4rem 0; padding: 0; list-style: none; }
+  .products a { display: block; padding: .35rem .75rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-size: .82rem; }
+  .byline { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .5rem .7rem; margin: 1.4rem 0 0; color: var(--muted); font-size: .85rem; }
+  .who { display: inline-flex; align-items: center; gap: .5rem; color: var(--ink); font-weight: 600; }
+  .avatar { display: grid; flex-shrink: 0; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--terminal); color: var(--green-bright); font: 700 .72rem ui-monospace, monospace; }
+  .evidence { margin: 2rem 0; padding: 1rem 1.2rem; border-inline-start: 3px solid var(--green); background: #f0f5f3; color: #42544a; font-size: .9rem; line-height: 1.6; }
+  .evidence p { margin: 0; }
+  .prose > p { margin: 0 0 1.1rem; color: #333d47; font-size: 1.13rem; line-height: 1.72; }
+  .lead { font-weight: 500; }
+  .prose h2 { margin: 2.5rem 0 .7rem; color: var(--ink); font-size: clamp(1.45rem, 3.5vw, 2rem); letter-spacing: -.025em; }
+  .spoken { margin: 1.6rem 0; padding: 1.4rem 1.6rem; border-radius: 14px; background: var(--terminal); color: #e7fff3; font-size: 1.12rem; line-height: 1.65; }
+  .spoken p { margin: 0; }
+  .comparison { margin: 2rem 0; }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+  .table-scroll:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+  table { width: 100%; min-width: 580px; border-spacing: 0; background: var(--surface); font-size: .86rem; line-height: 1.55; }
+  caption { padding: 1rem; color: var(--ink); text-align: start; font-size: 1.05rem; font-weight: 700; }
+  th, td { padding: .85rem; border-top: 1px solid var(--line); text-align: start; vertical-align: top; }
+  thead th { background: #edf5f0; color: #24523c; }
+  tbody th { width: 20%; color: var(--ink); }
+  td { width: 40%; color: #333d47; }
+  tbody tr, .sources li { scroll-margin-top: 7rem; }
+  tbody tr:target { background: #edf5f0; }
+  figcaption { margin: .8rem 0 0; color: var(--muted); font-size: .86rem; line-height: 1.55; }
+  .sources { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  .sources h2 { margin: 0 0 .5rem; color: var(--ink); font-size: 1.1rem; }
+  .sources ol { padding-inline-start: 1.6rem; }
+  .sources li { margin-block: .7rem; color: var(--muted); font-size: .85rem; line-height: 1.55; }
+  .sources code { display: block; margin-block: .2rem; font-size: .75rem; direction: ltr; unicode-bidi: isolate; }
+  .audit-note { color: var(--muted); font-size: .85rem; line-height: 1.6; }
+  .cta { margin-top: 2.6rem; padding: 2rem 1.5rem; border-radius: 20px; background: var(--terminal); color: #eef1f6; text-align: center; }
+  .cta h2 { margin: 0; font-size: clamp(1.5rem, 4.4vw, 2rem); }
+  .cta p { max-width: 48ch; margin: .8rem auto 0; color: #b9c0d0; line-height: 1.6; }
+  .cta-links { display: flex; justify-content: center; flex-wrap: wrap; gap: .6rem 1.5rem; margin-top: 1.4rem; }
+  .cta-links a { color: var(--green-bright); }
+  @media (max-width: 550px) {
+    .prose > p { font-size: 1.06rem; }
+    .spoken { padding: 1.2rem; font-size: 1.06rem; }
+  }
+</style>

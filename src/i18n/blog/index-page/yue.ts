@@ -9,6 +9,12 @@ export const yue: BlogIndexContent = {
   intro:
     "觀點、現場報告，偶爾仲有一篇悼文 —— 來自 Mobile SSH 團隊，一款為 Android、iPhone 同 iPad 而設嘅原生 SSH、SFTP 同終端機客戶端。",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "語音工作流程", dateLabel: "2026年10月11日", readingTime: "閱讀約 7 分鐘",
+      title: "嗰篇喺揸車返屋企途中開始嘅網誌",
+      excerpt: "一段想像車程，四種語音工作流程。比較 T3 Code、Moshi、Mobile SSH 同 paseo.sh 點樣起草文章、編輯檔案、寫原始碼同暫存改動，亦清楚交代道路噪音證據能夠支持嘅結論同限制。",
+      cta: "閱讀故事",
+    },
     "your-server-your-rules": {
       tag: "擁有權", dateLabel: "2026年10月5日", readingTime: "閱讀約 7 分鐘",
       title: "你嘅代理。你嘅伺服器。你嘅規矩。",

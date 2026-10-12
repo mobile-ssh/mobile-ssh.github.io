@@ -9,6 +9,14 @@ export const de: BlogIndexContent = {
   intro:
     "Meinungen, Erfahrungsberichte und gelegentlich ein Nachruf – vom Team hinter Mobile SSH, dem nativen SSH-, SFTP- und Terminal-Client für Android, iPhone und iPad.",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      "tag": "Arbeiten per Sprache",
+      "dateLabel": "11. Oktober 2026",
+      "readingTime": "7 Min. Lesezeit",
+      "title": "Der Blogbeitrag, der auf der Heimfahrt begann",
+      "excerpt": "Eine gedachte Fahrt, vier Sprachabläufe. Vergleiche T3 Code, Moshi, Mobile SSH und paseo.sh beim Entwerfen, Bearbeiten von Dateien, Schreiben von Quellcode und Vormerken von Änderungen – mit klaren Grenzen dessen, was Belege zu Fahrgeräuschen aussagen können.",
+      "cta": "Die Geschichte lesen"
+    },
     "your-server-your-rules": {
       "tag": "Eigentum",
       "dateLabel": "5. Oktober 2026",

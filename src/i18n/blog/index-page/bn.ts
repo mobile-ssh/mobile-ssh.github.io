@@ -9,6 +9,14 @@ export const bn: BlogIndexContent = {
   intro:
     "মতামত, সরেজমিন প্রতিবেদন আর মাঝেমধ্যে একটা শোকগাথা — Mobile SSH-এর পিছনের দলটির কাছ থেকে; Android, iPhone ও iPad-এর জন্য নেটিভ SSH, SFTP ও টার্মিনাল ক্লায়েন্ট।",
   posts: {
+    "the-blog-post-that-started-on-the-drive-home": {
+      tag: "কণ্ঠে কাজের পদ্ধতি",
+      dateLabel: "11 অক্টোবর 2026",
+      readingTime: "পড়তে 7 মিনিট",
+      title: "বাড়ি ফেরার পথে শুরু হওয়া ব্লগ লেখা",
+      excerpt: "এক কল্পিত যাত্রা, কণ্ঠে কাজের চার পদ্ধতি। খসড়া তৈরি, ফাইল সম্পাদনা, সোর্স কোড লেখা ও পরিবর্তন স্টেজ করার জন্য T3 Code, Moshi, Mobile SSH এবং paseo.sh তুলনা করুন — রাস্তার শব্দের প্রমাণ কী বলতে পারে, তার স্পষ্ট সীমা মেনে।",
+      cta: "গল্পটি পড়ুন",
+    },
     "your-server-your-rules": {
       tag: "মালিকানা",
       dateLabel: "৫ অক্টোবর ২০২৬",
