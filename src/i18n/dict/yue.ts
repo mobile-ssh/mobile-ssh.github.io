@@ -619,7 +619,12 @@ export const yue: Dict = {
       { slug: "terminal",         title: "終端機",         text: "用終端控制、tmux、herdr、Zellij、智能體提示同 VNC 桌面。" },
       { slug: "file-transfer",    title: "檔案傳輸",       text: "傳檔、記住資料夾，同分享檔案去工作階段或其他應用程式。" },
       { slug: "port-forwarding",  title: "連接埠轉發",      text: "設定本機隧道同 Android SSH VPN、SOCKS5、WireGuard、Shadowsocks 同 OpenVPN。" },
-      { slug: "troubleshooting",  title: "疑難排解",       text: "排查身份、跳板機、終端、傳檔、備份同 VPN 問題。" }
+      { slug: "troubleshooting",  title: "疑難排解",       text: "排查身份、跳板機、終端、傳檔、備份同 VPN 問題。" },
+      {
+        "slug": "cloud-vpn",
+        "title": "雲端虛擬機同 wg-easy",
+        "text": "建立有公網 IP 嘅虛擬機，用 SSH 連線再安裝 wg-easy，並說明插件供應情況同資源清理。"
+      }
     ]
   },
   docsNav: {
@@ -628,7 +633,8 @@ export const yue: Dict = {
     terminal: "終端機",
     fileTransfer: "檔案傳輸",
     portForwarding: "連接埠轉發",
-    troubleshooting: "疑難排解"
+    troubleshooting: "疑難排解",
+    cloudVpn: "雲端虛擬機同 wg-easy"
   },
   about: {
     metaTitle: "關於 | Mobile SSH",

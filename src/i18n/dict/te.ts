@@ -620,7 +620,12 @@ export const te: Dict = {
       { slug: "terminal",         title: "టర్మినల్",              text: "టెర్మినల్ నియంత్రణలు, tmux, herdr, Zellij, ఏజెంట్ హెచ్చరికలు, VNC డెస్క్‌టాప్‌లు వాడండి." },
       { slug: "file-transfer",    title: "ఫైల్ బదిలీ",            text: "ఫైళ్లు బదిలీ చేసి, ఫోల్డర్లు గుర్తుంచుకుని, సెషన్‌లు లేదా ఇతర యాప్‌లలో పంచుకోండి." },
       { slug: "port-forwarding",  title: "పోర్ట్ ఫార్వార్డింగ్",  text: "స్థానిక టన్నెల్లు, Android SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN అమర్చండి." },
-      { slug: "troubleshooting",  title: "సమస్య పరిష్కారం",          text: "గుర్తింపు, జంప్ హోస్ట్, టెర్మినల్, బదిలీ, బ్యాకప్, VPN సమస్యలను నిర్ధారించండి." }
+      { slug: "troubleshooting",  title: "సమస్య పరిష్కారం",          text: "గుర్తింపు, జంప్ హోస్ట్, టెర్మినల్, బదిలీ, బ్యాకప్, VPN సమస్యలను నిర్ధారించండి." },
+      {
+        "slug": "cloud-vpn",
+        "title": "క్లౌడ్ VMలు మరియు wg-easy",
+        "text": "పబ్లిక్ IPతో VM సృష్టించి, SSH ద్వారా కనెక్ట్ అయి, wg-easy ఇన్‌స్టాల్ చేయండి. ప్లగిన్ లభ్యత, వనరుల తొలగింపు వివరాలు."
+      }
     ]
   },
   docsNav: {
@@ -629,7 +634,8 @@ export const te: Dict = {
     terminal: "టర్మినల్",
     fileTransfer: "ఫైల్ బదిలీ",
     portForwarding: "పోర్ట్ ఫార్వార్డింగ్",
-    troubleshooting: "సమస్య పరిష్కారం"
+    troubleshooting: "సమస్య పరిష్కారం",
+    cloudVpn: "క్లౌడ్ VMలు మరియు wg-easy"
   },
   about: {
     metaTitle: "గురించి | Mobile SSH",

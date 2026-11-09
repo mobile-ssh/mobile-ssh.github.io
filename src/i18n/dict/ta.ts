@@ -619,7 +619,8 @@ export const ta: Dict = {
       { slug: "terminal",         title: "டெர்மினல்",        text: "முனையக் கட்டுப்பாடுகள், tmux, herdr, Zellij, முகவர் எச்சரிக்கைகள், VNC பணிமேடைகளைப் பயன்படுத்தவும்." },
       { slug: "file-transfer",    title: "கோப்பு பரிமாற்றம்",   text: "கோப்புகளை மாற்றி, கோப்புறைகளை நினைவில் வைத்து, அமர்வுகள் அல்லது பிற செயலிகளுக்குப் பகிரவும்." },
       { slug: "port-forwarding",  title: "போர்ட் முன்னனுப்பல்", text: "உள்ளூர் சுரங்கங்கள், Android SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN அமைக்கவும்." },
-      { slug: "troubleshooting",  title: "சிக்கல் தீர்வு", text: "அடையாளம், இடைநிலை ஹோஸ்ட், முனையம், பரிமாற்றம், காப்பு, VPN சிக்கல்களைக் கண்டறியவும்." }
+      { slug: "troubleshooting",  title: "சிக்கல் தீர்வு", text: "அடையாளம், இடைநிலை ஹோஸ்ட், முனையம், பரிமாற்றம், காப்பு, VPN சிக்கல்களைக் கண்டறியவும்." },
+      { slug: "cloud-vpn", title: "கிளவுட் VM மற்றும் wg-easy", text: "பொது IP கொண்ட VM உருவாக்கி, SSH மூலம் இணைந்து wg-easy நிறுவுங்கள்; செருகுநிரல் கிடைக்கும் நிலை, வள நீக்கம் பற்றிய விளக்கத்துடன்." }
     ]
   },
   docsNav: {
@@ -628,7 +629,8 @@ export const ta: Dict = {
     terminal: "டெர்மினல்",
     fileTransfer: "கோப்பு பரிமாற்றம்",
     portForwarding: "போர்ட் முன்னனுப்பல்",
-    troubleshooting: "சிக்கல் தீர்வு"
+    troubleshooting: "சிக்கல் தீர்வு",
+    cloudVpn: "கிளவுட் VM மற்றும் wg-easy"
   },
   about: {
     metaTitle: "பற்றி | Mobile SSH",

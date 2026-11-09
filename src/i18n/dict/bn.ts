@@ -620,7 +620,8 @@ export const bn: Dict = {
       { slug: "terminal",         title: "টার্মিনাল",         text: "টার্মিনাল নিয়ন্ত্রণ, tmux, herdr, Zellij, এজেন্ট সতর্কতা ও VNC ডেস্কটপ ব্যবহার করুন।" },
       { slug: "file-transfer",    title: "ফাইল ট্রান্সফার",    text: "ফাইল পাঠান, ফোল্ডার মনে রাখুন এবং সেশন বা অন্য অ্যাপে ফাইল শেয়ার করুন।" },
       { slug: "port-forwarding",  title: "পোর্ট ফরওয়ার্ডিং",  text: "স্থানীয় টানেল ও Android SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN সেট করুন।" },
-      { slug: "troubleshooting",  title: "সমস্যা সমাধান",      text: "পরিচয়, জাম্প হোস্ট, টার্মিনাল, ট্রান্সফার, ব্যাকআপ ও VPN সমস্যা নির্ণয় করুন।" }
+      { slug: "troubleshooting",  title: "সমস্যা সমাধান",      text: "পরিচয়, জাম্প হোস্ট, টার্মিনাল, ট্রান্সফার, ব্যাকআপ ও VPN সমস্যা নির্ণয় করুন।" },
+      { slug: "cloud-vpn", title: "ক্লাউড VM ও wg-easy", text: "সর্বজনীন IP-সহ VM তৈরি করুন, SSH দিয়ে যুক্ত হয়ে wg-easy ইনস্টল করুন; প্লাগইনের প্রাপ্যতা ও সম্পদ মোছার ব্যাখ্যাসহ।" }
     ]
   },
   docsNav: {
@@ -629,7 +630,8 @@ export const bn: Dict = {
     terminal: "টার্মিনাল",
     fileTransfer: "ফাইল ট্রান্সফার",
     portForwarding: "পোর্ট ফরওয়ার্ডিং",
-    troubleshooting: "সমস্যা সমাধান"
+    troubleshooting: "সমস্যা সমাধান",
+    cloudVpn: "ক্লাউড VM ও wg-easy"
   },
   about: {
     metaTitle: "সম্পর্কে | Mobile SSH",

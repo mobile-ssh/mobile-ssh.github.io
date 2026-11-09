@@ -619,7 +619,12 @@ export const zh: Dict = {
       { slug: "terminal",         title: "终端",           text: "使用终端控件、tmux、herdr、Zellij、智能体提醒和 VNC 桌面。" },
       { slug: "file-transfer",    title: "文件传输",       text: "传输文件、记忆文件夹，并向会话或其他应用分享。" },
       { slug: "port-forwarding",  title: "端口转发",       text: "配置本地隧道及 Android SSH VPN、SOCKS5、WireGuard、Shadowsocks 和 OpenVPN。" },
-      { slug: "troubleshooting",  title: "故障排查",       text: "排查身份、跳板机、终端、传输、备份及 VPN 问题。" }
+      { slug: "troubleshooting",  title: "故障排查",       text: "排查身份、跳板机、终端、传输、备份及 VPN 问题。" },
+      {
+        "slug": "cloud-vpn",
+        "title": "云端虚拟机与 wg-easy",
+        "text": "创建具有公网 IP 的虚拟机，通过 SSH 连接并安装 wg-easy，同时说明插件可用情况和资源清理。"
+      }
     ]
   },
   docsNav: {
@@ -628,7 +633,8 @@ export const zh: Dict = {
     terminal: "终端",
     fileTransfer: "文件传输",
     portForwarding: "端口转发",
-    troubleshooting: "故障排查"
+    troubleshooting: "故障排查",
+    cloudVpn: "云端虚拟机与 wg-easy"
   },
   about: {
     metaTitle: "关于 | Mobile SSH",

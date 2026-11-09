@@ -619,7 +619,8 @@ export const pcm: Dict = {
       { slug: "terminal",         title: "Terminal",          text: "Use terminal controls, tmux, herdr, Zellij, agent alerts and VNC desktops." },
       { slug: "file-transfer",    title: "File transfer",     text: "Transfer files, remember folders, and share files into sessions or other apps." },
       { slug: "port-forwarding",  title: "Port forwarding",   text: "Set up local tunnels and Android SSH VPN, SOCKS5, WireGuard, Shadowsocks and OpenVPN." },
-      { slug: "troubleshooting",  title: "Troubleshooting",   text: "Find causes of identity, jump-host, terminal, transfer, backup and VPN problems." }
+      { slug: "troubleshooting",  title: "Troubleshooting",   text: "Find causes of identity, jump-host, terminal, transfer, backup and VPN problems." },
+      {"slug":"cloud-vpn","title":"Cloud VMs and wg-easy","text":"Create VM wey get public IP, connect through SSH, then install wg-easy, with explanation for plugin availability and how to remove resources."}
     ]
   },
   docsNav: {
@@ -628,7 +629,8 @@ export const pcm: Dict = {
     terminal: "Terminal",
     fileTransfer: "File transfer",
     portForwarding: "Port forwarding",
-    troubleshooting: "Troubleshooting"
+    troubleshooting: "Troubleshooting",
+    cloudVpn: "Cloud VMs and wg-easy"
   },
   about: {
     metaTitle: "About | Mobile SSH",

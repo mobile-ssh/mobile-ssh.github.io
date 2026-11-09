@@ -620,7 +620,12 @@ export const ru: Dict = {
       { slug: "terminal",         title: "Терминал",             text: "Используйте управление терминалом, tmux, herdr, Zellij, уведомления агентов и рабочие столы VNC." },
       { slug: "file-transfer",    title: "Передача файлов",      text: "Передавайте файлы, запоминайте папки и отправляйте файлы в сессии или другие приложения." },
       { slug: "port-forwarding",  title: "Проброс портов",       text: "Настройте локальные туннели и SSH VPN, SOCKS5, WireGuard, Shadowsocks и OpenVPN на Android." },
-      { slug: "troubleshooting",  title: "Устранение неполадок",   text: "Диагностируйте проблемы подлинности, промежуточных серверов, терминала, передач, резервных копий и VPN." }
+      { slug: "troubleshooting",  title: "Устранение неполадок",   text: "Диагностируйте проблемы подлинности, промежуточных серверов, терминала, передач, резервных копий и VPN." },
+      {
+        "slug": "cloud-vpn",
+        "title": "Облачные ВМ и wg-easy",
+        "text": "Создайте ВМ с публичным IP, подключитесь по SSH и установите wg-easy: доступность плагинов и удаление ресурсов."
+      }
     ]
   },
   docsNav: {
@@ -629,7 +634,8 @@ export const ru: Dict = {
     terminal: "Терминал",
     fileTransfer: "Передача файлов",
     portForwarding: "Проброс портов",
-    troubleshooting: "Устранение неполадок"
+    troubleshooting: "Устранение неполадок",
+    cloudVpn: "Облачные ВМ и wg-easy"
   },
   about: {
     metaTitle: "О приложении | Mobile SSH",

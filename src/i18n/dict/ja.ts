@@ -619,7 +619,12 @@ export const ja: Dict = {
       { slug: "terminal",         title: "ターミナル",             text: "ターミナル操作、tmux・herdr・Zellij、エージェント通知、VNC デスクトップを使います。" },
       { slug: "file-transfer",    title: "ファイル転送",           text: "ファイルを転送し、フォルダを記憶し、セッションや他のアプリとファイルを共有します。" },
       { slug: "port-forwarding",  title: "ポートフォワーディング", text: "ローカルトンネルと Android の SSH VPN・SOCKS5・WireGuard・Shadowsocks・OpenVPN を設定します。" },
-      { slug: "troubleshooting",  title: "トラブルシューティング", text: "身元確認、踏み台ホスト、ターミナル、転送、バックアップ、VPN の問題を診断します。" }
+      { slug: "troubleshooting",  title: "トラブルシューティング", text: "身元確認、踏み台ホスト、ターミナル、転送、バックアップ、VPN の問題を診断します。" },
+      {
+        "slug": "cloud-vpn",
+        "title": "クラウド VM と wg-easy",
+        "text": "公開 IP を持つ VM を作成し、SSH で接続して wg-easy をインストールします。プラグインの利用状況とリソース削除も説明します。"
+      }
     ]
   },
   docsNav: {
@@ -628,7 +633,8 @@ export const ja: Dict = {
     terminal: "ターミナル",
     fileTransfer: "ファイル転送",
     portForwarding: "ポートフォワーディング",
-    troubleshooting: "トラブルシューティング"
+    troubleshooting: "トラブルシューティング",
+    cloudVpn: "クラウド VM と wg-easy"
   },
   about: {
     metaTitle: "情報 | Mobile SSH",

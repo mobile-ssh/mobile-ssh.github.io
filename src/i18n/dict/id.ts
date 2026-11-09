@@ -619,7 +619,8 @@ export const id: Dict = {
       { slug: "terminal",         title: "Terminal",          text: "Gunakan kontrol terminal, tmux, herdr, Zellij, peringatan agen dan desktop VNC." },
       { slug: "file-transfer",    title: "Transfer berkas",   text: "Transfer berkas, ingat folder dan bagikan ke sesi atau aplikasi lain." },
       { slug: "port-forwarding",  title: "Penerusan port",    text: "Atur terowongan lokal dan SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN Android." },
-      { slug: "troubleshooting",  title: "Pemecahan masalah", text: "Diagnosis masalah identitas, host perantara, terminal, transfer, cadangan dan VPN." }
+      { slug: "troubleshooting",  title: "Pemecahan masalah", text: "Diagnosis masalah identitas, host perantara, terminal, transfer, cadangan dan VPN." },
+      {"slug":"cloud-vpn","title":"VM cloud dan wg-easy","text":"Buat VM ber-IP publik, hubungkan melalui SSH, lalu instal wg-easy, dengan penjelasan ketersediaan plugin dan penghapusan sumber daya."}
     ]
   },
   docsNav: {
@@ -628,7 +629,8 @@ export const id: Dict = {
     terminal: "Terminal",
     fileTransfer: "Transfer berkas",
     portForwarding: "Penerusan port",
-    troubleshooting: "Pemecahan masalah"
+    troubleshooting: "Pemecahan masalah",
+    cloudVpn: "VM cloud dan wg-easy"
   },
   about: {
     metaTitle: "Tentang | Mobile SSH",

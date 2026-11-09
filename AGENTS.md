@@ -111,8 +111,8 @@ them — including the region-qualified forms real devices send (`yue-Hant-HK`,
 
 ### Doc pages
 
-Every locale needs all five under `src/pages/<loc>/docs/`: `getting-started`,
-`terminal`, `file-transfer`, `port-forwarding`, `troubleshooting`. Tests
+Every locale needs all six under `src/pages/<loc>/docs/`: `getting-started`,
+`terminal`, `file-transfer`, `port-forwarding`, `troubleshooting`, `cloud-vpn`. Tests
 require each to be over 500 characters and to reference
 `../../../layouts/DocLayout.astro` — the relative depth differs from the
 English pages in `src/pages/docs/`, so don't copy that frontmatter verbatim.
@@ -153,7 +153,7 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 
 ```bash
 npx vitest run      # structural parity + translation checks
-npx astro build     # 361 pages across 20 locales
+npx astro build     # 381 pages across 20 locales
 ```
 
 ### Commit as the project, not as your employer

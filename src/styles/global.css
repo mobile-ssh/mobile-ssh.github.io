@@ -494,6 +494,46 @@ p {
   overflow-wrap: break-word;
 }
 
+.doc-table {
+  max-width: 100%;
+  margin-block: 1.5rem;
+  overflow-x: auto;
+}
+
+.doc-table:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+}
+
+.doc-table table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+
+.doc-table th,
+.doc-table td {
+  padding: .8rem;
+  border: 1px solid var(--line);
+  text-align: start;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.doc-table th {
+  background: #edf3f5;
+}
+
+.doc-table th:first-child {
+  width: 18%;
+}
+
+.doc-content pre {
+  direction: ltr;
+  text-align: start;
+}
+
 .doc-content li + li {
   margin-top: 0.35rem;
 }

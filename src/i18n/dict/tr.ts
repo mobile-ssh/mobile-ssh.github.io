@@ -619,7 +619,8 @@ export const tr: Dict = {
       { slug: "terminal",         title: "Terminal",          text: "Terminal, tmux, herdr, Zellij, ajan uyarısı ve VNC masaüstü kullanın." },
       { slug: "file-transfer",    title: "Dosya aktarımı",   text: "Dosya aktarın, klasörleri hatırlayın, oturuma veya başka uygulamaya paylaşın." },
       { slug: "port-forwarding",  title: "Port yönlendirme", text: "Yerel tünel ve Android SSH VPN, SOCKS5, WireGuard, Shadowsocks, OpenVPN ayarlayın." },
-      { slug: "troubleshooting",  title: "Sorun giderme",    text: "Kimlik, atlama, terminal, aktarım, yedek ve VPN sorunlarını tanılayın." }
+      { slug: "troubleshooting",  title: "Sorun giderme",    text: "Kimlik, atlama, terminal, aktarım, yedek ve VPN sorunlarını tanılayın." },
+      {"slug":"cloud-vpn","title":"Bulut sanal makineleri ve wg-easy","text":"Genel IP adresli bir sanal makine oluştur, SSH ile bağlan ve wg-easy kur; eklenti kullanılabilirliği ve kaynak silme işlemleri de açıklanıyor."}
     ]
   },
   docsNav: {
@@ -628,7 +629,8 @@ export const tr: Dict = {
     terminal: "Terminal",
     fileTransfer: "Dosya aktarımı",
     portForwarding: "Port yönlendirme",
-    troubleshooting: "Sorun giderme"
+    troubleshooting: "Sorun giderme",
+    cloudVpn: "Bulut sanal makineleri ve wg-easy"
   },
   about: {
     metaTitle: "Hakkında | Mobile SSH",

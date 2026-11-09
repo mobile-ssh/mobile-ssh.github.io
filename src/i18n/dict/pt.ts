@@ -620,7 +620,8 @@ export const pt: Dict = {
       { slug: "terminal",         title: "Terminal",                   text: "Use controles de terminal, tmux, herdr, Zellij, alertas de agentes e desktops VNC." },
       { slug: "file-transfer",    title: "Transferência de arquivos",  text: "Transfira arquivos, lembre pastas e compartilhe arquivos com sessões ou outros aplicativos." },
       { slug: "port-forwarding",  title: "Encaminhamento de portas",   text: "Configure túneis locais e SSH VPN, SOCKS5, WireGuard, Shadowsocks e OpenVPN no Android." },
-      { slug: "troubleshooting",  title: "Solução de problemas",       text: "Diagnostique problemas de identidade, hosts intermediários, terminal, transferência, backup e VPN." }
+      { slug: "troubleshooting",  title: "Solução de problemas",       text: "Diagnostique problemas de identidade, hosts intermediários, terminal, transferência, backup e VPN." },
+      {"slug":"cloud-vpn","title":"Máquinas virtuais na nuvem e wg-easy","text":"Crie uma máquina virtual com IP público, conecte-se por SSH e instale o wg-easy, com explicações sobre disponibilidade dos plugins e remoção dos recursos."}
     ]
   },
   docsNav: {
@@ -629,7 +630,8 @@ export const pt: Dict = {
     terminal: "Terminal",
     fileTransfer: "Transferência de arquivos",
     portForwarding: "Encaminhamento de portas",
-    troubleshooting: "Solução de problemas"
+    troubleshooting: "Solução de problemas",
+    cloudVpn: "Máquinas virtuais na nuvem e wg-easy"
   },
   about: {
     metaTitle: "Sobre | Mobile SSH",

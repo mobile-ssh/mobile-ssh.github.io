@@ -11,6 +11,7 @@ const DOCS = [
   "file-transfer",
   "port-forwarding",
   "troubleshooting",
+  "cloud-vpn",
 ];
 
 const PAGES_DIR = join(import.meta.dirname, "..", "pages");

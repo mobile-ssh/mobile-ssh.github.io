@@ -217,6 +217,7 @@ export interface Dict {
     fileTransfer: string;
     portForwarding: string;
     troubleshooting: string;
+    cloudVpn: string;
   };
   about: {
     metaTitle: string;

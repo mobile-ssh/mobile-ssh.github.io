@@ -619,7 +619,12 @@ export const ar: Dict = {
       { slug: "terminal",         title: "الطرفية",             text: "استخدم الطرفية وtmux وherdr وZellij وتنبيهات الوكلاء وأسطح VNC." },
       { slug: "file-transfer",    title: "نقل الملفات",         text: "انقل الملفات وتذكر المجلدات وشارك إلى الجلسات أو التطبيقات الأخرى." },
       { slug: "port-forwarding",  title: "إعادة توجيه المنافذ", text: "اضبط الأنفاق المحلية وSSH VPN وSOCKS5 وWireGuard وShadowsocks وOpenVPN على Android." },
-      { slug: "troubleshooting",  title: "استكشاف الأخطاء",    text: "شخّص مشاكل الهوية والوسطاء والطرفية والنقل والنسخ وVPN." }
+      { slug: "troubleshooting",  title: "استكشاف الأخطاء",    text: "شخّص مشاكل الهوية والوسطاء والطرفية والنقل والنسخ وVPN." },
+      {
+        "slug": "cloud-vpn",
+        "title": "الأجهزة الافتراضية السحابية وwg-easy",
+        "text": "أنشئ جهازًا افتراضيًا بعنوان IP عام، واتصل عبر SSH وثبّت wg-easy، مع شرح توافر الإضافات وحذف الموارد."
+      }
     ]
   },
   docsNav: {
@@ -628,7 +633,8 @@ export const ar: Dict = {
     terminal: "الطرفية",
     fileTransfer: "نقل الملفات",
     portForwarding: "إعادة توجيه المنافذ",
-    troubleshooting: "استكشاف الأخطاء"
+    troubleshooting: "استكشاف الأخطاء",
+    cloudVpn: "الأجهزة الافتراضية السحابية وwg-easy"
   },
   about: {
     metaTitle: "حول | Mobile SSH",
