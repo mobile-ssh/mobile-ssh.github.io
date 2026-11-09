@@ -1,0 +1,11 @@
+---
+import CloudProviderGuide from "../../../components/pages/CloudProviderGuide.astro";
+import { providerIds } from "../../../i18n/cloud-guides/types";
+import type { ProviderId } from "../../../i18n/cloud-guides/types";
+
+export function getStaticPaths() {
+  return providerIds.map((provider) => ({ params: { provider } }));
+}
+const provider = Astro.params.provider as ProviderId;
+---
+<CloudProviderGuide locale="en" provider={provider} />

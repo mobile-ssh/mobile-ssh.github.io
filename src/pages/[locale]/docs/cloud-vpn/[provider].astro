@@ -1,0 +1,16 @@
+---
+import CloudProviderGuide from "../../../../components/pages/CloudProviderGuide.astro";
+import { providerIds } from "../../../../i18n/cloud-guides/types";
+import type { ProviderId } from "../../../../i18n/cloud-guides/types";
+import { nonDefaultLocales } from "../../../../i18n/locales";
+import type { LocaleCode } from "../../../../i18n/locales";
+
+export function getStaticPaths() {
+  return nonDefaultLocales.flatMap((locale) =>
+    providerIds.map((provider) => ({ params: { locale, provider } }))
+  );
+}
+const locale = Astro.params.locale as LocaleCode;
+const provider = Astro.params.provider as ProviderId;
+---
+<CloudProviderGuide locale={locale} provider={provider} />

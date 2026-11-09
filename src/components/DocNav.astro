@@ -1,4 +1,6 @@
 ---
+import CloudProviderLinks from "./CloudProviderLinks.astro";
+import { getCloudGuide } from "../i18n/cloud-guides";
 import { defaultLocale, localizedHref } from "../i18n/locales";
 import type { LocaleCode } from "../i18n/locales";
 import { getDict } from "../i18n";
@@ -15,6 +17,9 @@ const docs = [
   { href: localizedHref(locale, "/docs/cloud-vpn/"),        label: t.docsNav.cloudVpn }
 ];
 const currentPath = Astro.url.pathname;
+const cloudPath = localizedHref(locale, "/docs/cloud-vpn/");
+const showProviders = currentPath.startsWith(cloudPath);
+const cloud = getCloudGuide(locale);
 ---
 
 <nav class="doc-nav">
@@ -26,4 +31,22 @@ const currentPath = Astro.url.pathname;
       {item.label}
     </a>
   ))}
+  {showProviders && (
+    <details class="cloud-provider-menu">
+      <summary>{cloud.navLabel}</summary>
+      <CloudProviderLinks locale={locale} compact />
+    </details>
+  )}
 </nav>
+
+<style>
+  .cloud-provider-menu { grid-column: 1 / -1; }
+  .cloud-provider-menu summary {
+    padding: 0.7rem 0.8rem;
+    color: var(--muted);
+    font-weight: 650;
+    cursor: pointer;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+import DocLayout from "../../layouts/DocLayout.astro";
+import { getCloudGuide, providerText } from "../../i18n/cloud-guides";
+import { providers } from "../../i18n/cloud-guides/providers";
+import type { ProviderId } from "../../i18n/cloud-guides/types";
+import { localizedHref } from "../../i18n/locales";
+import type { LocaleCode } from "../../i18n/locales";
+
+const { locale, provider } = Astro.props as { locale: LocaleCode; provider: ProviderId };
+const t = getCloudGuide(locale);
+const metadata = providers[provider];
+const content = t.providers[provider];
+const title = providerText(t.title, metadata.name);
+const description = providerText(t.description, metadata.name);
+const overview = localizedHref(locale, "/docs/cloud-vpn/");
+---
+
+<DocLayout frontmatter={{ title, description }} locale={locale}>
+  <div class="cloud-guide">
+    <a class="guide-back" href={overview}>{t.back}</a>
+    <h1>{title}</h1>
+    <p>{providerText(t.intro, metadata.name)}</p>
+    <p class="guide-checked"><time datetime="2026-11-08">{t.checked}</time></p>
+    <div class="guide-availability">
+      <p>{t.availability}</p>
+      <a href={overview}>{t.availabilityLink}</a>
+    </div>
+    <p><a class="button secondary" href={metadata.consoleUrl}>{t.openConsole} — <bdi>{metadata.name}</bdi></a></p>
+
+    <h2>{t.beforeHeading}</h2>
+    <ul>{t.before.map((item) => <li set:html={item} />)}</ul>
+
+    <h2>{t.networkHeading}</h2>
+    <ul>{t.networkRules.map((item) => <li set:html={item} />)}</ul>
+
+    <h2>{t.stepsHeading}</h2>
+    <ol class="provision-steps">
+      {content.consoleSteps.map((step, index) => (
+        <li id={`step-${index + 1}`}>
+          <p set:html={step} />
+          <a class="provider-source" href={metadata.stepSources[index]}>{t.sourceLink}</a>
+        </li>
+      ))}
+      <li id="step-7">
+        <h3>{t.connectHeading}</h3>
+        <p>{t.connectText}</p>
+        <dl class="connection-values">
+          <div><dt>{t.hostLabel}</dt><dd>{t.hostValue}</dd></div>
+          <div><dt>{t.portLabel}</dt><dd><code>22</code></dd></div>
+          <div><dt>{t.userLabel}</dt><dd><code>{metadata.login}</code></dd></div>
+          <div><dt>{t.credentialLabel}</dt><dd>{t.credentialValue}</dd></div>
+        </dl>
+        <p>{t.identityText} <a href={localizedHref(locale, "/docs/getting-started/")}>{t.connectionGuide}</a></p>
+      </li>
+      <li id="step-8">
+        <h3>{t.vpnHeading}</h3>
+        <p>{t.vpnText}</p>
+        <a class="vpn-handoff" href={`${overview}#wg-easy-install`}>{t.vpnLink}</a>
+      </li>
+    </ol>
+
+    <h2>{t.apiHeading}</h2>
+    <p>{t.apiIntro}</p>
+    <ol class="api-steps">
+      {content.apiSteps.map((step, index) => (
+        <li><p set:html={step} /><a class="provider-source" href={metadata.apiSources[index]}>{t.sourceLink}</a></li>
+      ))}
+    </ol>
+    <p>{t.apiSecretNote}</p>
+
+    <h2>{t.cleanupHeading}</h2>
+    <p>{t.cleanupWarning}</p>
+    <ol class="cleanup-steps">
+      {content.cleanupSteps.map((step, index) => (
+        <li><p set:html={step} /><a class="provider-source" href={metadata.cleanupSources[index]}>{t.sourceLink}</a></li>
+      ))}
+    </ol>
+    <p><a href={overview}>{t.back}</a></p>
+  </div>
+</DocLayout>
+
+<style>
+  .guide-back { font-size: 0.92rem; }
+  .guide-checked { font-size: 0.85rem; color: var(--muted); }
+  .guide-availability {
+    padding: 1rem;
+    border-inline-start: 4px solid var(--green);
+    background: #edf6f2;
+    border-radius: 4px;
+  }
+  .guide-availability p { margin-block: 0 0.6rem; }
+  .cloud-guide ol, .cloud-guide ul { padding-inline-start: 1.5rem; }
+  .provision-steps > li, .api-steps > li, .cleanup-steps > li {
+    padding-inline-start: 0.25rem;
+    margin-block: 1.3rem;
+    scroll-margin-block-start: 12rem;
+  }
+  .provision-steps > li::marker { font-size: 1.15rem; font-weight: 750; color: var(--green); }
+  .provision-steps p, .api-steps p, .cleanup-steps p { margin-block: 0.5rem; }
+  .provision-steps h3 { margin-block: 0 0.5rem; }
+  .provider-source { font-size: 0.85rem; }
+  .connection-values { border: 1px solid var(--line); border-radius: var(--radius); }
+  .connection-values > div { padding: 0.75rem; }
+  .connection-values > div + div { border-block-start: 1px solid var(--line); }
+  .connection-values dt { font-weight: 700; }
+  .connection-values dd { margin-inline-start: 0; margin-block-start: 0.25rem; }
+  .cloud-guide :global(code) { direction: ltr; unicode-bidi: isolate; overflow-wrap: anywhere; }
+  .cloud-guide .button { white-space: normal; overflow-wrap: anywhere; text-align: start; }
+</style>

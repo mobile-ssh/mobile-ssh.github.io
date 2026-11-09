@@ -37,20 +37,20 @@ description: "创建具有公网 IP 的云端虚拟机，在 Mobile SSH 中保�
 
 | 提供商 | API 创建所需凭据 | 控制台中的公网 IPv4 设置 |
 | --- | --- | --- |
-| AWS Lightsail | 访问密钥 ID 和密钥；临时凭据还须包含会话令牌。授予所需的 [Lightsail 操作权限](https://docs.aws.amazon.com/service-authorization/latest/reference/list_lightsail.html)。 | 创建双栈 Ubuntu 实例，选择 RSA SSH 密钥，再分配并关联[同一区域的静态 IPv4](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip.html)。Ubuntu 镜像使用 `ubuntu` 登录。 |
-| Google Cloud Compute Engine | 服务账户 JSON 密钥及项目 ID。权限必须包含虚拟机/磁盘、网络、地址和防火墙操作；仅有 Network Admin 无法写入防火墙规则。检查 [IAM 权限](https://docs.cloud.google.com/compute/docs/access/iam)。 | 启用 Compute Engine API，选择具有互联网路由的 VPC/子网，预留[区域性外部 IPv4](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address)，并关联到虚拟机。配置匹配的 SSH 用户名和密钥；OS Login 需要另行设置身份。 |
-| Microsoft Azure | 租户 ID、应用/客户端 ID、客户端密钥的**值**及订阅 ID。授予计算/网络权限；创建资源组还需要在上级范围拥有权限。参阅[服务主体设置](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal)。 | 创建专用资源组和 VNet/子网。将 [Standard 静态 IPv4 Public IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) 关联到虚拟机 NIC，并关联 NSG。使用创建时指定的管理员用户名。 |
-| DigitalOcean | 个人访问令牌，包含所需的 Droplet、SSH 密钥、Reserved IP、防火墙及相关[权限范围](https://docs.digitalocean.com/reference/api/create-personal-access-token/)。 | 使用 SSH 公钥创建 Ubuntu Droplet，分配 [Reserved IPv4](https://docs.digitalocean.com/products/networking/reserved-ips/how-to/create/)，并关联 Cloud Firewall。Ubuntu 初始登录名通常是 `root`。 |
-| Hetzner Cloud | 项目专用的 [Read & Write API 令牌](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)。 | 创建 Ubuntu 服务器，配置 [Primary IPv4](https://docs.hetzner.com/cloud/servers/primary-ips/overview/)、SSH 密钥和 Cloud Firewall。使用 `root`。检查删除服务器后，独立的 Primary IP 是否会保留。 |
-| Akamai / Linode | 个人访问令牌，包含 Linodes 和 Firewalls 读写权限，以及所需的[读取权限范围](https://techdocs.akamai.com/linode-api/reference/get-started)。 | 创建具有公网 IPv4 和 SSH 密钥的 Ubuntu Linode，再关联 [Cloud Firewall](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-cloud-firewalls)。使用 `root`。在实例存续期间保留其分配的地址。 |
-| Vultr | 已启用 API 访问的 API 密钥；其[来源 IP 允许列表](https://docs.vultr.com/support/platform/users/how-can-i-manage-api-access-for-users)必须允许手机当前的连接。 | 创建 Ubuntu Cloud Compute 实例，配备公网主 IPv4、SSH 密钥和 Firewall Group。使用 `root`。[分配的地址在实例存续期间有效](https://docs.vultr.com/support/products/compute/how-do-i-get-a-vultr-compute-instance-dedicated-ip-address)；Reserved IP 是另外的选项。 |
-| Oracle Cloud Infrastructure | 租户/用户 OCID、API 密钥指纹及 [RSA 签名私钥](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm)，并登记匹配的签名公钥。这与 SSH 密钥不同。 | 创建 VCN、互联网网关，以及具有网关路由的公共子网。将 [Reserved Public IPv4](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/managingpublicIPs.htm) 分配给虚拟机 VNIC 的私有 IP。Canonical Ubuntu 使用 `ubuntu`；配置安全列表/NSG。 |
-| OVHcloud Public Cloud | 对应 EU/CA/US API 端点的应用密钥、应用密钥机密和已验证的消费者密钥。将 [API 权限](https://docs.ovhcloud.com/en/guides/manage-and-operate/api/first-steps)限制为所选项目的操作。 | 创建 Ubuntu [Public Cloud 实例](https://docs.ovhcloud.com/en/guides/public-cloud/compute/getting-started)，通过 Ext-Net 使用 Basic Public IP，并配置 SSH 密钥和安全组。使用 `ubuntu`。Floating/Additional IP 是独立资源。 |
-| Scaleway Instances | IAM 应用的 API 密钥机密和项目 UUID，具有实例、卷、IP、安全组和 SSH 密钥权限。参阅 [API 密钥创建](https://www.scaleway.com/en/docs/iam/credentials/create-api-keys/)。 | 创建 Ubuntu 实例，关联[同一可用区中的灵活路由 IPv4](https://www.scaleway.com/en/docs/instances/how-to/use-flexips/)，配置安全组并开机。使用镜像指定的 SSH 登录名，通常为 `root`。 |
+| [AWS Lightsail](./aws-lightsail/) | 访问密钥 ID 和密钥；临时凭据还须包含会话令牌。授予所需的 [Lightsail 操作权限](https://docs.aws.amazon.com/service-authorization/latest/reference/list_lightsail.html)。 | 创建双栈 Ubuntu 实例，选择 RSA SSH 密钥，再分配并关联[同一区域的静态 IPv4](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip.html)。Ubuntu 镜像使用 `ubuntu` 登录。 |
+| [Google Cloud Compute Engine](./google-cloud/) | 服务账户 JSON 密钥及项目 ID。权限必须包含虚拟机/磁盘、网络、地址和防火墙操作；仅有 Network Admin 无法写入防火墙规则。检查 [IAM 权限](https://docs.cloud.google.com/compute/docs/access/iam)。 | 启用 Compute Engine API，选择具有互联网路由的 VPC/子网，预留[区域性外部 IPv4](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address)，并关联到虚拟机。配置匹配的 SSH 用户名和密钥；OS Login 需要另行设置身份。 |
+| [Microsoft Azure](./azure/) | 租户 ID、应用/客户端 ID、客户端密钥的**值**及订阅 ID。授予计算/网络权限；创建资源组还需要在上级范围拥有权限。参阅[服务主体设置](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal)。 | 创建专用资源组和 VNet/子网。将 [Standard 静态 IPv4 Public IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) 关联到虚拟机 NIC，并关联 NSG。使用创建时指定的管理员用户名。 |
+| [DigitalOcean](./digitalocean/) | 个人访问令牌，包含所需的 Droplet、SSH 密钥、Reserved IP、防火墙及相关[权限范围](https://docs.digitalocean.com/reference/api/create-personal-access-token/)。 | 使用 SSH 公钥创建 Ubuntu Droplet，分配 [Reserved IPv4](https://docs.digitalocean.com/products/networking/reserved-ips/how-to/create/)，并关联 Cloud Firewall。Ubuntu 初始登录名通常是 `root`。 |
+| [Hetzner Cloud](./hetzner/) | 项目专用的 [Read & Write API 令牌](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)。 | 创建 Ubuntu 服务器，配置 [Primary IPv4](https://docs.hetzner.com/cloud/servers/primary-ips/overview/)、SSH 密钥和 Cloud Firewall。使用 `root`。检查删除服务器后，独立的 Primary IP 是否会保留。 |
+| [Akamai / Linode](./linode/) | 个人访问令牌，包含 Linodes 和 Firewalls 读写权限，以及所需的[读取权限范围](https://techdocs.akamai.com/linode-api/reference/get-started)。 | 创建具有公网 IPv4 和 SSH 密钥的 Ubuntu Linode，再关联 [Cloud Firewall](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-cloud-firewalls)。使用 `root`。在实例存续期间保留其分配的地址。 |
+| [Vultr](./vultr/) | 已启用 API 访问的 API 密钥；其[来源 IP 允许列表](https://docs.vultr.com/support/platform/users/how-can-i-manage-api-access-for-users)必须允许手机当前的连接。 | 创建 Ubuntu Cloud Compute 实例，配备公网主 IPv4、SSH 密钥和 Firewall Group。使用 `root`。[分配的地址在实例存续期间有效](https://docs.vultr.com/support/products/compute/how-do-i-get-a-vultr-compute-instance-dedicated-ip-address)；Reserved IP 是另外的选项。 |
+| [Oracle Cloud Infrastructure](./oracle-cloud/) | 租户/用户 OCID、API 密钥指纹及 [RSA 签名私钥](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm)，并登记匹配的签名公钥。这与 SSH 密钥不同。 | 创建 VCN、互联网网关，以及具有网关路由的公共子网。将 [Reserved Public IPv4](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/managingpublicIPs.htm) 分配给虚拟机 VNIC 的私有 IP。Canonical Ubuntu 使用 `ubuntu`；配置安全列表/NSG。 |
+| [OVHcloud Public Cloud](./ovhcloud/) | 对应 EU/CA/US API 端点的应用密钥、应用密钥机密和已验证的消费者密钥。将 [API 权限](https://docs.ovhcloud.com/en/guides/manage-and-operate/api/first-steps)限制为所选项目的操作。 | 创建 Ubuntu [Public Cloud 实例](https://docs.ovhcloud.com/en/guides/public-cloud/compute/getting-started)，通过 Ext-Net 使用 Basic Public IP，并配置 SSH 密钥和安全组。使用 `ubuntu`。Floating/Additional IP 是独立资源。 |
+| [Scaleway Instances](./scaleway/) | IAM 应用的 API 密钥机密和项目 UUID，具有实例、卷、IP、安全组和 SSH 密钥权限。参阅 [API 密钥创建](https://www.scaleway.com/en/docs/iam/credentials/create-api-keys/)。 | 创建 Ubuntu 实例，关联[同一可用区中的灵活路由 IPv4](https://www.scaleway.com/en/docs/instances/how-to/use-flexips/)，配置安全组并开机。使用镜像指定的 SSH 登录名，通常为 `root`。 |
 
 </div>
 
-**AWS EC2 替代方案：**在公共子网中启动 Ubuntu，配置[互联网网关和 `0.0.0.0/0` 网关路由](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html)，选择 SSH 密钥和安全组，再关联 [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html)。使用 `ubuntu`。本地自动适配器面向 Lightsail；EC2 走控制台流程。仅添加 Elastic IP，并不能让私有子网变得可访问。
+**[AWS EC2](./aws-ec2/) 替代方案：**在公共子网中启动 Ubuntu，配置[互联网网关和 `0.0.0.0/0` 网关路由](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html)，选择 SSH 密钥和安全组，再关联 [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html)。使用 `ubuntu`。本地自动适配器面向 Lightsail；EC2 走控制台流程。仅添加 Elastic IP，并不能让私有子网变得可访问。
 
 如果组织禁止服务账户密钥、外部 IP 或你选择的 SSH 认证方式，请获取管理员批准的配置。控制台设置不能绕过这些限制。
 
@@ -72,6 +72,8 @@ description: "创建具有公网 IP 的云端虚拟机，在 Mobile SSH 中保�
 - **出站流量：**允许软件包/容器下载、DNS，以及 VPN 要承载的互联网流量。
 
 检查 Docker 的[防火墙行为](https://docs.docker.com/engine/install/ubuntu/#firewall-limitations)：发布的容器端口可能绕过 UFW 规则。不要仅靠 UFW 隐藏管理界面，也不要清空提供商的防火墙链，尤其是 OCI 的存储/iSCSI 规则。
+
+<a id="wg-easy-install"></a>
 
 ## 在所选虚拟机上安装 wg-easy
 

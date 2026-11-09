@@ -20,7 +20,7 @@ before touching copy.
 | `src/i18n/version.ts` | App versions — **not** in the dicts |
 | `src/i18n/match.ts` | Browser language tag → site locale |
 | `src/i18n/suggest.ts` | The language-suggestion banner, all 20 at once — **not** in `Dict` |
-| `src/pages/<loc>/docs/*.md` | 5 translated doc pages per locale |
+| `src/pages/<loc>/docs/*.md` | 6 translated Markdown doc pages per locale |
 | `astro.config.mjs` | `i18n.locales`, `defaultLocale: "en"` |
 
 ### Adding or changing a string
@@ -130,6 +130,13 @@ Two further gates, both added after the failures they describe shipped:
 
 Editing an English doc means editing 19 translated copies too.
 
+The 11 provider walkthroughs under `/docs/cloud-vpn/<provider>/` use dynamic
+Astro routes and the separate typed dictionaries in `src/i18n/cloud-guides/`.
+`en.ts` is their source of truth; update all 19 translations in the same change.
+Keep provider names, login values and official source URLs in `providers.ts`.
+`cloud-provider-guides.test.ts` checks locale coverage, step counts, technical
+values, HTML structure and the links from each translated overview.
+
 ### Never translate
 
 Product and protocol names: `SSH`, `SFTP`, `SCP`, `tmux`, `Mobile SSH`,
@@ -153,7 +160,7 @@ properties (`margin-inline-start`, not `margin-left`) so layouts mirror.
 
 ```bash
 npx vitest run      # structural parity + translation checks
-npx astro build     # 381 pages across 20 locales
+npx astro build     # 601 pages across 20 locales
 ```
 
 ### Commit as the project, not as your employer

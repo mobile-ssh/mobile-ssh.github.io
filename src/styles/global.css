@@ -669,6 +669,8 @@ pre code {
     text-align: center;
     padding: 0.5rem 0.35rem;
     font-size: 0.9rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .hero {
@@ -717,4 +719,10 @@ pre code {
     flex-direction: column;
     padding: 2rem 1rem;
   }
+}
+
+/* A stable localized handoff from every cloud-provider guide. */
+#wg-easy-install {
+  display: block;
+  scroll-margin-block-start: 12rem;
 }

@@ -37,20 +37,20 @@ description: "建立有公網 IP 嘅雲端虛擬機，喺 Mobile SSH 儲存 SSH 
 
 | 供應商 | API 建立資源所需憑證 | 控制台嘅公網 IPv4 設定 |
 | --- | --- | --- |
-| AWS Lightsail | 存取金鑰 ID 同秘密；臨時憑證要加工作階段權杖。授予所需 [Lightsail 操作權限](https://docs.aws.amazon.com/service-authorization/latest/reference/list_lightsail.html)。 | 建立雙協定棧 Ubuntu 實例，揀 RSA SSH 金鑰，再分配同附加[同區域嘅靜態 IPv4](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip.html)。Ubuntu 映像用 `ubuntu`。 |
-| Google Cloud Compute Engine | 服務帳戶 JSON 金鑰加專案 ID。權限要包括虛擬機／磁碟、網絡、地址同防火牆操作；淨係 Network Admin 寫唔到防火牆規則。檢查 [IAM 權限](https://docs.cloud.google.com/compute/docs/access/iam)。 | 啟用 Compute Engine API，揀有互聯網路由嘅 VPC／子網，預留[區域性外部 IPv4](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address)，再附加去虛擬機。設定相符嘅 SSH 用戶名／金鑰；OS Login 要另外設定身份。 |
-| Microsoft Azure | 租戶 ID、應用程式／用戶端 ID、用戶端秘密嘅**值**同訂閱 ID。授予運算／網絡權限；建立資源群組仲要有上級範圍權限。睇[服務主體設定](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal)。 | 建立專用資源群組同 VNet／子網。將 [Standard 靜態 IPv4 Public IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) 附加去虛擬機 NIC，再關聯 NSG。用建立時揀嘅管理員用戶名。 |
-| DigitalOcean | 個人存取權杖，要有所需 Droplet、SSH 金鑰、Reserved IP、防火牆及相關[權限範圍](https://docs.digitalocean.com/reference/api/create-personal-access-token/)。 | 用 SSH 公鑰建立 Ubuntu Droplet，分配 [Reserved IPv4](https://docs.digitalocean.com/products/networking/reserved-ips/how-to/create/)，再附加 Cloud Firewall。Ubuntu 初始登入通常係 `root`。 |
-| Hetzner Cloud | 專案專用嘅 [Read & Write API 權杖](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)。 | 建立 Ubuntu 伺服器，配備 [Primary IPv4](https://docs.hetzner.com/cloud/servers/primary-ips/overview/)、SSH 金鑰同 Cloud Firewall。用 `root`。檢查刪除伺服器時，獨立嘅 Primary IP 會唔會保留。 |
-| Akamai / Linode | 個人存取權杖，要有 Linodes 同 Firewalls 讀寫權限，以及所需[讀取範圍](https://techdocs.akamai.com/linode-api/reference/get-started)。 | 建立有公網 IPv4 同 SSH 金鑰嘅 Ubuntu Linode，再附加 [Cloud Firewall](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-cloud-firewalls)。用 `root`。實例存在期間保留佢獲分配嘅地址。 |
-| Vultr | 啟用咗 API 存取嘅 API 金鑰；[來源 IP 允許清單](https://docs.vultr.com/support/platform/users/how-can-i-manage-api-access-for-users)要容許手機而家嘅連線。 | 建立 Ubuntu Cloud Compute 實例，配備公網主要 IPv4、SSH 金鑰同 Firewall Group。用 `root`。[分配地址喺實例存在期間有效](https://docs.vultr.com/support/products/compute/how-do-i-get-a-vultr-compute-instance-dedicated-ip-address)；Reserved IP 係另外嘅選擇。 |
-| Oracle Cloud Infrastructure | 租用戶／用戶 OCID、API 金鑰指紋同 [RSA 簽署私鑰](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm)，並登記相符嘅簽署公鑰。呢組同 SSH 金鑰分開。 | 建立 VCN、互聯網閘道，同有閘道路由嘅公用子網。將 [Reserved Public IPv4](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/managingpublicIPs.htm) 分配去虛擬機 VNIC 嘅私人 IP。Canonical Ubuntu 用 `ubuntu`；設定安全清單／NSG。 |
-| OVHcloud Public Cloud | 對應 EU／CA／US API 端點嘅應用程式金鑰、應用程式秘密同已驗證用戶金鑰。將 [API 權限](https://docs.ovhcloud.com/en/guides/manage-and-operate/api/first-steps)限於所選專案操作。 | 建立 Ubuntu [Public Cloud 實例](https://docs.ovhcloud.com/en/guides/public-cloud/compute/getting-started)，透過 Ext-Net 用 Basic Public IP，並配置 SSH 金鑰同安全群組。用 `ubuntu`。Floating／Additional IP 係獨立資源。 |
-| Scaleway Instances | IAM 應用程式嘅 API 秘密金鑰同專案 UUID，要有實例、儲存卷、IP、安全群組同 SSH 金鑰權限。睇 [API 金鑰建立](https://www.scaleway.com/en/docs/iam/credentials/create-api-keys/)。 | 建立 Ubuntu 實例，附加[同一可用區嘅彈性路由 IPv4](https://www.scaleway.com/en/docs/instances/how-to/use-flexips/)，設定安全群組，再開機。用映像嘅 SSH 登入名，通常係 `root`。 |
+| [AWS Lightsail](./aws-lightsail/) | 存取金鑰 ID 同秘密；臨時憑證要加工作階段權杖。授予所需 [Lightsail 操作權限](https://docs.aws.amazon.com/service-authorization/latest/reference/list_lightsail.html)。 | 建立雙協定棧 Ubuntu 實例，揀 RSA SSH 金鑰，再分配同附加[同區域嘅靜態 IPv4](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip.html)。Ubuntu 映像用 `ubuntu`。 |
+| [Google Cloud Compute Engine](./google-cloud/) | 服務帳戶 JSON 金鑰加專案 ID。權限要包括虛擬機／磁碟、網絡、地址同防火牆操作；淨係 Network Admin 寫唔到防火牆規則。檢查 [IAM 權限](https://docs.cloud.google.com/compute/docs/access/iam)。 | 啟用 Compute Engine API，揀有互聯網路由嘅 VPC／子網，預留[區域性外部 IPv4](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address)，再附加去虛擬機。設定相符嘅 SSH 用戶名／金鑰；OS Login 要另外設定身份。 |
+| [Microsoft Azure](./azure/) | 租戶 ID、應用程式／用戶端 ID、用戶端秘密嘅**值**同訂閱 ID。授予運算／網絡權限；建立資源群組仲要有上級範圍權限。睇[服務主體設定](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal)。 | 建立專用資源群組同 VNet／子網。將 [Standard 靜態 IPv4 Public IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) 附加去虛擬機 NIC，再關聯 NSG。用建立時揀嘅管理員用戶名。 |
+| [DigitalOcean](./digitalocean/) | 個人存取權杖，要有所需 Droplet、SSH 金鑰、Reserved IP、防火牆及相關[權限範圍](https://docs.digitalocean.com/reference/api/create-personal-access-token/)。 | 用 SSH 公鑰建立 Ubuntu Droplet，分配 [Reserved IPv4](https://docs.digitalocean.com/products/networking/reserved-ips/how-to/create/)，再附加 Cloud Firewall。Ubuntu 初始登入通常係 `root`。 |
+| [Hetzner Cloud](./hetzner/) | 專案專用嘅 [Read & Write API 權杖](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)。 | 建立 Ubuntu 伺服器，配備 [Primary IPv4](https://docs.hetzner.com/cloud/servers/primary-ips/overview/)、SSH 金鑰同 Cloud Firewall。用 `root`。檢查刪除伺服器時，獨立嘅 Primary IP 會唔會保留。 |
+| [Akamai / Linode](./linode/) | 個人存取權杖，要有 Linodes 同 Firewalls 讀寫權限，以及所需[讀取範圍](https://techdocs.akamai.com/linode-api/reference/get-started)。 | 建立有公網 IPv4 同 SSH 金鑰嘅 Ubuntu Linode，再附加 [Cloud Firewall](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-cloud-firewalls)。用 `root`。實例存在期間保留佢獲分配嘅地址。 |
+| [Vultr](./vultr/) | 啟用咗 API 存取嘅 API 金鑰；[來源 IP 允許清單](https://docs.vultr.com/support/platform/users/how-can-i-manage-api-access-for-users)要容許手機而家嘅連線。 | 建立 Ubuntu Cloud Compute 實例，配備公網主要 IPv4、SSH 金鑰同 Firewall Group。用 `root`。[分配地址喺實例存在期間有效](https://docs.vultr.com/support/products/compute/how-do-i-get-a-vultr-compute-instance-dedicated-ip-address)；Reserved IP 係另外嘅選擇。 |
+| [Oracle Cloud Infrastructure](./oracle-cloud/) | 租用戶／用戶 OCID、API 金鑰指紋同 [RSA 簽署私鑰](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm)，並登記相符嘅簽署公鑰。呢組同 SSH 金鑰分開。 | 建立 VCN、互聯網閘道，同有閘道路由嘅公用子網。將 [Reserved Public IPv4](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/managingpublicIPs.htm) 分配去虛擬機 VNIC 嘅私人 IP。Canonical Ubuntu 用 `ubuntu`；設定安全清單／NSG。 |
+| [OVHcloud Public Cloud](./ovhcloud/) | 對應 EU／CA／US API 端點嘅應用程式金鑰、應用程式秘密同已驗證用戶金鑰。將 [API 權限](https://docs.ovhcloud.com/en/guides/manage-and-operate/api/first-steps)限於所選專案操作。 | 建立 Ubuntu [Public Cloud 實例](https://docs.ovhcloud.com/en/guides/public-cloud/compute/getting-started)，透過 Ext-Net 用 Basic Public IP，並配置 SSH 金鑰同安全群組。用 `ubuntu`。Floating／Additional IP 係獨立資源。 |
+| [Scaleway Instances](./scaleway/) | IAM 應用程式嘅 API 秘密金鑰同專案 UUID，要有實例、儲存卷、IP、安全群組同 SSH 金鑰權限。睇 [API 金鑰建立](https://www.scaleway.com/en/docs/iam/credentials/create-api-keys/)。 | 建立 Ubuntu 實例，附加[同一可用區嘅彈性路由 IPv4](https://www.scaleway.com/en/docs/instances/how-to/use-flexips/)，設定安全群組，再開機。用映像嘅 SSH 登入名，通常係 `root`。 |
 
 </div>
 
-**AWS EC2 替代方法：**喺公用子網啟動 Ubuntu，設有[互聯網閘道同 `0.0.0.0/0` 閘道路由](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html)，揀 SSH 金鑰同安全群組，再關聯 [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html)。用 `ubuntu`。本機自動適配器針對 Lightsail；EC2 要用控制台。淨係有 Elastic IP 唔會令私人子網連得到。
+**[AWS EC2](./aws-ec2/) 替代方法：**喺公用子網啟動 Ubuntu，設有[互聯網閘道同 `0.0.0.0/0` 閘道路由](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html)，揀 SSH 金鑰同安全群組，再關聯 [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html)。用 `ubuntu`。本機自動適配器針對 Lightsail；EC2 要用控制台。淨係有 Elastic IP 唔會令私人子網連得到。
 
 如果機構禁止服務帳戶金鑰、外部 IP 或者你揀嘅 SSH 認證方式，要取得管理員批准嘅設定。控制台設定唔會繞過呢啲限制。
 
@@ -72,6 +72,8 @@ description: "建立有公網 IP 嘅雲端虛擬機，喺 Mobile SSH 儲存 SSH 
 - **出站流量：**容許套件／容器下載、DNS，同 VPN 要承載嘅互聯網流量。
 
 檢查 Docker 嘅[防火牆行為](https://docs.docker.com/engine/install/ubuntu/#firewall-limitations)：發佈咗嘅容器連接埠可能繞過 UFW 規則。唔好淨靠 UFW 隱藏管理介面，亦唔好清空供應商防火牆鏈，尤其係 OCI 嘅儲存／iSCSI 規則。
+
+<a id="wg-easy-install"></a>
 
 ## 喺所選虛擬機安裝 wg-easy
 

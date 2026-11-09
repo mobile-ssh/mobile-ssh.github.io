@@ -1,0 +1,68 @@
+---
+import { getCloudGuide } from "../i18n/cloud-guides";
+import { providerIds } from "../i18n/cloud-guides/types";
+import { providers } from "../i18n/cloud-guides/providers";
+import { localizedHref } from "../i18n/locales";
+import type { LocaleCode } from "../i18n/locales";
+
+const { locale, compact = false } = Astro.props as { locale: LocaleCode; compact?: boolean };
+const t = getCloudGuide(locale);
+const currentPath = Astro.url.pathname;
+---
+
+<ul class:list={["cloud-provider-links", { compact }]}>
+  {providerIds.map((id) => {
+    const href = localizedHref(locale, `/docs/cloud-vpn/${id}/`);
+    return (
+      <li>
+        <a href={href} aria-current={currentPath === href ? "page" : undefined}>
+          <bdi>{providers[id].name}</bdi>
+          {!compact && <span>{t.cardAction}</span>}
+        </a>
+      </li>
+    );
+  })}
+</ul>
+
+<style>
+  .cloud-provider-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 0.8rem;
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+  }
+  .cloud-provider-links a {
+    display: block;
+    height: 100%;
+    padding: 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    overflow-wrap: anywhere;
+  }
+  .cloud-provider-links a:hover, .cloud-provider-links a[aria-current="page"] {
+    background: #e9f1f3;
+  }
+  .cloud-provider-links bdi { font-weight: 700; }
+  .cloud-provider-links span {
+    display: block;
+    margin-block-start: 0.5rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .compact {
+    display: block;
+    margin-block-start: 0.5rem;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  .compact a {
+    border: 0;
+    padding: 0.6rem 0.8rem;
+    background: transparent;
+    font-size: 0.9rem;
+  }
+</style>

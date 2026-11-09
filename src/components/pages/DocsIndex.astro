@@ -1,4 +1,6 @@
 ---
+import CloudProviderLinks from "../CloudProviderLinks.astro";
+import { getCloudGuide } from "../../i18n/cloud-guides";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { defaultLocale, localizedHref } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
@@ -6,6 +8,7 @@ import { getDict } from "../../i18n";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
+const cloud = getCloudGuide(locale);
 ---
 
 <BaseLayout title={t.docsIndex.metaTitle} description={t.docsIndex.metaDescription} locale={locale} pathKey="docs">
@@ -24,6 +27,16 @@ const t = getDict(locale);
           </a>
         ))}
       </div>
+      <section class="provider-guides" aria-labelledby="provider-guides-heading">
+        <h2 id="provider-guides-heading">{cloud.indexHeading}</h2>
+        <p>{cloud.indexIntro}</p>
+        <CloudProviderLinks locale={locale} />
+      </section>
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  .provider-guides { margin-block-start: 3rem; }
+  .provider-guides > p { max-width: 760px; color: var(--muted); line-height: 1.7; }
+</style>
