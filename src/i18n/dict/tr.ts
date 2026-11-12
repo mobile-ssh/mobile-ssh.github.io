@@ -379,8 +379,9 @@ export const tr: Dict = {
       {
         title: "Sesli asistan (deneysel, Android)",
         items: [
-          "Ayarlar’dan sesli asistanı etkinleştirin ve barındırmak için bir Linux SSH sunucusu yapılandırın; isteğe bağlı döküm incelemesiyle dikte ettiğiniz veya yazdığınız mesajları gönderin ya da sesli yanıtlarla canlı konuşun",
-          "Sunucu asistanını, Codex’i veya Claude’u seçin ve bağlı sunuculardaki kodlama asistanlarını inceleyin; terminal girdisi ve çoklayıcı değişiklikleri için ayrı izin gerekir"
+          "Varsayılan olarak kapalı; Ayarlar’dan etkinleştirin. Gemma 4 doğrudan telefonda çalışabilir: Hugging Face’ten bir modeli bir kez indirin, konuşma cihazda kalsın, ses sunucusu gerekmez",
+          "Sunucuyu veya ekranı sorun, sunucuları ve oturumları açın, bir kodlama ajanının yanıtını dinleyin ya da ona istem dikte edin; kısa bir salt okunur denetim listesi dışındaki komutlar onayınızı bekler",
+          "Ya da sesi kendi Linux SSH sunucunuzda barındırın: Mesajlar veya Canlı konuşmalarla sunucu asistanını, Codex’i veya Claude’u kullanın; terminal girdisi ve çoklayıcı değişiklikleri için ayrı izin gerekir"
         ]
       }
     ],
@@ -554,20 +555,24 @@ export const tr: Dict = {
   privacy: {
     metaTitle: "Gizlilik Politikası | Mobile SSH",
     metaDescription:
-      "Mobile SSH Android/iOS'ta verileri, kimlikleri, yedekleri, SSH/VPN trafiğini, dosyaları, analitik ve izinleri nasıl işler.",
+      "Mobile SSH Android/iOS'ta verileri, kimlikleri, yedekleri, SSH/VPN trafiğini, dosyaları, sesi, istem şablonlarını, analitik ve izinleri nasıl işler.",
     eyebrow: "Gizlilik",
     h1: "Gizlilik Politikası",
     intro:
-      "Mobile SSH yapılandırmayı cihazınızda saklar ve seçtiğiniz sunucu/hizmete bağlanır. Mobile SSH hesabı veya bulut eşitlemesi gerekmez. Android'in isteğe bağlı VPN'i seçilen cihaz trafiğini ayarladığınız sunucudan geçirir.",
+      "Mobile SSH yapılandırmayı cihazınızda saklar ve seçtiğiniz sunucu/hizmete bağlanır. Mobile SSH hesabı veya bulut eşitlemesi gerekmez. Android'in isteğe bağlı VPN'i seçilen cihaz trafiğini ayarladığınız sunucudan geçirir. Android'de deneysel sesli asistan telefonunuzda bir konuşma modeli çalıştırabilir, deneysel istem şablonları da kendi sunucularınızda zamanlanmış olarak çalışabilir; ikisi de siz açana kadar kapalı kalır.",
     sections: [
       {
         heading: "Cihazınızda saklanan bilgiler",
-        body: "Kayıtlı veriler sunucu profillerini, kimlik bilgilerini, özel anahtarları, host kimliklerini, atlama sunucularını, tünel kurallarını, oturum görüntülerini, giriş geçmişini, dosya yollarını, klasör erişim izinlerini ve uygulama ayarlarını içerir. Android ayrıca VPN/proxy yapılandırmalarını ve bunların gizli bilgilerini saklar. iOS gizli bilgiler için Keychain kullanır. Android envanteri Keystore destekli bir anahtarla şifreler; ancak şifreleme kullanılamıyorsa düz metin olarak kaydedebilir. WireGuard, Shadowsocks ve OpenVPN profillerinin saklanması şifreleme gerektirir. Android bulut yedeklemesi kapalıdır. İsteğe bağlı hata ayıklama günlükleri yerel olarak saklanır."
+        body: "Kayıtlı veriler sunucu profillerini, kimlik bilgilerini, özel anahtarları, host kimliklerini, atlama sunucularını, tünel kurallarını, oturum görüntülerini, giriş geçmişini, dosya yollarını, klasör erişim izinlerini ve uygulama ayarlarını içerir. Android ayrıca VPN/proxy yapılandırmalarını ve bunların gizli bilgilerini saklar. iOS gizli bilgiler için Keychain kullanır. Android envanteri Keystore destekli bir anahtarla şifreler; ancak şifreleme kullanılamıyorsa düz metin olarak kaydedebilir. WireGuard, Shadowsocks ve OpenVPN profillerinin saklanması şifreleme gerektirir. Android bulut yedeklemesi kapalıdır. İsteğe bağlı hata ayıklama günlükleri yerel olarak saklanır. Android ayrıca istem şablonlarını ve taslakları (şifreli), kodlama ajanı Sohbet sayfalarının son hallerini ve istem çalıştırma sonuçlarını (en fazla 30 gün tutulur, yedeklere girmez), uygulama içi tarayıcının yer imlerini ve geçmişini, VPN kurulumunun hatırlamasını istediğiniz bulut kimlik bilgilerini (Keystore ile şifreli, eklentilere asla verilmez) ve indirdiğiniz konuşma modellerini saklar."
       },
       {
         heading: "Ağ üzerinden gönderilen bilgiler",
-        body: "SSH giriş bilgisi kimlik kontrolünden sonra ayarlı sunucu/bastionlara gider. Terminal, SFTP, VNC ve yönlendirme seçtiğiniz hedefe gider. Eklenti kataloğu/indirme ayarlı kaynağa erişir. Android VPN/proxy, başka uygulama trafiği ve DNS'yi rotaya göre SSH, WireGuard, Shadowsocks veya OpenVPN üzerinden taşır. Bu trafik Mobile SSH analitiğine veya bulut depolamaya gönderilmez."
+        body: "SSH giriş bilgisi kimlik kontrolünden sonra ayarlı sunucu/bastionlara gider. Terminal, SFTP, VNC ve yönlendirme seçtiğiniz hedefe gider. Eklenti kataloğu/indirme ayarlı kaynağa erişir. Android VPN/proxy, başka uygulama trafiği ve DNS'yi rotaya göre SSH, WireGuard, Shadowsocks veya OpenVPN üzerinden taşır. Bu trafik Mobile SSH analitiğine veya bulut depolamaya gönderilmez. Cihaz üzerindeki bir konuşma modeli için İndir'e dokunduğunuzda uygulama dosyayı Hugging Face'ten alır; Hugging Face sesinizi, sunucularınızı veya kimlik bilgilerinizi değil, sıradan bir indirme isteğini alır. İsteğe bağlı VPN kurulumu eklentisiyle uygulama, girdiğiniz bulut kimlik bilgilerini kullanarak sunucu oluşturma, denetleme veya silme isteklerini telefondan doğrudan seçtiğiniz bulut sağlayıcısına gönderir."
       },
+      { heading: "Android'de sesli asistan (deneysel)", body: "Sesli asistan deneyseldir ve varsayılan olarak kapalıdır; Ayarlar'dan etkinleştirene kadar hiçbir şey yapmaz. Mikrofon yalnızca başlattığınız bir konuşma etkinken, bir mikrofon düğmesini basılı tutarken veya bir ses profili kaydederken kayıt yapar; bir konuşma dinleyebildiği sürece Android bir bildirim gösterir. Bu telefondaki Gemma ile konuşma cihazda tanınır ve yanıtlanır: ses ve dökümler Mobile SSH'e, bir ses sunucusuna veya Google'a gönderilmez. Gemma'nın önerdiği komutlar yalnızca konuşmanın denetlediği sunucuda ve yalnızca siz onayladıktan sonra çalışır; kısa bir salt okunur denetim listesi bunun dışındadır. Claude Code veya Codex için dikte ettiğiniz bir istem, sunucunuzdaki o ajana ancak siz onayladıktan veya Gönder'e dokunduktan sonra yazılır; ajan onu terminaline yazılmış bir istem gibi işler ve hesabınızla kendi sağlayıcısına gönderir. Yanıtlar telefonunuzda yüklü metin okuma sesleriyle seslendirilir; bir ses eksikse uygulama telefonunuzun konuşma motorundan onu indirmesini isteyebilir. Kendi çalıştırdığınız bir ses sunucusuyla ses, dökümler ve yanıtlar o sunucuya gider: uygulama onu kayıtlı sunucularınızdan birine kurduysa SSH bağlantınız üzerinden, özel bir ses sunucusu adresi girdiyseniz şifreli bir bağlantı (wss) üzerinden. Bu sunucu bunları orada yapılandırdığınız konuşma veya yapay zekâ sağlayıcılarına, onların koşullarıyla gönderebilir. ElevenLabs sesini kullanırsanız telefon, ElevenLabs eklentisinde kayıtlı API anahtarıyla ElevenLabs'ten tek kullanımlık bir belirteç alır ve ses sunucunuza yalnızca bu belirteci iletir; sunucu yanıt metnini seslendirilmesi için ElevenLabs'e gönderir. Android konuşma tanıma ve klavyeyle sesli yazma, telefonunuzun konuşma sağlayıcısı tarafından yürütülür ve çevrimiçi hizmetler kullanabilir. Ses eşleştirme için bir ses profili yalnızca ses sunucunuza gönderilir ve orada saklanır. Ses kaydı asla analitiğe gönderilmez; hata ayıklama kayıtları onu yalnızca bunu ayrıca açarsanız içerir." },
+      { heading: "Android'de istem şablonları (deneysel)", body: "İstem şablonları, Ayarlar'dan açana kadar kapalı kalan deneysel bir özelliktir. Şablonlar telefonda şifreli saklanır ve yedeklere dahil edilmez. Kayıtlı bir sunucuda şablon varsa uygulama o sunucudaki ev klasörünüze küçük bir yardımcı program kurar ve kullanıcı crontab'ınıza, yardımcıyı her dakika çalıştıran işaretli bir satır ekler. Yardımcı, şablonların ve çalıştırma sonuçlarının kopyalarını sunucuda tutar ve onları orada zaten kurulu ve oturum açılmış Claude Code veya Codex komut satırı aracıyla çalıştırır; bu araç istemi ve okuduğu dosyaları hesabınızla ve o sağlayıcının koşullarıyla kendi sağlayıcısına gönderir. Çalıştırmalar salt okunurdur. Telefon bağlandığınızda şablonları SSH üzerinden eşitler, sonuçları okur ve sonuçları en fazla 30 gün şifreli tutar. Gemma ile şablon yazmak veya düzeltmek telefonda gerçekleşir. Sunucudan kaldır, yardımcıyı ve crontab satırını siler; sunucuda tutulan şablonları ve çalıştırma geçmişini de silebilir. Mobile SSH şablonlarınızı, istemlerinizi veya sonuçlarınızı almaz." },
+      { heading: "Android'de kodlama ajanı Sohbeti", body: "Claude Code veya Codex konuşmalarını göstermek için uygulama sunucunuza küçük bir yardımcı program yükler ve ajanların oturum dosyalarını orada SSH üzerinden okur. Yardımcı, konuşma sayfalarını ev klasörünüzde önbelleğe alabilir; telefon da son sayfaları uygulamanın özel depolamasında en fazla 30 gün, yedeklerin dışında tutar. Ajan kancalarını kurarsanız yardımcı, o sunucudaki ajanların kanca ayarlarına Mobile SSH girdileri ekler. Sohbet'ten gönderdiğiniz metin sunucunuzdaki o ajana iletilir ve ajan onu terminaline yazılmış bir istem gibi işler." },
+      { heading: "Android'de bulut VPN kurulumu", body: "İsteğe bağlı VPN kurulumu eklentisi, size ait bir bulut hesabında WireGuard sunucusu oluşturur. Girdiğiniz kimlik bilgileri, yalnızca o sağlayıcıya giden istekleri imzalamak için uygulamanın kendisi tarafından kullanılır; eklentiler bunları almaz. Hatırlanmasını seçerseniz bu cihazda Android Keystore şifrelemesiyle saklanır. Sunucu, yapılandırması ve tüm ücretler, siz silene kadar bulut hesabınıza aittir. Dışa aktarılan bir istemci yapılandırması veya QR kodu özel anahtar içerir." },
       {
         heading: "Dosya aktarımı ve depolama erişimi",
         body: "Aktarım genel depolama izni olmadan seçilen dosya/klasörleri kullanır. Android verilen klasör erişimini korur. iOS uygulama klasörünü veya hatırlanan Dosyalar klasörünü kullanır; sistem arayüzlerinden belge, fotoğraf ve paylaşım alır. Dosya sağlayıcısı kendi bulutunda saklayabilir. Açma/paylaşma seçtiğiniz uygulama veya hedefe gönderir."
@@ -576,10 +581,10 @@ export const tr: Dict = {
         heading: "Günlükler ve sorun giderme",
         body: "Bağlanırken giriş denemeleri yerel kaydedilir. Hata kaydı isteğe bağlıdır: Android her tuşu, parolaları da içereceğini bildirir ve arşiv çıkarır. iOS adres, hata, yeniden bağlantı, ağ değişimi ve tmux tanısını kaydeder. Paylaşmadan inceleyin; sunucu ayrıntısı ve Android'de yazılmış sırlar içerebilir."
       },
-      { heading: "Kullanım analizi", body: "Analiz etkinleştirildiğinde Mobile SSH, uygulamayı geliştirmek için özellik etkileşimlerini (VPN/proxy kullanımı ve terminal çoklayıcı türü dahil), bağlantı tanılama verilerini, uygulama ve işletim sistemi sürümlerini, cihaz modelini, dili ve geçici bir oturum kimliğini HTTPS üzerinden Aptabase'e gönderir. Aptabase, ülke veya bölgeyi ve günlük takma adlı bir tanımlayıcıyı belirlemek için isteğin IP adresini ve User-Agent bilgisini işler; orijinal IP adresini veya User-Agent bilgisini analiz verileriyle birlikte saklamaz. Olaylar; gezinme trafiği, DNS sorguları, sunucu adresleri, kullanıcı adları, kimlik bilgileri, komutlar veya dosya içerikleri içermez. Analiz onayı istemini gösteren Android sürümleri açık onay gerektirir; eski Android sürümlerinde ve iOS'ta analiz varsayılan olarak açıktır. Tüm özellikler analiz olmadan çalışır. Ayarlar'dan veri toplama durdurulabilir; iOS'ta önceden kuyruğa alınmış olaylar yine de gönderilebilir. Android'deki onay cihaza özeldir ve yedeklerden geri yüklenmez. [Aptabase'in veri işleme sözleşmesine](https://aptabase.com/legal/dpa) bakın." },
+      { heading: "Kullanım analizi", body: "Analiz etkinleştirildiğinde Mobile SSH, uygulamayı geliştirmek için özellik etkileşimlerini (VPN/proxy kullanımı ve terminal çoklayıcı türü dahil), bağlantı tanılama verilerini, uygulama ve işletim sistemi sürümlerini, cihaz modelini, dili ve geçici bir oturum kimliğini HTTPS üzerinden Aptabase'e gönderir. Aptabase, ülke veya bölgeyi ve günlük takma adlı bir tanımlayıcıyı belirlemek için isteğin IP adresini ve User-Agent bilgisini işler; orijinal IP adresini veya User-Agent bilgisini analiz verileriyle birlikte saklamaz. Olaylar; gezinme trafiği, DNS sorguları, sunucu adresleri, kullanıcı adları, kimlik bilgileri, komutlar, dosya içerikleri, ses kayıtları, dökümler, istemler veya şablonlar içermez. Analiz onayı istemini gösteren Android sürümleri açık onay gerektirir; eski Android sürümlerinde ve iOS'ta analiz varsayılan olarak açıktır. Tüm özellikler analiz olmadan çalışır. Ayarlar'dan veri toplama durdurulabilir; iOS'ta önceden kuyruğa alınmış olaylar yine de gönderilebilir. Android'deki onay cihaza özeldir ve yedeklerden geri yüklenmez. [Aptabase'in veri işleme sözleşmesine](https://aptabase.com/legal/dpa) bakın." },
       {
         "heading": "Dışa aktardığınız yedekler",
-        "body": "Tam yedek envanter/ayarları, Android ayrıca VPN/proxy içerir. Parola dosyayı şifreler; yoksa parola ve özel anahtar açık metindir. Kaydetme/paylaşma hedefini siz seçersiniz. SSH güveni, etkin oturum ve sistem klasör izni dışarıda kalır. Önizleme uygulanacak bölümleri ve güvenlik ayarlarını gösterir."
+        "body": "Tam yedek envanter/ayarları, Android ayrıca VPN/proxy içerir. Parola dosyayı şifreler; yoksa parola ve özel anahtar açık metindir. Kaydetme/paylaşma hedefini siz seçersiniz. SSH güveni, etkin oturum ve sistem klasör izni dışarıda kalır. Önizleme uygulanacak bölümleri ve güvenlik ayarlarını gösterir. İstem şablonları, indirilen konuşma modelleri, ses sunucusu ayarları, VPN kurulumu kimlik bilgileri ve önbellekteki Sohbet veya çalıştırma geçmişi dahil edilmez."
       },
       {
         "heading": "Android VPN yönlendirmesi",
@@ -599,7 +604,11 @@ export const tr: Dict = {
       {
         "label": "USB ve NFC (Android)",
         "body": "FIDO2 fiziksel anahtarla kayıt veya SSH imzası için kullanılır; gerektiğinde USB izni, dokunma/PIN onayı istenir."
-      }
+      },
+      { label: "Mikrofon (Android)", body: "yalnızca başlattığınız sesli konuşmalar ve bas-konuş için ve bir ses profili kaydetmek için kullanılır. Bir konuşma dinleyebildiği sürece bir bildirim gösterilir." },
+      { label: "Ses ayarları (Android)", body: "asistanı telefon, hoparlör, kulaklık veya araç sesi üzerinden çalmak için kullanılır." },
+      { label: "Varsayılan asistan (Android, isteğe bağlı)", body: "Mobile SSH'i telefonun asistanı olarak seçerseniz kulaklıkta uzun basış, telefon kilitliyken de bir konuşmayı başlatabilir veya sürdürebilir; konuşma metni kilidi açana kadar gizli kalır." },
+      { label: "Arka planda veri aktarımı (Android)", body: "ekranından ayrıldığınızda rehberli bir VPN kurulumunun çalışmaya devam etmesini sağlar." }
     ],
     securityHeading: "Güvenlik sorumlulukları",
     securityBody:
@@ -648,7 +657,7 @@ export const tr: Dict = {
     privacyLabel: "Gizlilik politikası",
     privacyLinkText: "Gizlilik politikası",
     noticesHeading: "Açık kaynak bildirimleri",
-    noticesIntro: "Mobile SSH aşağıdaki açık kaynak kütüphaneler üzerine kurulmuştur. Her biri kendi lisansı kapsamında kullanılır.",
+    noticesIntro: "Mobile SSH aşağıdaki açık kaynak kütüphaneler ve üçüncü taraf bileşenler üzerine kurulmuştur. Her biri kendi lisansı kapsamında kullanılır.",
     notices: [
       { name: "JSch (mwiede fork) — Android",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch", licenseUrl: "/licenses/android-third-party-notices.txt" },
       { name: "JZlib (bundled in JSch) — Android",   license: "BSD 3-clause", licenseUrl: "/licenses/android-third-party-notices.txt" },
@@ -667,6 +676,16 @@ export const tr: Dict = {
       { name: "mbed TLS — Android", license: "Apache-2.0", url: "https://github.com/Mbed-TLS/mbedtls", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "Asio — Android", license: "BSL-1.0", url: "https://github.com/chriskohlhoff/asio", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "LZ4 / xxHash — Android", license: "BSD-2-Clause", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
+      { name: "LiteRT-LM — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT-LM", licenseUrl: "/licenses/litert-lm-LICENSE.txt" },
+      { name: "LiteRT NPU runtimes (Google Tensor, Qualcomm) — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT", licenseUrl: "/licenses/litert-npu-runtime-LICENSE.txt" },
+      { name: "Qualcomm QNN runtime — Android", license: "Qualcomm AI Stack License (proprietary)", licenseUrl: "/licenses/qnn-runtime-NOTICE.txt" },
+      { name: "OkHttp / Okio — Android", license: "Apache-2.0", url: "https://github.com/square/okhttp", licenseUrl: "https://github.com/square/okhttp/blob/master/LICENSE.txt" },
+      { name: "ZXing — Android", license: "Apache-2.0", url: "https://github.com/zxing/zxing", licenseUrl: "https://github.com/zxing/zxing/blob/master/LICENSE" },
+      { name: "AndroidX JavaScriptEngine / Browser — Android", license: "Apache-2.0", url: "https://github.com/androidx/androidx", licenseUrl: "https://github.com/androidx/androidx/blob/androidx-main/LICENSE.txt" },
+      { name: "Opus — Android", license: "BSD-3-Clause", url: "https://opus-codec.org/", licenseUrl: "/licenses/opus-BSD-3-Clause.txt" },
+      { name: "Markwon — Android", license: "Apache-2.0", url: "https://github.com/noties/Markwon", licenseUrl: "/licenses/markwon-APACHE-2.0.txt" },
+      { name: "commonmark-java — Android", license: "BSD-2-Clause", url: "https://github.com/commonmark/commonmark-java", licenseUrl: "/licenses/commonmark-java-BSD-2-Clause.txt" },
+      { name: "AndroidSVG — Android", license: "Apache-2.0", url: "https://github.com/BigBadaboom/androidsvg", licenseUrl: "/licenses/androidsvg-APACHE-2.0.txt" },
     ],
     openvpnSourceHeading: "OpenVPN kaynak kodu",
     openvpnSourceBody: "OpenVPN 3 Core, MPL 2.0 kapsamında kullanılır. Kapsanan kaynak kodunu ve bağımlılıkların tam sürümlerini, lisans metinlerini ve yerel derleme bilgilerini indirin.",

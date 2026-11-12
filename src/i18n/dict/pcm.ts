@@ -379,8 +379,9 @@ export const pcm: Dict = {
       {
         title: "Voice assistant (experimental, Android)",
         items: [
-          "Enable voice assistance for Settings and configure Linux SSH server to host am; send messages wey you dictate or type, with optional text review, or use live conversation with spoken replies",
-          "Choose server assistant, Codex or Claude and check coding assistants across connected hosts; terminal input and multiplexer changes need separate permission"
+          "E dey off by default; enable am for Settings. Gemma 4 fit run for di phone itself: download model once from Hugging Face and speech go stay for di device, no voice server",
+          "Ask about di server or di screen, open servers and sessions, hear wetin coding agent reply, or dictate prompt give am; commands wey no dey di short read-only check list need your yes",
+          "Or host voice for your own Linux SSH server, with Messages or Live conversation and di server assistant, Codex or Claude; terminal input and multiplexer changes need separate permission"
         ]
       }
     ],
@@ -554,20 +555,24 @@ export const pcm: Dict = {
   privacy: {
     metaTitle: "Privacy Policy | Mobile SSH",
     metaDescription:
-      "How Mobile SSH handles saved data, server identities, backups, SSH and VPN traffic, files, analytics and permissions for Android and iOS.",
+      "How Mobile SSH handles saved data, server identities, backups, SSH and VPN traffic, files, voice, prompt templates, analytics and permissions for Android and iOS.",
     eyebrow: "Privacy",
     h1: "Privacy Policy",
     intro:
-      "Mobile SSH stores its setup for your device and connects to servers and services wey you choose. E no need Mobile SSH account or cloud sync. Android optional VPN clients still route selected device traffic through di servers wey you configure.",
+      "Mobile SSH stores its setup for your device and connects to servers and services wey you choose. E no need Mobile SSH account or cloud sync. Android optional VPN clients still route selected device traffic through di servers wey you configure. For Android, di experimental voice assistant fit run speech model for your phone, and experimental prompt templates fit run for your own servers on schedule; both of dem go stay off until you turn dem on.",
     sections: [
       {
         heading: "Information wey dey store on your device",
-        body: "Saved data include server profiles, credentials, private keys, host identities, jump hosts, tunnel rules, session snapshots, login history, file paths, folder-access grants and app settings. Android still stores VPN/proxy setup and their secrets. iOS dey use Keychain for secrets. Android dey encrypt inventory with key wey Keystore protects, but e fit save am as plain text if encryption no dey available; WireGuard, Shadowsocks and OpenVPN profile storage must use encryption. Android cloud backup dey disabled. Optional debug logs dey stay local."
+        body: "Saved data include server profiles, credentials, private keys, host identities, jump hosts, tunnel rules, session snapshots, login history, file paths, folder-access grants and app settings. Android still stores VPN/proxy setup and their secrets. iOS dey use Keychain for secrets. Android dey encrypt inventory with key wey Keystore protects, but e fit save am as plain text if encryption no dey available; WireGuard, Shadowsocks and OpenVPN profile storage must use encryption. Android cloud backup dey disabled. Optional debug logs dey stay local. Android still dey store prompt templates and drafts (encrypted), recent coding-agent Chat pages and prompt-run results (e dey keep dem reach 30 days, dem no dey enter backups), in-app browser bookmarks and history, cloud credentials wey you ask VPN setup make e remember (Keystore-encrypted, dem no dey give am to plugins), and any speech model wey you download."
       },
       {
         heading: "Information wey dey send over network",
-        body: "SSH login goes to your configured servers and jump hosts after their identity checks. Terminal, SFTP, VNC and forwarded traffic go to endpoints wey you choose. Plugin catalogs and downloads contact their configured sources. Android VPN/proxy profiles fit send other apps traffic and DNS through your SSH, WireGuard, Shadowsocks or OpenVPN servers, based on di routes wey you choose. This traffic no dey go to Mobile SSH analytics or cloud storage."
+        body: "SSH login goes to your configured servers and jump hosts after their identity checks. Terminal, SFTP, VNC and forwarded traffic go to endpoints wey you choose. Plugin catalogs and downloads contact their configured sources. Android VPN/proxy profiles fit send other apps traffic and DNS through your SSH, WireGuard, Shadowsocks or OpenVPN servers, based on di routes wey you choose. This traffic no dey go to Mobile SSH analytics or cloud storage. When you tap Download for on-device speech model, di app go collect di file from Hugging Face; Hugging Face go only receive normal download request, no be your voice, servers or credentials. With di optional VPN setup plugin, di app dey use di cloud credentials wey you enter to send requests wey dey create, check or delete servers straight from di phone go di cloud provider wey you choose."
       },
+      { heading: "Voice assistant for Android (experimental)", body: "Di voice assistant na experimental and e dey off by default; e no go do anything until you enable am for Settings. Di microphone dey record only when conversation wey you start dey active, when you hold microphone button, or when you dey record voice profile; Android go show notification as long as conversation fit listen. With Gemma for dis phone, di phone itself dey recognise and answer speech: audio and transcripts no dey go Mobile SSH, voice server or Google. Commands wey Gemma suggest go run only for di server wey di conversation dey control, and only after you confirm dem, except one short list of read-only checks. Prompt wey you talk out for Claude Code or Codex go enter dat agent for your server only after you confirm am or tap Send; then di agent go handle am like prompt wey person type for im terminal, and e go send am to im provider under your account. Na text-to-speech voices wey dey your phone dey talk di replies; if one no dey, di app fit ask your phone speech engine make e download am. With voice server wey you run, audio, transcripts and replies dey go dat server: through your SSH connection if na di app set am up for one of your saved servers, or through encrypted (wss) connection if you type di address of custom voice server. Dat server fit send dem to speech or AI providers wey you configure there, under their own terms. If you use ElevenLabs speech, di phone dey use di API key wey you save for di ElevenLabs plugin to collect one-time token from ElevenLabs, and na only dat token e dey pass to your voice server, wey go send di reply text to ElevenLabs make e talk am. Android speech recognition and keyboard voice typing na your phone speech provider dey handle dem, and e fit use online services. Voice profile for voice matching dey go only your voice server and na there e dey stay. Voice audio no dey ever go analytics; debug recordings go include am only if you turn am on separately." },
+      { heading: "Prompt templates for Android (experimental)", body: "Prompt templates na experimental feature wey go stay off until you turn am on for Settings. Di phone dey store templates encrypted and dem no dey enter backups. When saved server get templates, di app go install small helper for your home folder for dat server and add one marked line to your user crontab, wey dey run di helper every minute. Di helper dey keep copies of di templates and their run results for di server, and e dey run dem with di Claude Code or Codex command-line tool wey don already install and sign in there; dat tool dey send di prompt and di files wey e read to im provider under your account and dat provider terms. Runs na read-only. Di phone dey sync templates and read results over SSH when you connect, and e dey keep results encrypted reach 30 days. If you use Gemma write or change template, e dey happen for di phone. Remove am from server dey delete di helper and im crontab line, and e fit also delete di templates and run history wey dey di server. Mobile SSH no dey receive your templates, prompts or results." },
+      { heading: "Coding-agent Chat for Android", body: "To show Claude Code or Codex conversations, di app dey upload small helper to your server and read di agents session files there over SSH. Di helper fit cache conversation pages for your home folder, and di phone dey keep recent pages for private app storage reach 30 days, outside backups. If you install agent hooks, di helper go add Mobile SSH entries to di agents hook settings for dat server. Text wey you send from Chat dey go dat agent for your server, and e go handle am like prompt wey person type for im terminal." },
+      { heading: "Cloud VPN setup for Android", body: "Di optional VPN setup plugin dey create WireGuard server for cloud account wey be your own. Na di app itself dey use di credentials wey you enter to sign requests to dat provider only; plugins no dey receive dem. If you choose make e remember dem, dem go dey stored with Android Keystore encryption for dis device. Di server, im configuration and any charges na your cloud account own until you delete dem. Exported client configuration or QR code get private key inside." },
       {
         heading: "File transfer and storage access",
         body: "File transfer uses folders and files wey you select, without broad storage permission. Android keeps access to di folder wey you grant. iOS fit use app folder or remember folder wey you choose for Files, and imports documents, photos and shared files through system controls. File provider wey you select fit store data for its own cloud. Opening or sharing file sends am to di app or destination wey you choose."
@@ -576,10 +581,10 @@ export const pcm: Dict = {
         heading: "Log and troubleshooting",
         body: "Di app records login attempts locally as you connect. Debug recording na optional: Android recorder warns say terminal diagnostics include every key wey you type, passwords too, and exports archive. iOS debug logs record connection addresses, failures, reconnects, network changes and tmux diagnostics. Check logs before you share dem; dem fit reveal server details and, for Android, secrets wey you type."
       },
-      { heading: "Usage analytics", body: "When you enable am, Mobile SSH dey send feature interactions (including VPN/proxy use and terminal multiplexer type), connection diagnostics, app/OS versions, device model, language and temporary session ID through HTTPS to Aptabase to improve the app. Aptabase dey process the request IP address and User-Agent to get country/region and daily identifier wey use alias; e no dey store the original IP address or User-Agent with analytics. Events no include browsing traffic, DNS queries, server addresses, usernames, login credentials, commands or file contents. Android builds wey get analytics consent prompt need you to agree first; older Android builds and iOS dey enable analytics by default. All features dey work without analytics. Settings fit stop collection; events wey don enter queue before fit still send for iOS. Android consent dey stay only for that device, and backup restore no dey bring am back. See [Aptabase data processing agreement](https://aptabase.com/legal/dpa)." },
+      { heading: "Usage analytics", body: "When you enable am, Mobile SSH dey send feature interactions (including VPN/proxy use and terminal multiplexer type), connection diagnostics, app/OS versions, device model, language and temporary session ID through HTTPS to Aptabase to improve the app. Aptabase dey process the request IP address and User-Agent to get country/region and daily identifier wey use alias; e no dey store the original IP address or User-Agent with analytics. Events no include browsing traffic, DNS queries, server addresses, usernames, login credentials, commands, file contents, voice audio, transcripts, prompts or templates. Android builds wey get analytics consent prompt need you to agree first; older Android builds and iOS dey enable analytics by default. All features dey work without analytics. Settings fit stop collection; events wey don enter queue before fit still send for iOS. Android consent dey stay only for that device, and backup restore no dey bring am back. See [Aptabase data processing agreement](https://aptabase.com/legal/dpa)." },
       {
         "heading": "Backups wey you export",
-        "body": "Full backups include inventory and app settings, plus VPN/proxy profiles for Android. Passphrase encrypts di file; without am, passwords and private keys dey plain text. You choose where to save or share am. SSH host trust, active sessions and system folder grants no dey included. Import preview shows di sections and security preferences wey go apply."
+        "body": "Full backups include inventory and app settings, plus VPN/proxy profiles for Android. Passphrase encrypts di file; without am, passwords and private keys dey plain text. You choose where to save or share am. SSH host trust, active sessions and system folder grants no dey included. Import preview shows di sections and security preferences wey go apply. Prompt templates, downloaded speech models, voice host settings, VPN setup credentials and cached Chat or run history no dey inside."
       },
       {
         "heading": "VPN routing for Android",
@@ -599,7 +604,11 @@ export const pcm: Dict = {
       {
         "label": "USB and NFC (Android)",
         "body": "dem dey communicate with physical FIDO2 security key for enrollment or SSH signing, with USB access and touch/PIN confirmation when needed."
-      }
+      },
+      { label: "Microphone (Android)", body: "na only for voice conversations and push-to-talk wey you start, and to record voice profile. Notification go show as long as conversation fit listen." },
+      { label: "Audio settings (Android)", body: "e dey use am play di assistant through di phone, speaker, headset or car audio." },
+      { label: "Default assistant (Android, optional)", body: "if you choose Mobile SSH as di phone assistant, long press for headset fit start or continue conversation, even when di phone lock; conversation text go hide until you unlock." },
+      { label: "Background data transfer (Android)", body: "e dey keep guided VPN setup running when you comot from im screen." }
     ],
     securityHeading: "Security responsibilities",
     securityBody:
@@ -648,7 +657,7 @@ export const pcm: Dict = {
     privacyLabel: "Privacy policy",
     privacyLinkText: "Privacy policy",
     noticesHeading: "Open source notice",
-    noticesIntro: "Mobile SSH dey use di open-source libraries below; each one dey under im own license.",
+    noticesIntro: "Mobile SSH dey use di open-source libraries and third-party components below; each one dey under im own license.",
     notices: [
       { name: "JSch (mwiede fork) — Android",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch", licenseUrl: "/licenses/android-third-party-notices.txt" },
       { name: "JZlib (bundled in JSch) — Android",   license: "BSD 3-clause", licenseUrl: "/licenses/android-third-party-notices.txt" },
@@ -667,6 +676,16 @@ export const pcm: Dict = {
       { name: "mbed TLS — Android", license: "Apache-2.0", url: "https://github.com/Mbed-TLS/mbedtls", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "Asio — Android", license: "BSL-1.0", url: "https://github.com/chriskohlhoff/asio", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "LZ4 / xxHash — Android", license: "BSD-2-Clause", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
+      { name: "LiteRT-LM — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT-LM", licenseUrl: "/licenses/litert-lm-LICENSE.txt" },
+      { name: "LiteRT NPU runtimes (Google Tensor, Qualcomm) — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT", licenseUrl: "/licenses/litert-npu-runtime-LICENSE.txt" },
+      { name: "Qualcomm QNN runtime — Android", license: "Qualcomm AI Stack License (proprietary)", licenseUrl: "/licenses/qnn-runtime-NOTICE.txt" },
+      { name: "OkHttp / Okio — Android", license: "Apache-2.0", url: "https://github.com/square/okhttp", licenseUrl: "https://github.com/square/okhttp/blob/master/LICENSE.txt" },
+      { name: "ZXing — Android", license: "Apache-2.0", url: "https://github.com/zxing/zxing", licenseUrl: "https://github.com/zxing/zxing/blob/master/LICENSE" },
+      { name: "AndroidX JavaScriptEngine / Browser — Android", license: "Apache-2.0", url: "https://github.com/androidx/androidx", licenseUrl: "https://github.com/androidx/androidx/blob/androidx-main/LICENSE.txt" },
+      { name: "Opus — Android", license: "BSD-3-Clause", url: "https://opus-codec.org/", licenseUrl: "/licenses/opus-BSD-3-Clause.txt" },
+      { name: "Markwon — Android", license: "Apache-2.0", url: "https://github.com/noties/Markwon", licenseUrl: "/licenses/markwon-APACHE-2.0.txt" },
+      { name: "commonmark-java — Android", license: "BSD-2-Clause", url: "https://github.com/commonmark/commonmark-java", licenseUrl: "/licenses/commonmark-java-BSD-2-Clause.txt" },
+      { name: "AndroidSVG — Android", license: "Apache-2.0", url: "https://github.com/BigBadaboom/androidsvg", licenseUrl: "/licenses/androidsvg-APACHE-2.0.txt" },
     ],
     openvpnSourceHeading: "OpenVPN source code",
     openvpnSourceBody: "We use OpenVPN 3 Core under MPL 2.0. Download the exact source code wey the licence cover, the dependency versions, licence texts and native build information.",

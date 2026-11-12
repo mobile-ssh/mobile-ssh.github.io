@@ -379,8 +379,9 @@ export const zh: Dict = {
       {
         title: "语音助手（实验性，Android）",
         items: [
-          "在设置中启用语音辅助，并配置一台 Linux SSH 服务器来运行助手；发送口述或输入的消息，可选择先检查转写文本，也可进行带语音回复的实时对话",
-          "选择服务器助手、Codex 或 Claude，并查看已连接主机上的编程助手；向终端输入或更改多路复用器需要另行启用"
+          "默认关闭；在设置中启用。Gemma 4 可以直接在手机上运行：从 Hugging Face 下载一次模型，语音就留在设备上，无需语音服务器",
+          "询问服务器或屏幕上的内容，打开服务器和会话，收听编程代理的回复，或向它口述提示词；除一小份只读检查清单外，命令都需要你同意",
+          "也可以在你自己的 Linux SSH 服务器上运行语音服务，通过消息或实时对话使用服务器助手、Codex 或 Claude；向终端输入或更改多路复用器需要另行启用"
         ]
       }
     ],
@@ -554,20 +555,24 @@ export const zh: Dict = {
   privacy: {
     metaTitle: "隐私政策 | Mobile SSH",
     metaDescription:
-      "Mobile SSH 如何在 Android 与 iOS 处理保存数据、服务器身份、备份、SSH 和 VPN 流量、文件、分析与权限。",
+      "Mobile SSH 如何在 Android 与 iOS 处理保存数据、服务器身份、备份、SSH 和 VPN 流量、文件、语音、提示词模板、分析与权限。",
     eyebrow: "隐私",
     h1: "隐私政策",
     intro:
-      "Mobile SSH 把配置保存在设备，连接你选择的服务器和服务，无需账户或云同步。Android 可选 VPN 客户端还通过配置的服务器传送选定设备流量。",
+      "Mobile SSH 把配置保存在设备，连接你选择的服务器和服务，无需账户或云同步。Android 可选 VPN 客户端还通过配置的服务器传送选定设备流量。在 Android 上，实验性语音助手可以在你的手机上运行语音模型，实验性提示词模板可以在你自己的服务器上定时运行；两者在你开启之前都保持关闭。",
     sections: [
       {
         heading: "存储在你设备上的信息",
-        body: "保存的数据包括服务器配置、凭据、私钥、主机身份、跳板机、隧道规则、会话快照、登录历史、文件路径、文件夹授权和应用设置。Android 另存 VPN／代理配置及机密。iOS 使用 Keychain 保存机密。Android 使用 Keystore 支持的密钥加密清单，但加密不可用时可能以明文保存；WireGuard、Shadowsocks 和 OpenVPN 配置存储则必须加密。Android 云备份已关闭，可选调试日志保存在本地。"
+        body: "保存的数据包括服务器配置、凭据、私钥、主机身份、跳板机、隧道规则、会话快照、登录历史、文件路径、文件夹授权和应用设置。Android 另存 VPN／代理配置及机密。iOS 使用 Keychain 保存机密。Android 使用 Keystore 支持的密钥加密清单，但加密不可用时可能以明文保存；WireGuard、Shadowsocks 和 OpenVPN 配置存储则必须加密。Android 云备份已关闭，可选调试日志保存在本地。Android 还会保存提示词模板和草稿（加密）、编程代理聊天的近期页面和提示词运行结果（最多保留 30 天，不纳入备份）、应用内浏览器的书签和历史记录、你让 VPN 设置记住的云凭据（经 Keystore 加密，绝不交给插件），以及你下载的语音模型。"
       },
       {
         heading: "通过网络发送的信息",
-        body: "SSH 认证先检查身份，再发送至配置的服务器和跳板机。终端、SFTP、VNC 和转发流量发送至所选端点；插件目录及下载访问各自来源。Android VPN／代理可按路由把其他应用流量及 DNS 传至你的 SSH、WireGuard、Shadowsocks 或 OpenVPN 服务器。这些流量不发送至 Mobile SSH 分析或云存储。"
+        body: "SSH 认证先检查身份，再发送至配置的服务器和跳板机。终端、SFTP、VNC 和转发流量发送至所选端点；插件目录及下载访问各自来源。Android VPN／代理可按路由把其他应用流量及 DNS 传至你的 SSH、WireGuard、Shadowsocks 或 OpenVPN 服务器。这些流量不发送至 Mobile SSH 分析或云存储。当你为设备端语音模型点按“下载”时，应用会从 Hugging Face 获取文件；Hugging Face 收到的只是普通下载请求，不包含你的语音、服务器或凭据。使用可选的 VPN 设置插件时，应用会用你输入的云凭据，从手机直接向你选择的云服务商发送创建、检查或删除服务器的请求。"
       },
+      { heading: "Android 语音助手（实验性）", body: "语音助手是实验性功能，默认关闭；在你于设置中启用之前，它不会做任何事。麦克风只在你发起的对话进行中、你按住麦克风按钮时或你录制声音档案时录音；对话可以收听期间，Android 会显示通知。在这台手机上使用 Gemma 时，语音在设备上识别并作答：音频和转写文本不会发送给 Mobile SSH、语音服务器或 Google。Gemma 提出的命令只会在对话所控制的服务器上运行，并且只在你确认之后运行，一小份只读检查清单除外。你为 Claude Code 或 Codex 口述的提示词，只有在你确认或点按“发送”之后，才会输入到你服务器上的该代理；之后代理会像对待在其终端中输入的提示词一样处理它，并以你的账户发送给其服务商。回复由手机上安装的文字转语音声音朗读；如果缺少某个声音，应用可以请手机的语音引擎下载。使用你自己运行的语音服务器时，音频、转写文本和回复会传到该服务器：如果是应用在你某台已保存服务器上设置的，就通过你的 SSH 连接；如果是你输入的自定义语音服务器地址，就通过加密连接（wss）。该服务器可能按照相应条款把它们发送给你在那里配置的语音或 AI 服务商。如果你使用 ElevenLabs 语音，手机会用 ElevenLabs 插件中保存的 API 密钥向 ElevenLabs 获取一次性令牌，并只把该令牌交给你的语音服务器，由服务器把回复文本发送给 ElevenLabs 朗读。Android 语音识别和键盘语音输入由手机的语音服务提供方处理，可能会使用在线服务。用于声音匹配的声音档案只发送到你的语音服务器并保存在那里。语音音频绝不会发送到分析服务；只有在你另外开启时，调试录制才会包含它。" },
+      { heading: "Android 提示词模板（实验性）", body: "提示词模板是实验性功能，在你于设置中开启之前保持关闭。模板加密保存在手机上，不纳入备份。当某台已保存的服务器有模板时，应用会在该服务器的主目录中安装一个小型辅助程序，并在你的用户 crontab 中添加一行带标记的条目，每分钟运行一次辅助程序。辅助程序在服务器上保存模板及其运行结果的副本，并用那里已安装且已登录的 Claude Code 或 Codex 命令行工具运行它们；该工具会以你的账户、按其服务商的条款，把提示词和它读取的文件发送给该服务商。运行是只读的。手机在你连接时通过 SSH 同步模板并读取结果，并将结果加密保存最多 30 天。用 Gemma 编写或修改模板在手机上完成。“从服务器移除”会删除辅助程序及其 crontab 条目，也可以一并删除服务器上保存的模板和运行历史。Mobile SSH 不会收到你的模板、提示词或结果。" },
+      { heading: "Android 编程代理聊天", body: "为了显示 Claude Code 或 Codex 的对话，应用会把一个小型辅助程序上传到你的服务器，并通过 SSH 读取那里的代理会话文件。辅助程序可能会在你的主目录中缓存对话页面，手机会把近期页面保存在应用私有存储中最多 30 天，不纳入备份。如果你安装代理钩子，辅助程序会在该服务器上代理的钩子设置中添加 Mobile SSH 条目。你从聊天发送的文字会送达你服务器上的该代理，代理会像对待在其终端中输入的提示词一样处理它。" },
+      { heading: "Android 云端 VPN 设置", body: "可选的 VPN 设置插件会在你拥有的云账户中创建一台 WireGuard 服务器。你输入的凭据由应用本身用于签署只发给该服务商的请求；插件不会收到它们。如果你选择记住凭据，它们会以 Android Keystore 加密保存在此设备上。服务器、其配置以及产生的任何费用都属于你的云账户，直到你删除它们。导出的客户端配置或二维码包含私钥。" },
       {
         heading: "文件传输与存储访问",
         body: "文件传输只用所选文件夹和文件，不要求全面存储权限。Android 保留授权文件夹访问。iOS 使用应用文件夹或记住 Files 中所选位置，并通过系统界面导入文档、照片和分享文件。文件提供方可能使用自己的云服务。打开或分享会把文件交给你选择的应用或目的地。"
@@ -576,10 +581,10 @@ export const zh: Dict = {
         heading: "日志与故障排查",
         body: "连接时登录尝试记录在本地。调试记录可选；Android 会警告诊断包含每个输入按键（含密码），并导出归档。iOS 记录连接地址、失败、重连、网络变化和 tmux 诊断。分享前检查日志，因为可能暴露服务器细节，Android 还可能暴露输入的机密。"
       },
-      { heading: "使用情况分析", body: "启用分析后，Mobile SSH 会通过 HTTPS 向 Aptabase 发送功能交互（包括 VPN/代理使用情况和终端复用器类型）、连接诊断数据、应用和操作系统版本、设备型号、语言以及临时会话 ID，以改进应用。Aptabase 会处理请求的 IP 地址和 User-Agent，以推导国家或地区以及每日假名标识符；它不会将原始 IP 地址或 User-Agent 与分析数据一起存储。事件不包含浏览流量、DNS 查询、服务器地址、用户名、凭据、命令或文件内容。带有分析同意提示的 Android 版本需要用户主动同意；较旧的 Android 版本和 iOS 默认启用分析。关闭分析后所有功能仍然可用。您可以在设置中停止收集；iOS 上此前已排队的事件仍可能被发送。Android 上的同意仅存储在本机，不会从备份中恢复。请参阅 [Aptabase 的数据处理协议](https://aptabase.com/legal/dpa)。" },
+      { heading: "使用情况分析", body: "启用分析后，Mobile SSH 会通过 HTTPS 向 Aptabase 发送功能交互（包括 VPN/代理使用情况和终端复用器类型）、连接诊断数据、应用和操作系统版本、设备型号、语言以及临时会话 ID，以改进应用。Aptabase 会处理请求的 IP 地址和 User-Agent，以推导国家或地区以及每日假名标识符；它不会将原始 IP 地址或 User-Agent 与分析数据一起存储。事件不包含浏览流量、DNS 查询、服务器地址、用户名、凭据、命令、文件内容、语音音频、转写文本、提示词或模板。带有分析同意提示的 Android 版本需要用户主动同意；较旧的 Android 版本和 iOS 默认启用分析。关闭分析后所有功能仍然可用。您可以在设置中停止收集；iOS 上此前已排队的事件仍可能被发送。Android 上的同意仅存储在本机，不会从备份中恢复。请参阅 [Aptabase 的数据处理协议](https://aptabase.com/legal/dpa)。" },
       {
         "heading": "导出的备份",
-        "body": "完整备份含清单与应用设置，Android 另含 VPN／代理配置。密码可加密文件；不设则明文包含密码和私钥。保存或分享位置由你选择。不含 SSH 信任、活动会话和系统文件夹授权。导入预览显示将应用的区域及安全偏好。"
+        "body": "完整备份含清单与应用设置，Android 另含 VPN／代理配置。密码可加密文件；不设则明文包含密码和私钥。保存或分享位置由你选择。不含 SSH 信任、活动会话和系统文件夹授权。导入预览显示将应用的区域及安全偏好。提示词模板、已下载的语音模型、语音主机设置、VPN 设置凭据以及缓存的聊天或运行历史不包含在内。"
       },
       {
         "heading": "Android VPN 路由",
@@ -599,7 +604,11 @@ export const zh: Dict = {
       {
         "label": "USB 和 NFC（Android）",
         "body": "用于与实体 FIDO2 密钥通信以注册或 SSH 签名，并按需请求 USB 权限、触摸及 PIN 确认。"
-      }
+      },
+      { label: "麦克风（Android）", body: "仅用于你发起的语音对话和按住说话，以及录制声音档案。对话可以收听期间会显示通知。" },
+      { label: "音频设置（Android）", body: "用于通过手机、扬声器、耳机或车载音响播放助手的声音。" },
+      { label: "默认助手（Android，可选）", body: "如果你把 Mobile SSH 设为手机的助手，长按耳机按键即可开始或继续对话，手机锁定时也可以；对话文字在解锁前保持隐藏。" },
+      { label: "后台数据传输（Android）", body: "在你离开引导式 VPN 设置的界面后，让它继续运行。" }
     ],
     securityHeading: "安全责任",
     securityBody:
@@ -652,7 +661,7 @@ export const zh: Dict = {
     privacyLabel: "隐私政策",
     privacyLinkText: "隐私政策",
     noticesHeading: "开源声明",
-    noticesIntro: "Mobile SSH 基于以下开源库构建，每一个均按其相应许可证使用。",
+    noticesIntro: "Mobile SSH 基于以下开源库和第三方组件构建，每一个均按其相应许可证使用。",
     notices: [
       { name: "JSch (mwiede fork) — Android",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch", licenseUrl: "/licenses/android-third-party-notices.txt" },
       { name: "JZlib (bundled in JSch) — Android",   license: "BSD 3-clause", licenseUrl: "/licenses/android-third-party-notices.txt" },
@@ -671,6 +680,16 @@ export const zh: Dict = {
       { name: "mbed TLS — Android", license: "Apache-2.0", url: "https://github.com/Mbed-TLS/mbedtls", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "Asio — Android", license: "BSL-1.0", url: "https://github.com/chriskohlhoff/asio", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "LZ4 / xxHash — Android", license: "BSD-2-Clause", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
+      { name: "LiteRT-LM — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT-LM", licenseUrl: "/licenses/litert-lm-LICENSE.txt" },
+      { name: "LiteRT NPU runtimes (Google Tensor, Qualcomm) — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT", licenseUrl: "/licenses/litert-npu-runtime-LICENSE.txt" },
+      { name: "Qualcomm QNN runtime — Android", license: "Qualcomm AI Stack License (proprietary)", licenseUrl: "/licenses/qnn-runtime-NOTICE.txt" },
+      { name: "OkHttp / Okio — Android", license: "Apache-2.0", url: "https://github.com/square/okhttp", licenseUrl: "https://github.com/square/okhttp/blob/master/LICENSE.txt" },
+      { name: "ZXing — Android", license: "Apache-2.0", url: "https://github.com/zxing/zxing", licenseUrl: "https://github.com/zxing/zxing/blob/master/LICENSE" },
+      { name: "AndroidX JavaScriptEngine / Browser — Android", license: "Apache-2.0", url: "https://github.com/androidx/androidx", licenseUrl: "https://github.com/androidx/androidx/blob/androidx-main/LICENSE.txt" },
+      { name: "Opus — Android", license: "BSD-3-Clause", url: "https://opus-codec.org/", licenseUrl: "/licenses/opus-BSD-3-Clause.txt" },
+      { name: "Markwon — Android", license: "Apache-2.0", url: "https://github.com/noties/Markwon", licenseUrl: "/licenses/markwon-APACHE-2.0.txt" },
+      { name: "commonmark-java — Android", license: "BSD-2-Clause", url: "https://github.com/commonmark/commonmark-java", licenseUrl: "/licenses/commonmark-java-BSD-2-Clause.txt" },
+      { name: "AndroidSVG — Android", license: "Apache-2.0", url: "https://github.com/BigBadaboom/androidsvg", licenseUrl: "/licenses/androidsvg-APACHE-2.0.txt" },
     ],
     openvpnSourceHeading: "OpenVPN 源代码",
     openvpnSourceBody: "OpenVPN 3 Core 按 MPL 2.0 使用。下载所涵盖的确切源代码及依赖版本、许可证文本和原生构建信息。",

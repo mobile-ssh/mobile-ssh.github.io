@@ -379,8 +379,9 @@ export const id: Dict = {
       {
         title: "Asisten suara (eksperimental, Android)",
         items: [
-          "Aktifkan asisten suara di Pengaturan dan konfigurasikan server SSH Linux sebagai host; kirim pesan melalui dikte atau ketikan dengan peninjauan transkrip opsional, atau gunakan percakapan langsung dengan balasan suara",
-          "Pilih asisten server, Codex, atau Claude dan lihat asisten pemrograman pada host yang terhubung; masukan terminal dan perubahan multiplexer memerlukan izin terpisah"
+          "Mati secara bawaan; aktifkan di Pengaturan. Gemma 4 dapat berjalan di ponsel itu sendiri: unduh model sekali dari Hugging Face dan ucapan tetap di perangkat, tanpa server suara",
+          "Tanyakan tentang server atau layar, buka server dan sesi, dengarkan balasan agen pemrograman, atau diktekan prompt untuknya; perintah di luar daftar pendek pemeriksaan hanya-baca memerlukan persetujuan Anda",
+          "Atau jalankan suara di server SSH Linux Anda sendiri, dengan percakapan Pesan atau Langsung dan asisten server, Codex, atau Claude; masukan terminal dan perubahan multiplexer memerlukan izin terpisah"
         ]
       }
     ],
@@ -554,20 +555,24 @@ export const id: Dict = {
   privacy: {
     metaTitle: "Kebijakan Privasi | Mobile SSH",
     metaDescription:
-      "Cara Mobile SSH menangani data, identitas, cadangan, trafik SSH/VPN, berkas, analitik dan izin di Android/iOS.",
+      "Cara Mobile SSH menangani data, identitas, cadangan, trafik SSH/VPN, berkas, suara, templat prompt, analitik dan izin di Android/iOS.",
     eyebrow: "Privasi",
     h1: "Kebijakan Privasi",
     intro:
-      "Mobile SSH menyimpan konfigurasi di perangkat dan menghubungi server/layanan pilihan Anda. Tidak perlu akun Mobile SSH atau sinkronisasi awan. VPN opsional Android merutekan trafik perangkat terpilih melalui server yang diatur.",
+      "Mobile SSH menyimpan konfigurasi di perangkat dan menghubungi server/layanan pilihan Anda. Tidak perlu akun Mobile SSH atau sinkronisasi awan. VPN opsional Android merutekan trafik perangkat terpilih melalui server yang diatur. Di Android, asisten suara eksperimental dapat menjalankan model ucapan di ponsel Anda, dan templat prompt eksperimental dapat berjalan terjadwal di server Anda sendiri; keduanya tetap mati sampai Anda menyalakannya.",
     sections: [
       {
         heading: "Informasi yang tersimpan di perangkat Anda",
-        body: "Data tersimpan mencakup profil server, kredensial, kunci privat, identitas host, host perantara, aturan terowongan, snapshot sesi, riwayat login, jalur berkas, izin akses folder, dan pengaturan aplikasi. Android juga menyimpan konfigurasi VPN/proxy beserta rahasianya. Rahasia iOS memakai Keychain. Android mengenkripsi inventaris dengan kunci yang dilindungi Keystore, tetapi dapat menyimpannya sebagai teks biasa jika enkripsi tidak tersedia; penyimpanan profil WireGuard, Shadowsocks, dan OpenVPN mewajibkan enkripsi. Cadangan awan Android dinonaktifkan. Log debug opsional disimpan secara lokal."
+        body: "Data tersimpan mencakup profil server, kredensial, kunci privat, identitas host, host perantara, aturan terowongan, snapshot sesi, riwayat login, jalur berkas, izin akses folder, dan pengaturan aplikasi. Android juga menyimpan konfigurasi VPN/proxy beserta rahasianya. Rahasia iOS memakai Keychain. Android mengenkripsi inventaris dengan kunci yang dilindungi Keystore, tetapi dapat menyimpannya sebagai teks biasa jika enkripsi tidak tersedia; penyimpanan profil WireGuard, Shadowsocks, dan OpenVPN mewajibkan enkripsi. Cadangan awan Android dinonaktifkan. Log debug opsional disimpan secara lokal. Android juga menyimpan templat prompt dan draf (terenkripsi), halaman Chat agen pemrograman terbaru dan hasil eksekusi prompt (disimpan hingga 30 hari, tidak masuk cadangan), markah dan riwayat peramban dalam aplikasi, kredensial awan yang Anda minta diingat oleh Penyiapan VPN (dienkripsi Keystore, tidak pernah diberikan ke plugin), serta model ucapan yang Anda unduh."
       },
       {
         heading: "Informasi yang dikirim melalui jaringan",
-        body: "Autentikasi SSH menuju server/bastion pilihan setelah verifikasi identitas. Trafik terminal, SFTP, VNC dan penerusan menuju titik akhir pilihan. Katalog dan unduhan plugin menghubungi sumbernya. Profil VPN/proxy Android dapat membawa trafik aplikasi lain dan DNS melalui SSH, WireGuard, Shadowsocks atau OpenVPN sesuai rute. Trafik ini tidak dikirim ke analitik atau penyimpanan awan Mobile SSH."
+        body: "Autentikasi SSH menuju server/bastion pilihan setelah verifikasi identitas. Trafik terminal, SFTP, VNC dan penerusan menuju titik akhir pilihan. Katalog dan unduhan plugin menghubungi sumbernya. Profil VPN/proxy Android dapat membawa trafik aplikasi lain dan DNS melalui SSH, WireGuard, Shadowsocks atau OpenVPN sesuai rute. Trafik ini tidak dikirim ke analitik atau penyimpanan awan Mobile SSH. Saat Anda mengetuk Unduh untuk model ucapan di perangkat, aplikasi mengambil berkas dari Hugging Face; Hugging Face menerima permintaan unduhan biasa, bukan suara, server, atau kredensial Anda. Dengan plugin opsional Penyiapan VPN, aplikasi memakai kredensial awan yang Anda masukkan untuk mengirim permintaan membuat, memeriksa, atau menghapus server langsung dari ponsel ke penyedia awan yang Anda pilih."
       },
+      { heading: "Asisten suara di Android (eksperimental)", body: "Asisten suara bersifat eksperimental dan mati secara bawaan; asisten ini tidak melakukan apa pun sampai Anda mengaktifkannya di Pengaturan. Mikrofon hanya merekam selama percakapan yang Anda mulai sedang aktif, selama Anda menahan tombol mikrofon, atau selama Anda merekam profil suara; Android menampilkan notifikasi selama percakapan dapat mendengarkan. Dengan Gemma di ponsel ini, ucapan dikenali dan dijawab di perangkat: audio dan transkrip tidak dikirim ke Mobile SSH, ke server suara, atau ke Google. Perintah yang diusulkan Gemma hanya berjalan di server yang dikendalikan percakapan dan hanya setelah Anda mengonfirmasinya, kecuali daftar pendek pemeriksaan hanya-baca. Prompt yang Anda diktekan untuk Claude Code atau Codex baru diketik ke agen itu di server Anda setelah Anda mengonfirmasinya atau mengetuk Kirim; agen lalu memperlakukannya seperti prompt yang diketik di terminalnya dan mengirimkannya ke penyedianya dengan akun Anda. Balasan diucapkan oleh suara teks-ke-ucapan yang terpasang di ponsel Anda; jika ada yang belum terpasang, aplikasi dapat meminta mesin ucapan ponsel untuk mengunduhnya. Dengan server suara milik Anda, audio, transkrip, dan balasan dikirim ke server itu: melalui koneksi SSH Anda jika aplikasi memasangnya di salah satu server tersimpan Anda, atau melalui koneksi terenkripsi (wss) jika Anda memasukkan alamat server suara kustom. Server itu dapat meneruskannya ke penyedia ucapan atau AI yang Anda atur di sana, sesuai ketentuan mereka. Jika Anda memakai suara ElevenLabs, ponsel memakai kunci API yang tersimpan di plugin ElevenLabs untuk mendapatkan token sekali pakai dari ElevenLabs dan hanya meneruskan token itu ke server suara Anda, yang mengirim teks balasan ke ElevenLabs untuk diucapkan. Pengenalan ucapan Android dan pengetikan suara keyboard ditangani oleh penyedia ucapan ponsel Anda, yang mungkin memakai layanan online. Profil suara untuk pencocokan suara hanya dikirim ke server suara Anda dan disimpan di sana. Audio suara tidak pernah dikirim ke analitik; rekaman debug hanya menyertakannya jika Anda menyalakannya secara terpisah." },
+      { heading: "Templat prompt di Android (eksperimental)", body: "Templat prompt adalah fitur eksperimental yang tetap mati sampai Anda menyalakannya di Pengaturan. Templat disimpan terenkripsi di ponsel dan tidak masuk cadangan. Jika server tersimpan memiliki templat, aplikasi memasang program pembantu kecil di folder home Anda di server itu dan menambahkan satu baris bertanda ke crontab pengguna Anda, yang menjalankan pembantu setiap menit. Pembantu menyimpan salinan templat dan hasil eksekusinya di server, lalu menjalankannya dengan alat baris perintah Claude Code atau Codex yang sudah terpasang dan masuk di sana; alat itu mengirim prompt dan berkas yang dibacanya ke penyedianya dengan akun Anda dan sesuai ketentuan penyedia tersebut. Eksekusi bersifat hanya-baca. Ponsel menyinkronkan templat dan membaca hasil melalui SSH saat Anda terhubung, dan menyimpan hasil terenkripsi hingga 30 hari. Menulis atau merevisi templat dengan Gemma dilakukan di ponsel. Hapus dari server menghapus pembantu dan baris crontab-nya, dan juga dapat menghapus templat serta riwayat eksekusi yang disimpan di server. Mobile SSH tidak menerima templat, prompt, atau hasil Anda." },
+      { heading: "Chat agen pemrograman di Android", body: "Untuk menampilkan percakapan Claude Code atau Codex, aplikasi mengunggah program pembantu kecil ke server Anda dan membaca berkas sesi agen di sana melalui SSH. Pembantu dapat menyimpan cache halaman percakapan di folder home Anda, dan ponsel menyimpan halaman terbaru di penyimpanan pribadi aplikasi hingga 30 hari, tidak masuk cadangan. Jika Anda memasang hook agen, pembantu menambahkan entri Mobile SSH ke pengaturan hook agen di server itu. Teks yang Anda kirim dari Chat dikirim ke agen tersebut di server Anda, yang memperlakukannya seperti prompt yang diketik di terminalnya." },
+      { heading: "Penyiapan VPN awan di Android", body: "Plugin opsional Penyiapan VPN membuat server WireGuard di akun awan milik Anda. Kredensial yang Anda masukkan dipakai oleh aplikasi itu sendiri untuk menandatangani permintaan hanya ke penyedia tersebut; plugin tidak menerimanya. Jika Anda memilih untuk mengingatnya, kredensial disimpan di perangkat ini dengan enkripsi Android Keystore. Server, konfigurasinya, dan biaya apa pun menjadi milik akun awan Anda sampai Anda menghapusnya. Konfigurasi klien yang diekspor atau kode QR berisi kunci privat." },
       {
         heading: "Transfer berkas dan akses penyimpanan",
         body: "Transfer memakai berkas/folder pilihan tanpa izin penyimpanan menyeluruh. Android mempertahankan izin folder. iOS memakai folder aplikasi atau mengingat folder Files, serta mengimpor dokumen, foto dan berkas bersama melalui antarmuka sistem. Penyedia berkas dapat memakai awannya sendiri. Membuka atau berbagi mengirim berkas ke aplikasi/tujuan pilihan."
@@ -576,10 +581,10 @@ export const id: Dict = {
         heading: "Log dan pemecahan masalah",
         body: "Percobaan login dicatat lokal saat menyambung. Perekaman debug opsional: Android memperingatkan diagnostik memuat setiap tombol termasuk sandi, lalu mengekspor arsip. Log iOS mencatat alamat, kegagalan, penyambungan ulang, pergantian jaringan dan diagnostik tmux. Periksa sebelum berbagi karena dapat mengungkap detail server dan rahasia ketikan Android."
       },
-      { heading: "Analitik penggunaan", body: "Saat diaktifkan, Mobile SSH mengirim interaksi fitur (termasuk penggunaan VPN/proksi dan jenis multiplekser terminal), diagnostik koneksi, versi aplikasi/OS, model perangkat, bahasa, dan ID sesi sementara melalui HTTPS ke Aptabase untuk meningkatkan aplikasi. Aptabase memproses alamat IP permintaan dan User-Agent untuk memperoleh negara/wilayah dan pengenal pseudonim harian; alamat IP asli atau User-Agent tidak disimpan bersama analitik. Peristiwa tidak mencakup lalu lintas penelusuran, kueri DNS, alamat server, nama pengguna, kredensial, perintah, dan isi berkas. Build Android yang memiliki permintaan persetujuan analitik memerlukan persetujuan aktif; build Android lama dan iOS mengaktifkan analitik secara bawaan. Semua fitur berfungsi tanpa analitik. Pengaturan dapat menghentikan pengumpulan; peristiwa yang sudah mengantre mungkin masih dikirim di iOS. Persetujuan Android disimpan hanya di perangkat dan tidak dipulihkan dari cadangan. Lihat [perjanjian pemrosesan data Aptabase](https://aptabase.com/legal/dpa)." },
+      { heading: "Analitik penggunaan", body: "Saat diaktifkan, Mobile SSH mengirim interaksi fitur (termasuk penggunaan VPN/proksi dan jenis multiplekser terminal), diagnostik koneksi, versi aplikasi/OS, model perangkat, bahasa, dan ID sesi sementara melalui HTTPS ke Aptabase untuk meningkatkan aplikasi. Aptabase memproses alamat IP permintaan dan User-Agent untuk memperoleh negara/wilayah dan pengenal pseudonim harian; alamat IP asli atau User-Agent tidak disimpan bersama analitik. Peristiwa tidak mencakup lalu lintas penelusuran, kueri DNS, alamat server, nama pengguna, kredensial, perintah, isi berkas, audio suara, transkrip, prompt, dan templat. Build Android yang memiliki permintaan persetujuan analitik memerlukan persetujuan aktif; build Android lama dan iOS mengaktifkan analitik secara bawaan. Semua fitur berfungsi tanpa analitik. Pengaturan dapat menghentikan pengumpulan; peristiwa yang sudah mengantre mungkin masih dikirim di iOS. Persetujuan Android disimpan hanya di perangkat dan tidak dipulihkan dari cadangan. Lihat [perjanjian pemrosesan data Aptabase](https://aptabase.com/legal/dpa)." },
       {
         "heading": "Cadangan yang Anda ekspor",
-        "body": "Cadangan lengkap memuat inventaris dan pengaturan, ditambah VPN/proxy Android. Frasa sandi mengenkripsi berkas; tanpa itu sandi dan kunci privat berupa teks biasa. Anda memilih lokasi simpan/bagikan. Kepercayaan SSH, sesi aktif dan izin folder sistem dikecualikan. Pratinjau impor menunjukkan bagian dan preferensi keamanan yang diterapkan."
+        "body": "Cadangan lengkap memuat inventaris dan pengaturan, ditambah VPN/proxy Android. Frasa sandi mengenkripsi berkas; tanpa itu sandi dan kunci privat berupa teks biasa. Anda memilih lokasi simpan/bagikan. Kepercayaan SSH, sesi aktif dan izin folder sistem dikecualikan. Pratinjau impor menunjukkan bagian dan preferensi keamanan yang diterapkan. Templat prompt, model ucapan yang diunduh, pengaturan host suara, kredensial Penyiapan VPN, serta riwayat Chat atau eksekusi yang di-cache tidak disertakan."
       },
       {
         "heading": "Perutean VPN di Android",
@@ -599,7 +604,11 @@ export const id: Dict = {
       {
         "label": "USB dan NFC (Android)",
         "body": "untuk berbicara dengan kunci FIDO2 fisik saat pendaftaran atau tanda tangan SSH, dengan izin USB dan konfirmasi sentuhan/PIN sesuai kebutuhan."
-      }
+      },
+      { label: "Mikrofon (Android)", body: "hanya dipakai untuk percakapan suara dan tekan-untuk-bicara yang Anda mulai, serta untuk merekam profil suara. Notifikasi ditampilkan selama percakapan dapat mendengarkan." },
+      { label: "Pengaturan audio (Android)", body: "dipakai untuk memutar asisten melalui ponsel, speaker, headset, atau audio mobil." },
+      { label: "Asisten default (Android, opsional)", body: "jika Anda memilih Mobile SSH sebagai asisten ponsel, tekan lama pada headset dapat memulai atau melanjutkan percakapan, juga saat ponsel terkunci; teks percakapan tetap tersembunyi sampai Anda membuka kunci." },
+      { label: "Transfer data di latar belakang (Android)", body: "menjaga penyiapan VPN terpandu tetap berjalan saat Anda meninggalkan layarnya." }
     ],
     securityHeading: "Tanggung jawab keamanan",
     securityBody:
@@ -648,7 +657,7 @@ export const id: Dict = {
     privacyLabel: "Kebijakan privasi",
     privacyLinkText: "Kebijakan privasi",
     noticesHeading: "Pemberitahuan open source",
-    noticesIntro: "Mobile SSH dibangun di atas pustaka open-source berikut. Setiap pustaka digunakan menurut lisensinya masing-masing.",
+    noticesIntro: "Mobile SSH dibangun di atas pustaka open-source dan komponen pihak ketiga berikut. Setiap komponen digunakan menurut lisensinya masing-masing.",
     notices: [
       { name: "JSch (mwiede fork) — Android",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch", licenseUrl: "/licenses/android-third-party-notices.txt" },
       { name: "JZlib (bundled in JSch) — Android",   license: "BSD 3-clause", licenseUrl: "/licenses/android-third-party-notices.txt" },
@@ -667,6 +676,16 @@ export const id: Dict = {
       { name: "mbed TLS — Android", license: "Apache-2.0", url: "https://github.com/Mbed-TLS/mbedtls", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "Asio — Android", license: "BSL-1.0", url: "https://github.com/chriskohlhoff/asio", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "LZ4 / xxHash — Android", license: "BSD-2-Clause", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
+      { name: "LiteRT-LM — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT-LM", licenseUrl: "/licenses/litert-lm-LICENSE.txt" },
+      { name: "LiteRT NPU runtimes (Google Tensor, Qualcomm) — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT", licenseUrl: "/licenses/litert-npu-runtime-LICENSE.txt" },
+      { name: "Qualcomm QNN runtime — Android", license: "Qualcomm AI Stack License (proprietary)", licenseUrl: "/licenses/qnn-runtime-NOTICE.txt" },
+      { name: "OkHttp / Okio — Android", license: "Apache-2.0", url: "https://github.com/square/okhttp", licenseUrl: "https://github.com/square/okhttp/blob/master/LICENSE.txt" },
+      { name: "ZXing — Android", license: "Apache-2.0", url: "https://github.com/zxing/zxing", licenseUrl: "https://github.com/zxing/zxing/blob/master/LICENSE" },
+      { name: "AndroidX JavaScriptEngine / Browser — Android", license: "Apache-2.0", url: "https://github.com/androidx/androidx", licenseUrl: "https://github.com/androidx/androidx/blob/androidx-main/LICENSE.txt" },
+      { name: "Opus — Android", license: "BSD-3-Clause", url: "https://opus-codec.org/", licenseUrl: "/licenses/opus-BSD-3-Clause.txt" },
+      { name: "Markwon — Android", license: "Apache-2.0", url: "https://github.com/noties/Markwon", licenseUrl: "/licenses/markwon-APACHE-2.0.txt" },
+      { name: "commonmark-java — Android", license: "BSD-2-Clause", url: "https://github.com/commonmark/commonmark-java", licenseUrl: "/licenses/commonmark-java-BSD-2-Clause.txt" },
+      { name: "AndroidSVG — Android", license: "Apache-2.0", url: "https://github.com/BigBadaboom/androidsvg", licenseUrl: "/licenses/androidsvg-APACHE-2.0.txt" },
     ],
     openvpnSourceHeading: "Kode sumber OpenVPN",
     openvpnSourceBody: "OpenVPN 3 Core digunakan dengan lisensi MPL 2.0. Unduh kode sumber yang tercakup dan versi dependensi yang persis digunakan, teks lisensi, serta informasi build native.",

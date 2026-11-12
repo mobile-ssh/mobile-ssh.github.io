@@ -379,8 +379,9 @@ export const ja: Dict = {
       {
         title: "音声アシスタント（実験的機能、Android）",
         items: [
-          "設定で音声支援を有効にし、実行先の Linux SSH サーバーを設定します。音声入力または文字入力でメッセージを送信でき、文字起こしの事前確認も可能です。音声応答付きのリアルタイム会話も利用できます",
-          "サーバーのアシスタント、Codex、Claude を選び、接続中の各ホストのコーディングアシスタントを確認できます。ターミナルへの入力とマルチプレクサーの変更には別途有効化が必要です"
+          "既定ではオフです。設定で有効にします。Gemma 4 はスマートフォン上で動作できます。Hugging Face からモデルを一度ダウンロードすれば、音声は端末内にとどまり、音声サーバーは不要です",
+          "サーバーや画面について質問し、サーバーやセッションを開き、コーディングエージェントの返答を聞き、プロンプトを口述できます。読み取り専用の短いチェック一覧以外のコマンドには承認が必要です",
+          "または自分の Linux SSH サーバーで音声機能を動かし、メッセージまたはライブの会話でサーバーのアシスタント、Codex、Claude を使えます。ターミナルへの入力とマルチプレクサーの変更には別途有効化が必要です"
         ]
       }
     ],
@@ -554,20 +555,24 @@ export const ja: Dict = {
   privacy: {
     metaTitle: "プライバシーポリシー | Mobile SSH",
     metaDescription:
-      "Mobile SSH が Android・iOS で保存データ、サーバーの身元、バックアップ、SSH・VPN 通信、ファイル、分析、権限をどう扱うかを説明します。",
+      "Mobile SSH が Android・iOS で保存データ、サーバーの身元、バックアップ、SSH・VPN 通信、ファイル、音声、プロンプトテンプレート、分析、権限をどう扱うかを説明します。",
     eyebrow: "プライバシー",
     h1: "プライバシーポリシー",
     intro:
-      "Mobile SSH は設定を端末上に保存し、選択したサーバーやサービスに接続します。Mobile SSH アカウントやクラウド同期は必要ありません。Android の任意の VPN クライアントは、選択した端末の通信も設定したサーバーに転送します。",
+      "Mobile SSH は設定を端末上に保存し、選択したサーバーやサービスに接続します。Mobile SSH アカウントやクラウド同期は必要ありません。Android の任意の VPN クライアントは、選択した端末の通信も設定したサーバーに転送します。Android では、試験的な音声アシスタントがスマートフォン上で音声モデルを実行でき、試験的なプロンプトテンプレートはご自身のサーバーでスケジュール実行できます。どちらも有効にするまでオフのままです。",
     sections: [
       {
         heading: "端末に保存される情報",
-        body: "保存データにはサーバー設定、認証情報、秘密鍵、ホストの身元、踏み台、トンネル規則、セッションのスナップショット、ログイン履歴、パス、フォルダー権限、アプリ設定が含まれます。Android は VPN・プロキシ設定と秘密情報も保存します。iOS の秘密情報は Keychain を使用します。Android のインベントリーは Keystore の鍵で暗号化しますが、暗号化できない場合は平文で保存することがあります。WireGuard、Shadowsocks、OpenVPN 設定の保存は暗号化が必須です。Android クラウドバックアップは無効で、任意のデバッグログは端末内に保存します。"
+        body: "保存データにはサーバー設定、認証情報、秘密鍵、ホストの身元、踏み台、トンネル規則、セッションのスナップショット、ログイン履歴、パス、フォルダー権限、アプリ設定が含まれます。Android は VPN・プロキシ設定と秘密情報も保存します。iOS の秘密情報は Keychain を使用します。Android のインベントリーは Keystore の鍵で暗号化しますが、暗号化できない場合は平文で保存することがあります。WireGuard、Shadowsocks、OpenVPN 設定の保存は暗号化が必須です。Android クラウドバックアップは無効で、任意のデバッグログは端末内に保存します。Android はさらに、プロンプトテンプレートと下書き（暗号化）、コーディングエージェントのチャットの最近のページとプロンプト実行結果（最長 30 日保持、バックアップ対象外）、アプリ内ブラウザーのブックマークと履歴、VPN の設定に記憶させたクラウド認証情報（Keystore で暗号化、プラグインには渡しません）、ダウンロードした音声モデルを保存します。"
       },
       {
         heading: "ネットワーク経由で送信される情報",
-        body: "SSH 認証は、身元確認後に設定済みサーバーや踏み台ホストに送られます。ターミナル、SFTP、VNC、転送通信は選択した宛先に送信されます。プラグインのカタログ取得とダウンロードは設定済みの取得元に接続します。Android の VPN・プロキシは選択した経路に従い、他のアプリの通信や DNS を SSH・WireGuard・Shadowsocks・OpenVPN サーバーに送ることがあります。この通信を Mobile SSH の分析やクラウド保存先に送ることはありません。"
+        body: "SSH 認証は、身元確認後に設定済みサーバーや踏み台ホストに送られます。ターミナル、SFTP、VNC、転送通信は選択した宛先に送信されます。プラグインのカタログ取得とダウンロードは設定済みの取得元に接続します。Android の VPN・プロキシは選択した経路に従い、他のアプリの通信や DNS を SSH・WireGuard・Shadowsocks・OpenVPN サーバーに送ることがあります。この通信を Mobile SSH の分析やクラウド保存先に送ることはありません。端末上で動く音声モデルの「ダウンロード」をタップすると、アプリは Hugging Face からファイルを取得します。Hugging Face が受け取るのは通常のダウンロード要求で、音声、サーバー、認証情報は含まれません。任意の「VPN の設定」プラグインを使う場合、アプリは入力されたクラウド認証情報を使い、サーバーの作成・確認・削除の要求をスマートフォンから選択したクラウドプロバイダーへ直接送信します。"
       },
+      { heading: "Android の音声アシスタント（試験的機能）", body: "音声アシスタントは試験的機能で、既定ではオフです。設定で有効にするまで何も動作しません。マイクが録音するのは、ご自身で開始した会話の進行中、マイクボタンを押している間、または音声プロファイルの録音中だけです。会話が聞き取り可能な間、Android は通知を表示します。このスマートフォン上の Gemma を使う場合、音声の認識と応答は端末上で行われ、音声と文字起こしは Mobile SSH、音声サーバー、Google のいずれにも送信されません。Gemma が提案するコマンドは、会話が操作しているサーバー上でのみ、確認後にだけ実行されます。ただし読み取り専用の短いチェック一覧は例外です。Claude Code や Codex 向けに音声で入力したプロンプトは、確認するか送信ボタンをタップした後にだけ、サーバー上のそのエージェントに入力されます。その後エージェントはターミナルで入力されたプロンプトと同様に扱い、ご自身のアカウントでプロバイダーへ送信します。応答はスマートフォンにインストールされた音声合成の音声で読み上げられます。音声が足りない場合、アプリはスマートフォンの音声エンジンにダウンロードを依頼できます。ご自身で運用する音声サーバーを使う場合、音声、文字起こし、応答はそのサーバーに送られます。アプリが保存済みサーバーに設定した音声サーバーなら SSH 接続を通じて、ご自身で入力したカスタム音声サーバーのアドレスなら暗号化された接続（wss）を通じて送られます。サーバーはそこで設定された音声・AI プロバイダーへ各社の規約に従って送信することがあります。ElevenLabs の音声を使う場合、スマートフォンは ElevenLabs プラグインに保存された API キーで ElevenLabs から使い捨てトークンを取得し、そのトークンだけを音声サーバーに渡します。サーバーは読み上げのために応答テキストを ElevenLabs に送信します。Android の音声認識とキーボードの音声入力はスマートフォンの音声プロバイダーが処理し、オンラインサービスを使う場合があります。声の照合に使う音声プロファイルは音声サーバーにだけ送られ、そこに保存されます。音声データが分析に送られることはありません。デバッグ記録に含まれるのは、別途オンにした場合だけです。" },
+      { heading: "Android のプロンプトテンプレート（試験的機能）", body: "プロンプトテンプレートは試験的機能で、設定でオンにするまでオフのままです。テンプレートはスマートフォン上に暗号化して保存され、バックアップには含まれません。保存済みサーバーにテンプレートがあると、アプリはそのサーバーのホームフォルダーに小さなヘルパーをインストールし、ユーザーの crontab に目印付きの行を 1 行追加して、ヘルパーを毎分実行します。ヘルパーはテンプレートと実行結果のコピーをサーバー上に保持し、そこにインストール済みでサインイン済みの Claude Code または Codex のコマンドラインツールで実行します。このツールはプロンプトと読み込んだファイルを、ご自身のアカウントで、そのプロバイダーの規約に従ってプロバイダーへ送信します。実行は読み取り専用です。スマートフォンは接続時に SSH でテンプレートを同期して結果を読み込み、結果を最長 30 日間暗号化して保持します。Gemma によるテンプレートの作成や修正はスマートフォン上で行われます。「サーバーから削除」はヘルパーとその crontab の行を削除し、サーバーに保存されたテンプレートと実行履歴も削除できます。Mobile SSH がテンプレート、プロンプト、結果を受け取ることはありません。" },
+      { heading: "Android のコーディングエージェントのチャット", body: "Claude Code や Codex の会話を表示するため、アプリはサーバーに小さなヘルパーをアップロードし、SSH 経由でエージェントのセッションファイルを読み込みます。ヘルパーは会話ページをホームフォルダーにキャッシュすることがあり、スマートフォンは最近のページをアプリの非公開ストレージに最長 30 日間、バックアップ対象外で保持します。エージェントのフックをインストールすると、ヘルパーはそのサーバー上のエージェントのフック設定に Mobile SSH の項目を追加します。チャットから送信したテキストはサーバー上のそのエージェントに届き、ターミナルで入力されたプロンプトと同様に扱われます。" },
+      { heading: "Android のクラウド VPN 設定", body: "任意の「VPN の設定」プラグインは、ご自身が所有するクラウドアカウントに WireGuard サーバーを作成します。入力した認証情報はアプリ自体がそのプロバイダーへの要求の署名にだけ使い、プラグインには渡しません。記憶させることを選ぶと、この端末に Android Keystore で暗号化して保存されます。サーバー、その設定、発生する料金は、削除するまでご自身のクラウドアカウントに属します。書き出したクライアント設定や QR コードには秘密鍵が含まれます。" },
       {
         heading: "ファイル転送とストレージ アクセス",
         body: "ファイル転送は選択したフォルダやファイルを使い、ストレージ全体の権限は求めません。Android は許可されたフォルダへのアクセスを保持します。iOS はアプリのフォルダまたは「ファイル」で選んだフォルダを使用し、システムの仕組みで書類、写真、共有ファイルを取り込みます。選んだファイルプロバイダが独自のクラウドに保存する場合があります。開く操作や共有では、選択したアプリまたは宛先にファイルが渡されます。"
@@ -576,10 +581,10 @@ export const ja: Dict = {
         heading: "ログとトラブルシューティング",
         body: "接続時のログイン試行は端末に記録されます。デバッグ記録は任意です。Android の記録機能は、パスワードを含むすべての入力キーが診断に含まれることを警告し、アーカイブを出力します。iOS のデバッグログには接続先アドレス、失敗、再接続、ネットワーク変更、tmux の診断が記録されます。共有前に内容を確認してください。サーバーの詳細や、Android では入力した秘密情報が含まれる場合があります。"
       },
-      { heading: "利用状況分析", body: "分析が有効な場合、Mobile SSHはアプリの改善のため、機能の操作（VPN・プロキシの利用やターミナルマルチプレクサーの種類を含む）、接続診断、アプリとOSのバージョン、デバイスのモデル、言語、一時的なセッションIDをHTTPS経由でAptabaseに送信します。AptabaseはリクエストのIPアドレスとUser-Agentを処理し、国や地域、日単位の仮名識別子を生成します。元のIPアドレスやUser-Agentは分析データとともに保存されません。イベントには、閲覧時の通信、DNSクエリ、サーバーアドレス、ユーザー名、認証情報、コマンド、ファイルの内容は含まれません。分析への同意画面があるAndroidビルドでは明示的な同意が必要です。以前のAndroidビルドとiOSでは、分析が初期状態で有効です。分析を無効にしてもすべての機能を使用できます。設定から収集を停止できますが、iOSではすでにキューに入っているイベントが後から送信される場合があります。Androidの同意はそのデバイスのみに保存され、バックアップからは復元されません。[Aptabaseのデータ処理契約](https://aptabase.com/legal/dpa)をご覧ください。" },
+      { heading: "利用状況分析", body: "分析が有効な場合、Mobile SSHはアプリの改善のため、機能の操作（VPN・プロキシの利用やターミナルマルチプレクサーの種類を含む）、接続診断、アプリとOSのバージョン、デバイスのモデル、言語、一時的なセッションIDをHTTPS経由でAptabaseに送信します。AptabaseはリクエストのIPアドレスとUser-Agentを処理し、国や地域、日単位の仮名識別子を生成します。元のIPアドレスやUser-Agentは分析データとともに保存されません。イベントには、閲覧時の通信、DNSクエリ、サーバーアドレス、ユーザー名、認証情報、コマンド、ファイルの内容、音声データ、文字起こし、プロンプト、テンプレートは含まれません。分析への同意画面があるAndroidビルドでは明示的な同意が必要です。以前のAndroidビルドとiOSでは、分析が初期状態で有効です。分析を無効にしてもすべての機能を使用できます。設定から収集を停止できますが、iOSではすでにキューに入っているイベントが後から送信される場合があります。Androidの同意はそのデバイスのみに保存され、バックアップからは復元されません。[Aptabaseのデータ処理契約](https://aptabase.com/legal/dpa)をご覧ください。" },
       {
         "heading": "書き出すバックアップ",
-        "body": "完全バックアップには保存済み情報とアプリ設定が含まれ、Android は VPN・プロキシも含みます。パスフレーズを使えば暗号化され、使わない場合はパスワードと秘密鍵が平文で入ります。保存先や共有先は利用者が選びます。SSH ホストの信頼情報、実行中セッション、システムのフォルダアクセス許可は含みません。読み込み前に適用される項目とセキュリティ設定を確認できます。"
+        "body": "完全バックアップには保存済み情報とアプリ設定が含まれ、Android は VPN・プロキシも含みます。パスフレーズを使えば暗号化され、使わない場合はパスワードと秘密鍵が平文で入ります。保存先や共有先は利用者が選びます。SSH ホストの信頼情報、実行中セッション、システムのフォルダアクセス許可は含みません。読み込み前に適用される項目とセキュリティ設定を確認できます。プロンプトテンプレート、ダウンロードした音声モデル、音声ホストの設定、「VPN の設定」の認証情報、キャッシュされたチャットや実行の履歴は含まれません。"
       },
       {
         "heading": "Android の VPN ルーティング",
@@ -599,7 +604,11 @@ export const ja: Dict = {
       {
         "label": "USB と NFC（Android）",
         "body": "物理 FIDO2 キーとの登録・SSH 署名の通信に使います。必要に応じて USB アクセス許可、タッチ、PIN による確認を行います。"
-      }
+      },
+      { label: "マイク（Android）", body: "ご自身で開始した音声会話とプッシュトゥトーク、音声プロファイルの録音にだけ使用します。会話が聞き取り可能な間は通知を表示します。" },
+      { label: "オーディオ設定（Android）", body: "アシスタントの音声をスマートフォン、スピーカー、ヘッドセット、車のオーディオで再生するために使用します。" },
+      { label: "デフォルトのアシスタント（Android、任意）", body: "Mobile SSH をスマートフォンのアシスタントに選ぶと、ヘッドセットの長押しで会話を開始または再開できます。ロック中も可能ですが、会話のテキストはロック解除まで表示されません。" },
+      { label: "バックグラウンドのデータ転送（Android）", body: "ガイド付きの VPN 設定を、その画面を離れても継続させます。" }
     ],
     securityHeading: "セキュリティ上の責任",
     securityBody:
@@ -652,7 +661,7 @@ export const ja: Dict = {
     privacyLabel: "プライバシーポリシー",
     privacyLinkText: "プライバシーポリシー",
     noticesHeading: "オープンソース表記",
-    noticesIntro: "Mobile SSH は次のオープンソース ライブラリを使用しています。それぞれのライセンスに従って利用しています。",
+    noticesIntro: "Mobile SSH は次のオープンソース ライブラリとサードパーティ コンポーネントを使用しています。それぞれのライセンスに従って利用しています。",
     notices: [
       { name: "JSch (mwiede fork) — Android",        license: "BSD 3-clause", url: "https://github.com/mwiede/jsch", licenseUrl: "/licenses/android-third-party-notices.txt" },
       { name: "JZlib (bundled in JSch) — Android",   license: "BSD 3-clause", licenseUrl: "/licenses/android-third-party-notices.txt" },
@@ -671,6 +680,16 @@ export const ja: Dict = {
       { name: "mbed TLS — Android", license: "Apache-2.0", url: "https://github.com/Mbed-TLS/mbedtls", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "Asio — Android", license: "BSL-1.0", url: "https://github.com/chriskohlhoff/asio", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
       { name: "LZ4 / xxHash — Android", license: "BSD-2-Clause", licenseUrl: "/licenses/openvpn-NOTICES.txt" },
+      { name: "LiteRT-LM — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT-LM", licenseUrl: "/licenses/litert-lm-LICENSE.txt" },
+      { name: "LiteRT NPU runtimes (Google Tensor, Qualcomm) — Android", license: "Apache-2.0", url: "https://github.com/google-ai-edge/LiteRT", licenseUrl: "/licenses/litert-npu-runtime-LICENSE.txt" },
+      { name: "Qualcomm QNN runtime — Android", license: "Qualcomm AI Stack License (proprietary)", licenseUrl: "/licenses/qnn-runtime-NOTICE.txt" },
+      { name: "OkHttp / Okio — Android", license: "Apache-2.0", url: "https://github.com/square/okhttp", licenseUrl: "https://github.com/square/okhttp/blob/master/LICENSE.txt" },
+      { name: "ZXing — Android", license: "Apache-2.0", url: "https://github.com/zxing/zxing", licenseUrl: "https://github.com/zxing/zxing/blob/master/LICENSE" },
+      { name: "AndroidX JavaScriptEngine / Browser — Android", license: "Apache-2.0", url: "https://github.com/androidx/androidx", licenseUrl: "https://github.com/androidx/androidx/blob/androidx-main/LICENSE.txt" },
+      { name: "Opus — Android", license: "BSD-3-Clause", url: "https://opus-codec.org/", licenseUrl: "/licenses/opus-BSD-3-Clause.txt" },
+      { name: "Markwon — Android", license: "Apache-2.0", url: "https://github.com/noties/Markwon", licenseUrl: "/licenses/markwon-APACHE-2.0.txt" },
+      { name: "commonmark-java — Android", license: "BSD-2-Clause", url: "https://github.com/commonmark/commonmark-java", licenseUrl: "/licenses/commonmark-java-BSD-2-Clause.txt" },
+      { name: "AndroidSVG — Android", license: "Apache-2.0", url: "https://github.com/BigBadaboom/androidsvg", licenseUrl: "/licenses/androidsvg-APACHE-2.0.txt" },
     ],
     openvpnSourceHeading: "OpenVPN のソースコード",
     openvpnSourceBody: "OpenVPN 3 Core は MPL 2.0 に基づいて使用されています。対象の正確なソースコードと依存関係のバージョン、ライセンス文、ネイティブビルド情報をダウンロードできます。",
