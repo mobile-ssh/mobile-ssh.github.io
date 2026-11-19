@@ -11,7 +11,7 @@ Di Mobile SSH terminal na for phone and tablet operation. E dey combine terminal
 ## Terminal basics
 
 - Di terminal dey use xterm-style behavior wit color support and cursor-key handling.
-- Di scrollback buffer dey keep 5000 lines by default, and you fit set am to 1,000, 10,000, or 50,000 for Settings.
+- Scrollback buffer default na 5,000 lines, with settings for 1,000, 5,000, 10,000 or 50,000. Android still limit each pane history by memory wey app get, so biggest settings fit keep fewer lines.
 - Tap one pane make you select am before you type.
 - Pinch terminal pane to change text size. Mobile SSH go resize di remote PTY after di gesture settle.
 - Double-tap one pane (or use im expand control) to enter fullscreen mode. Use Back on Android, or di collapse control on iOS, to return to di grid.
@@ -77,9 +77,11 @@ Long-press word for terminal, then drag di handles to adjust wetin you select. D
 - **Select all** -- expand di selection to di full visible terminal buffer, then Copy or Share.
 - **Paste** -- put clipboard text inside di terminal.
 
+For Android, these actions dey use terminal toolbar without changing pane sizes. Copy and Paste dey show as icons when space narrow.
+
 ## Find for di terminal
 
-Search di whole terminal buffer — scrollback and di visible screen — and jump between di matches. Open search from di terminal controls, type wetin you dey find, and step through di hits. Dis one dey work for both Android and iOS.
+Search di whole terminal buffer — scrollback and visible screen — and jump between matches. Open search from terminal controls, type query and move through results. E dey work for Android and iOS. For Android, Search dey hidden from toolbar by default; enable am under **Settings → Top icons**.
 
 ## Color, italics, and remote clipboard
 
@@ -104,11 +106,15 @@ For both Android and iOS, Settings dey let you tailor di terminal:
 - **Color scheme:** Default, Solarized Dark or Light, Gruvbox, Dracula, or Nord — dem dey apply live to open panes.
 - **Extra key row:** add, remove, reorder, and hide keys, define your own escape-sequence keys, and reset to defaults, wit live preview wey dey show di exact row split wey you go get. Android put dis one for **Keys** tab; iOS put am under **Extra keys → Customize keys**.
 - **Add from presets:** palette of about 45 key for six group — `F1`–`F12`, Ctrl combination like `^C` `^D` `^Z` `^R` `^L`, symbol like `|` `~` `/` `_` `:`, and modifiers. Dem dey send `F1`–`F12` as ordinary escape sequence, so dem no need `FN` chord. Android also get 📎 **Attach a file** key wey dey open di file picker and upload enter di live session; iOS get `INS`, `DEL`, and `FN` key wey dey reveal digit row.
-- **Scrollback size:** 1,000, 5,000, 10,000, or 50,000 lines (5,000 na di default). E dey apply to new panes.
+- **Scrollback size:** 1,000, 5,000, 10,000 or 50,000 lines (default na 5,000). Android fit keep fewer lines to stay inside app memory limit. Changes dey apply to new panes.
 - **Text size:** slider, along wit pinch-to-zoom.
 - **Theme:** System, Light, or Dark for di whole app.
 
 Reset dey restore di defaults wey di app ship wit instead of freezing today list, so improvement wey later release bring go still reach you. Any edit dey apply live to panes wey don already open.
+
+For Android, terminal colors dey follow app light or dark theme by default. Turn off **Match terminal to app theme** under **Settings → General → Appearance** to keep fixed scheme. Same page get separate fullscreen hiding controls for toolbar and extra keys; toolbar dey hide by default but extra keys stay visible.
+
+Android **Settings → Top icons** dey rearrange, show or hide toolbar actions and add installed-plugin shortcuts. Chat and Port forwards dey show by default; Search and Remote desktop dey hidden until you enable dem.
 
 ## Scrolling
 
@@ -155,6 +161,8 @@ From di manager you fit:
 
 Both platforms fit manage more than one tmux server (socket) for di same host. Di manager attachment marks na for di terminal wey you dey use, no be another client for di server.
 
+For Android, **Clean up empty sockets** dey remove leftover socket files from tmux servers wey don stop and forget saved sockets if their files no dey again. E keep sockets wey listening tmux server still dey use.
+
 ## Herdr and Zellij
 
 Android and iOS dey manage Herdr and Zellij too. One toolbar control open di main multiplexer wey e detect; long-press to choose another. Only programs wey e find for dat server go show. Inside manager, server title change server, while multiplexer picker change manager.
@@ -165,6 +173,17 @@ Android and iOS dey manage Herdr and Zellij too. One toolbar control open di mai
 If herdr or Zellij dey installed but e no dey di login shell `PATH`, di page go offer to add am.
 
 Every saved server get **Attach on connect**: **Auto (detect)**, **Nothing**, **tmux**, **herdr** or **Zellij**. Auto use detection and history: first di one you don use, then one with live sessions, then installed one. If cached detection no dey, e open plain shell. Later probe only affect future connections; e no launch over wetin you dey type.
+
+## Chat with coding agents for Android
+
+Chat dey read Claude Code or Codex conversation wey already dey run for your server. Replies get formatted text, code blocks wey you fit copy, tables and links. Your own prompts dey highlighted, with controls to move to previous or next prompt or newest message.
+
+1. Connect to server and open **Chat** from terminal toolbar.
+2. Chat dey follow current tmux pane when e fit. Otherwise, open session picker and select or search conversation by title.
+3. If hooks no dey, choose **Install agent hooks** for Chat or im session picker. Complete any provider trust approval or native reload/resume wey hooks need; Mobile SSH no dey start or restart di agent.
+4. Write prompt, attach files if necessary, and send when di selected session allow am. Chat and terminal input box dey share di same draft.
+
+Chat dey install small helper under `~/.mobile-ssh` and need Python 3.8 or newer for server. Conversation fit remain read-only until di running agent don load required hooks.
 
 ## Agent alerts
 
@@ -180,10 +199,10 @@ Dis one no need any setup, but di app only sabi say *something* ring.
 
 For di app to sabi *which* agent dey wait and *wetin* e dey do, install di agent hook for di server:
 
-- **iOS:** Settings → **Agent alerts** → **Install Agent Hook**. If pass one server dey connected, e go ask you which one.
-- **Android:** long-press di pane header of one session and choose **Install agent hooks**.
+- **iOS:** Settings → **Agent alerts** → **Install Agent Hook**. If more than one server connect, e go ask which one.
+- **Android:** open **Chat**, choose Claude Code or Codex conversation, and use **Install agent hooks** when Chat or im session picker offer am.
 
-Dis one dey write small shell script go `~/.mobile-ssh/agent-hook.sh` for dat server. E no tie to any agent — e dey take command-line argument instead of parsing one vendor own format — so anything wey fit run command fit report through am. If you delete di file, na clean uninstall.
+Hooks dey let supported agents report their state to Mobile SSH. For Android, Chat dey add native lifecycle handlers to Codex `hooks.json` or Claude Code `settings.json`, and preserve unrelated configuration. Removing one helper file no dey remove these provider configuration entries.
 
 Once agent report through di hook:
 

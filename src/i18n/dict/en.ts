@@ -28,12 +28,12 @@ export const en: Dict = {
   home: {
     metaTitle: "Mobile SSH - SSH client for Android & iOS",
     metaDescription:
-      "Mobile SSH for Android and iOS: SSH terminals, jump hosts, tmux, herdr, Zellij, SFTP, VNC desktops and backups. Android also includes VPN clients and security keys.",
+      "Mobile SSH for Android and iOS: SSH, SFTP, VNC and session managers. Android adds coding-agent Chat, optional voice, prompt schedules and cloud VPN setup.",
     eyebrow: "SSH client for Android & iOS",
     h1: "Mobile SSH",
     intro:
-      "SSH terminals, tmux, herdr and Zellij managers, SFTP, VNC desktops, jump hosts and local tunnels — built for phones and tablets. Eternal Terminal keeps remote shells alive across interruptions. Android also includes VPN clients and USB/NFC security-key authentication.",
-    versionLine: "Available in {count} languages · Android {version} · iOS {iosVersion} beta",
+      "SSH terminals, tmux, herdr and Zellij managers, SFTP, VNC desktops, jump hosts and local tunnels — built for phones and tablets. Eternal Terminal keeps remote shells alive across interruptions. Android adds coding-agent Chat, optional voice and prompt schedules, cloud VPN setup and USB/NFC security keys.",
+    versionLine: "{count} languages · Android source {version} · iOS {iosVersion} beta",
     ctaDocs: "Read the docs",
     ctaPlay: "Get it on Google Play",
     ctaIos: "Get the iOS beta on TestFlight",
@@ -43,7 +43,7 @@ export const en: Dict = {
     advantagesIntro: "Built around the things mobile SSH clients tend to get wrong.",
     advantages: [
       { title: "No Pro tier, no ads", text: "Every feature is in the same app. No paywall splitting essential workflows behind a Pro upgrade, no ad banners on the terminal." },
-      { title: "Your data stays local", text: "Saved servers, credentials, and keys live on the device. No cloud account; nothing to be sunset." },
+      { title: "Credentials on your device", text: "Saved servers and credentials stay on your device. Mobile SSH has no required account or cloud vault; the servers and cloud accounts you connect to remain yours." },
       { title: "Saved hosts, search to connect", text: "Add a host once, then search and tap to connect — keys, ports, and tunnels come with it." },
       { title: "Agent alerts, and one tap to answer", text: "Know the moment Claude Code, Codex, or another agent needs you: the pane turns amber, a toolbar badge counts who is waiting, and the Agents list answers the prompt with one tap — no typing into the terminal." },
       { title: "Terminal keys above the keyboard", text: "A thirteen-key row — ESC, TAB, CTRL, arrows, Home, End, PgUp, PgDn — that wraps to a second row instead of scrolling, so nothing is hidden off-screen. Add F1–F12, Ctrl combos, or your own escape sequences from a preset palette." },
@@ -62,16 +62,28 @@ export const en: Dict = {
       { title: "Server folders and names", text: "Organize saved servers into collapsible groups, and give a server a name that shows instead of its address. The address comes back whenever a name would be ambiguous, so rows never blur together." },
       { title: "Agent alerts", text: "Agents report through the terminal, so the app knows which one is blocked and on what. Answer from the Agents list with one tap; alerts replace rather than stack, and tapping one opens the pane that rang." },
       { title: "Private keys", text: "Use passwords or private keys, and generate Ed25519 or ECDSA keys on device (RSA too on Android). Android also supports USB/NFC FIDO2 security keys and per-server SSH agent forwarding." },
-      { title: "SFTP transfer", text: "Dual-pane file browser tied to an active SSH session. Queue uploads and downloads, rename, delete, and inspect remote permissions." },
+      { title: "SFTP transfer", text: "Browse local and remote files, queue transfers, rename, delete and inspect permissions. On Android, resume, retry or restart failed transfers and follow uploads from the terminal header." },
       { title: "Port forwarding", text: "Save local tunnel specs with a server profile and they open automatically on connect — including after a reconnect on a new network, without rebuilding them by hand." },
       { title: "Reconnect workflow", text: "Change network and sessions re-dial at once instead of waiting out a dead route, and a session in backoff wakes the moment a usable network appears. On iOS a server that has silently stopped answering is noticed and reconnected." },
       { title: "Backup & restore", text: "Back up servers, credentials and app settings, with optional passphrase encryption and Merge/Replace previews. Android includes VPN profiles; current Android and iOS backups share a format, with platform-specific settings preserved where supported." },
       { title: "Eternal Terminal", text: "Connect over Eternal Terminal (ET) for sessions that survive network drops, sleep, and IP changes — with optional automatic etserver setup over SSH." },
       { title: "Multiplexer managers", text: "Attach, rename, create, split, zoom or kill sessions through the tmux, herdr and Zellij managers on both platforms. A shared multiplexer toolbar button opens the available managers; saved servers choose what to attach on connect." },
-      { title: "Plugins", text: "Browse, search and filter plugins by category, then install the workflows you need. Downloads are SHA-256 verified into app-private storage." },
+      { title: "Plugins", text: "Browse and install checksum-verified plugins. On Android, update them from their original catalog while keeping settings and data, and review guided setup changes before approving them." },
       { title: "Server identity and jump hosts", text: "Reach servers through saved bastions on either platform. Host-key checks run before authentication and block changed keys. Android can automatically pin new keys or ask first; iOS asks you to confirm unknown keys." },
       { title: "Remote desktops", text: "Open a VNC desktop through SSH on Android and iOS, with touch controls, keyboard input, clipboard support and remote screen sizing when the server supports it." },
-      { title: "VPN clients on Android", text: "Manage SSH VPN, a local SOCKS5 proxy, WireGuard, Shadowsocks and OpenVPN from the home screen. Choose a profile, start routing, and use the Mobile SSH VPN Quick Settings tile to stop or resume it." }
+      { title: "VPN clients on Android", text: "Manage SSH VPN, SOCKS5, WireGuard, Shadowsocks and OpenVPN profiles, with a Quick Settings tile for VPN control. The optional VPN Setup plugin guides you through creating your own cloud WireGuard server." },
+      {
+        "title": "Coding-agent Chat on Android",
+        "text": "Read and answer an existing Claude Code or Codex conversation with formatted replies, copyable code and attachments. Chat shares the terminal draft and never starts or restarts the agent."
+      },
+      {
+        "title": "Scheduled prompt templates",
+        "text": "Experimental on Android and off by default: schedule read-only Claude Code or Codex work on your server. Review results, run now, pause or remove the server schedule."
+      },
+      {
+        "title": "Voice on your terms",
+        "text": "Experimental Android voice offers review-before-send Messages or Live conversation. Use Gemma 4 on a supported phone, or run the voice service on your own Linux SSH server."
+      }
     ],
     multiHead: "One screen, several live shells",
     multiP1:
@@ -192,16 +204,24 @@ export const en: Dict = {
     compareGuideTitle: "Comparison guide",
     compareGuideText: "See when to choose Mobile SSH, Termux, or Termius on your phone or tablet.",
     privacyTitle: "Privacy policy",
-    privacyText: "Review what connection data is stored locally and what is sent to your servers."
+    privacyText: "Review what connection data is stored locally and what is sent to your servers.",
+    vpnHead: "A VPN in your own cloud account",
+    vpnBody: "On a compatible Android build, the VPN Setup plugin can create a cloud server, install wg-easy and import a WireGuard client, or use an existing public server. Review each change on your phone. Your cloud account owns the resources and their running costs.",
+    vpnAlt: "Mobile SSH VPN promotional video with demo screens for cloud setup and client management, followed by network illustrations and an encrypted-DNS caveat",
+    vpnCaption: "A one-minute promo combining demo UI and network illustrations, with English on-screen text. It is not a recording of a live deployment.",
+    vpnTranscriptLabel: "Read the scene description",
+    vpnTranscript: "The video shows choosing a cloud provider, including Hetzner, managing WireGuard clients, connecting a phone VPN profile and opening saved hosts. Network illustrations show WireGuard carrying traffic and SSH reaching private devices. The DNS scene notes that encrypted DNS needs separate setup and that a resolver can see queries. These are illustrated examples, not a guarantee that creating a VPN automatically connects every private network. The closing message is: your cloud, your VPN.",
+    vpnCtaGuide: "Set up your VPN",
+    vpnCtaProviders: "Choose a cloud provider"
   },
   features: {
     metaTitle: "Features | Mobile SSH",
     metaDescription:
-      "Explore Mobile SSH terminals, remote Git tools, live port forwards, VPN clients, SFTP, VNC and session managers on Android and iOS, plus experimental Android voice assistance.",
+      "Mobile SSH terminals, coding-agent Chat, file transfers, VPN setup and session managers, with experimental Android voice and scheduled prompt templates.",
     eyebrow: "Feature list",
     h1: "Mobile SSH features",
     intro:
-      "Connect to your servers from Android and iOS with SSH terminals, remote Git tools, SFTP, VNC, VPN clients and session managers. Android also offers hardware security keys and an experimental voice assistant; platform-specific features are marked below.",
+      "Connect to your servers with SSH, remote Git tools, SFTP, VNC, VPN clients and session managers. Android also offers coding-agent Chat, guided cloud VPN setup and experimental voice and prompt schedules. Platform-specific features and requirements are marked below.",
     groups: [
       {
         title: "Platforms",
@@ -237,7 +257,7 @@ export const en: Dict = {
         title: "Terminal",
         items: [
           "VT100/xterm-256color terminal behavior with 24-bit true color and italics — the shell is told TERM=xterm-256color and COLORTERM=truecolor",
-          "Scrollback buffer set to 1,000, 5,000, 10,000, or 50,000 lines on Android and iOS (5,000 by default)",
+          "Choose 1,000, 5,000, 10,000 or 50,000 scrollback lines, with 5,000 by default. Android also applies a per-pane memory cap, so large settings may retain fewer lines; changes apply to new panes",
           "Find in the terminal — search the scrollback and visible screen and jump between matches (Android and iOS)",
           "Shell integration (OSC 133): step between prompts, select a whole command's output — the build error from 300 lines back, not just the last one — and get alerted when a long-running command finishes (Android and iOS)",
           "Inline images in the terminal via the Kitty graphics protocol, surviving pinch-zoom and re-wrap instead of vanishing (Android and iOS)",
@@ -249,7 +269,7 @@ export const en: Dict = {
           "Tap-to-focus, optional tap-to-show-keyboard setting, copy and copy-all actions",
           "Pinch-to-zoom text sizing with remote terminal resize",
           "Double-tap pane fullscreen mode",
-          "Terminal text selection with Copy, Share, and Select all — long-press selects the word, and Copy keeps the selection to share or re-copy",
+          "Long-press to select terminal text, then Copy, Paste, Share or Select all. Android keeps Copy and Paste visible in the selection toolbar without resizing panes; narrow screens use icons",
           "OSC 52 clipboard — copy text from a remote tmux or vim session straight to the phone clipboard (Android and iOS)",
           "Hardware keyboards and voice dictation on both platforms; iOS enables Dictation & suggestions by default, including autocorrection. Turn it off for direct terminal input",
           "External and Bluetooth keyboard support on Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
@@ -257,11 +277,11 @@ export const en: Dict = {
           "Bundled Nerd Font renders powerline, starship, devicon, and Material Design icon glyphs on Android and iOS that the system font would otherwise show as empty boxes",
           "Wide CJK, emoji, and combining characters are measured and drawn correctly on Android and iOS, including grapheme clusters and zero-width joiners",
           "Configurable terminal font (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) on Android and iOS, applied live to open panes",
-          "A terminal text-size slider in Settings alongside pinch-to-zoom, and an app theme set to System, Light, or Dark",
+          "Adjust terminal text size in Settings or by pinching. Android follows the app theme for terminal colors by default; disable Match terminal to app theme to keep a fixed scheme",
           "Connection throughput and stalled-link indicators help distinguish a busy remote command from an unresponsive connection; optional dimming and vibration",
           "Settings control remote notifications, command-finished alerts and remote clipboard reads; these permissions are off by default",
           "Terminal games can opt into directional swipes that send arrow keys on Android and iOS; ordinary scrolling remains the default",
-          "On Android, reorder or hide session toolbar actions, add installed-plugin shortcuts, and choose whether the toolbar and extra keys hide in fullscreen"
+          "On Android, reorder or hide toolbar actions and add installed-plugin shortcuts in Top icons. Search and Remote desktop are hidden by default. In fullscreen the toolbar hides by default while extra keys remain visible; configure each separately"
         ]
       },
       {
@@ -277,18 +297,19 @@ export const en: Dict = {
           "tmux command tracking and reattach hints, with per-server choices of Auto, Nothing, tmux, herdr or Zellij on Android and iOS; session identity is retained across tmux socket switches",
           "Agents report themselves through the terminal, so the app knows the agent, the tool it is running, and whether it is blocked on you — the pane turns amber, its header reads \"claude · needs you\", and a toolbar badge counts who is waiting",
           "Answer an agent's question with one tap from the Agents list; the reply goes over a separate channel, so it never types into what is on screen",
-          "Install the agent hook onto a server from inside the app — a small shell script that any agent can call, not a vendor integration",
+          "Agent integration runs on your server. Android Chat offers installation of Claude Code or Codex lifecycle hooks; iOS provides Install Agent Hook in Agent alerts settings",
           "Eternal Terminal (ET) transport for sessions that survive network drops, sleep, and IP changes, with optional automatic etserver setup over SSH",
           "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, with name/date sorting and a 🔔 for agents awaiting input",
           "One multiplexer toolbar button opens the tmux, herdr and Zellij managers; Herdr supports pane previews, focus and replies, and Zellij supports live and exited sessions",
-          "Search loaded tmux, herdr and Zellij sessions, sockets, windows/tabs and panes while keeping matching results in their parent context; unopened remote branches are not searched"
+          "Search loaded tmux, herdr and Zellij sessions, sockets, windows/tabs and panes while keeping matching results in their parent context; unopened remote branches are not searched",
+          "Android tmux cleanup removes leftover sockets from stopped servers and forgets saved sockets whose files are gone; sockets used by a listening tmux server are kept"
         ]
       },
       {
         title: "Files and tunnels",
         items: [
           "Dual-pane SFTP browser for local and remote files, with a transfer log that shows every transfer and scrolls",
-          "Queued uploads and downloads; share files into Mobile SSH on Android. The iOS Share Extension uploads to the last successfully connected server and queues completed paths for a matching terminal",
+          "Queue uploads and downloads and share files into Mobile SSH. Android uses the open terminal and can continue uploads after reconnecting; iOS Share Extension uploads target the last successfully connected server",
           "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit, compress to .tar.gz, permissions (chmod/chown), and details flows",
           "Open a downloaded file in another app on both platforms — on iOS downloads also appear in the Files app under \"On My iPhone\"",
@@ -298,7 +319,9 @@ export const en: Dict = {
           "Local port forwarding saved with server profiles and brought up automatically on connect",
           "Follows the system light or dark theme across the app and file browser — choose System, Light, or Dark on Android and iOS",
           "Add, edit or remove local port forwards in a live session on Android and iOS; changes survive reconnects without rewriting the saved server profile",
-          "iOS attachment uploads verify completion and file size before publishing the final filename or inserting its path, preserving existing files"
+          "iOS attachment uploads verify completion and file size before publishing the final filename or inserting its path, preserving existing files",
+          "Android failed transfers offer Resume, Retry, Restart and Retry all, checking partial data before resuming. Pull down on a file list to refresh",
+          "Android terminal uploads show progress, speed, waiting or stalled status and Stop in the header; sharing a file reuses the open terminal window"
         ]
       },
       {
@@ -331,11 +354,13 @@ export const en: Dict = {
       {
         title: "Plugins",
         items: [
-          "Browse plugins by category and search, install and run them; catalogs are refreshed when you change sources",
+          "Browse, search, install and run catalog plugins. Android shows Update to when a newer compatible version is available from the original catalog, preserving plugin settings and data",
           "Plugins download on demand from a public catalog and are SHA-256 verified into app-private storage",
           "A plugin declares what it needs — SSH commands, a tunnel, storage — and the app refuses anything it did not ask for",
-          "When a plugin sets something up on your server, you see the exact commands first and approve them before they run",
-          "Configure a custom or private catalog source, or install from a folder on your own server"
+          "Review and approve server changes before they run. Android guided workflows show labelled review sections with raw details available, and can be paused and resumed",
+          "Configure a custom or private catalog source, or install from a folder on your own server",
+          "Android plugin updates do not downgrade versions and ask before granting additional access; unfinished workflows keep the plugin version that started them",
+          "VPN Setup on compatible Android builds can create a cloud VM or use an existing public Ubuntu server, install wg-easy and import clients. Cloud credentials use protected native forms; setup changes require approval"
         ]
       },
       {
@@ -371,7 +396,7 @@ export const en: Dict = {
         title: "In-app browser",
         items: [
           "Open forwarded HTTP or HTTPS services inside Mobile SSH on Android and iOS; HTTPS still requires a valid certificate",
-          "Android adds terminal link actions, page search, bookmarks, history, desktop mode and per-site browser preferences"
+          "Android In-App Browser is off by default: enable it under Settings → General. It adds terminal link actions, page search, bookmarks, history, desktop mode and per-site browser preferences"
         ]
       },
       {
@@ -379,7 +404,28 @@ export const en: Dict = {
         items: [
           "Off by default; enable it in Settings. Gemma 4 can run on the phone itself: download a model once from Hugging Face and speech stays on the device, with no voice server",
           "Ask about the server or the screen, open servers and sessions, hear a coding agent's reply, or dictate a prompt for it; commands beyond a short list of read-only checks need your yes",
-          "Or host voice on your own Linux SSH server, with Messages or Live conversation and the server assistant, Codex or Claude; terminal input and multiplexer changes require a separate opt-in"
+          "Or host voice on your own Linux SSH server, with Messages or Live conversation and the server assistant, Codex or Claude; terminal input and multiplexer changes require a separate opt-in",
+          "Gemma requires a supported 64-bit phone and a separate model download of about 2.6–3.7 GB. Metered downloads need confirmation, and a Wi-Fi download pauses if it moves to a metered connection",
+          "Continue a paused conversation from the Voice page, notification or headset Play. A pause caused by another app taking audio resumes when that audio ends"
+        ]
+      },
+      {
+        "title": "Coding-agent Chat (Android)",
+        "items": [
+          "Open Chat for a Claude Code or Codex conversation already running on your server; follow the current tmux pane or search and select a conversation by title",
+          "Formatted replies include copyable code, tables, task lists and links. Your prompts are highlighted with previous/next navigation",
+          "Chat and terminal input share a draft. Send prompts and attach files after installing the offered agent hooks; provider trust or reload may still be needed",
+          "Chat installs a small helper on the server and needs Python 3.8 or newer. It never launches or restarts the coding agent"
+        ]
+      },
+      {
+        "title": "Prompt templates (experimental, Android)",
+        "items": [
+          "Off by default: enable Settings → General → Prompt templates, then open Prompts on Home or a saved server’s menu",
+          "Save a prompt, server, project folder, Claude Code or Codex and a time zone; schedule daily, weekdays, selected days or every 1–12 hours",
+          "Runs are read-only and need Python 3.8 or newer, cron and a signed-in agent on the server. The app installs a helper and one crontab entry",
+          "Sync templates and results over SSH, inspect output and status, or choose Run now, Pause and Remove from server. A downloaded Gemma model can draft or revise a prompt",
+          "Templates are encrypted on the phone and excluded from backups. Turning the feature off does not stop server schedules; remove them from the server first"
         ]
       }
     ],
@@ -403,7 +449,7 @@ export const en: Dict = {
     rows: [
       {
         need: "Primary purpose",
-        mobileSsh: "SSH, SFTP, VNC, jump hosts and multiplexer managers on both platforms; VPN clients and FIDO2 security keys on Android.",
+        mobileSsh: "SSH, SFTP, VNC, jump hosts and multiplexer managers; Android also offers coding-agent Chat, guided cloud VPN setup, security keys and optional voice and prompt schedules.",
         termux: "Android terminal emulator and Linux environment with APT packages.",
         termius: "Modern SSH client across Android, iOS, desktop, and web-oriented team workflows."
       },
@@ -415,7 +461,7 @@ export const en: Dict = {
       },
       {
         need: "Mobile terminal controls",
-        mobileSsh: "Extra keys, grid sessions, fullscreen panes, pinch zoom, copy/share, mouse support and external keyboards. iOS Dictation & suggestions can be turned off for direct terminal input.",
+        mobileSsh: "Extra keys, grids, fullscreen, pinch zoom, clipboard controls and external keyboards. Android keeps extra keys visible in fullscreen by default. iOS Dictation & suggestions can be disabled for direct input.",
         termux: "Powerful terminal environment; terminal behavior depends on installed tools and configuration.",
         termius: "Mobile keyboard add-on, gestures, tabs, autocomplete, snippets, and polished terminal UX."
       },

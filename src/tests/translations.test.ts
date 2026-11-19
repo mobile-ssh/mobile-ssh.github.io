@@ -100,6 +100,15 @@ describe("locale dicts – structure", () => {
       expect(t.home.graphicsAlt.trim()).not.toBe("");
     });
 
+    it(`${locale}: VPN video includes localized context, accessible copy and guide links`, () => {
+      const t = getDict(locale);
+      for (const key of ["vpnHead", "vpnBody", "vpnAlt", "vpnCaption",
+        "vpnTranscriptLabel", "vpnTranscript", "vpnCtaGuide", "vpnCtaProviders"] as const) {
+        expect(t.home[key].trim(), key).not.toBe("");
+        if (locale !== "pcm") expect(t.home[key], key).not.toBe(en.home[key]);
+      }
+    });
+
     it(`${locale}: versionLine keeps {count}/{version}/{iosVersion} placeholders`, () => {
       const t = getDict(locale);
       expect(t.home.versionLine).toContain("{count}");

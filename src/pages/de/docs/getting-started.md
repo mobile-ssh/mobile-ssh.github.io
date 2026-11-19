@@ -17,8 +17,8 @@ Mobile SSH ist ein SSH-Client für Android und iOS, um sich mit deinen eigenen L
 
 ## App installieren
 
-- **Android:** Mobile SSH läuft derzeit als geschlossener Test bei Google Play. Öffne den Opt-in-Link in einem mobilen Browser auf dem Gerät — nicht in der Google-Play-App, in der der Test womöglich nicht sichtbar ist — und tritt mit dem Google-Konto bei, das du verwenden willst. Danach installiert und aktualisiert sich die App über Play wie jede andere.
-- **iOS:** Die iOS-App erscheint als öffentliche Beta auf TestFlight. Installiere Apples TestFlight-App und öffne dann den Mobile-SSH-Einladungslink von der Startseite der Website, um die App zu installieren und Updates zu erhalten.
+- **Android:** Installiere Mobile SSH über den Link auf der Startseite aus Google Play. Die Verfügbarkeit hängt vom Veröffentlichungskanal ab. Für einen geschlossenen Test öffnest du dessen Anmeldelink im Browser und trittst mit dem Google-Konto bei, das du für Play verwendest.
+- **iOS:** Die iOS-App ist als öffentliche Beta über TestFlight erhältlich. Installiere Apples TestFlight-App und öffne anschließend den Mobile SSH-Einladungslink auf der Website-Startseite, um die App und Updates zu erhalten.
 
 ## Mit einem Server verbinden
 
@@ -87,7 +87,7 @@ So verwendest du einen privaten Schlüssel:
 3. Gib die Schlüssel-Passphrase im Passwort-/Passphrasenfeld ein, falls der Schlüssel verschlüsselt ist.
 4. Speichere die Zugangsdaten oder den Server.
 
-Schlüsselimport nutzt die Systemauswahl ohne Zugriff auf den übrigen Speicher. Dateiübertragung hat eigene Ordner- und Dateiauswahlen.
+Der Import privater Schlüssel nutzt die Dateiauswahl des Systems. Android lehnt Schlüsseldateien über 64 KB ab. Der Import gewährt keinen Zugriff auf den restlichen Speicher; Dateiübertragungen haben eine eigene Ordner- und Dateiauswahl.
 
 Android unterstützt **FIDO2-Sicherheitsschlüssel** über USB/NFC: registriere oder importiere OpenSSH-Zugangsdaten und beantworte Touch-/PIN-Anfragen. Der physische Schlüssel bleibt nach Export/Wiederherstellung nötig. **SSH-Agent-Weiterleitung** ist pro Server optional: gespeicherte Schlüssel beantworten Signaturanfragen mit optionaler Freigabe je Nutzung. Aktiviere nur für vertrauenswürdige Signaturanfrager. iOS unterstützt weder Hardwarekey-Anmeldung noch Agent-Weiterleitung.
 
@@ -121,6 +121,8 @@ Beide lesen Format 2 und ältere Inventarbackups. Prüfe die Vorschau: **Zusamme
 
 Identitäten, aktive Sitzungen, Systemrechte und Ordnerfreigaben werden nicht wiederhergestellt. Prüfe Hosts und erteile Rechte am Zielgerät. Alte Appversionen lesen das neue Vollformat nicht.
 
+Android-Sicherungen schließen außerdem Prompt-Vorlagen und ihre Editorentwürfe, heruntergeladene Modelle, Sprachhost-Einstellungen, Cloud-Zugangsdaten von VPN Setup sowie Chat- und Prompt-Ausführungscaches aus. Richte sie auf einem neuen Smartphone erneut ein; eine Sicherung verschiebt oder entfernt keine bereits auf einem Server eingerichteten Zeitpläne.
+
 ## Aktive Sitzungen
 
 **Aktive Sitzungen** zeigt die Anzahl und öffnet das Terminalraster. Unter Android listet eine dauerhafte Benachrichtigung Hosts und öffnet Verbindungssteuerungen.
@@ -131,13 +133,39 @@ Das Zurückgehen zum Startbildschirm trennt aktive SSH-Sitzungen nicht; das Schl
 
 Öffne **Settings** auf dem Startbildschirm (es gibt eine eigene Seite dafür):
 
-- Entscheide, ob ein Tippen auf das Terminal die Tastatur einblendet. Die beiden Plattformen liefern gegensätzliche Vorgaben: Auf Android erscheint die Tastatur nur über die Schaltfläche ⌨, auf iOS blendet ein Tippen sie ein.
-- Stelle **Textgröße**, **Schrift**, **Farbschema** und **Scrollback**-Größe des Terminals ein und wähle ein App-**Design** (System, Hell oder Dunkel).
-- Aktiviere **Agent alerts**, wenn du lange Hintergrundaufgaben (Claude Code, Codex, Shell-Skripte) ausführst und benachrichtigt werden möchtest, sobald der Agent deine Eingabe benötigt. Wie Agenten sich melden, steht in der Anleitung **Terminal**.
-- Auf Android ist **Sitzungen im Hintergrund weiterlaufen lassen** standardmäßig aktiv, sodass Shells und Agenten das Wegwischen der App überstehen.
-- Beide Plattformen haben einen Schalter für anonyme Nutzungsanalyse. Ausschalten beendet das Sammeln neuer Ereignisse.
-- Unter iOS ist **Diktat und Vorschläge** standardmäßig an. Für direkte Eingaben ohne Diktat/Autokorrektur ausschalten und neues Pane öffnen.
-- Entfernte Meldungen, Befehlsabschluss und entfernte Zwischenablageabfragen benötigen eigene Freigaben. Aktiviere nur gewünschte Aktionen.
+- Lege fest, ob Antippen des Terminals die Tastatur öffnet. Die Plattformen haben gegensätzliche Standardwerte: Unter Android erscheint sie nur über die Schaltfläche ⌨, unter iOS durch Antippen.
+- Stelle **Textgröße**, **Schriftart**, **Farbschema** und **Verlaufsgröße** des Terminals ein und wähle ein App-**Design** (System, Hell oder Dunkel).
+- Aktiviere **Agentenmeldungen**, wenn du lange Hintergrundaufgaben ausführst (Claude Code, Codex, Shell-Skripte) und erfahren möchtest, wann der Agent Eingaben benötigt. Die Anleitung **Terminal** erklärt, wie Agenten ihren Zustand melden.
+- Unter Android ist **Sitzungen im Hintergrund weiterlaufen lassen** standardmäßig aktiviert. Shells und Agenten laufen dadurch weiter, wenn du die App wegwischst.
+- Beide Plattformen haben in den Einstellungen einen Schalter für anonyme Nutzungsanalyse. Das Ausschalten beendet die Erfassung neuer Ereignisse.
+- Unter iOS ist **Diktat & Vorschläge** standardmäßig aktiviert. Schalte es aus und öffne einen neuen Bereich, wenn du direkte Terminaleingabe ohne Diktat oder Autokorrektur bevorzugst.
+- Entfernte Benachrichtigungen, Meldungen über abgeschlossene Befehle und entfernte Zwischenablagezugriffe sind getrennte Optionen, die du aktivieren musst. Erlaube nur die gewünschten entfernten Aktionen.
+- Unter Android sind **Sprachassistent**, **Prompt-Vorlagen** und **Integrierter Browser** optional und standardmäßig deaktiviert. Die Sprachfunktion hat eine eigene Einstellungsseite; die anderen beiden befinden sich unter **Allgemein**.
+
+## Sprachassistent unter Android
+
+Der Sprachassistent ist experimentell und standardmäßig deaktiviert. Er kann Gemma 4 auf einem unterstützten 64-Bit-Smartphone oder einen Sprachdienst auf deinem eigenen Linux-SSH-Server verwenden.
+
+1. Öffne **Einstellungen → Sprachassistent** und aktiviere den Assistenten.
+2. Für lokale Sprachverarbeitung aktiviere **Gemma auf diesem Smartphone verwenden (ohne Sprachserver)**, wähle ein angebotenes Modell und tippe auf **Herunterladen**. Alternativ wählst du einen gespeicherten Linux-Sprachhost und folgst der Diensteinrichtung; sie benötigt Python 3.11–3.13, systemd-Benutzerdienste und mehrere GB freien Speicher.
+3. Starte eine Sprachunterhaltung für das gewünschte Terminal. Wähle **Nachrichten**, um aufzunehmen, zu prüfen und zu senden, oder **Live**, um freihändig mit gesprochenen Antworten zu kommunizieren. Eine benutzerdefinierte Sprachserver-Adresse verwendet den Live-Modus.
+4. Prüfe vorgeschlagene Befehle vor dem Bestätigen. Gemma kann eine kurze Liste ausschließlich lesender Prüfungen ohne Bestätigung ausführen; andere Befehle und Prompts an Claude Code oder Codex benötigen deine Bestätigung oder **Senden**.
+
+Smartphone-Modelle laden erst nach Antippen von Herunterladen etwa 2.6–3.7 GB von Hugging Face herunter. Getaktete Downloads benötigen eine Bestätigung; ein im WLAN gestarteter Download pausiert beim Wechsel zu einer getakteten Verbindung. Mit Gemma bleibt die Sprache auf dem Smartphone; die Serveroption überträgt Audio an deinen konfigurierten Sprachdienst. Die Mikrofonberechtigung wird bei Verwendung einer Sprachfunktion angefragt. Fehlt eine Offline-Sprachausgabestimme, bietet die App deren Download über die Sprach-Engine des Smartphones an.
+
+Übernimmt eine andere App das Audio oder sendet ein Headset Stopp, pausiert die Unterhaltung unter Beibehaltung von Modus und Kontext. Nutze **Unterhaltung fortsetzen** auf der Sprachseite oder in der Benachrichtigung oder drücke die Wiedergabetaste am Headset. Eine Pause durch Audio einer anderen App endet, sobald dieses Audio endet.
+
+## Prompt-Vorlagen unter Android
+
+Prompt-Vorlagen sind experimentell und standardmäßig deaktiviert. Sie planen ausschließlich lesende Claude Code- oder Codex-Ausführungen auf deinem eigenen Server. Der Server benötigt Python 3.8 oder neuer, cron und einen angemeldeten Programmieragenten.
+
+1. Aktiviere **Einstellungen → Allgemein → Prompt-Vorlagen**.
+2. Öffne **Prompts** auf der Startseite oder den Eintrag für Prompt-Vorlagen im Menü eines gespeicherten Servers.
+3. Erstelle eine Vorlage mit Prompt, Server, Projektordner und Claude Code oder Codex. Wähle eine Zeitzone und plane Ausführungen täglich, an Werktagen, an ausgewählten Tagen oder alle 1–12 Stunden.
+4. Speichere die Vorlage und verbinde dich zum Synchronisieren mit ihrem Server. Mobile SSH installiert ein kleines Hilfsprogramm und einen crontab-Eintrag; Zeitpläne laufen auf dem Server auch bei getrenntem Smartphone.
+5. Prüfe Ausgabe und Status jeder Ausführung oder wähle **Jetzt ausführen**, **Pausieren** oder **Vom Server entfernen**.
+
+Vorlagen und Editorentwürfe sind auf dem Smartphone verschlüsselt und von Sicherungen ausgeschlossen. Ein heruntergeladenes Gemma-Modell kann beim Entwerfen und Überarbeiten eines Prompts helfen. Das Deaktivieren der Funktion blendet ihre Bedienelemente aus und stoppt die Synchronisierung auf dem Smartphone; bereits auf einem Server eingerichtete Zeitpläne werden weder gestoppt noch entfernt. Pausiere oder entferne diese zuerst in Prompt-Vorlagen.
 
 ## Plugins
 
@@ -148,6 +176,8 @@ Plugins erweitern Mobile SSH um zusätzliche Workflows. Öffne **Plugins** auf d
 - Installierte Plugins vom selben Bildschirm aus auszuführen.
 
 Plugins werden standardmäßig aus einem öffentlichen Katalog geladen. Wenn du einen eigenen pflegst, kannst du Mobile SSH auf eine eigene oder private Katalogquelle verweisen. Installiere nur Plugins aus Quellen, denen du vertraust.
+
+Unter Android zeigen Katalog-Plugins **Aktualisieren auf** an, wenn eine neuere Version verfügbar ist. Updates verwenden den ursprünglichen Katalog, behalten Einstellungen und Daten und fragen nach einer Genehmigung, wenn zusätzliche Zugriffe nötig sind. Sie installieren keine ältere Version als die vorhandene.
 
 ## Sprachen
 

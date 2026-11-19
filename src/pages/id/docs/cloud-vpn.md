@@ -6,16 +6,16 @@ description: "Buat VM cloud ber-IP publik, simpan koneksi SSH-nya di Mobile SSH,
 
 # VM cloud dan wg-easy
 
-Buat VM Linux di akun cloud Anda sendiri, hubungkan melalui Mobile SSH, lalu instal wg-easy untuk menjalankan VPN WireGuard. Memisahkan penyediaan sumber daya dari instalasi memungkinkan VM yang sama dipakai untuk layanan lain, atau VPN dipasang di server yang sudah Anda miliki.
+Buat VM Linux di akun cloud milik Anda dan jalankan VPN WireGuard dengan wg-easy. Pada build Android yang kompatibel, plugin **VPN Setup** yang telah diterbitkan dapat membuat VM, memasang wg-easy, dan mengimpor klien dalam satu alur terpandu. Anda juga dapat membuat VM di konsol penyedia lalu memasangnya melalui Mobile SSH, atau memakai server publik yang sudah ada.
 
-**Ketersediaan — 8 November 2026:** plugin pembuatan VM yang terpisah adalah alur yang direncanakan dan dijelaskan di bawah ini. Implementasi lokal Android **VPN Setup** yang ditinjau menggabungkan penyediaan, instalasi, dan impor klien; perubahan plugin/katalognya belum diterbitkan dan penerapan cloud nyata belum diuji. Entri terpisah AWS, Google Cloud, dan Azure saat ini baru berupa kerangka manifest/pengaturan; tindakan untuk menampilkan dan mengendalikan VM belum diimplementasikan, dan entri tersebut tidak membuat VM. Gunakan petunjuk konsol dan instalasi manual di bawah jika katalog Anda belum memiliki alur pembuatan. Alur native baru memerlukan build Android yang kompatibel; otomatisasi setara pada iOS belum terbukti tersedia.
+**Ketersediaan — 19 November 2026:** **VPN Setup 1.0.7** tersedia dalam [katalog plugin bawaan](https://github.com/mobile-ssh/mobile-ssh-plugins/tree/main/plugins/vpnsetup). Pengaturan dasar memerlukan plugin bridge **1.3.0**, pembaruan server **1.4.0**, dan penghapusan entri selesai yang memenuhi syarat **1.5.0**. Ketersediaan bergantung pada build Android terpasang dan jalur rilis; penerbitan plugin tidak memastikan rilis aplikasi tertentu tersedia bagi Anda. Otomatisasi setara pada iOS belum terkonfirmasi. Gunakan panduan konsol dan manual di bawah jika plugin tidak tersedia.
 
-## Dua plugin dengan tanggung jawab terpisah
+## Pilih alur terpandu atau manual
 
-- **Plugin penyediaan cloud:** memakai API penyedia untuk membuat VM, alamat publik, dan sumber daya jaringan yang diperlukan, lalu menyimpan koneksi SSH. Plugin menyimpan ID sumber daya cloud untuk pengelolaan atau penghapusan selanjutnya.
-- **Penginstal wg-easy:** menghubungkan ke server tersimpan yang dipilih melalui SSH, memasang layanan VPN, dan membantu membuat konfigurasi klien. Penginstal memerlukan akses server dan hak administrator, bukan kredensial API cloud Anda. VM yang dibuat manual juga dapat digunakan.
+- **Buat melalui API cloud:** VPN Setup memakai akun penyedia Anda untuk membuat VM dan sumber daya jaringan, menyimpan koneksi SSH, memasang wg-easy, dan mengimpor klien. ID sumber daya dan catatan kepemilikan disimpan untuk pembersihan nanti.
+- **Buat di konsol cloud atau gunakan server yang ada:** buat VM sendiri, lalu berikan IPv4 publik, nama pengguna SSH, dan kuncinya kepada VPN Setup, atau ikuti pemasangan manual di bawah. Plugin tidak memerlukan kredensial API cloud untuk memasang di server Anda.
 
-Data yang diteruskan sebaiknya berisi referensi server tersimpan, alamat publik, port SSH, nama pengguna, referensi kredensial SSH, serta ID penerapan/sumber daya. Rahasia cloud dan kunci SSH privat tidak boleh disalin ke keluaran plugin atau ke VM. Menghapus VPN dan menghapus VM cloud adalah operasi yang terpisah.
+Plugin yang diterbitkan menggabungkan penyediaan dan pemasangan; plugin terpisah untuk keduanya masih berupa rancangan. Penghapusan sumber daya buatan API berbeda dari server yang Anda sediakan, seperti dijelaskan di bawah. Pengujian langsung Hetzner yang tercatat berhasil memeriksa pengaturan, lalu lintas VPN, pengelolaan klien, administrasi privat, dan pembersihan pada emulator Android. Ini tidak membuktikan penerimaan langsung untuk setiap penyedia, kebijakan akun, atau ponsel fisik.
 
 ## Siapkan akun dan pengaturan server
 
@@ -25,11 +25,15 @@ Data yang diteruskan sebaiknya berisi referensi server tersimpan, alamat publik,
 4. Pilih **IPv4 publik**, sebaiknya alamat tetap atau yang dicadangkan jika penyedia menawarkannya. Alamat privat, instans khusus IPv6, atau gateway NAT yang hanya melayani lalu lintas keluar tidak memenuhi kebutuhan endpoint panduan ini.
 5. Tetapkan CIDR sumber SSH secara eksplisit, misalnya IPv4 publik Anda saat ini diikuti `/32`. Jangan menganggap pengaturan bawaan plugin membatasi akses. Perubahan data seluler dan Wi-Fi mungkin mengharuskan pembaruan aturan melalui konsol cloud.
 
-Kredensial API cloud mengizinkan pengelolaan sumber daya; kunci SSH mengizinkan login server. Keduanya adalah kredensial berbeda. Masukkan rahasia API hanya pada formulir kredensial penyedia yang terlindungi, bukan dalam perintah suara, perintah terminal, atau berkas sumber. Pada alur lokal Android, kode native menangani autentikasi penyedia dan penyimpanan kredensial terenkripsi; kredensial dikirim ke penyedianya jika diperlukan, bukan ke VM atau worker plugin. Model suara offline tidak membuat panggilan API cloud, unduhan, atau SSH berfungsi tanpa akses internet.
+Jalur manual mendukung arsitektur di atas. Saat ini VPN Setup memilih **Ubuntu 24.04 pada amd64/x86-64**, terhubung melalui **port SSH 22**, dan menerima kunci SSH **Ed25519 atau RSA**; jalur Lightsail memerlukan RSA. Kunci ECDSA, host privat saja, dan endpoint IPv6 saja tidak didukung alur ini. Server yang sudah ada harus memiliki IPv4 publik dan akses administratif noninteraktif.
+
+Kredensial API cloud mengizinkan pengelolaan sumber daya; kunci SSH mengizinkan login server. Masukkan rahasia API hanya dalam formulir kredensial native yang terlindungi, jangan dalam prompt suara, perintah terminal, atau berkas sumber. Kode native melakukan autentikasi ke endpoint penyedia yang disetujui; rahasia tidak dikirim ke VM atau pekerja plugin. Kredensial yang diingat dienkripsi dengan Android Keystore; jika tidak disimpan, kredensial hanya berada di memori dan mungkin perlu dimasukkan lagi setelah proses aplikasi berakhir.
+
+Kontrol suara dapat menjawab pertanyaan nonrahasia yang didukung dan melaporkan kemajuan, tetapi pengisian kredensial dan persetujuan memerlukan layar. Perekaman mikrofon dijeda untuk formulir terlindungi dan perlu tindakan eksplisit untuk dilanjutkan. Pengaturan suara perlu diaktifkan, model lokal diunduh, dan izin mikrofon diberikan. Model suara luring tidak membuat panggilan API cloud, unduhan, atau SSH berfungsi tanpa internet.
 
 ## Pilih cloud dan dapatkan alamat publik
 
-Untuk **pengaturan melalui konsol**, masuk sendiri ke penyedia; Mobile SSH tidak memerlukan kredensial API penyedia. Untuk **penyediaan melalui plugin** kelak, siapkan kredensial di bawah dengan izin operasi pembuatan, pembacaan, jaringan, dan penghapusan yang diperlukan. Batasi akses ke proyek atau penerapan khusus jika didukung. Kebijakan akun tetap berlaku pada kedua metode.
+Untuk **pengaturan melalui konsol**, login sendiri ke penyedia; Mobile SSH tidak memerlukan kredensial API-nya. Untuk **penyediaan API melalui VPN Setup**, siapkan kredensial berikut dengan izin operasi pembuatan, pembacaan, jaringan, dan penghapusan yang diperlukan. Plugin mengimplementasikan sepuluh penyedia dalam tabel; AWS EC2 adalah pilihan terpisah khusus konsol. Batasi akses ke proyek atau deployment khusus jika didukung. Kebijakan akun tetap berlaku untuk kedua cara.
 
 Buat VM Ubuntu pilihan dengan kunci SSH publik Anda dan terapkan aturan SSH pada bagian berikutnya. Tautan menjelaskan langkah alamat dan autentikasi khusus tiap penyedia.
 
@@ -38,8 +42,8 @@ Buat VM Ubuntu pilihan dengan kunci SSH publik Anda dan terapkan aturan SSH pada
 | Penyedia | Kredensial untuk penyediaan melalui API | Pengaturan IPv4 publik di konsol |
 | --- | --- | --- |
 | [AWS Lightsail](./aws-lightsail/) | ID dan rahasia kunci akses; sertakan token sesi untuk kredensial sementara. Berikan [tindakan Lightsail](https://docs.aws.amazon.com/service-authorization/latest/reference/list_lightsail.html) yang diperlukan. | Buat instans Ubuntu dual-stack, pilih kunci SSH RSA, lalu alokasikan dan pasang [IPv4 statis di wilayahnya](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip.html). Gunakan `ubuntu` untuk image Ubuntu. |
-| [Google Cloud Compute Engine](./google-cloud/) | Kunci JSON akun layanan dan ID proyek. Izin harus mencakup operasi VM/disk, jaringan, alamat, dan firewall; Network Admin saja tidak dapat menulis aturan firewall. Periksa [izin IAM](https://docs.cloud.google.com/compute/docs/access/iam). | Aktifkan Compute Engine API, pilih VPC/subnet dengan rute internet, cadangkan [IPv4 eksternal regional](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address), lalu pasang pada VM. Atur nama pengguna/kunci SSH yang sesuai; OS Login memerlukan pengaturan identitas tersendiri. |
-| [Microsoft Azure](./azure/) | ID tenant, ID aplikasi/klien, **nilai** rahasia klien, dan ID langganan. Berikan izin komputasi/jaringan; membuat grup sumber daya juga memerlukan izin pada cakupan induknya. Lihat [pengaturan service principal](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal). | Buat grup sumber daya khusus dan VNet/subnet. Pasang [Public IP IPv4 statis Standard](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) pada NIC VM dan kaitkan NSG. Gunakan nama administrator yang dipilih saat pembuatan. |
+| [Google Cloud Compute Engine](./google-cloud/) | Kunci JSON akun layanan dan ID proyek. Izin harus mencakup operasi VM/disk, jaringan, alamat, dan firewall; Compute Network Admin saja tidak dapat menulis aturan firewall. Periksa [izin IAM](https://docs.cloud.google.com/compute/docs/access/iam). | Aktifkan Compute Engine API, pilih VPC/subnet dengan rute internet, cadangkan [IPv4 eksternal regional](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address), lalu pasangkan ke VM. Atur nama pengguna/kunci SSH yang cocok; OS Login memerlukan pengaturan identitas sendiri. VPN Setup memakai kunci SSH metadata dan menonaktifkan OS Login pada VM-nya; jika organisasi mewajibkan OS Login, gunakan konfigurasi konsol yang disetujui. |
+| [Microsoft Azure](./azure/) | ID tenant, ID aplikasi/klien, **nilai** rahasia klien, dan ID langganan. VPN Setup membuat grup sumber daya deployment sendiri: berikan izin membuat/menghapus grup pada lingkup langganan atau induk serta operasi komputasi/jaringan. Akses hanya ke grup yang sudah ada tidak cukup. Lihat [pengaturan service principal](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal). | Buat grup sumber daya khusus dan VNet/subnet. Pasangkan [Standard static IPv4 Public IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) ke NIC VM dan kaitkan NSG. Gunakan nama administrator yang dipilih saat pembuatan. |
 | [DigitalOcean](./digitalocean/) | Token akses pribadi dengan [cakupan](https://docs.digitalocean.com/reference/api/create-personal-access-token/) Droplet, kunci SSH, Reserved IP, firewall, dan operasi terkait yang diperlukan. | Buat Droplet Ubuntu dengan kunci SSH publik, tetapkan [Reserved IPv4](https://docs.digitalocean.com/products/networking/reserved-ips/how-to/create/), lalu pasang Cloud Firewall. Login Ubuntu awal biasanya `root`. |
 | [Hetzner Cloud](./hetzner/) | [Token API Read & Write](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/) khusus proyek. | Buat server Ubuntu dengan [Primary IPv4](https://docs.hetzner.com/cloud/servers/primary-ips/overview/), kunci SSH Anda, dan Cloud Firewall. Gunakan `root`. Periksa apakah Primary IP yang terpisah akan tetap disimpan ketika server dihapus. |
 | [Akamai / Linode](./linode/) | Token akses pribadi dengan izin baca/tulis Linodes dan Firewalls serta [cakupan baca](https://techdocs.akamai.com/linode-api/reference/get-started) yang diperlukan. | Buat Linode Ubuntu dengan IPv4 publik dan kunci SSH, lalu pasang [Cloud Firewall](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-cloud-firewalls). Gunakan `root`. Pertahankan alamat yang diberikan selama masa hidup instans. |
@@ -50,26 +54,26 @@ Buat VM Ubuntu pilihan dengan kunci SSH publik Anda dan terapkan aturan SSH pada
 
 </div>
 
-**Alternatif [AWS EC2](./aws-ec2/):** jalankan Ubuntu dalam subnet publik dengan [gateway internet dan rute `0.0.0.0/0` ke gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html), pilih kunci SSH dan grup keamanan, lalu kaitkan [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html). Gunakan `ubuntu`. Adaptor otomatis lokal menargetkan Lightsail; EC2 memakai jalur konsol. Elastic IP saja tidak membuat subnet privat dapat dijangkau.
+**Alternatif [AWS EC2](./aws-ec2/):** jalankan Ubuntu dalam subnet publik dengan [internet gateway dan rute gateway `0.0.0.0/0`](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html), pilih kunci SSH dan security group, lalu kaitkan [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html). Gunakan `ubuntu`. Adaptor AWS otomatis VPN Setup menargetkan Lightsail; EC2 menggunakan konsol. Elastic IP saja tidak membuat subnet privat dapat dijangkau.
 
 Jika organisasi melarang kunci akun layanan, IP eksternal, atau metode autentikasi SSH yang dipilih, dapatkan konfigurasi yang disetujui administrator. Pengaturan melalui konsol tidak melewati pembatasan tersebut.
 
 ## Sediakan sumber daya dan simpan koneksi SSH
 
-Dalam alur terpisah yang direncanakan, buka **Plugin**, instal plugin penyediaan milik penyedia dari katalog tepercaya, pilih akun dan wilayah, lalu pilih ukuran VM, image, alamat publik, dan kunci SSH. Tinjau sumber daya dan biaya sebelum mengonfirmasi pembuatan. Plugin yang hanya mengelola tanpa tindakan pembuatan tidak dapat melakukan langkah ini; gunakan konsol penyedia.
+Buka **Plugin**, pasang **VPN Setup** dari katalog bawaan, lalu buka halaman mandirinya. Pilih **Siapkan VPN**, pilih penyedia, kemudian **Buat melalui API cloud** atau **Buat di konsol cloud**. Untuk server milik Anda, pilih opsi server publik yang sudah ada. Masukkan kredensial melalui formulir native, pilih atau buat kunci SSH, lalu tinjau lokasi, ukuran, image, dan CIDR sumber SSH. Pilihan berdasarkan akun dan pemeriksaan awal membantu memilih penawaran yang didukung; keduanya tidak mencadangkan kapasitas atau menjamin kuota. Periksa harga terkini penyedia dan setujui pembuatan di layar.
 
-Tunggu hingga penyedia melaporkan VM berjalan dan SSH dapat dijangkau. Simpan ID sumber daya VM, disk, alamat, dan firewall. Jika permintaan kehabisan waktu, periksa atau lanjutkan operasi yang sudah ada sebelum mencoba membuat ulang agar tidak menghasilkan VM berbayar kedua.
+Ikuti operasi yang sedang berjalan sampai VM dan SSH siap. Jika permintaan kedaluwarsa atau Android menjeda pekerjaan latar belakang, lanjutkan atau tinjau operasi itu, jangan membuat VM berbayar lain. Respons pembuatan yang hilang mungkin memerlukan pencarian cloud atau pemeriksaan konsol. Simpan ID VM, disk, alamat, dan firewall; alur yang dihentikan masih mungkin telah membuat sumber daya.
 
-Simpan koneksi yang dikembalikan di Mobile SSH, atau tambahkan manual di **Server**: IPv4 publik, port SSH `22`, nama pengguna image, dan kredensial kunci privat yang sesuai. Bandingkan sidik jari kunci host SSH melalui konsol tepercaya penyedia sebelum menghubungkan. Lihat [Memulai](../getting-started/) untuk pemeriksaan identitas dan kredensial tersimpan.
+VPN Setup meminta persetujuan kunci host SSH, menyimpan koneksi, memasang wg-easy, dan mengimpor klien pertama. Cocokkan sidik jari dengan konsol penyedia yang tepercaya. Untuk cara manual, tambahkan server pada **Server** dengan IPv4 publik, port SSH `22`, nama pengguna image, dan kunci privat yang cocok. Adaptor otomatis Google Cloud dan Azure memakai `ubuntu`; panduan konsol memakai nama pengguna yang dikonfigurasi di sana. Lihat [Memulai](../getting-started/) untuk pemeriksaan identitas dan kredensial tersimpan.
 
 ## Atur dua lapisan jaringan
 
 Alamat publik membutuhkan rute, izin firewall cloud, izin firewall sistem tamu, dan layanan yang mendengarkan. Gunakan aturan ini pada firewall/grup keamanan penyedia; pertahankan aturan sistem tamu yang masih diperlukan.
 
-- **TCP 22:** izinkan dari CIDR pengelolaan yang dipilih untuk SSH. Atur saat penyediaan.
-- **UDP 51820:** izinkan dari jaringan yang akan memakai VPN. Untuk klien berpindah jaringan, ini dapat berarti `0.0.0.0/0`. Tambahkan saat menyiapkan WireGuard, melalui plugin penyediaan atau konsol.
-- **TCP 51821:** jangan buka untuk publik. Publikasikan UI admin wg-easy hanya pada loopback server dan akses melalui terowongan SSH.
-- **Lalu lintas keluar:** izinkan unduhan paket/kontainer, DNS, dan lalu lintas internet yang hendak dibawa VPN.
+- **TCP 22:** izinkan dari CIDR pengelolaan yang Anda pilih untuk SSH. Atur saat penyediaan.
+- **UDP 51820:** izinkan jaringan yang akan memakai VPN. Untuk klien berpindah jaringan, ini mungkin berarti `0.0.0.0/0`. VPN Setup mengaturnya untuk deployment buatan API; gunakan konsol cloud untuk server yang Anda sediakan.
+- **TCP 51821:** tetap tutup akses publik. Publikasikan UI admin wg-easy hanya pada loopback server dan akses melalui terowongan SSH.
+- **Lalu lintas keluar:** izinkan unduhan paket/container, DNS, dan lalu lintas internet yang akan dibawa VPN.
 
 Periksa [perilaku firewall Docker](https://docs.docker.com/engine/install/ubuntu/#firewall-limitations): port kontainer yang dipublikasikan dapat melewati aturan UFW. Jangan mengandalkan UFW saja untuk menyembunyikan UI admin, dan jangan kosongkan rantai firewall penyedia, terutama aturan penyimpanan/iSCSI OCI.
 
@@ -77,9 +81,9 @@ Periksa [perilaku firewall Docker](https://docs.docker.com/engine/install/ubuntu
 
 ## Instal wg-easy pada VM yang dipilih
 
-Penginstal terpisah sebaiknya menerima server SSH tersimpan dan meminta persetujuan untuk perubahan server. Penginstal sebaiknya memeriksa OS, hak akses, instalasi Docker/VPN yang sudah ada, dan konflik port, mempertahankan data persisten, serta melaporkan versi terpasang. Penginstal tidak memerlukan rahasia akun cloud; gunakan plugin penyediaan atau konsol untuk perubahan firewall cloud.
+Setelah persetujuan, VPN Setup memasang rilis wg-easy yang dikunci dengan digest melalui SSH, memasang Docker bila diperlukan pada Ubuntu 24.04, dan membuat klien pertama. Antarmuka admin tetap pada loopback server dan rantai firewall penyedia dipertahankan. Untuk server buatan konsol atau yang sudah ada, atur sendiri firewall cloud; pemasang memerlukan SSH dan hak administratif, bukan rahasia API cloud. Gunakan server khusus yang baru, jangan menganggapnya dapat mengambil alih instalasi VPN lain.
 
-Plugin katalog lama **WireGuard (wg-easy)** memerlukan sesi SSH aktif dan Docker. Plugin ini bukan penginstal otomatis baru dan tidak menjanjikan impor klien native. Gunakan penginstal terbaru yang kompatibel, atau jalur manual berikut dari terminal Mobile SSH pada VM khusus yang baru.
+Plugin katalog lama **WireGuard (wg-easy)** memerlukan sesi SSH aktif dan Docker. Plugin ini terpisah dari **VPN Setup** dan tidak menjanjikan impor klien native. Gunakan VPN Setup pada build Android yang kompatibel, atau jalur manual berikut dari terminal Mobile SSH pada VM khusus yang baru.
 
 ### Instalasi manual melalui SSH
 
@@ -87,13 +91,13 @@ Instal Docker Engine dan plugin Compose-nya memakai [petunjuk resmi Ubuntu](http
 
 ```sh
 sudo mkdir -p /opt/wg-easy
-sudo curl -fL https://raw.githubusercontent.com/wg-easy/wg-easy/v15.4.0/docker-compose.yml -o /opt/wg-easy/compose.yaml
+sudo curl -fL https://raw.githubusercontent.com/wg-easy/wg-easy/v15.5.0/docker-compose.yml -o /opt/wg-easy/compose.yaml
 ```
 
 Edit `/opt/wg-easy/compose.yaml` memakai editor terminal dengan hak yang diperlukan sebelum menjalankannya. Di bawah `services.wg-easy`, ganti image, aktifkan atau tetapkan blok environment, dan ganti pemetaan port dengan nilai berikut. Pertahankan sisa berkas asal, termasuk volume persisten, mount modul, capabilities, jaringan, dan sysctls:
 
 ```yaml
-image: ghcr.io/wg-easy/wg-easy:15.4.0@sha256:0e7bc9d34e86ddcaa92bc700d4d7dc9b33291dbc07ac8d13382f7c2095f949ec
+image: ghcr.io/wg-easy/wg-easy:15.5.0@sha256:071f79a639e9361123a5e57733107320207b844ddbbd92dfa6962f541fe8aac8
 environment:
   - INSECURE=true
 ports:
@@ -118,22 +122,32 @@ Buat [penerusan port lokal](../port-forwarding/) Mobile SSH dengan port lokal `5
 
 Dalam [panduan penyiapan awal](https://wg-easy.github.io/wg-easy/latest/guides/setup/) wg-easy, buat akun administrator, pilih instalasi baru, lalu atur endpoint VPN ke IPv4 publik atau nama DNS VM dengan port `51820`. Endpoint VPN bukan alamat loopback UI web atau port `51821`.
 
-Buat satu klien per perangkat dan unduh berkas WireGuard `.conf`-nya. Jika build Mobile SSH Anda menyediakannya, buka **VPN → WireGuard**, tambahkan profil, impor berkas, lalu simpan. Kode sumber Android dan iOS saat ini mendukung impor berkas; periksa build yang terpasang. Alur gabungan lokal Android dapat mengimpor langsung, tetapi ini bukan janji untuk plugin lama atau otomatisasi iOS. Berkas konfigurasi dan kode QR berisi kunci privat; jaga kerahasiaannya.
+Buat satu klien per perangkat dan unduh WireGuard `.conf`-nya. Jika build Mobile SSH Anda menyediakan fitur ini, buka **VPN → WireGuard**, tambahkan profil, impor berkas, dan simpan. Sumber Android dan iOS terkini mendukung impor berkas; periksa build terpasang. VPN Setup langsung mengimpor klien pertamanya pada build Android yang kompatibel. Halamannya juga menyediakan **Tambah klien**, **Cabut klien**, **Ekspor klien/QR**, dan **Buka admin** melalui terowongan SSH privat. Hal ini tidak membuktikan kemampuan tersebut untuk plugin lama atau otomatisasi setara pada iOS. Berkas konfigurasi dan kode QR berisi kunci privat; jaga kerahasiaannya.
 
 ## Verifikasi VPN dan tangani kegagalan
 
 Jalankan profil dan setujui permintaan VPN sistem operasi. Periksa handshake peer yang baru dan penghitung lalu lintas yang meningkat, lalu uji DNS serta rute internet atau jaringan privat yang diinginkan. Profil yang diimpor atau kontainer yang berjalan saja tidak membuktikan VPN berfungsi.
 
-- **Pembuatan VM ditolak:** periksa penagihan, kuota, kapasitas wilayah, masa berlaku kredensial, dan izin IAM yang tepat. Penulisan firewall Google Cloud memerlukan izin di luar Network Admin.
-- **SSH kehabisan waktu:** periksa alamat publik, rute subnet, aturan TCP 22, dan IP sumber ponsel saat ini. Kegagalan autentikasi biasanya membutuhkan nama pengguna image dan kunci SSH yang benar.
-- **UI admin tidak tersedia:** pertahankan penerusan SSH tersambung, periksa status kontainer dan pemetaan port loopback, serta pastikan HTTP diaktifkan hanya untuk terowongan.
+- **Pembuatan VM ditolak:** periksa penagihan, kuota, kapasitas regional, masa berlaku kredensial, dan izin IAM yang tepat. Penulisan firewall Google Cloud perlu izin di luar Compute Network Admin; OS Login wajib organisasi perlu pengaturan konsol yang disetujui.
+- **SSH mengalami timeout:** periksa alamat publik, rute subnet, aturan TCP 22, dan IP sumber ponsel saat ini. Kegagalan autentikasi biasanya memerlukan nama pengguna image dan kunci SSH yang benar.
+- **UI admin tidak tersedia:** pertahankan penerusan SSH, periksa status container dan pemetaan port loopback, serta pastikan HTTP hanya diaktifkan untuk terowongan.
 - **Tidak ada handshake WireGuard:** periksa endpoint klien, UDP 51820 pada kedua lapisan firewall, kunci klien, dan apakah server mendengarkan.
-- **Handshake ada tetapi tanpa lalu lintas:** periksa penerusan/NAT, DNS, tumpang tindih rute, dan `AllowedIPs`. Terowongan penuh IPv4 memakai `0.0.0.0/0`; evaluasi IPv6 secara terpisah. VM tanpa IPv6 upstream tidak dapat menyediakan akses internet IPv6, dan rute khusus IPv4 mungkin membiarkan IPv6 di luar VPN.
+- **Handshake ada tetapi tanpa lalu lintas:** periksa forwarding/NAT, DNS, rute tumpang tindih, dan `AllowedIPs`. Terowongan penuh IPv4 memakai `0.0.0.0/0`; evaluasi IPv6 secara terpisah. VM tanpa IPv6 upstream tidak dapat menyediakan akses internet keluar IPv6, dan rute khusus IPv4 mungkin membiarkan IPv6 di luar VPN.
+
+## Perbarui plugin dan server VPN
+
+Pada **Plugin**, gunakan tindakan **Perbarui** yang tersedia untuk versi kompatibel lebih baru dari katalog yang sama. Tinjau kemampuan baru yang diminta. Pengaturan, kredensial, dan catatan deployment dipertahankan; operasi yang belum selesai memakai versi plugin yang memulainya. Pembaruan plugin saja tidak memperbarui container wg-easy di server.
+
+Pada plugin bridge 1.4.0 atau lebih baru, **Periksa server** melaporkan versi wg-easy yang berjalan dan **Perbarui WireGuard** menawarkan rilis yang dikunci plugin. Setujui pembaruan di layar. Image diunduh sebelum layanan diubah; kunci server, klien, dan profil lokal tetap terjaga. Jika ponsel ini memakai VPN tersebut, aplikasi memutuskannya sebelum pembaruan; hubungkan lagi sesudahnya. Ini memperbarui container yang dikelola, bukan sistem operasi host.
+
+Pembaruan gagal membedakan kegagalan unduhan image, rollback berhasil, dan rollback gagal yang membuat VPN tetap mati. Ikuti pemeriksaan pemulihan atau coba lagi, jangan menganggap layanan sudah pulih. Instalasi manual perlu perubahan image terkunci yang ditinjau sendiri dan cadangan; resep pemasangan baru di atas bukan panduan migrasi.
 
 ## Hapus klien dan hentikan biaya cloud
 
 Cabut klien di wg-easy sebelum membuang profil lokalnya. Menghapus profil di Mobile SSH tidak mencabut kunci peer di server. Cadangkan konfigurasi yang diperlukan secara aman sebelum menghapus kontainer VPN atau data persistennya.
 
-Gunakan plugin penyediaan yang mengelola sumber daya atau konsol penyedia untuk menghapus VM yang tidak diperlukan, lalu periksa disk yang dipertahankan, snapshot, alamat cadangan/publik, dan sumber daya jaringan. Tinjau isi grup sumber daya khusus Azure sebelum menghapusnya. Jangan masukkan sumber daya yang tidak terkait ke penerapan yang dikelola plugin.
+Untuk deployment buatan API, **Hapus deployment** meninjau dan menghapus sumber daya cloud miliknya melalui API penyedia, bahkan ketika SSH tidak tersedia. Periksa sumber daya tersisa yang dilaporkan jika penghapusan dijeda atau gagal; lanjutkan pembersihan atau periksa konsol. Jangan tempatkan sumber daya lain dalam deployment yang dikelola plugin, terutama grup sumber daya Azure khususnya.
 
-Menghentikan VM, membatalkan tugas penyiapan, atau menghapus plugin tidak menjamin sumber daya dihapus atau biaya berhenti. Sumber daya buatan konsol tetap menjadi tanggung jawab Anda untuk dibersihkan; simpan ID sumber daya penyedia sampai penghapusan dikonfirmasi.
+Untuk server buatan konsol atau yang sudah ada, penghapusan plugin menghapus instalasi VPN yang dikelolanya; tindakan ini **tidak** menghapus VM atau IP publik Anda. Hapus keduanya di konsol penyedia saat tidak diperlukan, lalu periksa disk, snapshot, alamat, dan sumber daya jaringan yang tertinggal. Jika pengaturan akun atau lokasi berubah selama pemulihan, periksa juga akun dan lokasi sebelumnya, termasuk proyek Scaleway atau compartment Oracle Cloud terdahulu.
+
+**Hentikan alur** menghentikan operasi, bukan menghapus sumber daya. Pada bridge 1.5.0 atau lebih baru, **Hapus dari daftar** hanya tersedia jika aplikasi dapat memastikan entri layak dilupakan, tanpa operasi belum selesai atau sumber daya terkelola yang tersisa. Tindakan ini membersihkan riwayat lokal, bukan sumber daya cloud. Menghentikan VM atau mencopot plugin juga tidak menjamin biaya berhenti. Simpan ID sumber daya sampai penghapusan dikonfirmasi.

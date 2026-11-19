@@ -28,12 +28,12 @@ export const yue: Dict = {
   home: {
     metaTitle: "Mobile SSH — Android 同 iOS 嘅 SSH 用戶端",
     metaDescription:
-      "Android 同 iOS 嘅 Mobile SSH：SSH 終端、跳板機、tmux、herdr、Zellij、SFTP、VNC 桌面同備份。Android 仲有 VPN 客戶端同安全金鑰。",
+      "適用於 Android 同 iOS 嘅 Mobile SSH：SSH、SFTP、VNC 同工作階段管理器。Android 仲有編程代理聊天、可選語音、提示詞排程同雲端 VPN 設定。",
     eyebrow: "Android 同 iOS 嘅 SSH 用戶端",
     h1: "Mobile SSH",
     intro:
-      "為手機同平板而設嘅 SSH 終端、tmux、herdr、Zellij 管理器、SFTP、VNC 桌面、跳板機同本機隧道。Eternal Terminal 喺斷線時保留遠端 shell。Android 仲有 VPN 客戶端同 USB/NFC 安全金鑰認證。",
-    versionLine: "支援 {count} 種語言 · Android {version} · iOS {iosVersion} 公測版",
+      "專為手機同平板而設嘅 SSH 終端、tmux、herdr 同 Zellij 管理器、SFTP、VNC 桌面、跳板主機同本機隧道。Eternal Terminal 令遠端 shell 喺連線中斷後仍然運作。Android 仲有編程代理聊天、可選語音同提示詞排程、雲端 VPN 設定，以及 USB/NFC 安全金鑰。",
+    versionLine: "{count} 種語言 · Android 原始碼 {version} · iOS {iosVersion} 測試版",
     ctaDocs: "睇說明文件",
     ctaPlay: "喺 Google Play 下載",
     ctaIos: "喺 TestFlight 下載 iOS 公測版",
@@ -43,7 +43,7 @@ export const yue: Dict = {
     advantagesIntro: "針對手機 SSH 用戶端慣常出嘅問題嚟設計。",
     advantages: [
       { title: "冇 Pro 級數，冇廣告", text: "所有功能都喺同一個 App 入面。冇 paywall 將主要功能擺喺 Pro 升級後面，終端機上面亦冇廣告 banner。" },
-      { title: "資料全部留喺手機", text: "儲存嘅伺服器、憑證、金鑰都喺裝置上面。冇雲端帳號，唔會有人關咗佢。" },
+      { title: "憑證留喺你嘅裝置", text: "儲存嘅伺服器同憑證都留喺你嘅裝置。Mobile SSH 唔強制開帳戶，亦冇雲端憑證庫；連接嘅伺服器同雲端帳戶仍然係你嘅。" },
       { title: "儲存主機，一撳就連", text: "主機加一次，下次搜尋撳一下就再連 —— 連金鑰、連接埠同已設定好嘅通道都齊。" },
       { title: "代理提示，一撳就答到", text: "Claude Code、Codex 或者其他代理一需要你，你即刻知：個窗格會變琥珀色，工具列個徽章會數住有幾多個等緊你，喺 Agents 清單一撳就答到個提問 —— 唔使喺終端機度打字。" },
       { title: "鍵盤上面嘅終端機按鍵", text: "十三個鍵嘅一行 —— ESC、TAB、CTRL、方向鍵、Home、End、PgUp、PgDn —— 唔夠位嗰陣會換去第二行，而唔係要滑動，所以冇按鍵會匿埋喺畫面外。仲可以由預設面板加入 F1–F12、Ctrl 組合鍵，或者你自己嘅跳脫序列。" },
@@ -62,13 +62,13 @@ export const yue: Dict = {
       { title: "伺服器資料夾同名稱", text: "將已儲存嘅伺服器整理入可摺疊嘅群組，仲可以幫伺服器改個名，清單就顯示個名而唔係位址。一旦個名會有歧義，位址就會自動走返出嚟，所以每一行都唔會撈亂。" },
       { title: "代理提示", text: "代理會經終端機報告自己，所以個 App 知道邊個卡住咗、卡喺乜嘢。喺 Agents 清單一撳就答到；提示係取代而唔會疊埋一堆，撳一下就會打開響嗰個窗格。" },
       { title: "私鑰", text: "用密碼或者私鑰登入，喺裝置產生 Ed25519 或 ECDSA（Android 亦有 RSA）。Android 仲支援 USB/NFC FIDO2 金鑰同按伺服器開啟嘅 SSH 代理轉發。" },
-      { title: "SFTP 傳輸", text: "同使用中 SSH 工作階段綁定嘅雙窗格檔案瀏覽器。將上載同下載排隊，重新命名、刪除，並查看遠端權限。" },
+      { title: "SFTP 傳輸", text: "瀏覽本機同遠端檔案、排隊傳輸、重新命名、刪除同檢查權限。Android 可以繼續、重試或重新開始失敗嘅傳輸，亦可以喺終端頂部跟進上載。" },
       { title: "連接埠轉發", text: "將本機通道規格同伺服器設定檔一齊儲存，連線時就會自動開 —— 就算喺新網絡上重連之後都會返嚟，唔使你自己再手動起過。" },
       { title: "重連工作流", text: "一轉網絡，工作階段就即刻重撥，唔使等死咗嘅路由逾時；正喺退避等候嘅工作階段，一有可用網絡就即刻醒返。喺 iOS，靜靜雞停咗回應嘅伺服器都會俾偵測到並重新連線。" },
       { title: "備份與還原", text: "備份伺服器、憑證同設定，可揀密碼加密並預覽合併／取代。Android 包括 VPN 設定；目前兩個平台共用格式，支援嘅平台專用設定都會保留。" },
       { title: "Eternal Terminal", text: "用 Eternal Terminal（ET）連線，令工作階段喺斷網、休眠同 IP 轉變之間都唔斷 —— 仲可以選擇經 SSH 自動裝好 etserver。" },
       { title: "多工器管理器", text: "兩個平台用 tmux、herdr 同 Zellij 管理器附加、改名、建立、分割、縮放或結束工作階段。共用工具列掣開可用管理器，儲存伺服器可揀連線時附加邊個。" },
-      { title: "插件", text: "按類別瀏覽、搜尋同篩選插件，再安裝需要嘅流程。下載經 SHA-256 驗證後放喺應用程式私有空間。" },
+      { title: "插件", text: "瀏覽同安裝經校驗和驗證嘅外掛。Android 可以由原本目錄更新外掛並保留設定同資料，設定精靈嘅變更要先檢視再批准。" },
       {
         "title": "伺服器身份同跳板機",
         "text": "兩個平台都可經儲存堡壘機連伺服器。認證前檢查金鑰，變咗就擋。Android 可自動固定新金鑰或先問；iOS 要確認未知金鑰。"
@@ -79,7 +79,19 @@ export const yue: Dict = {
       },
       {
         "title": "Android VPN 客戶端",
-        "text": "由主畫面管理 SSH VPN、本機 SOCKS5、WireGuard、Shadowsocks 同 OpenVPN。揀設定開始路由，用 Mobile SSH VPN 快速設定磚塊停低或恢復。"
+        "text": "管理 SSH VPN、SOCKS5、WireGuard、Shadowsocks 同 OpenVPN 設定檔，亦可用快速設定圖塊控制 VPN。可選嘅 VPN Setup 外掛會帶你建立自己嘅雲端 WireGuard 伺服器。"
+      },
+      {
+        "title": "Android 編程代理聊天",
+        "text": "閱讀同回覆現有 Claude Code 或 Codex 對話，支援格式化回覆、可複製程式碼同附件。聊天同終端共用草稿，唔會啟動或重新啟動代理。"
+      },
+      {
+        "title": "提示詞範本排程",
+        "text": "Android 實驗性功能，預設關閉：喺自己伺服器安排 Claude Code 或 Codex 唯讀工作。可以檢視結果、即刻執行、暫停或移除伺服器排程。"
+      },
+      {
+        "title": "按你嘅方式用語音",
+        "text": "Android 實驗性語音提供發送前可檢視嘅「訊息」模式同「即時」對話。喺支援嘅手機用 Gemma 4，或者喺自己嘅 Linux SSH 伺服器運行語音服務。"
       }
     ],
     multiHead: "一個畫面，幾個使用中嘅 Shell",
@@ -194,16 +206,24 @@ export const yue: Dict = {
     compareGuideTitle: "對比指南",
     compareGuideText: "喺你嘅電話或者平板上幾時揀 Mobile SSH、Termux 定 Termius。",
     privacyTitle: "私隱政策",
-    privacyText: "睇吓邊啲連線資料留喺本機，邊啲會送去你嘅伺服器。"
+    privacyText: "睇吓邊啲連線資料留喺本機，邊啲會送去你嘅伺服器。",
+    vpnHead: "喺自己嘅雲端帳戶運行 VPN",
+    vpnBody: "喺兼容嘅 Android 版本，VPN Setup 外掛可以建立雲端伺服器、安裝 wg-easy 同匯入 WireGuard 用戶端，亦可以用現有公網伺服器。每項變更都喺手機檢視。資源屬於你嘅雲端帳戶，運行費用亦由你負責。",
+    vpnAlt: "Mobile SSH VPN 宣傳片，先展示雲端設定同用戶端管理示範畫面，再展示網絡示意圖同加密 DNS 嘅注意事項",
+    vpnCaption: "一分鐘宣傳片，結合示範介面同網絡示意圖，畫面文字係英文。呢段唔係實際部署過程嘅錄影。",
+    vpnTranscriptLabel: "閱讀場景說明",
+    vpnTranscript: "影片展示選擇包括 Hetzner 在內嘅雲端供應商、管理 WireGuard 用戶端、連接手機 VPN 設定檔同開啟已儲存主機。網絡示意圖展示 WireGuard 傳送流量同 SSH 連接私人裝置。DNS 場景指出加密 DNS 要另外設定，而解析器睇得到查詢。呢啲係示意例子，唔代表建立 VPN 就一定會自動連通所有私人網絡。片尾訊息係：你嘅雲端，你嘅 VPN。",
+    vpnCtaGuide: "設定你嘅 VPN",
+    vpnCtaProviders: "選擇雲端供應商"
   },
   features: {
     metaTitle: "功能 | Mobile SSH",
     metaDescription:
-      "了解 Mobile SSH 喺 Android 同 iOS 嘅終端、遠端 Git 工具、即時通訊埠轉發、VPN 客戶端、SFTP、VNC 同工作階段管理器，以及 Android 實驗性語音助手。",
+      "Mobile SSH 提供終端、編程代理聊天、檔案傳輸、VPN 設定同工作階段管理器，亦有實驗性 Android 語音同提示詞範本排程。",
     eyebrow: "功能清單",
     h1: "Mobile SSH 功能",
     intro:
-      "用 SSH 終端、遠端 Git 工具、SFTP、VNC、VPN 客戶端同工作階段管理器，由 Android 或 iOS 連接伺服器。Android 仲支援硬件安全金鑰同實驗性語音助手；下面標明各平台專用功能。",
+      "用 SSH、遠端 Git 工具、SFTP、VNC、VPN 用戶端同工作階段管理器連接你嘅伺服器。Android 仲提供編程代理聊天、雲端 VPN 設定精靈，以及實驗性語音同提示詞排程。下面會標明個別平台功能同要求。",
     groups: [
       {
         title: "平台",
@@ -239,7 +259,7 @@ export const yue: Dict = {
         title: "終端機",
         items: [
           "VT100/xterm-256color 終端機行為，支援 24-bit 真彩色同斜體 —— 會向 shell 報 TERM=xterm-256color 同 COLORTERM=truecolor",
-          "捲動緩衝區喺 Android 同 iOS 可以設做 1,000、5,000、10,000 或者 50,000 行（預設 5,000）",
+          "可揀 1,000、5,000、10,000 或 50,000 行回捲記錄，預設 5,000 行。Android 亦限制每個窗格嘅記憶體，所以設定較大都可能只保留較少行；改動會套用到新窗格",
           "終端機內尋找 —— 搜尋捲動緩衝區同可見畫面，並喺各個匹配之間跳轉（Android 同 iOS）",
           "Shell 整合（OSC 133）：喺各個提示符之間逐個跳、揀選成段指令輸出 —— 譬如 300 行之前嗰個 build 錯誤，唔止係最後嗰個 —— 仲會喺長時間指令完成時提示你（Android 同 iOS）",
           "終端機內經 Kitty graphics protocol 內嵌顯示圖片，捏住縮放同重新換行之後圖片都仲喺度，唔會消失（Android 同 iOS）",
@@ -251,7 +271,7 @@ export const yue: Dict = {
           "撳一下聚焦、可選嘅「撳一下顯示鍵盤」、複製同全部複製",
           "捏住調文字大細，連同遠端終端機重設大細",
           "雙撳窗格入全螢幕模式",
-          "終端機文字選擇連 Copy、Share、Select all —— 長撳選取詞語，Copy 之後仍會保留選取，方便分享或者重新複製",
+          "長按選取終端文字，再複製、貼上、分享或者全選。Android 會喺選取工具列保留複製同貼上，唔會改變窗格大小；窄螢幕會用圖示",
           "OSC 52 剪貼簿 —— 由遠端 tmux 或者 vim 工作階段直接將文字複製到電話剪貼簿（Android 同 iOS）",
           "兩個平台支援實體鍵盤同聽寫；iOS 預設開聽寫同建議，連自動更正。關閉可用直接終端輸入",
           "Android 同 iOS 都支援外接同 Bluetooth 鍵盤，包括方向鍵、功能鍵同 Ctrl/Alt 組合鍵",
@@ -259,11 +279,11 @@ export const yue: Dict = {
           "內置嘅 Nerd Font 喺 Android 同 iOS 上顯示 powerline、starship、devicon 同 Material Design 圖示字形 —— 系統字型本來會將佢哋顯示成空白方格",
           "寬 CJK、emoji 同組合字元喺 Android 同 iOS 上會正確量度同繪製，包括字素叢集（grapheme clusters）同零寬連接符（zero-width joiners）",
           "可設定嘅終端機字型（系統等寬字型、JetBrains Mono 或 Source Code Pro）同 ANSI 配色（Solarized、Gruvbox、Dracula、Nord），喺 Android 同 iOS 上即時套用到開住嘅窗格",
-          "設定入面除咗捏住縮放，仲有終端機文字大細滑桿，App 主題亦可以設做 System、Light 或者 Dark",
+          "喺設定或者用雙指縮放調整終端字體大小。Android 預設令終端顏色跟隨應用程式主題；關閉「終端配合應用程式主題」就可以固定配色",
           "連線速度同停頓標記分清繁忙指令同冇回應連線，可選調暗同震動",
           "設定控制遠端通知、完成提示同讀取剪貼簿，呢啲權限預設關閉",
           "終端遊戲可以喺 Android 同 iOS 主動啟用方向滑動，將手指滑動變成方向鍵；預設仍然係一般捲動",
-          "喺 Android，可以重新排列或隱藏工作階段工具列操作、加入已安裝插件嘅捷徑，同埋選擇全螢幕時隱唔隱藏工具列同額外按鍵"
+          "Android 可以喺「頂部圖示」重排或隱藏工具列操作，加入已安裝外掛嘅捷徑。「搜尋」同「遠端桌面」預設隱藏。全螢幕時工具列預設隱藏，額外按鍵會繼續顯示；兩者可分開設定"
         ]
       },
       {
@@ -279,18 +299,19 @@ export const yue: Dict = {
           "兩個平台追蹤 tmux 指令同提供重新附加提示，每台可揀自動、唔附加、tmux、herdr 或 Zellij；轉 tmux socket 會保留工作階段身份",
           "代理會經終端機報告自己，所以個 App 知道係邊個代理、佢跑緊咩工具、又係咪卡住等緊你 —— 個窗格會變琥珀色，標題會寫住「claude · needs you」，工具列個徽章會數住有幾多個等緊你",
           "喺 Agents 清單一撳就答到代理嘅問題；回覆行另一條通道，所以永遠唔會打落你畫面上面嗰啲嘢度",
-          "可以喺 App 入面將 agent hook 裝落伺服器 —— 佢係一個任何代理都調用得到嘅細細 shell 腳本，唔係綁死某個供應商嘅整合",
+          "代理整合喺你嘅伺服器運行。Android 聊天可安裝 Claude Code 或 Codex 生命週期掛鈎；iOS 喺「代理提示」設定提供「安裝代理掛鈎」",
           "Eternal Terminal（ET）傳輸令工作階段喺斷網、休眠同 IP 轉變之間都唔斷，仲可以選擇經 SSH 自動裝好 etserver",
           "Tmux 管理器：列出並切換工作階段、視窗同窗格 —— attach、重新命名、新建、分割、放大或者 kill，可按名稱／日期排序，🔔 標示等緊輸入嘅代理",
           "一個多工器工具列掣開 tmux、herdr 同 Zellij；Herdr 有窗格預覽、聚焦同回覆，Zellij 支援執行緊同已退出工作階段",
-          "搜尋已載入嘅 tmux、herdr 同 Zellij 工作階段、socket、視窗／分頁同窗格，符合結果會保留上層結構；唔會搜尋未開啟嘅遠端分支"
+          "搜尋已載入嘅 tmux、herdr 同 Zellij 工作階段、socket、視窗／分頁同窗格，符合結果會保留上層結構；唔會搜尋未開啟嘅遠端分支",
+          "Android tmux 清理會移除已停止伺服器留下嘅 socket，並忘記檔案已消失嘅已儲存 socket；仍有 tmux 伺服器監聽嘅 socket 會保留"
         ]
       },
       {
         title: "檔案同通道",
         items: [
           "本機同遠端雙窗格 SFTP 瀏覽器，仲有一個會列出每一次傳輸、可以捲動嘅傳輸日誌",
-          "上傳同下載可以排隊；Android 可以將檔案分享到 Mobile SSH。iOS 分享延伸功能會上傳去最近一次成功連線嘅伺服器，並將已完成上傳嘅路徑排隊插入相符嘅終端",
+          "將上載同下載排隊，亦可分享檔案去 Mobile SSH。Android 用已開啟嘅終端，重新連線後可繼續上載；iOS 分享延伸功能會上載去最近成功連接嘅伺服器",
           "喺手機同遠端主機之間遞迴上載同下載成個資料夾",
           "遠端重新命名、刪除、新增、編輯、壓縮做 .tar.gz、權限（chmod/chown）同詳細資料",
           "兩個平台都可以用另一個 App 開啟已下載嘅檔案 —— 喺 iOS，下載嘅檔案仲會喺「檔案」App 嘅 On My iPhone 入面見到",
@@ -300,7 +321,9 @@ export const yue: Dict = {
           "本機連接埠轉發隨伺服器設定檔一齊儲存，連線時自動開起",
           "整個 App 同檔案瀏覽器都會跟隨系統嘅淺色或者深色主題 —— 喺 Android 同 iOS 都可以揀 System、Light 或者 Dark",
           "喺 Android 同 iOS 嘅連線中工作階段新增、編輯或移除本機通訊埠轉發；重連後仍然保留改動，唔會改寫已儲存嘅伺服器設定",
-          "iOS 上傳附件會先核實傳輸完成同檔案大小，先至確定最終檔名或插入路徑，已有檔案會保留"
+          "iOS 上傳附件會先核實傳輸完成同檔案大小，先至確定最終檔名或插入路徑，已有檔案會保留",
+          "Android 傳輸失敗時提供繼續、重試、重新開始同全部重試，續傳前會檢查已有嘅部分資料。下拉檔案清單可以重新整理",
+          "Android 終端上載會喺頂部顯示進度、速度、等候或停滯狀態同停止操作；分享檔案會沿用已開啟嘅終端視窗"
         ]
       },
       {
@@ -333,11 +356,13 @@ export const yue: Dict = {
       {
         title: "插件",
         items: [
-          "按類別瀏覽同搜尋、安裝、執行插件；轉來源會刷新目錄",
+          "瀏覽、搜尋、安裝同執行目錄外掛。原本目錄有較新嘅兼容版本時，Android 會顯示「更新至」，並保留外掛設定同資料",
           "插件由公開目錄按需下載，經 SHA-256 驗證後放入 App 專屬儲存",
           "插件要聲明佢需要乜嘢 —— SSH 指令、通道、儲存空間 —— 冇聲明過嘅嘢，個 App 一律唔畀",
-          "當插件要喺你部伺服器上面裝嘢，你會先見到確實嘅指令，你批准咗佢先會執行",
-          "可以配置自訂或者私人目錄來源，亦可以由你自己伺服器上面嘅資料夾安裝"
+          "伺服器變更執行前要先檢視同批准。Android 設定流程有清楚標示嘅審閱區塊，亦可睇原始詳情，並支援暫停同繼續",
+          "可以配置自訂或者私人目錄來源，亦可以由你自己伺服器上面嘅資料夾安裝",
+          "Android 外掛更新唔會降級版本，新增存取權會先問你；未完成流程保留最初啟動佢嘅外掛版本",
+          "兼容 Android 版本嘅 VPN Setup 可以建立雲端 VM 或用現有公網 Ubuntu 伺服器，安裝 wg-easy 同匯入用戶端。雲端憑證透過受保護原生表格輸入；設定變更要批准"
         ]
       },
       {
@@ -373,7 +398,7 @@ export const yue: Dict = {
         title: "應用程式內瀏覽器",
         items: [
           "喺 Android 同 iOS 嘅 Mobile SSH 入面開轉發嘅 HTTP 或 HTTPS 服務；HTTPS 仍然要有效證書",
-          "Android 仲有終端連結操作、頁面搜尋、書籤、歷史、桌面模式同每個網站獨立嘅瀏覽器偏好設定"
+          "Android「應用程式內瀏覽器」預設關閉，可喺「設定 → 一般」啟用。佢提供終端連結操作、頁面搜尋、書籤、歷史記錄、桌面模式同個別網站偏好設定"
         ]
       },
       {
@@ -381,7 +406,28 @@ export const yue: Dict = {
         items: [
           "預設關閉；喺設定啟用。Gemma 4 可以直接喺手機上運行：由 Hugging Face 下載一次模型，語音就留喺裝置上，唔使語音伺服器",
           "問伺服器或者畫面上嘅嘢，打開伺服器同工作階段，聽編程代理嘅回覆，或者向佢口述提示詞；一小份唯讀檢查清單以外嘅指令都要你同意",
-          "或者喺你自己嘅 Linux SSH 伺服器運行語音服務，用訊息或即時對話使用伺服器助手、Codex 或 Claude；向終端輸入或更改多工器要另外啟用"
+          "或者喺你自己嘅 Linux SSH 伺服器運行語音服務，用訊息或即時對話使用伺服器助手、Codex 或 Claude；向終端輸入或更改多工器要另外啟用",
+          "Gemma 要用受支援嘅 64 位元手機，並另外下載約 2.6–3.7 GB 模型。計流量下載要確認；Wi-Fi 下載切換去計流量連線會暫停",
+          "可以由語音頁面、通知或者耳機播放鍵繼續暫停嘅對話。因其他應用程式佔用音訊而暫停，會喺該音訊結束後恢復"
+        ]
+      },
+      {
+        "title": "編程代理聊天（Android）",
+        "items": [
+          "為伺服器上已經運行嘅 Claude Code 或 Codex 對話開啟聊天；可以跟住目前 tmux 窗格，或者按標題搜尋同選擇對話",
+          "格式化回覆有可複製程式碼、表格、工作清單同連結。你嘅提示詞會醒目顯示，並可跳去上一條或下一條",
+          "聊天同終端輸入共用草稿。安裝提供嘅代理掛鈎後，可以發送提示詞同附加檔案；仍可能要確認提供者信任或重新載入",
+          "聊天會喺伺服器安裝小型輔助程式，需要 Python 3.8 或更新版本。佢唔會啟動或重新啟動編程代理"
+        ]
+      },
+      {
+        "title": "提示詞範本（實驗性，Android）",
+        "items": [
+          "預設關閉：啟用「設定 → 一般 → 提示詞範本」，再喺首頁或已儲存伺服器選單開啟「提示詞」",
+          "儲存提示詞、伺服器、專案資料夾、Claude Code 或 Codex 同時區；可每日、平日、指定日子或每 1–12 小時執行",
+          "工作係唯讀，伺服器要有 Python 3.8 或更新版本、cron 同已登入嘅代理。應用程式會安裝輔助程式同一條 crontab 記錄",
+          "透過 SSH 同步範本同結果、檢視輸出同狀態，或者揀即刻執行、暫停同從伺服器移除。已下載 Gemma 模型可以起草或修改提示詞",
+          "範本喺手機加密儲存，唔包含喺備份。關閉功能唔會停止伺服器排程；要先喺伺服器移除"
         ]
       }
     ],
@@ -405,7 +451,7 @@ export const yue: Dict = {
     rows: [
       {
         need: "主要用途",
-        mobileSsh: "兩個平台有 SSH、SFTP、VNC、跳板機同多工器；Android 有 VPN 客戶端同 FIDO2 安全金鑰。",
+        mobileSsh: "SSH、SFTP、VNC、跳板主機同多工管理器；Android 仲有編程代理聊天、雲端 VPN 設定精靈、安全金鑰、可選語音同提示詞排程。",
         termux: "帶 APT 套件嘅 Android 終端機模擬器同 Linux 環境。",
         termius: "面向 Android、iOS、桌面同網頁化團隊工作流程嘅現代 SSH 用戶端。"
       },
@@ -417,7 +463,7 @@ export const yue: Dict = {
       },
       {
         need: "流動終端機控制",
-        mobileSsh: "額外按鍵、網格工作階段、全螢幕窗格、捏合縮放、複製分享、滑鼠同外接鍵盤。iOS 可關聽寫同建議，用直接輸入。",
+        mobileSsh: "額外按鍵、網格、全螢幕、雙指縮放、剪貼簿控制同外接鍵盤。Android 全螢幕時預設保留額外按鍵。iOS 可以關閉「聽寫與建議」嚟直接輸入。",
         termux: "終端機環境好強大；行為睇你裝咗咩工具同點配置。",
         termius: "手機鍵盤插件、手勢、分頁、自動完成、snippet，仲有打磨過嘅終端機 UX。"
       },

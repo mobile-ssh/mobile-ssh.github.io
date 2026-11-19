@@ -17,8 +17,8 @@ Mobile SSH adalah klien SSH untuk Android dan iOS untuk terhubung ke server Linu
 
 ## Memasang aplikasi
 
-- **Android:** Mobile SSH saat ini berupa uji tertutup (closed test) di Google Play. Buka tautan pendaftaran di peramban ponsel pada perangkat — bukan di dalam aplikasi Google Play, karena uji tersebut mungkin tidak terlihat di sana — lalu ikut serta dengan akun Google yang akan Anda pakai. Setelah itu aplikasi terpasang dan diperbarui dari Play seperti aplikasi lain.
-- **iOS:** aplikasi iOS hadir sebagai beta publik di TestFlight. Pasang aplikasi TestFlight dari Apple, lalu buka tautan undangan Mobile SSH dari halaman beranda situs untuk memasang dan menerima pembaruan.
+- **Android:** pasang Mobile SSH dari Google Play melalui tautan di beranda. Ketersediaan bergantung pada jalur rilis. Jika mengikuti pengujian tertutup, buka tautan pendaftarannya di browser dan bergabung dengan akun Google yang digunakan di Play.
+- **iOS:** aplikasi iOS tersedia sebagai beta publik di TestFlight. Pasang aplikasi TestFlight Apple, lalu buka tautan undangan Mobile SSH dari beranda situs untuk memasang dan menerima pembaruan.
 
 ## Terhubung ke server
 
@@ -87,7 +87,7 @@ Untuk menggunakan kunci privat:
 3. Masukkan frasa sandi kunci di kolom kata sandi/frasa sandi jika kunci terenkripsi.
 4. Simpan kredensial atau server.
 
-Impor kunci menggunakan pemilih sistem, tanpa memberi akses ke penyimpanan lainnya. Transfer berkas memiliki pilihan folder dan berkas sendiri.
+Impor kunci privat menggunakan pemilih file sistem. Android menolak file kunci yang lebih besar dari 64 KB. Impor tidak memberikan akses ke penyimpanan lainnya; transfer file memiliki pilihan folder dan filenya sendiri.
 
 Android mendukung **kunci FIDO2** lewat USB/NFC: daftarkan atau impor kredensial OpenSSH lalu ikuti sentuhan/PIN. Kunci fisik masih diperlukan setelah ekspor/pemulihan. **Penerusan agen SSH** diaktifkan per server: kredensial tersimpan menjawab permintaan tanda tangan dengan persetujuan opsional tiap penggunaan. Aktifkan hanya bagi server yang dipercaya meminta tanda tangan. iOS tidak mendukung autentikasi kunci fisik atau penerusan agen.
 
@@ -121,6 +121,8 @@ Keduanya membaca format 2 dan inventaris lama. Tinjau pratinjau: **Gabungkan** m
 
 Identitas, sesi aktif, izin sistem dan akses folder tidak dipulihkan. Verifikasi host dan beri akses lokal pada perangkat tujuan. Versi lama tidak membaca format lengkap baru.
 
+Cadangan Android juga tidak menyertakan templat prompt beserta draf editornya, model yang diunduh, setelan host suara, kredensial cloud VPN Setup, serta cache Chat atau eksekusi prompt. Atur kembali semua ini di ponsel baru; cadangan tidak memindahkan atau menghapus jadwal yang sudah dipasang di server.
+
 ## Sesi aktif
 
 Saat sesi berjalan, **Sesi aktif** menampilkan jumlah dan membuka kisi terminal. Di Android, notifikasi tetap juga mencantumkan host dan membuka kontrol koneksi.
@@ -131,13 +133,39 @@ Kembali ke layar beranda tidak memutus sesi SSH aktif; menutup panel atau mengak
 
 Buka **Settings** dari layar beranda (tersedia di halamannya sendiri):
 
-- Tentukan apakah mengetuk terminal memunculkan keyboard. Kedua platform datang dengan bawaan yang berlawanan: di Android keyboard hanya muncul dari tombol ⌨, di iOS satu ketukan memunculkannya.
-- Atur **ukuran teks**, **font**, **skema warna**, dan ukuran **scrollback** terminal, lalu pilih **tema** aplikasi (Sistem, Terang, atau Gelap).
-- Aktifkan **Agent alerts** jika Anda menjalankan tugas latar belakang yang lama (Claude Code, Codex, skrip shell) dan ingin diberi tahu saat agen membutuhkan input Anda. Lihat panduan **Terminal** untuk cara agen melaporkan dirinya.
-- Di Android, **Keep sessions running in background** aktif secara bawaan, sehingga shell dan agen tetap bertahan setelah Anda menggeser aplikasi dari daftar terkini.
-- Kedua platform memiliki sakelar analitik anonim. Mematikannya menghentikan pengumpulan peristiwa baru.
-- Di iOS, **Dikte dan saran** aktif secara bawaan. Matikan dan buka panel baru untuk masukan langsung tanpa dikte/koreksi.
-- Notifikasi jarak jauh, perintah selesai dan pembacaan papan klip jarak jauh memerlukan izin terpisah. Aktifkan hanya yang diinginkan.
+- Tentukan apakah mengetuk terminal akan membuka keyboard. Kedua platform memiliki bawaan yang berlawanan: di Android keyboard hanya muncul melalui tombol ⌨, sedangkan di iOS ketukan akan membukanya.
+- Atur **ukuran teks**, **font**, **skema warna**, dan ukuran **riwayat gulir** terminal, lalu pilih **tema** aplikasi (Sistem, Terang, atau Gelap).
+- Aktifkan **Peringatan agen** jika menjalankan tugas latar belakang yang lama (Claude Code, Codex, skrip shell) dan ingin diberi tahu ketika agen memerlukan masukan. Lihat panduan **Terminal** untuk cara agen melaporkan statusnya.
+- Di Android, **Pertahankan sesi berjalan di latar belakang** aktif secara bawaan, sehingga shell dan agen tetap berjalan saat aplikasi disingkirkan dari daftar aplikasi terbaru.
+- Kedua platform memiliki sakelar analitik penggunaan anonim di Setelan. Menonaktifkannya menghentikan pengumpulan peristiwa baru.
+- Di iOS, **Dikte & saran** aktif secara bawaan. Nonaktifkan dan buka panel baru jika menginginkan input terminal langsung tanpa dikte atau koreksi otomatis.
+- Notifikasi jarak jauh, peringatan perintah selesai, dan pembacaan papan klip jarak jauh merupakan setelan terpisah yang harus diaktifkan. Aktifkan hanya tindakan jarak jauh yang Anda inginkan.
+- Di Android, **Asisten suara**, **Templat prompt**, dan **Browser Dalam Aplikasi** bersifat opsional dan nonaktif secara bawaan. Suara memiliki halaman Setelan sendiri; dua lainnya berada di **Umum**.
+
+## Asisten suara di Android
+
+Asisten suara bersifat eksperimental dan nonaktif secara bawaan. Asisten dapat menggunakan Gemma 4 di ponsel 64-bit yang didukung atau layanan suara di server SSH Linux milik Anda sendiri.
+
+1. Buka **Setelan → Asisten suara** dan aktifkan asisten.
+2. Untuk pemrosesan ucapan lokal, aktifkan **Gunakan Gemma di ponsel ini (tanpa server suara)**, pilih model yang ditawarkan, lalu ketuk **Unduh**. Sebagai alternatif, pilih host suara Linux tersimpan dan ikuti penyiapan layanan; layanan memerlukan Python 3.11–3.13, layanan pengguna systemd, dan ruang kosong beberapa GB.
+3. Mulai percakapan suara untuk terminal yang ingin dikendalikan. Pilih **Pesan** untuk merekam, meninjau, dan mengirim, atau **Langsung** untuk percakapan tanpa menggunakan tangan dengan balasan bersuara. Alamat server suara khusus menggunakan mode Langsung.
+4. Tinjau perintah yang diusulkan sebelum mengonfirmasi. Gemma dapat menjalankan daftar singkat pemeriksaan hanya-baca tanpa konfirmasi; perintah di luar daftar tersebut serta prompt untuk Claude Code atau Codex memerlukan konfirmasi atau **Kirim**.
+
+Model ponsel mengunduh sekitar 2.6–3.7 GB dari Hugging Face hanya setelah Anda mengetuk Unduh. Unduhan melalui koneksi berkuota memerlukan konfirmasi, dan unduhan yang dimulai lewat Wi-Fi dijeda jika koneksi menjadi berkuota. Dengan Gemma, ucapan tetap di ponsel; opsi server mengirim audio ke layanan suara yang dikonfigurasi. Izin mikrofon diminta saat Anda menggunakan fitur suara. Jika suara sintesis offline belum tersedia, aplikasi menawarkan pengunduhannya melalui mesin suara ponsel.
+
+Jika aplikasi lain mengambil alih fokus audio atau headset mengirim Hentikan, percakapan dijeda dengan mode dan konteks tetap tersimpan. Gunakan **Lanjutkan percakapan** di halaman Suara atau notifikasi, atau tekan Putar pada headset. Jeda yang disebabkan audio aplikasi lain berakhir saat audio tersebut selesai.
+
+## Templat prompt di Android
+
+Templat prompt bersifat eksperimental dan nonaktif secara bawaan. Fitur ini menjadwalkan eksekusi hanya-baca Claude Code atau Codex di server Anda sendiri. Server memerlukan Python 3.8 atau lebih baru, cron, serta agen pemrograman yang sudah masuk ke akun.
+
+1. Aktifkan **Setelan → Umum → Templat prompt**.
+2. Buka **Prompt** di Beranda atau entri templat prompt dalam menu server tersimpan.
+3. Buat templat dengan prompt, server, folder proyek, dan Claude Code atau Codex. Pilih zona waktu dan jadwalkan eksekusi setiap hari, hari kerja, hari pilihan, atau setiap 1–12 jam.
+4. Simpan templat, lalu hubungkan ke servernya untuk menyinkronkan. Mobile SSH memasang helper kecil dan satu entri crontab; jadwal berjalan di server meskipun ponsel terputus.
+5. Tinjau keluaran dan status setiap eksekusi, atau pilih **Jalankan sekarang**, **Jeda**, atau **Hapus dari server**.
+
+Templat dan draf editor dienkripsi di ponsel dan tidak disertakan dalam cadangan. Model Gemma yang sudah diunduh dapat membantu membuat dan merevisi prompt. Menonaktifkan fitur menyembunyikan kontrolnya dan menghentikan sinkronisasi di sisi ponsel; tindakan ini tidak menghentikan atau menghapus jadwal yang sudah dipasang di server. Jeda atau hapus jadwal tersebut terlebih dahulu di Templat prompt.
 
 ## Plugin
 
@@ -148,6 +176,8 @@ Plugin memperluas Mobile SSH dengan alur kerja tambahan. Buka **Plugins** dari l
 - Menjalankan plugin terpasang dari layar yang sama.
 
 Secara bawaan plugin diambil dari katalog publik. Jika Anda mengelola katalog sendiri, Anda dapat mengarahkan Mobile SSH ke sumber katalog khusus atau privat. Hanya pasang plugin dari sumber yang Anda percayai.
+
+Di Android, plugin katalog menampilkan **Perbarui ke** saat versi lebih baru tersedia. Pembaruan menggunakan katalog asal, mempertahankan pengaturan dan data plugin, serta meminta persetujuan jika memerlukan akses tambahan. Pembaruan tidak menurunkan versi yang sudah terpasang.
 
 ## Bahasa
 

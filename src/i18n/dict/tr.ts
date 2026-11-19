@@ -28,12 +28,12 @@ export const tr: Dict = {
   home: {
     metaTitle: "Mobile SSH — Android ve iOS için SSH istemcisi",
     metaDescription:
-      "Android ve iOS için Mobile SSH: SSH terminalleri, atlama sunucuları, tmux, herdr, Zellij, SFTP, VNC masaüstleri ve yedekler. Android ayrıca VPN ve güvenlik anahtarları sunar.",
+      "Android ve iOS için Mobile SSH: SSH, SFTP, VNC ve oturum yöneticileri. Android ayrıca kodlama ajanı Sohbeti, isteğe bağlı ses, istem zamanlamaları ve bulut VPN kurulumu sunar.",
     eyebrow: "Android ve iOS için SSH istemcisi",
     h1: "Mobile SSH",
     intro:
-      "Telefon ve tabletler için SSH terminalleri, tmux, herdr, Zellij yöneticileri, SFTP, VNC masaüstleri, atlama sunucuları ve yerel tüneller. Eternal Terminal kesintilerde uzak kabuğu canlı tutar. Android VPN ve USB/NFC güvenlik anahtarıyla girişi de içerir.",
-    versionLine: "{count} dilde mevcut · Android {version} · iOS {iosVersion} beta",
+      "Telefonlar ve tabletler için SSH terminalleri, tmux, herdr ve Zellij yöneticileri, SFTP, VNC masaüstleri, atlama sunucuları ve yerel tüneller. Eternal Terminal, kesintilerde uzak kabukları çalışır tutar. Android ayrıca kodlama ajanı Sohbeti, isteğe bağlı ses ve istem zamanlamaları, bulut VPN kurulumu ve USB/NFC güvenlik anahtarları sunar.",
+    versionLine: "{count} dil · Android kaynak sürümü {version} · iOS {iosVersion} beta",
     ctaDocs: "Belgeleri oku",
     ctaPlay: "Google Play'den indirin",
     ctaIos: "iOS betasını TestFlight'tan edinin",
@@ -43,7 +43,7 @@ export const tr: Dict = {
     advantagesIntro: "Mobil SSH istemcilerinin tipik olarak takıldığı noktalar düşünülerek tasarlandı.",
     advantages: [
       { title: "Pro seviyesi yok, reklam yok", text: "Tüm özellikler aynı uygulamada. Temel akışları bir Pro yükseltmesinin ardına saklayan bir paywall yok, terminalde reklam afişi yok." },
-      { title: "Verileriniz cihazınızda kalır", text: "Kaydedilen sunucular, kimlik bilgileri ve anahtarlar cihazda saklanır. Bulut hesabı yok; kapatılacak bir şey yok." },
+      { title: "Kimlik bilgileri cihazınızda", text: "Kaydedilen sunucular ve kimlik bilgileri cihazınızda kalır. Mobile SSH hesap veya bulut kasası gerektirmez; bağlandığınız sunucular ve bulut hesapları size ait olmaya devam eder." },
       { title: "Kayıtlı sunucular, arayarak bağlan", text: "Sunucuyu bir kez ekleyin, arayın ve dokunarak bağlanın — anahtar, port ve tüneller birlikte gelir." },
       { title: "Ajan uyarıları ve tek dokunuşla yanıt", text: "Claude Code, Codex veya başka bir ajanın size ihtiyaç duyduğu anı öğrenin: bölme kehribar rengine döner, araç çubuğundaki bir rozet kaç ajanın beklediğini sayar ve Ajanlar listesi istemi tek dokunuşla yanıtlar — terminale hiçbir şey yazmadan." },
       { title: "Klavyenin üstünde terminal tuşları", text: "On üç tuşluk bir satır — ESC, TAB, CTRL, yön tuşları, Home, End, PgUp, PgDn — kaydırmak yerine ikinci bir satıra sarar; böylece hiçbir şey ekran dışında kalmaz. Hazır bir tuş paletinden F1–F12, Ctrl kombinasyonları veya kendi kaçış dizilerinizi ekleyin." },
@@ -62,13 +62,13 @@ export const tr: Dict = {
       { title: "Sunucu klasörleri ve adları", text: "Kaydedilen sunucuları daraltılabilir gruplara düzenle ve bir sunucuya adresi yerine görünecek bir ad ver. Bir ad belirsiz kalacak olduğunda adres yeniden görünür; böylece satırlar birbirine karışmaz." },
       { title: "Ajan uyarıları", text: "Ajanlar kendilerini terminal üzerinden bildirir; böylece uygulama hangisinin ne yüzünden takıldığını bilir. Ajanlar listesinden tek dokunuşla yanıtla; uyarılar üst üste birikmek yerine birbirinin yerini alır ve birine dokunmak zili çalan bölmeyi açar." },
       { title: "Özel anahtarlar", text: "Parola veya özel anahtar kullanın; cihazda Ed25519/ECDSA, Android'de ayrıca RSA üretin. Android USB/NFC FIDO2 ve sunucu başına SSH ajan yönlendirmesini destekler." },
-      { title: "SFTP aktarımı", text: "Etkin SSH oturumuna bağlı çift bölmeli dosya gezgini. Yükleme ve indirme sırala; yeniden adlandır, sil ve uzak izinleri incele." },
+      { title: "SFTP aktarımı", text: "Yerel ve uzak dosyalara göz atın, aktarımları kuyruğa alın, yeniden adlandırın, silin ve izinleri inceleyin. Android'de başarısız aktarımları sürdürün, yeniden deneyin veya baştan başlatın; yüklemeleri terminal başlığından izleyin." },
       { title: "Port yönlendirme", text: "Yerel tünel tanımlarını sunucu profiliyle kaydet; bağlandığında otomatik olarak açılırlar — yeni bir ağda yeniden bağlandıktan sonra bile, elle yeniden kurmana gerek kalmadan." },
       { title: "Yeniden bağlanma akışı", text: "Ağ değiştirdiğinde oturumlar ölü rotanın zaman aşımına uğramasını beklemeden hemen yeniden bağlanır; bekleme süresindeki bir oturum da kullanılabilir bir ağ belirir belirmez uyanır. iOS'ta sessizce yanıt vermeyi bırakmış bir sunucu fark edilir ve yeniden bağlanılır." },
       { title: "Yedekleme ve geri yükleme", text: "Sunucu, kimlik bilgisi ve ayarları isteğe bağlı parola şifrelemesi ve Birleştir/Değiştir önizlemesiyle yedekleyin. Android VPN profilleri içerir; güncel iki platform ortak biçim kullanır ve desteklenen özel ayarları korur." },
       { title: "Eternal Terminal", text: "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) üzerinden bağlanın — isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla." },
       { title: "Çoğullayıcı yöneticileri", text: "İki platformun tmux, herdr ve Zellij yöneticileriyle oturumlara bağlanın, yeniden adlandırın, oluşturun, bölün, yakınlaştırın veya sonlandırın. Ortak çoklayıcı düğmesi mevcut yöneticileri açar; sunucu profili bağlanınca eklenecek oturumu seçer." },
-      { title: "Eklentiler", text: "Eklentileri kategoriye göre gezin, arayın ve süzün; gereken iş akışlarını kurun. İndirmeler SHA-256 ile doğrulanıp özel uygulama alanına kaydedilir." },
+      { title: "Eklentiler", text: "Sağlama toplamları doğrulanan eklentilere göz atın ve yükleyin. Android'de ayarları ve verileri koruyarak özgün kataloglarından güncelleyin; yönlendirmeli kurulum değişikliklerini onaylamadan önce inceleyin." },
       {
         "title": "Sunucu kimliği ve atlama sunucuları",
         "text": "İki platformda kayıtlı bastionlarla erişin. Anahtar kontrolleri girişten önce yapılır, değişeni engeller. Android yeniyi otomatik kaydeder veya sorar; iOS bilinmeyeni onaylatır."
@@ -79,7 +79,19 @@ export const tr: Dict = {
       },
       {
         "title": "Android VPN istemcileri",
-        "text": "Ana ekrandan SSH VPN, yerel SOCKS5, WireGuard, Shadowsocks, OpenVPN yönetin. Profil seçip başlatın, Mobile SSH VPN Hızlı Ayarlar kutucuğuyla durdurup sürdürün."
+        "text": "SSH VPN, SOCKS5, WireGuard, Shadowsocks ve OpenVPN profillerini yönetin; VPN denetimi için Hızlı Ayarlar kutucuğunu kullanın. İsteğe bağlı VPN Setup eklentisi, bulutta kendi WireGuard sunucunuzu oluşturmanız için size yol gösterir."
+      },
+      {
+        "title": "Android'de kodlama ajanı Sohbeti",
+        "text": "Biçimlendirilmiş yanıtlar, kopyalanabilir kod ve eklerle mevcut bir Claude Code veya Codex konuşmasını okuyup yanıtlayın. Sohbet, terminal taslağını paylaşır ve ajanı asla başlatmaz veya yeniden başlatmaz."
+      },
+      {
+        "title": "Zamanlanmış istem şablonları",
+        "text": "Android'de deneyseldir ve varsayılan olarak kapalıdır: sunucunuzda salt okunur Claude Code veya Codex işleri zamanlayın. Sonuçları inceleyin, hemen çalıştırın, duraklatın veya sunucu zamanlamasını kaldırın."
+      },
+      {
+        "title": "Ses kullanımında seçim sizin",
+        "text": "Android'in deneysel ses özelliği, göndermeden önce incelemeli Mesajlar veya Canlı konuşma sunar. Desteklenen bir telefonda Gemma 4 kullanın ya da ses hizmetini kendi Linux SSH sunucunuzda çalıştırın."
       }
     ],
     multiHead: "Tek ekran, birkaç canlı kabuk",
@@ -194,16 +206,24 @@ export const tr: Dict = {
     compareGuideTitle: "Karşılaştırma kılavuzu",
     compareGuideText: "Telefonda veya tablette Mobile SSH, Termux veya Termius'tan hangisini ne zaman seçmeli.",
     privacyTitle: "Gizlilik politikası",
-    privacyText: "Hangi bağlantı verilerinin yerel kaldığını ve sunucularına ne gönderildiğini incele."
+    privacyText: "Hangi bağlantı verilerinin yerel kaldığını ve sunucularına ne gönderildiğini incele.",
+    vpnHead: "Kendi bulut hesabınızda bir VPN",
+    vpnBody: "Uyumlu bir Android derlemesinde VPN Setup eklentisi bir bulut sunucusu oluşturabilir, wg-easy kurabilir ve bir WireGuard istemcisini içe aktarabilir ya da mevcut bir genel sunucuyu kullanabilir. Her değişikliği telefonunuzda inceleyin. Kaynaklar ve işletim maliyetleri kendi bulut hesabınıza aittir.",
+    vpnAlt: "Bulut kurulumu ve istemci yönetimi demo ekranlarını, ardından ağ çizimlerini ve şifreli DNS hakkında bir açıklamayı gösteren Mobile SSH VPN tanıtım videosu",
+    vpnCaption: "Demo arayüzüyle ağ çizimlerini birleştiren, ekran metinleri İngilizce olan bir dakikalık tanıtım. Gerçek bir dağıtımın kaydı değildir.",
+    vpnTranscriptLabel: "Sahne açıklamasını okuyun",
+    vpnTranscript: "Video, Hetzner dahil bir bulut sağlayıcısının seçilmesini, WireGuard istemcilerinin yönetilmesini, telefondaki bir VPN profiline bağlanılmasını ve kaydedilmiş sunucuların açılmasını gösterir. Ağ çizimleri, WireGuard'ın trafiği taşımasını ve SSH'nin özel cihazlara ulaşmasını gösterir. DNS sahnesi, şifreli DNS'nin ayrı kurulum gerektirdiğini ve bir çözümleyicinin sorguları görebildiğini belirtir. Bunlar açıklayıcı örneklerdir; VPN oluşturmanın her özel ağı otomatik olarak bağlayacağına dair bir garanti değildir. Kapanış mesajı: sizin bulutunuz, sizin VPN'iniz.",
+    vpnCtaGuide: "VPN'inizi kurun",
+    vpnCtaProviders: "Bir bulut sağlayıcısı seçin"
   },
   features: {
     metaTitle: "Özellikler | Mobile SSH",
     metaDescription:
-      "Android ve iOS için Mobile SSH terminallerini, uzak Git araçlarını, etkin oturumlarda port yönlendirmeyi, VPN istemcilerini, SFTP, VNC ve oturum yöneticilerini; Android için deneysel sesli asistanı keşfedin.",
+      "Mobile SSH terminalleri, kodlama ajanı Sohbeti, dosya aktarımları, VPN kurulumu ve oturum yöneticileri; deneysel Android ses özellikleri ve zamanlanmış istem şablonlarıyla.",
     eyebrow: "Özellik listesi",
     h1: "Mobile SSH özellikleri",
     intro:
-      "Android ve iOS üzerinden SSH terminalleri, uzak Git araçları, SFTP, VNC, VPN istemcileri ve oturum yöneticileriyle sunucularınıza bağlanın. Android ayrıca donanım güvenlik anahtarları ve deneysel bir sesli asistan sunar; platforma özgü özellikler aşağıda belirtilmiştir.",
+      "SSH, uzak Git araçları, SFTP, VNC, VPN istemcileri ve oturum yöneticileriyle sunucularınıza bağlanın. Android ayrıca kodlama ajanı Sohbeti, yönlendirmeli bulut VPN kurulumu, deneysel ses ve istem zamanlamaları sunar. Platforma özgü özellikler ve gereksinimler aşağıda belirtilmiştir.",
     groups: [
       {
         title: "Platformlar",
@@ -239,7 +259,7 @@ export const tr: Dict = {
         title: "Terminal",
         items: [
           "24-bit gerçek renk ve italik ile VT100/xterm-256color terminal davranışı — kabuğa TERM=xterm-256color ve COLORTERM=truecolor bildirilir",
-          "Android ve iOS'ta 1.000, 5.000, 10.000 veya 50.000 satıra ayarlanabilen geri kaydırma arabelleği (varsayılan 5.000)",
+          "1,000, 5,000, 10,000 veya 50,000 satırlık geçmiş seçin; varsayılan 5,000 satırdır. Android ayrıca bölme başına bellek sınırı uygular; bu nedenle yüksek ayarlarda daha az satır tutulabilir. Değişiklikler yeni bölmelere uygulanır",
           "Terminalde bul — geri kaydırmayı ve görünür ekranı ara, eşleşmeler arasında atla (Android ve iOS)",
           "Kabuk entegrasyonu (OSC 133): istemler arasında adım adım gez, bir komutun çıktısının tamamını seç — yalnızca sonuncusunu değil, 300 satır geriden gelen derleme hatasını — ve uzun süren bir komut bittiğinde uyarı al (Android ve iOS)",
           "Kitty grafik protokolü aracılığıyla terminalde satır içi görüntüler; sıkıştırarak yakınlaştırma ve satır yeniden sarmalarında kaybolmak yerine yerinde kalır (Android ve iOS)",
@@ -251,7 +271,7 @@ export const tr: Dict = {
           "Dokunarak odaklan, isteğe bağlı «dokununca klavyeyi göster», kopyala ve tümünü kopyala eylemleri",
           "Sıkıştırarak metin boyutunu değiştir ve uzak terminali yeniden boyutlandır",
           "Çift dokunarak bölme tam ekran modu",
-          "Kopyala, Paylaş ve Tümünü seç eylemleriyle terminal metni seçimi — uzun basış kelimeyi seçer ve Kopyala, seçimi paylaşmak veya yeniden kopyalamak için korur",
+          "Terminal metnini seçmek için uzun basın, ardından Kopyala, Yapıştır, Paylaş veya Tümünü seç'i kullanın. Android, bölmeleri yeniden boyutlandırmadan Kopyala ve Yapıştır'ı seçim araç çubuğunda görünür tutar; dar ekranlarda simgeler kullanılır",
           "OSC 52 pano — uzak bir tmux veya vim oturumundaki metni doğrudan telefon panosuna kopyala (Android ve iOS)",
           "İki platformda fiziksel klavye ve sesle dikte; iOS Dikte ve önerileri otomatik düzeltmeyle varsayılan açar. Doğrudan giriş için kapatın",
           "Android ve iOS'ta harici ve Bluetooth klavye desteği; oklar, işlev tuşları ve Ctrl/Alt akorları dahil",
@@ -259,11 +279,11 @@ export const tr: Dict = {
           "Yerleşik Nerd Font, sistem yazı tipinin aksi halde boş kutular olarak göstereceği powerline, starship, devicon ve Material Design simge gliflerini Android ve iOS'ta işler",
           "Geniş CJK, emoji ve birleşen karakterler Android ve iOS'ta doğru şekilde ölçülür ve çizilir; grafem kümeleri ve sıfır genişlikli birleştiriciler dahil",
           "Android ve iOS'ta yapılandırılabilir terminal yazı tipi (sistem tek aralıklı, JetBrains Mono veya Source Code Pro) ve ANSI renk şeması (Solarized, Gruvbox, Dracula, Nord); açık bölmelere anında uygulanır",
-          "Ayarlar'da sıkıştırarak yakınlaştırmanın yanı sıra bir terminal metin boyutu kaydırıcısı ve Sistem, Açık ya da Koyu olarak ayarlanan bir uygulama teması",
+          "Terminal metin boyutunu Ayarlar'dan veya iki parmakla yakınlaştırıp uzaklaştırarak ayarlayın. Android'de terminal renkleri varsayılan olarak uygulama temasını izler; sabit bir renk şeması için Terminali uygulama temasıyla eşleştir'i kapatın",
           "Trafik hızı ve takılma göstergeleri meşgul komutla yanıtsız bağlantıyı ayırır; isteğe bağlı karartma/titreşim",
           "Ayarlar uzak bildirim, komut bitişi ve uzak pano okumayı kontrol eder; izinler varsayılan kapalıdır",
           "Terminal oyunları, Android ve iOS üzerinde ok tuşlarını gönderen yönlü kaydırmaları etkinleştirebilir; normal kaydırma varsayılan davranış olarak kalır",
-          "Android üzerinde oturum araç çubuğu eylemlerini yeniden sıralayın veya gizleyin, kurulu eklenti kısayolları ekleyin ve araç çubuğuyla ek tuşların tam ekranda gizlenip gizlenmeyeceğini seçin"
+          "Android'de Üst simgeler bölümünden araç çubuğu eylemlerini yeniden sıralayın veya gizleyin ve yüklü eklenti kısayolları ekleyin. Arama ve Uzak masaüstü varsayılan olarak gizlidir. Tam ekranda araç çubuğu varsayılan olarak gizlenir, ek tuşlar ise görünür kalır; her birini ayrı yapılandırın"
         ]
       },
       {
@@ -279,18 +299,19 @@ export const tr: Dict = {
           "tmux komut takibi ve yeniden ekleme; iki platformda sunucu başına Otomatik, Hiçbiri, tmux, herdr, Zellij seçenekleri; soket değişiminde oturum kimliği korunur",
           "Ajanlar kendilerini terminal üzerinden bildirir; böylece uygulama hangi ajanın çalıştığını, hangi aracı kullandığını ve sizin yüzünüzden takılıp takılmadığını bilir — bölme kehribar rengine döner, başlığında «claude · sizi bekliyor» yazar ve araç çubuğundaki bir rozet kaç ajanın beklediğini sayar",
           "Bir ajanın sorusunu Ajanlar listesinden tek dokunuşla yanıtlayın; yanıt ayrı bir kanaldan gider, bu yüzden ekranda olanın içine hiçbir şey yazılmaz",
-          "Ajan kancasını uygulamanın içinden bir sunucuya kurun — herhangi bir ajanın çağırabileceği küçük bir kabuk betiği; sağlayıcıya özel bir entegrasyon değil",
+          "Ajan entegrasyonu sunucunuzda çalışır. Android Sohbet, Claude Code veya Codex yaşam döngüsü kancalarını yüklemeyi önerir; iOS, Ajan uyarıları ayarlarında Ajan Kancasını Yükle seçeneğini sunar",
           "Ağ kesintileri, uyku modu ve IP değişikliklerine dayanan oturumlar için Eternal Terminal (ET) aktarımı; isteğe bağlı olarak SSH üzerinden otomatik etserver kurulumuyla",
           "Tmux yöneticisi: oturumları, pencereleri ve bölmeleri listele ve aralarında geçiş yap — bağlan, yeniden adlandır, oluştur, böl, yakınlaştır veya sonlandır; ada/tarihe göre sıralama ve girdi bekleyen ajanlar için 🔔",
           "Tek çoklayıcı düğmesi tmux, herdr ve Zellij'i açar; Herdr bölme önizleme, odak ve yanıtı, Zellij canlı ve çıkılmış oturumları destekler",
-          "Yüklenmiş tmux, herdr ve Zellij oturumlarında, soketlerinde, pencerelerinde/sekmelerinde ve bölmelerinde arama yapın; sonuçlar üst öğeleriyle birlikte gösterilir. Henüz açılmamış uzak dallarda arama yapılmaz"
+          "Yüklenmiş tmux, herdr ve Zellij oturumlarında, soketlerinde, pencerelerinde/sekmelerinde ve bölmelerinde arama yapın; sonuçlar üst öğeleriyle birlikte gösterilir. Henüz açılmamış uzak dallarda arama yapılmaz",
+          "Android tmux temizliği, durmuş sunuculardan kalan soketleri siler ve dosyaları kaybolan kayıtlı soketleri unutur; dinlemedeki bir tmux sunucusunun kullandığı soketler korunur"
         ]
       },
       {
         title: "Dosyalar ve tüneller",
         items: [
           "Yerel ve uzak dosyalar için çift bölmeli SFTP gezgini; her aktarımı gösteren ve kaydırılabilen bir aktarım günlüğüyle",
-          "Kuyruğa alınan yükleme ve indirmeler; Android üzerinde dosyaları Mobile SSH ile paylaşın. iOS Paylaşım Uzantısı son başarıyla bağlanılan sunucuya yükler ve tamamlanan yolları uygun bir terminal için kuyruğa alır",
+          "Yüklemeleri ve indirmeleri kuyruğa alın, dosyaları Mobile SSH ile paylaşın. Android açık terminali kullanır ve yeniden bağlandıktan sonra yüklemeleri sürdürebilir; iOS Paylaşım Uzantısı yüklemeleri, en son başarıyla bağlanılan sunucuya gönderilir",
           "Telefon ve uzak ana bilgisayar arasında özyinelemeli klasör yükleme ve indirme",
           "Uzak yeniden adlandırma, silme, oluşturma, düzenleme, .tar.gz olarak sıkıştırma, izinler (chmod/chown) ve ayrıntılar",
           "İndirilen bir dosyayı her iki platformda da başka bir uygulamada açın — iOS'ta indirilenler ayrıca Dosyalar uygulamasında «iPhone'umda» altında görünür",
@@ -300,7 +321,9 @@ export const tr: Dict = {
           "Sunucu profilleriyle kaydedilen ve bağlanıldığında otomatik olarak açılan yerel port yönlendirme",
           "Uygulamanın tamamı ve dosya gezgini sistemin açık veya koyu temasını takip eder — Android ve iOS'ta Sistem, Açık veya Koyu seçin",
           "Android ve iOS üzerinde etkin oturumlarda yerel port yönlendirmelerini ekleyin, düzenleyin veya kaldırın; değişiklikler kayıtlı sunucu profili yeniden yazılmadan tekrar bağlanmalarda korunur",
-          "iOS, ekleri yüklerken son dosya adını kullanıma sunmadan veya yolunu eklemeden önce tamamlanmayı ve dosya boyutunu doğrular; mevcut dosyaları korur"
+          "iOS, ekleri yüklerken son dosya adını kullanıma sunmadan veya yolunu eklemeden önce tamamlanmayı ve dosya boyutunu doğrular; mevcut dosyaları korur",
+          "Android'de başarısız aktarımlar Sürdür, Yeniden dene, Baştan başlat ve Tümünü yeniden dene seçeneklerini sunar; sürdürmeden önce kısmi verileri denetler. Bir dosya listesini yenilemek için aşağı çekin",
+          "Android terminal yüklemeleri başlıkta ilerleme, hız, bekleme veya takılma durumu ve Durdur seçeneğini gösterir; dosya paylaşmak açık terminal penceresini yeniden kullanır"
         ]
       },
       {
@@ -333,11 +356,13 @@ export const tr: Dict = {
       {
         title: "Eklentiler",
         items: [
-          "Eklentileri kategoriye göre gezin, arayın, kurun ve çalıştırın; kaynak değişince katalog yenilenir",
+          "Katalog eklentilerine göz atın, arayın, yükleyin ve çalıştırın. Özgün katalogda daha yeni uyumlu bir sürüm bulunduğunda Android Güncelle seçeneğini gösterir; eklenti ayarları ve verileri korunur",
           "Eklentiler genel bir katalogdan istek üzerine indirilir ve uygulamaya özel depolamaya SHA-256 ile doğrulanarak kaydedilir",
           "Bir eklenti neye ihtiyaç duyduğunu bildirir — SSH komutları, bir tünel, depolama — ve uygulama, istemediği hiçbir şeye izin vermez",
-          "Bir eklenti sunucunuzda bir şey kurduğunda, çalıştırılacak komutları önce olduğu gibi görür ve çalışmadan önce onaylarsınız",
-          "Özel veya kişisel bir katalog kaynağı yapılandırın ya da kendi sunucunuzdaki bir klasörden kurun"
+          "Sunucu değişikliklerini çalıştırılmadan önce inceleyin ve onaylayın. Android'in yönlendirmeli iş akışları, ham ayrıntıların da açılabildiği etiketli inceleme bölümleri gösterir; duraklatılabilir ve sürdürülebilir",
+          "Özel veya kişisel bir katalog kaynağı yapılandırın ya da kendi sunucunuzdaki bir klasörden kurun",
+          "Android eklenti güncellemeleri eski sürümlere dönmez ve ek erişim vermeden önce sorar; tamamlanmamış iş akışları, başlatıldıkları eklenti sürümünü kullanmayı sürdürür",
+          "Uyumlu Android derlemelerinde VPN Setup, bir bulut VM oluşturabilir veya mevcut bir genel Ubuntu sunucusunu kullanabilir, wg-easy kurabilir ve istemcileri içe aktarabilir. Bulut kimlik bilgileri korumalı yerel formlarla girilir; kurulum değişiklikleri onay gerektirir"
         ]
       },
       {
@@ -373,7 +398,7 @@ export const tr: Dict = {
         title: "Uygulama içi tarayıcı",
         items: [
           "Yönlendirilen HTTP veya HTTPS hizmetlerini Android ve iOS üzerinde Mobile SSH içinde açın; HTTPS yine geçerli bir sertifika gerektirir",
-          "Android ayrıca terminal bağlantı eylemleri, sayfada arama, yer imleri, geçmiş, masaüstü modu ve siteye özel tarayıcı tercihleri sunar"
+          "Android Uygulama İçi Tarayıcı varsayılan olarak kapalıdır: Ayarlar → Genel'den etkinleştirin. Terminal bağlantı eylemleri, sayfada arama, yer imleri, geçmiş, masaüstü modu ve siteye özel tarayıcı tercihleri ekler"
         ]
       },
       {
@@ -381,7 +406,28 @@ export const tr: Dict = {
         items: [
           "Varsayılan olarak kapalı; Ayarlar’dan etkinleştirin. Gemma 4 doğrudan telefonda çalışabilir: Hugging Face’ten bir modeli bir kez indirin, konuşma cihazda kalsın, ses sunucusu gerekmez",
           "Sunucuyu veya ekranı sorun, sunucuları ve oturumları açın, bir kodlama ajanının yanıtını dinleyin ya da ona istem dikte edin; kısa bir salt okunur denetim listesi dışındaki komutlar onayınızı bekler",
-          "Ya da sesi kendi Linux SSH sunucunuzda barındırın: Mesajlar veya Canlı konuşmalarla sunucu asistanını, Codex’i veya Claude’u kullanın; terminal girdisi ve çoklayıcı değişiklikleri için ayrı izin gerekir"
+          "Ya da sesi kendi Linux SSH sunucunuzda barındırın: Mesajlar veya Canlı konuşmalarla sunucu asistanını, Codex’i veya Claude’u kullanın; terminal girdisi ve çoklayıcı değişiklikleri için ayrı izin gerekir",
+          "Gemma, desteklenen 64 bit bir telefon ve yaklaşık 2.6–3.7 GB boyutunda ayrı bir model indirmesi gerektirir. Tarifeli bağlantıdan indirme onay ister; Wi-Fi üzerinden indirme, tarifeli bağlantıya geçilirse duraklar",
+          "Duraklatılmış konuşmayı Ses sayfasından, bildirimden veya kulaklığın Oynat tuşundan sürdürün. Başka bir uygulamanın sesi devralması nedeniyle oluşan duraklama, o ses sona erdiğinde biter"
+        ]
+      },
+      {
+        "title": "Kodlama ajanı Sohbeti (Android)",
+        "items": [
+          "Sunucunuzda zaten çalışan bir Claude Code veya Codex konuşması için Sohbet'i açın; geçerli tmux bölmesini izleyin veya başlığa göre bir konuşma arayıp seçin",
+          "Biçimlendirilmiş yanıtlar kopyalanabilir kod, tablolar, görev listeleri ve bağlantılar içerir. İstemleriniz önceki/sonraki gezintisiyle vurgulanır",
+          "Sohbet ve terminal girişi bir taslağı paylaşır. Sunulan ajan kancalarını yükledikten sonra istem gönderin ve dosya ekleyin; sağlayıcı güven onayı veya yeniden yükleme hâlâ gerekebilir",
+          "Sohbet sunucuya küçük bir yardımcı kurar ve Python 3.8 veya üzerini gerektirir. Kodlama ajanını asla başlatmaz veya yeniden başlatmaz"
+        ]
+      },
+      {
+        "title": "İstem şablonları (deneysel, Android)",
+        "items": [
+          "Varsayılan olarak kapalıdır: Ayarlar → Genel → İstem şablonları'nı etkinleştirin, ardından Ana Sayfa'da veya kayıtlı sunucu menüsünde İstemler'i açın",
+          "Bir istem, sunucu, proje klasörü, Claude Code veya Codex ve saat dilimi kaydedin; her gün, hafta içi, seçili günlerde veya 1–12 saatte bir çalışacak şekilde zamanlayın",
+          "Çalıştırmalar salt okunurdur; sunucuda Python 3.8 veya üzeri, cron ve hesabına giriş yapılmış bir ajan gerekir. Uygulama bir yardımcı ve bir crontab girdisi kurar",
+          "Şablonları ve sonuçları SSH üzerinden eşitleyin, çıktıyı ve durumu inceleyin ya da Şimdi çalıştır, Duraklat ve Sunucudan kaldır'ı seçin. İndirilmiş bir Gemma modeli istem taslağı hazırlayabilir veya istemi düzenleyebilir",
+          "Şablonlar telefonda şifrelenir ve yedeklere dahil edilmez. Özelliği kapatmak sunucu zamanlamalarını durdurmaz; önce bunları sunucudan kaldırın"
         ]
       }
     ],
@@ -405,7 +451,7 @@ export const tr: Dict = {
     rows: [
       {
         need: "Temel amaç",
-        mobileSsh: "İki platformda SSH, SFTP, VNC, atlama sunucuları ve çoklayıcılar; Android'de VPN ve FIDO2.",
+        mobileSsh: "SSH, SFTP, VNC, atlama sunucuları ve çoklayıcı yöneticileri; Android ayrıca kodlama ajanı Sohbeti, yönlendirmeli bulut VPN kurulumu, güvenlik anahtarları, isteğe bağlı ses ve istem zamanlamaları sunar.",
         termux: "APT paketli Android terminal emülatörü ve Linux ortamı.",
         termius: "Android, iOS, masaüstü ve web odaklı takım akışları için modern SSH istemcisi."
       },
@@ -417,7 +463,7 @@ export const tr: Dict = {
       },
       {
         need: "Mobil terminal denetimleri",
-        mobileSsh: "Ek tuşlar, oturum ızgarası, tam ekran, kıstırarak yakınlaştırma, kopyala/paylaş, fare ve harici klavye. iOS Dikte ve öneriler doğrudan giriş için kapatılabilir.",
+        mobileSsh: "Ek tuşlar, ızgaralar, tam ekran, iki parmakla yakınlaştırma, pano denetimleri ve harici klavyeler. Android, tam ekranda ek tuşları varsayılan olarak görünür tutar. iOS'ta doğrudan giriş için Dikte ve öneriler kapatılabilir.",
         termux: "Güçlü terminal ortamı; davranış yüklü araçlara ve yapılandırmaya bağlı.",
         termius: "Mobil klavye eklentisi, hareketler, sekmeler, otomatik tamamlama, parçacıklar ve cilalı terminal deneyimi."
       },

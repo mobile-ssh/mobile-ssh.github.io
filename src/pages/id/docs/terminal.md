@@ -10,11 +10,11 @@ Terminal Mobile SSH dibuat untuk operasi di ponsel dan tablet. Ia menggabungkan 
 
 ## Dasar terminal
 
-- Terminal memakai perilaku gaya xterm dengan dukungan warna dan penanganan tombol kursor.
-- Buffer scrollback menyimpan 5.000 baris secara bawaan, dan dapat disetel ke 1.000, 10.000, atau 50.000 di Settings.
+- Terminal menggunakan perilaku bergaya xterm dengan dukungan warna dan penanganan tombol kursor.
+- Buffer riwayat gulir berisi 5,000 baris secara bawaan, dengan pilihan 1,000, 5,000, 10,000, atau 50,000. Android juga membatasi riwayat setiap panel sesuai memori yang tersedia bagi aplikasi, sehingga pengaturan terbesar mungkin menyimpan lebih sedikit baris.
 - Ketuk panel untuk memilihnya sebelum mengetik.
-- Cubit panel terminal untuk mengubah ukuran teks. Mobile SSH mengubah ukuran PTY jarak jauh setelah gerakan berhenti.
-- Ketuk dua kali panel (atau gunakan kontrol perluasnya) untuk masuk mode layar penuh. Gunakan Kembali di Android, atau kontrol ciutkan di iOS, untuk kembali ke kisi.
+- Cubit panel terminal untuk mengubah ukuran teks. Mobile SSH menyesuaikan ukuran PTY jarak jauh setelah gerakan selesai.
+- Ketuk dua kali panel atau gunakan kontrol perluas untuk masuk ke layar penuh. Gunakan Kembali di Android atau kontrol perkecil di iOS untuk kembali ke kisi.
 
 ## Kisi multi-sesi
 
@@ -77,9 +77,11 @@ Tekan lama kata di terminal, lalu geser gagang untuk menyesuaikan pilihan. Bilah
 - **Select all** — memperluas pemilihan ke seluruh buffer terminal yang terlihat, lalu Copy atau Share.
 - **Tempel**: masukkan teks papan klip ke terminal.
 
+Di Android, tindakan ini menggunakan bilah alat terminal tanpa mengubah ukuran panel. Salin dan Tempel tampil sebagai ikon ketika ruang sempit.
+
 ## Cari di terminal
 
-Telusuri seluruh buffer terminal — scrollback dan layar yang terlihat — dan lompat antar kecocokan. Buka pencarian dari kontrol terminal, ketik kueri, dan telusuri hasil satu per satu. Ini berfungsi baik di Android maupun iOS.
+Cari di seluruh buffer terminal — riwayat gulir dan layar yang terlihat — lalu berpindah antar kecocokan. Buka pencarian melalui kontrol terminal, ketik kueri, dan telusuri hasilnya. Ini berfungsi di Android maupun iOS. Di Android, Pencarian disembunyikan dari bilah alat secara bawaan; aktifkan melalui **Setelan → Ikon atas**.
 
 ## Warna, huruf miring, dan clipboard jarak jauh
 
@@ -101,14 +103,18 @@ Telusuri seluruh buffer terminal — scrollback dan layar yang terlihat — dan 
 Baik di Android maupun iOS, Settings memungkinkan Anda menyesuaikan terminal:
 
 - **Font:** pilih font monospace sistem, JetBrains Mono, atau Source Code Pro.
-- **Skema warna:** Default, Solarized Dark atau Light, Gruvbox, Dracula, atau Nord — diterapkan secara langsung ke panel yang terbuka.
-- **Baris tombol tambahan:** tambah, hapus, susun ulang, dan sembunyikan tombol, tentukan tombol escape sequence Anda sendiri, dan reset ke bawaan, dengan pratinjau langsung yang memperlihatkan persis pembagian baris yang akan Anda dapatkan. Android menaruhnya di tab **Keys**; iOS di bawah **Extra keys → Customize keys**.
-- **Tambah dari preset:** palet berisi sekitar 45 tombol dalam enam grup — `F1`–`F12`, kombinasi Ctrl seperti `^C` `^D` `^Z` `^R` `^L`, simbol seperti `|` `~` `/` `_` `:`, dan pengubah. `F1`–`F12` dikirim sebagai escape sequence biasa, jadi tidak perlu kord `FN`. Android juga menyediakan tombol 📎 **Attach a file** yang membuka pemilih berkas dan mengunggah ke sesi yang sedang berjalan; iOS menyediakan `INS`, `DEL`, dan tombol `FN` yang memunculkan baris angka.
-- **Ukuran scrollback:** 1.000, 5.000, 10.000, atau 50.000 baris (5.000 secara bawaan). Berlaku untuk panel baru.
-- **Ukuran teks:** sebuah penggeser, berdampingan dengan zoom cubit.
+- **Skema warna:** Bawaan, Solarized Dark atau Light, Gruvbox, Dracula, atau Nord; langsung diterapkan pada panel yang terbuka.
+- **Baris tombol tambahan:** tambahkan, hapus, urutkan ulang, dan sembunyikan tombol, tentukan tombol urutan escape sendiri, serta kembalikan ke bawaan, dengan pratinjau langsung yang menunjukkan pembagian baris secara tepat. Android menempatkannya di tab **Tombol**; iOS di **Tombol tambahan → Sesuaikan tombol**.
+- **Tambahkan dari preset:** palet sekitar 45 tombol dalam enam kelompok — `F1`–`F12`, kombinasi Ctrl seperti `^C` `^D` `^Z` `^R` `^L`, simbol seperti `|` `~` `/` `_` `:`, dan pengubah. `F1`–`F12` dikirim sebagai urutan escape biasa sehingga tidak memerlukan kombinasi `FN`. Android juga menawarkan tombol 📎 **Lampirkan file** yang membuka pemilih file dan mengunggah ke sesi aktif; iOS menawarkan `INS`, `DEL`, dan tombol `FN` yang menampilkan baris angka.
+- **Ukuran riwayat gulir:** 1,000, 5,000, 10,000, atau 50,000 baris (5,000 secara bawaan). Android mungkin menyimpan lebih sedikit baris agar sesuai batas memori aplikasi. Perubahan berlaku untuk panel baru.
+- **Ukuran teks:** penggeser, selain zoom dengan cubitan.
 - **Tema:** Sistem, Terang, atau Gelap untuk seluruh aplikasi.
 
 Reset mengembalikan bawaan yang dikirim bersama aplikasi alih-alih membekukan daftar hari ini, sehingga peningkatan pada rilis berikutnya tetap sampai kepada Anda. Perubahan diterapkan secara langsung ke panel yang sudah terbuka.
+
+Di Android, warna terminal mengikuti tema terang atau gelap aplikasi secara bawaan. Nonaktifkan **Sesuaikan terminal dengan tema aplikasi** melalui **Setelan → Umum → Tampilan** untuk mempertahankan skema tetap. Halaman yang sama mengatur penyembunyian layar penuh secara terpisah untuk bilah alat dan tombol tambahan; bilah alat tersembunyi secara bawaan sementara tombol tambahan tetap terlihat.
+
+**Setelan → Ikon atas** di Android mengurutkan ulang, menampilkan, atau menyembunyikan tindakan bilah alat dan menambahkan pintasan plugin terpasang. Chat dan Penerusan port tampil secara bawaan; Pencarian dan Desktop jarak jauh tersembunyi sampai diaktifkan.
 
 ## Menggulir
 
@@ -155,6 +161,8 @@ Ikon 🔔 menandai setiap sesi yang agennya sedang menunggu input, sehingga Anda
 
 Kedua platform mengelola beberapa server tmux (soket) pada host yang sama. Indikator pelampiran menunjukkan terminal yang Anda gunakan, bukan klien lain di server.
 
+Di Android, **Bersihkan socket kosong** menghapus file socket sisa server tmux yang berhenti dan melupakan socket tersimpan yang filenya sudah tidak ada. Socket yang masih digunakan server tmux yang mendengarkan tetap dipertahankan.
+
 ## Herdr dan Zellij
 
 Android dan iOS juga mengelola Herdr dan Zellij. Satu kontrol membuka multiplexer utama yang terdeteksi; tekan lama untuk memilih yang lain. Hanya program yang ditemukan di server ditawarkan. Di dalam pengelola, judul server mengganti server dan pemilih multiplexer mengganti pengelola.
@@ -165,6 +173,17 @@ Android dan iOS juga mengelola Herdr dan Zellij. Satu kontrol membuka multiplexe
 Jika herdr atau Zellij terpasang tetapi tidak ada di `PATH` shell login, halaman itu menawarkan untuk menambahkannya.
 
 Setiap server memiliki **Lampirkan saat terhubung**: **Otomatis (deteksi)**, **Tidak ada**, **tmux**, **herdr** atau **Zellij**. Otomatis menggunakan deteksi dan riwayat: yang pernah dipakai, lalu yang memiliki sesi aktif, lalu yang terpasang. Tanpa deteksi tersimpan, shell biasa dibuka. Deteksi berikutnya hanya memengaruhi koneksi mendatang, bukan ketikan Anda saat ini.
+
+## Chat agen pemrograman di Android
+
+Chat membaca percakapan Claude Code atau Codex yang sudah berjalan di server Anda. Balasannya mencakup teks berformat, blok kode yang dapat disalin, tabel, dan tautan. Prompt Anda disorot, dengan kontrol untuk berpindah ke prompt sebelumnya, berikutnya, atau pesan terbaru.
+
+1. Hubungkan ke server dan buka **Chat** dari bilah alat terminal.
+2. Chat mengikuti panel tmux saat ini jika memungkinkan. Jika tidak, buka pemilih sesinya dan pilih atau cari percakapan berdasarkan judul.
+3. Jika hook belum tersedia, pilih **Pasang hook agen** di Chat atau pemilih sesinya. Selesaikan persetujuan kepercayaan penyedia atau pemuatan ulang/pelanjutan native yang diperlukan untuk memuat hook; Mobile SSH tidak pernah memulai atau memulai ulang agen.
+4. Tulis prompt, lampirkan file bila perlu, lalu kirim saat sesi terpilih mengizinkannya. Chat dan kotak input terminal berbagi draf yang sama.
+
+Chat memasang helper kecil di `~/.mobile-ssh` dan memerlukan Python 3.8 atau lebih baru di server. Percakapan dapat tetap hanya-baca hingga agen yang berjalan memuat hook yang diperlukan.
 
 ## Agent alerts
 
@@ -180,10 +199,10 @@ Ini tidak memerlukan penyiapan, tetapi aplikasi hanya tahu bahwa *sesuatu* berbu
 
 Agar aplikasi tahu agen *mana* yang menunggu dan *apa* yang sedang dikerjakannya, pasang hook agen di server:
 
-- **iOS:** Settings → **Agent alerts** → **Install Agent Hook**. Jika lebih dari satu server tersambung, ia menanyakan yang mana.
-- **Android:** tekan lama header panel sebuah sesi dan pilih **Install agent hooks**.
+- **iOS:** Setelan → **Peringatan agen** → **Pasang Hook Agen**. Jika lebih dari satu server tersambung, aplikasi menanyakan server yang akan digunakan.
+- **Android:** buka **Chat**, pilih percakapan Claude Code atau Codex, lalu gunakan **Pasang hook agen** saat ditawarkan di Chat atau pemilih sesinya.
 
-Ini menulis skrip shell kecil ke `~/.mobile-ssh/agent-hook.sh` di server tersebut. Skrip ini tidak terikat agen tertentu — ia menerima argumen baris perintah alih-alih mengurai format milik satu vendor — sehingga apa pun yang bisa menjalankan perintah dapat melapor melaluinya. Menghapus berkas itu adalah cara pencopotan yang bersih.
+Hook memungkinkan agen yang didukung melaporkan statusnya ke Mobile SSH. Di Android, Chat menambahkan handler siklus hidup native ke `hooks.json` Codex atau `settings.json` Claude Code, sambil mempertahankan konfigurasi lain. Menghapus satu file helper tidak menghapus entri konfigurasi penyedia ini.
 
 Setelah sebuah agen melapor lewat hook:
 

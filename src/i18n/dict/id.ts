@@ -28,12 +28,12 @@ export const id: Dict = {
   home: {
     metaTitle: "Mobile SSH — Klien SSH untuk Android & iOS",
     metaDescription:
-      "Mobile SSH untuk Android dan iOS: terminal SSH, host perantara, tmux, herdr, Zellij, SFTP, desktop VNC dan cadangan. Android juga memiliki klien VPN dan kunci keamanan.",
+      "Mobile SSH untuk Android dan iOS: SSH, SFTP, VNC, dan pengelola sesi. Android menambahkan Chat agen pemrograman, suara opsional, penjadwalan prompt, dan penyiapan VPN cloud.",
     eyebrow: "Klien SSH untuk Android & iOS",
     h1: "Mobile SSH",
     intro:
-      "Terminal SSH, pengelola tmux, herdr dan Zellij, SFTP, desktop VNC, host perantara dan terowongan lokal untuk ponsel serta tablet. Eternal Terminal menjaga shell tetap hidup saat terputus. Android juga menyediakan VPN dan autentikasi kunci keamanan USB/NFC.",
-    versionLine: "Tersedia dalam {count} bahasa · Android {version} · iOS {iosVersion} beta",
+      "Terminal SSH, pengelola tmux, herdr, dan Zellij, SFTP, desktop VNC, host perantara, dan tunnel lokal — dirancang untuk ponsel dan tablet. Eternal Terminal menjaga shell jarak jauh tetap berjalan saat koneksi terputus. Android menambahkan Chat agen pemrograman, suara opsional dan penjadwalan prompt, penyiapan VPN cloud, serta kunci keamanan USB/NFC.",
+    versionLine: "{count} bahasa · Kode sumber Android {version} · iOS {iosVersion} beta",
     ctaDocs: "Baca dokumentasi",
     ctaPlay: "Dapatkan di Google Play",
     ctaIos: "Dapatkan beta iOS di TestFlight",
@@ -43,7 +43,7 @@ export const id: Dict = {
     advantagesIntro: "Dirancang untuk menjawab hal-hal yang biasa keliru pada klien SSH ponsel.",
     advantages: [
       { title: "Tanpa tingkatan Pro, tanpa iklan", text: "Semua fitur ada di aplikasi yang sama. Tidak ada paywall yang menyembunyikan alur kerja penting di balik upgrade Pro, tidak ada banner iklan di terminal." },
-      { title: "Data Anda tetap lokal", text: "Server, kredensial, dan kunci yang disimpan ada di perangkat. Tidak ada akun awan; tidak ada yang bisa dihentikan." },
+      { title: "Kredensial di perangkat Anda", text: "Server dan kredensial tersimpan tetap berada di perangkat Anda. Mobile SSH tidak mewajibkan akun atau brankas cloud; server dan akun cloud yang Anda hubungkan tetap milik Anda." },
       { title: "Host tersimpan, terhubung dengan satu ketuk", text: "Tambahkan host sekali dan hubungkan kembali dengan satu ketuk — termasuk kunci, port, dan tunnel yang sudah dikonfigurasi." },
       { title: "Peringatan agen, dan satu ketuk untuk menjawab", text: "Ketahui persis saat Claude Code, Codex, atau agen lain membutuhkan Anda: panel berubah kuning amber, lencana di bilah alat menghitung siapa saja yang menunggu, dan daftar Agents menjawab pertanyaannya dengan satu ketuk — tanpa perlu mengetik di terminal." },
       { title: "Tombol terminal di atas keyboard", text: "Baris berisi tiga belas tombol — ESC, TAB, CTRL, panah, Home, End, PgUp, PgDn — yang membungkus ke baris kedua alih-alih digulir, jadi tidak ada yang tersembunyi di luar layar. Tambahkan F1–F12, kombinasi Ctrl, atau escape sequence buatan Anda sendiri dari palet preset." },
@@ -62,13 +62,13 @@ export const id: Dict = {
       { title: "Folder dan nama server", text: "Atur server tersimpan ke dalam grup yang dapat diciutkan, dan beri sebuah server nama yang ditampilkan menggantikan alamatnya. Alamatnya muncul kembali setiap kali sebuah nama menjadi ambigu, sehingga barisnya tidak pernah tampak seragam." },
       { title: "Peringatan agen", text: "Agen melapor lewat terminal, jadi aplikasi tahu agen mana yang tertahan dan karena apa. Jawab dari daftar Agents dengan satu ketuk; peringatan saling menggantikan alih-alih menumpuk, dan mengetuknya membuka panel yang berbunyi." },
       { title: "Kunci privat", text: "Gunakan sandi atau kunci privat; buat Ed25519 atau ECDSA di perangkat, juga RSA di Android. Android mendukung FIDO2 USB/NFC dan penerusan agen SSH per server." },
-      { title: "Transfer SFTP", text: "Penjelajah berkas dua panel yang terhubung ke sesi SSH aktif. Antrakan unggahan dan unduhan, ganti nama, hapus, dan periksa izin jarak jauh." },
+      { title: "Transfer SFTP", text: "Jelajahi file lokal dan jarak jauh, antrekan transfer, ubah nama, hapus, dan periksa izin. Di Android, lanjutkan, coba lagi, atau mulai ulang transfer yang gagal dan pantau unggahan melalui header terminal." },
       { title: "Penerusan port", text: "Simpan spesifikasi tunnel lokal bersama profil server dan tunnel itu terbuka otomatis saat tersambung — termasuk setelah penyambungan ulang di jaringan baru, tanpa perlu Anda bangun ulang secara manual." },
       { title: "Alur penyambungan ulang", text: "Ganti jaringan dan semua sesi langsung menghubungi ulang alih-alih menunggu rute mati kehabisan waktu, dan sesi yang sedang dalam backoff bangun begitu jaringan yang dapat dipakai muncul. Di iOS, server yang diam-diam berhenti menjawab akan terdeteksi dan disambungkan ulang." },
       { title: "Cadangan & pemulihan", text: "Cadangkan server, kredensial dan pengaturan dengan enkripsi frasa sandi opsional serta pratinjau Gabungkan/Ganti. Android menyertakan profil VPN; cadangan terbaru Android/iOS berbagi format dan mempertahankan pengaturan khusus platform yang didukung." },
       { title: "Eternal Terminal", text: "Sambung melalui Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah — dengan opsi penyiapan etserver otomatis melalui SSH." },
       { title: "Pengelola multiplexer", text: "Lampirkan, ganti nama, buat, bagi, perbesar atau hentikan sesi lewat pengelola tmux, herdr dan Zellij pada kedua platform. Satu tombol multiplexer membuka pengelola yang tersedia; server tersimpan menentukan lampiran saat terhubung." },
-      { title: "Plugin", text: "Jelajahi, cari dan saring plugin menurut kategori, lalu pasang alur kerja yang diperlukan. Unduhan diverifikasi SHA-256 ke penyimpanan privat aplikasi." },
+      { title: "Plugin", text: "Jelajahi dan pasang plugin yang diverifikasi dengan checksum. Di Android, perbarui plugin dari katalog asalnya dengan mempertahankan pengaturan dan data, lalu tinjau perubahan penyiapan terpandu sebelum menyetujuinya." },
       {
         "title": "Identitas server dan host perantara",
         "text": "Capai server lewat bastion tersimpan pada kedua platform. Verifikasi kunci sebelum autentikasi memblokir perubahan. Android dapat menyimpan otomatis atau bertanya; iOS meminta persetujuan kunci asing."
@@ -79,7 +79,19 @@ export const id: Dict = {
       },
       {
         "title": "Klien VPN di Android",
-        "text": "Kelola SSH VPN, proxy SOCKS5 lokal, WireGuard, Shadowsocks dan OpenVPN dari beranda. Pilih profil, mulai perutean, lalu hentikan/lanjutkan lewat ubin Mobile SSH VPN."
+        "text": "Kelola profil SSH VPN, SOCKS5, WireGuard, Shadowsocks, dan OpenVPN, dengan ubin Setelan Cepat untuk mengendalikan VPN. Plugin VPN Setup opsional memandu Anda membuat server WireGuard sendiri di cloud."
+      },
+      {
+        "title": "Chat agen pemrograman di Android",
+        "text": "Baca dan balas percakapan Claude Code atau Codex yang sudah ada dengan balasan berformat, kode yang dapat disalin, dan lampiran. Chat berbagi draf terminal dan tidak pernah memulai atau memulai ulang agen."
+      },
+      {
+        "title": "Templat prompt terjadwal",
+        "text": "Eksperimental di Android dan nonaktif secara bawaan: jadwalkan pekerjaan hanya-baca Claude Code atau Codex di server Anda. Tinjau hasil, jalankan sekarang, jeda, atau hapus jadwal server."
+      },
+      {
+        "title": "Suara sesuai pilihan Anda",
+        "text": "Suara eksperimental Android menawarkan Pesan dengan tinjauan sebelum dikirim atau Percakapan langsung. Gunakan Gemma 4 di ponsel yang didukung, atau jalankan layanan suara di server SSH Linux milik Anda sendiri."
       }
     ],
     multiHead: "Satu layar, beberapa shell aktif",
@@ -194,16 +206,24 @@ export const id: Dict = {
     compareGuideTitle: "Panduan perbandingan",
     compareGuideText: "Kapan memilih Mobile SSH, Termux, atau Termius di ponsel atau tablet Anda.",
     privacyTitle: "Kebijakan privasi",
-    privacyText: "Lihat data koneksi mana yang disimpan lokal dan apa yang dikirim ke server Anda."
+    privacyText: "Lihat data koneksi mana yang disimpan lokal dan apa yang dikirim ke server Anda.",
+    vpnHead: "VPN di akun cloud Anda sendiri",
+    vpnBody: "Pada build Android yang kompatibel, plugin VPN Setup dapat membuat server cloud, memasang wg-easy, dan mengimpor klien WireGuard, atau menggunakan server publik yang sudah ada. Tinjau setiap perubahan di ponsel Anda. Sumber daya beserta biaya operasionalnya berada di akun cloud Anda.",
+    vpnAlt: "Video promosi VPN Mobile SSH dengan layar demo penyiapan cloud dan pengelolaan klien, diikuti ilustrasi jaringan serta penjelasan batasan DNS terenkripsi",
+    vpnCaption: "Promo satu menit yang memadukan antarmuka demo dan ilustrasi jaringan, dengan teks layar berbahasa Inggris. Ini bukan rekaman penerapan langsung yang sebenarnya.",
+    vpnTranscriptLabel: "Baca deskripsi adegan",
+    vpnTranscript: "Video menampilkan pemilihan penyedia cloud, termasuk Hetzner, pengelolaan klien WireGuard, penyambungan profil VPN ponsel, dan pembukaan host tersimpan. Ilustrasi jaringan menunjukkan WireGuard membawa lalu lintas dan SSH menjangkau perangkat privat. Adegan DNS menjelaskan bahwa DNS terenkripsi perlu disiapkan secara terpisah dan resolver dapat melihat kueri. Semua ini merupakan contoh ilustrasi, bukan jaminan bahwa membuat VPN otomatis menghubungkan setiap jaringan privat. Pesan penutupnya: cloud Anda, VPN Anda.",
+    vpnCtaGuide: "Siapkan VPN Anda",
+    vpnCtaProviders: "Pilih penyedia cloud"
   },
   features: {
     metaTitle: "Fitur | Mobile SSH",
     metaDescription:
-      "Jelajahi terminal Mobile SSH, alat Git jarak jauh, penerusan port pada sesi aktif, klien VPN, SFTP, VNC, dan pengelola sesi di Android dan iOS, serta asisten suara eksperimental di Android.",
+      "Terminal Mobile SSH, Chat agen pemrograman, transfer file, penyiapan VPN, dan pengelola sesi, dengan suara eksperimental Android dan templat prompt terjadwal.",
     eyebrow: "Daftar fitur",
     h1: "Fitur Mobile SSH",
     intro:
-      "Hubungkan ke server Anda dari Android dan iOS dengan terminal SSH, alat Git jarak jauh, SFTP, VNC, klien VPN, dan pengelola sesi. Android juga menyediakan kunci keamanan perangkat keras dan asisten suara eksperimental; fitur khusus platform ditandai di bawah.",
+      "Hubungkan ke server Anda melalui SSH, alat Git jarak jauh, SFTP, VNC, klien VPN, dan pengelola sesi. Android juga menawarkan Chat agen pemrograman, penyiapan VPN cloud terpandu, serta suara dan penjadwalan prompt eksperimental. Fitur dan persyaratan khusus platform ditandai di bawah.",
     groups: [
       {
         title: "Platform",
@@ -239,7 +259,7 @@ export const id: Dict = {
         title: "Terminal",
         items: [
           "Perilaku terminal bergaya VT100/xterm-256color dengan warna sejati 24-bit dan huruf miring — shell diberi tahu TERM=xterm-256color dan COLORTERM=truecolor",
-          "Buffer scrollback yang disetel ke 1.000, 5.000, 10.000, atau 50.000 baris di Android dan iOS (5.000 secara bawaan)",
+          "Pilih 1,000, 5,000, 10,000, atau 50,000 baris riwayat gulir, dengan bawaan 5,000. Android juga menerapkan batas memori per panel sehingga pengaturan besar mungkin menyimpan lebih sedikit baris; perubahan berlaku untuk panel baru",
           "Cari di terminal — telusuri buffer scrollback dan layar yang terlihat serta lompat antar kecocokan (Android dan iOS)",
           "Integrasi shell (OSC 133): melangkah antar prompt, pilih seluruh keluaran sebuah perintah — galat build dari 300 baris ke belakang, bukan hanya yang terakhir — dan dapatkan peringatan saat perintah yang berjalan lama selesai (Android dan iOS)",
           "Gambar inline di terminal melalui protokol grafis Kitty, yang bertahan saat zoom cubit dan pembungkusan ulang alih-alih lenyap (Android dan iOS)",
@@ -251,7 +271,7 @@ export const id: Dict = {
           "Sentuh untuk fokus, opsi sentuh-untuk-tampilkan-keyboard, aksi salin dan salin semua",
           "Cubit untuk ukuran teks dengan resize terminal jarak jauh",
           "Mode layar penuh panel dengan ketuk ganda",
-          "Seleksi teks terminal dengan Salin, Bagikan, dan Pilih semua — tekan lama memilih kata, dan Salin mempertahankan pemilihan untuk dibagikan atau disalin ulang",
+          "Tekan lama untuk memilih teks terminal, lalu pilih Salin, Tempel, Bagikan, atau Pilih semua. Android mempertahankan Salin dan Tempel di bilah pilihan tanpa mengubah ukuran panel; layar sempit menggunakan ikon",
           "Clipboard OSC 52 — salin teks dari sesi tmux atau vim jarak jauh langsung ke clipboard ponsel (Android dan iOS)",
           "Papan ketik fisik dan dikte pada kedua platform; iOS mengaktifkan Dikte dan saran termasuk koreksi otomatis secara bawaan. Matikan untuk masukan langsung",
           "Dukungan keyboard eksternal dan Bluetooth di Android dan iOS, termasuk panah, tombol fungsi, dan kombinasi Ctrl/Alt",
@@ -259,11 +279,11 @@ export const id: Dict = {
           "Nerd Font bawaan menampilkan glyph ikon powerline, starship, devicon, dan Material Design di Android dan iOS yang jika tidak akan ditampilkan sebagai kotak kosong oleh font sistem",
           "Karakter CJK lebar, emoji, dan karakter penggabung diukur dan digambar dengan benar di Android dan iOS, termasuk klaster grafem dan zero-width joiner",
           "Font terminal yang dapat dikonfigurasi (monospace sistem, JetBrains Mono, atau Source Code Pro) dan skema warna ANSI (Solarized, Gruvbox, Dracula, Nord) di Android dan iOS, diterapkan secara langsung ke panel yang terbuka",
-          "Penggeser ukuran teks terminal di Pengaturan berdampingan dengan zoom cubit, serta tema aplikasi yang dapat disetel ke Sistem, Terang, atau Gelap",
+          "Atur ukuran teks terminal di Setelan atau dengan gerakan mencubit. Secara bawaan, warna terminal Android mengikuti tema aplikasi; nonaktifkan Sesuaikan terminal dengan tema aplikasi untuk mempertahankan skema tetap",
           "Laju trafik dan indikator koneksi macet membedakan perintah sibuk dari koneksi tanpa respons; peredupan/getaran opsional",
           "Pengaturan mengontrol notifikasi jarak jauh, perintah selesai dan pembacaan papan klip jarak jauh; izin tersebut nonaktif secara bawaan",
           "Gim terminal dapat mengaktifkan usapan berarah yang mengirim tombol panah di Android dan iOS; pengguliran biasa tetap menjadi perilaku bawaan",
-          "Di Android, atur ulang atau sembunyikan tindakan pada bilah alat sesi, tambahkan pintasan plugin terpasang, dan pilih apakah bilah alat serta tombol tambahan disembunyikan saat layar penuh"
+          "Di Android, urutkan ulang atau sembunyikan tindakan bilah alat dan tambahkan pintasan plugin terpasang di Ikon atas. Pencarian dan Desktop jarak jauh disembunyikan secara bawaan. Dalam layar penuh, bilah alat tersembunyi secara bawaan sementara tombol tambahan tetap terlihat; atur keduanya secara terpisah"
         ]
       },
       {
@@ -279,18 +299,19 @@ export const id: Dict = {
           "Pelacakan perintah tmux dan lampiran ulang, dengan pilihan Otomatis, Tidak ada, tmux, herdr atau Zellij per server pada Android/iOS; identitas sesi bertahan saat berpindah soket",
           "Agen melaporkan dirinya sendiri lewat terminal, sehingga aplikasi tahu agennya, alat yang sedang dijalankannya, dan apakah ia tertahan menunggu Anda — panel berubah kuning amber, headernya berbunyi \"claude · needs you\", dan lencana di bilah alat menghitung siapa saja yang menunggu",
           "Jawab pertanyaan agen dengan satu ketuk dari daftar Agents; balasannya dikirim melalui kanal terpisah, jadi ia tidak pernah mengetik ke apa pun yang sedang tampil di layar",
-          "Pasang hook agen ke sebuah server dari dalam aplikasi — skrip shell kecil yang dapat dipanggil agen mana pun, bukan integrasi khusus satu vendor",
+          "Integrasi agen berjalan di server Anda. Chat Android menawarkan pemasangan hook siklus hidup Claude Code atau Codex; iOS menyediakan Pasang Hook Agen di setelan Peringatan agen",
           "Transport Eternal Terminal (ET) untuk sesi yang bertahan saat koneksi jaringan terputus, perangkat tidur, dan IP berubah, dengan opsi penyiapan etserver otomatis melalui SSH",
           "Pengelola tmux: lihat daftar dan beralih antar sesi, jendela, dan panel — attach, ganti nama, buat, pisah, zoom, atau kill, dengan pengurutan nama/tanggal dan 🔔 untuk agen yang menunggu input",
           "Satu tombol multiplexer membuka tmux, herdr dan Zellij; Herdr mendukung pratinjau panel, fokus dan balasan, Zellij sesi aktif maupun berhenti",
-          "Cari sesi, soket, jendela/tab, dan panel tmux, herdr, serta Zellij yang sudah dimuat sambil mempertahankan hasil dalam hierarki induknya; cabang jarak jauh yang belum dibuka tidak dicari"
+          "Cari sesi, soket, jendela/tab, dan panel tmux, herdr, serta Zellij yang sudah dimuat sambil mempertahankan hasil dalam hierarki induknya; cabang jarak jauh yang belum dibuka tidak dicari",
+          "Pembersihan tmux Android menghapus socket sisa server yang berhenti dan melupakan socket tersimpan yang filenya sudah hilang; socket yang digunakan server tmux yang masih mendengarkan tetap dipertahankan"
         ]
       },
       {
         title: "Berkas dan tunnel",
         items: [
           "Penjelajah SFTP dua panel untuk berkas lokal dan jarak jauh, dengan log transfer yang menampilkan setiap transfer dan dapat digulir",
-          "Antrean unggahan dan unduhan; bagikan berkas ke Mobile SSH di Android. Ekstensi Berbagi iOS mengunggah ke server terakhir yang berhasil terhubung dan mengantrekan jalur yang selesai untuk terminal yang sesuai",
+          "Antrekan unggahan dan unduhan serta bagikan file ke Mobile SSH. Android menggunakan terminal yang terbuka dan dapat melanjutkan unggahan setelah tersambung kembali; unggahan Ekstensi Berbagi iOS menuju server terakhir yang berhasil tersambung",
           "Unggah dan unduh folder rekursif antara ponsel dan host jarak jauh",
           "Aksi jarak jauh: ganti nama, hapus, buat, edit, kompres ke .tar.gz, izin (chmod/chown), dan detail",
           "Buka berkas yang diunduh di aplikasi lain di kedua platform — di iOS, unduhan juga muncul di aplikasi Files di bawah \"On My iPhone\"",
@@ -300,7 +321,9 @@ export const id: Dict = {
           "Penerusan port lokal yang disimpan bersama profil server dan otomatis aktif saat tersambung",
           "Mengikuti tema terang atau gelap sistem di seluruh aplikasi dan penjelajah berkas — pilih Sistem, Terang, atau Gelap di Android dan iOS",
           "Tambahkan, edit, atau hapus penerusan port lokal dalam sesi aktif di Android dan iOS; perubahan tetap berlaku setelah tersambung kembali tanpa menulis ulang profil server tersimpan",
-          "Unggahan lampiran iOS memeriksa penyelesaian dan ukuran berkas sebelum menerbitkan nama akhir berkas atau menyisipkan jalurnya, sehingga berkas yang sudah ada tetap terjaga"
+          "Unggahan lampiran iOS memeriksa penyelesaian dan ukuran berkas sebelum menerbitkan nama akhir berkas atau menyisipkan jalurnya, sehingga berkas yang sudah ada tetap terjaga",
+          "Transfer Android yang gagal menyediakan Lanjutkan, Coba lagi, Mulai ulang, dan Coba semua lagi, dengan memeriksa data parsial sebelum melanjutkan. Tarik daftar file ke bawah untuk menyegarkannya",
+          "Unggahan terminal Android menampilkan progres, kecepatan, status menunggu atau macet, dan Hentikan di header; berbagi file menggunakan kembali jendela terminal yang terbuka"
         ]
       },
       {
@@ -333,11 +356,13 @@ export const id: Dict = {
       {
         title: "Plugin",
         items: [
-          "Jelajahi plugin menurut kategori, cari, pasang dan jalankan; katalog dimuat ulang saat sumber berubah",
+          "Jelajahi, cari, pasang, dan jalankan plugin katalog. Android menampilkan Perbarui ke saat versi kompatibel yang lebih baru tersedia dari katalog asal, sambil mempertahankan pengaturan dan data plugin",
           "Plugin diunduh sesuai kebutuhan dari katalog publik dan diverifikasi SHA-256 ke penyimpanan privat aplikasi",
           "Sebuah plugin mendeklarasikan apa yang dibutuhkannya — perintah SSH, sebuah tunnel, penyimpanan — dan aplikasi menolak apa pun yang tidak dimintanya",
-          "Saat sebuah plugin menyiapkan sesuatu di server Anda, Anda melihat perintah persisnya lebih dulu dan menyetujuinya sebelum dijalankan",
-          "Konfigurasikan sumber katalog khusus atau privat, atau pasang dari sebuah folder di server Anda sendiri"
+          "Tinjau dan setujui perubahan server sebelum dijalankan. Alur kerja terpandu Android menampilkan bagian tinjauan berlabel dengan rincian mentah yang dapat dibuka, serta bisa dijeda dan dilanjutkan",
+          "Konfigurasikan sumber katalog khusus atau privat, atau pasang dari sebuah folder di server Anda sendiri",
+          "Pembaruan plugin Android tidak menurunkan versi dan meminta izin sebelum memberikan akses tambahan; alur kerja yang belum selesai mempertahankan versi plugin yang digunakan saat memulainya",
+          "VPN Setup pada build Android yang kompatibel dapat membuat VM cloud atau menggunakan server Ubuntu publik yang sudah ada, memasang wg-easy, dan mengimpor klien. Kredensial cloud menggunakan formulir native yang terlindungi; perubahan penyiapan memerlukan persetujuan"
         ]
       },
       {
@@ -373,7 +398,7 @@ export const id: Dict = {
         title: "Peramban dalam aplikasi",
         items: [
           "Buka layanan HTTP atau HTTPS yang diteruskan di dalam Mobile SSH pada Android dan iOS; HTTPS tetap memerlukan sertifikat yang valid",
-          "Android menambahkan tindakan tautan terminal, pencarian halaman, markah, riwayat, mode desktop, dan preferensi peramban per situs"
+          "Browser Dalam Aplikasi Android nonaktif secara bawaan: aktifkan melalui Setelan → Umum. Fitur ini menambahkan tindakan tautan terminal, pencarian halaman, bookmark, riwayat, mode desktop, dan preferensi browser per situs"
         ]
       },
       {
@@ -381,7 +406,28 @@ export const id: Dict = {
         items: [
           "Mati secara bawaan; aktifkan di Pengaturan. Gemma 4 dapat berjalan di ponsel itu sendiri: unduh model sekali dari Hugging Face dan ucapan tetap di perangkat, tanpa server suara",
           "Tanyakan tentang server atau layar, buka server dan sesi, dengarkan balasan agen pemrograman, atau diktekan prompt untuknya; perintah di luar daftar pendek pemeriksaan hanya-baca memerlukan persetujuan Anda",
-          "Atau jalankan suara di server SSH Linux Anda sendiri, dengan percakapan Pesan atau Langsung dan asisten server, Codex, atau Claude; masukan terminal dan perubahan multiplexer memerlukan izin terpisah"
+          "Atau jalankan suara di server SSH Linux Anda sendiri, dengan percakapan Pesan atau Langsung dan asisten server, Codex, atau Claude; masukan terminal dan perubahan multiplexer memerlukan izin terpisah",
+          "Gemma memerlukan ponsel 64-bit yang didukung dan unduhan model terpisah sekitar 2.6–3.7 GB. Unduhan melalui koneksi berkuota memerlukan konfirmasi, dan unduhan Wi-Fi dijeda jika berpindah ke koneksi berkuota",
+          "Lanjutkan percakapan yang dijeda melalui halaman Suara, notifikasi, atau tombol Putar headset. Jeda karena aplikasi lain mengambil alih audio akan berakhir saat audio tersebut selesai"
+        ]
+      },
+      {
+        "title": "Chat agen pemrograman (Android)",
+        "items": [
+          "Buka Chat untuk percakapan Claude Code atau Codex yang sudah berjalan di server Anda; ikuti panel tmux saat ini atau cari dan pilih percakapan berdasarkan judul",
+          "Balasan berformat mencakup kode yang dapat disalin, tabel, daftar tugas, dan tautan. Prompt Anda disorot dengan navigasi sebelumnya/berikutnya",
+          "Chat dan input terminal berbagi draf. Kirim prompt dan lampirkan file setelah memasang hook agen yang ditawarkan; persetujuan kepercayaan penyedia atau pemuatan ulang mungkin masih diperlukan",
+          "Chat memasang helper kecil di server dan memerlukan Python 3.8 atau lebih baru. Chat tidak pernah menjalankan atau memulai ulang agen pemrograman"
+        ]
+      },
+      {
+        "title": "Templat prompt (eksperimental, Android)",
+        "items": [
+          "Nonaktif secara bawaan: aktifkan Setelan → Umum → Templat prompt, lalu buka Prompt di Beranda atau menu server tersimpan",
+          "Simpan prompt, server, folder proyek, Claude Code atau Codex, dan zona waktu; jadwalkan setiap hari, hari kerja, hari pilihan, atau setiap 1–12 jam",
+          "Eksekusi bersifat hanya-baca dan memerlukan Python 3.8 atau lebih baru, cron, serta agen yang sudah masuk ke akun di server. Aplikasi memasang helper dan satu entri crontab",
+          "Sinkronkan templat dan hasil melalui SSH, periksa keluaran dan status, atau pilih Jalankan sekarang, Jeda, dan Hapus dari server. Model Gemma yang sudah diunduh dapat membuat atau merevisi prompt",
+          "Templat dienkripsi di ponsel dan tidak disertakan dalam cadangan. Menonaktifkan fitur tidak menghentikan jadwal server; hapus jadwal tersebut dari server terlebih dahulu"
         ]
       }
     ],
@@ -405,7 +451,7 @@ export const id: Dict = {
     rows: [
       {
         need: "Tujuan utama",
-        mobileSsh: "SSH, SFTP, VNC, host perantara dan multiplexer pada kedua platform; VPN dan FIDO2 di Android.",
+        mobileSsh: "SSH, SFTP, VNC, host perantara, dan pengelola multiplexer; Android juga menawarkan Chat agen pemrograman, penyiapan VPN cloud terpandu, kunci keamanan, serta suara opsional dan penjadwalan prompt.",
         termux: "Emulator terminal Android dan lingkungan Linux dengan paket APT.",
         termius: "Klien SSH modern di Android, iOS, desktop, dan alur kerja tim berorientasi web."
       },
@@ -417,7 +463,7 @@ export const id: Dict = {
       },
       {
         need: "Kontrol terminal seluler",
-        mobileSsh: "Tombol tambahan, kisi sesi, panel layar penuh, zoom cubit, salin/bagikan, tetikus dan papan ketik eksternal. Dikte dan saran iOS dapat dimatikan untuk masukan langsung.",
+        mobileSsh: "Tombol tambahan, kisi, layar penuh, zoom dengan cubitan, kontrol papan klip, dan keyboard eksternal. Secara bawaan, Android mempertahankan tombol tambahan dalam layar penuh. Dikte & saran di iOS dapat dinonaktifkan untuk input langsung.",
         termux: "Lingkungan terminal yang kuat; perilakunya tergantung pada alat dan konfigurasi terpasang.",
         termius: "Add-on keyboard seluler, gestur, tab, autocomplete, snippet, dan UX terminal yang rapi."
       },

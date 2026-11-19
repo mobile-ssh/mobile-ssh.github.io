@@ -52,10 +52,11 @@ Di Android, `ssh` atau `git` jarak jauh perlu **Teruskan agen SSH** pada profil 
 
 Impor kunci privat menggunakan pemilih berkas sistem. Jika impor gagal:
 
-- Pastikan berkas yang dipilih adalah kunci privat, bukan berkas publik `.pub`.
-- Buka berkas di editor teks tepercaya dan verifikasi berisi blok kunci lengkap.
+- Pastikan file terpilih adalah kunci privat, bukan file publik `.pub`.
+- Buka file di editor teks tepercaya dan pastikan blok kuncinya lengkap.
+- Di Android, file kunci yang diimpor tidak boleh lebih besar dari 64 KB; pilih kuncinya sendiri, bukan arsip atau file lain.
 - Coba tempel kunci secara manual ke kolom kunci privat.
-- Pastikan tipe kunci didukung: Ed25519, ECDSA (P-256/384/521), atau RSA di Android; Ed25519 atau ECDSA di iOS. DSA (`ssh-dss`) tidak berfungsi di keduanya, dan iOS tidak mendukung RSA — buatlah kunci Ed25519 sebagai gantinya.
+- Pastikan jenis kunci didukung: Ed25519, ECDSA (P-256/384/521), atau RSA di Android; Ed25519 atau ECDSA di iOS. DSA (`ssh-dss`) tidak berfungsi di keduanya, dan iOS tidak mendukung RSA — buat kunci Ed25519 sebagai gantinya.
 
 ## Kunci keamanan tidak merespons di Android
 
@@ -68,6 +69,10 @@ Server memerlukan OpenSSH 8.2+ dengan algoritme `sk-*` yang diizinkan. Kunci U2F
 Android mengirim tombol langsung tanpa koreksi otomatis/prediksi. Di iOS, **Dikte dan saran** aktif secara bawaan untuk suara dan koreksi baris. Jika mengubah masukan shell tak terduga, matikan, tinjau **Saran papan ketik**, lalu buka panel baru.
 
 Gunakan baris tambahan untuk `ESC`, `TAB`, `CTRL`, panah, `HOME`, `END`, `PGUP` dan `PGDN`. Jaringan macet juga menunda masukan. Header Android menunjukkan **tidak ada balasan** atau **tidak terkirim**; ketikan saat menyambung ulang dibuang, tidak diulang di shell baru. Tunggu, periksa prompt dan ketik ulang yang perlu saja.
+
+## Chat hanya-baca di Android
+
+Pastikan server memiliki Python 3.8 atau lebih baru, pilih percakapan Claude Code atau Codex yang dimaksud, lalu pasang hook yang ditawarkan di Chat. Selesaikan persetujuan kepercayaan penyedia atau pemuatan ulang/pelanjutan native yang diperlukan untuk memuatnya. Agen yang sudah berjalan mungkin belum memuat hook yang baru dipasang; Mobile SSH tidak akan memulai ulang agen untuk Anda.
 
 ## Gulir tmux tidak seperti yang diharapkan
 
@@ -115,6 +120,8 @@ Periksa:
 - Ada cukup ruang kosong di perangkat.
 - Jaringan stabil untuk transfer besar.
 
+Di Android, gunakan **Lanjutkan**, **Coba lagi**, **Mulai ulang**, atau **Coba semua lagi** pada antrean transfer setelah memperbaiki penyebabnya. Lanjutkan memeriksa apakah file parsial masih cocok; gunakan Mulai ulang jika tidak dapat dilanjutkan dengan aman. Indikator unggahan terminal menunjukkan status menunggu atau macet dan menawarkan **Hentikan**.
+
 ## Penerusan port gagal
 
 Periksa:
@@ -141,6 +148,8 @@ Tinjau pratinjau dan pilihan **Gabungkan** atau **Ganti**. Bagian yang tidak ada
 
 Identitas, izin sistem dan akses folder tetap lokal. Verifikasi host dan beri izin folder/VPN pada perangkat baru. Kredensial perangkat keras tetap memerlukan kunci fisik. Impor tidak menjalankan VPN; tinjau profil sebelum memulainya.
 
+Android juga tidak menyertakan templat prompt dan draf editor, model yang diunduh, setelan host suara, kredensial cloud VPN Setup, serta cache Chat atau eksekusi prompt. Atur kembali semua ini di perangkat tujuan. Jadwal server terpisah: menonaktifkan templat prompt di ponsel tidak menghentikan eksekusi yang sudah dijadwalkan di server.
+
 ## Desktop jarak jauh tidak tersedia atau tidak dapat diubah ukurannya
 
 Buka dari sesi SSH terhubung dan periksa izin penerusan TCP lokal. Di Linux, ikuti pesan paket yang kurang untuk memasang desktop/VNC. Android tidak mencerminkan konsol Wayland; gunakan desktop virtual yang didukung.
@@ -151,8 +160,10 @@ Di macOS, aktifkan Berbagi Layar di pengaturan Mac. Android mendukung autentikas
 
 Kedua platform merekam hal yang berbeda, jadi pilih yang sesuai dengan masalah Anda.
 
-**Android — terminal dan perenderan.** Aktifkan **Settings → Debugging → Show Debug and Logs buttons**, lalu gunakan tombol **Debug** yang muncul di layar beranda. Ia merekam peristiwa terminal, ukuran data SSH, input sentuh, perilaku ubah ukuran, dan siklus hidup tunnel. Memulai perekaman lebih dulu memperingatkan Anda bahwa ia menangkap setiap tombol yang Anda ketik, termasuk kata sandi. Menghentikannya akan menulis arsip ke folder Downloads Anda.
+**Android — terminal, suara, dan perenderan.** Aktifkan **Setelan → Debugging → Tampilkan tombol Debug dan Log**, lalu gunakan tombol **Debug** yang muncul di layar awal. Fitur ini merekam peristiwa terminal, ukuran data SSH, input sentuhan, perilaku perubahan ukuran, dan siklus hidup tunnel. Dialog persetujuan memperingatkan bahwa tombol yang diketik, termasuk kata sandi, dan isi layar ikut direkam. Rekaman suara mencakup transkripsi input dan teks balasan; sampel audio hanya disertakan jika Anda mengaktifkan opsi tersebut secara terpisah di Setelan.
+
+Pilih folder arsip yang dapat ditulis saat memulai rekaman pertama. Mobile SSH mengingatnya; ubah melalui **Setelan → Debugging → Folder arsip debug**. Jika ekspor gagal, arsip tetap berada di ponsel sehingga Anda dapat memilih folder lain dan mencoba lagi.
 
 **iOS — koneksi dan penyambungan ulang.** Aktifkan **Settings → Diagnostics → Record debug log**. Ia merekam setiap alamat yang dihubungi dan alasan kegagalannya, upaya penyambungan ulang beserta backoff-nya, koneksi yang putus, "peer stopped answering keepalives", perubahan jaringan, serta perintah tmux beserta galatnya. Settings menampilkan jumlah baris secara langsung sehingga Anda dapat memastikan ia sedang merekam, dan **Export Debug Log** membagikannya sebagai berkas teks. Log ini disimpan di memori dan hanya mencakup sesi aplikasi saat ini.
 
-Tinjau setiap log atau arsip debug sebelum membagikannya. Keduanya ditujukan untuk pemecahan masalah dan dapat mengungkap nama server, alamat, waktu, atau detail lingkungan lain — dan di Android, apa pun yang Anda ketik.
+Tinjau setiap log atau arsip debug sebelum membagikannya. Isinya dapat mengungkap nama server, alamat, informasi waktu, dan rincian lingkungan lain — serta di Android, rahasia yang diketik, isi layar, transkrip suara, dan audio yang Anda pilih untuk direkam.

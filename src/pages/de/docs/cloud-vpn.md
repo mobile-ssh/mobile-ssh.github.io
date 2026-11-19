@@ -6,16 +6,16 @@ description: "Erstelle eine Cloud-VM mit öffentlicher IP, speichere ihre SSH-Ve
 
 # Cloud-VMs und wg-easy
 
-Erstelle eine Linux-VM in deinem eigenen Cloud-Konto, verbinde dich mit Mobile SSH und installiere anschließend wg-easy für ein WireGuard-VPN. Die Trennung von Bereitstellung und Installation lässt dich dieselbe VM für einen anderen Dienst nutzen oder das VPN auf einem vorhandenen Server installieren.
+Erstelle eine Linux-VM in deinem eigenen Cloudkonto und betreibe mit wg-easy ein WireGuard-VPN. Auf kompatiblen Android-Builds kann das veröffentlichte Plugin **VPN Setup** die VM erstellen, wg-easy installieren und einen Client in einem geführten Ablauf importieren. Du kannst die VM auch in der Anbieterkonsole erstellen und über Mobile SSH installieren oder einen vorhandenen öffentlichen Server verwenden.
 
-**Verfügbarkeit – 8. November 2026:** Separate Plugins zum Erstellen von VMs sind der unten beschriebene geplante Ablauf. Die geprüfte lokale Android-Implementierung **VPN Setup** kombiniert Bereitstellung, Installation und Client-Import; ihre Plugin- und Katalogänderungen sind unveröffentlicht, und echte Cloud-Bereitstellungen wurden noch nicht getestet. Die separaten Einträge für AWS, Google Cloud und Azure sind derzeit nur Gerüste aus Manifest und Einstellungen; ihre Aktionen zum Auflisten und Steuern von VMs sind nicht implementiert, und sie erstellen keine VMs. Nutze die folgenden Anleitungen für Konsole und manuelle Installation, wenn dein Katalog keinen Erstellungsablauf bietet. Der neue native Ablauf erfordert eine kompatible Android-Version; eine entsprechende iOS-Automatisierung ist nicht belegt.
+**Verfügbarkeit — 19. November 2026:** **VPN Setup 1.0.7** ist im [Standard-Plugin-Katalog](https://github.com/mobile-ssh/mobile-ssh-plugins/tree/main/plugins/vpnsetup) veröffentlicht. Die grundlegende Einrichtung benötigt Plugin-Bridge **1.3.0**, Serverupdates **1.4.0** und das Entfernen geeigneter abgeschlossener Einträge **1.5.0**. Die Verfügbarkeit hängt vom installierten Android-Build und Veröffentlichungskanal ab; ein veröffentlichtes Plugin bestätigt nicht die Verfügbarkeit einer bestimmten App-Version für dich. Eine entsprechende iOS-Automatisierung ist nicht belegt. Ist das Plugin nicht verfügbar, nutze die Konsolen- und manuellen Anleitungen unten.
 
-## Zwei Plugins mit getrennten Aufgaben
+## Geführten oder manuellen Ablauf wählen
 
-- **Cloud-Bereitstellungsplugin:** erstellt über die Anbieter-API die VM, öffentliche Adresse und nötigen Netzwerkressourcen und speichert anschließend eine SSH-Verbindung. Es bewahrt die Ressourcen-IDs für spätere Verwaltung oder Löschung auf.
-- **wg-easy-Installer:** verbindet sich per SSH mit einem ausgewählten gespeicherten Server, installiert den VPN-Dienst und hilft beim Erstellen einer Client-Konfiguration. Er benötigt Serverzugriff und Verwaltungsrechte, nicht deine Cloud-API-Zugangsdaten. Auch eine manuell erstellte VM lässt sich verwenden.
+- **Mit Cloud-API erstellen:** VPN Setup erstellt mit deinem Anbieterkonto die VM und Netzwerkressourcen, speichert die SSH-Verbindung, installiert wg-easy und importiert einen Client. Ressourcen-IDs und Eigentumszuordnungen bleiben für die spätere Bereinigung erhalten.
+- **In der Cloudkonsole erstellen oder vorhandenen Server verwenden:** Erstelle die VM selbst und übergib VPN Setup ihre öffentliche IPv4, den SSH-Benutzernamen und Schlüssel, oder folge der manuellen Installation unten. Für die Installation auf deinem Server braucht das Plugin keine Cloud-API-Zugangsdaten.
 
-Die Übergabe sollte die Referenz auf den gespeicherten Server, öffentliche Adresse, SSH-Port, Benutzernamen, Referenz auf die SSH-Zugangsdaten sowie Bereitstellungs- und Ressourcen-IDs enthalten. Cloud-Geheimnisse und private SSH-Schlüssel sollten weder in Plugin-Ausgaben noch auf die VM kopiert werden. Das Entfernen des VPNs und das Löschen der Cloud-VM sind getrennte Vorgänge.
+Das veröffentlichte Plugin verbindet Bereitstellung und Installation; getrennte Plugins dafür bleiben eine geplante Architektur. Über die API erstellte Ressourcen und selbst bereitgestellte Server haben unterschiedliches Löschverhalten, wie unten beschrieben. Ein dokumentierter Live-Test mit Hetzner auf einem Android-Emulator bestand Einrichtung, VPN-Datenverkehr, Clientverwaltung, private Administration und Bereinigung. Das belegt keine Live-Abnahme für jeden Anbieter, jede Kontorichtlinie oder jedes physische Telefon.
 
 ## Konto und Servereinstellungen vorbereiten
 
@@ -25,11 +25,15 @@ Die Übergabe sollte die Referenz auf den gespeicherten Server, öffentliche Adr
 4. Wähle eine **öffentliche IPv4**, möglichst reserviert oder statisch, sofern angeboten. Eine private Adresse, reine IPv6-Instanz oder ein NAT-Gateway nur für ausgehenden Verkehr erfüllt die Endpunktanforderung dieser Anleitung nicht.
 5. Lege das SSH-Quell-CIDR ausdrücklich fest, etwa deine aktuelle öffentliche IPv4 mit `/32`. Verlasse dich nicht darauf, dass die Plugin-Voreinstellung den Zugriff einschränkt. Beim Wechsel zwischen Mobilfunk und WLAN musst du diese Regel möglicherweise über die Cloud-Konsole aktualisieren.
 
-Cloud-API-Zugangsdaten erlauben die Ressourcenverwaltung; SSH-Schlüssel erlauben die Serveranmeldung. Es sind unterschiedliche Zugangsdaten. Gib API-Geheimnisse nur im geschützten Zugangsdatenformular für den Anbieter ein, niemals in Sprachanweisungen, Terminalbefehlen oder Quelldateien. Im lokalen Android-Ablauf übernimmt nativer Code die Anbieteranmeldung und verschlüsselte Speicherung; erforderlichenfalls werden Zugangsdaten an den Anbieter gesendet, nicht an die VM oder den Plugin-Worker. Ein Offline-Sprachmodell ermöglicht Cloud-API-Aufrufe, Downloads und SSH nicht ohne Internetzugang.
+Der manuelle Weg unterstützt die oben genannten Architekturen. VPN Setup wählt derzeit **Ubuntu 24.04 auf amd64/x86-64**, verbindet über **SSH-Port 22** und akzeptiert **Ed25519- oder RSA**-SSH-Schlüssel; Lightsail erfordert RSA. ECDSA-Schlüssel, ausschließlich private Hosts und reine IPv6-Endpunkte werden in diesem Ablauf nicht unterstützt. Ein vorhandener Server braucht eine öffentliche IPv4 und nichtinteraktiven administrativen Zugriff.
+
+Cloud-API-Zugangsdaten erlauben Ressourcenverwaltung; SSH-Schlüssel erlauben die Serveranmeldung. Gib API-Geheimnisse nur im geschützten nativen Formular ein, niemals in Sprachprompts, Terminalbefehlen oder Quelldateien. Nativer Code authentifiziert sich bei genehmigten Anbieterendpunkten; Geheimnisse gelangen weder zur VM noch zum Plugin-Worker. Gespeicherte Zugangsdaten sind mit Android Keystore verschlüsselt. Ohne Speicherung verbleiben sie im Arbeitsspeicher und müssen nach Ende des App-Prozesses möglicherweise erneut eingegeben werden.
+
+Sprachsteuerung kann unterstützte Fragen ohne Geheimnisse beantworten und Fortschritt melden; Zugangsdaten und Freigaben erfordern jedoch den Bildschirm. Die Mikrofonaufnahme pausiert bei geschützten Formularen und muss ausdrücklich fortgesetzt werden. Spracheinrichtung braucht Aktivierung, ein heruntergeladenes lokales Modell und Mikrofonberechtigung. Ein Offline-Sprachmodell ermöglicht keine Cloud-API-Aufrufe, Downloads oder SSH-Verbindungen ohne Internet.
 
 ## Cloud wählen und öffentliche Adresse erhalten
 
-Melde dich für die **Einrichtung über die Konsole** selbst beim Anbieter an; Mobile SSH braucht dafür keine API-Zugangsdaten. Bereite für die zukünftige **Bereitstellung per Plugin** die unten genannten Zugangsdaten mit den nötigen Erstellungs-, Lese-, Netzwerk- und Löschrechten vor. Beschränke den Zugriff auf ein dediziertes Projekt oder eine Bereitstellung, soweit unterstützt. Kontorichtlinien gelten für beide Verfahren.
+Für die **Konsoleneinrichtung** meldest du dich selbst beim Anbieter an; Mobile SSH braucht dessen API-Zugangsdaten nicht. Für die **API-Bereitstellung mit VPN Setup** bereite die unten genannten Zugangsdaten mit den erforderlichen Erstellungs-, Lese-, Netzwerk- und Löschrechten vor. Das Plugin implementiert die zehn Anbieter dieser Tabelle; AWS EC2 ist eine separate Option ausschließlich über die Konsole. Begrenze den Zugriff möglichst auf ein eigenes Projekt oder Deployment. Kontorichtlinien gelten für beide Methoden.
 
 Erstelle die gewählte Ubuntu-VM mit deinem öffentlichen SSH-Schlüssel und wende die SSH-Regel aus dem nächsten Abschnitt an. Die Links erklären die jeweiligen Schritte für Adressen und Anmeldung beim Anbieter.
 
@@ -38,8 +42,8 @@ Erstelle die gewählte Ubuntu-VM mit deinem öffentlichen SSH-Schlüssel und wen
 | Anbieter | Zugangsdaten für API-Bereitstellung | Öffentliche IPv4 über die Konsole einrichten |
 | --- | --- | --- |
 | [AWS Lightsail](./aws-lightsail/) | Zugriffsschlüssel-ID und Geheimnis; bei temporären Zugangsdaten zusätzlich Sitzungstoken. Erlaube die nötigen [Lightsail-Aktionen](https://docs.aws.amazon.com/service-authorization/latest/reference/list_lightsail.html). | Erstelle eine Ubuntu-Instanz mit Dual Stack, wähle den RSA-SSH-Schlüssel und reserviere und verknüpfe eine [statische IPv4 in derselben Region](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip.html). Verwende beim Ubuntu-Image `ubuntu`. |
-| [Google Cloud Compute Engine](./google-cloud/) | JSON-Schlüssel eines Dienstkontos und Projekt-ID. Rechte müssen VM/Datenträger, Netzwerk, Adressen und Firewall abdecken; Network Admin allein darf Firewallregeln nicht schreiben. Prüfe die [IAM-Berechtigungen](https://docs.cloud.google.com/compute/docs/access/iam). | Aktiviere Compute Engine API, wähle VPC/Subnetz mit Internetrouting, reserviere eine [regionale externe IPv4](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address) und ordne sie der VM zu. Richte passenden SSH-Benutzernamen und Schlüssel ein; OS Login benötigt eine eigene Identitätseinrichtung. |
-| [Microsoft Azure](./azure/) | Mandanten-ID, Anwendungs-/Client-ID, **Wert** des Client-Geheimnisses und Abonnement-ID. Erlaube Compute-/Netzwerkoperationen; das Erstellen einer Ressourcengruppe erfordert auch Rechte im übergeordneten Geltungsbereich. Siehe [Dienstprinzipal einrichten](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal). | Erstelle eine dedizierte Ressourcengruppe und VNet/Subnetz. Verknüpfe eine [statische Standard-IPv4-Public-IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) mit der VM-NIC und ordne eine NSG zu. Verwende den bei der Erstellung gewählten Administratornamen. |
+| [Google Cloud Compute Engine](./google-cloud/) | JSON-Schlüssel eines Dienstkontos und Projekt-ID. Berechtigungen müssen VM-/Datenträger-, Netzwerk-, Adress- und Firewall-Operationen abdecken; Compute Network Admin allein kann keine Firewallregeln schreiben. Prüfe die [IAM-Berechtigungen](https://docs.cloud.google.com/compute/docs/access/iam). | Aktiviere die Compute Engine API, wähle VPC/Subnetz mit Internet-Routing, reserviere eine [regionale externe IPv4](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address) und ordne sie der VM zu. Konfiguriere passenden SSH-Benutzernamen und Schlüssel; OS Login braucht eine eigene Identitätseinrichtung. VPN Setup verwendet Metadaten-SSH-Schlüssel und deaktiviert OS Login für seine VM; schreibt deine Organisation OS Login vor, verwende eine genehmigte Konsolenkonfiguration. |
+| [Microsoft Azure](./azure/) | Mandanten-ID, Anwendungs-/Client-ID, Clientgeheimnis-**Wert** und Abonnement-ID. VPN Setup erstellt eine eigene Ressourcengruppe: Erlaube deren Erstellung/Löschung auf Abonnement- oder übergeordneter Ebene sowie Compute-/Netzwerkoperationen. Zugriff nur auf eine bestehende Gruppe reicht nicht. Siehe [Dienstprinzipal einrichten](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal). | Erstelle eine eigene Ressourcengruppe und VNet/Subnetz. Ordne der VM-NIC eine [Standard-IP mit statischer IPv4](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) und eine NSG zu. Verwende den bei der Erstellung gewählten Administratornamen. |
 | [DigitalOcean](./digitalocean/) | Persönliches Zugriffstoken mit den nötigen [Berechtigungsbereichen](https://docs.digitalocean.com/reference/api/create-personal-access-token/) für Droplets, SSH-Schlüssel, Reserved IPs, Firewalls und zugehörige Aktionen. | Erstelle ein Ubuntu-Droplet mit öffentlichem SSH-Schlüssel, weise eine [Reserved IPv4](https://docs.digitalocean.com/products/networking/reserved-ips/how-to/create/) zu und verknüpfe eine Cloud Firewall. Der anfängliche Ubuntu-Benutzer ist meist `root`. |
 | [Hetzner Cloud](./hetzner/) | Projektspezifisches [Read-&-Write-API-Token](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/). | Erstelle einen Ubuntu-Server mit [Primary IPv4](https://docs.hetzner.com/cloud/servers/primary-ips/overview/), deinem SSH-Schlüssel und einer Cloud Firewall. Verwende `root`. Prüfe, ob die separate Primary IP beim Löschen des Servers erhalten bleibt. |
 | [Akamai / Linode](./linode/) | Persönliches Zugriffstoken mit Lese-/Schreibrechten für Linodes und Firewalls sowie den nötigen [Leseberechtigungen](https://techdocs.akamai.com/linode-api/reference/get-started). | Erstelle einen Ubuntu-Linode mit öffentlicher IPv4 und SSH-Schlüssel, verknüpfe dann eine [Cloud Firewall](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-cloud-firewalls). Verwende `root`. Behalte die zugewiesene Adresse für die Lebensdauer der Instanz. |
@@ -50,25 +54,25 @@ Erstelle die gewählte Ubuntu-VM mit deinem öffentlichen SSH-Schlüssel und wen
 
 </div>
 
-**[AWS-EC2](./aws-ec2/)-Alternative:** Starte Ubuntu in einem öffentlichen Subnetz mit [Internetgateway und einer `0.0.0.0/0`-Route zum Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html), wähle SSH-Schlüssel und Sicherheitsgruppe und ordne anschließend eine [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html) zu. Verwende `ubuntu`. Der lokale automatische Adapter nutzt Lightsail; EC2 wird über die Konsole eingerichtet. Eine Elastic IP allein macht ein privates Subnetz nicht erreichbar.
+**Alternative [AWS EC2](./aws-ec2/):** Starte Ubuntu in einem öffentlichen Subnetz mit [Internet-Gateway und Gatewayroute `0.0.0.0/0`](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html), wähle SSH-Schlüssel und Sicherheitsgruppe und ordne eine [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html) zu. Verwende `ubuntu`. Der automatische AWS-Adapter von VPN Setup verwendet Lightsail; EC2 wird über die Konsole eingerichtet. Eine Elastic IP allein macht ein privates Subnetz nicht erreichbar.
 
 Wenn eine Organisation Dienstkontoschlüssel, externe IPs oder die gewählte SSH-Anmeldung untersagt, hole eine vom Administrator genehmigte Konfiguration ein. Die Konsoleneinrichtung umgeht diese Einschränkungen nicht.
 
 ## Bereitstellen und SSH-Verbindung speichern
 
-Öffne im geplanten getrennten Ablauf **Plugins**, installiere das Bereitstellungsplugin des Anbieters aus einem vertrauenswürdigen Katalog, wähle Konto und Region sowie VM-Größe, Image, öffentliche Adresse und SSH-Schlüssel. Prüfe Ressourcen und Kosten vor der Bestätigung. Ein reines Verwaltungsplugin ohne Erstellungsaktion kann diesen Schritt nicht übernehmen; nutze stattdessen die Anbieterkonsole.
+Öffne **Plugins**, installiere **VPN Setup** aus dem Standardkatalog und öffne seine eigenständige Seite. Wähle **VPN einrichten**, einen Anbieter und anschließend **Mit Cloud-API erstellen** oder **In der Cloudkonsole erstellen**. Wähle für einen vorhandenen Server die Option für einen bestehenden öffentlichen Server. Gib Zugangsdaten im nativen Formular ein, wähle oder erzeuge einen SSH-Schlüssel und prüfe Standort, Größe, Image und SSH-Quell-CIDR. Kontoabhängige Auswahlmöglichkeiten und Vorabprüfungen helfen bei unterstützten Angeboten; sie reservieren keine Kapazität und garantieren keine Kontingente. Prüfe aktuelle Anbieterpreise und bestätige die Erstellung auf dem Bildschirm.
 
-Warte, bis der Anbieter die VM als laufend meldet und SSH erreichbar ist. Bewahre die IDs von VM, Datenträger, Adresse und Firewall auf. Prüfe oder setze bei einer Zeitüberschreitung den bestehenden Vorgang fort, bevor du erneut erstellst, damit keine zweite kostenpflichtige VM entsteht.
+Verfolge den bestehenden Vorgang, bis VM und SSH bereit sind. Bei einer Zeitüberschreitung oder durch Android pausierter Hintergrundarbeit setze diesen Vorgang fort oder prüfe ihn, statt eine weitere kostenpflichtige VM zu erstellen. Verlorene Erstellungsantworten können eine Cloudsuche oder Konsolenprüfung erfordern. Bewahre die IDs von VM, Datenträger, Adresse und Firewall auf; auch ein gestoppter Ablauf kann bereits Ressourcen erstellt haben.
 
-Speichere die zurückgegebene Verbindung in Mobile SSH oder füge sie unter **Server** manuell hinzu: öffentliche IPv4, SSH-Port `22`, Image-Benutzername und passender privater Schlüssel. Vergleiche vor der Verbindung den Fingerabdruck des SSH-Hostschlüssels über die vertrauenswürdige Anbieterkonsole. Unter [Erste Schritte](../getting-started/) findest du Identitätsprüfungen und gespeicherte Zugangsdaten.
+VPN Setup fordert die Bestätigung des SSH-Hostschlüssels an, speichert die Verbindung, installiert wg-easy und importiert den ersten Client. Vergleiche den Fingerabdruck mit der vertrauenswürdigen Anbieterkonsole. Füge bei manueller Einrichtung den Server unter **Server** mit öffentlicher IPv4, SSH-Port `22`, Image-Benutzernamen und passendem privaten Schlüssel hinzu. Die automatischen Adapter für Google Cloud und Azure verwenden `ubuntu`; die Konsolenanleitungen verwenden die dort festgelegten Namen. Siehe [Erste Schritte](../getting-started/) zu Identitätsprüfungen und gespeicherten Zugangsdaten.
 
 ## Die beiden Netzwerkschichten konfigurieren
 
 Eine öffentliche Adresse benötigt eine Route, Freigaben in Cloud- und Gast-Firewall sowie einen lauschenden Dienst. Verwende diese Regeln in der Firewall/Sicherheitsgruppe des Anbieters; erhalte nötige bestehende Gastregeln.
 
-- **TCP 22:** Erlaube SSH aus deinem gewählten Verwaltungs-CIDR. Richte das bei der Bereitstellung ein.
-- **UDP 51820:** Erlaube die Netze, die das VPN verwenden werden. Für wechselnde Client-Netze kann das `0.0.0.0/0` bedeuten. Füge die Regel bei der WireGuard-Einrichtung über das Bereitstellungsplugin oder die Konsole hinzu.
-- **TCP 51821:** Halte den Port öffentlich geschlossen. Veröffentliche die wg-easy-Verwaltungsoberfläche nur auf dem Server-Loopback und greife per SSH-Tunnel darauf zu.
+- **TCP 22:** Erlaube SSH aus deinem gewählten Verwaltungs-CIDR. Richte das während der Bereitstellung ein.
+- **UDP 51820:** Erlaube die Netze, aus denen das VPN genutzt wird. Für mobile Clients kann das `0.0.0.0/0` bedeuten. VPN Setup konfiguriert dies für API-erstellte Deployments; nutze bei eigenen Servern die Cloudkonsole.
+- **TCP 51821:** Halte den Port öffentlich geschlossen. Veröffentliche die wg-easy-Verwaltung nur auf Server-Loopback und greife über einen SSH-Tunnel darauf zu.
 - **Ausgehender Verkehr:** Erlaube Paket-/Containerdownloads, DNS und den Internetverkehr, den das VPN transportieren soll.
 
 Prüfe das [Firewall-Verhalten von Docker](https://docs.docker.com/engine/install/ubuntu/#firewall-limitations): Veröffentlichte Containerports können UFW-Regeln umgehen. Verlasse dich zum Verbergen der Verwaltungsoberfläche nicht allein auf UFW und leere keine Firewallketten des Anbieters, insbesondere nicht OCIs Speicher-/iSCSI-Regeln.
@@ -77,9 +81,9 @@ Prüfe das [Firewall-Verhalten von Docker](https://docs.docker.com/engine/instal
 
 ## wg-easy auf der ausgewählten VM installieren
 
-Der separate Installer sollte den gespeicherten SSH-Server übernehmen und Änderungen am Server zur Freigabe vorlegen. Er sollte Betriebssystem, Rechte, vorhandene Docker-/VPN-Installationen und Portkonflikte prüfen, persistente Daten erhalten und die installierte Version melden. Das Cloud-Kontogeheimnis benötigt er nicht; ändere die Cloud-Firewall über Bereitstellungsplugin oder Konsole.
+Nach der Freigabe installiert VPN Setup seine per Digest festgelegte wg-easy-Version über SSH, bei Bedarf Docker auf Ubuntu 24.04 und erstellt den ersten Client. Die Verwaltung bleibt auf Server-Loopback, Firewallketten des Anbieters bleiben erhalten. Konfiguriere bei einem konsolenerstellten oder vorhandenen Server die Cloudfirewall selbst; der Installer braucht SSH-Zugriff und Administratorrechte, nicht dein Cloud-API-Geheimnis. Nutze einen frischen dedizierten Server und gehe nicht davon aus, dass eine fremde VPN-Installation übernommen werden kann.
 
-Das ältere Katalogplugin **WireGuard (wg-easy)** benötigt eine aktive SSH-Sitzung und Docker. Es ist nicht der neue automatische Installer und verspricht keinen nativen Client-Import. Verwende einen kompatiblen aktualisierten Installer oder den folgenden manuellen Weg im Mobile-SSH-Terminal auf einer frischen dedizierten VM.
+Das ältere Katalogplugin **WireGuard (wg-easy)** braucht eine aktive SSH-Sitzung und Docker. Es ist von **VPN Setup** getrennt und verspricht keinen nativen Clientimport. Nutze VPN Setup auf einem kompatiblen Android-Build oder den folgenden manuellen Weg im Mobile-SSH-Terminal auf einer frischen dedizierten VM.
 
 ### Manuelle Installation über SSH
 
@@ -87,13 +91,13 @@ Installiere Docker Engine und das Compose-Plugin nach der offiziellen [Ubuntu-An
 
 ```sh
 sudo mkdir -p /opt/wg-easy
-sudo curl -fL https://raw.githubusercontent.com/wg-easy/wg-easy/v15.4.0/docker-compose.yml -o /opt/wg-easy/compose.yaml
+sudo curl -fL https://raw.githubusercontent.com/wg-easy/wg-easy/v15.5.0/docker-compose.yml -o /opt/wg-easy/compose.yaml
 ```
 
 Bearbeite `/opt/wg-easy/compose.yaml` vor dem Start mit einem Terminaleditor mit erhöhten Rechten. Ersetze unter `services.wg-easy` das Image, aktiviere oder setze den Umgebungsblock und ersetze die Portzuordnungen durch diese Werte. Erhalte den Rest der Originaldatei einschließlich persistentem Volume, Moduleinbindung, Fähigkeiten, Netzwerken und sysctls:
 
 ```yaml
-image: ghcr.io/wg-easy/wg-easy:15.4.0@sha256:0e7bc9d34e86ddcaa92bc700d4d7dc9b33291dbc07ac8d13382f7c2095f949ec
+image: ghcr.io/wg-easy/wg-easy:15.5.0@sha256:071f79a639e9361123a5e57733107320207b844ddbbd92dfa6962f541fe8aac8
 environment:
   - INSECURE=true
 ports:
@@ -118,22 +122,32 @@ Erstelle in Mobile SSH eine [lokale Portweiterleitung](../port-forwarding/) mit 
 
 Erstelle im [Assistenten beim ersten Start](https://wg-easy.github.io/wg-easy/latest/guides/setup/) von wg-easy ein Administratorkonto, wähle eine neue Installation und setze als VPN-Endpunkt die öffentliche IPv4 oder den DNS-Namen der VM mit Port `51820`. Der VPN-Endpunkt ist weder die Loopback-Adresse der Weboberfläche noch Port `51821`.
 
-Erstelle einen Client pro Gerät und lade dessen WireGuard-Datei `.conf` herunter. Wenn deine Mobile-SSH-Version es anbietet, öffne **VPN → WireGuard**, füge ein Profil hinzu, importiere die Datei und speichere sie. Der aktuelle Android- und iOS-Quellcode unterstützt Dateiimport; prüfe deine installierte Version. Der lokale kombinierte Android-Ablauf kann direkt importieren. Das ist jedoch keine Zusage für das ältere Plugin oder eine iOS-Automatisierung. Konfigurationsdateien und QR-Codes enthalten private Schlüssel; halte sie vertraulich.
+Erstelle einen Client pro Gerät und lade seine WireGuard-`.conf` herunter. Wenn dein Mobile-SSH-Build es anbietet, öffne **VPN → WireGuard**, füge ein Profil hinzu, importiere die Datei und speichere sie. Aktueller Android- und iOS-Quellcode unterstützen Dateiimport; prüfe deinen installierten Build. VPN Setup importiert seinen ersten Client auf kompatiblen Android-Builds direkt. Seine Seite bietet außerdem **Client hinzufügen**, **Client widerrufen**, **Client/QR exportieren** und **Verwaltung öffnen** über einen privaten SSH-Tunnel. Daraus folgen keine entsprechenden Fähigkeiten des älteren Plugins oder einer iOS-Automatisierung. Konfigurationsdateien und QR-Codes enthalten private Schlüssel; halte sie geheim.
 
 ## VPN prüfen und Fehler beheben
 
 Starte das Profil und bestätige die VPN-Anfrage des Betriebssystems. Prüfe einen aktuellen Peer-Handshake und steigende Verkehrszähler, teste dann DNS und die gewünschten Internet- oder privaten Netzrouten. Ein importiertes Profil oder laufender Container allein beweist kein funktionierendes VPN.
 
-- **VM-Erstellung abgelehnt:** Prüfe Abrechnung, Kontingente, regionale Kapazität, Ablauf der Zugangsdaten und genaue IAM-Rechte. Firewalländerungen in Google Cloud brauchen zusätzliche Rechte zu Network Admin.
-- **SSH-Zeitüberschreitung:** Prüfe öffentliche Adresse, Subnetzrouting, TCP-22-Regeln und die aktuelle Quell-IP des Telefons. Bei Anmeldefehlern werden meist der richtige Image-Benutzername und SSH-Schlüssel benötigt.
-- **Verwaltungsoberfläche nicht erreichbar:** Halte die SSH-Weiterleitung verbunden, prüfe Containerstatus und Loopback-Portzuordnung und bestätige, dass HTTP nur für den Tunnel aktiviert ist.
-- **Kein WireGuard-Handshake:** Prüfe Client-Endpunkt, UDP 51820 in beiden Firewall-Schichten, Client-Schlüssel und ob der Server lauscht.
-- **Handshake, aber kein Verkehr:** Prüfe Weiterleitung/NAT, DNS, überlappende Routen und `AllowedIPs`. Ein IPv4-Volltunnel nutzt `0.0.0.0/0`; bewerte IPv6 gesondert. Eine VM ohne vorgelagerte IPv6-Anbindung bietet keinen IPv6-Internetzugang, und reine IPv4-Routen können IPv6 außerhalb des VPNs lassen.
+- **VM-Erstellung abgelehnt:** Prüfe Abrechnung, Kontingente, regionale Kapazität, Ablauf der Zugangsdaten und genaue IAM-Rechte. Firewalländerungen bei Google Cloud brauchen mehr als Compute Network Admin; organisationsweit vorgeschriebenes OS Login erfordert eine genehmigte Konsoleneinrichtung.
+- **SSH-Zeitüberschreitung:** Prüfe öffentliche Adresse, Subnetz-Routing, TCP-22-Regeln und die aktuelle Quell-IP des Telefons. Authentifizierungsfehler erfordern meist richtigen Image-Benutzernamen und SSH-Schlüssel.
+- **Verwaltung nicht erreichbar:** Halte die SSH-Weiterleitung verbunden, prüfe Containerstatus und Loopback-Portzuordnung und bestätige, dass HTTP nur für den Tunnel aktiviert ist.
+- **Kein WireGuard-Handshake:** Prüfe Clientendpunkt, UDP 51820 in beiden Firewalls, Clientschlüssel und ob der Server lauscht.
+- **Handshake ohne Verkehr:** Prüfe Forwarding/NAT, DNS, überlappende Routen und `AllowedIPs`. Ein vollständiger IPv4-Tunnel verwendet `0.0.0.0/0`; bewerte IPv6 separat. Eine VM ohne vorgeschaltetes IPv6 bietet keinen IPv6-Internetausgang, und reine IPv4-Routen können IPv6 außerhalb des VPN lassen.
+
+## Plugin und VPN-Server aktualisieren
+
+Nutze unter **Plugins** die verfügbare Aktion **Aktualisieren** für eine neuere kompatible Version aus demselben Katalog. Prüfe neu angeforderte Fähigkeiten. Einstellungen, Zugangsdaten und Deploymentdatensätze bleiben erhalten; ein unfertiger Vorgang läuft mit seiner ursprünglichen Plugin-Version weiter. Ein Plugin-Update allein aktualisiert den wg-easy-Container auf dem Server nicht.
+
+Ab Plugin-Bridge 1.4.0 meldet **Server prüfen** die laufende wg-easy-Version; **WireGuard aktualisieren** bietet die festgelegte Plugin-Version an. Bestätige das Update auf dem Bildschirm. Das Image wird vor Änderung des Dienstes geladen; Serverschlüssel, Clients und lokale Profile bleiben erhalten. Nutzt dieses Telefon das VPN, trennt die App es vorher; verbinde dich anschließend erneut. Aktualisiert wird der verwaltete Container, nicht das Hostbetriebssystem.
+
+Ein fehlgeschlagenes Update unterscheidet zwischen Downloadfehler, erfolgreichem Rollback und fehlgeschlagenem Rollback mit ausgefallenem VPN. Folge der Wiederherstellungsprüfung oder versuche es erneut, statt die Rückkehr des Dienstes anzunehmen. Manuelle Installationen brauchen eine separat geprüfte Änderung der festgelegten Image-Version und eine Sicherung; die Neuinstallation oben ist keine Migrationsanleitung.
 
 ## Clients entfernen und Cloud-Kosten beenden
 
 Widerrufe den Client in wg-easy, bevor du sein lokales Profil verwirfst. Das Löschen eines Profils in Mobile SSH widerruft den Peer-Schlüssel auf dem Server nicht. Sichere nötige Konfiguration vertraulich, bevor du VPN-Container oder persistente Daten entfernst.
 
-Lösche eine nicht mehr benötigte VM über das zuständige Bereitstellungsplugin oder die Anbieterkonsole und prüfe anschließend erhaltene Datenträger, Snapshots, reservierte/öffentliche Adressen und Netzwerkressourcen. Prüfe vor dem Löschen den Inhalt einer dedizierten Azure-Ressourcengruppe. Halte fremde Ressourcen aus einer vom Plugin verwalteten Bereitstellung heraus.
+Für ein API-erstelltes Deployment prüft und löscht **Deployment löschen** dessen eigene Cloudressourcen über die Anbieter-API, auch ohne SSH. Prüfe bei Pausen oder Fehlern die gemeldeten übrigen Ressourcen; setze die Bereinigung fort oder kontrolliere die Konsole. Halte fremde Ressourcen aus einem Plugin-Deployment heraus, insbesondere aus seiner eigenen Azure-Ressourcengruppe.
 
-Das Stoppen einer VM, Abbrechen eines Einrichtungsauftrags oder Deinstallieren des Plugins garantiert weder Ressourcenlöschung noch Kostenende. Über die Konsole erstellte Ressourcen musst du selbst aufräumen; bewahre ihre Anbieter-IDs auf, bis die Löschung bestätigt ist.
+Bei einem konsolenerstellten oder bestehenden Server entfernt die Plugin-Löschung seine verwaltete VPN-Installation, **nicht** deine VM oder öffentliche IP. Lösche diese bei Nichtbedarf in der Anbieterkonsole und prüfe verbleibende Datenträger, Snapshots, Adressen und Netzwerkressourcen. Wurden bei der Wiederherstellung Konto oder Standort geändert, prüfe auch die früheren, einschließlich eines früheren Scaleway-Projekts oder Oracle-Cloud-Compartments.
+
+**Ablauf stoppen** beendet den Vorgang, löscht aber keine Ressourcen. Ab Bridge 1.5.0 wird **Aus Liste entfernen** nur angeboten, wenn die App bestätigt, dass keine unfertigen Vorgänge oder ausstehenden verwalteten Ressourcen bleiben und der Eintrag vergessen werden darf. Es löscht lokale Historie, keine Cloudressourcen. Auch das Stoppen einer VM oder Deinstallieren des Plugins garantiert kein Ende der Kosten. Bewahre Ressourcen-IDs bis zur bestätigten Löschung auf.

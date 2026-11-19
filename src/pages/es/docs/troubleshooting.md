@@ -52,10 +52,11 @@ En Android, `ssh` o `git` remoto necesita **Reenviar agente SSH** activado para 
 
 La importación de la clave privada usa el selector de archivos del sistema. Si la importación falla:
 
-- Confirma que el archivo seleccionado es una clave privada, no un archivo público `.pub`.
-- Abre el archivo en un editor de texto de confianza y verifica que contiene el bloque completo de la clave.
+- Confirma que el archivo seleccionado sea una clave privada, no un archivo público `.pub`.
+- Ábrelo en un editor de texto de confianza y comprueba que contiene el bloque completo de la clave.
+- En Android, los archivos de claves importados no pueden superar 64 KB; selecciona la clave, no un archivo comprimido u otro archivo ajeno.
 - Prueba a pegar la clave manualmente en el campo de clave privada.
-- Confirma que el tipo de clave es compatible: Ed25519, ECDSA (P-256/384/521) o RSA en Android; Ed25519 o ECDSA en iOS. DSA (`ssh-dss`) no funciona en ninguna de las dos, y iOS no admite RSA — genera en su lugar una clave Ed25519.
+- Confirma que el tipo sea compatible: Ed25519, ECDSA (P-256/384/521) o RSA en Android; Ed25519 o ECDSA en iOS. DSA (`ssh-dss`) no funciona en ninguno, e iOS no admite RSA; genera una clave Ed25519 en su lugar.
 
 ## La clave de seguridad no responde en Android
 
@@ -68,6 +69,10 @@ El servidor necesita OpenSSH 8.2 o posterior con el algoritmo `sk-*` elegido per
 Android envía directamente la entrada con autocorrección y predicciones desactivadas. En iOS, **Dictado y sugerencias** viene activado y admite voz y correcciones de la línea actual. Si altera inesperadamente el shell, desactívalo, revisa **Sugerencias del teclado** y abre un panel nuevo.
 
 Usa la fila adicional para `ESC`, `TAB`, `CTRL`, flechas, `HOME`, `END`, `PGUP` y `PGDN`. Una red bloqueada también retrasa la entrada. La cabecera de Android muestra **sin respuesta** o **no enviado**; lo escrito al reconectar se descarta y no se reproduce en un shell nuevo. Espera la conexión, revisa el prompt y repite solo lo necesario.
+
+## Chat es de solo lectura en Android
+
+Comprueba que el servidor tenga Python 3.8 o posterior, selecciona la conversación de Claude Code o Codex que quieras e instala los hooks ofrecidos en Chat. Completa las autorizaciones de confianza del proveedor o la recarga/reanudación nativa necesarias para cargarlos. Un agente que ya está en ejecución puede no haber cargado los hooks recién instalados; Mobile SSH no lo reiniciará por ti.
 
 ## El desplazamiento de tmux no es el que esperas
 
@@ -115,6 +120,8 @@ Comprueba:
 - Hay suficiente espacio libre en el dispositivo.
 - La red es estable para transferencias grandes.
 
+En Android, usa **Reanudar**, **Reintentar**, **Reiniciar** o **Reintentar todas** en la cola de transferencias tras solucionar la causa. Reanudar comprueba que el archivo parcial sigue coincidiendo; usa Reiniciar si no puede continuar de forma segura. El indicador de subida de la terminal muestra el estado de espera o bloqueo y ofrece **Detener**.
+
 ## Falló el reenvío de puertos
 
 Comprueba:
@@ -141,6 +148,8 @@ Revisa la vista previa y **Combinar** o **Reemplazar**. Las secciones ausentes e
 
 Identidades, permisos del sistema y acceso a carpetas permanecen en el dispositivo. Verifica hosts y concede permisos de carpeta/VPN en el nuevo. Las credenciales físicas necesitan la clave correspondiente. Importar perfiles no inicia VPN: revísalos antes.
 
+Android también excluye las plantillas de instrucciones y sus borradores, los modelos descargados, los ajustes del servidor de voz, las credenciales de nube de VPN Setup y las cachés de Chat o de ejecuciones de instrucciones. Vuelve a configurarlos en el dispositivo de destino. Las programaciones del servidor son independientes: desactivar las plantillas en el teléfono no detiene las ejecuciones ya programadas en el servidor.
+
 ## El escritorio remoto no funciona o no cambia de tamaño
 
 Abre el visor desde una sesión SSH conectada y comprueba que el servidor permite reenvío TCP local. En Linux, sigue el mensaje de paquetes ausentes para instalar escritorio/VNC. Android no duplica consolas Wayland; usa un escritorio virtual compatible.
@@ -151,8 +160,10 @@ En macOS, activa Compartir pantalla en los ajustes del Mac. Android admite auten
 
 Las dos plataformas registran cosas distintas, así que elige la que corresponda a tu problema.
 
-**Android — terminal y representación.** Activa **Settings → Debugging → Show Debug and Logs buttons** y luego usa el botón **Debug** que aparece en la pantalla de inicio. Registra eventos de la terminal, tamaños de datos SSH, entrada táctil, comportamiento de redimensionado y ciclo de vida de los túneles. Al iniciar una grabación se te advierte primero de que captura todas las teclas que pulses, contraseñas incluidas. Al detenerla se guarda un archivo comprimido en tu carpeta de Descargas.
+**Android: terminal, voz y representación.** Activa **Ajustes → Depuración → Mostrar botones Depurar y Registros** y usa el botón **Depurar** que aparece en la pantalla inicial. Registra eventos de terminal, tamaños de datos SSH, entrada táctil, cambios de tamaño y ciclo de vida de los túneles. El aviso de consentimiento advierte de que registra las teclas pulsadas, incluidas las contraseñas, y el contenido de la pantalla. Las grabaciones de voz incluyen la entrada transcrita y el texto de las respuestas; las muestras de audio solo se incluyen si activas esa opción por separado en Ajustes.
+
+Elige una carpeta de archivos con permiso de escritura al iniciar la primera grabación. Mobile SSH la recuerda; cámbiala en **Ajustes → Depuración → Carpeta de archivos de depuración**. Si la exportación falla, el archivo permanece en el teléfono para que puedas elegir otra carpeta y reintentarlo.
 
 **iOS — conexiones y reconexiones.** Activa **Settings → Diagnostics → Record debug log**. Registra cada dirección marcada y por qué falló, los intentos de reconexión y su retroceso, las conexiones caídas, «peer stopped answering keepalives», los cambios de red y los comandos de tmux con sus errores. Settings muestra un recuento de líneas en vivo para que puedas confirmar que está grabando, y **Export Debug Log** lo comparte como archivo de texto. Se mantiene en memoria y cubre únicamente la sesión actual de la app.
 
-Revisa cualquier registro o archivo de depuración antes de compartirlo. Están pensados para la solución de problemas y pueden revelar nombres de servidores, direcciones, tiempos u otros detalles del entorno — y en Android, todo lo que hayas escrito.
+Revisa cualquier registro o archivo de depuración antes de compartirlo. Puede revelar nombres de servidores, direcciones, tiempos y otros detalles del entorno; en Android, también secretos escritos, contenido de pantalla, transcripciones de voz y el audio que hayas elegido grabar.

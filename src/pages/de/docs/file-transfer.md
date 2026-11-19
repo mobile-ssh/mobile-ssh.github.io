@@ -12,8 +12,8 @@ Mobile SSH enthält einen SFTP-Dateiübertragungsbildschirm, der an die aktive S
 
 1. Verbinde dich mit einem SSH-Server.
 2. Wähle den verbundenen Terminalbereich aus.
-3. Öffne **Transfer** in der Terminal-Symbolleiste, oder halte die Bereichskopfzeile gedrückt, wenn der aktuelle Bildschirm dies unterstützt.
-4. Der Dateiübertragungsbildschirm öffnet sich mit einem lokalen und einem entfernten Bereich.
+3. Öffne **Übertragung** über die Terminal-Werkzeugleiste.
+4. Die Dateiübertragung öffnet sich mit einem lokalen und einem entfernten Bereich.
 
 Wenn keine aktive SSH-Sitzung vorhanden ist, kann die Dateiübertragung nicht geöffnet werden.
 
@@ -54,7 +54,7 @@ Der Import des privaten Schlüssels ist von der Dateiübertragung getrennt und n
 4. Bestätige das entfernte Ziel.
 5. Beobachte die Übertragungswarteschlange für Fortschritt und Abschluss.
 
-Uploads folgen der SSH-Route des gewählten Servers einschließlich gespeicherter Sprungserver. Nach Verbindungsabbruch erneut verbinden und wiederholen.
+Uploads folgen der SSH-Route des ausgewählten Servers einschließlich gespeicherter Sprungserver. Unter Android können Uploads nach erneuter Verbindung fortgesetzt werden; nutze bei Fehlern die Wiederholungsfunktionen der Übertragungswarteschlange.
 
 ## Dateien herunterladen
 
@@ -97,6 +97,8 @@ Jeder Bereich kann nach Name oder Datum auf- oder absteigend sortieren. Mobile S
 
 Transfers sind nach Status sortiert: Wartend / Fehlgeschlagen / Erfolgreich unter Android, Aktiv / Fehlgeschlagen / Fertig unter iOS. Fehler zeigen den verfügbaren Grund. Unter iOS bleibt die aktuelle Übertragung oben in Aktiv und kann abgebrochen werden.
 
+Unter Android bieten fehlgeschlagene Uploads und Downloads **Fortsetzen**, **Erneut versuchen** oder **Neu starten** sowie **Alle erneut versuchen** für die Fehlerliste. Vor dem Fortsetzen prüft die App, ob die Teildatei noch übereinstimmt; starte neu, wenn eine sichere Fortsetzung nicht möglich ist. Ziehe eine Dateiliste zum Aktualisieren nach unten.
+
 Unter iOS behalten vorgemerkte Transfers ihren ursprünglichen Ordner auch beim Weiterblättern. Downloads werden erst temporär abgeschlossen, dann am Ziel ersetzt; Abbruch oder Fehler erhält die vorhandene Datei. Hat sich das Ziel nach der Überschreibfreigabe geändert, stoppt die App.
 
 ## Dateien aus der App herausbekommen
@@ -109,6 +111,8 @@ Unter iOS behalten vorgemerkte Transfers ihren ursprünglichen Ordner auch beim 
 Beide Plattformen empfangen Dateien anderer Apps und bieten 📎 **Datei anhängen** im Terminal. Uploads landen in `~/.cache/mobile-ssh` auf dem gewählten Host; Pfade lassen sich ohne Enter am Prompt einfügen. Mehrere Dateien werden unterstützt.
 
 Unter Android zielt Teilen auf die laufende Sitzung. Unter iOS bietet die Büroklammer **Fotomediathek** oder **Dateien**. Die iOS-Teilen-Erweiterung lädt auch bei geschlossener App auf gespeicherte SSH-Server hoch; Eternal-Terminal-Profile werden nicht angeboten. Unbekannte Identitäten zuerst in der Hauptapp prüfen.
+
+Unter Android zeigt eine Upload-Anzeige in der Terminal-Kopfzeile Fortschritt, Geschwindigkeit, Warte- oder Stillstandsstatus und **Stopp**. Das Teilen mit einer offenen Sitzung verwendet das vorhandene Terminalfenster.
 
 Nach dem Upload über die iOS-Erweiterung kommen Pfade in die Zwischenablage und warten auf ein verbundenes Pane für diesen Server. In Panes anderer Hosts werden sie nicht eingefügt.
 

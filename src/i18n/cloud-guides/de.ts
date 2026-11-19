@@ -10,7 +10,7 @@ export const de: CloudGuides = {
   "cardAction": "Eine VM erstellen und mit Mobile SSH verbinden",
   "navLabel": "Einen Cloudanbieter auswählen",
   "openConsole": "Anbieterkonsole öffnen",
-  "availability": "Diese Anleitungen verwenden die Konsole des Anbieters. Separate Plugins zum Erstellen von VMs sind geplant; die kombinierte Android-Implementierung VPN Setup ist lokal und unveröffentlicht. Der API-Abschnitt bereitet einen künftigen Zugriff vor und ist für diesen manuellen Weg nicht nötig.",
+  "availability": "Diese Anleitung verwendet die Anbieterkonsole. Das veröffentlichte Plugin VPN Setup verbindet Clouderstellung, wg-easy-Installation und Clientimport auf kompatiblen Android-Builds. Du kannst die VM auch hier erstellen und den Konsolen-/Bestandsserverweg des Plugins nutzen oder manuell installieren. Die Konsoleneinrichtung braucht keine Cloud-API-Zugangsdaten in Mobile SSH. AWS EC2 bleibt für VPN Setup eine Bereitstellungsoption ausschließlich über die Konsole; eine entsprechende iOS-Automatisierung ist nicht belegt.",
   "availabilityLink": "Plugin-Verfügbarkeit prüfen",
   "checked": "Konsolendokumentation am 8. November 2026 geprüft.",
   "beforeHeading": "Vorbereitung",
@@ -41,9 +41,9 @@ export const de: CloudGuides = {
   "vpnHeading": "wg-easy in einem eigenen Schritt installieren",
   "vpnText": "Prüfe zuerst, ob der gespeicherte Server ein Terminal öffnet und dein Benutzer root- oder sudo-Zugriff hat. Folge anschließend der gemeinsamen wg-easy-Installationsanleitung: Docker, festgelegte Containerversion, private Verwaltung über SSH, Client-Erstellung und VPN-Prüfung. Das Installationsprogramm braucht SSH-Zugriff, nicht dein Cloud-API-Geheimnis.",
   "vpnLink": "Zu den Installationsschritten für wg-easy",
-  "apiHeading": "Optionale API-Zugangsdaten für ein künftiges Plugin",
-  "apiIntro": "Überspringe diesen Abschnitt bei der Einrichtung über die Konsole. Erstelle Zugangsdaten erst, wenn ein kompatibles Bereitstellungswerkzeug sie benötigt. Die folgenden Berechtigungslisten dienen der Vorbereitung; sie sind keine geprüften Mindestrichtlinien für ein veröffentlichtes Plugin.",
-  "apiSecretNote": "Gib Zugangsdaten nur in ein unterstütztes geschütztes Formular ein. Schreibe Cloud-Geheimnisse weder in Sprachaufträge noch in Terminalbefehle oder auf die VM. Nutze den engsten unterstützten Berechtigungsumfang, notiere das Ablaufdatum und widerrufe nicht mehr benötigte Zugangsdaten.",
+  "apiHeading": "Optionale API-Zugangsdaten für VPN Setup",
+  "apiIntro": "Überspringe diesen Abschnitt bei Konsoleneinrichtung. Das veröffentlichte Plugin VPN Setup nutzt diese Zugangsdaten für seine zehn unterstützten Cloudanbieter auf kompatiblen Android-Builds; der AWS-Adapter verwendet Lightsail, nicht EC2. Die EC2-Hinweise beschreiben nur künftige Automatisierung. Diese Berechtigungslisten sind Orientierung, keine live getesteten Minimalrichtlinien für jeden Anbieter oder jedes Konto.",
+  "apiSecretNote": "Gib Zugangsdaten nur im geschützten nativen Formular ein; Eingabe und Freigaben erfordern den Bildschirm. Nativer Code authentifiziert sich bei genehmigten Anbieterendpunkten, ohne Cloudgeheimnisse an VM oder Plugin-Worker weiterzugeben. Schreibe keine Geheimnisse in Sprachprompts oder Terminalbefehle. Nutze den engsten unterstützten Geltungsbereich, notiere den Ablauf und widerrufe nicht mehr benötigte Zugangsdaten.",
   "cleanupHeading": "Nicht mehr benötigte Ressourcen löschen",
   "cleanupWarning": "Das Stoppen der VM, Abbrechen eines Einrichtungsauftrags oder Entfernen eines Mobile-SSH-Profils löscht keine Cloudressourcen und garantiert kein Ende der Kosten. Bewahre Ressourcen-IDs auf, bis die Löschung bestätigt ist, und erhalte nicht zugehörige Ressourcen.",
   "providers": {
@@ -57,7 +57,7 @@ export const de: CloudGuides = {
         "Wähle für iOS <strong>Verbinden → Über SSH verbinden</strong>. Ergänze den öffentlichen Ed25519-Schlüssel deiner App als neue Zeile in <code>/home/ubuntu/.ssh/authorized_keys</code> und erhalte vorhandene Schlüssel. Browser-SSH nutzt einen separaten Anbieterschlüssel; deine statische IPv4 ist jetzt bereit."
       ],
       "apiSteps": [
-        "Erstelle nur für ein künftiges Bereitstellungswerkzeug eine eigene IAM-Identität mit den nötigen Lightsail-Aktionen für Instances, SSH-Schlüssel, statische IPs und Firewalls einschließlich Löschung. Beschränke Region und Ressourcen, wo unterstützt; dies ist keine geprüfte Mindestrichtlinie.",
+        "Erstelle für die API-Bereitstellung mit VPN Setup eine eigene IAM-Identität mit den nötigen Lightsail-Aktionen für Instanzen, SSH-Schlüssel, statische IPs und Firewall einschließlich Bereinigung. Begrenze Region und Ressourcen, soweit unterstützt; dies ist keine getestete Minimalrichtlinie.",
         "Erstelle unter <strong>IAM → Benutzer → Sicherheitsanmeldeinformationen</strong> nur dann einen Zugriffsschlüssel, wenn unterstützte Automatisierung ihn benötigt. Übergib ID und Geheimnis über das geschützte native Formular; temporäre Zugangsdaten benötigen zusätzlich ihr Sitzungstoken. Verwende niemals Root-Schlüssel."
       ],
       "cleanupSteps": [
@@ -93,7 +93,7 @@ export const de: CloudGuides = {
         "Prüfe die VM-Konfiguration abschließend und wähle <strong>Erstellen</strong>. Warte, bis die Instanz läuft, und notiere ihre externe IPv4 sowie den oben gewählten SSH-Benutzernamen. Gehe nicht davon aus, dass der Benutzer <code>ubuntu</code> heißt."
       ],
       "apiSteps": [
-        "Nutze nur für ein künftiges Bereitstellungswerkzeug ein eigenes Dienstkonto mit den projektbezogenen Rollen Compute-Instanzadministrator (v1), Compute-Netzwerkadministrator und Compute-Sicherheitsadministrator oder engeren Entsprechungen. Compute-Netzwerkadministratoren können keine Firewalls erstellen. Ordne beim Anhängen eines VM-Dienstkontos zusätzlich die Rolle Dienstkontonutzer für dieses Konto zu.",
+        "Nutze für die API-Bereitstellung mit VPN Setup ein eigenes Dienstkonto mit projektbezogenen Rollen Compute Instance Admin (v1), Compute Network Admin und Compute Security Admin oder engeren Entsprechungen. Compute Network Admin kann keine Firewalls erstellen. Erlaube bei angehängtem VM-Dienstkonto außerdem Service Account User dafür. Der automatische Adapter verwendet Metadaten-SSH-Schlüssel und deaktiviert OS Login für seine VM; schreibt deine Organisation OS Login vor, nutze eine genehmigte Konsolenkonfiguration.",
         "Falls unterstützte Automatisierung einen JSON-Schlüssel benötigt und die Organisationsrichtlinie dies erlaubt, öffne <strong>IAM und Verwaltung → Dienstkonten → Schlüssel → Schlüssel hinzufügen → Neuen Schlüssel erstellen → JSON</strong>. Übergib Projekt-ID und JSON über geschützte native Einstellungen; umgehe niemals eine Schlüsselbeschränkung."
       ],
       "cleanupSteps": [
@@ -111,8 +111,8 @@ export const de: CloudGuides = {
         "Wähle <strong>Überprüfen + erstellen → Erstellen</strong>. Warte auf die Bereitstellung, öffne die <strong>Übersicht</strong> der VM und notiere deren öffentliche IPv4. Die VM ist mit dem Konto <code>azureuser</code> und deinem gewählten SSH-Schlüssel bereit."
       ],
       "apiSteps": [
-        "Erstelle nur für ein künftiges Bereitstellungswerkzeug eine eigene Single-Tenant-App unter <strong>Microsoft Entra ID → App-Registrierungen</strong>. Notiere Mandanten-, Client- und Abonnement-ID. Erstelle bei Bedarf unter <strong>Zertifikate und Geheimnisse</strong> ein Clientgeheimnis und kopiere dessen Wert, nicht die Geheimnis-ID.",
-        "Weise diesem Prinzipal unter <strong>Zugriffssteuerung (IAM)</strong> der Ressourcengruppe geeignete Compute-/Netzwerkberechtigungen zu. Mitwirkender für diese eigene Gruppe ist weit gefasst, aber nutzbar; bevorzuge eine engere getestete Rolle. Erstelle die Gruppe vorher, da gruppenbezogene Berechtigungen sie nicht erstellen können. Nutze geschützte native Zugangsdaten-Einstellungen."
+        "Erstelle für die API-Bereitstellung mit VPN Setup eine eigene Einzelmandanten-App unter <strong>Microsoft Entra ID → App registrations</strong>. Notiere Mandanten-, Client- und Abonnement-IDs. Erzeuge bei Bedarf unter <strong>Certificates &amp; secrets</strong> ein Clientgeheimnis und kopiere dessen Value, nicht die Geheimnis-ID.",
+        "Erlaube diesem Prinzipal unter <strong>Access control (IAM)</strong> des Abonnements, die Deployment-Ressourcengruppe zu erstellen und zu löschen sowie die benötigten Compute-/Netzwerkoperationen auszuführen. VPN Setup erstellt seine eigene Gruppe; Contributor nur für eine bestehende Gruppe reicht nicht. Nutze eine vom Administrator genehmigte Rolle auf Abonnement- oder übergeordneter Ebene, so weit eingeschränkt, wie dieser Ablauf erlaubt, und geschützte native Zugangsdaten-Einstellungen."
       ],
       "cleanupSteps": [
         "Enthält die Ressourcengruppe nur diese Bereitstellung, prüfe ihren Inhalt und lösche die Gruppe nach Gebrauch.",
@@ -129,7 +129,7 @@ export const de: CloudGuides = {
         "Öffne für eine beim Austausch erhaltene Adresse <strong>Netzwerk → Reservierte IPs → Reservierte IP hinzufügen</strong>. Wähle <strong>IPv4-Adresse → Droplet zuweisen</strong>, diesen Droplet und bestätige. Notiere nach Abschluss der Bereitstellung die zugewiesene öffentliche IPv4."
       ],
       "apiSteps": [
-        "Nur für ein künftiges kompatibles Plugin: Öffne <strong>Konto → API → Tokens → Neues Token erzeugen</strong>. Gib einen aussagekräftigen Namen und ein Ablaufdatum an.",
+        "Für die API-Bereitstellung mit VPN Setup: Öffne <strong>Account → API → Tokens → Generate New Token</strong>. Gib einen aussagekräftigen Namen und ein Ablaufdatum ein.",
         "Wähle <strong>Benutzerdefinierte Berechtigungsbereiche</strong> für die vom implementierten Ablauf benötigten Droplet-, SSH-Schlüssel-, Firewall- und reservierten-IP-Operationen samt Abhängigkeiten. Wähle nicht standardmäßig Vollzugriff; speichere das Token, wenn es angezeigt wird."
       ],
       "cleanupSteps": [
@@ -147,7 +147,7 @@ export const de: CloudGuides = {
         "Gib einen erkennbaren <strong>Namen</strong> ein, prüfe optionale Sicherungen und Gesamtkosten und klicke auf <strong>Jetzt erstellen und kaufen</strong>. Warte auf die Bereitschaft des Servers und notiere seine primäre IPv4. Behalte diese IP-Ressource, falls du die Adresse wiederverwenden möchtest."
       ],
       "apiSteps": [
-        "Nur für ein künftiges kompatibles Plugin: Öffne im vorgesehenen Projekt <strong>Sicherheit → API-Tokens → API-Token erzeugen</strong> und gib eine Beschreibung ein.",
+        "Für die API-Bereitstellung mit VPN Setup: Öffne im gewünschten Projekt <strong>Security → API tokens → Generate API token</strong> und gib eine Beschreibung ein.",
         "Wähle zur Bereitstellung <strong>Lesen und Schreiben</strong> und kopiere das Token vor dem Schließen des Fensters. Das gewährt Schreibzugriff auf das gesamte Projekt, nicht nur auf diesen Server."
       ],
       "cleanupSteps": [
@@ -165,7 +165,7 @@ export const de: CloudGuides = {
         "Prüfe optionale Sicherungen und weitere Kosten in der <strong>Linode-Zusammenfassung</strong> und klicke auf <strong>Linode erstellen</strong>. Warte auf die Initialisierung und notiere die öffentliche IPv4. Die reservierte Adresse bleibt nach dem Löschen des Servers im Konto und kann nicht in eine andere Region verschoben werden."
       ],
       "apiSteps": [
-        "Nur für ein künftiges kompatibles Plugin: Öffne dein Benutzermenü → <strong>API-Tokens → Persönliches Zugriffstoken erstellen</strong>. Lege eine Bezeichnung und ein Ablaufdatum fest.",
+        "Für die API-Bereitstellung mit VPN Setup: Öffne dein Benutzermenü → <strong>API Tokens → Create a Personal Access Token</strong>. Lege Bezeichnung und Ablauf fest.",
         "Gewähre nur nötige Berechtigungsbereiche: Die Bereitstellung braucht in der Regel Lesen/Schreiben für Linodes und Firewalls; das Reservieren oder Freigeben von Adressen benötigt außerdem <code>ips:read_write</code>. Bewahre das Token sicher auf."
       ],
       "cleanupSteps": [
@@ -183,7 +183,7 @@ export const de: CloudGuides = {
         "Warte, bis die Instanz bereit ist, und notiere ihre öffentliche IPv4. Die normale Adresse bleibt unverändert, solange diese Instanz existiert; nutze eine reservierte IP derselben Region, wenn sie einen Austausch überstehen soll."
       ],
       "apiSteps": [
-        "Nur für ein künftiges kompatibles Plugin: Öffne <strong>Konto → API</strong> und dann <strong>API aktivieren</strong> unter <strong>Persönliches Zugriffstoken</strong>. Bewahre die Zugangsdaten sicher auf.",
+        "Für die API-Bereitstellung mit VPN Setup: Öffne <strong>Account → API</strong> und unter <strong>Personal Access Token</strong> dann <strong>Enable API</strong>. Bewahre die Zugangsdaten sicher auf.",
         "Erlaube unter <strong>Zugriffssteuerung</strong> die IP/den CIDR, von dem API-Anfragen ausgehen werden. Aktualisiere sie nach Mobilfunknetzwechseln; dies beschränkt den Anfrageursprung, nicht Berechtigungen für bestimmte Ressourcen."
       ],
       "cleanupSteps": [
@@ -201,7 +201,7 @@ export const de: CloudGuides = {
         "Prüfe und erstelle die VM. Notiere im laufenden Zustand ihre öffentliche IPv4. Für eine Adresse, die den Austausch der VM übersteht, kannst du ihre flüchtige IP durch eine reservierte öffentliche IP an ihrer primären privaten IP ersetzen; notiere die neue Adresse."
       ],
       "apiSteps": [
-        "Nur für ein künftiges Bereitstellungsplugin: Lass einen Administrator einem eigenen IAM-Benutzer/einer Gruppe die nötigen Compute-, Netzwerk- und Volume-Berechtigungen in diesem Compartment gewähren.",
+        "Für die API-Bereitstellung mit VPN Setup: Lass einen Administrator einer eigenen IAM-Benutzer-/Gruppenidentität die erforderlichen Compute-, Netzwerk- und Volume-Rechte in diesem Compartment geben.",
         "Öffne <strong>Benutzereinstellungen → API-Schlüssel → API-Schlüssel hinzufügen</strong>. Speichere den privaten RSA-PEM-Signaturschlüssel, Fingerabdruck, Mandanten-/Benutzer-OCIDs und Region; notiere die Compartment-OCID. Dieser Schlüssel ist vom SSH-Schlüssel getrennt."
       ],
       "cleanupSteps": [
@@ -219,7 +219,7 @@ export const de: CloudGuides = {
         "Öffne in Horizon <strong>Compute → Instanzen → Sicherheitsgruppen bearbeiten</strong>. Wende die eigene Gruppe an und entferne die offene Standardgruppe nur von dieser VM; bearbeite oder lösche niemals die gemeinsam genutzte Standardgruppe. Notiere im aktiven Zustand die öffentliche IPv4 aus der Übersicht."
       ],
       "apiSteps": [
-        "Nur für ein künftiges Bereitstellungsplugin: Öffne die Token-Erstellungsseite für die API-Region deines Kontos. Benenne die Anwendung, setze ein Ablaufdatum und beschränke Rechte auf ihre dokumentierten Projektpfade/-aktionen.",
+        "Für die API-Bereitstellung mit VPN Setup: Öffne die Tokenerstellungsseite für die API-Region deines Kontos. Benenne die Anwendung, lege den Ablauf fest und begrenze Rights auf die dokumentierten Projektpfade und Aktionen.",
         "Bewahre Anwendungsschlüssel, Anwendungsgeheimnis und Consumer-Schlüssel sicher auf. Diese signierten API-Zugangsdaten unterscheiden sich vom OpenStack-Benutzernamen und -Passwort für Horizon."
       ],
       "cleanupSteps": [
@@ -237,7 +237,7 @@ export const de: CloudGuides = {
         "Wähle <strong>Prüfen</strong>, kontrolliere die Kostenschätzung und dann <strong>Instanz erstellen</strong>. Warte auf das Ende der Bereitstellung und kopiere die öffentliche IPv4 aus der <strong>Übersicht</strong>. Diese flexible IP ist eine separate Ressource, deren Lebenszyklus du verwalten musst."
       ],
       "apiSteps": [
-        "Nur für ein künftiges Bereitstellungsplugin: Erstelle eine IAM-Anwendung und gewähre die nötigen Berechtigungen für Instanzen, Netzwerk und Speicher im Zielprojekt.",
+        "Für die API-Bereitstellung mit VPN Setup: Erstelle eine IAM-Anwendung und erteile die nötigen Rechte für Instances, Netzwerk und Speicher im Zielprojekt.",
         "Öffne <strong>IAM und API-Schlüssel → API-Schlüssel → API-Schlüssel erzeugen</strong>. Wähle Anwendung und Ablaufdatum. Speichere Zugriffsschlüssel und das einmal angezeigte Geheimnis; notiere Projekt-UUID und Zone separat."
       ],
       "cleanupSteps": [

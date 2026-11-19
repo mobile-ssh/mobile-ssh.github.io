@@ -10,10 +10,10 @@ Mobile SSH menyertakan layar transfer berkas SFTP yang terikat ke koneksi SSH ak
 
 ## Membuka transfer berkas
 
-1. Terhubung ke server SSH.
-2. Pilih panel terminal yang terhubung.
-3. Buka **Transfer** dari bilah alat terminal, atau tekan lama header panel bila layar saat ini mendukungnya.
-4. Layar transfer berkas terbuka dengan panel lokal dan panel jarak jauh.
+1. Hubungkan ke server SSH.
+2. Pilih panel terminal yang tersambung.
+3. Buka **Transfer** dari bilah alat terminal.
+4. Layar transfer file terbuka dengan panel lokal dan panel jarak jauh.
 
 Jika tidak ada sesi SSH aktif, transfer berkas tidak dapat dibuka.
 
@@ -54,7 +54,7 @@ Impor kunci privat terpisah dari transfer berkas dan menggunakan pemilih berkas 
 4. Konfirmasi tujuan jarak jauh.
 5. Pantau antrean transfer untuk kemajuan dan penyelesaian.
 
-Unggahan mengikuti rute SSH server terpilih, termasuk host perantara tersimpan. Jika koneksi putus, coba lagi setelah tersambung.
+Unggahan mengikuti rute SSH server terpilih, termasuk host perantara yang tersimpan. Di Android, unggahan dapat berlanjut setelah tersambung kembali; gunakan kontrol coba lagi pada antrean transfer jika gagal.
 
 ## Mengunduh berkas
 
@@ -97,6 +97,8 @@ Setiap panel dapat mengurutkan berdasarkan nama atau tanggal secara naik atau tu
 
 Transfer ditampilkan menurut status: Antrean / Gagal / Berhasil di Android dan Aktif / Gagal / Selesai di iOS. Kegagalan menyertakan alasan yang tersedia. Di iOS, transfer saat ini tetap di atas Aktif dan dapat dibatalkan.
 
+Di Android, unggahan dan unduhan yang gagal menawarkan **Lanjutkan**, **Coba lagi**, atau **Mulai ulang**, serta **Coba semua lagi** untuk daftar kegagalan. Sebelum melanjutkan, aplikasi memeriksa apakah file parsial masih cocok; mulai ulang jika tidak dapat dilanjutkan dengan aman. Tarik daftar file ke bawah untuk menyegarkannya.
+
 Di iOS, antrean tetap memakai folder awal walaupun Anda berpindah. Unduhan selesai di penyimpanan sementara sebelum mengganti tujuan; pembatalan atau kegagalan mempertahankan berkas lama. Jika tujuan berubah setelah izin penimpaan, aplikasi berhenti.
 
 ## Mengeluarkan berkas dari aplikasi
@@ -109,6 +111,8 @@ Di iOS, antrean tetap memakai folder awal walaupun Anda berpindah. Unduhan seles
 Kedua platform menerima berkas yang dibagikan aplikasi lain dan menawarkan 📎 **Lampirkan berkas** di terminal. Berkas diunggah ke `~/.cache/mobile-ssh` pada host terpilih; jalurnya dapat dimasukkan ke prompt tanpa Enter. Beberapa berkas didukung.
 
 Di Android, berbagi menuju sesi berjalan. Di iOS, klip menawarkan **Perpustakaan Foto** atau **Files**. Ekstensi Berbagi iOS juga mengunggah ke server SSH tersimpan ketika Mobile SSH ditutup; profil Eternal Terminal tidak ditawarkan. Verifikasi identitas asing di aplikasi utama dahulu.
+
+Di Android, indikator unggahan pada header terminal menunjukkan progres, kecepatan, status menunggu atau macet, serta **Hentikan**. Berbagi ke sesi terbuka menggunakan jendela terminal yang sudah ada.
 
 Setelah unggahan lewat ekstensi iOS, jalur disalin ke papan klip dan menunggu panel yang terhubung ke server itu. Jalur tidak dimasukkan ke panel host lain.
 

@@ -10,7 +10,7 @@ export const fr: CloudGuides = {
   "cardAction": "Créer une VM et se connecter avec Mobile SSH",
   "navLabel": "Choisir un fournisseur cloud",
   "openConsole": "Ouvrir la console du fournisseur",
-  "availability": "Ces instructions utilisent la console du fournisseur. Des extensions distinctes de création de VM sont prévues ; l’implémentation combinée Android VPN Setup est locale et non publiée. La section API prépare un accès futur et n’est pas nécessaire pour cette méthode manuelle.",
+  "availability": "Ces instructions utilisent la console du fournisseur. L'extension publiée VPN Setup combine création cloud, installation de wg-easy et importation de clients sur les versions Android compatibles. Vous pouvez aussi créer la VM ici puis utiliser son parcours console/serveur existant, ou installer manuellement. La configuration par console ne nécessite pas d'identifiants d'API cloud dans Mobile SSH. AWS EC2 reste une option de provisionnement par console uniquement pour VPN Setup ; une automatisation iOS équivalente n'est pas établie.",
   "availabilityLink": "Vérifier la disponibilité des extensions",
   "checked": "Documentation des consoles vérifiée le 8 novembre 2026.",
   "beforeHeading": "Avant de commencer",
@@ -41,9 +41,9 @@ export const fr: CloudGuides = {
   "vpnHeading": "Installer wg-easy dans une étape distincte",
   "vpnText": "Vérifiez d’abord que le serveur enregistré ouvre un terminal et que votre compte dispose d’un accès root ou sudo. Suivez ensuite le guide commun d’installation de wg-easy : Docker, conteneur fixé à une version, administration privée par SSH, création des clients et vérification du VPN. L’installateur a besoin d’un accès SSH, pas du secret de votre API cloud.",
   "vpnLink": "Continuer vers l’installation de wg-easy",
-  "apiHeading": "Identifiants API facultatifs pour une future extension",
-  "apiIntro": "Ignorez cette section pour une configuration par la console. Ne créez des identifiants que lorsqu’un outil de provisionnement compatible les exige. Les listes de permissions ci-dessous servent à préparer l’accès ; ce ne sont pas des politiques minimales testées pour une extension publiée.",
-  "apiSecretNote": "Saisissez les identifiants uniquement dans un formulaire protégé compatible. Ne placez pas de secrets cloud dans des instructions vocales, des commandes de terminal ou la VM. Utilisez le périmètre le plus restreint pris en charge, notez l’expiration et révoquez les identifiants devenus inutiles.",
+  "apiHeading": "Identifiants d'API facultatifs pour VPN Setup",
+  "apiIntro": "Ignorez cette section pour une configuration par console. L'extension publiée VPN Setup utilise ces identifiants pour ses dix fournisseurs cloud pris en charge sur les versions Android compatibles ; son adaptateur AWS utilise Lightsail, pas EC2. Les notes d'identifiants EC2 décrivent uniquement une future automatisation. Ces listes de permissions sont indicatives, pas des politiques minimales testées en conditions réelles pour chaque fournisseur ou compte.",
+  "apiSecretNote": "Saisissez les identifiants uniquement dans le formulaire natif protégé ; leur saisie et les approbations nécessitent l'écran. Le code natif s'authentifie auprès des points d'accès approuvés du fournisseur sans transmettre les secrets cloud à la VM ni au moteur de l'extension. Ne placez aucun secret dans les prompts vocaux ou commandes de terminal. Utilisez la portée la plus restreinte possible, notez l'expiration et révoquez les identifiants devenus inutiles.",
   "cleanupHeading": "Supprimer les ressources devenues inutiles",
   "cleanupWarning": "Arrêter la VM, annuler une tâche de configuration ou supprimer un profil Mobile SSH ne supprime pas les ressources cloud et ne garantit pas l’arrêt de la facturation. Conservez les identifiants des ressources jusqu’à confirmation de leur suppression, et préservez les ressources sans rapport avec cette configuration.",
   "providers": {
@@ -57,7 +57,7 @@ export const fr: CloudGuides = {
         "Pour iOS, sélectionnez <strong>Connexion → Se connecter via SSH</strong>. Ajoutez la clé publique Ed25519 de votre application sur une nouvelle ligne dans <code>/home/ubuntu/.ssh/authorized_keys</code>, sans supprimer les clés existantes. Le SSH du navigateur utilise une clé distincte du fournisseur ; votre IPv4 statique est prête."
       ],
       "apiSteps": [
-        "Uniquement pour un futur outil de provisionnement, créez une identité IAM dédiée avec les actions Lightsail requises pour les instances, clés SSH, IP statiques et pare-feu, y compris leur suppression. Limitez la région et les ressources lorsque c’est possible ; ce n’est pas une politique minimale testée.",
+        "Pour le provisionnement par API avec VPN Setup, créez une identité IAM dédiée disposant des actions nécessaires sur les instances Lightsail, clés SSH, IP statiques et pare-feu, nettoyage compris. Restreignez la région et les ressources lorsque c'est possible ; il ne s'agit pas d'une politique minimale testée.",
         "Dans <strong>IAM → Utilisateurs → Informations d’identification de sécurité</strong>, ne créez une clé d’accès que lorsqu’une automatisation compatible en a besoin. Fournissez son identifiant et son secret via le formulaire natif protégé ; les identifiants temporaires exigent aussi leur jeton de session. N’utilisez jamais de clés root."
       ],
       "cleanupSteps": [
@@ -93,7 +93,7 @@ export const fr: CloudGuides = {
         "Terminez la vérification de la configuration de la VM et sélectionnez <strong>Créer</strong>. Attendez que l’instance fonctionne, puis notez son IPv4 externe et le nom SSH choisi précédemment. Ne supposez pas que le nom d’utilisateur est <code>ubuntu</code>."
       ],
       "apiSteps": [
-        "Uniquement pour un futur outil de provisionnement, utilisez un compte de service dédié avec les rôles d’administrateur d’instances Compute (v1), d’administrateur réseau Compute et d’administrateur de sécurité Compute limités au projet, ou des équivalents plus restreints. L’administrateur réseau Compute ne peut pas créer de pare-feu. Si vous attachez un compte de service à la VM, accordez aussi le rôle Utilisateur de compte de service sur ce compte.",
+        "Pour le provisionnement par API avec VPN Setup, utilisez un compte de service dédié avec les rôles Compute Instance Admin (v1), Compute Network Admin et Compute Security Admin limités au projet, ou des équivalents plus restreints. Compute Network Admin ne peut pas créer de pare-feu. Si vous associez un compte de service à la VM, accordez aussi Service Account User sur celui-ci. L'adaptateur automatique utilise des clés SSH dans les métadonnées et désactive OS Login sur sa VM ; si votre organisation impose OS Login, utilisez une configuration de console approuvée.",
         "Si une automatisation compatible exige une clé JSON et que la politique de l’organisation l’autorise, ouvrez <strong>IAM et administration → Comptes de service → Clés → Ajouter une clé → Créer une clé → JSON</strong>. Fournissez l’ID du projet et le JSON via des paramètres natifs protégés ; ne contournez jamais une restriction de clés."
       ],
       "cleanupSteps": [
@@ -111,8 +111,8 @@ export const fr: CloudGuides = {
         "Sélectionnez <strong>Vérifier + créer → Créer</strong>. Attendez le déploiement, ouvrez la <strong>Vue d’ensemble</strong> de la VM et notez son IPv4 publique. La VM est prête avec le compte <code>azureuser</code> et la clé SSH choisie."
       ],
       "apiSteps": [
-        "Uniquement pour un futur outil de provisionnement, créez une application dédiée à locataire unique dans <strong>Microsoft Entra ID → Inscriptions d’applications</strong>. Notez les ID de locataire, client et abonnement. Si nécessaire, créez un secret client dans <strong>Certificats et secrets</strong> et copiez sa Valeur, pas l’ID du secret.",
-        "Dans le <strong>Contrôle d’accès (IAM)</strong> du groupe de ressources, attribuez à ce principal les permissions de calcul/réseau appropriées. Contributeur sur ce groupe dédié est large mais utilisable ; préférez un rôle plus restreint et testé. Créez d’abord le groupe, car une permission limitée au groupe ne permet pas de le créer. Utilisez des paramètres natifs protégés pour les identifiants."
+        "Pour le provisionnement par API avec VPN Setup, créez une application dédiée à locataire unique sous <strong>Microsoft Entra ID → Inscriptions d'applications</strong>. Notez les identifiants de locataire, client et abonnement. Si nécessaire, créez un secret client sous <strong>Certificats et secrets</strong> et copiez sa Valeur, pas son identifiant de secret.",
+        "Dans <strong>Contrôle d'accès (IAM)</strong> de l'abonnement, autorisez ce principal à créer et supprimer le groupe de ressources du déploiement et à effectuer les opérations de calcul/réseau nécessaires. VPN Setup crée son propre groupe ; un accès Contributor limité à un groupe préexistant ne suffit pas. Utilisez un rôle approuvé par l'administrateur au niveau de l'abonnement ou supérieur, aussi restreint que le permet cette procédure, ainsi que les réglages natifs protégés des identifiants."
       ],
       "cleanupSteps": [
         "Si le groupe de ressources ne contient que ce déploiement, vérifiez son contenu et supprimez-le lorsque vous avez terminé.",
@@ -129,7 +129,7 @@ export const fr: CloudGuides = {
         "Pour conserver l’adresse lors d’un remplacement, ouvrez <strong>Mise en réseau → IP réservées → Ajouter une IP réservée</strong>. Choisissez <strong>Adresse IPv4 → Affecter au Droplet</strong>, sélectionnez ce Droplet et confirmez. Notez l’IPv4 publique affectée une fois le provisionnement terminé."
       ],
       "apiSteps": [
-        "Uniquement pour une future extension compatible : ouvrez <strong>Compte → API → Jetons → Générer un nouveau jeton</strong>. Saisissez un nom explicite et une expiration.",
+        "Pour le provisionnement par API avec VPN Setup, ouvrez <strong>Compte → API → Jetons → Générer un nouveau jeton</strong>. Saisissez un nom descriptif et une expiration.",
         "Choisissez <strong>Périmètres personnalisés</strong> pour les opérations Droplet, clés SSH, pare-feu et IP réservées et leurs dépendances exigées par le processus implémenté. Évitez l’Accès complet par défaut ; enregistrez le jeton lorsqu’il s’affiche."
       ],
       "cleanupSteps": [
@@ -147,7 +147,7 @@ export const fr: CloudGuides = {
         "Saisissez un <strong>Nom</strong> reconnaissable, vérifiez les sauvegardes facultatives et le coût total, puis cliquez sur <strong>Créer et acheter maintenant</strong>. Attendez que le serveur soit prêt et notez son IPv4 principale. Conservez cette ressource IP pour réutiliser l’adresse."
       ],
       "apiSteps": [
-        "Uniquement pour une future extension compatible : ouvrez <strong>Sécurité → Jetons API → Générer un jeton API</strong> dans le projet prévu et saisissez une description.",
+        "Pour le provisionnement par API avec VPN Setup, ouvrez <strong>Sécurité → Jetons d'API → Générer un jeton d'API</strong> dans le projet voulu et saisissez une description.",
         "Choisissez <strong>Lecture et écriture</strong> pour le provisionnement et copiez le jeton avant de fermer la fenêtre. Cela accorde un accès en écriture à tout le projet, et pas uniquement à ce serveur."
       ],
       "cleanupSteps": [
@@ -165,7 +165,7 @@ export const fr: CloudGuides = {
         "Vérifiez les sauvegardes facultatives et autres frais dans <strong>Résumé Linode</strong>, puis cliquez sur <strong>Créer un Linode</strong>. Attendez l’initialisation et notez son IPv4 publique. L’adresse réservée reste dans votre compte après suppression du serveur et ne peut pas changer de région."
       ],
       "apiSteps": [
-        "Uniquement pour une future extension compatible : ouvrez le menu de votre nom d’utilisateur → <strong>Jetons API → Créer un jeton d’accès personnel</strong>. Définissez un libellé et une expiration.",
+        "Pour le provisionnement par API avec VPN Setup, ouvrez le menu de votre nom d'utilisateur → <strong>Jetons d'API → Créer un jeton d'accès personnel</strong>. Définissez un libellé et une expiration.",
         "Accordez uniquement les périmètres nécessaires : le provisionnement nécessite généralement Lecture/Écriture pour Linodes et Pare-feu ; réserver ou libérer des adresses exige aussi <code>ips:read_write</code>. Conservez le jeton en sécurité."
       ],
       "cleanupSteps": [
@@ -183,7 +183,7 @@ export const fr: CloudGuides = {
         "Attendez que l’instance soit prête et notez son IPv4 publique. L’adresse ordinaire reste fixe tant que cette instance existe ; utilisez une IP réservée de la même région si elle doit survivre à un remplacement."
       ],
       "apiSteps": [
-        "Uniquement pour une future extension compatible : ouvrez <strong>Compte → API</strong>, puis <strong>Activer l’API</strong> dans <strong>Jeton d’accès personnel</strong>. Conservez cet identifiant en sécurité.",
+        "Pour le provisionnement par API avec VPN Setup, ouvrez <strong>Compte → API</strong>, puis <strong>Activer l'API</strong> sous <strong>Jeton d'accès personnel</strong>. Conservez l'identifiant en sécurité.",
         "Dans <strong>Contrôle d’accès</strong>, autorisez l’IP/CIDR à l’origine des requêtes API. Actualisez-la après un changement de réseau mobile ; cela limite l’origine des requêtes, pas les permissions sur des ressources particulières."
       ],
       "cleanupSteps": [
@@ -201,7 +201,7 @@ export const fr: CloudGuides = {
         "Vérifiez et créez la VM. Une fois en cours d’exécution, notez son IPv4 publique. Pour conserver l’adresse lors du remplacement de la VM, vous pouvez remplacer son IP éphémère par une IP publique réservée affectée à son IP privée principale ; notez la nouvelle adresse."
       ],
       "apiSteps": [
-        "Uniquement pour une future extension de provisionnement : demandez à un administrateur d’accorder à un utilisateur/groupe IAM dédié les permissions de calcul, réseau et volumes nécessaires dans ce compartiment.",
+        "Pour le provisionnement par API avec VPN Setup, demandez à un administrateur d'accorder à un utilisateur/groupe IAM dédié les permissions nécessaires de calcul, réseau et volumes dans ce compartiment.",
         "Ouvrez <strong>Paramètres utilisateur → Clés API → Ajouter une clé API</strong>. Conservez la clé privée de signature RSA PEM, l’empreinte, les OCID de location/utilisateur et la région ; notez l’OCID du compartiment. Cette clé est distincte de votre clé SSH."
       ],
       "cleanupSteps": [
@@ -219,7 +219,7 @@ export const fr: CloudGuides = {
         "Ouvrez <strong>Calcul → Instances → Modifier les groupes de sécurité</strong> dans Horizon. Appliquez le groupe dédié et retirez le groupe par défaut permissif uniquement de cette VM ; ne modifiez ni ne supprimez jamais le groupe par défaut partagé. Une fois l’instance active, notez son IPv4 publique dans la Vue d’ensemble."
       ],
       "apiSteps": [
-        "Uniquement pour une future extension de provisionnement : ouvrez la page de création de jeton correspondant à la région API de votre compte. Nommez l’application, définissez une expiration et limitez les Droits aux chemins/actions documentés de son projet.",
+        "Pour le provisionnement par API avec VPN Setup, ouvrez la page de création de jetons de la région API de votre compte. Nommez l'application, fixez une expiration et limitez les Droits aux chemins et actions documentés de son projet.",
         "Conservez en sécurité la clé d’application, le secret d’application et la clé consommateur. Ces identifiants d’API signée diffèrent du nom d’utilisateur/mot de passe OpenStack utilisé par Horizon."
       ],
       "cleanupSteps": [
@@ -237,7 +237,7 @@ export const fr: CloudGuides = {
         "Sélectionnez <strong>Vérifier</strong>, examinez les coûts estimés, puis <strong>Créer une instance</strong>. Attendez la fin du provisionnement et copiez l’IPv4 publique depuis la <strong>Vue d’ensemble</strong>. Cette IP flexible est une ressource distincte dont vous devez gérer le cycle de vie."
       ],
       "apiSteps": [
-        "Uniquement pour une future extension de provisionnement : créez une application IAM et accordez les permissions nécessaires pour les instances, le réseau et le stockage dans le projet cible.",
+        "Pour le provisionnement par API avec VPN Setup, créez une application IAM et accordez les permissions nécessaires sur Instances, réseau et stockage dans le projet cible.",
         "Ouvrez <strong>IAM et clés API → Clés API → Générer une clé API</strong>. Sélectionnez l’application et une expiration. Conservez la clé d’accès et le secret affiché une seule fois ; notez séparément l’UUID du projet et la zone."
       ],
       "cleanupSteps": [

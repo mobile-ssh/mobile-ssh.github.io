@@ -17,8 +17,8 @@ O Mobile SSH é um cliente SSH para Android e iOS para conectar aos seus própri
 
 ## Instalar o app
 
-- **Android:** o Mobile SSH está no momento em teste fechado no Google Play. Abra o link de adesão em um navegador do celular no aparelho — e não dentro do app Google Play, onde o teste pode não aparecer — e entre com a conta Google que você vai usar. Depois disso, ele instala e atualiza pelo Play como qualquer outro app.
-- **iOS:** o app para iOS é distribuído como beta público no TestFlight. Instale o app TestFlight da Apple e, em seguida, abra o link de convite do Mobile SSH na página inicial do site para instalar e receber atualizações.
+- **Android:** instale o Mobile SSH a partir do Google Play através da ligação na página inicial. A disponibilidade depende do canal de lançamento. Se participar num teste fechado, abra a ligação de inscrição num navegador e adira com a conta Google usada no Play.
+- **iOS:** a app iOS é distribuída como beta pública no TestFlight. Instale o TestFlight da Apple e abra a ligação de convite do Mobile SSH na página inicial do site para instalar e receber atualizações.
 
 ## Conectar a um servidor
 
@@ -87,7 +87,7 @@ Para usar uma chave privada:
 3. Informe a frase-senha da chave no campo de senha/frase-senha se a chave estiver criptografada.
 4. Salve a credencial ou o servidor.
 
-Importar chave privada usa o seletor do sistema sem acesso ao restante do armazenamento. A transferência tem sua própria seleção de pastas e arquivos.
+A importação de chaves privadas usa o seletor de ficheiros do sistema. O Android recusa ficheiros de chaves superiores a 64 KB. A importação não dá acesso ao restante armazenamento; a transferência de ficheiros tem as suas próprias seleções de pastas e ficheiros.
 
 Android aceita **chaves FIDO2** por USB/NFC: cadastre ou importe credencial OpenSSH e siga os pedidos de toque/PIN. A chave física continua necessária após exportar/restaurar. **Encaminhamento de agente SSH** é ativado por servidor; chaves salvas respondem assinaturas com aprovação opcional por uso. Ative apenas em servidores confiáveis para pedir assinaturas. iOS não aceita chave física nem encaminhamento de agente.
 
@@ -121,6 +121,8 @@ Ambos leem formato 2 e inventários antigos. Veja a prévia: **Mesclar** aplica 
 
 Identidades, sessões ativas, permissões e acesso a pastas não são restaurados. Verifique hosts e conceda acesso local no destino. Apps antigos não leem o formato completo novo.
 
+As cópias de segurança do Android também excluem modelos de prompts e os seus rascunhos, modelos transferidos, definições do servidor de voz, credenciais de nuvem do VPN Setup e caches do Chat ou de execuções de prompts. Configure-os novamente num telemóvel novo; uma cópia de segurança não move nem remove agendamentos já instalados num servidor.
+
 ## Sessões ativas
 
 Com sessões em execução, **Sessões ativas** mostra a contagem e abre a grade. No Android, notificação persistente lista hosts e abre controles da conexão.
@@ -131,13 +133,39 @@ Voltar à tela inicial não desconecta as sessões SSH ativas; fechar painéis o
 
 Abra **Settings** na tela inicial (ela tem sua própria página):
 
-- Decida se tocar no terminal levanta o teclado. As duas plataformas vêm com padrões opostos: no Android o teclado só aparece pelo botão ⌨; no iOS um toque o levanta.
-- Defina o **tamanho do texto**, a **fonte**, o **esquema de cores** e o tamanho do **scrollback** do terminal, e escolha um **tema** para o app (Sistema, Claro ou Escuro).
-- Ative **Agent alerts** se você executa tarefas longas em segundo plano (Claude Code, Codex, scripts de shell) e quer ser avisado quando o agente precisar da sua entrada. Veja no guia **Terminal** como os agentes se reportam.
-- No Android, **Keep sessions running in background** vem ativado, então shells e agentes sobrevivem a você fechar o app na lista de recentes.
-- Ambas têm opção de estatísticas anônimas nas Configurações; desligar interrompe a coleta de novos eventos.
-- No iOS, **Ditado e sugestões** vem ativado. Desative e abra novo painel para entrada direta sem ditado ou autocorreção.
-- Notificações remotas, alertas de comando concluído e leitura remota do clipboard exigem permissões próprias. Ative só as ações desejadas.
+- Decida se tocar no terminal abre o teclado. As plataformas têm predefinições opostas: no Android, o teclado só aparece através do botão ⌨; no iOS, aparece ao tocar.
+- Defina o **tamanho do texto**, o **tipo de letra**, o **esquema de cores** e o tamanho do **histórico** do terminal, e escolha um **tema** para a app (Sistema, Claro ou Escuro).
+- Ative **Alertas de agentes** se executar tarefas longas em segundo plano (Claude Code, Codex, scripts de shell) e quiser ser avisado quando o agente precisa da sua intervenção. Consulte o guia **Terminal** para saber como os agentes comunicam o seu estado.
+- No Android, **Manter sessões em segundo plano** está ativado por predefinição, para que shells e agentes continuem após dispensar a app com um gesto.
+- Ambas as plataformas têm um interruptor de análise anónima de utilização nas Definições. Desativá-lo interrompe a recolha de novos eventos.
+- No iOS, **Ditado e sugestões** está ativado por predefinição. Desative-o e abra um novo painel se preferir introdução direta sem ditado nem correção automática.
+- Notificações remotas, alertas de fim de comando e leituras remotas da área de transferência são opções separadas que exigem ativação. Ative apenas as ações remotas que pretende.
+- No Android, **Assistente de voz**, **Modelos de prompts** e **Navegador integrado** são opcionais e estão desativados por predefinição. Voz tem a sua própria página nas Definições; os outros dois estão em **Geral**.
+
+## Assistente de voz no Android
+
+O assistente de voz é experimental e está desativado por predefinição. Pode usar o Gemma 4 num telemóvel compatível de 64 bits ou um serviço de voz no seu próprio servidor SSH Linux.
+
+1. Abra **Definições → Assistente de voz** e ative o assistente.
+2. Para processar a fala localmente, ative **Usar Gemma neste telemóvel (sem servidor de voz)**, escolha um modelo disponível e toque em **Transferir**. Em alternativa, escolha um servidor Linux de voz guardado e siga a configuração do serviço; requer Python 3.11–3.13, serviços de utilizador systemd e vários GB de espaço livre.
+3. Inicie uma conversa de voz para o terminal que pretende controlar. Escolha **Mensagens** para gravar, rever e enviar, ou **Em direto** para conversar sem usar as mãos e receber respostas faladas. Um endereço personalizado de servidor de voz usa o modo Em direto.
+4. Reveja os comandos propostos antes de os confirmar. O Gemma pode executar uma lista curta de verificações só de leitura sem confirmação; os restantes comandos e os prompts enviados ao Claude Code ou Codex exigem a sua confirmação ou **Enviar**.
+
+Os modelos para telemóvel transferem cerca de 2.6–3.7 GB do Hugging Face apenas depois de tocar em Transferir. As transferências em ligações com tráfego limitado exigem confirmação, e uma transferência iniciada por Wi-Fi pausa se a ligação passar a ter tráfego limitado. Com o Gemma, a fala permanece no telemóvel; a opção de servidor envia o áudio para o serviço de voz configurado. A permissão do microfone é solicitada ao usar uma função de voz. Se faltar uma voz de síntese offline, a app oferece a sua transferência através do motor de voz do telemóvel.
+
+Se outra app assumir o áudio ou os auscultadores enviarem Parar, a conversa pausa preservando o modo e o contexto. Use **Continuar conversa** na página Voz ou na notificação, ou prima Reproduzir nos auscultadores. Uma pausa causada pelo áudio de outra app termina quando esse áudio acaba.
+
+## Modelos de prompts no Android
+
+Os modelos de prompts são experimentais e estão desativados por predefinição. Agendam execuções só de leitura do Claude Code ou Codex no seu próprio servidor. O servidor necessita de Python 3.8 ou mais recente, cron e um agente de programação com sessão iniciada.
+
+1. Ative **Definições → Geral → Modelos de prompts**.
+2. Abra **Prompts** no Início ou a opção de modelos de prompts no menu de um servidor guardado.
+3. Crie um modelo com um prompt, servidor, pasta de projeto e Claude Code ou Codex. Escolha um fuso horário e agende execuções diárias, nos dias úteis, em dias selecionados ou a cada 1–12 horas.
+4. Guarde o modelo e ligue-se ao respetivo servidor para o sincronizar. O Mobile SSH instala um pequeno auxiliar e uma entrada no crontab; os agendamentos correm no servidor mesmo com o telemóvel desligado da ligação.
+5. Reveja a saída e o estado de cada execução ou escolha **Executar agora**, **Pausar** ou **Remover do servidor**.
+
+Os modelos e os rascunhos do editor são cifrados no telemóvel e excluídos das cópias de segurança. Um modelo Gemma transferido pode ajudar a redigir e rever um prompt. Desativar a funcionalidade oculta os controlos e interrompe a sincronização do telemóvel; não para nem remove os agendamentos já instalados num servidor. Pause ou remova primeiro esses agendamentos em Modelos de prompts.
 
 ## Plugins
 
@@ -148,6 +176,8 @@ Os plugins ampliam o Mobile SSH com fluxos de trabalho adicionais. Abra **Plugin
 - Executar os plugins instalados a partir da mesma tela.
 
 Os plugins são obtidos de um catálogo público por padrão. Se você mantiver o seu próprio, pode apontar o Mobile SSH para uma origem de catálogo personalizada ou privada. Instale apenas plugins de origens em que você confia.
+
+No Android, os plugins do catálogo mostram **Atualizar para** quando existe uma versão mais recente. As atualizações usam o catálogo original, preservam as definições e os dados e pedem aprovação caso necessitem de acesso adicional. Não instalam uma versão anterior à instalada.
 
 ## Idiomas
 

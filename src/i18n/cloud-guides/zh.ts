@@ -10,7 +10,7 @@ export const zh: CloudGuides = {
   "cardAction": "创建虚拟机并通过 Mobile SSH 连接",
   "navLabel": "选择云服务商",
   "openConsole": "打开服务商控制台",
-  "availability": "这些说明使用服务商的控制台。独立的虚拟机创建插件仍在规划中；Android 综合 VPN Setup 实现仅存在于本地，尚未发布。API 部分用于准备未来的访问权限，手动操作无需此步骤。",
+  "availability": "这些步骤使用服务商控制台。已发布的 VPN Setup 插件在兼容 Android 版本上将云资源创建、wg-easy 安装和客户端导入合并。你也可先按本指南创建 VM，再使用其控制台/现有服务器流程，或手动安装。控制台设置不需要在 Mobile SSH 中提供云 API 凭据。VPN Setup 对 AWS EC2 仍只提供控制台创建路径；尚未确认 iOS 有同等自动化功能。",
   "availabilityLink": "查看插件可用情况",
   "checked": "控制台文档核对日期：2026 年 11 月 8 日。",
   "beforeHeading": "开始之前",
@@ -41,9 +41,9 @@ export const zh: CloudGuides = {
   "vpnHeading": "单独安装 wg-easy",
   "vpnText": "先确认保存的服务器能够打开终端，且登录账户具有 root 或 sudo 权限。然后按照通用 wg-easy 安装指南操作：安装 Docker、使用固定版本的容器、通过 SSH 私密管理、创建客户端并验证 VPN。安装程序需要 SSH 访问权限，不需要云 API 密钥。",
   "vpnLink": "继续查看 wg-easy 安装步骤",
-  "apiHeading": "为未来插件准备的可选 API 凭据",
-  "apiIntro": "使用控制台设置时请跳过此部分。仅在兼容的资源创建插件需要时创建凭据。下列权限清单是准备工作的指导，并非针对已发布插件测试过的最小权限策略。",
-  "apiSecretNote": "仅在受支持的受保护表单中输入凭据。不要将云端密钥放入语音提示、终端命令或虚拟机中。使用受支持的最小权限范围，记录到期时间，并撤销不再需要的凭据。",
+  "apiHeading": "VPN Setup 的可选 API 凭据",
+  "apiIntro": "控制台设置可跳过本节。已发布的 VPN Setup 插件在兼容 Android 版本上为十家受支持云服务商使用这些凭据；其 AWS 适配器使用 Lightsail，不是 EC2。EC2 凭据说明仅针对未来自动化。这些权限列表属于指引，不是已对所有服务商或账户实测的最小权限策略。",
+  "apiSecretNote": "仅在受保护的原生表单中填写凭据；凭据输入和批准需使用屏幕。原生代码向允许的服务商端点认证，不会把云秘密传给 VM 或插件工作程序。不要把秘密写入语音提示词或终端命令。使用受支持的最小权限范围、记录到期时间，并撤销不再需要的凭据。",
   "cleanupHeading": "删除不再需要的资源",
   "cleanupWarning": "停止虚拟机、取消设置任务或删除 Mobile SSH 配置，并不会删除云资源，也不保证停止计费。在确认删除之前保留资源 ID，且不要删除无关资源。",
   "providers": {
@@ -57,7 +57,7 @@ export const zh: CloudGuides = {
         "对于 iOS，选择<strong>连接 → 使用 SSH 连接</strong>。将应用的 Ed25519 公钥作为新的一行加入 <code>/home/ubuntu/.ssh/authorized_keys</code>，保留现有密钥。浏览器 SSH 使用服务商的独立密钥；现在静态 IPv4 已准备就绪。"
       ],
       "apiSteps": [
-        "仅为未来的资源创建插件准备：创建专用 IAM 身份，授予所需的 Lightsail 实例、SSH 密钥、静态 IP 和防火墙操作权限，包括清理操作。在支持的情况下限制区域和资源；这不是经过测试的最小权限策略。",
+        "使用 VPN Setup API 创建资源时，请创建专用 IAM 身份，授予所需的 Lightsail 实例、SSH 密钥、静态 IP 和防火墙操作权限，包括清理权限。在支持的情况下限制区域和资源；这不是经过测试的最小权限策略。",
         "在 <strong>IAM → 用户 → 安全凭据</strong>下，仅当受支持的自动化功能需要时才创建访问密钥。通过受保护的原生表单提供其 ID 和密钥；临时凭据还需提供会话令牌。切勿使用 root 密钥。"
       ],
       "cleanupSteps": [
@@ -93,7 +93,7 @@ export const zh: CloudGuides = {
         "检查完虚拟机配置后选择<strong>创建</strong>。等待实例运行，然后记录其外部 IPv4 和上方选定的 SSH 用户名。不要假设用户名是 <code>ubuntu</code>。"
       ],
       "apiSteps": [
-        "仅为未来的资源创建插件准备：使用专用服务账户，并在项目范围内授予 Compute Instance Admin (v1)、Compute Network Admin 和 Compute Security Admin 角色，或权限更窄的等效角色。Compute Network Admin 无法创建防火墙。如果附加虚拟机服务账户，还需授予对该账户的 Service Account User 角色。",
+        "使用 VPN Setup API 创建资源时，请使用专用服务账户，并在项目范围授予 Compute Instance Admin (v1)、Compute Network Admin 和 Compute Security Admin，或更严格的等效角色。Compute Network Admin 无法创建防火墙。若为 VM 附加服务账户，还需授予针对它的 Service Account User。自动适配器使用元数据 SSH 密钥，并在 VM 上关闭 OS Login；若组织要求 OS Login，请采用获批的控制台配置。",
         "如果受支持的自动化功能需要 JSON 密钥且组织政策允许，打开 <strong>IAM 和管理 → 服务账户 → 密钥 → 添加密钥 → 创建新密钥 → JSON</strong>。通过受保护的原生设置提供项目 ID 和 JSON；切勿绕过密钥限制。"
       ],
       "cleanupSteps": [
@@ -111,8 +111,8 @@ export const zh: CloudGuides = {
         "选择<strong>查看并创建 → 创建</strong>。等待部署完成，然后打开虚拟机<strong>概述</strong>，记录公网 IPv4。虚拟机现已配置好 <code>azureuser</code> 账户及你选择的 SSH 密钥。"
       ],
       "apiSteps": [
-        "仅为未来的资源创建插件准备：在 <strong>Microsoft Entra ID → 应用注册</strong>下创建专用的单租户应用。记录租户、客户端和订阅 ID。如有需要，在<strong>证书和密码</strong>下创建客户端密码，并复制其值，而不是密码 ID。",
-        "在资源组的<strong>访问控制 (IAM)</strong>中，为该主体分配适当的计算和网络权限。此专用资源组的 Contributor 角色权限较宽，但可用；应优先选择经过测试的更窄角色。先创建资源组，因为资源组范围的权限无法创建资源组。使用受保护的原生凭据设置。"
+        "使用 VPN Setup API 创建资源时，请在 <strong>Microsoft Entra ID → 应用注册</strong> 中创建专用单租户应用。记录租户、客户端和订阅 ID。需要时在 <strong>证书和秘密</strong> 中创建客户端秘密，复制其值而非秘密 ID。",
+        "在订阅的 <strong>访问控制 (IAM)</strong> 中，为此主体授予部署资源组的创建和删除权限，以及所需计算/网络操作权限。VPN Setup 会自行创建资源组；仅限预先存在资源组的 Contributor 权限不够。请使用管理员批准的订阅或父级角色，在此流程允许的范围内尽量缩小权限，并通过受保护的原生设置填写凭据。"
       ],
       "cleanupSteps": [
         "如果资源组中仅包含此次部署，检查其内容，并在完成后删除整个资源组。",
@@ -129,7 +129,7 @@ export const zh: CloudGuides = {
         "如果需要在更换实例后保留地址，打开<strong>网络 → 预留 IP → 添加预留 IP</strong>。选择 <strong>IPv4 地址 → 分配到 Droplet</strong>，选中此 Droplet 并确认。资源创建完成后，记录分配的公网 IPv4。"
       ],
       "apiSteps": [
-        "仅适用于未来的兼容插件：打开<strong>账户 → API → 令牌 → 生成新令牌</strong>。输入说明性名称和到期时间。",
+        "使用 VPN Setup API 创建资源时：打开 <strong>账户 → API → 令牌 → 生成新令牌</strong>，填写有意义的名称和到期时间。",
         "选择<strong>自定义范围</strong>，授予已实现流程所需的 Droplet、SSH 密钥、防火墙和预留 IP 操作及依赖权限。不要默认选择完全访问权限；令牌显示时保存它。"
       ],
       "cleanupSteps": [
@@ -147,7 +147,7 @@ export const zh: CloudGuides = {
         "输入易于识别的<strong>名称</strong>，检查可选备份及总费用，然后点击<strong>立即创建并购买</strong>。等待服务器就绪，记录其主 IPv4。如果需要重用地址，请保留此 IP 资源。"
       ],
       "apiSteps": [
-        "仅适用于未来的兼容插件：打开目标项目的<strong>安全 → API 令牌 → 生成 API 令牌</strong>，输入描述。",
+        "使用 VPN Setup API 创建资源时：打开目标项目的 <strong>安全 → API 令牌 → 生成 API 令牌</strong>，填写说明。",
         "为资源创建选择<strong>读写</strong>，并在关闭窗口前复制令牌。这会授予整个项目的写入权限，而非仅限此服务器的权限。"
       ],
       "cleanupSteps": [
@@ -165,7 +165,7 @@ export const zh: CloudGuides = {
         "在 <strong>Linode 摘要</strong>中检查可选备份和其他费用，然后点击<strong>创建 Linode</strong>。等待初始化完成，记录公网 IPv4。删除服务器后，预留地址仍保留在账户中，且无法移至其他区域。"
       ],
       "apiSteps": [
-        "仅适用于未来的兼容插件：打开用户名菜单 → <strong>API 令牌 → 创建个人访问令牌</strong>。设置标签和到期时间。",
+        "使用 VPN Setup API 创建资源时：打开用户名菜单 → <strong>API 令牌 → 创建个人访问令牌</strong>，设置标签和到期时间。",
         "仅授予必要范围：创建资源通常需要 Linodes 和 Firewalls 的读写权限；预留或释放地址还需要 <code>ips:read_write</code>。安全保存令牌。"
       ],
       "cleanupSteps": [
@@ -183,7 +183,7 @@ export const zh: CloudGuides = {
         "等待实例就绪，记录公网 IPv4。普通地址在该实例存在期间保持不变；如果需要在替换实例后继续使用，请选择同一区域的预留 IP。"
       ],
       "apiSteps": [
-        "仅适用于未来的兼容插件：打开<strong>账户 → API</strong>，然后在<strong>个人访问令牌</strong>下选择<strong>启用 API</strong>。安全保管凭据。",
+        "使用 VPN Setup API 创建资源时：打开 <strong>账户 → API</strong>，在 <strong>个人访问令牌</strong> 下选择 <strong>启用 API</strong>。安全保存凭据。",
         "在<strong>访问控制</strong>下，允许发起 API 请求的 IP 或 CIDR。移动网络改变后需更新；这限制的是请求来源，而非对特定资源的权限。"
       ],
       "cleanupSteps": [
@@ -201,7 +201,7 @@ export const zh: CloudGuides = {
         "检查并创建虚拟机。进入运行状态后，记录公网 IPv4。如果需要在替换虚拟机后保留地址，可将临时 IP 换成分配到其主私有 IP 的预留公网 IP，并记录新地址。"
       ],
       "apiSteps": [
-        "仅适用于未来的资源创建插件：请管理员为专用 IAM 用户或组授予此区间中所需的计算、网络和卷权限。",
+        "使用 VPN Setup API 创建资源时：请管理员为专用 IAM 用户/组授予此 compartment 中所需的计算、网络和卷权限。",
         "打开<strong>用户设置 → API 密钥 → 添加 API 密钥</strong>。保存 RSA PEM 签名私钥、指纹、租户和用户 OCID 及区域；记录区间 OCID。这与 SSH 密钥是分开的。"
       ],
       "cleanupSteps": [
@@ -219,7 +219,7 @@ export const zh: CloudGuides = {
         "打开 Horizon 的<strong>计算 → 实例 → 编辑安全组</strong>。应用专用组，仅从此虚拟机移除宽松的默认组；切勿编辑或删除共享的默认组。状态变为 Active 后，从概述中记录公网 IPv4。"
       ],
       "apiSteps": [
-        "仅适用于未来的资源创建插件：打开账户 API 区域对应的令牌创建页面。为应用命名，设置到期时间，并将权限限制为文档规定的项目路径和操作。",
+        "使用 VPN Setup API 创建资源时：打开账户所属 API 区域的令牌创建页。填写应用名称、设置到期时间，并将权限限制到文档所列项目路径和操作。",
         "安全保存应用密钥、应用密码和消费者密钥。这些签名 API 凭据与 Horizon 使用的 OpenStack 用户名和密码不同。"
       ],
       "cleanupSteps": [
@@ -237,7 +237,7 @@ export const zh: CloudGuides = {
         "选择<strong>检查</strong>，查看预计费用，然后选择<strong>创建实例</strong>。等待资源创建完成，并从<strong>概述</strong>复制公网 IPv4。此弹性 IP 是独立资源，需要自行管理其生命周期。"
       ],
       "apiSteps": [
-        "仅适用于未来的资源创建插件：创建 IAM 应用，并授予目标项目中所需的实例、网络和存储权限。",
+        "使用 VPN Setup API 创建资源时：创建 IAM 应用，并授予目标项目所需的 Instances、网络和存储权限。",
         "打开 <strong>IAM 与 API 密钥 → API 密钥 → 生成 API 密钥</strong>。选择应用和到期时间。保存访问密钥及仅显示一次的密码；另行记录项目 UUID 和可用区。"
       ],
       "cleanupSteps": [

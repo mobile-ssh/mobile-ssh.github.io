@@ -6,16 +6,16 @@ description: "建立有公網 IP 嘅雲端虛擬機，喺 Mobile SSH 儲存 SSH 
 
 # 雲端虛擬機同 wg-easy
 
-喺自己嘅雲端帳戶建立 Linux 虛擬機，用 Mobile SSH 連線，再安裝 wg-easy 行 WireGuard VPN。將資源建立同安裝分開，你就可以用同一部虛擬機行其他服務，或者喺已有伺服器安裝 VPN。
+喺自己嘅雲端帳戶建立 Linux VM，用 wg-easy 運行 WireGuard VPN。喺兼容嘅 Android 版本，已發佈嘅 **VPN Setup** 外掛可以喺同一設定流程建立 VM、安裝 wg-easy 同匯入用戶端。你亦可以喺供應商控制台建立 VM，再用 Mobile SSH 安裝，或者用現有公網伺服器。
 
-**供應情況——2026年11月8日：**下面描述嘅係計劃中嘅獨立虛擬機建立插件流程。我哋審查過嘅本機 Android **VPN Setup** 實作，將資源建立、安裝同用戶端匯入合埋一齊；插件同目錄改動未發佈，亦未測試過真實雲端部署。獨立嘅 AWS、Google Cloud 同 Azure 項目目前只有清單同設定骨架；虛擬機列表同控制操作未實作，亦唔會建立虛擬機。如果你嘅插件目錄冇建立流程，請用下面嘅控制台同手動安裝說明。新原生流程需要相容嘅 Android 組建；未確認 iOS 有同等自動化功能。
+**供應情況 — 2026 年 11 月 19 日：** **VPN Setup 1.0.7** 已發佈到[預設外掛目錄](https://github.com/mobile-ssh/mobile-ssh-plugins/tree/main/plugins/vpnsetup)。基本設定要外掛橋接版本 **1.3.0**，伺服器更新要 **1.4.0**，移除符合條件嘅已結束項目要 **1.5.0**。能否使用取決於已安裝嘅 Android 版本同發佈渠道；外掛發佈唔代表某個應用程式版本已經向你提供。未確認 iOS 有同等自動化。外掛未能使用時，請跟下面嘅控制台同手動指引。
 
-## 兩個插件，各有職責
+## 揀設定精靈或手動流程
 
-- **雲端資源建立插件：**用供應商 API 建立虛擬機、公網地址同所需網絡資源，再儲存 SSH 連線。佢保留雲端資源 ID，方便日後管理或刪除。
-- **wg-easy 安裝插件：**用 SSH 連去所選已儲存伺服器，安裝 VPN 服務，並幫你建立用戶端設定。佢需要伺服器存取權同管理員權限，唔需要雲端 API 憑證。手動建立嘅虛擬機一樣用得。
+- **用雲端 API 建立：**VPN Setup 用你嘅供應商帳戶建立 VM 同網絡資源，儲存 SSH 連線、安裝 wg-easy 同匯入用戶端。佢會保留資源 ID 同擁有權記錄，方便之後清理。
+- **喺雲端控制台建立或用現有伺服器：**自己建立 VM，再將公網 IPv4、SSH 使用者名稱同金鑰交畀 VPN Setup，或者跟下面手動安裝。外掛喺你嘅伺服器安裝，唔需要雲端 API 憑證。
 
-交接資料應該包含已儲存伺服器參照、公網地址、SSH 連接埠、用戶名、SSH 憑證參照，同部署／資源 ID。雲端秘密同 SSH 私鑰唔應該複製去插件輸出或者虛擬機。移除 VPN 同刪除雲端虛擬機係兩個獨立操作。
+已發佈外掛將資源建立同安裝合埋一齊；分開建立器同安裝器外掛仍然係計劃中架構。API 建立嘅資源同自備伺服器有唔同刪除行為，下面會解釋。有記錄嘅 Hetzner 實際測試喺 Android 模擬器通過設定、VPN 流量、用戶端管理、私人管理存取同清理。呢個唔代表每個供應商、帳戶政策或實體手機都通過實測驗收。
 
 ## 準備帳戶同伺服器設定
 
@@ -25,11 +25,15 @@ description: "建立有公網 IP 嘅雲端虛擬機，喺 Mobile SSH 儲存 SSH 
 4. 揀**公網 IPv4**；供應商有提供嘅話，優先用預留／靜態地址。私人地址、只有 IPv6 嘅實例，或者只供出站嘅 NAT 閘道，都唔符合本指南嘅端點要求。
 5. 明確設定 SSH 來源 CIDR，例如你而家嘅公網 IPv4 後面加 `/32`。唔好以為插件預設已經限制存取。轉換流動數據同 Wi-Fi 之後，可能要喺雲端控制台更新規則。
 
-雲端 API 憑證授權管理資源，SSH 金鑰授權登入伺服器，兩者唔同。API 秘密只可以輸入供應商嘅受保護憑證表單，唔好放入語音提示、終端指令或者原始檔。本機 Android 流程由原生程式碼處理供應商認證同加密憑證儲存；有需要時憑證會傳去對應供應商，唔會傳去虛擬機或者插件工作程序。離線語音模型唔會令雲端 API 呼叫、下載或者 SSH 喺冇網絡時照用。
+手動流程支援上面嘅架構。VPN Setup 目前選用 **amd64/x86-64 上嘅 Ubuntu 24.04**，經 **SSH 連接埠 22** 連接，接受 **Ed25519 或 RSA** SSH 金鑰；Lightsail 流程一定要 RSA。呢個流程唔支援 ECDSA 金鑰、只有私人地址嘅主機或純 IPv6 端點。現有伺服器要有公網 IPv4，並容許非互動式管理存取。
+
+雲端 API 憑證授權管理資源，SSH 金鑰授權登入伺服器。API 秘密只可以填喺受保護嘅原生憑證表格，唔好放入語音提示詞、終端指令或原始碼檔案。原生程式碼會向獲准嘅供應商端點認證；秘密唔會交畀 VM 或外掛工作程序。記住嘅憑證用 Android Keystore 加密；如果揀唔記住，就只留喺記憶體，應用程式程序結束後可能要再填。
+
+語音控制可以回答支援嘅非機密問題同回報進度，但填憑證同批准要用螢幕。受保護憑證表格會暫停咪高峰錄音，要有明確操作先會恢復。語音設定要主動啟用、下載本機模型同授予咪高峰權限。離線語音模型唔會令雲端 API、下載或者 SSH 喺冇互聯網時照樣運作。
 
 ## 揀雲端平台同取得公網地址
 
-用**控制台設定**時，自己登入供應商；Mobile SSH 唔需要佢嘅 API 憑證。對於將來嘅**插件資源建立流程**，準備下表憑證，同所需嘅建立、讀取、網絡及刪除權限。支援嘅話，將存取範圍限於專用專案或部署。兩種方法都要遵守帳戶政策。
+用**控制台設定**時，請自己登入供應商；Mobile SSH 唔需要佢嘅 API 憑證。用 **VPN Setup API 建立資源**時，準備下面嘅憑證，授予所需建立、讀取、網絡同刪除權限。外掛實作咗表內十個供應商；AWS EC2 係獨立嘅控制台選項。支援嘅話，將權限限喺專用專案或部署。兩種方法都要遵守帳戶政策。
 
 用 SSH 公鑰建立所選 Ubuntu 虛擬機，再套用下一節嘅 SSH 規則。連結解釋各供應商嘅地址同認證步驟。
 
@@ -38,8 +42,8 @@ description: "建立有公網 IP 嘅雲端虛擬機，喺 Mobile SSH 儲存 SSH 
 | 供應商 | API 建立資源所需憑證 | 控制台嘅公網 IPv4 設定 |
 | --- | --- | --- |
 | [AWS Lightsail](./aws-lightsail/) | 存取金鑰 ID 同秘密；臨時憑證要加工作階段權杖。授予所需 [Lightsail 操作權限](https://docs.aws.amazon.com/service-authorization/latest/reference/list_lightsail.html)。 | 建立雙協定棧 Ubuntu 實例，揀 RSA SSH 金鑰，再分配同附加[同區域嘅靜態 IPv4](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip.html)。Ubuntu 映像用 `ubuntu`。 |
-| [Google Cloud Compute Engine](./google-cloud/) | 服務帳戶 JSON 金鑰加專案 ID。權限要包括虛擬機／磁碟、網絡、地址同防火牆操作；淨係 Network Admin 寫唔到防火牆規則。檢查 [IAM 權限](https://docs.cloud.google.com/compute/docs/access/iam)。 | 啟用 Compute Engine API，揀有互聯網路由嘅 VPC／子網，預留[區域性外部 IPv4](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address)，再附加去虛擬機。設定相符嘅 SSH 用戶名／金鑰；OS Login 要另外設定身份。 |
-| [Microsoft Azure](./azure/) | 租戶 ID、應用程式／用戶端 ID、用戶端秘密嘅**值**同訂閱 ID。授予運算／網絡權限；建立資源群組仲要有上級範圍權限。睇[服務主體設定](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal)。 | 建立專用資源群組同 VNet／子網。將 [Standard 靜態 IPv4 Public IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) 附加去虛擬機 NIC，再關聯 NSG。用建立時揀嘅管理員用戶名。 |
+| [Google Cloud Compute Engine](./google-cloud/) | 服務帳戶 JSON 金鑰加專案 ID。權限要包括 VM／磁碟、網絡、地址同防火牆操作；只有 Compute Network Admin 寫唔到防火牆規則。請查閱 [IAM 權限](https://docs.cloud.google.com/compute/docs/access/iam)。 | 啟用 Compute Engine API，揀有互聯網路由嘅 VPC／子網，保留[區域外部 IPv4](https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address)，再綁定 VM。設定匹配嘅 SSH 使用者名稱同金鑰；OS Login 要另外設定身份。VPN Setup 用中繼資料 SSH 金鑰，並喺佢嘅 VM 關閉 OS Login；如果組織規定用 OS Login，請改用獲准嘅控制台配置。 |
+| [Microsoft Azure](./azure/) | 租用戶 ID、應用程式／用戶端 ID、用戶端秘密嘅**值**同訂閱 ID。VPN Setup 會建立自己嘅部署資源群組：要喺訂閱或父層範圍授予群組建立／刪除同運算／網絡操作權限。只限現有群組嘅權限唔夠。請睇[服務主體設定](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal)。 | 建立專用資源群組同 VNet／子網，將 [Standard 靜態 IPv4 公用 IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) 綁定 VM NIC 並關聯 NSG。用建立時揀嘅管理員使用者名稱。 |
 | [DigitalOcean](./digitalocean/) | 個人存取權杖，要有所需 Droplet、SSH 金鑰、Reserved IP、防火牆及相關[權限範圍](https://docs.digitalocean.com/reference/api/create-personal-access-token/)。 | 用 SSH 公鑰建立 Ubuntu Droplet，分配 [Reserved IPv4](https://docs.digitalocean.com/products/networking/reserved-ips/how-to/create/)，再附加 Cloud Firewall。Ubuntu 初始登入通常係 `root`。 |
 | [Hetzner Cloud](./hetzner/) | 專案專用嘅 [Read & Write API 權杖](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/)。 | 建立 Ubuntu 伺服器，配備 [Primary IPv4](https://docs.hetzner.com/cloud/servers/primary-ips/overview/)、SSH 金鑰同 Cloud Firewall。用 `root`。檢查刪除伺服器時，獨立嘅 Primary IP 會唔會保留。 |
 | [Akamai / Linode](./linode/) | 個人存取權杖，要有 Linodes 同 Firewalls 讀寫權限，以及所需[讀取範圍](https://techdocs.akamai.com/linode-api/reference/get-started)。 | 建立有公網 IPv4 同 SSH 金鑰嘅 Ubuntu Linode，再附加 [Cloud Firewall](https://techdocs.akamai.com/cloud-computing/docs/getting-started-with-cloud-firewalls)。用 `root`。實例存在期間保留佢獲分配嘅地址。 |
@@ -50,26 +54,26 @@ description: "建立有公網 IP 嘅雲端虛擬機，喺 Mobile SSH 儲存 SSH 
 
 </div>
 
-**[AWS EC2](./aws-ec2/) 替代方法：**喺公用子網啟動 Ubuntu，設有[互聯網閘道同 `0.0.0.0/0` 閘道路由](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html)，揀 SSH 金鑰同安全群組，再關聯 [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html)。用 `ubuntu`。本機自動適配器針對 Lightsail；EC2 要用控制台。淨係有 Elastic IP 唔會令私人子網連得到。
+**[AWS EC2](./aws-ec2/) 替代方案：**喺有 [internet gateway 同 `0.0.0.0/0` 閘道路由](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html)嘅公共子網啟動 Ubuntu，揀 SSH 金鑰同安全群組，再關聯 [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html)。用 `ubuntu` 登入。VPN Setup 嘅 AWS 自動配接器針對 Lightsail；EC2 要用控制台流程。單靠 Elastic IP 唔會令私人子網變得可連接。
 
 如果機構禁止服務帳戶金鑰、外部 IP 或者你揀嘅 SSH 認證方式，要取得管理員批准嘅設定。控制台設定唔會繞過呢啲限制。
 
 ## 建立資源並儲存 SSH 連線
 
-喺計劃中嘅分開流程，開**插件**，由可信目錄安裝供應商嘅資源建立插件，揀帳戶同區域，再揀虛擬機規格、映像、公網地址同 SSH 金鑰。確認建立前，睇清楚資源同費用。只有管理功能、冇建立操作嘅插件做唔到呢一步；改用供應商控制台。
+開啟**外掛**，由預設目錄安裝 **VPN Setup**，再開佢嘅獨立頁面。揀**設定 VPN**、揀供應商，再揀**用雲端 API 建立**或**喺雲端控制台建立**。已有伺服器就揀現有公網伺服器選項。喺原生表格填憑證，選擇或產生 SSH 金鑰，再檢視位置、規格、映像同 SSH 來源 CIDR。按帳戶取得嘅選項同預先檢查有助揀支援嘅配置，但唔會預留容量或保證配額。睇清供應商現價，再喺螢幕批准建立。
 
-等供應商顯示虛擬機行緊，同 SSH 連得到。保留虛擬機、磁碟、地址同防火牆資源 ID。如果請求逾時，重試建立前先檢查或者恢復原有操作，避免整多一部要計錢嘅虛擬機。
+繼續跟進現有操作，直到 VM 同 SSH 準備好。如果請求逾時，或者 Android 暫停背景工作，請恢復或檢視原本操作，唔好再建立另一部收費 VM。建立回覆遺失可能要查詢雲端或檢查控制台。保留 VM、磁碟、地址同防火牆資源 ID；停止咗嘅流程仍然可能已建立資源。
 
-將回傳連線儲存喺 Mobile SSH，或者喺**伺服器**手動加入：公網 IPv4、SSH 連接埠 `22`、映像用戶名，同相符私鑰憑證。連線前，透過供應商可信控制台核對 SSH 主機金鑰指紋。身份檢查同已儲存憑證可睇[快速開始](../getting-started/)。
+VPN Setup 會要求批准 SSH 主機金鑰、儲存連線、安裝 wg-easy 同匯入第一個用戶端。請用供應商可信控制台比對指紋。手動設定時，喺**伺服器**加入公網 IPv4、SSH 連接埠 `22`、映像使用者名稱同匹配私鑰。Google Cloud 同 Azure 自動配接器用 `ubuntu`；控制台指南用你喺嗰度設定嘅使用者名稱。身份檢查同已儲存憑證請睇[入門指南](../getting-started/)。
 
 ## 設定兩層網絡
 
 公網地址需要路由、雲端防火牆許可、客體防火牆許可，同正在監聽嘅服務。喺供應商防火牆／安全群組用以下規則；保留客體上必需嘅原有規則。
 
-- **TCP 22：**容許所選管理 CIDR 存取 SSH。建立資源時設定。
-- **UDP 51820：**容許會用 VPN 嘅網絡。漫遊用戶端可能需要 `0.0.0.0/0`。設定 WireGuard 時，用雲端資源插件或者控制台加入。
-- **TCP 51821：**唔好向公網開放。wg-easy 管理介面只發佈到伺服器回環地址，再經 SSH 隧道存取。
-- **出站流量：**容許套件／容器下載、DNS，同 VPN 要承載嘅互聯網流量。
+- **TCP 22：**容許所選管理 CIDR 透過 SSH 連接。建立資源時設定。
+- **UDP 51820：**容許會用 VPN 嘅網絡。漫遊用戶端可能需要 `0.0.0.0/0`。VPN Setup 會為 API 建立嘅部署設定；自備伺服器請喺雲端控制台設定。
+- **TCP 51821：**唔好向公網開放。wg-easy 管理介面只綁定伺服器回環地址，透過 SSH 隧道存取。
+- **出站流量：**容許套件／容器下載、DNS 同 VPN 要承載嘅互聯網流量。
 
 檢查 Docker 嘅[防火牆行為](https://docs.docker.com/engine/install/ubuntu/#firewall-limitations)：發佈咗嘅容器連接埠可能繞過 UFW 規則。唔好淨靠 UFW 隱藏管理介面，亦唔好清空供應商防火牆鏈，尤其係 OCI 嘅儲存／iSCSI 規則。
 
@@ -77,9 +81,9 @@ description: "建立有公網 IP 嘅雲端虛擬機，喺 Mobile SSH 儲存 SSH 
 
 ## 喺所選虛擬機安裝 wg-easy
 
-獨立安裝插件應該接收已儲存嘅 SSH 伺服器，並要求批准伺服器改動。佢應該檢查作業系統、權限、已有 Docker／VPN 安裝同連接埠衝突，保留持久資料，再報告安裝版本。佢唔需要雲端帳戶秘密；雲端防火牆改動交畀資源建立插件或者控制台。
+批准後，VPN Setup 經 SSH 安裝以摘要固定嘅 wg-easy 版本，喺 Ubuntu 24.04 按需要裝 Docker，並建立第一個用戶端。管理介面會留喺伺服器回環地址，供應商防火牆鏈會保留。控制台建立或現有伺服器要自己設定雲端防火牆；安裝器需要 SSH 存取同管理權限，唔需要雲端 API 秘密。請用全新專用伺服器，唔好假定佢可以接管無關嘅 VPN 安裝。
 
-舊啲嘅 **WireGuard (wg-easy)** 目錄插件需要活動 SSH 工作階段同 Docker。佢唔係新自動安裝插件，亦冇保證原生用戶端匯入。用相容嘅更新安裝插件，或者喺全新專用虛擬機上，用 Mobile SSH 終端行下面嘅手動流程。
+舊嘅 **WireGuard (wg-easy)** 目錄外掛需要活躍 SSH 工作階段同 Docker。佢同 **VPN Setup** 係分開嘅，亦冇承諾原生用戶端匯入。喺兼容 Android 版本用 VPN Setup，或者喺全新專用 VM，用 Mobile SSH 終端跟下面手動流程。
 
 ### 透過 SSH 手動安裝
 
@@ -87,13 +91,13 @@ description: "建立有公網 IP 嘅雲端虛擬機，喺 Mobile SSH 儲存 SSH 
 
 ```sh
 sudo mkdir -p /opt/wg-easy
-sudo curl -fL https://raw.githubusercontent.com/wg-easy/wg-easy/v15.4.0/docker-compose.yml -o /opt/wg-easy/compose.yaml
+sudo curl -fL https://raw.githubusercontent.com/wg-easy/wg-easy/v15.5.0/docker-compose.yml -o /opt/wg-easy/compose.yaml
 ```
 
 啟動前，用有權限嘅終端編輯器編輯 `/opt/wg-easy/compose.yaml`。喺 `services.wg-easy` 下面替換映像，取消註解／設定環境區塊，再將連接埠映射換成以下值。保留上游檔案其餘部分，包括持久儲存卷、模組掛載、能力、網絡同 sysctls：
 
 ```yaml
-image: ghcr.io/wg-easy/wg-easy:15.4.0@sha256:0e7bc9d34e86ddcaa92bc700d4d7dc9b33291dbc07ac8d13382f7c2095f949ec
+image: ghcr.io/wg-easy/wg-easy:15.5.0@sha256:071f79a639e9361123a5e57733107320207b844ddbbd92dfa6962f541fe8aac8
 environment:
   - INSECURE=true
 ports:
@@ -118,22 +122,32 @@ sudo docker compose -f compose.yaml ps
 
 喺 wg-easy 嘅[首次啟動精靈](https://wg-easy.github.io/wg-easy/latest/guides/setup/)建立管理員帳戶，揀全新安裝，將 VPN 端點設為虛擬機公網 IPv4 或 DNS 名稱，連接埠用 `51820`。VPN 端點唔係網頁介面嘅回環地址或者連接埠 `51821`。
 
-每部裝置建立一個用戶端，下載佢嘅 WireGuard `.conf`。如果你嘅 Mobile SSH 組建有提供，開 **VPN → WireGuard**，加入設定檔、匯入檔案並儲存。目前 Android 同 iOS 原始碼支援檔案匯入；請檢查已安裝組建。本機 Android 合併流程可以直接匯入，但唔代表舊插件或者 iOS 自動化都有。設定檔同 QR 碼有私鑰，記得保密。
+每部裝置建立一個用戶端，下載 WireGuard `.conf`。如果你嘅 Mobile SSH 版本有提供，開啟 **VPN → WireGuard**，加入設定檔、匯入檔案再儲存。目前 Android 同 iOS 原始碼支援檔案匯入；請檢查已安裝版本。VPN Setup 會喺兼容 Android 版本直接匯入第一個用戶端。佢嘅頁面亦有**加入用戶端**、**撤銷用戶端**、**匯出用戶端／QR**，同透過私人 SSH 隧道**開啟管理介面**。呢個唔代表舊外掛或者 iOS 有同等自動化功能。設定檔同 QR 碼有私鑰，請保密。
 
 ## 驗證 VPN 同處理故障
 
 啟動設定檔，批准作業系統嘅 VPN 請求。檢查近期對等端握手同增加中嘅流量計數，再測試 DNS 同預期互聯網或私人網絡路由。匯入咗設定檔或者容器行緊，唔等於 VPN 用得。
 
-- **虛擬機建立被拒：**檢查計費、配額、區域容量、憑證到期同準確 IAM 權限。Google Cloud 防火牆寫入要有 Network Admin 以外嘅權限。
-- **SSH 逾時：**檢查公網地址、子網路由、TCP 22 規則同手機而家嘅來源 IP。認證失敗通常要核對映像用戶名同 SSH 金鑰。
-- **管理介面用唔到：**保持 SSH 轉發連線，檢查容器狀態同回環連接埠映射，確認 HTTP 只用喺隧道。
-- **冇 WireGuard 握手：**檢查用戶端端點、兩層防火牆嘅 UDP 51820、用戶端金鑰，同伺服器有冇監聽。
-- **有握手但冇流量：**檢查轉發／NAT、DNS、路由重疊同 `AllowedIPs`。IPv4 全隧道用 `0.0.0.0/0`；IPv6 要另外評估。冇上游 IPv6 嘅虛擬機提供唔到 IPv6 互聯網出口，而只有 IPv4 路由可能令 IPv6 留喺 VPN 外面。
+- **VM 建立被拒：**檢查帳單、配額、區域容量、憑證到期日同確切 IAM 權限。Google Cloud 寫入防火牆要超出 Compute Network Admin 嘅權限；組織強制 OS Login 就要用獲准嘅控制台配置。
+- **SSH 逾時：**檢查公網地址、子網路由、TCP 22 規則同手機目前來源 IP。認證失敗通常要檢查映像使用者名稱同 SSH 金鑰。
+- **管理介面開唔到：**保持 SSH 轉發連接，檢查容器狀態同回環連接埠映射，確認 HTTP 只供隧道使用。
+- **冇 WireGuard 握手：**檢查用戶端端點、兩層防火牆嘅 UDP 51820、用戶端金鑰同伺服器有冇監聽。
+- **握手成功但冇流量：**檢查轉發/NAT、DNS、重疊路由同 `AllowedIPs`。IPv4 全隧道用 `0.0.0.0/0`；IPv6 要另外評估。冇上游 IPv6 嘅 VM 提供唔到 IPv6 互聯網出口，而純 IPv4 路由可能令 IPv6 繞過 VPN。
+
+## 更新外掛同 VPN 伺服器
+
+喺**外掛**用提供嘅**更新**操作，取得同一目錄較新嘅兼容版本。檢視新要求嘅能力。設定、憑證同部署記錄會保留；未完成操作會繼續用開始嗰陣嘅外掛版本。淨係更新外掛唔會更新伺服器嘅 wg-easy 容器。
+
+喺外掛橋接版本 1.4.0 或更新版本，**檢查伺服器**會報告運行中嘅 wg-easy 版本，**更新 WireGuard**會提供外掛固定嘅版本。喺螢幕批准更新。佢會先下載映像再改服務，保留伺服器金鑰、用戶端同本機設定檔。如果呢部手機用緊嗰個 VPN，應用程式會喺更新前斷開佢；更新完請重新連接。呢個更新受管理容器，唔係主機作業系統。
+
+更新失敗會分清映像下載失敗、成功回復舊版，同回復失敗導致 VPN 停機。請跟恢復檢查或重試指示，唔好假定服務已恢復。手動安裝要自行審查更換固定映像同備份；上面嘅全新安裝步驟唔係遷移指南。
 
 ## 移除用戶端同停止雲端收費
 
 丟棄本機設定檔之前，先喺 wg-easy 撤銷用戶端。喺 Mobile SSH 刪除設定檔唔會撤銷伺服器對等端金鑰。移除 VPN 容器或者持久資料前，安全備份所需設定。
 
-用擁有資源嘅建立插件或者供應商控制台，刪除唔再需要嘅虛擬機，再檢查保留嘅磁碟、快照、預留／公網地址同網絡資源。刪除專用 Azure 資源群組前，審查入面嘅內容。唔好將無關資源放入插件管理嘅部署。
+API 建立嘅部署可以用**刪除部署**，先檢視再經供應商 API 刪除屬於佢嘅雲端資源，就算 SSH 用唔到都可以。如果刪除暫停或失敗，檢查報告中剩低嘅資源，繼續清理或睇控制台。唔好將無關資源放入外掛管理嘅部署，尤其係佢專用嘅 Azure 資源群組。
 
-停止虛擬機、取消設定工作或者移除插件，都唔保證資源刪咗或者唔再計費。控制台建立嘅資源仍然要自己清理；確認刪除之前，保留供應商資源 ID。
+對於控制台建立或現有伺服器，外掛刪除只會移除佢管理嘅 VPN 安裝，**唔會**刪除你嘅 VM 或公網 IP。唔再需要時，要喺供應商控制台刪除，再檢查保留嘅磁碟、快照、地址同網絡資源。如果恢復期間改過帳戶或位置設定，亦要檢查之前嘅帳戶同位置，包括之前嘅 Scaleway 專案或 Oracle Cloud compartment。
+
+**停止流程**只會停止操作，唔會刪資源。喺橋接版本 1.5.0 或更新版本，只有應用程式能確認項目已符合忘記條件、冇未完成操作或未處理受管資源，先會提供**從清單移除**。佢清除本機歷史，唔係雲端資源。停止 VM 或移除外掛亦唔保證停止收費。確認刪除之前，請保留資源 ID。

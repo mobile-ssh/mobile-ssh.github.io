@@ -17,8 +17,8 @@ Mobile SSH, kendi Linux, Unix, ağ, IoT veya geliştirme sunucularınıza bağla
 
 ## Uygulamayı yükleme
 
-- **Android:** Mobile SSH şu anda Google Play'de kapalı bir test olarak sunuluyor. Katılım bağlantısını cihazdaki bir mobil tarayıcıda açın — testin görünmeyebileceği Google Play uygulamasının içinde değil — ve kullanacağınız Google hesabıyla katılın. Bundan sonra diğer uygulamalar gibi Play üzerinden kurulur ve güncellenir.
-- **iOS:** iOS uygulaması TestFlight'ta herkese açık beta olarak sunulur. Apple'ın TestFlight uygulamasını yükleyin, ardından uygulamayı yüklemek ve güncellemeleri almak için sitenin ana sayfasındaki Mobile SSH davet bağlantısını açın.
+- **Android:** ana sayfadaki bağlantıyla Mobile SSH'yi Google Play'den yükleyin. Kullanılabilirlik yayın kanalına bağlıdır. Kapalı bir teste katılıyorsanız katılım bağlantısını tarayıcıda açın ve Play'de kullandığınız Google hesabıyla katılın.
+- **iOS:** iOS uygulaması TestFlight'ta herkese açık beta olarak sunulur. Apple'ın TestFlight uygulamasını yükleyin, ardından kurulum ve güncellemeler için sitenin ana sayfasındaki Mobile SSH davet bağlantısını açın.
 
 ## Bir sunucuya bağlanma
 
@@ -87,7 +87,7 @@ Bir özel anahtar kullanmak için:
 3. Anahtar şifreliyse parola/parola tümcesi alanına anahtar parola tümcesini girin.
 4. Kimlik bilgisini veya sunucuyu kaydedin.
 
-Anahtar aktarma sistem seçicisini kullanır, depolamanın kalanına erişim vermez. Dosya aktarımının kendi klasör/dosya seçimleri vardır.
+Özel anahtar içe aktarma, sistem dosya seçicisini kullanır. Android, 64 KB'tan büyük anahtar dosyalarını reddeder. İçe aktarma depolamanızın geri kalanına erişim vermez; dosya aktarımının kendi klasör ve dosya seçimleri vardır.
 
 Android USB/NFC **FIDO2 anahtarlarını** destekler: kaydedin veya OpenSSH kimliğini aktarın, dokunma/PIN isteklerini izleyin. Dışa aktarma/geri yükleme sonrasında da fiziksel anahtar gerekir. **SSH ajan yönlendirmesi** sunucu başına isteğe bağlıdır; kayıtlı anahtarlar kullanım başına isteğe bağlı onayla imza isteklerini yanıtlar. Yalnız imza istemesine güvendiğiniz sunucuda açın. iOS fiziksel anahtar girişi veya ajan yönlendirmesini desteklemez.
 
@@ -121,6 +121,8 @@ Tam yedek için Android'de **Tümünü dışa aktar (yedek)**, iOS'ta **Yedekle 
 
 Kimlikler, etkin oturumlar, sistem izinleri ve klasör erişimi geri yüklenmez. Yeni cihazda hostları doğrulayıp izin verin. Eski uygulamalar yeni tam biçimi okuyamaz.
 
+Android yedekleri ayrıca istem şablonlarını ve düzenleyici taslaklarını, indirilen modelleri, ses sunucusu ayarlarını, VPN Setup bulut kimlik bilgilerini ve Sohbet veya istem çalıştırma önbelleklerini içermez. Bunları yeni telefonda yeniden yapılandırın; yedekleme, sunucuda zaten kurulu zamanlamaları taşımaz veya kaldırmaz.
+
 ## Etkin oturumlar
 
 Oturumlar çalışırken **Etkin Oturumlar** sayıyı gösterir ve terminal ızgarasını açar. Android kalıcı bildirimi hostları da listeler ve bağlantı kontrollerini açar.
@@ -131,13 +133,39 @@ Başlangıç ekranına dönmek etkin SSH oturumlarını kesmez; bölmeleri kapat
 
 Başlangıç ekranından **Settings** sayfasını açın (kendi sayfası vardır):
 
-- Terminale dokunmanın klavyeyi açıp açmayacağına karar verin. İki platform zıt varsayılanlarla gelir: Android'de klavye yalnızca ⌨ düğmesinden açılır, iOS'ta ise bir dokunuş klavyeyi açar.
-- Terminalin **metin boyutunu**, **yazı tipini**, **renk şemasını** ve **geri kaydırma** boyutunu ayarlayın ve bir uygulama **teması** seçin (Sistem, Açık veya Koyu).
-- Arka planda uzun süren görevler (Claude Code, Codex, kabuk betikleri) çalıştırıyorsanız ve ajanın girdinize ihtiyaç duyduğunda haberdar olmak istiyorsanız **Agent alerts** seçeneğini etkinleştirin. Ajanların kendilerini nasıl bildirdiği için **Terminal** kılavuzuna bakın.
-- Android'de **Keep sessions running in background** varsayılan olarak açıktır; böylece uygulamayı kaydırıp kapatsanız bile kabuklar ve ajanlar çalışmayı sürdürür.
-- İki platformda anonim kullanım analitiği anahtarı vardır; kapatmak yeni olay toplamayı durdurur.
-- iOS'ta **Dikte ve öneriler** varsayılan açıktır. Doğrudan giriş için kapatıp yeni bölme açın.
-- Uzak bildirimler, komut bitişi ve uzak pano okuma ayrı izinlerdir. Yalnız istediğinizi açın.
+- Terminale dokunmanın klavyeyi açıp açmayacağını belirleyin. Platformların varsayılanları birbirinin tersidir: Android'de klavye yalnızca ⌨ düğmesiyle görünür, iOS'ta dokunarak açılır.
+- Terminalin **metin boyutunu**, **yazı tipini**, **renk şemasını** ve **kaydırma geçmişi** boyutunu ayarlayın; bir uygulama **teması** seçin (Sistem, Açık veya Koyu).
+- Uzun arka plan görevleri (Claude Code, Codex, kabuk betikleri) çalıştırıyor ve ajan sizden girdi beklediğinde haberdar olmak istiyorsanız **Ajan uyarıları**'nı etkinleştirin. Ajanların durumlarını nasıl bildirdiği için **Terminal** kılavuzuna bakın.
+- Android'de **Oturumları arka planda çalışır tut** varsayılan olarak açıktır; böylece uygulamayı kaydırarak kapatsanız da kabuklar ve ajanlar çalışır.
+- Her iki platformun Ayarlar bölümünde anonim kullanım analizi anahtarı bulunur. Kapatmak yeni olayların toplanmasını durdurur.
+- iOS'ta **Dikte ve öneriler** varsayılan olarak açıktır. Dikte veya otomatik düzeltme olmadan doğrudan terminal girişi istiyorsanız kapatıp yeni bir bölme açın.
+- Uzak bildirimler, komut tamamlanma uyarıları ve uzak pano okumaları ayrı ayrı etkinleştirilen ayarlardır. Yalnızca istediğiniz uzak eylemleri açın.
+- Android'de **Sesli asistan**, **İstem şablonları** ve **Uygulama İçi Tarayıcı** isteğe bağlıdır ve varsayılan olarak kapalıdır. Sesin kendi Ayarlar sayfası vardır; diğer ikisi **Genel** altındadır.
+
+## Android'de sesli asistan
+
+Sesli asistan deneyseldir ve varsayılan olarak kapalıdır. Desteklenen 64 bit bir telefonda Gemma 4 veya kendi Linux SSH sunucunuzdaki ses hizmetini kullanabilir.
+
+1. **Ayarlar → Sesli asistan**'ı açın ve asistanı etkinleştirin.
+2. Yerel konuşma işleme için **Bu telefonda Gemma kullan (ses sunucusu yok)** seçeneğini açın, sunulan modellerden birini seçin ve **İndir**'e dokunun. Alternatif olarak kayıtlı bir Linux ses sunucusu seçip hizmet kurulumunu izleyin; Python 3.11–3.13, systemd kullanıcı hizmetleri ve birkaç GB boş alan gerekir.
+3. Kontrol etmek istediğiniz terminal için sesli konuşma başlatın. Kaydetmek, incelemek ve göndermek için **Mesajlar**'ı; eller serbest konuşma ve sesli yanıtlar için **Canlı**'yı seçin. Özel bir ses sunucusu adresi Canlı modu kullanır.
+4. Önerilen komutları onaylamadan önce inceleyin. Gemma, kısa bir salt okunur kontrol listesini onaysız çalıştırabilir; bu listenin dışındaki komutlar ve Claude Code veya Codex'e gönderilen istemler onayınızı ya da **Gönder**'i gerektirir.
+
+Telefon modelleri, yalnızca İndir'e dokunduktan sonra Hugging Face'ten yaklaşık 2.6–3.7 GB indirir. Tarifeli bağlantıdan indirme onay ister; Wi-Fi'da başlatılan indirme, bağlantı tarifeli hâle gelirse duraklar. Gemma ile konuşma telefonda kalır; sunucu seçeneği sesi yapılandırdığınız ses hizmetine gönderir. Mikrofon izni, ses özelliği kullanıldığında istenir. Çevrimdışı sentez sesi eksikse uygulama, telefonun konuşma motoru üzerinden indirmeyi önerir.
+
+Başka bir uygulama ses odağını alırsa veya kulaklık Durdur gönderirse konuşma, modu ve bağlamı korunarak duraklar. Ses sayfasında veya bildirimde **Konuşmaya devam et**'i kullanın ya da kulaklıkta Oynat'a basın. Başka uygulamanın sesi nedeniyle oluşan duraklama, o ses sona erdiğinde biter.
+
+## Android'de istem şablonları
+
+İstem şablonları deneyseldir ve varsayılan olarak kapalıdır. Kendi sunucunuzda salt okunur Claude Code veya Codex çalıştırmaları zamanlar. Sunucuda Python 3.8 veya üzeri, cron ve hesabına giriş yapılmış bir kodlama ajanı gerekir.
+
+1. **Ayarlar → Genel → İstem şablonları**'nı etkinleştirin.
+2. Ana Sayfa'da **İstemler**'i veya kayıtlı sunucu menüsündeki istem şablonu seçeneğini açın.
+3. İstem, sunucu, proje klasörü ve Claude Code veya Codex içeren bir şablon oluşturun. Saat dilimini seçin ve her gün, hafta içi, seçili günlerde veya 1–12 saatte bir çalıştırılacak şekilde zamanlayın.
+4. Şablonu kaydedin, ardından eşitlemek için sunucusuna bağlanın. Mobile SSH küçük bir yardımcı ve bir crontab girdisi kurar; zamanlamalar telefon bağlı değilken bile sunucuda çalışır.
+5. Her çalıştırmanın çıktısını ve durumunu inceleyin veya **Şimdi çalıştır**, **Duraklat** ya da **Sunucudan kaldır**'ı seçin.
+
+Şablonlar ve düzenleyici taslakları telefonda şifrelenir ve yedeklere dahil edilmez. İndirilmiş bir Gemma modeli istem taslağı hazırlamaya ve düzenlemeye yardımcı olabilir. Özelliği kapatmak kontrollerini gizler ve telefon tarafındaki eşitlemeyi durdurur; sunucuda zaten kurulu zamanlamaları durdurmaz veya kaldırmaz. Önce İstem şablonları içinde bu zamanlamaları duraklatın ya da kaldırın.
 
 ## Eklentiler
 
@@ -148,6 +176,8 @@ Eklentiler, Mobile SSH'yi ek iş akışlarıyla genişletir. Başlangıç ekran�
 - Yüklü eklentileri aynı ekrandan çalıştırın.
 
 Eklentiler varsayılan olarak herkese açık bir katalogdan alınır. Kendi kataloğunuzu yönetiyorsanız Mobile SSH'yi özel bir katalog kaynağına yönlendirebilirsiniz. Yalnızca güvendiğiniz kaynaklardan eklenti yükleyin.
+
+Android'de katalog eklentileri daha yeni sürüm olduğunda **Güncelle** seçeneğini gösterir. Güncellemeler özgün kataloğu kullanır, eklenti ayarlarını ve verilerini korur, ek erişim gerekiyorsa onay ister. Yüklü sürümü eski bir sürüme düşürmez.
 
 ## Diller
 

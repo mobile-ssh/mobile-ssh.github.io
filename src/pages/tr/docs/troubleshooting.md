@@ -52,10 +52,11 @@ Android'de uzak `ssh`/`git` için profilde **SSH ajanını yönlendir** ve sunuc
 
 Özel anahtar içe aktarma sistem dosya seçicisini kullanır. İçe aktarma başarısız olursa:
 
-- Seçilen dosyanın genel bir `.pub` dosyası değil, özel anahtar olduğunu doğrulayın.
-- Dosyayı güvenilir bir metin düzenleyicide açın ve tam anahtar bloğunu içerdiğini doğrulayın.
+- Seçilen dosyanın genel `.pub` dosyası değil, özel anahtar olduğunu doğrulayın.
+- Dosyayı güvenilir bir metin düzenleyicide açıp anahtar bloğunun tamamını içerdiğini kontrol edin.
+- Android'de içe aktarılan anahtar dosyaları 64 KB'tan büyük olmamalıdır; arşiv veya ilgisiz dosya yerine anahtarın kendisini seçin.
 - Anahtarı özel anahtar alanına elle yapıştırmayı deneyin.
-- Anahtar türünün desteklendiğini doğrulayın: Android'de Ed25519, ECDSA (P-256/384/521) veya RSA; iOS'ta Ed25519 veya ECDSA. DSA (`ssh-dss`) hiçbirinde çalışmaz ve iOS RSA'yı desteklemez — bunun yerine bir Ed25519 anahtarı oluşturun.
+- Anahtar türünün desteklendiğini doğrulayın: Android'de Ed25519, ECDSA (P-256/384/521) veya RSA; iOS'ta Ed25519 veya ECDSA. DSA (`ssh-dss`) ikisinde de çalışmaz ve iOS RSA desteklemez; bunun yerine Ed25519 anahtarı oluşturun.
 
 ## Android'de güvenlik anahtarı yanıt vermiyor
 
@@ -68,6 +69,10 @@ Sunucu, seçilen `sk-*` algoritmasına izin veren OpenSSH 8.2+ ister. Yalnız U2
 Android girişleri düzeltme/tahmin olmadan doğrudan gönderir. iOS'ta **Dikte ve öneriler** ses ve satır düzeltmeleri için varsayılan açıktır. Beklenmedik değiştirirse kapatın, **Klavye önerileri** ayarını inceleyip yeni bölme açın.
 
 `ESC`, `TAB`, `CTRL`, oklar, `HOME`, `END`, `PGUP`, `PGDN` için ek sırayı kullanın. Takılan ağ da girişi geciktirir. Android başlığı **yanıt yok** veya **gönderilmedi** gösterir; yeniden bağlanırken yazılanlar yeni kabukta tekrarlanmaz, atılır. Bağlantıyı bekleyin, komut satırını kontrol edin, yalnız gerekeni yeniden yazın.
+
+## Android'de Sohbet salt okunur
+
+Sunucuda Python 3.8 veya üzeri bulunduğunu kontrol edin, istediğiniz Claude Code veya Codex konuşmasını seçin ve Sohbet'te sunulan kancaları yükleyin. Kancaları yüklemek için gereken sağlayıcı güven onayını veya yerel yeniden yükleme/sürdürme işlemini tamamlayın. Zaten çalışan bir ajan, yeni kurulan kancaları yüklememiş olabilir; Mobile SSH ajanı sizin için yeniden başlatmaz.
 
 ## tmux kaydırması beklediğiniz gibi değil
 
@@ -115,6 +120,8 @@ iOS yerel bölmesi uygulamanın Documents alanında başlar. **Telefonum → Yer
 - Cihazda yeterli boş alan var.
 - Büyük aktarımlar için ağ kararlı.
 
+Android'de nedeni giderdikten sonra aktarım kuyruğunda **Sürdür**, **Yeniden dene**, **Baştan başlat** veya **Tümünü yeniden dene**'yi kullanın. Sürdür, kısmi dosyanın hâlâ eşleştiğini denetler; güvenle devam edemiyorsa Baştan başlat'ı kullanın. Terminal yükleme göstergesi bekleme veya takılma durumunu gösterir ve **Durdur** seçeneğini sunar.
+
 ## Port yönlendirme başarısız
 
 Şunları kontrol edin:
@@ -141,6 +148,8 @@ SSH VPN, Shadowsocks ve OpenVPN yeniden bağlantıda doğrudana dönmek yerine y
 
 Host kimliği, sistem izni ve klasör erişimi cihazda kalır. Yeni cihazda hostları doğrulayıp klasör/VPN izni verin. Donanım kimliği fiziksel anahtar ister. İçe aktarma VPN başlatmaz; profilleri önce inceleyin.
 
+Android ayrıca istem şablonlarını ve düzenleyici taslaklarını, indirilen modelleri, ses sunucusu ayarlarını, VPN Setup bulut kimlik bilgilerini ve Sohbet veya istem çalıştırma önbelleklerini dışarıda bırakır. Bunları hedef cihazda yeniden yapılandırın. Sunucu zamanlamaları ayrıdır: telefonda istem şablonlarını kapatmak sunucuda zaten zamanlanmış çalıştırmaları durdurmaz.
+
 ## Uzak masaüstü yok veya boyutlandırılamıyor
 
 Bağlı SSH oturumundan açıp yerel TCP yönlendirme iznini kontrol edin. Linux'ta eksik paket mesajına göre masaüstü/VNC kurun. Android Wayland konsolu yansıtmaz; uyumlu sanal masaüstü kullanın.
@@ -151,8 +160,10 @@ macOS'ta Mac ayarlarından Ekran Paylaşımı'nı açın. Android Mac hesabıyla
 
 İki platform farklı şeyler kaydeder, bu yüzden sorununuza uyanı seçin.
 
-**Android — terminal ve çizim.** **Settings → Debugging → Show Debug and Logs buttons** seçeneğini etkinleştirin, ardından başlangıç ekranında beliren **Debug** düğmesini kullanın. Terminal olaylarını, SSH veri boyutlarını, dokunma girişini, yeniden boyutlandırma davranışını ve tünel yaşam döngüsünü kaydeder. Bir kayda başlamak, sizi önce parolalar dahil yazdığınız her tuşun yakalandığı konusunda uyarır. Kaydı durdurmak İndirilenler klasörünüze bir arşiv yazar.
+**Android — terminal, ses ve görüntüleme.** **Ayarlar → Hata ayıklama → Hata Ayıkla ve Günlükler düğmelerini göster**'i etkinleştirin, ardından başlangıç ekranında görünen **Hata Ayıkla** düğmesini kullanın. Terminal olaylarını, SSH veri boyutlarını, dokunma girdilerini, yeniden boyutlandırma davranışını ve tünel yaşam döngüsünü kaydeder. Onay istemi, parolalar dahil yazılan tuşları ve ekran içeriğini kaydettiği konusunda uyarır. Ses kayıtları, yazıya çevrilmiş girdiyi ve yanıt metnini içerir; ses örnekleri yalnızca Ayarlar'da ilgili seçeneği ayrıca açarsanız dahil edilir.
+
+İlk kaydı başlatırken yazılabilir bir arşiv klasörü seçin. Mobile SSH bunu hatırlar; **Ayarlar → Hata ayıklama → Hata ayıklama arşiv klasörü** altında değiştirebilirsiniz. Dışa aktarma başarısız olursa arşiv telefonda kalır; başka bir klasör seçip yeniden deneyebilirsiniz.
 
 **iOS — bağlantılar ve yeniden bağlanmalar.** **Settings → Diagnostics → Record debug log** seçeneğini açın. Bağlanmayı denediği her adresi ve neden başarısız olduğunu, yeniden bağlanma denemelerini ve bekleme sürelerini, düşen bağlantıları, "peer stopped answering keepalives" durumunu, ağ değişikliklerini ve tmux komutlarını hatalarıyla birlikte kaydeder. Ayarlar, kaydın sürdüğünü doğrulayabilmeniz için canlı bir satır sayısı gösterir ve **Export Debug Log** günlüğü metin dosyası olarak paylaşır. Günlük bellekte tutulur ve yalnızca geçerli uygulama oturumunu kapsar.
 
-Herhangi bir hata ayıklama günlüğünü veya arşivini paylaşmadan önce gözden geçirin. Bunlar sorun giderme amaçlıdır ve sunucu adlarını, adresleri, zamanlamaları veya diğer ortam ayrıntılarını — Android'de ise yazdığınız her şeyi — açığa çıkarabilir.
+Paylaşmadan önce her hata ayıklama günlüğünü veya arşivini inceleyin. Sunucu adlarını, adresleri, zaman bilgilerini ve ortamla ilgili diğer ayrıntıları açığa çıkarabilir; Android'de ayrıca yazılan sırlar, ekran içeriği, ses dökümleri ve kaydetmeyi seçtiğiniz sesler bulunabilir.

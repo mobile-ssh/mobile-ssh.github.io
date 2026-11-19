@@ -12,7 +12,7 @@ Mobile SSH includes an SFTP file transfer screen tied to the active SSH connecti
 
 1. Connect to an SSH server.
 2. Select the connected terminal pane.
-3. Open **Transfer** from the terminal toolbar, or long-press the pane header when supported by the current screen.
+3. Open **Transfer** from the terminal toolbar.
 4. The file transfer screen opens with a local pane and a remote pane.
 
 If there is no active SSH session, file transfer cannot open.
@@ -54,7 +54,7 @@ Private key import is separate from file transfer and uses the system file picke
 4. Confirm the remote destination.
 5. Watch the transfer queue for progress and completion.
 
-Uploads follow the selected server's SSH route, including any saved jump hosts. If the connection drops, retry after reconnecting.
+Uploads follow the selected server's SSH route, including any saved jump hosts. On Android, uploads can continue after reconnecting; use the transfer queue's retry controls if they fail.
 
 ## Download files
 
@@ -97,6 +97,8 @@ Each pane can sort by name or date in ascending or descending order. Mobile SSH 
 
 Transfers are queued and displayed by status — Android tabs them as Queued / Failed / Successful, iOS as Active / Failed / Done. Failed transfers include the available error reason. On iOS the current transfer stays at the top of Active and can be cancelled.
 
+On Android, failed uploads and downloads offer **Resume**, **Retry** or **Restart**, with **Retry all** for the failed list. Before resuming, the app checks that the partial file still matches; restart when it cannot safely continue. Pull down on a file list to refresh.
+
 On iOS, queued transfers keep their original folder even if you browse elsewhere. Downloads finish in temporary storage before replacing a destination; cancellation or failure preserves an existing file. If the destination changed since overwrite approval, the app stops rather than replacing the changed file.
 
 ## Getting files out of the app
@@ -109,6 +111,8 @@ On iOS, queued transfers keep their original folder even if you browse elsewhere
 Both platforms accept files shared from other apps and offer a 📎 **Attach a file** control in the terminal. Files upload to `~/.cache/mobile-ssh` on the selected host, and their paths can be inserted at the prompt without pressing Enter. Multiple files are supported.
 
 On Android, sharing targets the running session. On iOS, the paperclip offers **Photo Library** or **Files**. The iOS Share Extension can also upload to a saved SSH server while Mobile SSH is closed; Eternal Terminal profiles are not offered. Verify any unknown server identity in the main app first.
+
+On Android, an upload chip in the terminal header shows progress, speed, waiting or stalled status, and **Stop**. Sharing into an open session uses the existing terminal window.
 
 After an iOS Share Extension upload, paths are copied to the clipboard and queued for insertion when a connected pane for that server is available in the app. They are not inserted into a pane connected to a different host.
 

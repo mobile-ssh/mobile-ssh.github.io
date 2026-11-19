@@ -10,11 +10,11 @@ Mobile SSH terminali telefon ve tablet kullanımı için tasarlanmıştır. Bir 
 
 ## Terminal temelleri
 
-- Terminal, renk desteği ve imleç tuşu işleme ile xterm tarzı davranış kullanır.
-- Geri kaydırma arabelleği varsayılan olarak 5.000 satır tutar ve Ayarlar'dan 1.000, 10.000 veya 50.000 olarak değiştirilebilir.
-- Yazmadan önce bir bölmeyi seçmek için dokunun.
-- Metin boyutunu değiştirmek için bir terminal bölmesini iki parmağınızla sıkıştırın. Hareket durulduktan sonra Mobile SSH uzak PTY'yi yeniden boyutlandırır.
-- Tam ekran moduna girmek için bir bölmeye çift dokunun (veya bölmenin genişletme denetimini kullanın). Izgaraya dönmek için Android'de Geri'yi, iOS'ta ise daraltma denetimini kullanın.
+- Terminal, renk desteği ve imleç tuşu işleme içeren xterm tarzı davranış kullanır.
+- Kaydırma geçmişi varsayılan olarak 5,000 satırdır; 1,000, 5,000, 10,000 veya 50,000 seçilebilir. Android ayrıca her bölmenin geçmişini uygulamanın kullanabileceği bellekle sınırlar; en yüksek ayarlar daha az satır tutabilir.
+- Yazmadan önce seçmek için bir bölmeye dokunun.
+- Metin boyutunu değiştirmek için terminal bölmesinde iki parmakla yakınlaştırıp uzaklaştırın. Mobile SSH, hareket tamamlandığında uzak PTY'yi yeniden boyutlandırır.
+- Tam ekran için bölmeye çift dokunun veya genişletme kontrolünü kullanın. Izgaraya dönmek için Android'de Geri'yi, iOS'ta daraltma kontrolünü kullanın.
 
 ## Çoklu oturum ızgarası
 
@@ -77,9 +77,11 @@ Sözcüğü seçmek için terminalde uzun basın, tutamaçlarla seçimi ayarlay�
 - **Select all** — seçimi görünür terminal arabelleğinin tamamına genişletir, ardından Copy veya Share uygulanabilir.
 - **Yapıştır**: pano metnini terminale ekler.
 
+Android'de bu eylemler, bölme boyutlarını değiştirmeden terminal araç çubuğunu kullanır. Alan dar olduğunda Kopyala ve Yapıştır simge olarak görünür.
+
 ## Terminalde bul
 
-Tüm terminal arabelleğini — geri kaydırmayı ve görünür ekranı — arayın ve eşleşmeler arasında atlayın. Terminal denetimlerinden aramayı açın, bir sorgu yazın ve isabetler arasında ilerleyin. Bu, hem Android hem iOS'ta çalışır.
+Kaydırma geçmişi ve görünen ekran dahil tüm terminal arabelleğinde arayın, eşleşmeler arasında geçiş yapın. Terminal kontrollerinden aramayı açın, sorguyu yazın ve sonuçları gezin. Android ve iOS'ta çalışır. Android'de Arama araç çubuğunda varsayılan olarak gizlidir; **Ayarlar → Üst simgeler** altında etkinleştirin.
 
 ## Renk, italik ve uzak pano
 
@@ -100,15 +102,19 @@ Tüm terminal arabelleğini — geri kaydırmayı ve görünür ekranı — aray
 
 Hem Android hem de iOS'ta Ayarlar, terminali özelleştirmenize olanak tanır:
 
-- **Yazı tipi:** sistem tek aralıklı yazı tipini, JetBrains Mono veya Source Code Pro'yu seçin.
-- **Renk şeması:** Varsayılan, Solarized Koyu veya Açık, Gruvbox, Dracula ya da Nord — açık bölmelere anında uygulanır.
-- **Ek tuş satırı:** tuş ekleyin, kaldırın, yeniden sıralayın ve gizleyin, kendi kaçış dizisi tuşlarınızı tanımlayın ve varsayılanlara sıfırlayın; canlı önizleme satırın tam olarak nasıl bölüneceğini gösterir. Android bunu bir **Keys** sekmesine koyar; iOS'ta **Extra keys → Customize keys** altındadır.
-- **Hazır tuşlardan ekleme:** altı grupta yaklaşık 45 tuşluk bir palet — `F1`–`F12`, `^C` `^D` `^Z` `^R` `^L` gibi Ctrl kombinasyonları, `|` `~` `/` `_` `:` gibi simgeler ve değiştiriciler. `F1`–`F12` sıradan kaçış dizileri olarak gönderilir, bu yüzden bir `FN` akoru gerektirmezler. Android ayrıca dosya seçicisini açıp canlı oturuma yükleme yapan bir 📎 **Attach a file** tuşu sunar; iOS ise `INS`, `DEL` ve bir rakam satırını açığa çıkaran bir `FN` tuşu sunar.
-- **Geri kaydırma boyutu:** 1.000, 5.000, 10.000 veya 50.000 satır (varsayılan 5.000). Yeni bölmelere uygulanır.
-- **Metin boyutu:** sıkıştırarak yakınlaştırmanın yanı sıra bir kaydırıcı.
-- **Tema:** uygulamanın tamamı için Sistem, Açık veya Koyu.
+- **Yazı tipi:** sistemin eş aralıklı yazı tipini, JetBrains Mono'yu veya Source Code Pro'yu seçin.
+- **Renk şeması:** Varsayılan, Solarized Dark veya Light, Gruvbox, Dracula ya da Nord; açık bölmelere anında uygulanır.
+- **Ek tuş satırı:** tuş ekleyin, kaldırın, yeniden sıralayın, gizleyin, kendi kaçış dizisi tuşlarınızı tanımlayın ve varsayılanlara dönün. Canlı önizleme, oluşacak satır bölünmesini tam olarak gösterir. Android'de **Tuşlar** sekmesindedir; iOS'ta **Ek tuşlar → Tuşları özelleştir** altındadır.
+- **Hazır ayarlardan ekle:** altı grupta yaklaşık 45 tuşluk palet — `F1`–`F12`, `^C` `^D` `^Z` `^R` `^L` gibi Ctrl birleşimleri, `|` `~` `/` `_` `:` gibi simgeler ve değiştiriciler. `F1`–`F12` normal kaçış dizileri olarak gönderilir; `FN` birleşimi gerekmez. Android ayrıca dosya seçicisini açıp etkin oturuma yükleyen 📎 **Dosya ekle** tuşunu sunar; iOS, `INS`, `DEL` ve sayı satırını gösteren bir `FN` tuşu sunar.
+- **Kaydırma geçmişi boyutu:** 1,000, 5,000, 10,000 veya 50,000 satır (varsayılan 5,000). Android, uygulamanın bellek sınırına uymak için daha az satır tutabilir. Değişiklikler yeni bölmelere uygulanır.
+- **Metin boyutu:** iki parmakla yakınlaştırmanın yanında bir kaydırıcı.
+- **Tema:** tüm uygulama için Sistem, Açık veya Koyu.
 
 Sıfırlama, bugünkü listeyi dondurmak yerine uygulamayla gelen varsayılanları geri getirir; böylece sonraki sürümlerin iyileştirmeleri size de ulaşır. Değişiklikler zaten açık olan bölmelere anında uygulanır.
+
+Android'de terminal renkleri varsayılan olarak uygulamanın açık veya koyu temasını izler. Sabit renk şeması için **Ayarlar → Genel → Görünüm** altında **Terminali uygulama temasıyla eşleştir**'i kapatın. Aynı sayfa, tam ekranda araç çubuğunu ve ek tuşları gizlemeyi ayrı ayrı denetler; araç çubuğu varsayılan olarak gizlenirken ek tuşlar görünür kalır.
+
+Android'de **Ayarlar → Üst simgeler**, araç çubuğu eylemlerini yeniden sıralar, gösterir veya gizler ve yüklü eklenti kısayolları ekler. Sohbet ve Port yönlendirmeleri varsayılan olarak görünür; Arama ve Uzak masaüstü etkinleştirilene kadar gizlidir.
 
 ## Kaydırma
 
@@ -155,6 +161,8 @@ Yöneticiden şunları yapabilirsiniz:
 
 Her iki platform aynı sunucuda birden fazla tmux sunucusunu (soketini) yönetir. Bağlanma göstergeleri sunucudaki başka istemciyi değil, kullandığınız terminali belirtir.
 
+Android'de **Boş soketleri temizle**, durmuş tmux sunucularından kalan soket dosyalarını siler ve dosyaları artık bulunmayan kayıtlı soketleri unutur. Dinlemedeki bir tmux sunucusunun hâlâ kullandığı soketler korunur.
+
 ## Herdr ve Zellij
 
 Android ve iOS, Herdr ve Zellij'i de yönetir. Tek araç çubuğu kontrolü algılanan ana çoklayıcıyı açar; başka birini seçmek için uzun basın. Yalnızca sunucuda bulunan programlar sunulur. Yöneticide sunucu başlığı sunucuyu, çoklayıcı seçicisi yöneticiyi değiştirir.
@@ -165,6 +173,17 @@ Android ve iOS, Herdr ve Zellij'i de yönetir. Tek araç çubuğu kontrolü alg�
 Herdr veya Zellij kurulu ama giriş kabuğunun `PATH`'inde değilse sayfa bunu eklemeyi önerir.
 
 Her sunucunun **Bağlanınca ekle** seçimi vardır: **Otomatik (algıla)**, **Hiçbiri**, **tmux**, **herdr**, **Zellij**. Otomatik, algılama ve geçmişe göre önce kullanılanı, sonra canlı oturumlu olanı, sonra kurulu olanı seçer. Önbellek yoksa normal kabuk açılır. Sonraki algılama yalnızca gelecekteki bağlantıları etkiler, yazınızı kesmez.
+
+## Android'de kodlama ajanı Sohbeti
+
+Sohbet, sunucunuzda zaten çalışan bir Claude Code veya Codex konuşmasını okur. Yanıtlar biçimlendirilmiş metin, kopyalanabilir kod blokları, tablolar ve bağlantılar içerir. Kendi istemleriniz vurgulanır; önceki veya sonraki isteme ya da en yeni mesaja geçiş kontrolleri bulunur.
+
+1. Sunucuya bağlanın ve terminal araç çubuğundan **Sohbet**'i açın.
+2. Sohbet mümkün olduğunda geçerli tmux bölmesini izler. Aksi hâlde oturum seçicisini açıp konuşmayı seçin veya başlığa göre arayın.
+3. Kancalar eksikse Sohbet'te veya oturum seçicisinde **Ajan kancalarını yükle**'yi seçin. Kancaların yüklenmesi için gereken sağlayıcı güven onayını veya yerel yeniden yükleme/sürdürme işlemini tamamlayın; Mobile SSH ajanı asla başlatmaz veya yeniden başlatmaz.
+4. İsteminizi yazın, gerekirse dosya ekleyin ve seçili oturum izin verdiğinde gönderin. Sohbet ve terminal giriş kutusu aynı taslağı paylaşır.
+
+Sohbet, `~/.mobile-ssh` altına küçük bir yardımcı kurar ve sunucuda Python 3.8 veya üzerini gerektirir. Çalışan ajan gerekli kancaları yükleyene kadar konuşma salt okunur kalabilir.
 
 ## Ajan uyarıları
 
@@ -180,10 +199,10 @@ Bu hiçbir kurulum gerektirmez, ama uygulama yalnızca *bir şeyin* çaldığın
 
 Uygulamanın *hangi* ajanın beklediğini ve *ne yaptığını* bilmesi için sunucuya ajan kancasını kurun:
 
-- **iOS:** Settings → **Agent alerts** → **Install Agent Hook**. Birden çok sunucu bağlıysa hangisi olduğunu sorar.
-- **Android:** bir oturumun bölme başlığına uzun basın ve **Install agent hooks** seçeneğini seçin.
+- **iOS:** Ayarlar → **Ajan uyarıları** → **Ajan Kancasını Yükle**. Birden fazla sunucu bağlıysa hangisinin kullanılacağını sorar.
+- **Android:** **Sohbet**'i açın, bir Claude Code veya Codex konuşması seçin ve Sohbet'te veya oturum seçicisinde sunulduğunda **Ajan kancalarını yükle**'yi kullanın.
 
-Bu, o sunucuda `~/.mobile-ssh/agent-hook.sh` yoluna küçük bir kabuk betiği yazar. Ajandan bağımsızdır — herhangi bir sağlayıcının biçimini ayrıştırmak yerine komut satırı argümanları alır — bu yüzden komut çalıştırabilen her şey onun üzerinden bildirim yapabilir. Dosyayı silmek temiz bir kaldırma işlemidir.
+Kancalar, desteklenen ajanların durumlarını Mobile SSH'ye bildirmesini sağlar. Android'de Sohbet, diğer yapılandırmaları koruyarak Codex'in `hooks.json` veya Claude Code'un `settings.json` dosyasına yerel yaşam döngüsü işleyicileri ekler. Tek bir yardımcı dosyasını silmek bu sağlayıcı yapılandırma girdilerini kaldırmaz.
 
 Bir ajan kanca üzerinden bildirim yapmaya başladığında:
 

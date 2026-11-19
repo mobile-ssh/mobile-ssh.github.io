@@ -52,10 +52,11 @@ Unter Android benötigt entferntes `ssh`/`git` **SSH-Agent weiterleiten** im Pro
 
 Der Import des privaten Schlüssels nutzt die Dateiauswahl des Systems. Wenn der Import fehlschlägt:
 
-- Bestätige, dass die ausgewählte Datei ein privater Schlüssel ist und keine öffentliche `.pub`-Datei.
-- Öffne die Datei in einem vertrauenswürdigen Texteditor und prüfe, dass sie den vollständigen Schlüsselblock enthält.
-- Versuche, den Schlüssel manuell in das Feld für den privaten Schlüssel einzufügen.
-- Bestätige, dass der Schlüsseltyp unterstützt wird: Ed25519, ECDSA (P-256/384/521) oder RSA auf Android; Ed25519 oder ECDSA auf iOS. DSA (`ssh-dss`) funktioniert auf keiner von beiden, und iOS unterstützt kein RSA — erzeuge stattdessen einen Ed25519-Schlüssel.
+- Prüfe, ob die ausgewählte Datei einen privaten Schlüssel enthält und keine öffentliche `.pub`-Datei ist.
+- Öffne sie in einem vertrauenswürdigen Texteditor und prüfe, ob der vollständige Schlüsselblock enthalten ist.
+- Unter Android dürfen importierte Schlüsseldateien höchstens 64 KB groß sein; wähle den Schlüssel selbst aus, kein Archiv oder eine andere Datei.
+- Versuche, den Schlüssel manuell in das Feld für private Schlüssel einzufügen.
+- Prüfe, ob der Schlüsseltyp unterstützt wird: Ed25519, ECDSA (P-256/384/521) oder RSA unter Android; Ed25519 oder ECDSA unter iOS. DSA (`ssh-dss`) funktioniert auf keiner Plattform, und iOS unterstützt kein RSA — erstelle stattdessen einen Ed25519-Schlüssel.
 
 ## Sicherheitsschlüssel antwortet unter Android nicht
 
@@ -68,6 +69,10 @@ Der Server benötigt OpenSSH ab 8.2 mit erlaubtem `sk-*`-Algorithmus. Reine U2F-
 Android sendet Eingaben direkt ohne Autokorrektur oder Vorhersage. Unter iOS ist **Diktat und Vorschläge** für Sprache und Zeilenkorrekturen standardmäßig an. Ändert es unerwartet Shell-Eingaben, schalte es aus, prüfe **Tastaturvorschläge** und öffne ein neues Pane.
 
 Nutze Zusatztasten für `ESC`, `TAB`, `CTRL`, Pfeile, `HOME`, `END`, `PGUP`, `PGDN`. Ein hängendes Netz verzögert Eingaben. Android zeigt **keine Antwort** oder **nicht gesendet**; beim Wiederverbinden getippte Zeichen werden verworfen statt in einer neuen Shell wiederholt. Warte, prüfe den Prompt und wiederhole nur Nötiges.
+
+## Chat ist unter Android schreibgeschützt
+
+Prüfe, ob Python 3.8 oder neuer auf dem Server vorhanden ist, wähle die gewünschte Claude Code- oder Codex-Unterhaltung und installiere die in Chat angebotenen Hooks. Erteile nötige Vertrauensfreigaben beim Anbieter oder lade die native Sitzung neu beziehungsweise setze sie fort, um die Hooks zu laden. Ein bereits laufender Agent hat neu installierte Hooks möglicherweise noch nicht geladen; Mobile SSH startet ihn nicht für dich neu.
 
 ## tmux-Scrollen ist nicht wie erwartet
 
@@ -115,6 +120,8 @@ Prüfe:
 - Auf dem Gerät ist genügend freier Speicher vorhanden.
 - Das Netzwerk ist für große Übertragungen stabil.
 
+Unter Android nutzt du nach Behebung der Ursache **Fortsetzen**, **Erneut versuchen**, **Neu starten** oder **Alle erneut versuchen** in der Übertragungswarteschlange. Fortsetzen prüft, ob die Teildatei noch übereinstimmt; verwende Neu starten, wenn eine sichere Fortsetzung nicht möglich ist. Die Upload-Anzeige des Terminals zeigt Warte- oder Stillstandsstatus und bietet **Stopp**.
+
 ## Portweiterleitung fehlgeschlagen
 
 Prüfe:
@@ -141,6 +148,8 @@ Prüfe Vorschau und **Zusammenführen** oder **Ersetzen**. In alten/teilweisen B
 
 Host-Identitäten, Systemrechte und Ordnerzugriffe bleiben lokal. Prüfe Hosts und gib Ordner/VPN auf dem neuen Gerät frei. Hardware-Zugangsdaten benötigen weiterhin den physischen Schlüssel. Import startet kein VPN; prüfe die Profile vorher.
 
+Android schließt außerdem Prompt-Vorlagen und Editorentwürfe, heruntergeladene Modelle, Sprachhost-Einstellungen, Cloud-Zugangsdaten von VPN Setup sowie Chat- und Prompt-Ausführungscaches aus. Richte sie auf dem Zielgerät erneut ein. Serverzeitpläne sind davon getrennt: Das Deaktivieren der Prompt-Vorlagen auf dem Smartphone stoppt keine bereits auf dem Server geplanten Ausführungen.
+
 ## Entfernter Desktop nicht verfügbar oder nicht skalierbar
 
 Öffne den Viewer aus einer verbundenen SSH-Sitzung und prüfe lokale TCP-Weiterleitung. Unter Linux installiere die im Fehler genannten Desktop-/VNC-Pakete. Android spiegelt keine Wayland-Konsole; nutze einen unterstützten virtuellen Desktop.
@@ -151,8 +160,10 @@ Aktiviere unter macOS die Bildschirmfreigabe in den Mac-Einstellungen. Android u
 
 Die beiden Plattformen zeichnen Unterschiedliches auf, wähle also die, die zu deinem Problem passt.
 
-**Android — Terminal und Darstellung.** Aktiviere **Settings → Debugging → Show Debug and Logs buttons** und nutze dann die Schaltfläche **Debug**, die auf dem Startbildschirm erscheint. Sie zeichnet Terminalereignisse, SSH-Datengrößen, Toucheingaben, Größenänderungsverhalten und den Tunnel-Lebenszyklus auf. Vor dem Start einer Aufzeichnung warnt sie dich, dass dabei jede Taste erfasst wird, die du drückst, Passwörter eingeschlossen. Beim Stoppen schreibt sie ein Archiv in deinen Downloads-Ordner.
+**Android — Terminal, Sprache und Darstellung.** Aktiviere **Einstellungen → Debugging → Debug- und Protokoll-Schaltflächen anzeigen** und nutze dann die Schaltfläche **Debug** auf dem Startbildschirm. Sie zeichnet Terminalereignisse, SSH-Datenmengen, Berührungen, Größenänderungen und den Tunnel-Lebenszyklus auf. Die Einwilligungsabfrage warnt, dass eingegebene Tasten einschließlich Passwörtern sowie Bildschirminhalte aufgezeichnet werden. Sprachaufzeichnungen enthalten transkribierte Eingaben und Antworttext; Audiobeispiele werden nur eingeschlossen, wenn du diese Option separat in den Einstellungen aktivierst.
+
+Wähle beim Start der ersten Aufzeichnung einen beschreibbaren Archivordner. Mobile SSH merkt ihn sich; ändere ihn unter **Einstellungen → Debugging → Debug-Archivordner**. Schlägt der Export fehl, bleibt das Archiv auf dem Smartphone, damit du einen anderen Ordner auswählen und es erneut versuchen kannst.
 
 **iOS — Verbindungen und Reconnects.** Schalte **Settings → Diagnostics → Record debug log** ein. Es zeichnet jede gewählte Adresse und den Grund ihres Scheiterns auf, Wiederverbindungsversuche und deren Backoff, abgebrochene Verbindungen, „peer stopped answering keepalives“, Netzwechsel sowie tmux-Befehle mit ihren Fehlern. Die Einstellungen zeigen einen laufenden Zeilenzähler, damit du die Aufzeichnung bestätigen kannst, und **Export Debug Log** teilt sie als Textdatei. Das Log liegt im Arbeitsspeicher und umfasst nur die aktuelle App-Sitzung.
 
-Prüfe jedes Debug-Log und jedes Archiv, bevor du es teilst. Sie sind für die Fehlerbehebung gedacht und können Servernamen, Adressen, Zeitangaben oder andere Umgebungsdetails offenlegen — und auf Android alles, was du getippt hast.
+Prüfe jedes Debug-Protokoll oder Archiv vor dem Teilen. Es kann Servernamen, Adressen, Zeitangaben und andere Umgebungsdetails offenlegen — unter Android auch eingegebene Geheimnisse, Bildschirminhalte, Sprachtranskripte und jedes Audio, dessen Aufzeichnung du zugestimmt hast.

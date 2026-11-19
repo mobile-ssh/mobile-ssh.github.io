@@ -17,7 +17,7 @@ Mobile SSH is an SSH client for Android and iOS for connecting to your own Linux
 
 ## Install the app
 
-- **Android:** Mobile SSH is currently a closed test on Google Play. Open the opt-in link in a mobile browser on the device — not inside the Google Play app, where the test may not be visible — and join with the Google account you will use. After that it installs and updates from Play like any other app.
+- **Android:** install Mobile SSH from Google Play using the link on the home page. Availability depends on the release track. If you are joining a closed test, open its opt-in link in a browser and join with the Google account used by Play.
 - **iOS:** the iOS app ships as a public beta on TestFlight. Install Apple's TestFlight app, then open the Mobile SSH invite link from the site's home page to install and receive updates.
 
 ## Connect to a server
@@ -87,7 +87,7 @@ To use a private key:
 3. Enter the key passphrase in the password/passphrase field if the key is encrypted.
 4. Save the credential or server.
 
-Private key import uses the system file picker. It does not grant access to the rest of your storage; file transfer has its own folder and file selections.
+Private key import uses the system file picker. Android refuses key files larger than 64 KB. Import does not grant access to the rest of your storage; file transfer has its own folder and file selections.
 
 Android also supports **FIDO2 security keys** over USB and NFC: enroll a key or import an OpenSSH security-key credential, then follow the touch and PIN prompts. The physical key is still required after exporting or restoring that credential. **SSH agent forwarding** is a separate per-server opt-in on Android: saved credentials can answer signing requests, with optional approval before each use. Enable it only on servers you trust to request signatures. iOS does not support security-key authentication or agent forwarding.
 
@@ -121,6 +121,8 @@ Both apps read current backup format 2 and older inventory backups. Review the i
 
 Host identities, active sessions, system permissions and selected-folder access are not restored. Verify hosts and grant local folder access on the destination device. Older app versions cannot read the new full-backup format.
 
+Android backups also exclude prompt templates and their editor drafts, downloaded models, voice-host settings, VPN Setup cloud credentials, and Chat or prompt-run caches. Configure these again on a new phone; a backup does not move or remove schedules already installed on a server.
+
 ## Active sessions
 
 When sessions are running, the start screen shows **Active Sessions** with a count. Tap it to return to the terminal grid. On Android, an ongoing notification also lists active hosts and opens the active connection controls.
@@ -138,6 +140,32 @@ Open **Settings** from the start screen (it has its own page):
 - Both platforms have an anonymous usage analytics switch in Settings. Turning it off stops collecting new events.
 - On iOS, **Dictation & suggestions** is enabled by default. Turn it off and open a new pane if you prefer direct terminal input without dictation or autocorrection.
 - Remote notifications, command-finished alerts and remote clipboard reads are separate opt-in settings. Enable only the remote actions you want.
+- On Android, **Voice assistant**, **Prompt templates** and **In-App Browser** are optional and off by default. Voice has its own Settings page; the other two are under **General**.
+
+## Voice assistant on Android
+
+The voice assistant is experimental and off by default. It can use Gemma 4 on a supported 64-bit phone or a voice service on your own Linux SSH server.
+
+1. Open **Settings → Voice assistant** and enable the assistant.
+2. For local speech processing, enable **Use Gemma on this phone (no voice server)**, choose an offered model and tap **Download**. Alternatively, choose a saved Linux voice host and follow the service setup; it needs Python 3.11–3.13, systemd user services and several GB of free space.
+3. Start a voice conversation for the terminal you want to control. Choose **Messages** to record, review and send, or **Live** for hands-free conversation with spoken replies. A custom voice-server address uses Live mode.
+4. Review proposed commands before confirming them. Gemma can run a short list of read-only checks without confirmation; commands beyond that list and prompts sent to Claude Code or Codex need your confirmation or **Send**.
+
+Phone models download about 2.6–3.7 GB from Hugging Face only after you tap Download. Metered downloads need confirmation, and a download started on Wi-Fi pauses if the connection becomes metered. Speech stays on the phone with Gemma; the server option sends audio to your configured voice service. Microphone permission is requested when you use a voice feature. If an offline speech voice is missing, the app offers to download one through your phone's speech engine.
+
+If another app takes audio focus or a headset sends Stop, the conversation pauses with its mode and context preserved. Use **Continue conversation** on the Voice page or notification, or press headset Play. A pause caused by another app's audio resumes when that audio ends.
+
+## Prompt templates on Android
+
+Prompt templates are experimental and off by default. They schedule read-only Claude Code or Codex runs on your own server. The server needs Python 3.8 or newer, cron and a signed-in coding agent.
+
+1. Enable **Settings → General → Prompt templates**.
+2. Open **Prompts** on Home or the prompt-template entry in a saved server's menu.
+3. Create a template with a prompt, server, project folder and Claude Code or Codex. Choose a time zone and schedule runs daily, on weekdays, on selected days or every 1–12 hours.
+4. Save the template, then connect to its server to sync it. Mobile SSH installs a small helper and one crontab entry; schedules run on the server even while the phone is disconnected.
+5. Review each run's output and status, or choose **Run now**, **Pause** or **Remove from server**.
+
+Templates and editor drafts are encrypted on the phone and excluded from backups. A downloaded Gemma model can help draft and revise a prompt. Turning the feature off hides its controls and stops phone-side syncing; it does not stop or remove schedules already installed on a server. Pause or remove those schedules in Prompt templates first.
 
 ## Plugins
 
@@ -148,6 +176,8 @@ Plugins extend Mobile SSH with extra workflows. Open **Plugins** from the start 
 - Run installed plugins from the same screen.
 
 Plugins are fetched from a public catalog by default. If you maintain your own, you can point Mobile SSH at a custom or private catalog source. Only install plugins from sources you trust.
+
+On Android, catalog plugins show **Update to** when a newer version is available. Updates use the original catalog, preserve plugin settings and data, and ask for approval if they need additional access. They do not downgrade an installed version.
 
 ## Languages
 

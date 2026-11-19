@@ -10,11 +10,11 @@ Le terminal de Mobile SSH est conçu pour une utilisation sur téléphone et tab
 
 ## Bases du terminal
 
-- Le terminal utilise un comportement de type xterm, avec prise en charge des couleurs et gestion des touches de curseur.
-- Le tampon de défilement conserve 5000 lignes par défaut, et peut être réglé à 1 000, 10 000 ou 50 000 lignes dans Settings.
-- Touchez un volet pour le sélectionner avant de taper.
-- Pincez un volet du terminal pour modifier la taille du texte. Mobile SSH redimensionne le PTY distant une fois le geste stabilisé.
-- Touchez deux fois un volet (ou utilisez sa commande d'agrandissement) pour passer en plein écran. Utilisez Retour sur Android, ou la commande de réduction sur iOS, pour revenir à la grille.
+- Le terminal adopte un comportement de type xterm, avec couleurs et gestion des touches de curseur.
+- L'historique contient 5,000 lignes par défaut, avec des réglages à 1,000, 5,000, 10,000 ou 50,000. Android limite aussi l'historique de chaque volet à la mémoire disponible pour l'app : les valeurs les plus élevées peuvent donc conserver moins de lignes.
+- Touchez un volet pour le sélectionner avant de saisir du texte.
+- Pincez un volet pour changer la taille du texte. Mobile SSH redimensionne le PTY distant une fois le geste terminé.
+- Touchez deux fois un volet (ou utilisez sa commande d'agrandissement) pour passer en plein écran. Utilisez Retour sur Android ou la commande de réduction sur iOS pour revenir à la grille.
 
 ## Grille multi-sessions
 
@@ -77,9 +77,11 @@ Appuyez longuement sur un mot, puis ajustez la sélection avec ses poignées. La
 - **Tout sélectionner** — étend la sélection à tout le tampon visible du terminal, puis Copier ou Partager.
 - **Coller** : insérer le contenu du presse-papiers dans le terminal.
 
+Sur Android, ces actions utilisent la barre du terminal sans changer la taille des volets. Copier et Coller apparaissent sous forme d'icônes lorsque l'espace est réduit.
+
 ## Rechercher dans le terminal
 
-Recherchez dans tout le tampon du terminal — le scrollback et l'écran visible — et sautez d'une occurrence à l'autre. Ouvrez la recherche depuis les contrôles du terminal, tapez une requête et parcourez les correspondances. Cela fonctionne à la fois sur Android et iOS.
+Recherchez dans tout le tampon du terminal — historique et écran visible — et passez d'une occurrence à l'autre. Ouvrez la recherche depuis les commandes du terminal, saisissez une requête puis parcourez les résultats. Cela fonctionne sur Android et iOS. Sur Android, Recherche est masqué dans la barre par défaut ; activez-le sous **Réglages → Icônes du haut**.
 
 ## Couleur, italiques et presse-papiers distant
 
@@ -100,15 +102,19 @@ Recherchez dans tout le tampon du terminal — le scrollback et l'écran visible
 
 Sur Android et iOS, Settings vous permet d'adapter le terminal :
 
-- **Police :** choisissez la police monospace du système, JetBrains Mono ou Source Code Pro.
-- **Jeu de couleurs :** Default, Solarized Dark ou Light, Gruvbox, Dracula ou Nord — appliqué en direct aux volets ouverts.
-- **Rangée de touches supplémentaires :** ajoutez, supprimez, réorganisez et masquez des touches, définissez vos propres touches de séquences d'échappement et réinitialisez aux valeurs par défaut, avec un aperçu en direct qui montre exactement le découpage de rangée que vous obtiendrez. Android place cela dans un onglet **Keys** ; iOS sous **Extra keys → Customize keys**.
-- **Ajouter depuis les préréglages :** une palette d'environ 45 touches en six groupes — `F1`–`F12`, des combinaisons Ctrl telles que `^C` `^D` `^Z` `^R` `^L`, des symboles comme `|` `~` `/` `_` `:` et des modificateurs. `F1`–`F12` sont envoyées comme des séquences d'échappement ordinaires : aucune combinaison `FN` n'est nécessaire. Android propose en plus une touche 📎 **Attach a file** qui ouvre le sélecteur de fichiers et téléverse dans la session en cours ; iOS propose `INS`, `DEL` et une touche `FN` qui révèle une rangée de chiffres.
-- **Taille du scrollback :** 1 000, 5 000, 10 000 ou 50 000 lignes (5 000 par défaut). S'applique aux nouveaux volets.
+- **Police :** choisissez la police à chasse fixe du système, JetBrains Mono ou Source Code Pro.
+- **Palette de couleurs :** Par défaut, Solarized Dark ou Light, Gruvbox, Dracula ou Nord, appliquée immédiatement aux volets ouverts.
+- **Rangée de touches supplémentaires :** ajoutez, supprimez, réorganisez et masquez des touches, définissez vos propres séquences d'échappement et rétablissez les valeurs par défaut, avec un aperçu montrant exactement la répartition des rangées. Android place cela dans l'onglet **Touches** ; iOS sous **Touches supplémentaires → Personnaliser les touches**.
+- **Ajouter depuis les préréglages :** une palette d'environ 45 touches en six groupes : `F1`–`F12`, combinaisons Ctrl comme `^C` `^D` `^Z` `^R` `^L`, symboles comme `|` `~` `/` `_` `:` et modificateurs. `F1`–`F12` sont envoyées comme des séquences d'échappement ordinaires, sans combinaison avec `FN`. Android propose aussi la touche 📎 **Joindre un fichier**, qui ouvre le sélecteur et envoie le fichier dans la session active ; iOS propose `INS`, `DEL` et une touche `FN` qui révèle une rangée de chiffres.
+- **Taille de l'historique :** 1,000, 5,000, 10,000 ou 50,000 lignes (5,000 par défaut). Android peut conserver moins de lignes pour respecter la limite mémoire de l'app. Les modifications s'appliquent aux nouveaux volets.
 - **Taille du texte :** un curseur, en plus du zoom par pincement.
-- **Thème :** Système, Clair ou Sombre pour toute l'application.
+- **Thème :** Système, Clair ou Sombre pour toute l'app.
 
 La réinitialisation restaure les valeurs par défaut livrées plutôt que de figer la liste d'aujourd'hui : les améliorations d'une version ultérieure vous parviennent donc quand même. Les modifications s'appliquent en direct aux volets déjà ouverts.
+
+Sur Android, les couleurs du terminal suivent par défaut le thème clair ou sombre de l'app. Désactivez **Adapter le terminal au thème de l'app** sous **Réglages → Général → Apparence** pour garder une palette fixe. La même page règle séparément le masquage en plein écran de la barre et des touches supplémentaires ; la barre se masque par défaut, tandis que les touches supplémentaires restent visibles.
+
+Sur Android, **Réglages → Icônes du haut** permet de réorganiser, afficher ou masquer les actions de la barre et d'ajouter des raccourcis d'extensions installées. Chat et Redirections de ports sont affichés par défaut ; Recherche et Bureau distant restent masqués jusqu'à leur activation.
 
 ## Défilement
 
@@ -155,6 +161,8 @@ Un 🔔 marque toute session dont l'agent attend une entrée : vous repérez ain
 
 Les deux plateformes gèrent plusieurs serveurs tmux (sockets) sur un hôte. Les indicateurs de rattachement concernent votre terminal, pas un autre client du serveur.
 
+Sur Android, **Nettoyer les sockets vides** supprime les fichiers socket restants des serveurs tmux arrêtés et oublie les sockets enregistrés dont les fichiers n'existent plus. Les sockets encore utilisés par un serveur tmux à l'écoute sont conservés.
+
 ## Herdr et Zellij
 
 Android et iOS gèrent aussi Herdr et Zellij. Une commande de la barre ouvre le multiplexeur principal détecté ; maintenez-la pour en choisir un autre. Seuls les programmes trouvés sur ce serveur sont proposés. Dans le gestionnaire, le titre change de serveur et le sélecteur de multiplexeur change de gestionnaire.
@@ -165,6 +173,17 @@ Android et iOS gèrent aussi Herdr et Zellij. Une commande de la barre ouvre le 
 Si herdr ou Zellij est installé mais absent du `PATH` du shell de connexion, la page propose de l'ajouter.
 
 Chaque serveur propose **Rattacher à la connexion** : **Auto (détecter)**, **Rien**, **tmux**, **herdr** ou **Zellij**. Auto utilise la détection et l'historique disponibles : multiplexeur déjà utilisé, puis sessions actives, puis programme installé. Sans détection en cache, un shell simple s'ouvre. Une détection ultérieure ne concerne que les futures connexions et ne perturbe pas votre saisie.
+
+## Chat avec des agents de programmation sur Android
+
+Chat lit une conversation Claude Code ou Codex déjà active sur votre serveur. Les réponses comprennent du texte mis en forme, des blocs de code copiables, des tableaux et des liens. Vos propres prompts sont mis en évidence, avec des commandes pour atteindre le précédent, le suivant ou le message le plus récent.
+
+1. Connectez-vous au serveur et ouvrez **Chat** depuis la barre du terminal.
+2. Chat suit le volet tmux courant lorsque c'est possible. Sinon, ouvrez son sélecteur de sessions et sélectionnez ou recherchez la conversation par titre.
+3. Si des hooks manquent, choisissez **Installer les hooks d'agent** dans Chat ou son sélecteur de sessions. Effectuez les autorisations de confiance du fournisseur ou le rechargement/la reprise natifs nécessaires pour charger les hooks ; Mobile SSH ne démarre ni ne redémarre jamais l'agent.
+4. Rédigez un prompt, joignez des fichiers si nécessaire et envoyez lorsque la session choisie le permet. Chat et le champ de saisie du terminal partagent le même brouillon.
+
+Chat installe un petit utilitaire sous `~/.mobile-ssh` et nécessite Python 3.8 ou ultérieur sur le serveur. Une conversation peut rester en lecture seule tant que l'agent en cours d'exécution n'a pas chargé les hooks requis.
 
 ## Agent alerts
 
@@ -180,10 +199,10 @@ Cela ne demande aucune configuration, mais l'application sait seulement que *que
 
 Pour que l'application sache *quel* agent attend et *ce qu'*il fait, installez le hook d'agent sur le serveur :
 
-- **iOS :** Settings → **Agent alerts** → **Install Agent Hook**. Si plusieurs serveurs sont connectés, il demande lequel.
-- **Android :** appuyez longuement sur l'en-tête du volet d'une session et choisissez **Install agent hooks**.
+- **iOS :** Réglages → **Alertes d'agents** → **Installer le hook d'agent**. Si plusieurs serveurs sont connectés, l'app demande lequel utiliser.
+- **Android :** ouvrez **Chat**, choisissez une conversation Claude Code ou Codex et utilisez **Installer les hooks d'agent** lorsque cette option est proposée dans Chat ou son sélecteur de sessions.
 
-Cela écrit un petit script shell dans `~/.mobile-ssh/agent-hook.sh` sur ce serveur. Il est indépendant de l'agent — il prend des arguments en ligne de commande plutôt que d'analyser le format d'un fournisseur en particulier — donc tout ce qui peut exécuter une commande peut s'y signaler. Supprimer le fichier suffit à le désinstaller proprement.
+Les hooks permettent aux agents compatibles de signaler leur état à Mobile SSH. Sur Android, Chat ajoute des gestionnaires natifs du cycle de vie au fichier `hooks.json` de Codex ou `settings.json` de Claude Code, en préservant le reste de la configuration. Supprimer un fichier utilitaire ne supprime pas ces entrées de configuration du fournisseur.
 
 Une fois qu'un agent se signale via le hook :
 

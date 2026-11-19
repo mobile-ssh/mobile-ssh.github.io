@@ -10,7 +10,7 @@ export const es: CloudGuides = {
   "cardAction": "Crear una máquina virtual y conectar con Mobile SSH",
   "navLabel": "Elegir un proveedor de nube",
   "openConsole": "Abrir la consola del proveedor",
-  "availability": "Estas instrucciones utilizan la consola del proveedor. Los complementos independientes para crear máquinas virtuales están previstos; la implementación combinada VPN Setup de Android es local y no está publicada. La sección de API prepara un acceso futuro y no es necesaria para este procedimiento manual.",
+  "availability": "Estas instrucciones usan la consola del proveedor. El complemento publicado VPN Setup combina la creación en la nube, la instalación de wg-easy y la importación de clientes en compilaciones compatibles de Android. También puedes crear aquí la VM y usar su vía de consola/servidor existente, o instalar manualmente. La configuración desde consola no requiere credenciales de API de la nube en Mobile SSH. AWS EC2 sigue siendo una opción de creación solo por consola para VPN Setup; no se ha establecido una automatización equivalente en iOS.",
   "availabilityLink": "Consultar la disponibilidad de los complementos",
   "checked": "Documentación de las consolas revisada el 8 de noviembre de 2026.",
   "beforeHeading": "Antes de empezar",
@@ -41,9 +41,9 @@ export const es: CloudGuides = {
   "vpnHeading": "Instalar wg-easy en un paso independiente",
   "vpnText": "Primero confirma que el servidor guardado abre una terminal y que tu usuario tiene acceso root o sudo. Después sigue la guía común de instalación de wg-easy: Docker, un contenedor fijado a una versión, administración privada mediante SSH, creación de clientes y verificación de la VPN. El instalador necesita acceso SSH, no el secreto de tu API de nube.",
   "vpnLink": "Continuar con los pasos de instalación de wg-easy",
-  "apiHeading": "Credenciales API opcionales para un complemento futuro",
-  "apiIntro": "Omite esta sección si utilizas la consola. Crea credenciales solo cuando las necesite una herramienta de aprovisionamiento compatible. Las listas de permisos siguientes son orientativas para preparar el acceso, no políticas mínimas probadas para un complemento publicado.",
-  "apiSecretNote": "Introduce las credenciales únicamente en un formulario protegido compatible. No incluyas secretos de nube en instrucciones de voz, comandos de terminal ni en la máquina virtual. Utiliza el alcance más restringido que se admita, anota la caducidad y revoca las credenciales que ya no necesites.",
+  "apiHeading": "Credenciales de API opcionales para VPN Setup",
+  "apiIntro": "Omite esta sección si configuras desde la consola. El complemento publicado VPN Setup usa estas credenciales para sus diez proveedores de nube compatibles en compilaciones compatibles de Android; su adaptador AWS usa Lightsail, no EC2. Las notas sobre credenciales EC2 describen únicamente automatización futura. Estas listas de permisos son orientativas, no políticas mínimas probadas en vivo para cada proveedor o cuenta.",
+  "apiSecretNote": "Introduce las credenciales solo en el formulario nativo protegido; introducir credenciales y aprobar requiere la pantalla. El código nativo se autentica con puntos de conexión aprobados del proveedor, sin pasar los secretos de nube a la VM ni al proceso del complemento. No incluyas secretos en instrucciones de voz ni comandos de terminal. Usa el ámbito más restringido admitido, anota la caducidad y revoca las credenciales que ya no necesites.",
   "cleanupHeading": "Eliminar los recursos que ya no necesitas",
   "cleanupWarning": "Detener la máquina virtual, cancelar una tarea de configuración o eliminar un perfil de Mobile SSH no elimina los recursos de nube ni garantiza que dejen de cobrarse. Conserva los identificadores de recursos hasta confirmar su eliminación y mantén los recursos ajenos a esta configuración.",
   "providers": {
@@ -57,7 +57,7 @@ export const es: CloudGuides = {
         "Para iOS, selecciona <strong>Conectar → Conectar mediante SSH</strong>. Añade la clave pública Ed25519 de tu aplicación como una nueva línea en <code>/home/ubuntu/.ssh/authorized_keys</code>, conservando las claves existentes. El SSH del navegador utiliza una clave independiente del proveedor; tu IPv4 estática ya está lista."
       ],
       "apiSteps": [
-        "Solo para una futura herramienta de aprovisionamiento, crea una identidad IAM dedicada con las acciones necesarias para instancias Lightsail, claves SSH, IP estáticas y cortafuegos, incluida la eliminación de recursos. Restringe la región y los recursos donde se permita; no es una política mínima probada.",
+        "Para crear recursos por API con VPN Setup, crea una identidad IAM dedicada con las acciones necesarias de instancias Lightsail, claves SSH, IP estáticas y cortafuegos, incluida la limpieza. Restringe la región y los recursos cuando sea posible; no es una política mínima probada.",
         "En <strong>IAM → Usuarios → Credenciales de seguridad</strong>, crea una clave de acceso solo cuando una automatización compatible la necesite. Introduce su identificador y secreto mediante el formulario nativo protegido; las credenciales temporales también necesitan su token de sesión. Nunca utilices claves de root."
       ],
       "cleanupSteps": [
@@ -93,7 +93,7 @@ export const es: CloudGuides = {
         "Termina de revisar la configuración de la máquina virtual y selecciona <strong>Crear</strong>. Espera a que la instancia esté en ejecución y anota su IPv4 externa y el usuario SSH elegido antes. No des por hecho que el usuario sea <code>ubuntu</code>."
       ],
       "apiSteps": [
-        "Solo para una futura herramienta de aprovisionamiento, utiliza una cuenta de servicio dedicada con los roles de administrador de instancias de Compute (v1), administrador de redes de Compute y administrador de seguridad de Compute limitados al proyecto, o equivalentes más restringidos. El administrador de redes de Compute no puede crear cortafuegos. Si asocias una cuenta de servicio a la máquina virtual, concede también el rol de usuario de cuentas de servicio sobre ella.",
+        "Para crear recursos por API con VPN Setup, usa una cuenta de servicio dedicada con los roles Compute Instance Admin (v1), Compute Network Admin y Compute Security Admin limitados al proyecto, o equivalentes más restringidos. Compute Network Admin no puede crear cortafuegos. Si asocias una cuenta de servicio a la VM, concede también Service Account User sobre ella. El adaptador automático usa claves SSH de metadatos y desactiva OS Login en su VM; si tu organización exige OS Login, usa una configuración de consola aprobada.",
         "Si una automatización compatible necesita una clave JSON y la política de la organización lo permite, abre <strong>IAM y administración → Cuentas de servicio → Claves → Añadir clave → Crear clave nueva → JSON</strong>. Introduce el identificador del proyecto y el JSON mediante ajustes nativos protegidos; nunca eludas una restricción de claves."
       ],
       "cleanupSteps": [
@@ -111,8 +111,8 @@ export const es: CloudGuides = {
         "Selecciona <strong>Revisar y crear → Crear</strong>. Espera al despliegue, abre <strong>Información general</strong> de la máquina virtual y anota su IPv4 pública. La máquina está lista con la cuenta <code>azureuser</code> y la clave SSH elegida."
       ],
       "apiSteps": [
-        "Solo para una futura herramienta de aprovisionamiento, crea una aplicación dedicada de un único inquilino en <strong>Microsoft Entra ID → Registros de aplicaciones</strong>. Anota los identificadores del inquilino, cliente y suscripción. Si es necesario, crea un secreto de cliente en <strong>Certificados y secretos</strong> y copia su Valor, no el identificador del secreto.",
-        "En <strong>Control de acceso (IAM)</strong> del grupo de recursos, asigna al principal permisos adecuados de proceso y red. Colaborador sobre este grupo dedicado es amplio pero viable; prefiere un rol probado más restringido. Crea el grupo previamente porque un permiso limitado al grupo no puede crearlo. Utiliza ajustes nativos protegidos para las credenciales."
+        "Para crear recursos por API con VPN Setup, crea una aplicación dedicada de un solo inquilino en <strong>Microsoft Entra ID → Registros de aplicaciones</strong>. Anota los identificadores de inquilino, cliente y suscripción. Si hace falta, crea un secreto de cliente en <strong>Certificados y secretos</strong> y copia su Valor, no su identificador de secreto.",
+        "En <strong>Control de acceso (IAM)</strong> de la suscripción, concede a esta entidad permisos para crear y eliminar el grupo de recursos del despliegue, además de las operaciones de cómputo/red necesarias. VPN Setup crea su propio grupo; el acceso Contributor limitado a un grupo existente no basta. Usa un rol aprobado por el administrador en el ámbito de la suscripción o superior, lo más restringido que permita este proceso, y los ajustes nativos protegidos de credenciales."
       ],
       "cleanupSteps": [
         "Si el grupo de recursos contiene únicamente este despliegue, revisa su contenido y elimina el grupo cuando termines.",
@@ -129,7 +129,7 @@ export const es: CloudGuides = {
         "Para conservar una dirección al sustituir el servidor, abre <strong>Redes → IP reservadas → Añadir una IP reservada</strong>. Elige <strong>Dirección IPv4 → Asignar a Droplet</strong>, selecciona este Droplet y confirma. Anota la IPv4 pública asignada cuando termine el aprovisionamiento."
       ],
       "apiSteps": [
-        "Solo para un futuro complemento compatible: abre <strong>Cuenta → API → Tokens → Generar token nuevo</strong>. Introduce un nombre descriptivo y una fecha de caducidad.",
+        "Para crear recursos por API con VPN Setup, abre <strong>Cuenta → API → Tokens → Generar nuevo token</strong>. Introduce un nombre descriptivo y una fecha de caducidad.",
         "Elige <strong>Ámbitos personalizados</strong> para las operaciones y dependencias de Droplets, claves SSH, cortafuegos e IP reservadas que necesite el procedimiento implementado. Evita elegir Acceso completo por defecto; guarda el token cuando se muestre."
       ],
       "cleanupSteps": [
@@ -147,7 +147,7 @@ export const es: CloudGuides = {
         "Introduce un <strong>Nombre</strong> reconocible, revisa las copias de seguridad opcionales y el coste total, y pulsa <strong>Crear y comprar ahora</strong>. Espera a que el servidor esté listo y anota su IPv4 principal. Conserva ese recurso IP si necesitas reutilizar la dirección."
       ],
       "apiSteps": [
-        "Solo para un futuro complemento compatible: abre <strong>Seguridad → Tokens API → Generar token API</strong> del proyecto previsto e introduce una descripción.",
+        "Para crear recursos por API con VPN Setup, abre <strong>Seguridad → Tokens de API → Generar token de API</strong> en el proyecto deseado e introduce una descripción.",
         "Elige <strong>Lectura y escritura</strong> para el aprovisionamiento y copia el token antes de cerrar la ventana. Esto concede escritura en todo el proyecto, no un permiso limitado a este servidor."
       ],
       "cleanupSteps": [
@@ -165,7 +165,7 @@ export const es: CloudGuides = {
         "Revisa las copias de seguridad opcionales y otros cargos en <strong>Resumen de Linode</strong> y pulsa <strong>Crear Linode</strong>. Espera a la inicialización y anota su IPv4 pública. La dirección reservada permanece en tu cuenta tras eliminar el servidor y no puede trasladarse a otra región."
       ],
       "apiSteps": [
-        "Solo para un futuro complemento compatible: abre el menú de tu usuario → <strong>Tokens API → Crear un token de acceso personal</strong>. Establece una etiqueta y una caducidad.",
+        "Para crear recursos por API con VPN Setup, abre tu menú de usuario → <strong>Tokens de API → Crear token de acceso personal</strong>. Establece una etiqueta y una fecha de caducidad.",
         "Concede solo los ámbitos necesarios: el aprovisionamiento suele necesitar lectura/escritura de Linodes y cortafuegos; reservar o liberar direcciones también requiere <code>ips:read_write</code>. Guarda el token de forma segura."
       ],
       "cleanupSteps": [
@@ -183,7 +183,7 @@ export const es: CloudGuides = {
         "Espera a que la instancia esté lista y anota su IPv4 pública. La dirección ordinaria se mantiene fija mientras exista esta instancia; utiliza una IP reservada de la misma región si debe sobrevivir a una sustitución."
       ],
       "apiSteps": [
-        "Solo para un futuro complemento compatible: abre <strong>Cuenta → API</strong> y luego <strong>Activar API</strong> en <strong>Token de acceso personal</strong>. Guarda la credencial de forma segura.",
+        "Para crear recursos por API con VPN Setup, abre <strong>Cuenta → API</strong> y después <strong>Habilitar API</strong> en <strong>Token de acceso personal</strong>. Guarda la credencial de forma segura.",
         "En <strong>Control de acceso</strong>, permite la IP/CIDR desde la que se originarán las solicitudes API. Actualízala después de cambiar de red móvil; esto restringe el origen de las solicitudes, no los permisos sobre recursos concretos."
       ],
       "cleanupSteps": [
@@ -201,7 +201,7 @@ export const es: CloudGuides = {
         "Revisa y crea la máquina virtual. Cuando esté en ejecución, anota su IPv4 pública. Para conservar una dirección al sustituir la máquina, puedes reemplazar su IP efímera por una IP pública reservada asignada a su IP privada principal; anota la nueva dirección."
       ],
       "apiSteps": [
-        "Solo para un futuro complemento de aprovisionamiento: pide a un administrador que conceda a un usuario/grupo IAM dedicado los permisos necesarios de proceso, red y volúmenes en este compartimento.",
+        "Para crear recursos por API con VPN Setup, pide a un administrador que conceda a un usuario/grupo IAM dedicado los permisos necesarios de cómputo, red y volúmenes en este compartimento.",
         "Abre <strong>Ajustes de usuario → Claves API → Añadir clave API</strong>. Guarda la clave privada de firma RSA PEM, la huella, los OCID de tenencia/usuario y la región; anota el OCID del compartimento. Esta clave es independiente de tu clave SSH."
       ],
       "cleanupSteps": [
@@ -219,7 +219,7 @@ export const es: CloudGuides = {
         "Abre <strong>Proceso → Instancias → Editar grupos de seguridad</strong> en Horizon. Aplica el grupo dedicado y retira el grupo predeterminado permisivo solo de esta máquina virtual; nunca edites ni elimines el grupo predeterminado compartido. Cuando esté activa, anota la IPv4 pública de su Información general."
       ],
       "apiSteps": [
-        "Solo para un futuro complemento de aprovisionamiento: abre la página de creación de tokens de la región API de tu cuenta. Asigna un nombre a la aplicación, establece una caducidad y restringe Derechos a las rutas y acciones documentadas de su proyecto.",
+        "Para crear recursos por API con VPN Setup, abre la página de creación de tokens para la región API de tu cuenta. Pon nombre a la aplicación, establece la caducidad y limita los Derechos a las rutas y acciones documentadas de su proyecto.",
         "Guarda de forma segura la clave de aplicación, el secreto de aplicación y la clave de consumidor. Estas credenciales de API firmada son distintas del usuario y contraseña OpenStack que utiliza Horizon."
       ],
       "cleanupSteps": [
@@ -237,7 +237,7 @@ export const es: CloudGuides = {
         "Selecciona <strong>Revisar</strong>, examina los costes estimados y pulsa <strong>Crear instancia</strong>. Espera a que termine el aprovisionamiento y copia la IPv4 pública de <strong>Información general</strong>. Esta IP flexible es un recurso independiente cuyo ciclo de vida debes gestionar."
       ],
       "apiSteps": [
-        "Solo para un futuro complemento de aprovisionamiento: crea una aplicación IAM y concede los permisos necesarios de instancias, redes y almacenamiento en el proyecto de destino.",
+        "Para crear recursos por API con VPN Setup, crea una aplicación IAM y concede los permisos necesarios de Instances, redes y almacenamiento en el proyecto de destino.",
         "Abre <strong>IAM y claves API → Claves API → Generar clave API</strong>. Selecciona la aplicación y una caducidad. Guarda la clave de acceso y el secreto que se muestra una sola vez; anota por separado el UUID del proyecto y la zona."
       ],
       "cleanupSteps": [

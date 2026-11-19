@@ -52,10 +52,11 @@ No Android, `ssh` ou `git` remoto exige **Encaminhar agente SSH** no perfil e pe
 
 A importação de chave privada usa o seletor de arquivos do sistema. Se a importação falhar:
 
-- Confirme que o arquivo selecionado é uma chave privada, não um arquivo público `.pub`.
-- Abra o arquivo em um editor de texto confiável e verifique se ele contém o bloco completo da chave.
-- Tente colar a chave manualmente no campo de chave privada.
-- Confirme que o tipo de chave é suportado: Ed25519, ECDSA (P-256/384/521) ou RSA no Android; Ed25519 ou ECDSA no iOS. DSA (`ssh-dss`) não funciona em nenhuma das duas, e o iOS não suporta RSA — gere uma chave Ed25519 no lugar.
+- Confirme que o ficheiro selecionado é uma chave privada, não um ficheiro público `.pub`.
+- Abra-o num editor de texto de confiança e verifique se contém o bloco completo da chave.
+- No Android, os ficheiros de chaves importados não podem exceder 64 KB; selecione a chave em si, não um arquivo comprimido nem outro ficheiro sem relação.
+- Experimente colar a chave manualmente no campo de chave privada.
+- Confirme que o tipo é suportado: Ed25519, ECDSA (P-256/384/521) ou RSA no Android; Ed25519 ou ECDSA no iOS. DSA (`ssh-dss`) não funciona em nenhuma plataforma, e o iOS não suporta RSA; gere antes uma chave Ed25519.
 
 ## A chave de segurança não responde no Android
 
@@ -68,6 +69,10 @@ O servidor precisa de OpenSSH 8.2+ com o algoritmo `sk-*` permitido. Não aceita
 Android envia teclas diretamente sem autocorreção nem previsão. No iOS, **Ditado e sugestões** vem ativado para voz e correções da linha. Se mudar a entrada inesperadamente, desative-o, confira **Sugestões do teclado** e abra um painel novo.
 
 Use a fileira extra para `ESC`, `TAB`, `CTRL`, setas, `HOME`, `END`, `PGUP` e `PGDN`. Rede travada também atrasa entrada. Android mostra **sem resposta** ou **não enviado**; digitação durante reconexão é descartada, nunca reproduzida no novo shell. Aguarde, confira o prompt e redigite apenas o necessário.
+
+## O Chat está só de leitura no Android
+
+Verifique se o servidor tem Python 3.8 ou mais recente, selecione a conversa pretendida do Claude Code ou Codex e instale os hooks oferecidos no Chat. Conclua as autorizações de confiança do fornecedor ou o recarregamento/retoma nativo necessários para os carregar. Um agente já em execução pode não ter carregado os novos hooks; o Mobile SSH não o reinicia por si.
 
 ## A rolagem do tmux não é o que você espera
 
@@ -115,6 +120,8 @@ Verifique:
 - Há espaço livre suficiente no dispositivo.
 - A rede está estável para transferências grandes.
 
+No Android, use **Retomar**, **Tentar novamente**, **Reiniciar** ou **Tentar todas novamente** na fila de transferências depois de corrigir a causa. Retomar verifica se o ficheiro parcial ainda corresponde; use Reiniciar se não puder continuar com segurança. O indicador de envio do terminal mostra o estado de espera ou bloqueio e oferece **Parar**.
+
 ## Falha no encaminhamento de portas
 
 Verifique:
@@ -141,6 +148,8 @@ Confira a prévia e **Mesclar** ou **Substituir**. Seções ausentes em backup a
 
 Identidades, permissões do sistema e acesso a pastas ficam no dispositivo. Verifique hosts e conceda acesso a pasta/VPN no novo. Credenciais físicas ainda precisam da chave. Importar não inicia VPN; revise os perfis antes.
 
+O Android também exclui modelos de prompts e rascunhos do editor, modelos transferidos, definições do servidor de voz, credenciais de nuvem do VPN Setup e caches do Chat ou de execuções de prompts. Configure-os novamente no dispositivo de destino. Os agendamentos do servidor são independentes: desativar modelos de prompts no telemóvel não interrompe execuções já agendadas no servidor.
+
 ## Desktop remoto indisponível ou sem redimensionamento
 
 Abra pelo SSH conectado e confira permissão de encaminhamento TCP local. No Linux, instale desktop/VNC indicado pela mensagem de pacote ausente. Android não espelha console Wayland; use desktop virtual compatível.
@@ -151,8 +160,10 @@ No macOS, ative Compartilhamento de Tela nas configurações do Mac. O Android s
 
 As duas plataformas registram coisas diferentes, então escolha a que corresponde ao seu problema.
 
-**Android — terminal e renderização.** Ative **Settings → Debugging → Show Debug and Logs buttons** e depois use o botão **Debug** que aparece na tela inicial. Ele registra eventos do terminal, tamanhos de dados SSH, entrada por toque, comportamento de redimensionamento e ciclo de vida dos túneis. Ao iniciar uma gravação, ele avisa antes que isso captura cada tecla que você digita, senhas inclusive. Ao parar, ele grava um arquivo na sua pasta Downloads.
+**Android — terminal, voz e apresentação.** Ative **Definições → Depuração → Mostrar botões Depurar e Registos** e use o botão **Depurar** que aparece no ecrã inicial. Regista eventos do terminal, tamanhos de dados SSH, entrada tátil, redimensionamentos e ciclo de vida dos túneis. O pedido de consentimento avisa que regista teclas premidas, incluindo palavras-passe, e o conteúdo do ecrã. As gravações de voz incluem a entrada transcrita e o texto das respostas; as amostras de áudio só são incluídas se ativar essa opção separadamente nas Definições.
+
+Escolha uma pasta de arquivos com permissão de escrita ao iniciar a primeira gravação. O Mobile SSH memoriza-a; altere-a em **Definições → Depuração → Pasta de arquivos de depuração**. Se a exportação falhar, o arquivo permanece no telemóvel para poder escolher outra pasta e tentar novamente.
 
 **iOS — conexões e reconexões.** Ative **Settings → Diagnostics → Record debug log**. Ele registra cada endereço discado e por que ele falhou, tentativas de reconexão e o seu backoff, conexões perdidas, "peer stopped answering keepalives", mudanças de rede e comandos tmux com seus erros. As Configurações mostram uma contagem de linhas ao vivo, para você confirmar que está gravando, e **Export Debug Log** compartilha tudo como um arquivo de texto. Ele fica na memória e cobre apenas a sessão atual do app.
 
-Revise qualquer log ou arquivo de depuração antes de compartilhá-lo. Eles servem para solução de problemas e podem revelar nomes de servidores, endereços, tempos ou outros detalhes do ambiente — e, no Android, qualquer coisa que você tenha digitado.
+Reveja qualquer registo ou arquivo de depuração antes de o partilhar. Pode revelar nomes de servidores, endereços, tempos e outros detalhes do ambiente — e, no Android, segredos escritos, conteúdo do ecrã, transcrições de voz e qualquer áudio que tenha escolhido gravar.

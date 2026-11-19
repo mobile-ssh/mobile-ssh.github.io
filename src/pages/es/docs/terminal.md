@@ -10,11 +10,11 @@ La terminal de Mobile SSH está pensada para usarse en teléfono y tableta. Comb
 
 ## Conceptos básicos de la terminal
 
-- La terminal usa comportamiento estilo xterm, con soporte de color y manejo de teclas de cursor.
-- El búfer de desplazamiento conserva 5000 líneas de forma predeterminada, y en Settings se puede ajustar a 1000, 10 000 o 50 000.
+- La terminal usa un comportamiento de tipo xterm con colores y manejo de teclas de cursor.
+- El historial tiene 5,000 líneas por defecto y permite elegir 1,000, 5,000, 10,000 o 50,000. Android también limita el historial de cada panel a la memoria disponible para la app, por lo que los valores más altos pueden conservar menos líneas.
 - Toca un panel para seleccionarlo antes de escribir.
-- Pellizca un panel de la terminal para cambiar el tamaño del texto. Mobile SSH redimensiona el PTY remoto cuando el gesto se estabiliza.
-- Toca dos veces un panel (o usa su control para expandir) para entrar en modo pantalla completa. Usa Atrás en Android, o el control para contraer en iOS, para volver a la cuadrícula.
+- Pellizca un panel para cambiar el tamaño del texto. Mobile SSH ajusta el PTY remoto cuando termina el gesto.
+- Toca dos veces un panel (o usa su control de ampliar) para entrar en pantalla completa. Usa Atrás en Android o el control de contraer en iOS para volver a la cuadrícula.
 
 ## Cuadrícula de varias sesiones
 
@@ -77,9 +77,11 @@ Mantén pulsada una palabra del terminal y arrastra los controles para ajustar l
 - **Seleccionar todo** — amplía la selección a todo el búfer visible de la terminal; luego usa Copiar o Compartir.
 - **Pegar**: insertar el texto del portapapeles en el terminal.
 
+En Android, estas acciones usan la barra de la terminal sin cambiar el tamaño de los paneles. Copiar y Pegar aparecen como iconos cuando hay poco espacio.
+
 ## Buscar en la terminal
 
-Busca en todo el búfer de la terminal — el búfer de desplazamiento y la pantalla visible — y salta entre coincidencias. Abre la búsqueda desde los controles de la terminal, escribe una consulta y recorre los resultados. Funciona tanto en Android como en iOS.
+Busca en todo el búfer de la terminal, tanto el historial como la pantalla visible, y salta entre coincidencias. Abre la búsqueda desde los controles de la terminal, escribe una consulta y recorre los resultados. Funciona en Android e iOS. En Android, Buscar está oculto en la barra por defecto; actívalo en **Ajustes → Iconos superiores**.
 
 ## Color, cursivas y portapapeles remoto
 
@@ -101,14 +103,18 @@ Busca en todo el búfer de la terminal — el búfer de desplazamiento y la pant
 Tanto en Android como en iOS, Settings te permite personalizar la terminal:
 
 - **Fuente:** elige la fuente monoespaciada del sistema, JetBrains Mono o Source Code Pro.
-- **Esquema de colores:** Default, Solarized Dark o Light, Gruvbox, Dracula o Nord — aplicado en vivo a los paneles abiertos.
-- **Fila de teclas extra:** añade, quita, reordena y oculta teclas, define tus propias teclas de secuencia de escape y restablece los valores predeterminados, con una vista previa en vivo que muestra el reparto exacto de filas que vas a obtener. Android lo coloca en una pestaña **Keys**; iOS, en **Extra keys → Customize keys**.
-- **Añadir desde predefinidos:** una paleta de unas 45 teclas en seis grupos — `F1`–`F12`, combinaciones con Ctrl como `^C` `^D` `^Z` `^R` `^L`, símbolos como `|` `~` `/` `_` `:` y modificadores. `F1`–`F12` se envían como secuencias de escape corrientes, así que no necesitan ninguna combinación con `FN`. Android ofrece además una tecla 📎 **Attach a file** que abre el selector de archivos y sube el archivo a la sesión en curso; iOS ofrece `INS`, `DEL` y una tecla `FN` que despliega una fila de dígitos.
-- **Tamaño del búfer de desplazamiento:** 1000, 5000, 10 000 o 50 000 líneas (5000 de forma predeterminada). Se aplica a los paneles nuevos.
-- **Tamaño del texto:** un control deslizante, junto al zoom con pellizco.
+- **Esquema de colores:** Predeterminado, Solarized Dark o Light, Gruvbox, Dracula o Nord; se aplica al instante a los paneles abiertos.
+- **Fila de teclas adicionales:** añade, elimina, reordena y oculta teclas, define tus propias teclas con secuencias de escape y restablece los valores predeterminados, con una vista previa que muestra exactamente cómo se dividirán las filas. Android lo incluye en la pestaña **Teclas**; iOS en **Teclas adicionales → Personalizar teclas**.
+- **Añadir desde preajustes:** una paleta de unas 45 teclas en seis grupos: `F1`–`F12`, combinaciones Ctrl como `^C` `^D` `^Z` `^R` `^L`, símbolos como `|` `~` `/` `_` `:` y modificadores. `F1`–`F12` se envían como secuencias de escape normales, sin combinación con `FN`. Android también ofrece la tecla 📎 **Adjuntar un archivo**, que abre el selector y sube el archivo a la sesión activa; iOS ofrece `INS`, `DEL` y una tecla `FN` que muestra una fila de dígitos.
+- **Tamaño del historial:** 1,000, 5,000, 10,000 o 50,000 líneas (5,000 por defecto). Android puede conservar menos líneas para respetar el límite de memoria de la app. Los cambios se aplican a paneles nuevos.
+- **Tamaño del texto:** un deslizador, además del zoom con pellizco.
 - **Tema:** Sistema, Claro u Oscuro para toda la app.
 
 Restablecer recupera los valores predeterminados que se distribuyen con la app, en lugar de congelar la lista de hoy, para que las mejoras de una versión posterior también te lleguen. Los cambios se aplican en vivo a los paneles que ya están abiertos.
+
+En Android, los colores de la terminal siguen por defecto el tema claro u oscuro de la app. Desactiva **Adaptar terminal al tema de la app** en **Ajustes → General → Apariencia** para mantener un esquema fijo. La misma página controla por separado la ocultación de la barra y las teclas adicionales en pantalla completa; la barra se oculta por defecto y las teclas adicionales permanecen visibles.
+
+En Android, **Ajustes → Iconos superiores** reordena, muestra u oculta acciones de la barra y añade accesos a complementos instalados. Chat y Reenvío de puertos se muestran por defecto; Buscar y Escritorio remoto permanecen ocultos hasta activarlos.
 
 ## Desplazamiento
 
@@ -155,6 +161,8 @@ Un 🔔 marca cualquier sesión cuyo agente esté esperando entrada, así que pu
 
 Ambas plataformas gestionan varios servidores tmux (sockets) en un host. Los indicadores de conexión del gestor corresponden al terminal que estás usando, no a otro cliente del servidor.
 
+En Android, **Limpiar sockets vacíos** elimina los archivos de socket sobrantes de servidores tmux detenidos y olvida sockets guardados cuyos archivos ya no existen. Conserva los sockets que sigue usando un servidor tmux a la escucha.
+
 ## Herdr y Zellij
 
 Android e iOS también gestionan Herdr y Zellij. Un control de la barra abre el multiplexor principal detectado; mantenlo pulsado para elegir otro. Solo aparecen programas encontrados en ese servidor. Dentro del gestor, el título permite cambiar de servidor y el selector de multiplexores cambia de gestor.
@@ -165,6 +173,17 @@ Android e iOS también gestionan Herdr y Zellij. Un control de la barra abre el 
 Si herdr o Zellij están instalados pero no en el `PATH` del shell de inicio de sesión, la página ofrece añadirlo.
 
 Cada servidor tiene **Adjuntar al conectar**: **Auto (detectar)**, **Nada**, **tmux**, **herdr** o **Zellij**. Auto usa la detección y el historial disponibles: primero el multiplexor usado anteriormente, luego uno con sesiones activas y después uno instalado. Sin detección guardada abre un shell normal. Una detección posterior afecta a conexiones futuras y no interrumpe lo que estás escribiendo.
+
+## Chat con agentes de programación en Android
+
+Chat lee una conversación de Claude Code o Codex que ya se ejecuta en tu servidor. Las respuestas incluyen texto formateado, bloques de código que puedes copiar, tablas y enlaces. Tus propias instrucciones aparecen resaltadas, con controles para ir a la anterior, la siguiente o el mensaje más reciente.
+
+1. Conéctate al servidor y abre **Chat** desde la barra de la terminal.
+2. Chat sigue el panel actual de tmux cuando es posible. Si no, abre su selector de sesiones y selecciona o busca la conversación por su título.
+3. Si faltan hooks, elige **Instalar hooks del agente** en Chat o en su selector de sesiones. Completa las autorizaciones de confianza del proveedor o la recarga/reanudación nativa necesarias para cargar los hooks; Mobile SSH nunca inicia ni reinicia el agente.
+4. Redacta una instrucción, adjunta archivos si hace falta y envía cuando la sesión seleccionada lo permita. Chat y el cuadro de entrada de la terminal comparten el mismo borrador.
+
+Chat instala un pequeño auxiliar en `~/.mobile-ssh` y necesita Python 3.8 o posterior en el servidor. Una conversación puede seguir siendo de solo lectura hasta que el agente en ejecución haya cargado los hooks necesarios.
 
 ## Alertas de agente
 
@@ -180,10 +199,10 @@ Esto no requiere ninguna configuración, pero la app solo sabe que *algo* ha son
 
 Para que la app sepa *qué* agente está esperando y *qué* está haciendo, instala el hook de agente en el servidor:
 
-- **iOS:** Settings → **Agent alerts** → **Install Agent Hook**. Si hay más de un servidor conectado, te pregunta cuál.
-- **Android:** mantén pulsado el encabezado del panel de una sesión y elige **Install agent hooks**.
+- **iOS:** Ajustes → **Alertas de agentes** → **Instalar hook del agente**. Si hay más de un servidor conectado, pregunta cuál usar.
+- **Android:** abre **Chat**, elige una conversación de Claude Code o Codex y usa **Instalar hooks del agente** cuando aparezca en Chat o en su selector de sesiones.
 
-Esto escribe un pequeño script de shell en `~/.mobile-ssh/agent-hook.sh` en ese servidor. Es agnóstico respecto al agente — recibe argumentos de línea de comandos en lugar de analizar el formato de un proveedor concreto — así que cualquier cosa capaz de ejecutar un comando puede informar a través de él. Borrar el archivo es una desinstalación limpia.
+Los hooks permiten que los agentes compatibles comuniquen su estado a Mobile SSH. En Android, Chat añade controladores nativos del ciclo de vida a `hooks.json` de Codex o `settings.json` de Claude Code, conservando la configuración ajena a estos cambios. Eliminar un archivo auxiliar no elimina estas entradas de configuración del proveedor.
 
 Una vez que un agente informa a través del hook:
 

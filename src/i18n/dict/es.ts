@@ -28,12 +28,12 @@ export const es: Dict = {
   home: {
     metaTitle: "Mobile SSH — Cliente SSH para Android e iOS",
     metaDescription:
-      "Mobile SSH para Android e iOS: terminales SSH, bastiones, tmux, herdr, Zellij, SFTP, escritorios VNC y copias de seguridad. Android añade clientes VPN y claves de seguridad.",
+      "Mobile SSH para Android e iOS: SSH, SFTP, VNC y gestores de sesiones. Android añade Chat con agentes de programación, voz opcional, programación de instrucciones y configuración de VPN en la nube.",
     eyebrow: "Cliente SSH para Android e iOS",
     h1: "Mobile SSH",
     intro:
-      "Terminales SSH, gestores tmux, herdr y Zellij, SFTP, escritorios VNC, bastiones y túneles locales para teléfonos y tabletas. Eternal Terminal mantiene los shells remotos durante las interrupciones. Android también incluye VPN y autenticación con claves de seguridad USB/NFC.",
-    versionLine: "Disponible en {count} idiomas · Android {version} · iOS {iosVersion} beta",
+      "Terminales SSH, gestores de tmux, herdr y Zellij, SFTP, escritorios VNC, bastiones y túneles locales, diseñados para teléfonos y tabletas. Eternal Terminal mantiene los shells remotos activos durante las interrupciones. Android añade Chat con agentes de programación, voz opcional y programación de instrucciones, configuración de VPN en la nube y claves de seguridad USB/NFC.",
+    versionLine: "{count} idiomas · Código fuente de Android {version} · iOS {iosVersion} beta",
     ctaDocs: "Leer la documentación",
     ctaPlay: "Disponible en Google Play",
     ctaIos: "Consigue la beta de iOS en TestFlight",
@@ -43,7 +43,7 @@ export const es: Dict = {
     advantagesIntro: "Hecho para resolver los problemas habituales de los clientes SSH móviles.",
     advantages: [
       { title: "Sin nivel Pro, sin anuncios", text: "Todas las funciones en la misma app. No hay muro de pago dividiendo flujos esenciales tras un Pro, ni banners en la terminal." },
-      { title: "Tus datos se quedan en el teléfono", text: "Servidores, credenciales y claves guardados localmente. Sin cuenta en la nube; nada que pueda cerrarse." },
+      { title: "Credenciales en tu dispositivo", text: "Los servidores y las credenciales guardados permanecen en tu dispositivo. Mobile SSH no exige una cuenta ni un almacén en la nube; los servidores y las cuentas en la nube a los que te conectas siguen siendo tuyos." },
       { title: "Hosts guardados, un toque para conectar", text: "Añade un host una vez y reconéctate con un toque, incluyendo clave, puerto y túneles configurados." },
       { title: "Alertas de agente, y una respuesta con un toque", text: "Entérate en el momento en que Claude Code, Codex u otro agente te necesita: el panel se tiñe de ámbar, un distintivo en la barra de herramientas cuenta cuántos están esperando y la lista de agentes responde a la pregunta con un solo toque — sin escribir nada en la terminal." },
       { title: "Teclas de terminal sobre el teclado", text: "Una fila de trece teclas — ESC, TAB, CTRL, flechas, Home, End, PgUp, PgDn — que salta a una segunda fila en lugar de desplazarse, así que nada queda fuera de la pantalla. Añade F1–F12, combinaciones con Ctrl o tus propias secuencias de escape desde una paleta de valores predefinidos." },
@@ -62,13 +62,13 @@ export const es: Dict = {
       { title: "Carpetas y nombres de servidores", text: "Organiza los servidores guardados en grupos contraíbles y ponle a un servidor un nombre que se muestre en lugar de su dirección. La dirección reaparece siempre que un nombre resulte ambiguo, para que las filas nunca se confundan entre sí." },
       { title: "Alertas de agente", text: "Los agentes informan a través de la terminal, así que la app sabe cuál está bloqueado y por qué. Responde desde la lista de agentes con un toque; las alertas se sustituyen en lugar de acumularse, y al tocar una se abre el panel que avisó." },
       { title: "Claves privadas", text: "Usa contraseñas o claves privadas y genera Ed25519 o ECDSA en el dispositivo, también RSA en Android. Android admite FIDO2 por USB/NFC y reenvío del agente SSH por servidor." },
-      { title: "Transferencia SFTP", text: "Explorador de archivos de doble panel vinculado a una sesión SSH activa. Encola subidas y descargas, renombra, elimina e inspecciona permisos remotos." },
+      { title: "Transferencia SFTP", text: "Explora archivos locales y remotos, pon transferencias en cola, renombra, elimina y consulta permisos. En Android, reanuda, reintenta o reinicia las transferencias fallidas y sigue las subidas desde la cabecera de la terminal." },
       { title: "Reenvío de puertos", text: "Guarda especificaciones de túnel locales con un perfil de servidor y se abren automáticamente al conectar — también tras una reconexión en una red nueva, sin tener que rehacerlas a mano." },
       { title: "Flujo de reconexión", text: "Cambia de red y las sesiones vuelven a marcar de inmediato en lugar de esperar a que expire una ruta muerta, y una sesión en retroceso despierta en cuanto aparece una red utilizable. En iOS se detecta y se reconecta un servidor que ha dejado de responder en silencio." },
       { title: "Copia de seguridad y restauración", text: "Guarda servidores, credenciales y ajustes con cifrado opcional mediante frase de contraseña y vistas previas de Combinar/Reemplazar. Android incluye perfiles VPN; las copias actuales de ambas plataformas comparten formato y conservan los ajustes específicos compatibles." },
       { title: "Eternal Terminal", text: "Conéctate mediante Eternal Terminal (ET) para sesiones que sobreviven a cortes de red, modo de suspensión y cambios de IP — con instalación automática opcional de etserver por SSH." },
       { title: "Gestores de multiplexores", text: "Adjunta, renombra, crea, divide, amplía o termina sesiones con los gestores tmux, herdr y Zellij de ambas plataformas. Un botón común abre los gestores disponibles; cada servidor elige qué adjuntar al conectar." },
-      { title: "Complementos", text: "Explora, busca y filtra plugins por categoría e instala los flujos que necesites. Las descargas se verifican mediante SHA-256 y se guardan en el almacenamiento privado de la app." },
+      { title: "Complementos", text: "Explora e instala complementos verificados mediante sumas de comprobación. En Android, actualízalos desde su catálogo original conservando los ajustes y los datos, y revisa los cambios de la configuración guiada antes de aprobarlos." },
       {
         "title": "Identidad y servidores de salto",
         "text": "Accede mediante bastiones guardados en ambas plataformas. La verificación previa a autenticar bloquea claves cambiadas. Android puede guardar claves nuevas automáticamente o preguntar; iOS exige confirmar las desconocidas."
@@ -79,7 +79,19 @@ export const es: Dict = {
       },
       {
         "title": "Clientes VPN en Android",
-        "text": "Gestiona SSH VPN, proxy SOCKS5 local, WireGuard, Shadowsocks y OpenVPN desde el inicio. Elige un perfil e inicia el tráfico; el mosaico Mobile SSH VPN permite detenerlo o reanudarlo."
+        "text": "Gestiona perfiles de SSH VPN, SOCKS5, WireGuard, Shadowsocks y OpenVPN, con un botón de Ajustes rápidos para controlar la VPN. El complemento opcional VPN Setup te guía para crear tu propio servidor WireGuard en la nube."
+      },
+      {
+        "title": "Chat con agentes de programación en Android",
+        "text": "Lee y responde a una conversación existente de Claude Code o Codex con respuestas formateadas, código que puedes copiar y archivos adjuntos. Chat comparte el borrador de la terminal y nunca inicia ni reinicia el agente."
+      },
+      {
+        "title": "Plantillas de instrucciones programadas",
+        "text": "Experimental en Android y desactivado por defecto: programa tareas de solo lectura de Claude Code o Codex en tu servidor. Revisa los resultados, ejecuta ahora, pausa o elimina la programación del servidor."
+      },
+      {
+        "title": "Voz a tu manera",
+        "text": "La voz experimental de Android ofrece Mensajes con revisión antes del envío o Conversación en directo. Usa Gemma 4 en un teléfono compatible o ejecuta el servicio de voz en tu propio servidor SSH con Linux."
       }
     ],
     multiHead: "Una pantalla, varios shells activos",
@@ -194,16 +206,24 @@ export const es: Dict = {
     compareGuideTitle: "Guía de comparación",
     compareGuideText: "Mira cuándo elegir Mobile SSH, Termux o Termius en tu teléfono o tableta.",
     privacyTitle: "Política de privacidad",
-    privacyText: "Revisa qué datos de conexión se guardan localmente y qué se envía a tus servidores."
+    privacyText: "Revisa qué datos de conexión se guardan localmente y qué se envía a tus servidores.",
+    vpnHead: "Una VPN en tu propia cuenta en la nube",
+    vpnBody: "En una compilación compatible de Android, el complemento VPN Setup puede crear un servidor en la nube, instalar wg-easy e importar un cliente WireGuard, o usar un servidor público existente. Revisa cada cambio en tu teléfono. Los recursos y sus costes de funcionamiento pertenecen a tu cuenta en la nube.",
+    vpnAlt: "Vídeo promocional de VPN de Mobile SSH con pantallas de demostración de configuración en la nube y gestión de clientes, seguido de ilustraciones de redes y una aclaración sobre DNS cifrado",
+    vpnCaption: "Una promoción de un minuto que combina una interfaz de demostración e ilustraciones de redes, con texto en pantalla en inglés. No es una grabación de un despliegue real.",
+    vpnTranscriptLabel: "Leer la descripción de las escenas",
+    vpnTranscript: "El vídeo muestra cómo elegir un proveedor de nube, incluido Hetzner, gestionar clientes WireGuard, conectar un perfil VPN del teléfono y abrir servidores guardados. Las ilustraciones de redes muestran WireGuard transportando tráfico y SSH accediendo a dispositivos privados. La escena de DNS señala que el DNS cifrado requiere una configuración aparte y que un resolvedor puede ver las consultas. Son ejemplos ilustrados, no una garantía de que crear una VPN conecte automáticamente todas las redes privadas. El mensaje final es: tu nube, tu VPN.",
+    vpnCtaGuide: "Configura tu VPN",
+    vpnCtaProviders: "Elige un proveedor de nube"
   },
   features: {
     metaTitle: "Funciones | Mobile SSH",
     metaDescription:
-      "Descubre los terminales, herramientas Git remotas, redirecciones de puertos en sesiones activas, clientes VPN, SFTP, VNC y gestores de sesiones de Mobile SSH para Android e iOS, además del asistente de voz experimental para Android.",
+      "Terminales de Mobile SSH, Chat con agentes de programación, transferencias de archivos, configuración de VPN y gestores de sesiones, con voz experimental en Android y plantillas de instrucciones programadas.",
     eyebrow: "Lista de funciones",
     h1: "Funciones de Mobile SSH",
     intro:
-      "Conecta a tus servidores desde Android e iOS con terminales SSH, herramientas Git remotas, SFTP, VNC, clientes VPN y gestores de sesiones. Android también ofrece claves de seguridad físicas y un asistente de voz experimental; las funciones específicas de cada plataforma se indican abajo.",
+      "Conéctate a tus servidores con SSH, herramientas Git remotas, SFTP, VNC, clientes VPN y gestores de sesiones. Android también ofrece Chat con agentes de programación, configuración guiada de VPN en la nube y funciones experimentales de voz y programación de instrucciones. Las funciones y los requisitos de cada plataforma se indican a continuación.",
     groups: [
       {
         title: "Plataformas",
@@ -239,7 +259,7 @@ export const es: Dict = {
         title: "Terminal",
         items: [
           "Comportamiento de terminal estilo VT100/xterm-256color con color verdadero de 24 bits y cursivas — al shell se le anuncia TERM=xterm-256color y COLORTERM=truecolor",
-          "Búfer de desplazamiento ajustable a 1000, 5000, 10 000 o 50 000 líneas en Android e iOS (5000 de forma predeterminada)",
+          "Elige 1,000, 5,000, 10,000 o 50,000 líneas de historial, con 5,000 por defecto. Android también limita la memoria de cada panel, por lo que los valores grandes pueden conservar menos líneas; los cambios se aplican a los paneles nuevos",
           "Búsqueda dentro de la terminal — busca en el búfer de desplazamiento y en la pantalla visible y salta entre coincidencias (Android e iOS)",
           "Integración con el shell (OSC 133): recorre los prompts uno a uno, selecciona la salida completa de un comando — el error de compilación de 300 líneas atrás, no solo el último — y recibe un aviso cuando termina un comando de larga duración (Android e iOS)",
           "Imágenes en línea en la terminal mediante el protocolo de gráficos Kitty, que sobreviven al zoom con pellizco y al reajuste de líneas en lugar de desaparecer (Android e iOS)",
@@ -251,7 +271,7 @@ export const es: Dict = {
           "Toque para enfocar, ajuste opcional «toque para mostrar el teclado», acciones de copiar y copiar todo",
           "Ajuste del tamaño de texto con pellizco y redimensionado de la terminal remota",
           "Modo pantalla completa con doble toque",
-          "Selección de texto de la terminal con acciones Copiar, Compartir y Seleccionar todo — una pulsación larga selecciona la palabra, y Copiar mantiene la selección para compartirla o volver a copiarla",
+          "Mantén pulsado para seleccionar texto de la terminal y después usa Copiar, Pegar, Compartir o Seleccionar todo. Android mantiene Copiar y Pegar visibles en la barra de selección sin cambiar el tamaño de los paneles; las pantallas estrechas muestran iconos",
           "Portapapeles OSC 52 — copia texto de una sesión remota de tmux o vim directamente al portapapeles del teléfono (Android e iOS)",
           "Teclados físicos y dictado en ambas plataformas; iOS activa Dictado y sugerencias con autocorrección por defecto. Desactívalo para entrada directa",
           "Compatibilidad con teclados externos y Bluetooth en Android e iOS, incluyendo flechas, teclas de función y combinaciones Ctrl/Alt",
@@ -259,11 +279,11 @@ export const es: Dict = {
           "La Nerd Font incluida muestra glifos powerline, starship, devicon e iconos de Material Design en Android e iOS que la fuente del sistema mostraría como cuadros vacíos",
           "Los caracteres CJK anchos, los emoji y los caracteres combinantes se miden y dibujan correctamente en Android e iOS, incluyendo clústeres de grafemas y uniones de ancho cero (zero-width joiners)",
           "Fuente de terminal configurable (monoespaciada del sistema, JetBrains Mono o Source Code Pro) y esquema de colores ANSI (Solarized, Gruvbox, Dracula, Nord) en Android e iOS, aplicados en vivo a los paneles abiertos",
-          "Un control deslizante del tamaño del texto de la terminal en Ajustes, junto al zoom con pellizco, y un tema de la app configurable en Sistema, Claro u Oscuro",
+          "Ajusta el tamaño del texto de la terminal en Ajustes o con un gesto de pellizco. En Android, los colores de la terminal siguen por defecto el tema de la app; desactiva Adaptar terminal al tema de la app para mantener un esquema fijo",
           "El caudal y los indicadores de conexión detenida distinguen un comando ocupado de una conexión sin respuesta; atenuación y vibración opcionales",
           "Ajustes controla notificaciones remotas, avisos de comando terminado y lecturas remotas del portapapeles; los permisos vienen desactivados",
           "Los juegos de terminal pueden activar deslizamientos direccionales que envían pulsaciones de las flechas en Android e iOS; el desplazamiento normal sigue siendo la opción predeterminada",
-          "En Android, reordena u oculta acciones de la barra de herramientas de sesión, añade accesos a plugins instalados y elige si la barra y las teclas adicionales se ocultan a pantalla completa"
+          "En Android, reordena u oculta acciones de la barra y añade accesos a complementos instalados en Iconos superiores. Buscar y Escritorio remoto están ocultos por defecto. En pantalla completa, la barra se oculta por defecto y las teclas adicionales permanecen visibles; configura cada opción por separado"
         ]
       },
       {
@@ -279,18 +299,19 @@ export const es: Dict = {
           "Seguimiento de comandos tmux y reanudación con Auto, Nada, tmux, herdr o Zellij por servidor en ambas plataformas; se conserva la identidad al cambiar de socket tmux",
           "Los agentes se identifican a través de la terminal, así que la app sabe qué agente es, qué herramienta está ejecutando y si está bloqueado esperándote — el panel se tiñe de ámbar, su encabezado indica «claude · te necesita» y un distintivo de la barra de herramientas cuenta cuántos esperan",
           "Responde a la pregunta de un agente con un toque desde la lista de agentes; la respuesta viaja por un canal aparte, así que nunca se escribe sobre lo que hay en pantalla",
-          "Instala el hook de agente en un servidor desde la propia app — un pequeño script de shell que cualquier agente puede invocar, no la integración de un proveedor concreto",
+          "La integración con agentes se ejecuta en tu servidor. Chat en Android ofrece instalar los hooks de ciclo de vida de Claude Code o Codex; iOS incluye Instalar hook del agente en los ajustes de Alertas de agentes",
           "Transporte Eternal Terminal (ET) para sesiones que sobreviven a cortes de red, modo de suspensión y cambios de IP, con instalación automática opcional de etserver por SSH",
           "Gestor de tmux: lista y cambia entre sesiones, ventanas y paneles — adjunta, renombra, crea, divide, amplía o cierra, con ordenación por nombre/fecha y un 🔔 para los agentes que esperan intervención",
           "Un botón de multiplexores abre tmux, herdr y Zellij; Herdr permite previsualización, enfoque y respuestas por panel, y Zellij sesiones activas o terminadas",
-          "Busca en sesiones, sockets, ventanas/pestañas y paneles cargados de tmux, herdr y Zellij, manteniendo los resultados dentro de su jerarquía; no se buscan ramas remotas que aún no se hayan abierto"
+          "Busca en sesiones, sockets, ventanas/pestañas y paneles cargados de tmux, herdr y Zellij, manteniendo los resultados dentro de su jerarquía; no se buscan ramas remotas que aún no se hayan abierto",
+          "La limpieza de tmux en Android elimina sockets sobrantes de servidores detenidos y olvida los sockets guardados cuyos archivos ya no existen; conserva los sockets que usa un servidor tmux a la escucha"
         ]
       },
       {
         title: "Archivos y túneles",
         items: [
           "Explorador SFTP de doble panel para archivos locales y remotos, con un registro que muestra todas las transferencias y se puede desplazar",
-          "Subidas y descargas en cola; comparte archivos con Mobile SSH en Android. La extensión para compartir de iOS los sube al último servidor conectado correctamente y pone las rutas completadas en cola para un terminal correspondiente",
+          "Pon subidas y descargas en cola y comparte archivos con Mobile SSH. Android usa la terminal abierta y puede continuar las subidas tras reconectar; la extensión Compartir de iOS sube los archivos al último servidor al que se conectó correctamente",
           "Subida y descarga recursiva de carpetas entre el teléfono y el host remoto",
           "Acciones remotas de renombrar, borrar, crear, editar, comprimir a .tar.gz, permisos (chmod/chown) y ver detalles",
           "Abre un archivo descargado en otra app en ambas plataformas — en iOS las descargas aparecen además en la app Archivos, dentro de «En mi iPhone»",
@@ -300,7 +321,9 @@ export const es: Dict = {
           "Reenvío local de puertos guardado con el perfil del servidor y levantado automáticamente al conectar",
           "Sigue el tema claro u oscuro del sistema en toda la app y el explorador de archivos — elige Sistema, Claro u Oscuro en Android e iOS",
           "Añade, edita o elimina redirecciones de puertos locales en una sesión activa de Android o iOS; los cambios se conservan tras reconectar sin modificar el perfil de servidor guardado",
-          "Al subir adjuntos, iOS verifica que la transferencia esté completa y comprueba el tamaño antes de publicar el nombre definitivo o insertar la ruta, conservando los archivos existentes"
+          "Al subir adjuntos, iOS verifica que la transferencia esté completa y comprueba el tamaño antes de publicar el nombre definitivo o insertar la ruta, conservando los archivos existentes",
+          "Las transferencias fallidas de Android ofrecen Reanudar, Reintentar, Reiniciar y Reintentar todas, comprobando los datos parciales antes de reanudar. Desliza hacia abajo en una lista de archivos para actualizarla",
+          "Las subidas de la terminal en Android muestran el progreso, la velocidad, el estado de espera o bloqueo y Detener en la cabecera; compartir un archivo reutiliza la ventana de terminal abierta"
         ]
       },
       {
@@ -333,11 +356,13 @@ export const es: Dict = {
       {
         title: "Complementos",
         items: [
-          "Explora plugins por categoría, búscalos, instálalos y ejecútalos; el catálogo se actualiza al cambiar de fuente",
+          "Explora, busca, instala y ejecuta complementos del catálogo. Android muestra Actualizar a cuando el catálogo original ofrece una versión compatible más reciente, conservando los ajustes y los datos del complemento",
           "Los complementos se descargan bajo demanda desde un catálogo público y se verifican con SHA-256 en el almacenamiento privado de la app",
           "Un complemento declara lo que necesita — comandos SSH, un túnel, almacenamiento — y la app le niega todo lo que no haya pedido",
-          "Cuando un complemento configura algo en tu servidor, ves antes los comandos exactos y los apruebas antes de que se ejecuten",
-          "Configura una fuente de catálogo personalizada o privada, o instala desde una carpeta en tu propio servidor"
+          "Revisa y aprueba los cambios en el servidor antes de ejecutarlos. Los procesos guiados de Android muestran secciones de revisión etiquetadas con los detalles originales disponibles, y se pueden pausar y reanudar",
+          "Configura una fuente de catálogo personalizada o privada, o instala desde una carpeta en tu propio servidor",
+          "Las actualizaciones de complementos de Android no instalan versiones anteriores y piden permiso antes de conceder acceso adicional; los procesos sin terminar conservan la versión del complemento con la que comenzaron",
+          "VPN Setup en compilaciones compatibles de Android puede crear una VM en la nube o usar un servidor Ubuntu público existente, instalar wg-easy e importar clientes. Las credenciales de la nube se introducen en formularios nativos protegidos; los cambios de configuración requieren aprobación"
         ]
       },
       {
@@ -373,7 +398,7 @@ export const es: Dict = {
         title: "Navegador integrado",
         items: [
           "Abre servicios HTTP o HTTPS redirigidos dentro de Mobile SSH en Android e iOS; HTTPS sigue requiriendo un certificado válido",
-          "Android añade acciones para enlaces del terminal, búsqueda en la página, marcadores, historial, modo de escritorio y preferencias del navegador por sitio"
+          "El navegador integrado de Android está desactivado por defecto: actívalo en Ajustes → General. Añade acciones para enlaces de la terminal, búsqueda en la página, marcadores, historial, modo de escritorio y preferencias por sitio"
         ]
       },
       {
@@ -381,7 +406,28 @@ export const es: Dict = {
         items: [
           "Desactivado por defecto; actívalo en Ajustes. Gemma 4 puede ejecutarse en el propio teléfono: descarga un modelo una vez desde Hugging Face y la voz se queda en el dispositivo, sin servidor de voz",
           "Pregunta por el servidor o la pantalla, abre servidores y sesiones, escucha la respuesta de un agente de programación o díctale un prompt; los comandos fuera de una lista corta de comprobaciones de solo lectura necesitan tu sí",
-          "O aloja la voz en tu propio servidor SSH con Linux, con conversaciones por Mensajes o En vivo y el asistente del servidor, Codex o Claude; la entrada al terminal y los cambios en multiplexores requieren una autorización aparte"
+          "O aloja la voz en tu propio servidor SSH con Linux, con conversaciones por Mensajes o En vivo y el asistente del servidor, Codex o Claude; la entrada al terminal y los cambios en multiplexores requieren una autorización aparte",
+          "Gemma requiere un teléfono compatible de 64 bits y una descarga independiente del modelo de unos 2.6–3.7 GB. Las descargas en conexiones de uso medido requieren confirmación, y una descarga por Wi-Fi se pausa si pasa a una conexión de uso medido",
+          "Continúa una conversación pausada desde la página Voz, la notificación o el botón Reproducir de los auriculares. Una pausa causada por otra app que toma el control del audio termina cuando finaliza ese audio"
+        ]
+      },
+      {
+        "title": "Chat con agentes de programación (Android)",
+        "items": [
+          "Abre Chat para una conversación de Claude Code o Codex que ya se ejecute en tu servidor; sigue el panel actual de tmux o busca y selecciona una conversación por su título",
+          "Las respuestas formateadas incluyen código que puedes copiar, tablas, listas de tareas y enlaces. Tus instrucciones aparecen resaltadas con navegación anterior/siguiente",
+          "Chat y la entrada de la terminal comparten un borrador. Envía instrucciones y adjunta archivos después de instalar los hooks del agente que se ofrecen; puede que aún tengas que autorizar al proveedor o recargar",
+          "Chat instala un pequeño auxiliar en el servidor y necesita Python 3.8 o posterior. Nunca inicia ni reinicia el agente de programación"
+        ]
+      },
+      {
+        "title": "Plantillas de instrucciones (experimental, Android)",
+        "items": [
+          "Desactivado por defecto: activa Ajustes → General → Plantillas de instrucciones y después abre Instrucciones en Inicio o en el menú de un servidor guardado",
+          "Guarda una instrucción, un servidor, una carpeta de proyecto, Claude Code o Codex y una zona horaria; programa la ejecución a diario, entre semana, en días seleccionados o cada 1–12 horas",
+          "Las ejecuciones son de solo lectura y necesitan Python 3.8 o posterior, cron y un agente con la sesión iniciada en el servidor. La app instala un auxiliar y una entrada de crontab",
+          "Sincroniza plantillas y resultados por SSH, consulta la salida y el estado o elige Ejecutar ahora, Pausar y Eliminar del servidor. Un modelo Gemma descargado puede redactar o revisar una instrucción",
+          "Las plantillas se cifran en el teléfono y se excluyen de las copias de seguridad. Desactivar la función no detiene las programaciones del servidor; elimínalas del servidor primero"
         ]
       }
     ],
@@ -405,7 +451,7 @@ export const es: Dict = {
     rows: [
       {
         need: "Propósito principal",
-        mobileSsh: "SSH, SFTP, VNC, bastiones y multiplexores en ambas plataformas; clientes VPN y FIDO2 en Android.",
+        mobileSsh: "SSH, SFTP, VNC, bastiones y gestores de multiplexores; Android también ofrece Chat con agentes de programación, configuración guiada de VPN en la nube, claves de seguridad y funciones opcionales de voz y programación de instrucciones.",
         termux: "Emulador de terminal y entorno Linux para Android con paquetes APT.",
         termius: "Cliente SSH moderno para Android, iOS, escritorio y flujos de trabajo en equipo orientados a la web."
       },
@@ -417,7 +463,7 @@ export const es: Dict = {
       },
       {
         need: "Controles de terminal móviles",
-        mobileSsh: "Teclas adicionales, cuadrícula, paneles a pantalla completa, zoom táctil, copiar/compartir, ratón y teclados externos. Puedes desactivar Dictado y sugerencias de iOS para entrada directa.",
+        mobileSsh: "Teclas adicionales, cuadrículas, pantalla completa, zoom con pellizco, controles del portapapeles y teclados externos. Android mantiene las teclas adicionales visibles en pantalla completa por defecto. En iOS, Dictado y sugerencias se puede desactivar para introducir texto directamente.",
         termux: "Entorno de terminal potente; el comportamiento depende de las herramientas y la configuración instaladas.",
         termius: "Complemento de teclado móvil, gestos, pestañas, autocompletado, snippets y una UX de terminal pulida."
       },

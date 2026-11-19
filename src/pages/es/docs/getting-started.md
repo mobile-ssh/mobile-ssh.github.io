@@ -17,8 +17,8 @@ Mobile SSH es un cliente SSH para Android e iOS para conectarte a tus propios se
 
 ## Instalar la app
 
-- **Android:** Mobile SSH está actualmente en una prueba cerrada en Google Play. Abre el enlace de inscripción en un navegador móvil del dispositivo — no dentro de la app de Google Play, donde puede que la prueba no aparezca — y únete con la cuenta de Google que vayas a usar. A partir de ahí se instala y se actualiza desde Play como cualquier otra app.
-- **iOS:** la app para iOS se distribuye como beta pública en TestFlight. Instala la app TestFlight de Apple y luego abre el enlace de invitación de Mobile SSH desde la página de inicio del sitio para instalarla y recibir actualizaciones.
+- **Android:** instala Mobile SSH desde Google Play con el enlace de la página de inicio. La disponibilidad depende del canal de publicación. Si participas en una prueba cerrada, abre el enlace de inscripción en un navegador y únete con la cuenta de Google que usas en Play.
+- **iOS:** la app de iOS se distribuye como beta pública en TestFlight. Instala TestFlight de Apple y abre el enlace de invitación a Mobile SSH de la página de inicio del sitio para instalarla y recibir actualizaciones.
 
 ## Conectarse a un servidor
 
@@ -87,7 +87,7 @@ Para usar una clave privada:
 3. Introduce la frase de contraseña de la clave en el campo de contraseña/frase si la clave está cifrada.
 4. Guarda la credencial o el servidor.
 
-Importar claves privadas usa el selector del sistema sin dar acceso al resto del almacenamiento. La transferencia de archivos tiene sus propias selecciones de carpetas y archivos.
+La importación de claves privadas usa el selector de archivos del sistema. Android rechaza archivos de claves de más de 64 KB. Importar no da acceso al resto del almacenamiento; la transferencia de archivos tiene sus propias selecciones de carpetas y archivos.
 
 Android admite **claves de seguridad FIDO2** por USB y NFC: registra una o importa su credencial OpenSSH y sigue las solicitudes de toque/PIN. La clave física sigue siendo necesaria tras exportar o restaurar. **Reenvío del agente SSH** se activa por servidor: las credenciales guardadas responden a solicitudes de firma, con aprobación opcional por uso. Actívalo solo para servidores en los que confíes para solicitar firmas. iOS no admite estas claves ni reenvío del agente.
 
@@ -121,6 +121,8 @@ Ambas apps leen el formato 2 y copias de inventario antiguas. Revisa la vista pr
 
 No se restauran identidades, sesiones activas, permisos del sistema ni acceso a carpetas. Verifica hosts y concede acceso local en el dispositivo nuevo. Versiones antiguas no leen el nuevo formato completo.
 
+Las copias de seguridad de Android también excluyen las plantillas de instrucciones y sus borradores, los modelos descargados, los ajustes del servidor de voz, las credenciales de nube de VPN Setup y las cachés de Chat o de ejecuciones de instrucciones. Vuelve a configurarlos en un teléfono nuevo; una copia de seguridad no mueve ni elimina las programaciones ya instaladas en un servidor.
+
 ## Sesiones activas
 
 Con sesiones en ejecución, **Sesiones activas** muestra su número y abre la cuadrícula. En Android, una notificación persistente también enumera hosts activos y abre sus controles.
@@ -131,13 +133,39 @@ Volver a la pantalla de inicio no desconecta las sesiones SSH activas; cerrar pa
 
 Abre **Settings** desde la pantalla de inicio (tiene su propia página):
 
-- Decide si tocar la terminal levanta el teclado. Las dos plataformas parten de valores opuestos: en Android el teclado solo aparece con el botón ⌨, y en iOS un toque lo levanta.
-- Ajusta el **tamaño del texto**, la **fuente**, el **esquema de colores** y el tamaño del **búfer de desplazamiento** de la terminal, y elige un **tema** para la app (Sistema, Claro u Oscuro).
-- Activa **Agent alerts** si ejecutas tareas largas en segundo plano (Claude Code, Codex, scripts de shell) y quieres que te avisen cuando el agente necesite tu intervención. Consulta la guía **Terminal** para ver cómo se identifican los agentes.
-- En Android, **Keep sessions running in background** está activado de forma predeterminada, así que los shells y los agentes sobreviven a que descartes la app de recientes.
-- Ambas plataformas tienen un interruptor de estadísticas anónimas en Ajustes; desactivarlo detiene la recogida de eventos nuevos.
-- En iOS, **Dictado y sugerencias** viene activado. Desactívalo y abre un panel nuevo para entrada directa sin dictado ni autocorrección.
-- Las notificaciones remotas, avisos de comando terminado y lectura remota del portapapeles tienen autorizaciones separadas. Activa solo las acciones que quieras.
+- Decide si tocar la terminal abre el teclado. Las plataformas tienen valores predeterminados opuestos: en Android solo aparece con el botón ⌨; en iOS aparece al tocar.
+- Configura el **tamaño del texto**, la **fuente**, el **esquema de colores** y el tamaño del **historial** de la terminal, y elige un **tema** de la app (Sistema, Claro u Oscuro).
+- Activa **Alertas de agentes** si ejecutas tareas largas en segundo plano (Claude Code, Codex, scripts de shell) y quieres saber cuándo el agente necesita tu intervención. La guía **Terminal** explica cómo los agentes comunican su estado.
+- En Android, **Mantener sesiones en segundo plano** está activado por defecto, para que los shells y agentes sigan funcionando al descartar la app.
+- Ambas plataformas tienen un interruptor de análisis de uso anónimo en Ajustes. Al desactivarlo se dejan de recopilar eventos nuevos.
+- En iOS, **Dictado y sugerencias** está activado por defecto. Desactívalo y abre un panel nuevo si prefieres entrada directa sin dictado ni autocorrección.
+- Las notificaciones remotas, los avisos de fin de comando y las lecturas remotas del portapapeles son opciones independientes que requieren activación. Activa solo las acciones remotas que quieras.
+- En Android, **Asistente de voz**, **Plantillas de instrucciones** y **Navegador integrado** son opcionales y están desactivados por defecto. Voz tiene su propia página de Ajustes; los otros dos están en **General**.
+
+## Asistente de voz en Android
+
+El asistente de voz es experimental y está desactivado por defecto. Puede usar Gemma 4 en un teléfono compatible de 64 bits o un servicio de voz en tu propio servidor SSH con Linux.
+
+1. Abre **Ajustes → Asistente de voz** y activa el asistente.
+2. Para procesar la voz localmente, activa **Usar Gemma en este teléfono (sin servidor de voz)**, elige uno de los modelos ofrecidos y toca **Descargar**. También puedes elegir un servidor Linux de voz guardado y seguir la configuración del servicio; requiere Python 3.11–3.13, servicios de usuario de systemd y varios GB libres.
+3. Inicia una conversación de voz para la terminal que quieras controlar. Elige **Mensajes** para grabar, revisar y enviar, o **En directo** para conversar sin usar las manos y recibir respuestas habladas. Una dirección de servidor de voz personalizada usa el modo En directo.
+4. Revisa los comandos propuestos antes de confirmarlos. Gemma puede ejecutar una lista breve de comprobaciones de solo lectura sin confirmación; los demás comandos y las instrucciones dirigidas a Claude Code o Codex requieren tu confirmación o **Enviar**.
+
+Los modelos para el teléfono descargan unos 2.6–3.7 GB de Hugging Face solo después de tocar Descargar. Las descargas en conexiones de uso medido requieren confirmación, y una descarga iniciada por Wi-Fi se pausa si la conexión pasa a ser de uso medido. Con Gemma, la voz permanece en el teléfono; la opción de servidor envía el audio al servicio de voz configurado. El permiso de micrófono se solicita al usar una función de voz. Si falta una voz de síntesis sin conexión, la app ofrece descargarla mediante el motor de voz del teléfono.
+
+Si otra app toma el control del audio o los auriculares envían Detener, la conversación se pausa conservando el modo y el contexto. Usa **Continuar conversación** en la página Voz o en la notificación, o pulsa Reproducir en los auriculares. Una pausa causada por el audio de otra app termina cuando finaliza ese audio.
+
+## Plantillas de instrucciones en Android
+
+Las plantillas de instrucciones son experimentales y están desactivadas por defecto. Programan ejecuciones de solo lectura de Claude Code o Codex en tu propio servidor. El servidor necesita Python 3.8 o posterior, cron y un agente de programación con la sesión iniciada.
+
+1. Activa **Ajustes → General → Plantillas de instrucciones**.
+2. Abre **Instrucciones** en Inicio o la opción de plantillas del menú de un servidor guardado.
+3. Crea una plantilla con una instrucción, un servidor, una carpeta de proyecto y Claude Code o Codex. Elige una zona horaria y programa ejecuciones a diario, entre semana, en días seleccionados o cada 1–12 horas.
+4. Guarda la plantilla y conéctate a su servidor para sincronizarla. Mobile SSH instala un pequeño auxiliar y una entrada de crontab; las programaciones se ejecutan en el servidor incluso con el teléfono desconectado.
+5. Revisa la salida y el estado de cada ejecución, o elige **Ejecutar ahora**, **Pausar** o **Eliminar del servidor**.
+
+Las plantillas y sus borradores se cifran en el teléfono y se excluyen de las copias de seguridad. Un modelo Gemma descargado puede ayudar a redactar y revisar una instrucción. Desactivar la función oculta sus controles y detiene la sincronización del teléfono; no detiene ni elimina las programaciones ya instaladas en un servidor. Páusalas o elimínalas primero en Plantillas de instrucciones.
 
 ## Complementos
 
@@ -148,6 +176,8 @@ Los complementos amplían Mobile SSH con flujos de trabajo adicionales. Abre **P
 - Ejecutar desde esa misma pantalla los complementos instalados.
 
 De forma predeterminada, los complementos se descargan de un catálogo público. Si mantienes el tuyo propio, puedes apuntar Mobile SSH a una fuente de catálogo personalizada o privada. Instala complementos solo de fuentes en las que confíes.
+
+En Android, los complementos del catálogo muestran **Actualizar a** cuando hay una versión más reciente. Las actualizaciones usan el catálogo original, conservan los ajustes y los datos, y piden aprobación si necesitan acceso adicional. No instalan una versión anterior a la actual.
 
 ## Idiomas
 

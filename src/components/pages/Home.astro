@@ -146,6 +146,37 @@ const featureDemos = [
       </div>
     </section>
 
+    <section class="section vpn-section" id="vpn-setup" aria-labelledby="vpn-heading">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 id="vpn-heading">{t.home.vpnHead}</h2>
+          <p>{t.home.vpnBody}</p>
+        </div>
+        <figure class="vpn-video">
+          <video
+            src="/assets/videos/mobile-ssh-vpn-minimal-1080p.mp4"
+            poster="/assets/posters/mobile-ssh-vpn-minimal-1080p.jpg"
+            width="1920"
+            height="1080"
+            controls
+            preload="none"
+            playsinline
+            aria-label={t.home.vpnAlt}
+            aria-describedby="vpn-caption"
+          ></video>
+          <figcaption id="vpn-caption">{t.home.vpnCaption}</figcaption>
+        </figure>
+        <details class="vpn-transcript">
+          <summary>{t.home.vpnTranscriptLabel}</summary>
+          <p>{t.home.vpnTranscript}</p>
+        </details>
+        <div class="cta-row vpn-links">
+          <a class="button" href={localizedHref(locale, "/docs/cloud-vpn/")}>{t.home.vpnCtaGuide}</a>
+          <a class="button secondary" href={localizedHref(locale, "/docs/#provider-guides-heading")}>{t.home.vpnCtaProviders}</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="section-inner mockup-band">
         <div>
@@ -359,6 +390,40 @@ const featureDemos = [
 
 <style>
   img.zoomable { cursor: zoom-in; }
+
+  .vpn-section { scroll-margin-block-start: 16rem; }
+  .vpn-video {
+    max-inline-size: 1040px;
+    margin-block: 0;
+    margin-inline: auto;
+  }
+  .vpn-video video {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+    background: #000;
+  }
+  .vpn-video figcaption {
+    max-inline-size: 72ch;
+    margin-block-start: 1rem;
+    margin-inline: auto;
+    line-height: 1.65;
+    text-align: center;
+  }
+  .vpn-transcript {
+    max-inline-size: 72ch;
+    margin-block-start: 1.5rem;
+    margin-inline: auto;
+  }
+  .vpn-transcript summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .vpn-transcript p { white-space: pre-line; }
+  .vpn-links { justify-content: center; }
 
   /* Two platform columns (Android / iOS) for the gallery and the demo videos. */
   .gallery-duo,

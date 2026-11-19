@@ -28,12 +28,12 @@ export const pcm: Dict = {
   home: {
     metaTitle: "Mobile SSH — SSH client for Android & iOS",
     metaDescription:
-      "Mobile SSH for Android and iOS: SSH terminals, jump hosts, tmux, herdr, Zellij, SFTP, VNC desktop and backup. Android still get VPN clients and security keys.",
+      "Mobile SSH for Android and iOS: SSH, SFTP, VNC and session managers. Android still get Chat with coding agents, optional voice, prompt schedules and cloud VPN setup.",
     eyebrow: "SSH client for Android & iOS",
     h1: "Mobile SSH",
     intro:
-      "SSH terminals, tmux, herdr and Zellij managers, SFTP, VNC desktop, jump hosts and local tunnels — all built for phone and tablet. Eternal Terminal dey keep remote shells alive when network cut. Android still get VPN clients and login with USB/NFC security key.",
-    versionLine: "Dey for {count} language · Android {version} · iOS {iosVersion} beta",
+      "SSH terminals, managers for tmux, herdr and Zellij, SFTP, VNC desktops, jump hosts and local tunnels — dem build am for phones and tablets. Eternal Terminal dey keep remote shells alive when connection break. Android still get Chat with coding agents, optional voice and prompt schedules, cloud VPN setup and USB/NFC security keys.",
+    versionLine: "{count} languages · Android source {version} · iOS {iosVersion} beta",
     ctaDocs: "Read di docs",
     ctaPlay: "Get am for Google Play",
     ctaIos: "Get di iOS beta for TestFlight",
@@ -43,7 +43,7 @@ export const pcm: Dict = {
     advantagesIntro: "We build am wit di tins wey mobile SSH apps dey miss for mind.",
     advantages: [
       { title: "No Pro level, no ads", text: "All di features dey for di same app. No paywall wey go hide important work behind Pro upgrade, no ad banner for di terminal." },
-      { title: "Your data dey for your phone", text: "Saved servers, credentials and keys dey stay for di device. No cloud account; nothing wey dem fit shut down." },
+      { title: "Your login details dey your device", text: "Servers and login details wey you save dey stay for your device. Mobile SSH no require account or cloud vault; na you still own the servers and cloud accounts wey you connect to." },
       { title: "Saved hosts, search to connect", text: "Add host once, then search and tap to connect — wit key, port, and any tunnel wey you don set." },
       { title: "Agent alerts, and one tap to answer am", text: "Sabi di moment wey Claude Code, Codex, or anoda agent need you: di pane go turn amber, badge for di toolbar dey count who dey wait, and di Agents list dey answer di prompt wit one tap — you no go type anything inside di terminal." },
       { title: "Terminal keys for top di keyboard", text: "Row of thirteen key — ESC, TAB, CTRL, arrows, Home, End, PgUp, PgDn — wey dey wrap go second row instead of scroll, so nothing dey hide comot for screen. Add F1–F12, Ctrl combos, or your own escape sequences from preset palette." },
@@ -62,13 +62,13 @@ export const pcm: Dict = {
       { title: "Server folders and name", text: "Arrange saved servers for collapsible groups, and give server name wey go show instead of im address. Di address dey come back wenever name go confuse person, so di rows no dey blur together." },
       { title: "Agent alerts", text: "Agents dey report demsef through di terminal, so di app sabi which one block and na for wetin. Answer from di Agents list wit one tap; alerts dey replace demsef instead of stack, and wen you tap one e dey open di pane wey ring." },
       { title: "Private keys", text: "Use password or private key, and create Ed25519 or ECDSA key for your device (Android fit create RSA too). Android still support FIDO2 security keys through USB/NFC and SSH agent forwarding wey you fit enable for each server." },
-      { title: "SFTP transfer", text: "Dual-pane file browser wey dey tie to active SSH session. Queue uploads and downloads, rename, delete, and check remote permissions." },
+      { title: "SFTP transfer", text: "Browse files for phone and server, queue transfers, rename, delete and check permissions. For Android, you fit resume, retry or restart transfers wey fail, and follow uploads from terminal header." },
       { title: "Port forwarding", text: "Save local tunnel spec wit server profile and dem dey open automatic wen you connect — including after reconnect on new network, witout you rebuilding dem by hand." },
       { title: "Reconnect workflow", text: "Change network and di sessions go re-dial one time instead of waiting make di dead route timeout, and session wey dey backoff go wake di moment usable network show. For iOS, wen server quietly stop to answer, di app go notice am and reconnect." },
       { title: "Backup & restore", text: "Back up servers, credentials and app settings; you fit encrypt am with passphrase and preview Merge or Replace. Android backup include VPN profiles. Current Android and iOS backups use di same format, with platform settings kept where dem support am." },
       { title: "Eternal Terminal", text: "Connect over Eternal Terminal (ET) for sessions wey dey survive network drop, sleep, and IP change — wit optional automatic etserver setup over SSH." },
       { title: "Multiplexer managers", text: "Attach, rename, create, split, zoom or kill sessions with tmux, herdr and Zellij managers for both platforms. One multiplexer toolbar button opens di managers wey dey available; saved servers let you choose wetin go attach when you connect." },
-      { title: "Plugins", text: "Browse, search and filter plugins by category, then install di workflows wey you need. Downloads pass SHA-256 check before dem enter storage wey na only di app fit access." },
+      { title: "Plugins", text: "Browse and install plugins wey checksum don verify. For Android, update dem from their original catalog without losing settings or data, and review setup changes before you approve dem." },
       {
         "title": "Server identity and jump hosts",
         "text": "Reach servers through saved bastions for either platform. Host-key checks happen before login and block keys wey change. Android fit pin new keys automatically or ask first; iOS asks you to confirm unknown keys."
@@ -79,7 +79,19 @@ export const pcm: Dict = {
       },
       {
         "title": "VPN clients for Android",
-        "text": "Manage SSH VPN, local SOCKS5 proxy, WireGuard, Shadowsocks and OpenVPN from home screen. Choose profile, start routing, then use Mobile SSH VPN Quick Settings tile to stop or resume am."
+        "text": "Manage SSH VPN, SOCKS5, WireGuard, Shadowsocks and OpenVPN profiles, with Quick Settings tile to control VPN. The optional VPN Setup plugin dey guide you to create your own WireGuard server for cloud."
+      },
+      {
+        "title": "Chat with coding agents for Android",
+        "text": "Read and reply inside existing Claude Code or Codex conversation, with formatted replies, code wey you fit copy and attachments. Chat share draft with terminal; e no dey start or restart the agent."
+      },
+      {
+        "title": "Prompt templates with schedule",
+        "text": "Experimental for Android and off by default: schedule read-only Claude Code or Codex work for your server. Review results, run now, pause or remove the server schedule."
+      },
+      {
+        "title": "Voice as you want am",
+        "text": "Experimental Android voice get Messages wey you review before sending, or Live conversation. Use Gemma 4 for supported phone, or run voice service for your own Linux SSH server."
       }
     ],
     multiHead: "One screen, plenty live shell",
@@ -194,16 +206,24 @@ export const pcm: Dict = {
     compareGuideTitle: "Comparison guide",
     compareGuideText: "Wen to choose Mobile SSH, Termux, or Termius for your phone or tablet.",
     privacyTitle: "Privacy policy",
-    privacyText: "Check wetin connection data dey stay local and wetin dem send go your server."
+    privacyText: "Check wetin connection data dey stay local and wetin dem send go your server.",
+    vpnHead: "VPN for your own cloud account",
+    vpnBody: "For compatible Android build, VPN Setup plugin fit create cloud server, install wg-easy and import WireGuard client, or use public server wey you already get. Review each change for your phone. Na your cloud account own the resources, and na you pay their running costs.",
+    vpnAlt: "Mobile SSH VPN promo video with demo screens for cloud setup and client management, network illustrations and note about encrypted DNS",
+    vpnCaption: "One-minute promo wey join demo UI with network illustrations; screen text dey English. No be recording of real live deployment.",
+    vpnTranscriptLabel: "Read wetin the scenes show",
+    vpnTranscript: "The video show how person choose cloud provider, including Hetzner, manage WireGuard clients, connect phone VPN profile and open saved hosts. Network illustrations show WireGuard carrying traffic and SSH reaching private devices. The DNS scene talk say encrypted DNS need separate setup, and resolver fit see queries. Na illustrations be these; dem no guarantee say creating VPN go automatically connect every private network. Last message na: your cloud, your VPN.",
+    vpnCtaGuide: "Set up your VPN",
+    vpnCtaProviders: "Choose cloud provider"
   },
   features: {
     metaTitle: "Features | Mobile SSH",
     metaDescription:
-      "See Mobile SSH terminals, remote Git tools, port forwards wey you fit change live, VPN clients, SFTP, VNC and session managers for Android and iOS, plus experimental voice assistant for Android.",
+      "Mobile SSH terminals, Chat with coding agents, file transfers, VPN setup and session managers, plus experimental Android voice and prompt templates wey get schedule.",
     eyebrow: "Feature list",
     h1: "Mobile SSH features",
     intro:
-      "Connect to your servers from Android and iOS with SSH terminals, remote Git tools, SFTP, VNC, VPN clients and session managers. Android still get hardware security keys and experimental voice assistant; we mark features wey depend on platform below.",
+      "Connect to your servers with SSH, remote Git tools, SFTP, VNC, VPN clients and session managers. Android still offer Chat with coding agents, guided cloud VPN setup and experimental voice and prompt schedules. We mark platform features and wetin dem need below.",
     groups: [
       {
         title: "Platforms",
@@ -239,7 +259,7 @@ export const pcm: Dict = {
         title: "Terminal",
         items: [
           "VT100/xterm-256color style terminal behavior wit 24-bit true color and italics — di app dey tell di shell say TERM=xterm-256color and COLORTERM=truecolor",
-          "Scrollback buffer wey you fit set to 1,000, 5,000, 10,000, or 50,000 lines for Android and iOS (5,000 na di default)",
+          "Choose 1,000, 5,000, 10,000 or 50,000 scrollback lines; default na 5,000. Android still limit memory for each pane history, so big settings fit keep fewer lines; changes dey work for new panes",
           "Find for di terminal — search di scrollback and di visible screen and jump between di matches (Android and iOS)",
           "Shell integration (OSC 133): step between prompts, select di whole output of one command — di build error wey happen 300 lines back, no be just di last one — and get alert wen long-running command finish (Android and iOS)",
           "Inline images for di terminal via di Kitty graphics protocol, wey dey survive pinch-zoom and re-wrap instead of make dem just disappear (Android and iOS)",
@@ -251,7 +271,7 @@ export const pcm: Dict = {
           "Tap to focus, optional tap-to-show-keyboard setting, copy and copy-all action",
           "Pinch-to-zoom text sizing wit remote terminal resize",
           "Double-tap pane fullscreen mode",
-          "Terminal text selection wit Copy, Share and Select all — long-press dey select di word, and Copy dey keep di selection so you fit share or re-copy am",
+          "Long-press to select terminal text, then Copy, Paste, Share or Select all. Android dey keep Copy and Paste visible for selection toolbar without changing pane size; narrow screens dey use icons",
           "OSC 52 clipboard — copy text from remote tmux or vim session straight go di phone clipboard (Android and iOS)",
           "Hardware keyboards and voice dictation work for both platforms; iOS enables Dictation & suggestions by default, including autocorrection. Turn am off if you want direct terminal input",
           "External and Bluetooth keyboard support for Android and iOS, including arrows, function keys, and Ctrl/Alt chords",
@@ -259,11 +279,11 @@ export const pcm: Dict = {
           "Bundled Nerd Font dey render powerline, starship, devicon, and Material Design icon glyphs for Android and iOS wey di system font for don show as empty boxes",
           "Wide CJK, emoji, and combining characters dey measured and drawn correctly for Android and iOS, including grapheme clusters and zero-width joiners",
           "Terminal font wey you fit configure (system monospace, JetBrains Mono, or Source Code Pro) and ANSI color scheme (Solarized, Gruvbox, Dracula, Nord) for Android and iOS, wey dey apply live to open panes",
-          "Terminal text-size slider for Settings, along wit pinch-to-zoom, plus app theme wey you fit set to System, Light, or Dark",
+          "Change terminal text size for Settings or with pinch gesture. For Android, terminal colors dey follow app theme by default; turn off Match terminal to app theme if you want keep one color scheme",
           "Connection speed and stalled-link indicators help you know whether remote command dey busy or connection no dey answer; dimming and vibration na optional",
           "Settings controls remote notifications, command-finished alerts and remote clipboard reads; these permissions dey off by default",
           "Terminal games fit enable directional swipes wey send arrow keys for Android and iOS; normal scrolling na still the default",
-          "For Android, rearrange or hide session toolbar actions, add shortcuts for plugins wey you don install, and choose whether toolbar and extra keys go hide for fullscreen"
+          "For Android Top icons, rearrange or hide toolbar actions and add shortcuts for installed plugins. Search and Remote desktop dey hidden by default. For fullscreen, toolbar dey hide by default but extra keys stay visible; set each one separately"
         ]
       },
       {
@@ -279,18 +299,19 @@ export const pcm: Dict = {
           "tmux command tracking and reattach hints, with Auto, Nothing, tmux, herdr or Zellij choice for each server on Android and iOS; session identity stays correct when you switch tmux sockets",
           "Agents dey report demsef through di terminal, so di app sabi di agent, di tool wey e dey run, and whether e block dey wait for you — di pane go turn amber, im header go read \"claude · needs you\", and badge for di toolbar dey count who dey wait",
           "Answer agent question wit one tap from di Agents list; di reply dey pass separate channel, so e no dey type anything inside wetin dey for screen",
-          "Install di agent hook go server from inside di app — small shell script wey any agent fit call, no be vendor integration",
+          "Agent integration dey run for your server. Android Chat fit install Claude Code or Codex lifecycle hooks; iOS get Install Agent Hook for Agent alerts settings",
           "Eternal Terminal (ET) transport for sessions wey dey survive network drop, sleep, and IP change, wit optional automatic etserver setup over SSH",
           "Tmux manager: list and switch sessions, windows, and panes — attach, rename, create, split, zoom, or kill, wit name/date sorting and 🔔 for agents wey dey wait for input",
           "One multiplexer toolbar button opens tmux, herdr and Zellij managers; Herdr get pane preview, focus and replies, while Zellij handles sessions wey dey live or don exit",
-          "Search tmux, herdr and Zellij sessions, sockets, windows/tabs and panes wey don load, with matching results still under their parent; search no go enter remote branches wey you never open"
+          "Search tmux, herdr and Zellij sessions, sockets, windows/tabs and panes wey don load, with matching results still under their parent; search no go enter remote branches wey you never open",
+          "Android tmux cleanup dey remove leftover sockets from servers wey don stop, and forget saved sockets if their files don disappear; e keep sockets wey listening tmux server still dey use"
         ]
       },
       {
         title: "Files and tunnels",
         items: [
           "Dual-pane SFTP browser for local and remote file, wit transfer log wey dey show every transfer and dey scroll",
-          "Queue uploads and downloads; share files enter Mobile SSH for Android. The iOS Share Extension upload to the last server wey connect successfully and queue completed paths for terminal wey match",
+          "Queue uploads and downloads, and share files into Mobile SSH. Android dey use the open terminal and fit continue uploads after reconnect; iOS Share Extension dey upload to the last server wey connect successfully",
           "Recursive folder upload and download between phone and remote host",
           "Remote rename, delete, create, edit, compress go .tar.gz, permissions (chmod/chown), and details",
           "Open file wey you don download inside anoda app for di two platforms — for iOS, download dey also show inside di Files app under \"On My iPhone\"",
@@ -300,7 +321,9 @@ export const pcm: Dict = {
           "Local port forwarding wey dey save wit server profile and dey come up automatic wen you connect",
           "Di whole app and file browser dey follow di system light or dark theme — choose System, Light, or Dark for Android and iOS",
           "Add, edit or remove local port forwards inside live session for Android and iOS; changes remain after reconnect without changing the saved server profile",
-          "For iOS, attachment uploads check say transfer complete and file size correct before dem publish the final filename or insert the path; files wey already dey remain safe"
+          "For iOS, attachment uploads check say transfer complete and file size correct before dem publish the final filename or insert the path; files wey already dey remain safe",
+          "Android transfers wey fail get Resume, Retry, Restart and Retry all; e check partial data before resuming. Pull file list down to refresh am",
+          "Android terminal uploads show progress, speed, waiting or stalled status and Stop for header; sharing file dey reuse the terminal window wey open"
         ]
       },
       {
@@ -333,11 +356,13 @@ export const pcm: Dict = {
       {
         title: "Plugins",
         items: [
-          "Browse plugins by category, search, install and run dem; catalogs refresh when you change sources",
+          "Browse, search, install and run catalog plugins. Android dey show Update to when newer compatible version dey the original catalog, and e keep plugin settings and data",
           "Plugins dey download as you need dem from public catalog and dem dey SHA-256 verified enter app-private storage",
           "Plugin dey declare wetin e need — SSH commands, tunnel, storage — and di app dey refuse anything wey e no ask for",
-          "Wen plugin wan set up something for your server, you go first see di exact commands and approve dem before dem run",
-          "Configure your own custom or private catalog source, or install from folder wey dey your own server"
+          "Review and approve server changes before dem run. Android guided workflows get labelled review sections and raw details wey you fit open; you fit pause and resume dem",
+          "Configure your own custom or private catalog source, or install from folder wey dey your own server",
+          "Android plugin updates no dey downgrade versions; dem ask before granting extra access. Workflows wey never finish dey keep the plugin version wey start dem",
+          "VPN Setup for compatible Android builds fit create cloud VM or use existing public Ubuntu server, install wg-easy and import clients. Cloud login details dey enter protected native forms; setup changes need approval"
         ]
       },
       {
@@ -373,7 +398,7 @@ export const pcm: Dict = {
         title: "Browser inside the app",
         items: [
           "Open forwarded HTTP or HTTPS services inside Mobile SSH for Android and iOS; HTTPS still need valid certificate",
-          "Android add actions for terminal links, page search, bookmarks, history, desktop mode and browser preferences for each site"
+          "Android In-App Browser dey off by default: enable am under Settings → General. E add terminal link actions, page search, bookmarks, history, desktop mode and browser settings for each site"
         ]
       },
       {
@@ -381,7 +406,28 @@ export const pcm: Dict = {
         items: [
           "E dey off by default; enable am for Settings. Gemma 4 fit run for di phone itself: download model once from Hugging Face and speech go stay for di device, no voice server",
           "Ask about di server or di screen, open servers and sessions, hear wetin coding agent reply, or dictate prompt give am; commands wey no dey di short read-only check list need your yes",
-          "Or host voice for your own Linux SSH server, with Messages or Live conversation and di server assistant, Codex or Claude; terminal input and multiplexer changes need separate permission"
+          "Or host voice for your own Linux SSH server, with Messages or Live conversation and di server assistant, Codex or Claude; terminal input and multiplexer changes need separate permission",
+          "Gemma need supported 64-bit phone and separate model download of about 2.6–3.7 GB. Metered downloads need confirmation; Wi-Fi download dey pause if connection switch to metered network",
+          "Continue paused conversation from Voice page, notification or headset Play. If another app audio cause the pause, conversation go resume when that audio finish"
+        ]
+      },
+      {
+        "title": "Chat with coding agents (Android)",
+        "items": [
+          "Open Chat for Claude Code or Codex conversation wey already dey run for your server; follow current tmux pane or search and choose conversation by title",
+          "Formatted replies get code wey you fit copy, tables, task lists and links. Your prompts dey highlighted, with previous/next controls",
+          "Chat and terminal input share one draft. Send prompts and attach files after installing the agent hooks wey app offer; provider trust approval or reload fit still dey necessary",
+          "Chat dey install small helper for server and need Python 3.8 or newer. E no dey launch or restart the coding agent"
+        ]
+      },
+      {
+        "title": "Prompt templates (experimental, Android)",
+        "items": [
+          "Dey off by default: enable Settings → General → Prompt templates, then open Prompts for Home or saved server menu",
+          "Save prompt, server, project folder, Claude Code or Codex and time zone; schedule daily, weekdays, selected days or every 1–12 hours",
+          "Runs na read-only, and dem need Python 3.8 or newer, cron and agent wey don sign in for server. App dey install helper and one crontab entry",
+          "Sync templates and results through SSH, check output and status, or choose Run now, Pause and Remove from server. Gemma model wey you download fit draft or revise prompt",
+          "Templates dey encrypted for phone and dem no enter backups. Turning feature off no dey stop server schedules; remove dem from server first"
         ]
       }
     ],
@@ -405,7 +451,7 @@ export const pcm: Dict = {
     rows: [
       {
         need: "Main purpose",
-        mobileSsh: "SSH, SFTP, VNC, jump hosts and multiplexer managers for both platforms; Android still get VPN clients and FIDO2 security keys.",
+        mobileSsh: "SSH, SFTP, VNC, jump hosts and multiplexer managers; Android still get Chat with coding agents, guided cloud VPN setup, security keys and optional voice and prompt schedules.",
         termux: "Android terminal emulator and Linux environment wit APT packages.",
         termius: "Modern SSH client for Android, iOS, desktop and web-oriented team workflow."
       },
@@ -417,7 +463,7 @@ export const pcm: Dict = {
       },
       {
         need: "Mobile terminal control",
-        mobileSsh: "Extra keys, grid sessions, fullscreen panes, pinch zoom, copy/share, mouse support and external keyboards. You fit turn iOS Dictation & suggestions off for direct terminal input.",
+        mobileSsh: "Extra keys, grids, fullscreen, pinch zoom, clipboard controls and external keyboards. Android dey keep extra keys visible for fullscreen by default. For iOS, you fit turn off Dictation & suggestions for direct input.",
         termux: "Powerful terminal environment; behavior depend on di tool and config wey you install.",
         termius: "Mobile keyboard add-on, gesture, tab, autocomplete, snippet and polished terminal UX."
       },

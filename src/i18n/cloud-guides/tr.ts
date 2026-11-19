@@ -10,7 +10,7 @@ export const tr: CloudGuides = {
   "cardAction": "Sanal makine oluşturun ve Mobile SSH ile bağlanın",
   "navLabel": "Bulut sağlayıcısı seçin",
   "openConsole": "Sağlayıcı konsolunu aç",
-  "availability": "Bu talimatlar sağlayıcının konsolunu kullanır. Sanal makine oluşturmaya yönelik ayrı eklentiler planlanmaktadır; birleşik Android VPN Setup uygulaması yereldir ve yayımlanmamıştır. API bölümü gelecekteki erişimi hazırlamak içindir ve bu elle kurulum yolunda gerekli değildir.",
+  "availability": "Bu yönergeler sağlayıcının konsolunu kullanır. Yayımlanmış VPN Setup eklentisi uyumlu Android derlemelerinde bulut oluşturma, wg-easy kurulumu ve istemci içe aktarımını birleştirir. VM’yi burada oluşturup eklentinin konsol/mevcut sunucu yolunu da kullanabilir veya elle kurabilirsiniz. Konsol kurulumu Mobile SSH içinde bulut API kimlik bilgisi gerektirmez. VPN Setup için AWS EC2 kaynak oluşturma yalnızca konsol seçeneği olarak kalır; eşdeğer iOS otomasyonu doğrulanmamıştır.",
   "availabilityLink": "Eklenti kullanılabilirliğini kontrol edin",
   "checked": "Konsol belgeleri 8 Kasım 2026 tarihinde kontrol edildi.",
   "beforeHeading": "Başlamadan önce",
@@ -41,9 +41,9 @@ export const tr: CloudGuides = {
   "vpnHeading": "wg-easy'yi ayrı bir adımda kurun",
   "vpnText": "Önce kayıtlı sunucunun terminal açtığını ve hesabınızın root veya sudo erişimi olduğunu doğrulayın. Ardından ortak wg-easy kurulum kılavuzunu izleyin: Docker, sürümü sabitlenmiş konteyner, SSH üzerinden özel yönetim, istemci oluşturma ve VPN doğrulama. Kurucu, bulut API sırrınıza değil SSH erişimine ihtiyaç duyar.",
   "vpnLink": "wg-easy kurulum adımlarına devam edin",
-  "apiHeading": "Gelecekteki bir eklenti için isteğe bağlı API kimlik bilgileri",
-  "apiIntro": "Konsol üzerinden kurulumda bu bölümü atlayın. Kimlik bilgilerini yalnızca uyumlu bir kaynak hazırlama aracı istediğinde oluşturun. Aşağıdaki izin listeleri hazırlık rehberidir; yayımlanmış bir eklenti için test edilmiş en düşük yetki politikaları değildir.",
-  "apiSecretNote": "Kimlik bilgilerini yalnızca desteklenen korumalı bir forma girin. Bulut sırlarını sesli isteklere, terminal komutlarına veya sanal makineye koymayın. Desteklenen en dar kapsamı kullanın, geçerlilik süresini kaydedin ve artık gerekmediğinde kimlik bilgilerini iptal edin.",
+  "apiHeading": "VPN Setup için isteğe bağlı API kimlik bilgileri",
+  "apiIntro": "Konsol kurulumu için bu bölümü atlayın. Yayımlanmış VPN Setup eklentisi uyumlu Android derlemelerinde desteklediği on bulut sağlayıcısı için bu bilgileri kullanır; AWS bağdaştırıcısı EC2 değil Lightsail kullanır. EC2 kimlik bilgisi notları yalnızca gelecekteki otomasyonu anlatır. Bu izin listeleri yol gösterir; her sağlayıcı veya hesapta canlı test edilmiş asgari politikalar değildir.",
+  "apiSecretNote": "Kimlik bilgilerini yalnızca korumalı yerel forma girin; bilgi girişi ve onaylar ekran gerektirir. Yerel kod bulut sırlarını VM’ye veya eklenti işçisine vermeden onaylı sağlayıcı uç noktalarında kimlik doğrular. Sırları sesli istemlere veya terminal komutlarına koymayın. Desteklenen en dar kapsamı kullanın, son kullanma tarihini kaydedin ve artık gerekmeyen bilgileri iptal edin.",
   "cleanupHeading": "Artık gerek duymadığınız kaynakları silin",
   "cleanupWarning": "Sanal makineyi durdurmak, kurulum işini iptal etmek veya Mobile SSH profilini kaldırmak bulut kaynaklarını silmez ve ücretlerin duracağını garanti etmez. Silme doğrulanana kadar kaynak kimliklerini saklayın ve ilgisiz kaynakları koruyun.",
   "providers": {
@@ -57,7 +57,7 @@ export const tr: CloudGuides = {
         "iOS için <strong>Bağlan → SSH kullanarak bağlan</strong> seçeneğini seçin. Uygulamanızın Ed25519 açık anahtarını <code>/home/ubuntu/.ssh/authorized_keys</code> dosyasına yeni satır olarak ekleyin; mevcut anahtarları koruyun. Tarayıcı SSH bağlantısı sağlayıcının ayrı anahtarını kullanır; statik IPv4 adresiniz artık hazırdır."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki bir kaynak hazırlama aracı için Lightsail örnekleri, SSH anahtarları, statik IP'ler ve güvenlik duvarlarına yönelik, temizliği de kapsayan gerekli işlemlere sahip özel bir IAM kimliği oluşturun. Desteklenen yerlerde bölgeyi ve kaynakları sınırlayın; bu, test edilmiş en düşük yetki politikası değildir.",
+        "VPN Setup API ile kaynak oluşturmak için gerekli Lightsail örneği, SSH anahtarı, statik IP ve güvenlik duvarı işlemlerini, temizlik dahil, kapsayan ayrı IAM kimliği oluşturun. Desteklendiğinde bölge ve kaynakları sınırlayın; bu test edilmiş asgari politika değildir.",
         "<strong>IAM → Kullanıcılar → Güvenlik kimlik bilgileri</strong> altında yalnızca desteklenen bir otomasyon ihtiyaç duyduğunda erişim anahtarı oluşturun. Kimliğini ve sırrını korumalı yerel form üzerinden verin; geçici kimlik bilgileri ayrıca oturum belirtecini gerektirir. Asla root anahtarları kullanmayın."
       ],
       "cleanupSteps": [
@@ -93,7 +93,7 @@ export const tr: CloudGuides = {
         "Sanal makine yapılandırmasını incelemeyi bitirip <strong>Oluştur</strong> seçeneğini seçin. Örnek çalışana kadar bekleyin, ardından harici IPv4'ü ve yukarıda seçilen SSH kullanıcı adını kaydedin. Kullanıcı adının <code>ubuntu</code> olduğunu varsaymayın."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki bir kaynak hazırlama aracı için proje kapsamlı Compute Örnek Yöneticisi (v1), Compute Ağ Yöneticisi ve Compute Güvenlik Yöneticisi rollerine veya daha dar eşdeğerlerine sahip özel hizmet hesabı kullanın. Compute Ağ Yöneticisi güvenlik duvarı oluşturamaz. Bir VM hizmet hesabı bağlıyorsanız o hesap üzerinde Hizmet Hesabı Kullanıcısı rolünü de verin.",
+        "VPN Setup API ile kaynak oluşturmak için proje kapsamlı Compute Instance Admin (v1), Compute Network Admin ve Compute Security Admin rolleri veya daha dar eşdeğerleri olan ayrı hizmet hesabı kullanın. Compute Network Admin güvenlik duvarı oluşturamaz. VM hizmet hesabı bağlıyorsanız onun üzerinde Service Account User da verin. Otomatik bağdaştırıcı meta veri SSH anahtarlarını kullanır ve kendi VM’sinde OS Login’i kapatır; kuruluşunuz OS Login gerektiriyorsa onaylı konsol yapılandırması kullanın.",
         "Desteklenen otomasyon JSON anahtarı gerektiriyorsa ve kuruluş politikası izin veriyorsa <strong>IAM ve Yönetici → Hizmet hesapları → Anahtarlar → Anahtar ekle → Yeni anahtar oluştur → JSON</strong> bölümünü açın. Proje kimliğini ve JSON'u korumalı yerel ayarlardan verin; anahtar kısıtlamasını asla aşmayın."
       ],
       "cleanupSteps": [
@@ -111,8 +111,8 @@ export const tr: CloudGuides = {
         "<strong>Gözden geçir + oluştur → Oluştur</strong> seçeneğini seçin. Dağıtımı bekleyin, ardından sanal makinenin <strong>Genel Bakış</strong> sayfasından genel IPv4'ü kaydedin. Makine, <code>azureuser</code> hesabı ve seçtiğiniz SSH anahtarıyla hazırdır."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki bir kaynak hazırlama aracı için <strong>Microsoft Entra ID → Uygulama kayıtları</strong> altında tek kiracılı özel uygulama oluşturun. Kiracı, istemci ve abonelik kimliklerini kaydedin. Gerekiyorsa <strong>Sertifikalar ve gizli diziler</strong> altında istemci sırrı oluşturun ve gizli dizi kimliğini değil Değer'ini kopyalayın.",
-        "Kaynak grubunun <strong>Erişim denetimi (IAM)</strong> bölümünde bu güvenlik sorumlusuna uygun işlem/ağ izinlerini atayın. Bu özel grupta Katkıda Bulunan rolü geniştir ancak kullanılabilir; daha dar ve test edilmiş bir rolü tercih edin. Grup kapsamlı izin grubu oluşturamayacağı için grubu önceden oluşturun. Korumalı yerel kimlik bilgisi ayarlarını kullanın."
+        "VPN Setup API ile kaynak oluşturmak için <strong>Microsoft Entra ID → App registrations</strong> altında ayrı, tek kiracılı uygulama oluşturun. Kiracı, istemci ve abonelik kimliklerini kaydedin. Gerekirse <strong>Certificates &amp; secrets</strong> altında istemci sırrı oluşturun ve sır kimliğini değil Value değerini kopyalayın.",
+        "Aboneliğin <strong>Access control (IAM)</strong> bölümünde bu sorumluya dağıtımın kaynak grubunu oluşturma/silme ve gerekli hesaplama/ağ işlemleri için izin verin. VPN Setup kendi grubunu oluşturur; önceden mevcut grupla sınırlı Contributor erişimi yeterli değildir. Abonelik veya üst kapsamda yönetici onaylı, bu akışın izin verdiği ölçüde daraltılmış rol ve korumalı yerel kimlik bilgisi ayarları kullanın."
       ],
       "cleanupSteps": [
         "Kaynak grubu yalnızca bu dağıtımı içeriyorsa içeriğini inceleyin ve işiniz bittiğinde grubu silin.",
@@ -129,7 +129,7 @@ export const tr: CloudGuides = {
         "Sunucu değişiminde korunacak adres için <strong>Ağ → Ayrılmış IP'ler → Ayrılmış IP ekle</strong> bölümünü açın. <strong>IPv4 adresi → Droplet'e ata</strong> seçeneğiyle bu Droplet'i seçip onaylayın. Hazırlama tamamlanınca atanan genel IPv4'ü kaydedin."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki uyumlu bir eklenti için: <strong>Hesap → API → Belirteçler → Yeni belirteç oluştur</strong> bölümünü açın. Açıklayıcı ad ve geçerlilik süresi girin.",
+        "VPN Setup API ile kaynak oluşturmak için <strong>Account → API → Tokens → Generate New Token</strong> bölümünü açın. Açıklayıcı ad ve son kullanma tarihi girin.",
         "Uygulanan iş akışının gerekli Droplet, SSH anahtarı, güvenlik duvarı ve ayrılmış IP işlemleri ile bağımlılıkları için <strong>Özel kapsamlar</strong> seçin. Varsayılan olarak Tam Erişim seçmeyin; belirteç gösterildiğinde kaydedin."
       ],
       "cleanupSteps": [
@@ -147,7 +147,7 @@ export const tr: CloudGuides = {
         "Tanınabilir bir <strong>Ad</strong> girin, isteğe bağlı yedekleri ve toplam maliyeti inceleyip <strong>Şimdi oluştur ve satın al</strong> seçeneğine tıklayın. Sunucunun hazır olmasını bekleyip birincil IPv4'ünü kaydedin. Adresi yeniden kullanacaksanız bu IP kaynağını tutun."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki uyumlu bir eklenti için: hedef projenin <strong>Güvenlik → API belirteçleri → API belirteci oluştur</strong> bölümünü açın ve açıklama girin.",
+        "VPN Setup API ile kaynak oluşturmak için hedef projede <strong>Security → API tokens → Generate API token</strong> bölümünü açıp açıklama girin.",
         "Kaynak hazırlama için <strong>Okuma ve Yazma</strong> seçin, pencereyi kapatmadan belirteci kopyalayın. Bu, tek sunucuyla sınırlı izin değil, tüm projeye yazma erişimi verir."
       ],
       "cleanupSteps": [
@@ -165,7 +165,7 @@ export const tr: CloudGuides = {
         "<strong>Linode Özeti</strong> içinde isteğe bağlı yedekleri ve diğer ücretleri inceleyip <strong>Linode oluştur</strong> seçeneğine tıklayın. Başlatmayı bekleyip genel IPv4'ü kaydedin. Ayrılmış adres sunucu silindikten sonra hesabınızda kalır ve başka bölgeye taşınamaz."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki uyumlu bir eklenti için: kullanıcı adı menünüzden <strong>API Belirteçleri → Kişisel Erişim Belirteci Oluştur</strong> bölümünü açın. Etiket ve geçerlilik süresi belirleyin.",
+        "VPN Setup API ile kaynak oluşturmak için kullanıcı adı menüsü → <strong>API Tokens → Create a Personal Access Token</strong> bölümünü açın. Etiket ve son kullanma tarihi belirleyin.",
         "Yalnızca gerekli kapsamları verin: kaynak hazırlama genellikle Linode ve Güvenlik Duvarları için Okuma/Yazma gerektirir; adres ayırmak veya serbest bırakmak ayrıca <code>ips:read_write</code> ister. Belirteci güvenle saklayın."
       ],
       "cleanupSteps": [
@@ -183,7 +183,7 @@ export const tr: CloudGuides = {
         "Örneğin hazır olmasını bekleyin ve genel IPv4'ünü kaydedin. Normal adres örnek var olduğu sürece sabit kalır; değişimden sonra da kalması gerekiyorsa aynı bölgeden ayrılmış IP kullanın."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki uyumlu bir eklenti için: <strong>Hesap → API</strong> bölümünü açın, ardından <strong>API'yi Etkinleştir</strong> seçeneğini <strong>Kişisel Erişim Belirteci</strong> altında seçin. Kimlik bilgisini güvenle saklayın.",
+        "VPN Setup API ile kaynak oluşturmak için <strong>Account → API</strong>, ardından <strong>Personal Access Token</strong> altında <strong>Enable API</strong> seçin. Kimlik bilgisini güvenle saklayın.",
         "<strong>Erişim Denetimi</strong> altında API isteklerinin geleceği IP/CIDR aralığına izin verin. Mobil ağ değişimlerinden sonra güncelleyin; bu, belirli kaynak izinlerini değil isteklerin kaynağını sınırlar."
       ],
       "cleanupSteps": [
@@ -201,7 +201,7 @@ export const tr: CloudGuides = {
         "Sanal makineyi inceleyip oluşturun. Çalışıyor durumuna geçtiğinde genel IPv4'ünü kaydedin. Sanal makine değişiminde korunacak adres için geçici IP'yi birincil özel IP'sine atanmış ayrılmış genel IP ile değiştirebilirsiniz; yeni adresi kaydedin."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki bir kaynak hazırlama eklentisi için: yöneticiden bu bölmede özel IAM kullanıcı/grubuna gerekli işlem, ağ ve birim izinlerini vermesini isteyin.",
+        "VPN Setup API ile kaynak oluşturmak için yöneticinin bu bölmede ayrı bir IAM kullanıcısına/grubuna gerekli hesaplama, ağ ve birim izinlerini vermesini sağlayın.",
         "<strong>Kullanıcı ayarları → API Anahtarları → API Anahtarı Ekle</strong> bölümünü açın. RSA PEM imzalama özel anahtarını, parmak izini, kiracılık/kullanıcı OCID'lerini ve bölgeyi kaydedin; bölme OCID'sini not edin. Bu anahtar SSH anahtarınızdan ayrıdır."
       ],
       "cleanupSteps": [
@@ -219,7 +219,7 @@ export const tr: CloudGuides = {
         "Horizon'da <strong>İşlem → Örnekler → Güvenlik Gruplarını Düzenle</strong> bölümünü açın. Özel grubu uygulayın ve geniş izinli varsayılan grubu yalnızca bu VM'den kaldırın; paylaşılan varsayılan grubu asla düzenlemeyin/silmeyin. Etkin olduğunda Genel Bakış'taki genel IPv4'ü kaydedin."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki bir kaynak hazırlama eklentisi için: hesabınızın API bölgesine ait belirteç oluşturma sayfasını açın. Uygulamayı adlandırın, geçerlilik süresi belirleyin ve Haklar'ı belgelenen proje yolları/işlemleriyle sınırlayın.",
+        "VPN Setup API ile kaynak oluşturmak için hesabınızın API bölgesine ait belirteç oluşturma sayfasını açın. Uygulamayı adlandırın, son kullanma tarihi belirleyin ve Rights alanını belgelenmiş proje yolları/işlemleriyle sınırlayın.",
         "Uygulama anahtarını, uygulama sırrını ve tüketici anahtarını güvenle saklayın. Bu imzalı API kimlik bilgileri, Horizon'un kullandığı OpenStack kullanıcı adı/parolasından farklıdır."
       ],
       "cleanupSteps": [
@@ -237,7 +237,7 @@ export const tr: CloudGuides = {
         "<strong>İncele</strong> seçeneğini seçin, tahmini maliyetleri kontrol edip <strong>Örnek Oluştur</strong> seçin. Hazırlamanın bitmesini bekleyin ve <strong>Genel Bakış</strong> bölümünden genel IPv4'ü kopyalayın. Bu esnek IP, yaşam döngüsünü sizin yönetmeniz gereken ayrı bir kaynaktır."
       ],
       "apiSteps": [
-        "Yalnızca gelecekteki bir kaynak hazırlama eklentisi için: IAM uygulaması oluşturun ve hedef Projede örnekler, ağ ve depolama için gerekli izinleri verin.",
+        "VPN Setup API ile kaynak oluşturmak için IAM uygulaması oluşturun ve hedef Project içinde Instances, ağ ve depolama için gerekli izinleri verin.",
         "<strong>IAM ve API anahtarları → API anahtarları → API anahtarı oluştur</strong> bölümünü açın. Uygulamayı ve geçerlilik süresini seçin. Erişim anahtarını ve yalnızca bir kez gösterilen sırrı kaydedin; Proje UUID'sini ve alanı ayrıca not edin."
       ],
       "cleanupSteps": [

@@ -11,7 +11,7 @@ The Mobile SSH terminal is built for phone and tablet operation. It combines a t
 ## Terminal basics
 
 - The terminal uses xterm-style behavior with color support and cursor-key handling.
-- The scrollback buffer keeps 5000 lines by default, and can be set to 1,000, 10,000, or 50,000 in Settings.
+- The scrollback buffer defaults to 5,000 lines, with settings for 1,000, 5,000, 10,000 or 50,000. Android also caps each pane's history to the memory available to the app, so the largest settings may retain fewer lines.
 - Tap a pane to select it before typing.
 - Pinch a terminal pane to change text size. Mobile SSH resizes the remote PTY after the gesture settles.
 - Double-tap a pane (or use its expand control) to enter fullscreen mode. Use Back on Android, or the collapse control on iOS, to return to the grid.
@@ -77,9 +77,11 @@ Long-press inside the terminal to select the word under your finger, then drag t
 - **Select all** -- expand the selection to the full visible terminal buffer, then Copy or Share.
 - **Paste** -- insert clipboard text into the terminal.
 
+On Android, these actions use the terminal toolbar without changing the pane sizes. Copy and Paste appear as icons when space is narrow.
+
 ## Find in the terminal
 
-Search the whole terminal buffer — scrollback and the visible screen — and jump between matches. Open search from the terminal controls, type a query, and step through hits. This works on both Android and iOS.
+Search the whole terminal buffer — scrollback and the visible screen — and jump between matches. Open search from the terminal controls, type a query, and step through hits. This works on both Android and iOS. On Android, Search is hidden from the toolbar by default; enable it under **Settings → Top icons**.
 
 ## Color, italics, and remote clipboard
 
@@ -104,11 +106,15 @@ On both Android and iOS, Settings lets you tailor the terminal:
 - **Color scheme:** Default, Solarized Dark or Light, Gruvbox, Dracula, or Nord — applied live to open panes.
 - **Extra key row:** add, remove, reorder, and hide keys, define your own escape-sequence keys, and reset to defaults, with a live preview that shows the exact row split you will get. Android puts this on a **Keys** tab; iOS under **Extra keys → Customize keys**.
 - **Add from presets:** a palette of roughly 45 keys in six groups — `F1`–`F12`, Ctrl combinations such as `^C` `^D` `^Z` `^R` `^L`, symbols like `|` `~` `/` `_` `:`, and modifiers. `F1`–`F12` are sent as ordinary escape sequences, so they need no `FN` chord. Android also offers a 📎 **Attach a file** key that opens the file picker and uploads into the live session; iOS offers `INS`, `DEL`, and an `FN` key that reveals a digit row.
-- **Scrollback size:** 1,000, 5,000, 10,000, or 50,000 lines (5,000 by default). Applies to new panes.
+- **Scrollback size:** 1,000, 5,000, 10,000, or 50,000 lines (5,000 by default). Android may retain fewer lines to fit the app's memory limit. Changes apply to new panes.
 - **Text size:** a slider, alongside pinch-to-zoom.
 - **Theme:** System, Light, or Dark for the whole app.
 
 Reset restores the shipped defaults rather than freezing today's list, so a later release's improvements still reach you. Edits apply live to panes that are already open.
+
+On Android, terminal colors follow the app's light or dark theme by default. Turn off **Match terminal to app theme** under **Settings → General → Appearance** to keep a fixed scheme. The same page controls fullscreen hiding separately for the toolbar and extra keys; the toolbar hides by default while the extra keys stay visible.
+
+Android's **Settings → Top icons** reorders, shows or hides toolbar actions and adds installed-plugin shortcuts. Chat and Port forwards are shown by default; Search and Remote desktop are hidden until enabled.
 
 ## Scrolling
 
@@ -155,6 +161,8 @@ A 🔔 marks any session whose agent is awaiting input, so you can spot a paused
 
 Both platforms can manage more than one tmux server (socket) on the same host. Manager attachment indicators refer to the terminal you are using, not another client on the server.
 
+On Android, **Clean up empty sockets** removes leftover socket files from stopped tmux servers and forgets saved sockets whose files no longer exist. Sockets still used by a listening tmux server are kept.
+
 ## Herdr and Zellij
 
 Android and iOS also manage Herdr and Zellij. One toolbar control opens the primary detected multiplexer; long-press it to choose another. Only programs found on that server are offered. Inside a manager, the server title changes servers and the multiplexer selector switches managers.
@@ -165,6 +173,17 @@ Android and iOS also manage Herdr and Zellij. One toolbar control opens the prim
 If herdr or Zellij is installed but not on the login shell's `PATH`, the page offers to add it.
 
 Each saved server has an **Attach on connect** setting: **Auto (detect)**, **Nothing**, **tmux**, **herdr**, or **Zellij**. Auto uses the available detection and attachment history, preferring a previously used multiplexer, then one with live sessions, then one installed. Without cached detection it opens a plain shell. A later probe affects future connections; it does not launch over your current input.
+
+## Coding-agent Chat on Android
+
+Chat reads a Claude Code or Codex conversation already running on your server. Replies include formatted text, copyable code blocks, tables and links. Your own prompts are highlighted, with controls to move to the previous or next prompt or the newest message.
+
+1. Connect to the server and open **Chat** from the terminal toolbar.
+2. Chat follows the current tmux pane when possible. Otherwise, open its session picker and select or search for the conversation by title.
+3. If hooks are missing, choose **Install agent hooks** in Chat or its session picker. Complete any provider trust approval or native reload/resume needed to load the hooks; Mobile SSH never starts or restarts the agent.
+4. Compose a prompt, attach files if needed, and send when the selected session allows it. Chat and the terminal input box share the same draft.
+
+Chat installs a small helper under `~/.mobile-ssh` and needs Python 3.8 or newer on the server. A conversation can remain read-only until its running agent has loaded the required hooks.
 
 ## Agent alerts
 
@@ -181,9 +200,9 @@ This needs no setup, but the app only knows that *something* rang.
 For the app to know *which* agent is waiting and *what* it is doing, install the agent hook on the server:
 
 - **iOS:** Settings → **Agent alerts** → **Install Agent Hook**. If more than one server is connected, it asks which.
-- **Android:** long-press a session's pane header and choose **Install agent hooks**.
+- **Android:** open **Chat**, choose a Claude Code or Codex conversation, and use **Install agent hooks** when offered in Chat or its session picker.
 
-This writes a small shell script to `~/.mobile-ssh/agent-hook.sh` on that server. It is agent-agnostic — it takes command-line arguments rather than parsing any one vendor's format — so anything that can run a command can report through it. Deleting the file is a clean uninstall.
+Hooks let supported agents report their state to Mobile SSH. On Android, Chat adds native lifecycle handlers to Codex's `hooks.json` or Claude Code's `settings.json`, preserving unrelated configuration. Removing one helper file does not remove these provider configuration entries.
 
 Once an agent reports through the hook:
 

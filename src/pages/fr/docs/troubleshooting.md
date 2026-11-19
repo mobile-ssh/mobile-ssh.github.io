@@ -52,10 +52,11 @@ Sur Android, `ssh` ou `git` distant nécessite **Transférer l'agent SSH** activ
 
 L'importation de la clé privée utilise le sélecteur de fichiers du système. Si l'importation échoue :
 
-- Confirmez que le fichier sélectionné est une clé privée, et non un fichier public `.pub`.
-- Ouvrez le fichier dans un éditeur de texte de confiance et vérifiez qu'il contient le bloc de clé complet.
-- Essayez de coller la clé manuellement dans le champ de clé privée.
-- Confirmez que le type de clé est pris en charge : Ed25519, ECDSA (P-256/384/521) ou RSA sur Android ; Ed25519 ou ECDSA sur iOS. DSA (`ssh-dss`) ne fonctionne sur aucune des deux, et iOS ne prend pas en charge RSA — générez plutôt une clé Ed25519.
+- Vérifiez que le fichier sélectionné contient une clé privée et non une clé publique `.pub`.
+- Ouvrez-le dans un éditeur de texte de confiance et vérifiez qu'il contient le bloc de clé complet.
+- Sur Android, les fichiers de clé importés ne doivent pas dépasser 64 KB ; sélectionnez la clé elle-même, pas une archive ni un fichier sans rapport.
+- Essayez de coller manuellement la clé dans le champ de clé privée.
+- Vérifiez que le type est pris en charge : Ed25519, ECDSA (P-256/384/521) ou RSA sur Android ; Ed25519 ou ECDSA sur iOS. DSA (`ssh-dss`) ne fonctionne sur aucune plateforme, et iOS ne prend pas en charge RSA : générez plutôt une clé Ed25519.
 
 ## La clé de sécurité ne répond pas sur Android
 
@@ -68,6 +69,10 @@ Le serveur nécessite OpenSSH 8.2 ou ultérieur et l'algorithme `sk-*` choisi au
 Android transmet directement la saisie sans correction ni prédiction. Sur iOS, **Dictée et suggestions** est activé par défaut pour la voix et les corrections de la ligne. S'il modifie le shell de façon inattendue, désactivez-le, vérifiez **Suggestions du clavier** et ouvrez un nouveau volet.
 
 Utilisez la rangée supplémentaire pour `ESC`, `TAB`, `CTRL`, flèches, `HOME`, `END`, `PGUP` et `PGDN`. Un réseau bloqué peut retarder la saisie. L'en-tête Android affiche **sans réponse** ou **non envoyé** ; la saisie pendant reconnexion est abandonnée et non rejouée dans un nouveau shell. Attendez la connexion, vérifiez l'invite et ne retapez que le nécessaire.
+
+## Chat est en lecture seule sur Android
+
+Vérifiez que le serveur dispose de Python 3.8 ou ultérieur, sélectionnez la conversation Claude Code ou Codex voulue et installez les hooks proposés dans Chat. Effectuez les autorisations de confiance du fournisseur ou le rechargement/la reprise natifs nécessaires à leur chargement. Un agent déjà en cours d'exécution peut ne pas avoir chargé les nouveaux hooks ; Mobile SSH ne le redémarrera pas à votre place.
 
 ## Le défilement de tmux n'est pas celui attendu
 
@@ -115,6 +120,8 @@ Vérifiez :
 - Il y a assez d'espace libre sur l'appareil.
 - Le réseau est stable pour les transferts volumineux.
 
+Sur Android, utilisez **Reprendre**, **Réessayer**, **Recommencer** ou **Tout réessayer** dans la file de transferts après avoir corrigé la cause. Reprendre vérifie que le fichier partiel correspond toujours ; utilisez Recommencer si la poursuite n'est pas sûre. L'indicateur d'envoi du terminal montre l'état d'attente ou de blocage et propose **Arrêter**.
+
 ## Échec de la redirection de port
 
 Vérifiez :
@@ -141,6 +148,8 @@ Vérifiez l'aperçu et le choix **Fusionner** ou **Remplacer**. Une section abse
 
 Identités d'hôtes, autorisations système et accès aux dossiers restent locaux. Vérifiez les hôtes et accordez dossiers/VPN sur le nouvel appareil. Les identifiants matériels nécessitent toujours leur clé physique. Importer ne démarre aucun VPN ; vérifiez les profils avant de les lancer.
 
+Android exclut aussi les modèles de prompts et leurs brouillons, les modèles téléchargés, les réglages de l'hôte vocal, les identifiants cloud de VPN Setup et les caches de Chat ou d'exécutions de prompts. Configurez-les à nouveau sur l'appareil de destination. Les planifications du serveur sont distinctes : désactiver les modèles de prompts sur le téléphone n'arrête pas les exécutions déjà planifiées sur le serveur.
+
 ## Bureau distant indisponible ou impossible à redimensionner
 
 Ouvrez le bureau depuis une session SSH connectée et vérifiez l'autorisation de redirection TCP locale. Sur Linux, installez les logiciels bureau/VNC indiqués par le message de paquet manquant. Android ne duplique pas une console Wayland ; choisissez un bureau virtuel compatible.
@@ -151,8 +160,10 @@ Sur macOS, activez Partage d’écran dans les réglages du Mac. Android accepte
 
 Les deux plateformes n'enregistrent pas les mêmes choses : choisissez celle qui correspond à votre problème.
 
-**Android — terminal et rendu.** Activez **Settings → Debugging → Show Debug and Logs buttons**, puis utilisez le bouton **Debug** qui apparaît sur l'écran d'accueil. Il enregistre les événements du terminal, les tailles de données SSH, la saisie tactile, le comportement de redimensionnement et le cycle de vie des tunnels. Démarrer un enregistrement vous avertit d'abord qu'il capture chaque touche que vous saisissez, mots de passe compris. L'arrêter écrit une archive dans votre dossier Téléchargements.
+**Android — terminal, voix et affichage.** Activez **Réglages → Débogage → Afficher les boutons Déboguer et Journaux**, puis utilisez le bouton **Déboguer** qui apparaît sur l'écran de démarrage. Il enregistre les événements du terminal, les volumes de données SSH, les entrées tactiles, les redimensionnements et le cycle de vie des tunnels. La demande de consentement avertit qu'il enregistre les touches saisies, y compris les mots de passe, et le contenu de l'écran. Les enregistrements vocaux comprennent la transcription des entrées et le texte des réponses ; des échantillons audio sont inclus uniquement si vous activez séparément cette option dans les réglages.
+
+Choisissez un dossier d'archives accessible en écriture au début du premier enregistrement. Mobile SSH le mémorise ; modifiez-le sous **Réglages → Débogage → Dossier des archives de débogage**. Si l'exportation échoue, l'archive reste sur le téléphone pour vous permettre de choisir un autre dossier et de réessayer.
 
 **iOS — connexions et reconnexions.** Activez **Settings → Diagnostics → Record debug log**. Il enregistre chaque adresse composée et la raison de son échec, les tentatives de reconnexion et leur backoff, les connexions perdues, « peer stopped answering keepalives », les changements de réseau et les commandes tmux avec leurs erreurs. Settings affiche un compteur de lignes en direct pour confirmer que l'enregistrement est en cours, et **Export Debug Log** le partage sous forme de fichier texte. Il est conservé en mémoire et ne couvre que la session applicative en cours.
 
-Examinez tout journal ou archive de débogage avant de le partager. Ils sont destinés au dépannage et peuvent révéler des noms de serveurs, des adresses, des horodatages ou d'autres détails de l'environnement — et sur Android, tout ce que vous avez saisi.
+Examinez tout journal ou archive de débogage avant de le partager. Ils peuvent révéler des noms de serveurs, des adresses, des horaires et d'autres détails de l'environnement — et sur Android, des secrets saisis, le contenu de l'écran, les transcriptions vocales et tout audio que vous avez choisi d'enregistrer.

@@ -54,6 +54,7 @@ Private key import uses the system file picker. If import fails:
 
 - Confirm the selected file is a private key, not a public `.pub` file.
 - Open the file in a trusted text editor and verify it contains the full key block.
+- On Android, imported key files must be no larger than 64 KB; select the key itself, not an archive or unrelated file.
 - Try pasting the key manually into the private key field.
 - Confirm the key type is supported: Ed25519, ECDSA (P-256/384/521), or RSA on Android; Ed25519 or ECDSA on iOS. DSA (`ssh-dss`) works on neither, and iOS does not support RSA — generate an Ed25519 key instead.
 
@@ -68,6 +69,10 @@ The server needs OpenSSH 8.2 or newer with the selected `sk-*` algorithm allowed
 Android sends keyboard input directly with autocorrect and predictive suggestions disabled. On iOS, **Dictation and suggestions** is enabled by default; it supports voice input and corrections to the current line. If it changes shell input unexpectedly, disable it in Settings and review **Keyboard suggestions**, then open a new pane for the change to apply.
 
 Use the extra key row for terminal keys such as `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP` and `PGDN`. A stalled network can also delay input. Android's pane header shows **no reply** or **not sent**; input typed during reconnect is dropped rather than replayed into a new shell. Wait for the connection, inspect the prompt, and retype only what is needed.
+
+## Chat is read-only on Android
+
+Check that the server has Python 3.8 or newer, select the intended Claude Code or Codex conversation, and install the hooks offered in Chat. Complete any provider trust approval or native reload/resume needed to load them. An already-running agent may not have loaded newly installed hooks; Mobile SSH will not restart it for you.
 
 ## tmux scrolling is not what you expect
 
@@ -115,6 +120,8 @@ Check:
 - There is enough free space on the device.
 - The network is stable for large transfers.
 
+On Android, use **Resume**, **Retry**, **Restart** or **Retry all** in the transfer queue after fixing the cause. Resume checks that the partial file still matches; use Restart if it cannot safely continue. The terminal upload chip shows waiting or stalled status and offers **Stop**.
+
 ## Port forward failed
 
 Check:
@@ -141,6 +148,8 @@ Review the import preview and the chosen **Merge** or **Replace** behavior. Miss
 
 Host identities, operating-system permissions and selected folder access remain device-local. Verify hosts and grant folder/VPN access on the new device. Hardware-key credentials still require the physical key. Importing profiles does not start a VPN; review restored profiles before starting them.
 
+Android also excludes prompt templates and editor drafts, downloaded models, voice-host settings, VPN Setup cloud credentials, and Chat or prompt-run caches. Configure these again on the destination device. Server schedules are separate: disabling prompt templates on the phone does not stop runs already scheduled on the server.
+
 ## Remote desktop is unavailable or cannot resize
 
 Open the desktop viewer from a connected SSH session. Check that the server permits local TCP forwarding. On Linux, follow the missing-package message to install the required desktop/VNC software. Android cannot mirror a Wayland console; use a supported virtual desktop instead.
@@ -151,8 +160,10 @@ On macOS, enable Screen Sharing in the Mac's settings. Android supports Mac acco
 
 The two platforms record different things, so pick the one that matches your problem.
 
-**Android — terminal and rendering.** Enable **Settings → Debugging → Show Debug and Logs buttons**, then use the **Debug** button that appears on the start screen. It records terminal events, SSH data sizes, touch input, resize behaviour, and tunnel lifecycle. Starting a recording warns you first that it captures every key you type, passwords included. Stopping it writes an archive to your Downloads folder.
+**Android — terminal, voice and rendering.** Enable **Settings → Debugging → Show Debug and Logs buttons**, then use the **Debug** button that appears on the start screen. It records terminal events, SSH data sizes, touch input, resize behaviour and tunnel lifecycle. The consent prompt warns that it records typed keys, including passwords, and screen contents. Voice recordings include transcribed input and reply text; audio samples are included only if you separately enable that option in Settings.
+
+Choose a writable archive folder when you start the first recording. Mobile SSH remembers it; change it under **Settings → Debugging → Debug archive folder**. If export fails, the archive stays on the phone so you can choose another folder and retry.
 
 **iOS — connections and reconnects.** Turn on **Settings → Diagnostics → Record debug log**. It records each address dialled and why it failed, reconnect attempts and their backoff, dropped connections, "peer stopped answering keepalives", network changes, and tmux commands with their errors. Settings shows a live line count so you can confirm it is recording, and **Export Debug Log** shares it as a text file. It is held in memory and covers the current app session only.
 
-Review any debug log or archive before sharing it. They are intended for troubleshooting and may reveal server names, addresses, timing, or other environment details — and on Android, anything you typed.
+Review any debug log or archive before sharing it. They may reveal server names, addresses, timing and other environment details — and on Android, typed secrets, screen contents, voice transcripts and any audio you opted to record.

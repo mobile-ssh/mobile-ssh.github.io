@@ -10,7 +10,7 @@ export const yue: CloudGuides = {
   "cardAction": "建立虛擬機並用 Mobile SSH 連線",
   "navLabel": "揀選雲端供應商",
   "openConsole": "開啟供應商控制台",
-  "availability": "呢啲說明用供應商嘅控制台操作。獨立嘅虛擬機建立插件仲喺規劃中；Android 綜合 VPN Setup 實作只喺本機有，未正式發佈。API 部分係為將來存取做準備，手動流程唔使做。",
+  "availability": "呢啲步驟用供應商控制台。已發佈嘅 VPN Setup 外掛喺兼容 Android 版本合併雲端建立、wg-easy 安裝同用戶端匯入。你亦可以先跟指南建立 VM，再用佢嘅控制台／現有伺服器流程，或者手動安裝。控制台設定唔使喺 Mobile SSH 提供雲端 API 憑證。VPN Setup 嘅 AWS EC2 建立仍然只限控制台；未確認 iOS 有同等自動化。",
   "availabilityLink": "查看插件可用情況",
   "checked": "控制台文件核對日期：2026 年 11 月 8 日。",
   "beforeHeading": "開始之前",
@@ -41,9 +41,9 @@ export const yue: CloudGuides = {
   "vpnHeading": "另外安裝 wg-easy",
   "vpnText": "先確認已儲存嘅伺服器開到終端機，而且登入帳戶有 root 或 sudo 權限。再跟通用 wg-easy 安裝指南做：安裝 Docker、用固定版本容器、經 SSH 私密管理、建立客戶端同驗證 VPN。安裝程式需要 SSH 存取，唔需要你嘅雲端 API 密鑰。",
   "vpnLink": "繼續睇 wg-easy 安裝步驟",
-  "apiHeading": "為將來插件準備嘅可選 API 憑證",
-  "apiIntro": "用控制台設定就跳過呢部分。只有相容嘅資源建立插件需要時先建立憑證。下面權限清單係準備工作嘅指引，唔係針對已發佈插件測試過嘅最低權限政策。",
-  "apiSecretNote": "只喺受支援、受保護嘅表單輸入憑證。唔好將雲端密鑰放入語音提示、終端機指令或者虛擬機。用受支援嘅最窄權限範圍，記低到期時間，並撤銷唔再需要嘅憑證。",
+  "apiHeading": "VPN Setup 嘅可選 API 憑證",
+  "apiIntro": "控制台設定可以跳過呢節。已發佈 VPN Setup 外掛喺兼容 Android 版本，為十個支援嘅雲端供應商使用呢啲憑證；AWS 配接器用 Lightsail，唔係 EC2。EC2 憑證說明只講未來自動化。權限清單係指引，唔係對每個供應商或帳戶都實測過嘅最小權限政策。",
+  "apiSecretNote": "憑證只喺受保護原生表格輸入；填憑證同批准都要用螢幕。原生程式碼向獲准供應商端點認證，唔會將雲端秘密交畀 VM 或外掛工作程序。唔好喺語音提示詞或終端指令放秘密。用支援嘅最窄範圍、記低到期日，同撤銷唔再需要嘅憑證。",
   "cleanupHeading": "刪除唔再需要嘅資源",
   "cleanupWarning": "停止虛擬機、取消設定工作或者刪除 Mobile SSH 設定檔，都唔會刪除雲端資源，亦唔保證停止收費。確認刪除之前保留資源 ID，唔好刪走無關資源。",
   "providers": {
@@ -57,7 +57,7 @@ export const yue: CloudGuides = {
         "iOS 用戶要揀<strong>連線 → 使用 SSH 連線</strong>。將 app 嘅 Ed25519 公開金鑰加成 <code>/home/ubuntu/.ssh/authorized_keys</code> 新一行，保留現有金鑰。瀏覽器 SSH 用供應商另一把金鑰；而家靜態 IPv4 已經準備好。"
       ],
       "apiSteps": [
-        "只為將來嘅資源建立插件準備：建立專用 IAM 身分，授予所需嘅 Lightsail 執行個體、SSH 金鑰、靜態 IP 同防火牆操作權限，包括清理。支援嘅話要限制地區同資源；呢個唔係測試過嘅最低權限政策。",
+        "用 VPN Setup API 建立資源時，建立專用 IAM 身份，授予所需 Lightsail 執行個體、SSH 金鑰、靜態 IP 同防火牆操作，包括清理。支援嘅話限制區域同資源；呢個唔係經測試嘅最小權限政策。",
         "喺 <strong>IAM → 用戶 → 安全憑證</strong>，只有受支援嘅自動化需要時先建立存取金鑰。經受保護嘅原生表單提供 ID 同密鑰；臨時憑證仲需要工作階段權杖。絕對唔好用 root 金鑰。"
       ],
       "cleanupSteps": [
@@ -93,7 +93,7 @@ export const yue: CloudGuides = {
         "檢查完虛擬機設定就揀<strong>建立</strong>。等執行個體運行，再記低外部 IPv4 同上面選定嘅 SSH 用戶名稱。唔好假設用戶名稱一定係 <code>ubuntu</code>。"
       ],
       "apiSteps": [
-        "只為將來嘅資源建立插件準備：用專用服務帳戶，喺專案範圍授予 Compute Instance Admin (v1)、Compute Network Admin 同 Compute Security Admin 角色，或者更窄嘅等效權限。Compute Network Admin 唔可以建立防火牆。如果附加虛擬機服務帳戶，仲要授予對該帳戶嘅 Service Account User 角色。",
+        "用 VPN Setup API 建立資源時，使用專用服務帳戶，喺專案範圍授予 Compute Instance Admin (v1)、Compute Network Admin 同 Compute Security Admin，或更窄嘅等效角色。Compute Network Admin 建立唔到防火牆。如果 VM 附加服務帳戶，亦要授予該帳戶嘅 Service Account User。自動配接器用中繼資料 SSH 金鑰，並關閉 VM 嘅 OS Login；組織要求 OS Login 嘅話，請用獲准控制台配置。",
         "如果受支援自動化需要 JSON 金鑰，而且機構政策允許，就開啟 <strong>IAM 與管理 → 服務帳戶 → 金鑰 → 新增金鑰 → 建立新金鑰 → JSON</strong>。經受保護嘅原生設定提供專案 ID 同 JSON；絕對唔好繞過金鑰限制。"
       ],
       "cleanupSteps": [
@@ -111,8 +111,8 @@ export const yue: CloudGuides = {
         "揀<strong>檢閱 + 建立 → 建立</strong>。等部署完成，開啟虛擬機嘅<strong>概觀</strong>，記低公網 IPv4。虛擬機已經準備好 <code>azureuser</code> 帳戶同你揀嘅 SSH 金鑰。"
       ],
       "apiSteps": [
-        "只為將來嘅資源建立插件準備：喺 <strong>Microsoft Entra ID → 應用程式註冊</strong>建立專用單一租用戶 app。記低租用戶、用戶端同訂閱 ID。有需要就喺<strong>憑證與祕密</strong>建立用戶端密碼，並複製佢嘅值，唔係密碼 ID。",
-        "喺資源群組嘅<strong>存取控制 (IAM)</strong>，授予該主體合適嘅運算同網絡權限。專用群組嘅 Contributor 角色權限較廣但可用；應優先揀經測試嘅較窄角色。先建立資源群組，因為群組範圍嘅權限唔可以建立群組。用受保護嘅原生憑證設定。"
+        "用 VPN Setup API 建立資源時，喺 <strong>Microsoft Entra ID → 應用程式註冊</strong> 建立專用單一租用戶應用程式。記低租用戶、用戶端同訂閱 ID。需要嘅話喺 <strong>憑證與秘密</strong> 建立用戶端秘密，複製佢嘅值，唔係秘密 ID。",
+        "喺訂閱嘅 <strong>存取控制 (IAM)</strong>，授予呢個主體建立同刪除部署資源群組嘅權限，以及所需運算／網絡操作。VPN Setup 會建立自己嘅群組；只有現有群組嘅 Contributor 權限唔夠。使用管理員批准嘅訂閱或父層角色，喺流程容許範圍盡量收窄權限，並用受保護原生憑證設定。"
       ],
       "cleanupSteps": [
         "如果資源群組只得今次部署，檢查內容，用完就刪除群組。",
@@ -129,7 +129,7 @@ export const yue: CloudGuides = {
         "如果要喺換機後保留地址，開啟<strong>網絡 → 預留 IP → 新增預留 IP</strong>。揀 <strong>IPv4 地址 → 分配到 Droplet</strong>，選中呢個 Droplet 並確認。建立完成後，記低分配嘅公網 IPv4。"
       ],
       "apiSteps": [
-        "只適用於將來相容嘅插件：開啟<strong>帳戶 → API → 權杖 → 產生新權杖</strong>。輸入清楚嘅名稱同到期時間。",
+        "用 VPN Setup API 建立資源時：開啟 <strong>帳戶 → API → 權杖 → 產生新權杖</strong>，填容易識別嘅名稱同到期日。",
         "揀<strong>自訂範圍</strong>，授予已實作流程所需嘅 Droplet、SSH 金鑰、防火牆同預留 IP 操作及相依權限。唔好預設就用完整存取；權杖顯示時要儲存。"
       ],
       "cleanupSteps": [
@@ -147,7 +147,7 @@ export const yue: CloudGuides = {
         "輸入易認嘅<strong>名稱</strong>，檢查可選備份同總費用，再按<strong>立即建立並購買</strong>。等伺服器準備好，記低主要 IPv4。如果要重用地址，就保留該 IP 資源。"
       ],
       "apiSteps": [
-        "只適用於將來相容嘅插件：開啟目標專案嘅<strong>安全 → API 權杖 → 產生 API 權杖</strong>，輸入描述。",
+        "用 VPN Setup API 建立資源時：開啟目標專案嘅 <strong>安全 → API 權杖 → 產生 API 權杖</strong>，填說明。",
         "為資源建立揀<strong>讀寫</strong>，並喺關閉視窗前複製權杖。呢個會授予成個專案嘅寫入權限，唔係只限呢部伺服器。"
       ],
       "cleanupSteps": [
@@ -165,7 +165,7 @@ export const yue: CloudGuides = {
         "喺 <strong>Linode 摘要</strong>檢查可選備份同其他費用，再按<strong>建立 Linode</strong>。等初始化完成，記低公網 IPv4。刪除伺服器後，預留地址仍然喺你帳戶，唔可以搬去另一地區。"
       ],
       "apiSteps": [
-        "只適用於將來相容嘅插件：開啟用戶名稱選單 → <strong>API 權杖 → 建立個人存取權杖</strong>。設定標籤同到期時間。",
+        "用 VPN Setup API 建立資源時：開啟使用者名稱選單 → <strong>API 權杖 → 建立個人存取權杖</strong>，設定標籤同到期日。",
         "只授予必要範圍：建立資源通常需要 Linodes 同 Firewalls 讀寫權限；預留或釋放地址仲需要 <code>ips:read_write</code>。安全儲存權杖。"
       ],
       "cleanupSteps": [
@@ -183,7 +183,7 @@ export const yue: CloudGuides = {
         "等執行個體準備好，記低公網 IPv4。普通地址喺呢個執行個體存在期間會固定；如果要換機後保留，就用同區預留 IP。"
       ],
       "apiSteps": [
-        "只適用於將來相容嘅插件：開啟<strong>帳戶 → API</strong>，喺個人存取權杖部分揀<strong>啟用 API</strong>；該部分標示為<strong>個人存取權杖</strong>。安全保管憑證。",
+        "用 VPN Setup API 建立資源時：開啟 <strong>帳戶 → API</strong>，喺 <strong>個人存取權杖</strong> 下面揀 <strong>啟用 API</strong>。安全儲存憑證。",
         "喺<strong>存取控制</strong>允許發起 API 請求嘅 IP 或 CIDR。轉咗流動網絡之後要更新；呢個限制請求來源，唔係特定資源嘅權限。"
       ],
       "cleanupSteps": [
@@ -201,7 +201,7 @@ export const yue: CloudGuides = {
         "檢查並建立虛擬機。進入 Running 狀態後，記低公網 IPv4。如果要換虛擬機後保留地址，可以將臨時 IP 換成分配到主要私人 IP 嘅預留公網 IP，並記低新地址。"
       ],
       "apiSteps": [
-        "只適用於將來嘅資源建立插件：請管理員為專用 IAM 用戶或群組授予呢個區間所需嘅運算、網絡同磁碟區權限。",
+        "用 VPN Setup API 建立資源時：請管理員畀專用 IAM 使用者／群組呢個 compartment 所需嘅運算、網絡同磁碟區權限。",
         "開啟<strong>用戶設定 → API 金鑰 → 新增 API 金鑰</strong>。儲存 RSA PEM 簽署私密金鑰、指紋、租用戶及用戶 OCID 同地區；記低區間 OCID。呢個同 SSH 金鑰係分開嘅。"
       ],
       "cleanupSteps": [
@@ -219,7 +219,7 @@ export const yue: CloudGuides = {
         "開啟 Horizon 嘅<strong>運算 → 執行個體 → 編輯安全群組</strong>。套用專用群組，只喺呢部虛擬機移除寬鬆嘅預設群組；唔好修改或刪除共用預設群組。狀態變成 Active 後，喺概觀記低公網 IPv4。"
       ],
       "apiSteps": [
-        "只適用於將來嘅資源建立插件：開啟你帳戶 API 地區嘅權杖建立頁面。為應用程式命名，設定到期時間，將權限限制喺文件列明嘅專案路徑同動作。",
+        "用 VPN Setup API 建立資源時：開啟帳戶所屬 API 區域嘅權杖建立頁。填應用程式名稱、設到期日，再將權限限喺文件列出嘅專案路徑同操作。",
         "安全儲存應用程式金鑰、應用程式密鑰同消費者金鑰。呢啲簽署 API 憑證唔同於 Horizon 用嘅 OpenStack 用戶名稱同密碼。"
       ],
       "cleanupSteps": [
@@ -237,7 +237,7 @@ export const yue: CloudGuides = {
         "揀<strong>檢閱</strong>，睇預計費用，再揀<strong>建立執行個體</strong>。等資源建立完成，喺<strong>概觀</strong>複製公網 IPv4。呢個彈性 IP 係獨立資源，生命週期要由你管理。"
       ],
       "apiSteps": [
-        "只適用於將來嘅資源建立插件：建立 IAM 應用程式，授予目標專案所需嘅執行個體、網絡同儲存權限。",
+        "用 VPN Setup API 建立資源時：建立 IAM 應用程式，授予目標專案所需嘅 Instances、網絡同儲存權限。",
         "開啟 <strong>IAM 與 API 金鑰 → API 金鑰 → 產生 API 金鑰</strong>。揀應用程式同到期時間。儲存存取金鑰同只顯示一次嘅密鑰；另外記低專案 UUID 同可用區。"
       ],
       "cleanupSteps": [

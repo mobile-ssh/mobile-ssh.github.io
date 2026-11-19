@@ -11,9 +11,9 @@ Mobile SSH inclut un écran de transfert de fichiers SFTP lié à la connexion S
 ## Ouvrir le transfert de fichiers
 
 1. Connectez-vous à un serveur SSH.
-2. Sélectionnez le volet de terminal connecté.
-3. Ouvrez **Transfer** depuis la barre d'outils du terminal, ou appuyez longuement sur l'en-tête du volet lorsque l'écran actuel le permet.
-4. L'écran de transfert de fichiers s'ouvre avec un volet local et un volet distant.
+2. Sélectionnez le volet du terminal connecté.
+3. Ouvrez **Transfert** depuis la barre du terminal.
+4. L'écran de transfert s'ouvre avec un volet local et un volet distant.
 
 S'il n'y a pas de session SSH active, le transfert de fichiers ne peut pas s'ouvrir.
 
@@ -54,7 +54,7 @@ L'importation de la clé privée est distincte du transfert de fichiers et utili
 4. Confirmez la destination distante.
 5. Surveillez la file de transfert pour la progression et la fin.
 
-Les envois suivent la route SSH du serveur choisi, y compris ses bastions enregistrés. Après une coupure, réessayez après reconnexion.
+Les envois suivent la route SSH du serveur sélectionné, y compris les bastions enregistrés. Sur Android, ils peuvent continuer après reconnexion ; utilisez les commandes de nouvelle tentative de la file de transferts s'ils échouent.
 
 ## Télécharger des fichiers
 
@@ -97,6 +97,8 @@ Chaque volet peut trier par nom ou par date, en ordre croissant ou décroissant.
 
 Les transferts sont classés par état : En attente / Échec / Réussite sur Android, Actifs / Échec / Terminés sur iOS. Les échecs affichent le motif disponible. Sur iOS, le transfert courant reste en tête d'Actifs et peut être annulé.
 
+Sur Android, les envois et téléchargements échoués proposent **Reprendre**, **Réessayer** ou **Recommencer**, avec **Tout réessayer** pour la liste des échecs. Avant de reprendre, l'app vérifie que le fichier partiel correspond toujours ; recommencez si elle ne peut pas poursuivre sans risque. Tirez une liste de fichiers vers le bas pour l'actualiser.
+
 Sur iOS, les transferts en attente conservent leur dossier d'origine même si vous naviguez ailleurs. Les téléchargements se terminent dans un espace temporaire avant remplacement ; annulation ou échec préserve le fichier existant. Si la destination a changé après l'accord d'écrasement, l'app s'arrête.
 
 ## Sortir des fichiers de l'app
@@ -109,6 +111,8 @@ Sur iOS, les transferts en attente conservent leur dossier d'origine même si vo
 Les deux plateformes acceptent les fichiers partagés par d'autres apps et proposent 📎 **Joindre un fichier** dans le terminal. Ils sont envoyés dans `~/.cache/mobile-ssh` de l'hôte choisi ; leurs chemins peuvent être insérés à l'invite sans appuyer sur Entrée. Plusieurs fichiers sont acceptés.
 
 Sur Android, le partage vise la session en cours. Sur iOS, le trombone propose **Photothèque** ou **Fichiers**. L'extension de partage iOS peut envoyer vers un serveur SSH enregistré même lorsque Mobile SSH est fermé ; les profils Eternal Terminal sont exclus. Vérifiez d'abord toute identité inconnue dans l'app principale.
+
+Sur Android, un indicateur d'envoi dans l'en-tête du terminal affiche la progression, la vitesse, l'état d'attente ou de blocage et **Arrêter**. Le partage vers une session ouverte utilise la fenêtre de terminal existante.
 
 Après un envoi par l'extension iOS, les chemins sont copiés au presse-papiers et attendent un volet connecté à ce serveur pour être insérés. Ils ne sont jamais insérés dans un volet connecté à un autre hôte.
 

@@ -17,7 +17,7 @@ Mobile SSH na SSH client for Android and iOS wey you fit use connect to your own
 
 ## Install di app
 
-- **Android:** Mobile SSH na closed test for Google Play right now. Open di opt-in link inside mobile browser for di device — no be inside di Google Play app, where di test fit no dey visible — and join wit di Google account wey you go use. After dat, e go install and dey update from Play like any oda app.
+- **Android:** install Mobile SSH from Google Play with di link for home page. Availability depend on release track. If you dey join closed test, open im opt-in link for browser and join with di Google account wey Play dey use.
 - **iOS:** di iOS app dey come as public beta for TestFlight. Install Apple TestFlight app, then open di Mobile SSH invite link from di site home page to install am and dey receive updates.
 
 ## Connect to one server
@@ -87,7 +87,7 @@ To use private key:
 3. Enter di key passphrase for di password/passphrase field if di key dey encrypted.
 4. Save di credential or server.
 
-Private key import uses system file picker. E no grant access to di rest of your storage; file transfer get its own folder and file selections.
+Private key import dey use system file picker. Android no dey accept key file wey pass 64 KB. Import no give access to all your storage; file transfer get im own folder and file selections.
 
 Android still supports **FIDO2 security keys** through USB and NFC: enroll key or import OpenSSH security-key credential, then follow touch and PIN prompts. Di physical key still dey required after you export or restore that credential. **SSH agent forwarding** na separate opt-in for each server on Android: saved credentials fit answer signing requests, with optional approval before each use. Enable am only for servers wey you trust to request signatures. iOS no support security-key login or agent forwarding.
 
@@ -121,6 +121,8 @@ Both apps fit read current backup format 2 and older inventory backups. Review d
 
 Host identities, active sessions, system permissions and selected-folder access no dey restored. Verify hosts and grant local folder access for di destination device. Older app versions no fit read di new full-backup format.
 
+Android backups still exclude prompt templates and their editor drafts, downloaded models, voice-host settings, VPN Setup cloud login details, and Chat or prompt-run caches. Set these ones again for new phone; backup no dey move or remove schedules wey already dey server.
+
 ## Active sessions
 
 When sessions dey run, di start screen shows **Active Sessions** with count. Tap am to return to terminal grid. For Android, ongoing notification still lists active hosts and opens di active connection controls.
@@ -138,6 +140,32 @@ Open **Settings** from di start screen (e get im own page):
 - Both platforms get anonymous usage analytics switch for Settings. Turning am off stops collecting new events.
 - For iOS, **Dictation & suggestions** dey enabled by default. Turn am off and open new pane if you prefer direct terminal input without dictation or autocorrection.
 - Remote notifications, command-finished alerts and remote clipboard reads na separate opt-in settings. Enable only di remote actions wey you want.
+- For Android, **Voice assistant**, **Prompt templates** and **In-App Browser** na optional features wey dey off by default. Voice get im own Settings page; di other two dey under **General**.
+
+## Voice assistant for Android
+
+Voice assistant na experimental feature wey dey off by default. E fit use Gemma 4 for supported 64-bit phone, or voice service for your own Linux SSH server.
+
+1. Open **Settings → Voice assistant** and enable di assistant.
+2. For speech processing inside phone, enable **Use Gemma on this phone (no voice server)**, choose model wey app offer and tap **Download**. Or choose saved Linux voice host and follow service setup; e need Python 3.11–3.13, systemd user services and several GB of free space.
+3. Start voice conversation for di terminal wey you wan control. Choose **Messages** to record, review and send, or **Live** for hands-free conversation with spoken replies. Custom voice-server address dey use Live mode.
+4. Review proposed commands before you confirm dem. Gemma fit run short list of read-only checks without confirmation; commands outside that list and prompts to Claude Code or Codex need your confirmation or **Send**.
+
+Phone models dey download about 2.6–3.7 GB from Hugging Face only after you tap Download. Metered downloads need confirmation, and download wey start for Wi-Fi dey pause if connection turn metered. With Gemma, speech dey stay for phone; server option dey send audio to di voice service wey you configure. App dey ask microphone permission when you use voice feature. If offline speech voice no dey, app go offer to download one through your phone speech engine.
+
+If another app take audio focus or headset send Stop, conversation dey pause and keep im mode and context. Use **Continue conversation** for Voice page or notification, or press headset Play. Pause wey another app audio cause go end when that audio finish.
+
+## Prompt templates for Android
+
+Prompt templates na experimental feature wey dey off by default. Dem dey schedule read-only Claude Code or Codex runs for your own server. Server need Python 3.8 or newer, cron and coding agent wey don sign in.
+
+1. Enable **Settings → General → Prompt templates**.
+2. Open **Prompts** for Home or di prompt-template entry for saved server menu.
+3. Create template with prompt, server, project folder and Claude Code or Codex. Choose time zone and schedule daily, weekdays, selected days or every 1–12 hours.
+4. Save di template, then connect to im server to sync am. Mobile SSH dey install small helper and one crontab entry; schedules dey run for server even when phone disconnect.
+5. Review output and status for each run, or choose **Run now**, **Pause** or **Remove from server**.
+
+Templates and editor drafts dey encrypted for phone and dem no enter backups. Gemma model wey you download fit help draft and revise prompt. Turning di feature off dey hide im controls and stop phone-side syncing; e no stop or remove schedules wey already dey server. Pause or remove those schedules for Prompt templates first.
 
 ## Plugins
 
@@ -148,6 +176,8 @@ Plugins dey add extra workflow give Mobile SSH. Open **Plugins** from di start s
 - Run plugins wey you don install from di same screen.
 
 By default, na public catalog dem dey pull plugins from. If you dey run your own, you fit point Mobile SSH go custom or private catalog source. Na only plugins wey come from source wey you trust you suppose install.
+
+For Android, catalog plugins dey show **Update to** when newer version dey available. Updates dey use original catalog, keep plugin settings and data, and ask approval if dem need extra access. Dem no dey downgrade installed version.
 
 ## Languages
 

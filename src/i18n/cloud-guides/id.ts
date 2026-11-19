@@ -10,7 +10,7 @@ export const id: CloudGuides = {
   "cardAction": "Membuat VM dan menghubungkan dengan Mobile SSH",
   "navLabel": "Pilih penyedia cloud",
   "openConsole": "Buka konsol penyedia",
-  "availability": "Petunjuk ini menggunakan konsol penyedia. Plugin pembuatan VM terpisah masih direncanakan; implementasi gabungan Android VPN Setup bersifat lokal dan belum dipublikasikan. Bagian API menyiapkan akses mendatang dan tidak diperlukan untuk cara manual ini.",
+  "availability": "Petunjuk ini memakai konsol penyedia. Plugin VPN Setup yang telah diterbitkan menggabungkan pembuatan cloud, pemasangan wg-easy, dan impor klien pada build Android yang kompatibel. Anda juga dapat membuat VM di sini lalu memakai jalur konsol/server yang ada pada plugin, atau memasang secara manual. Pengaturan konsol tidak memerlukan kredensial API cloud di Mobile SSH. Penyediaan AWS EC2 untuk VPN Setup tetap melalui konsol saja; otomatisasi setara pada iOS belum terkonfirmasi.",
   "availabilityLink": "Periksa ketersediaan plugin",
   "checked": "Dokumentasi konsol diperiksa pada 8 November 2026.",
   "beforeHeading": "Sebelum memulai",
@@ -41,9 +41,9 @@ export const id: CloudGuides = {
   "vpnHeading": "Instal wg-easy sebagai langkah terpisah",
   "vpnText": "Pastikan dahulu server tersimpan dapat membuka terminal dan pengguna Anda memiliki akses root atau sudo. Lalu ikuti panduan instalasi wg-easy bersama: Docker, kontainer dengan versi yang dipatok, administrasi privat melalui SSH, pembuatan klien, dan verifikasi VPN. Penginstal memerlukan akses SSH, bukan rahasia API cloud Anda.",
   "vpnLink": "Lanjut ke langkah instalasi wg-easy",
-  "apiHeading": "Kredensial API opsional untuk plugin mendatang",
-  "apiIntro": "Lewati bagian ini jika menggunakan konsol. Buat kredensial hanya saat alat penyediaan yang kompatibel memerlukannya. Daftar izin di bawah adalah panduan persiapan, bukan kebijakan minimum teruji untuk plugin yang telah dirilis.",
-  "apiSecretNote": "Masukkan kredensial hanya pada formulir terlindungi yang didukung. Jangan masukkan rahasia cloud ke perintah suara, perintah terminal, atau VM. Gunakan cakupan tersempit yang didukung, catat masa berlaku, dan cabut kredensial yang tidak diperlukan lagi.",
+  "apiHeading": "Kredensial API opsional untuk VPN Setup",
+  "apiIntro": "Lewati bagian ini untuk pengaturan konsol. Plugin VPN Setup yang telah diterbitkan memakai kredensial ini untuk sepuluh penyedia cloud yang didukung pada build Android kompatibel; adaptor AWS memakai Lightsail, bukan EC2. Catatan kredensial EC2 hanya menjelaskan otomatisasi mendatang. Daftar izin ini merupakan panduan, bukan kebijakan minimum yang sudah diuji langsung untuk setiap penyedia atau akun.",
+  "apiSecretNote": "Masukkan kredensial hanya pada formulir native terlindungi; pengisian dan persetujuan memerlukan layar. Kode native mengautentikasi ke endpoint penyedia yang disetujui tanpa mengirim rahasia cloud ke VM atau pekerja plugin. Jangan menaruh rahasia dalam prompt suara atau perintah terminal. Gunakan lingkup terkecil yang didukung, catat masa berlaku, dan cabut kredensial yang tidak diperlukan lagi.",
   "cleanupHeading": "Hapus sumber daya yang tidak diperlukan lagi",
   "cleanupWarning": "Menghentikan VM, membatalkan tugas penyiapan, atau menghapus profil Mobile SSH tidak menghapus sumber daya cloud maupun menjamin biaya berhenti. Simpan ID sumber daya sampai penghapusan dikonfirmasi, dan pertahankan sumber daya yang tidak terkait.",
   "providers": {
@@ -57,7 +57,7 @@ export const id: CloudGuides = {
         "Untuk iOS, pilih <strong>Hubungkan → Hubungkan menggunakan SSH</strong>. Tambahkan kunci publik Ed25519 aplikasi sebagai baris baru di <code>/home/ubuntu/.ssh/authorized_keys</code>, tanpa menghapus kunci yang ada. SSH browser menggunakan kunci penyedia terpisah; IPv4 statis Anda kini siap."
       ],
       "apiSteps": [
-        "Hanya untuk alat penyediaan mendatang, buat identitas IAM khusus dengan tindakan Lightsail yang diperlukan untuk instans, kunci SSH, IP statis, dan firewall, termasuk penghapusan. Batasi wilayah dan sumber daya jika didukung; ini bukan kebijakan minimum teruji.",
+        "Untuk penyediaan API VPN Setup, buat identitas IAM khusus dengan tindakan Lightsail yang diperlukan untuk instance, kunci SSH, IP statis, dan firewall, termasuk pembersihan. Batasi wilayah dan sumber daya bila didukung; ini bukan kebijakan minimum yang telah diuji.",
         "Di <strong>IAM → Pengguna → Kredensial keamanan</strong>, buat kunci akses hanya saat otomatisasi yang didukung memerlukannya. Masukkan ID dan rahasianya melalui formulir native terlindungi; kredensial sementara juga memerlukan token sesi. Jangan pernah menggunakan kunci root."
       ],
       "cleanupSteps": [
@@ -93,7 +93,7 @@ export const id: CloudGuides = {
         "Selesaikan peninjauan konfigurasi VM dan pilih <strong>Buat</strong>. Tunggu sampai instans berjalan, lalu catat IPv4 eksternal dan nama pengguna SSH yang dipilih di atas. Jangan menganggap nama pengguna adalah <code>ubuntu</code>."
       ],
       "apiSteps": [
-        "Hanya untuk alat penyediaan mendatang, gunakan akun layanan khusus dengan peran Admin Instans Compute (v1), Admin Jaringan Compute, dan Admin Keamanan Compute pada cakupan proyek, atau padanan yang lebih terbatas. Admin Jaringan Compute tidak dapat membuat firewall. Jika memasang akun layanan VM, berikan juga peran Pengguna Akun Layanan pada akun tersebut.",
+        "Untuk penyediaan API VPN Setup, gunakan akun layanan khusus dengan peran Compute Instance Admin (v1), Compute Network Admin, dan Compute Security Admin dalam lingkup proyek, atau padanan yang lebih terbatas. Compute Network Admin tidak dapat membuat firewall. Jika memasangkan akun layanan VM, berikan juga Service Account User pada akun tersebut. Adaptor otomatis memakai kunci SSH metadata dan menonaktifkan OS Login pada VM-nya; jika organisasi mewajibkan OS Login, gunakan konfigurasi konsol yang disetujui.",
         "Jika otomatisasi yang didukung memerlukan kunci JSON dan kebijakan organisasi mengizinkannya, buka <strong>IAM dan Admin → Akun layanan → Kunci → Tambahkan kunci → Buat kunci baru → JSON</strong>. Masukkan ID proyek dan JSON melalui pengaturan native terlindungi; jangan pernah melewati pembatasan kunci."
       ],
       "cleanupSteps": [
@@ -111,8 +111,8 @@ export const id: CloudGuides = {
         "Pilih <strong>Tinjau + buat → Buat</strong>. Tunggu penerapan, lalu buka <strong>Ringkasan</strong> VM dan catat IPv4 publiknya. VM siap dengan akun <code>azureuser</code> dan kunci SSH pilihan Anda."
       ],
       "apiSteps": [
-        "Hanya untuk alat penyediaan mendatang, buat aplikasi khusus satu tenant di <strong>Microsoft Entra ID → Pendaftaran aplikasi</strong>. Catat ID tenant, klien, dan langganan. Jika perlu, buat rahasia klien di <strong>Sertifikat dan rahasia</strong>, lalu salin Nilainya, bukan ID rahasianya.",
-        "Di <strong>Kontrol akses (IAM)</strong> grup sumber daya, berikan izin komputasi/jaringan yang sesuai kepada prinsipal tersebut. Kontributor pada grup khusus ini luas tetapi dapat digunakan; utamakan peran lebih terbatas yang telah diuji. Buat grup terlebih dahulu karena izin dalam cakupan grup tidak dapat membuatnya. Gunakan pengaturan kredensial native terlindungi."
+        "Untuk penyediaan API VPN Setup, buat aplikasi single-tenant khusus pada <strong>Microsoft Entra ID → App registrations</strong>. Catat ID tenant, klien, dan langganan. Jika perlu, buat rahasia klien pada <strong>Certificates &amp; secrets</strong> dan salin Value-nya, bukan ID rahasianya.",
+        "Dalam <strong>Access control (IAM)</strong> langganan, berikan principal ini izin membuat dan menghapus grup sumber daya deployment serta operasi komputasi/jaringan yang diperlukan. VPN Setup membuat grupnya sendiri; akses Contributor yang terbatas pada grup yang sudah ada tidak cukup. Gunakan peran yang disetujui administrator pada lingkup langganan atau induk, batasi sejauh alur ini memungkinkan, dan gunakan pengaturan kredensial native terlindungi."
       ],
       "cleanupSteps": [
         "Jika grup sumber daya hanya berisi penerapan ini, tinjau isinya dan hapus grup setelah selesai.",
@@ -129,7 +129,7 @@ export const id: CloudGuides = {
         "Agar alamat bertahan saat server diganti, buka <strong>Jaringan → IP yang dipesan → Tambahkan IP yang dipesan</strong>. Pilih <strong>Alamat IPv4 → Tetapkan ke Droplet</strong>, pilih Droplet ini, lalu konfirmasi. Catat IPv4 publik yang ditetapkan setelah penyediaan selesai."
       ],
       "apiSteps": [
-        "Hanya untuk plugin kompatibel mendatang: buka <strong>Akun → API → Token → Buat token baru</strong>. Masukkan nama yang jelas dan masa berlaku.",
+        "Untuk penyediaan API VPN Setup: buka <strong>Account → API → Tokens → Generate New Token</strong>. Masukkan nama yang jelas dan masa berlaku.",
         "Pilih <strong>Cakupan khusus</strong> untuk operasi Droplet, kunci SSH, firewall, IP yang dipesan, serta dependensi yang diperlukan prosedur terimplementasi. Jangan otomatis memilih Akses Penuh; simpan token saat ditampilkan."
       ],
       "cleanupSteps": [
@@ -147,7 +147,7 @@ export const id: CloudGuides = {
         "Masukkan <strong>Nama</strong> yang mudah dikenali, tinjau cadangan opsional dan biaya total, lalu klik <strong>Buat dan beli sekarang</strong>. Tunggu server siap dan catat IPv4 utamanya. Pertahankan sumber daya IP itu jika ingin memakai ulang alamatnya."
       ],
       "apiSteps": [
-        "Hanya untuk plugin kompatibel mendatang: buka <strong>Keamanan → Token API → Buat token API</strong> pada proyek yang dituju dan masukkan deskripsi.",
+        "Untuk penyediaan API VPN Setup: buka <strong>Security → API tokens → Generate API token</strong> di proyek tujuan dan masukkan deskripsi.",
         "Pilih <strong>Baca dan Tulis</strong> untuk penyediaan dan salin token sebelum menutup jendela. Ini memberi akses tulis di seluruh proyek, bukan izin terbatas pada satu server ini."
       ],
       "cleanupSteps": [
@@ -165,7 +165,7 @@ export const id: CloudGuides = {
         "Tinjau cadangan opsional dan biaya lain di <strong>Ringkasan Linode</strong>, lalu klik <strong>Buat Linode</strong>. Tunggu inisialisasi dan catat IPv4 publiknya. Alamat yang dipesan tetap ada di akun setelah server dihapus dan tidak dapat dipindahkan ke wilayah lain."
       ],
       "apiSteps": [
-        "Hanya untuk plugin kompatibel mendatang: buka menu nama pengguna → <strong>Token API → Buat Token Akses Pribadi</strong>. Tetapkan label dan masa berlaku.",
+        "Untuk penyediaan API VPN Setup: buka menu nama pengguna → <strong>API Tokens → Create a Personal Access Token</strong>. Atur label dan masa berlaku.",
         "Berikan hanya cakupan yang diperlukan: penyediaan biasanya memerlukan Baca/Tulis untuk Linode dan Firewall; memesan atau melepaskan alamat juga memerlukan <code>ips:read_write</code>. Simpan token dengan aman."
       ],
       "cleanupSteps": [
@@ -183,7 +183,7 @@ export const id: CloudGuides = {
         "Tunggu instans siap dan catat IPv4 publiknya. Alamat biasa tetap sama selama instans ini ada; gunakan IP yang dipesan di wilayah yang sama jika alamat harus bertahan saat penggantian."
       ],
       "apiSteps": [
-        "Hanya untuk plugin kompatibel mendatang: buka <strong>Akun → API</strong>, lalu <strong>Aktifkan API</strong> di bawah <strong>Token Akses Pribadi</strong>. Simpan kredensial dengan aman.",
+        "Untuk penyediaan API VPN Setup: buka <strong>Account → API</strong>, lalu <strong>Enable API</strong> pada <strong>Personal Access Token</strong>. Simpan kredensial dengan aman.",
         "Di <strong>Kontrol Akses</strong>, izinkan IP/CIDR yang akan menjadi asal permintaan API. Perbarui setelah perubahan jaringan seluler; ini membatasi asal permintaan, bukan izin atas sumber daya tertentu."
       ],
       "cleanupSteps": [
@@ -201,7 +201,7 @@ export const id: CloudGuides = {
         "Tinjau dan buat VM. Setelah Berjalan, catat IPv4 publiknya. Agar alamat bertahan saat VM diganti, Anda dapat mengganti IP sementara dengan IP publik yang dipesan dan ditetapkan ke IP privat utamanya; catat alamat baru."
       ],
       "apiSteps": [
-        "Hanya untuk plugin penyediaan mendatang: minta administrator memberikan izin komputasi, jaringan, dan volume yang diperlukan kepada pengguna/grup IAM khusus di kompartemen ini.",
+        "Untuk penyediaan API VPN Setup: minta administrator memberi pengguna/grup IAM khusus izin komputasi, jaringan, dan volume yang diperlukan dalam compartment ini.",
         "Buka <strong>Pengaturan pengguna → Kunci API → Tambahkan kunci API</strong>. Simpan kunci privat penandatangan RSA PEM, sidik jari, OCID tenancy/pengguna, serta wilayah; catat OCID kompartemen. Ini terpisah dari kunci SSH."
       ],
       "cleanupSteps": [
@@ -219,7 +219,7 @@ export const id: CloudGuides = {
         "Buka <strong>Komputasi → Instans → Edit Grup Keamanan</strong> di Horizon. Terapkan grup khusus dan lepaskan grup default yang permisif hanya dari VM ini; jangan pernah mengedit/menghapus grup default bersama. Setelah Aktif, catat IPv4 publik dari Ringkasannya."
       ],
       "apiSteps": [
-        "Hanya untuk plugin penyediaan mendatang: buka halaman pembuatan token untuk wilayah API akun. Beri nama aplikasi, tetapkan masa berlaku, dan batasi Hak pada jalur/tindakan proyek yang didokumentasikan.",
+        "Untuk penyediaan API VPN Setup: buka halaman pembuatan token untuk wilayah API akun Anda. Beri nama aplikasi, atur masa berlaku, dan batasi Rights pada jalur/tindakan proyek yang terdokumentasi.",
         "Simpan kunci aplikasi, rahasia aplikasi, dan kunci konsumen dengan aman. Kredensial API bertanda tangan ini berbeda dari nama pengguna/kata sandi OpenStack yang digunakan Horizon."
       ],
       "cleanupSteps": [
@@ -237,7 +237,7 @@ export const id: CloudGuides = {
         "Pilih <strong>Tinjau</strong>, periksa perkiraan biaya, lalu <strong>Buat Instans</strong>. Tunggu penyediaan selesai dan salin IPv4 publik dari <strong>Ringkasan</strong>. IP fleksibel ini adalah sumber daya terpisah yang siklus hidupnya harus Anda kelola."
       ],
       "apiSteps": [
-        "Hanya untuk plugin penyediaan mendatang: buat aplikasi IAM dan berikan izin yang diperlukan untuk Instans, jaringan, dan penyimpanan pada Proyek tujuan.",
+        "Untuk penyediaan API VPN Setup: buat aplikasi IAM dan berikan izin yang diperlukan untuk Instances, jaringan, dan penyimpanan pada Project tujuan.",
         "Buka <strong>IAM dan kunci API → Kunci API → Buat kunci API</strong>. Pilih aplikasi dan masa berlaku. Simpan kunci akses serta rahasia yang ditampilkan sekali; catat UUID Proyek dan zona secara terpisah."
       ],
       "cleanupSteps": [

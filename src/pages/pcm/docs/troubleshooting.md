@@ -54,6 +54,7 @@ Private key import dey use di system file picker. If import fail:
 
 - Confirm say di file wey you select na private key, no be public `.pub` file.
 - Open di file for trusted text editor and verify say e get di full key block.
+- For Android, imported key files no fit pass 64 KB; select di key itself, no be archive or unrelated file.
 - Try paste di key by hand inside di private key field.
 - Confirm say di key type dey supported: Ed25519, ECDSA (P-256/384/521), or RSA for Android; Ed25519 or ECDSA for iOS. DSA (`ssh-dss`) no dey work for any of dem, and iOS no dey support RSA — generate Ed25519 key instead.
 
@@ -68,6 +69,10 @@ Server need OpenSSH 8.2 or newer with selected `sk-*` allowed. U2F-only keys and
 Android send keyboard input directly without autocorrect or prediction. For iOS, **Dictation and suggestions** dey on by default for voice and current-line corrections. If e change shell input unexpectedly, turn am off, check **Keyboard suggestions**, then open new pane.
 
 Use extra key row for `ESC`, `TAB`, `CTRL`, arrows, `HOME`, `END`, `PGUP` and `PGDN`. Network wey hang fit delay input. Android header show **no reply** or **not sent**; wetin you type during reconnect get dropped, e no replay for fresh shell. Wait, inspect prompt, retype only wetin necessary.
+
+## Chat na read-only for Android
+
+Check say server get Python 3.8 or newer, select di right Claude Code or Codex conversation, and install di hooks wey Chat offer. Complete any provider trust approval or native reload/resume wey go load dem. Agent wey already dey run fit never load newly installed hooks; Mobile SSH no go restart am for you.
 
 ## tmux scrolling no be wetin you expect
 
@@ -115,6 +120,8 @@ Check:
 - Enough free space dey on di device.
 - Di network stable for large transfers.
 
+For Android, use **Resume**, **Retry**, **Restart** or **Retry all** for transfer queue after you fix di cause. Resume dey check say partial file still match; use Restart if e no fit continue safely. Terminal upload chip dey show waiting or stalled status and offer **Stop**.
+
 ## Port forward fail
 
 Check:
@@ -141,6 +148,8 @@ Check import preview and **Merge** or **Replace**. Sections wey missing for old/
 
 Host identities, system permissions and folder access stay local. Verify hosts and grant folder/VPN access for new device. Hardware-key credentials still need physical key. Import no start VPN; review profiles before you start dem.
 
+Android still exclude prompt templates and editor drafts, downloaded models, voice-host settings, VPN Setup cloud login details, and Chat or prompt-run caches. Set these again for destination device. Server schedules dey separate: turning prompt templates off for phone no dey stop runs wey already get schedule for server.
+
 ## Remote desktop no dey or e no fit resize
 
 Open viewer from connected SSH session and check local TCP-forward permission. For Linux, follow missing-package message to install desktop/VNC. Android no mirror Wayland console; use supported virtual desktop.
@@ -151,8 +160,10 @@ For macOS, enable Screen Sharing for di Mac settings. Android supports Mac accou
 
 Di two platforms dey record different thing, so pick di one wey match your problem.
 
-**Android — terminal and rendering.** Enable **Settings → Debugging → Show Debug and Logs buttons**, then use di **Debug** button wey go show for di start screen. E dey record terminal event, SSH data size, touch input, resize behavior, and tunnel lifecycle. Wen you start recording e go first warn you say e dey capture every key wey you type, password join. Wen you stop am, e dey write archive enter your Downloads folder.
+**Android — terminal, voice and rendering.** Enable **Settings → Debugging → Show Debug and Logs buttons**, then use di **Debug** button wey appear for start screen. E dey record terminal events, SSH data sizes, touch input, resize behavior and tunnel lifecycle. Consent prompt dey warn say e records typed keys, including passwords, and screen contents. Voice recordings include transcribed input and reply text; audio samples only enter if you separately enable that option for Settings.
+
+Choose archive folder wey app fit write to when you start first recording. Mobile SSH go remember am; change am under **Settings → Debugging → Debug archive folder**. If export fail, archive go stay for phone so you fit choose another folder and retry.
 
 **iOS — connection and reconnect.** Turn on **Settings → Diagnostics → Record debug log**. E dey record each address wey e dial and why e fail, reconnect try and dem backoff, connection wey drop, "peer stopped answering keepalives", network change, and tmux command wit dem error. Settings dey show live line count so you fit confirm say e dey record, and **Export Debug Log** dey share am as text file. E dey hold am for memory and e dey cover only di current app session.
 
-Review any debug log or archive before you share am. Dem na for troubleshooting and dem fit reveal server names, addresses, timing, or oda environment details — and for Android, anything wey you type.
+Review any debug log or archive before you share am. Dem fit reveal server names, addresses, timing and other environment details — and for Android, secrets wey you type, screen contents, voice transcripts and audio wey you choose to record.

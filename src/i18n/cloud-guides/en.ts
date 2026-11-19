@@ -10,7 +10,7 @@ export const en: CloudGuides = {
   "cardAction": "Create a VM and connect with Mobile SSH",
   "navLabel": "Choose a cloud provider",
   "openConsole": "Open the provider console",
-  "availability": "These instructions use the provider's console. Separate VM-creation plugins are planned; the combined Android VPN Setup implementation is local and unpublished. The API section prepares future access and is unnecessary for this manual route.",
+  "availability": "These instructions use the provider's console. The published VPN Setup plugin combines cloud creation, wg-easy installation and client import on compatible Android builds. You can also create the VM here and use its console/existing-server path, or install manually. Console setup needs no cloud API credentials in Mobile SSH. AWS EC2 remains a console-only provisioning option for VPN Setup; equivalent iOS automation is not established.",
   "availabilityLink": "Check plugin availability",
   "checked": "Console documentation checked November 8, 2026.",
   "beforeHeading": "Before you start",
@@ -41,9 +41,9 @@ export const en: CloudGuides = {
   "vpnHeading": "Install wg-easy as a separate step",
   "vpnText": "First confirm the saved server opens a terminal and your login has root or sudo access. Then follow the shared wg-easy installation guide: Docker, a pinned container, private administration over SSH, client creation and VPN verification. The installer needs SSH access, not your cloud API secret.",
   "vpnLink": "Continue to the wg-easy installation steps",
-  "apiHeading": "Optional API credentials for a future plugin",
-  "apiIntro": "Skip this section for console setup. Create credentials only when a compatible provisioner requires them. The permission lists below are preparation guidance, not tested minimum policies for a released plugin.",
-  "apiSecretNote": "Enter credentials only in a supported protected form. Do not put cloud secrets into voice prompts, terminal commands or the VM. Use the narrowest supported scope, record expiry, and revoke credentials you no longer need.",
+  "apiHeading": "Optional API credentials for VPN Setup",
+  "apiIntro": "Skip this section for console setup. The published VPN Setup plugin uses these credentials for its ten supported cloud providers on compatible Android builds; its AWS adapter uses Lightsail, not EC2. The EC2 credential notes describe future automation only. These permission lists are guidance, not live-tested minimum policies for every provider or account.",
+  "apiSecretNote": "Enter credentials only in the protected native form; credential entry and approvals require the screen. Native code authenticates with approved provider endpoints, without passing cloud secrets to the VM or plugin worker. Do not put secrets into voice prompts or terminal commands. Use the narrowest supported scope, record expiry, and revoke credentials you no longer need.",
   "cleanupHeading": "Delete resources you no longer need",
   "cleanupWarning": "Stopping the VM, canceling a setup job or removing a Mobile SSH profile does not delete cloud resources or guarantee that charges stop. Keep resource IDs until deletion is confirmed, and retain unrelated resources.",
   "providers": {
@@ -57,7 +57,7 @@ export const en: CloudGuides = {
         "For iOS, select <strong>Connect → Connect using SSH</strong>. Add your app’s Ed25519 public key as a new line in <code>/home/ubuntu/.ssh/authorized_keys</code>, preserving existing keys. Browser SSH uses a separate provider key; your static IPv4 is now ready."
       ],
       "apiSteps": [
-        "For a future provisioner only, create a dedicated IAM identity with the required Lightsail instance, SSH-key, static-IP and firewall actions, including cleanup. Restrict region and resources where supported; this is not a tested minimum policy.",
+        "For VPN Setup API provisioning, create a dedicated IAM identity with the required Lightsail instance, SSH-key, static-IP and firewall actions, including cleanup. Restrict region and resources where supported; this is not a tested minimum policy.",
         "Under <strong>IAM → Users → Security credentials</strong>, create an access key only when supported automation needs it. Supply its ID and secret through the protected native form; temporary credentials also require their session token. Never use root keys."
       ],
       "cleanupSteps": [
@@ -93,7 +93,7 @@ export const en: CloudGuides = {
         "Finish reviewing the VM configuration and select <strong>Create</strong>. Wait until the instance is running, then record its external IPv4 and the SSH username selected above. Do not assume the username is <code>ubuntu</code>."
       ],
       "apiSteps": [
-        "For a future provisioner only, use a dedicated service account with project-scoped Compute Instance Admin (v1), Compute Network Admin and Compute Security Admin roles, or narrower equivalents. Compute Network Admin cannot create firewalls. If attaching a VM service account, also grant Service Account User on it.",
+        "For VPN Setup API provisioning, use a dedicated service account with project-scoped Compute Instance Admin (v1), Compute Network Admin and Compute Security Admin roles, or narrower equivalents. Compute Network Admin cannot create firewalls. If attaching a VM service account, also grant Service Account User on it. The automatic adapter uses metadata SSH keys and disables OS Login on its VM; if your organization requires OS Login, use an approved console configuration instead.",
         "If supported automation needs a JSON key and organization policy permits it, open <strong>IAM &amp; Admin → Service accounts → Keys → Add key → Create new key → JSON</strong>. Supply the project ID and JSON through protected native settings; never bypass a key restriction."
       ],
       "cleanupSteps": [
@@ -111,8 +111,8 @@ export const en: CloudGuides = {
         "Select <strong>Review + create → Create</strong>. Wait for deployment, then open the VM’s <strong>Overview</strong> and record its public IPv4. The VM is ready with the <code>azureuser</code> account and your chosen SSH key."
       ],
       "apiSteps": [
-        "For a future provisioner only, create a dedicated single-tenant app under <strong>Microsoft Entra ID → App registrations</strong>. Record tenant, client and subscription IDs. If required, create a client secret under <strong>Certificates &amp; secrets</strong> and copy its Value, not its secret ID.",
-        "In the resource group’s <strong>Access control (IAM)</strong>, assign suitable compute/network permissions to that principal. Contributor on this dedicated group is broad but workable; prefer a narrower tested role. Pre-create the group because group-scoped permission cannot create it. Use protected native credential settings."
+        "For VPN Setup API provisioning, create a dedicated single-tenant app under <strong>Microsoft Entra ID → App registrations</strong>. Record tenant, client and subscription IDs. If required, create a client secret under <strong>Certificates &amp; secrets</strong> and copy its Value, not its secret ID.",
+        "In the subscription's <strong>Access control (IAM)</strong>, grant this principal permission to create and delete the deployment's resource group plus the required compute/network operations. VPN Setup creates its own group; Contributor access limited to a pre-existing group is insufficient. Use an administrator-approved role at subscription or parent scope, restricted as far as this workflow permits, and protected native credential settings."
       ],
       "cleanupSteps": [
         "If the resource group contains only this deployment, review its contents and delete the group when finished.",
@@ -129,7 +129,7 @@ export const en: CloudGuides = {
         "For an address retained across replacement, open <strong>Networking → Reserved IPs → Add a Reserved IP</strong>. Choose <strong>IPv4 Address → Assign to Droplet</strong>, select this Droplet and confirm. Record the assigned public IPv4 when provisioning finishes."
       ],
       "apiSteps": [
-        "Only for a future compatible plugin: open <strong>Account → API → Tokens → Generate New Token</strong>. Enter a descriptive name and expiry.",
+        "For VPN Setup API provisioning: open <strong>Account → API → Tokens → Generate New Token</strong>. Enter a descriptive name and expiry.",
         "Choose <strong>Custom Scopes</strong> for the implemented workflow’s required Droplet, SSH-key, firewall and Reserved-IP operations and dependencies. Avoid defaulting to Full Access; save the token when shown."
       ],
       "cleanupSteps": [
@@ -147,7 +147,7 @@ export const en: CloudGuides = {
         "Enter a recognizable <strong>Name</strong>, review optional backups and the total cost, then click <strong>Create & Buy Now</strong>. Wait for the server to become ready and record its Primary IPv4. Keep that IP resource if you need to reuse the address."
       ],
       "apiSteps": [
-        "Only for a future compatible plugin: open the intended project’s <strong>Security → API tokens → Generate API token</strong> and enter a description.",
+        "For VPN Setup API provisioning: open the intended project’s <strong>Security → API tokens → Generate API token</strong> and enter a description.",
         "Choose <strong>Read & Write</strong> for provisioning and copy the token before closing the window. This grants project-wide write access, not permission limited to this single server."
       ],
       "cleanupSteps": [
@@ -165,7 +165,7 @@ export const en: CloudGuides = {
         "Review optional backups and other charges in <strong>Linode Summary</strong>, then click <strong>Create Linode</strong>. Wait for initialization and record its public IPv4. The reserved address remains with your account after server deletion and cannot move to another region."
       ],
       "apiSteps": [
-        "Only for a future compatible plugin: open your username menu → <strong>API Tokens → Create a Personal Access Token</strong>. Set a label and expiry.",
+        "For VPN Setup API provisioning: open your username menu → <strong>API Tokens → Create a Personal Access Token</strong>. Set a label and expiry.",
         "Grant only required scopes: provisioning generally needs Linodes and Firewalls Read/Write; reserving or releasing addresses also needs <code>ips:read_write</code>. Save the token securely."
       ],
       "cleanupSteps": [
@@ -183,7 +183,7 @@ export const en: CloudGuides = {
         "Wait for the instance to become ready and record its public IPv4. The ordinary address stays fixed while this instance exists; use a same-region Reserved IP if it must survive replacement."
       ],
       "apiSteps": [
-        "Only for a future compatible plugin: open <strong>Account → API</strong>, then <strong>Enable API</strong> under <strong>Personal Access Token</strong>. Store the credential securely.",
+        "For VPN Setup API provisioning: open <strong>Account → API</strong>, then <strong>Enable API</strong> under <strong>Personal Access Token</strong>. Store the credential securely.",
         "Under <strong>Access Control</strong>, allow the IP/CIDR that will originate API requests. Update it after mobile-network changes; this restricts request origin, not permissions to particular resources."
       ],
       "cleanupSteps": [
@@ -201,7 +201,7 @@ export const en: CloudGuides = {
         "Review and create the VM. Once Running, record its public IPv4. For an address that survives VM replacement, optionally replace its ephemeral IP with a reserved public IP assigned to its primary private IP; record the new address."
       ],
       "apiSteps": [
-        "Only for a future provisioning plugin: have an administrator grant a dedicated IAM user/group the required compute, network and volume permissions in this compartment.",
+        "For VPN Setup API provisioning: have an administrator grant a dedicated IAM user/group the required compute, network and volume permissions in this compartment.",
         "Open <strong>User settings → API Keys → Add API Key</strong>. Save the RSA PEM signing private key, fingerprint, tenancy/user OCIDs and region; record the compartment OCID. This is separate from your SSH key."
       ],
       "cleanupSteps": [
@@ -219,7 +219,7 @@ export const en: CloudGuides = {
         "Open Horizon <strong>Compute → Instances → Edit Security Groups</strong>. Apply the dedicated group and remove the permissive default group only from this VM; never edit/delete the shared default group. Once Active, record the public IPv4 from its Overview."
       ],
       "apiSteps": [
-        "Only for a future provisioning plugin: open the token-creation page for your account’s API region. Name the application, set an expiry and restrict Rights to its documented project paths/actions.",
+        "For VPN Setup API provisioning: open the token-creation page for your account’s API region. Name the application, set an expiry and restrict Rights to its documented project paths/actions.",
         "Save the application key, application secret and consumer key securely. These signed-API credentials differ from the OpenStack username/password used by Horizon."
       ],
       "cleanupSteps": [
@@ -237,7 +237,7 @@ export const en: CloudGuides = {
         "Select <strong>Review</strong>, inspect estimated costs, then <strong>Create Instance</strong>. Wait for provisioning to finish and copy the public IPv4 from <strong>Overview</strong>. This flexible IP is a separate resource whose lifecycle you must manage."
       ],
       "apiSteps": [
-        "Only for a future provisioning plugin: create an IAM application and grant the required permissions for Instances, networking and storage in the target Project.",
+        "For VPN Setup API provisioning: create an IAM application and grant the required permissions for Instances, networking and storage in the target Project.",
         "Open <strong>IAM & API keys → API keys → Generate API key</strong>. Select the application and an expiry. Save the access key and one-time-displayed secret; record the Project UUID and zone separately."
       ],
       "cleanupSteps": [

@@ -12,8 +12,8 @@ Mobile SSH incluye una pantalla de transferencia de archivos por SFTP vinculada 
 
 1. Conéctate a un servidor SSH.
 2. Selecciona el panel de terminal conectado.
-3. Abre **Transferencia** desde la barra de herramientas de la terminal, o mantén pulsado el encabezado del panel cuando la pantalla actual lo permita.
-4. La pantalla de transferencia de archivos se abre con un panel local y un panel remoto.
+3. Abre **Transferir** desde la barra de la terminal.
+4. La pantalla de transferencia se abre con un panel local y otro remoto.
 
 Si no hay una sesión SSH activa, la transferencia de archivos no puede abrirse.
 
@@ -54,7 +54,7 @@ La importación de la clave privada es independiente de la transferencia de arch
 4. Confirma el destino remoto.
 5. Observa la cola de transferencia para ver el progreso y la finalización.
 
-Las subidas siguen la ruta SSH del servidor seleccionado, incluidos sus servidores de salto guardados. Si se corta la conexión, vuelve a intentarlo tras reconectar.
+Las subidas siguen la ruta SSH del servidor seleccionado, incluidos los bastiones guardados. En Android, pueden continuar tras reconectar; usa los controles de reintento de la cola si fallan.
 
 ## Descargar archivos
 
@@ -97,6 +97,8 @@ Cada panel puede ordenar por nombre o fecha, en orden ascendente o descendente. 
 
 Las transferencias se muestran por estado: En cola / Fallidas / Completadas en Android y Activas / Fallidas / Hechas en iOS. Los fallos incluyen el motivo disponible. En iOS, la transferencia actual permanece arriba en Activas y puede cancelarse.
 
+En Android, las subidas y descargas fallidas ofrecen **Reanudar**, **Reintentar** o **Reiniciar**, con **Reintentar todas** para la lista de fallos. Antes de reanudar, la app comprueba que el archivo parcial sigue coincidiendo; reinicia si no puede continuar de forma segura. Desliza hacia abajo en una lista de archivos para actualizarla.
+
 En iOS, la cola conserva la carpeta original aunque navegues a otra. Las descargas terminan en almacenamiento temporal antes de reemplazar el destino; cancelar o fallar conserva el archivo existente. Si el destino cambió después de autorizar la sobrescritura, la app se detiene.
 
 ## Sacar archivos de la app
@@ -109,6 +111,8 @@ En iOS, la cola conserva la carpeta original aunque navegues a otra. Las descarg
 Ambas plataformas aceptan archivos compartidos por otras apps y tienen un control 📎 **Adjuntar un archivo** en el terminal. Se suben a `~/.cache/mobile-ssh` del host elegido y sus rutas pueden insertarse en el prompt sin pulsar Intro. Se admiten varios archivos.
 
 En Android se comparte con la sesión en ejecución. En iOS, el clip ofrece **Fototeca** o **Archivos**. La extensión para compartir de iOS también sube a un servidor SSH guardado con Mobile SSH cerrado; no ofrece perfiles Eternal Terminal. Verifica primero las identidades desconocidas en la app principal.
+
+En Android, un indicador de subida en la cabecera de la terminal muestra el progreso, la velocidad, el estado de espera o bloqueo y **Detener**. Compartir con una sesión abierta usa la ventana de terminal existente.
 
 Después de subir mediante la extensión de iOS, las rutas se copian al portapapeles y esperan para insertarse cuando haya un panel conectado a ese servidor. No se insertan en un panel de otro host.
 

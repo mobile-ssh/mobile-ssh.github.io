@@ -12,8 +12,8 @@ Mobile SSH, etkin SSH bağlantısına bağlı bir SFTP dosya aktarım ekranı i�
 
 1. Bir SSH sunucusuna bağlanın.
 2. Bağlı terminal bölmesini seçin.
-3. Terminal araç çubuğundan **Transfer**'i açın veya geçerli ekran destekliyorsa bölme başlığına uzun basın.
-4. Dosya aktarım ekranı bir yerel bölme ve bir uzak bölmeyle açılır.
+3. Terminal araç çubuğundan **Aktarım**'ı açın.
+4. Dosya aktarımı ekranı, yerel ve uzak bölmelerle açılır.
 
 Etkin bir SSH oturumu yoksa dosya aktarımı açılamaz.
 
@@ -54,7 +54,7 @@ iOS belge ve fotoğraf seçicileri birden fazla öğe aktarır. Ad çakışmalar
 4. Uzak hedefi onaylayın.
 5. İlerleme ve tamamlanma için aktarım kuyruğunu izleyin.
 
-Yüklemeler, kayıtlı atlama sunucuları dahil seçilen sunucunun SSH yolunu izler. Bağlantı kesilirse yeniden bağlandıktan sonra deneyin.
+Yüklemeler, kayıtlı atlama sunucuları dahil seçili sunucunun SSH rotasını izler. Android'de yüklemeler yeniden bağlandıktan sonra sürebilir; başarısız olurlarsa aktarım kuyruğunun yeniden deneme kontrollerini kullanın.
 
 ## Dosya indirme
 
@@ -97,6 +97,8 @@ Her bölme ada veya tarihe göre artan ya da azalan sırada sıralanabilir. Mobi
 
 Aktarımlar Android'de Kuyrukta / Başarısız / Başarılı; iOS'ta Etkin / Başarısız / Bitti durumlarında gösterilir. Hatalarda mevcut neden yazılır. iOS'ta geçerli aktarım Etkin'in başında kalır ve iptal edilebilir.
 
+Android'de başarısız yükleme ve indirmeler **Sürdür**, **Yeniden dene** veya **Baştan başlat** seçeneklerini, başarısızlar listesi için de **Tümünü yeniden dene**'yi sunar. Uygulama sürdürmeden önce kısmi dosyanın hâlâ eşleştiğini denetler; güvenle devam edemiyorsa baştan başlatın. Dosya listesini yenilemek için aşağı çekin.
+
 iOS'ta kuyruk, başka yere göz atsanız da özgün klasörü korur. İndirme hedefi değiştirmeden önce geçici alanda tamamlanır; iptal veya hata eski dosyayı korur. Üzerine yazma onayından sonra hedef değiştiyse uygulama durur.
 
 ## Dosyaları uygulamadan dışarı çıkarma
@@ -109,6 +111,8 @@ iOS'ta kuyruk, başka yere göz atsanız da özgün klasörü korur. İndirme he
 İki platform başka uygulamalardan paylaşımı kabul eder ve terminalde 📎 **Dosya ekle** sunar. Dosyalar seçilen sunucunun `~/.cache/mobile-ssh` dizinine yüklenir; yollar Enter basmadan komut satırına eklenebilir. Birden fazla dosya desteklenir.
 
 Android'de paylaşım çalışan oturumu hedefler. iOS'ta ataş **Fotoğraf Arşivi** veya **Dosyalar** sunar. Paylaşım Uzantısı, Mobile SSH kapalıyken de kayıtlı SSH sunucusuna yükleyebilir; Eternal Terminal profilleri sunulmaz. Bilinmeyen kimliği önce ana uygulamada doğrulayın.
+
+Android'de terminal başlığındaki yükleme göstergesi ilerleme, hız, bekleme veya takılma durumu ve **Durdur**'u gösterir. Açık oturuma paylaşım, mevcut terminal penceresini kullanır.
 
 iOS uzantısıyla yüklemeden sonra yollar panoya kopyalanır ve o sunucuya bağlı bölme bulunana kadar ekleme için bekler. Başka sunucunun bölmesine eklenmez.
 

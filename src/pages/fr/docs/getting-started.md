@@ -17,8 +17,8 @@ Mobile SSH est un client SSH pour Android et iOS permettant de vous connecter à
 
 ## Installer l'app
 
-- **Android :** Mobile SSH est actuellement en test fermé sur Google Play. Ouvrez le lien d'inscription dans un navigateur mobile sur l'appareil — pas dans l'application Google Play, où le test peut ne pas être visible — et inscrivez-vous avec le compte Google que vous utiliserez. Ensuite, l'app s'installe et se met à jour depuis Play comme n'importe quelle autre.
-- **iOS :** l'app iOS est proposée en bêta publique sur TestFlight. Installez l'app TestFlight d'Apple, puis ouvrez le lien d'invitation Mobile SSH depuis la page d'accueil du site pour l'installer et recevoir les mises à jour.
+- **Android :** installez Mobile SSH depuis Google Play à l'aide du lien de la page d'accueil. La disponibilité dépend du canal de publication. Pour rejoindre un test fermé, ouvrez son lien d'inscription dans un navigateur et inscrivez-vous avec le compte Google utilisé dans Play.
+- **iOS :** l'app iOS est proposée en bêta publique sur TestFlight. Installez TestFlight d'Apple, puis ouvrez le lien d'invitation Mobile SSH depuis l'accueil du site pour installer l'app et recevoir les mises à jour.
 
 ## Se connecter à un serveur
 
@@ -87,7 +87,7 @@ Pour utiliser une clé privée :
 3. Saisissez la phrase secrète de la clé dans le champ mot de passe/phrase secrète si la clé est chiffrée.
 4. Enregistrez l'identifiant ou le serveur.
 
-L'import de clé utilise le sélecteur système et ne donne pas accès au reste du stockage. Le transfert de fichiers a sa propre sélection de dossiers et fichiers.
+L'importation d'une clé privée utilise le sélecteur de fichiers du système. Android refuse les fichiers de clé de plus de 64 KB. L'importation ne donne pas accès au reste du stockage ; le transfert de fichiers dispose de ses propres sélections de dossiers et de fichiers.
 
 Android accepte les **clés de sécurité FIDO2** par USB/NFC : enregistrez une clé ou importez son identifiant OpenSSH, puis suivez les demandes de toucher/PIN. La clé physique reste nécessaire après export/restauration. **Transfert d'agent SSH** s'active par serveur : les clés enregistrées répondent aux demandes de signature, avec approbation facultative par usage. N'activez que pour des serveurs auxquels vous faites confiance pour signer. iOS ne prend en charge ni ces clés ni le transfert d'agent.
 
@@ -121,6 +121,8 @@ Les deux apps lisent le format 2 et les anciens inventaires. Vérifiez l'aperçu
 
 Identités, sessions actives, permissions système et accès aux dossiers ne sont pas restaurés. Vérifiez les hôtes et autorisez les dossiers sur le nouvel appareil. Les anciennes versions ne lisent pas le nouveau format complet.
 
+Les sauvegardes Android excluent aussi les modèles de prompts et leurs brouillons, les modèles téléchargés, les réglages de l'hôte vocal, les identifiants cloud de VPN Setup et les caches de Chat ou d'exécutions de prompts. Configurez-les à nouveau sur un autre téléphone ; une sauvegarde ne déplace ni ne supprime les planifications déjà installées sur un serveur.
+
 ## Sessions actives
 
 Lorsque des sessions tournent, **Sessions actives** affiche leur nombre et ouvre la grille. Sur Android, une notification persistante liste aussi les hôtes et ouvre les commandes de connexion.
@@ -131,13 +133,39 @@ Revenir à l'écran d'accueil ne déconnecte pas les sessions SSH actives ; ferm
 
 Ouvrez **Settings** depuis l'écran d'accueil (il dispose de sa propre page) :
 
-- Décidez si toucher le terminal fait apparaître le clavier. Les deux plateformes livrent des valeurs par défaut opposées : sur Android, le clavier n'apparaît que via le bouton ⌨ ; sur iOS, un toucher le fait apparaître.
-- Réglez la **taille du texte**, la **police**, le **jeu de couleurs** et la taille du **scrollback** du terminal, puis choisissez un **thème** d'application (Système, Clair ou Sombre).
-- Activez **Agent alerts** si vous exécutez de longues tâches en arrière-plan (Claude Code, Codex, scripts shell) et souhaitez être prévenu lorsque l'agent a besoin de votre intervention. Voyez le guide **Terminal** pour savoir comment les agents se signalent.
-- Sur Android, **Keep sessions running in background** est activé par défaut : les shells et les agents survivent au balayage de l'app hors des récentes.
-- Les deux plateformes ont un interrupteur d'analyse anonyme ; le désactiver arrête la collecte de nouveaux événements.
-- Sur iOS, **Dictée et suggestions** est activé. Désactivez-le et ouvrez un nouveau volet pour une saisie directe sans dictée ni correction.
-- Notifications distantes, fin de commande et lecture distante du presse-papiers ont des autorisations séparées. N'activez que les actions souhaitées.
+- Décidez si toucher le terminal ouvre le clavier. Les valeurs par défaut sont opposées : sur Android, seul le bouton ⌨ l'affiche ; sur iOS, un toucher l'ouvre.
+- Réglez la **taille du texte**, la **police**, la **palette de couleurs** et la taille de l'**historique** du terminal, puis choisissez un **thème** pour l'app (Système, Clair ou Sombre).
+- Activez **Alertes d'agents** si vous lancez de longues tâches en arrière-plan (Claude Code, Codex, scripts shell) et souhaitez être averti quand l'agent attend votre intervention. Le guide **Terminal** explique comment les agents signalent leur état.
+- Sur Android, **Maintenir les sessions en arrière-plan** est activé par défaut : shells et agents continuent après avoir balayé l'app pour la fermer.
+- Les deux plateformes ont un interrupteur d'analyse anonyme de l'utilisation dans les réglages. Le désactiver arrête la collecte de nouveaux événements.
+- Sur iOS, **Dictée et suggestions** est activé par défaut. Désactivez-le et ouvrez un nouveau volet si vous préférez une saisie directe sans dictée ni correction automatique.
+- Les notifications distantes, alertes de fin de commande et lectures distantes du presse-papiers sont des options indépendantes à activer. N'activez que les actions distantes souhaitées.
+- Sur Android, **Assistant vocal**, **Modèles de prompts** et **Navigateur intégré** sont facultatifs et désactivés par défaut. La voix a sa propre page de réglages ; les deux autres se trouvent sous **Général**.
+
+## Assistant vocal sur Android
+
+L'assistant vocal est expérimental et désactivé par défaut. Il peut utiliser Gemma 4 sur un téléphone 64 bits compatible ou un service vocal sur votre propre serveur SSH Linux.
+
+1. Ouvrez **Réglages → Assistant vocal** et activez l'assistant.
+2. Pour traiter la parole localement, activez **Utiliser Gemma sur ce téléphone (sans serveur vocal)**, choisissez un modèle proposé et touchez **Télécharger**. Vous pouvez aussi choisir un hôte vocal Linux enregistré et suivre la configuration du service ; il nécessite Python 3.11–3.13, des services utilisateur systemd et plusieurs GB d'espace libre.
+3. Lancez une conversation vocale pour le terminal à contrôler. Choisissez **Messages** pour enregistrer, vérifier et envoyer, ou **En direct** pour converser les mains libres avec des réponses parlées. Une adresse personnalisée de serveur vocal utilise le mode En direct.
+4. Vérifiez les commandes proposées avant de les confirmer. Gemma peut effectuer une courte liste de vérifications en lecture seule sans confirmation ; les autres commandes et les prompts envoyés à Claude Code ou Codex nécessitent votre confirmation ou **Envoyer**.
+
+Les modèles pour téléphone téléchargent environ 2.6–3.7 GB depuis Hugging Face uniquement après avoir touché Télécharger. Les téléchargements sur connexion limitée nécessitent une confirmation ; un téléchargement commencé en Wi-Fi se met en pause si la connexion devient limitée. Avec Gemma, la parole reste sur le téléphone ; l'option serveur transmet l'audio à votre service vocal configuré. L'autorisation du microphone est demandée lors de l'utilisation d'une fonction vocale. Si une voix de synthèse hors ligne manque, l'app propose de la télécharger via le moteur vocal du téléphone.
+
+Si une autre app prend le contrôle de l'audio ou qu'un casque envoie Arrêter, la conversation se met en pause en conservant mode et contexte. Utilisez **Continuer la conversation** sur la page Voix ou la notification, ou appuyez sur Lecture au casque. Une pause due à l'audio d'une autre app se termine lorsque cet audio s'arrête.
+
+## Modèles de prompts sur Android
+
+Les modèles de prompts sont expérimentaux et désactivés par défaut. Ils planifient des exécutions Claude Code ou Codex en lecture seule sur votre propre serveur. Celui-ci nécessite Python 3.8 ou ultérieur, cron et un agent de programmation connecté à son compte.
+
+1. Activez **Réglages → Général → Modèles de prompts**.
+2. Ouvrez **Prompts** sur l'accueil ou l'entrée des modèles de prompts dans le menu d'un serveur enregistré.
+3. Créez un modèle avec un prompt, un serveur, un dossier de projet et Claude Code ou Codex. Choisissez un fuseau horaire et planifiez les exécutions chaque jour, en semaine, certains jours ou toutes les 1–12 heures.
+4. Enregistrez le modèle, puis connectez-vous à son serveur pour le synchroniser. Mobile SSH installe un petit utilitaire et une entrée crontab ; les planifications s'exécutent sur le serveur même lorsque le téléphone est déconnecté.
+5. Consultez la sortie et l'état de chaque exécution, ou choisissez **Exécuter maintenant**, **Pause** ou **Supprimer du serveur**.
+
+Les modèles et leurs brouillons sont chiffrés sur le téléphone et exclus des sauvegardes. Un modèle Gemma téléchargé peut aider à rédiger et réviser un prompt. Désactiver la fonction masque ses commandes et arrête la synchronisation côté téléphone ; cela n'arrête ni ne supprime les planifications déjà installées sur un serveur. Mettez-les d'abord en pause ou supprimez-les dans Modèles de prompts.
 
 ## Plugins
 
@@ -148,6 +176,8 @@ Les plugins étendent Mobile SSH avec des flux de travail supplémentaires. Ouvr
 - Exécuter les plugins installés depuis le même écran.
 
 Les plugins sont récupérés depuis un catalogue public par défaut. Si vous maintenez le vôtre, vous pouvez pointer Mobile SSH vers une source de catalogue personnalisée ou privée. N'installez que des plugins provenant de sources de confiance.
+
+Sur Android, les extensions du catalogue affichent **Mettre à jour vers** lorsqu'une version plus récente est disponible. Les mises à jour utilisent le catalogue d'origine, conservent réglages et données et demandent une approbation si des accès supplémentaires sont nécessaires. Elles ne reviennent pas à une version antérieure.
 
 ## Langues
 
