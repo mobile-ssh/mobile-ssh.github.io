@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import FeatureScreenshots from "../FeatureScreenshots.astro";
 import { defaultLocale } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
@@ -10,12 +11,13 @@ const t = getDict(locale);
 
 <BaseLayout title={t.features.metaTitle} description={t.features.metaDescription} locale={locale} pathKey="features">
   <main>
-    <header class="page-header">
+    <header class="page-header features-header">
       <p class="eyebrow">{t.features.eyebrow}</p>
       <h1>{t.features.h1}</h1>
       <p>{t.features.intro}</p>
     </header>
-    <section class="content-page">
+    <FeatureScreenshots locale={locale} />
+    <section class="content-page" id="feature-list">
       <div class="feature-grid">
         {t.features.groups.map((group) => (
           <article class="feature-card">
@@ -32,3 +34,16 @@ const t = getDict(locale);
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  .features-header {
+    padding: 3rem 2rem;
+    color: #fff;
+    background:
+      linear-gradient(rgba(16, 24, 32, 0.94), rgba(16, 24, 32, 0.86)),
+      url("/assets/screenshots/tab10-03-terminal.png") center / cover;
+    border-radius: 20px;
+  }
+  .features-header p { color: #d9e6eb; }
+  #feature-list { scroll-margin-block-start: 16rem; }
+</style>

@@ -11,45 +11,6 @@ const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
 const versionLine = renderVersionLine(t.home.versionLine, locale);
 
-const galleryShots = [
-  "/assets/screenshots/phone-01-main.png",
-  "/assets/screenshots/phone-02-addserver.png",
-  "/assets/screenshots/phone-03-terminal.png",
-  "/assets/screenshots/phone-multi-01-2panes.png",
-  "/assets/screenshots/phone-04-multipane.png",
-  "/assets/screenshots/phone-05-transfer.png",
-  "/assets/screenshots/phone-06-about.png",
-  "/assets/screenshots/phone-07-keygen.png",
-  "/assets/screenshots/phone-08-pubkey.png",
-  "/assets/screenshots/phone-09-groups.png",
-  "/assets/screenshots/phone-10-links.png",
-  "/assets/screenshots/phone-11-zellij.png",
-  "/assets/screenshots/phone-12-tmux.png",
-  "/assets/screenshots/phone-13-plugins.png",
-  "/assets/screenshots/phone-14-aichat.png",
-  "/assets/screenshots/phone-15-eternal.png"
-];
-
-const galleryIosShots = [
-  "/assets/screenshots/ios-01-connect.png",
-  "/assets/screenshots/ios-02-servers.png",
-  "/assets/screenshots/ios-03-terminal.png",
-  "/assets/screenshots/ios-04-multiplex.png",
-  "/assets/screenshots/ios-05-sftp.png",
-  "/assets/screenshots/ios-06-keygen.png",
-  "/assets/screenshots/ios-07-tmux.png",
-  "/assets/screenshots/ios-08-code.png",
-  "/assets/screenshots/ios-09-plugins.png",
-  "/assets/screenshots/ios-10-eternal.png",
-  "/assets/screenshots/ios-11-agent-alerts.png",
-  "/assets/screenshots/ios-12-home.png"
-];
-
-const galleries = [
-  { label: "android", shots: galleryShots },
-  { label: "ios", shots: galleryIosShots }
-];
-
 // The long-form manager demos, one row per multiplexer. `name` is the program's
 // own name and is never translated (see AGENTS.md); everything a reader has to
 // understand comes from t.home.muxItems, which is indexed positionally against
@@ -106,27 +67,6 @@ const featureDemos = [
             <a class="button secondary" href={TESTFLIGHT_URL} rel="noopener"><TestFlightIcon /> {t.home.ctaIos}</a>
           </div>
           <div class="hero-videos">
-            <section class="hero-video" id="car-cloud" aria-labelledby="car-heading">
-              <h2 id="car-heading">{t.home.carHead}</h2>
-              <figure class="promo-video">
-                <video
-                  src="/assets/videos/mobile-ssh-car-cloud-1080p.mp4"
-                  poster="/assets/posters/mobile-ssh-car-cloud-1080p.jpg"
-                  width="1920"
-                  height="1080"
-                  controls
-                  preload="none"
-                  playsinline
-                  aria-label={t.home.carAlt}
-                  aria-describedby="car-caption"
-                ></video>
-                <figcaption id="car-caption">{t.home.carCaption}</figcaption>
-              </figure>
-              <details class="promo-transcript">
-                <summary>{t.home.vpnTranscriptLabel}</summary>
-                <p>{t.home.carTranscript}</p>
-              </details>
-            </section>
             <section class="hero-video" id="vpn-setup" aria-labelledby="vpn-heading">
               <h2 id="vpn-heading">{t.home.vpnHead}</h2>
               <figure class="promo-video">
@@ -139,9 +79,7 @@ const featureDemos = [
                   preload="none"
                   playsinline
                   aria-label={t.home.vpnAlt}
-                  aria-describedby="vpn-caption"
                 ></video>
-                <figcaption id="vpn-caption">{t.home.vpnCaption}</figcaption>
               </figure>
               <p class="promo-body">{t.home.vpnBody}</p>
               <details class="promo-transcript">
@@ -153,9 +91,25 @@ const featureDemos = [
                 <a class="button secondary" href={localizedHref(locale, "/docs/#provider-guides-heading")}>{t.home.vpnCtaProviders}</a>
               </div>
             </section>
-          </div>
-          <div class="hero-shot">
-            <img class="zoomable" src="/assets/screenshots/phone-03-terminal.png" alt={t.home.galleryAlts[2]} width="480" height="1077" loading="lazy" />
+            <section class="hero-video" id="car-cloud" aria-labelledby="car-heading">
+              <h2 id="car-heading">{t.home.carHead}</h2>
+              <figure class="promo-video">
+                <video
+                  src="/assets/videos/mobile-ssh-car-cloud-1080p.mp4"
+                  poster="/assets/posters/mobile-ssh-car-cloud-1080p.jpg"
+                  width="1920"
+                  height="1080"
+                  controls
+                  preload="none"
+                  playsinline
+                  aria-label={t.home.carAlt}
+                ></video>
+              </figure>
+              <details class="promo-transcript">
+                <summary>{t.home.vpnTranscriptLabel}</summary>
+                <p>{t.home.carTranscript}</p>
+              </details>
+            </section>
           </div>
         </div>
       </div>
@@ -190,67 +144,6 @@ const featureDemos = [
               <span class="tag">{f.title}</span>
               <p>{f.text}</p>
             </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner mockup-band">
-        <div>
-          <h2>{t.home.multiHead}</h2>
-          <p>{t.home.multiP1}</p>
-          <p>{t.home.multiP2}</p>
-        </div>
-        <div class="device-shot phone-shot">
-          <img class="zoomable" src="/assets/screenshots/phone-multi-01-2panes.png" alt={t.home.multiAlt} loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="section-inner mockup-band">
-        <div class="device-shot phone-shot">
-          <img class="zoomable" src="/assets/screenshots/phone-05-transfer.png" alt={t.home.sftpAlt} loading="lazy" />
-        </div>
-        <div>
-          <h2>{t.home.sftpHead}</h2>
-          <p>{t.home.sftpBody}</p>
-          <div class="cta-row">
-            <a class="button" href={localizedHref(locale, "/docs/file-transfer/")}>{t.home.sftpCtaGuide}</a>
-            <a class="button secondary" href={localizedHref(locale, "/features/")}>{t.home.sftpCtaAll}</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner">
-        <div class="section-head">
-          <h2>{t.home.galleryHead}</h2>
-          <p>{t.home.galleryIntro}</p>
-        </div>
-        <div class="gallery-duo">
-          {galleries.map((g) => (
-            <div class="gallery-col">
-              <h3 class="platform-label">{g.label === "android" ? t.home.platformAndroid : t.home.platformIos}</h3>
-              <div class="carousel" data-dot-label={t.home.carouselDot}>
-                <div class="carousel-viewport">
-                  <button class="carousel-arrow carousel-prev" type="button" aria-label={t.home.carouselPrev}>‹</button>
-                  <div class="carousel-track">
-                    {g.shots.map((src, i) => (
-                      <figure class="carousel-slide">
-                        <div class="device-shot phone-shot">
-                          <img class="zoomable" src={src} alt={(g.label === "android" ? t.home.galleryAlts : t.home.galleryIosAlts)[i]} loading="lazy" />
-                        </div>
-                      </figure>
-                    ))}
-                  </div>
-                  <button class="carousel-arrow carousel-next" type="button" aria-label={t.home.carouselNext}>›</button>
-                </div>
-                <div class="carousel-dots"></div>
-              </div>
-            </div>
           ))}
         </div>
       </div>
@@ -398,21 +291,13 @@ const featureDemos = [
     </section>
   </main>
 
-  <div id="lightbox" class="lightbox" hidden>
-    <button class="lightbox-close" type="button" aria-label={t.home.lightboxClose}>×</button>
-    <button class="lightbox-nav lightbox-prev" type="button" aria-label={t.home.lightboxPrev}>‹</button>
-    <img class="lightbox-img" src="" alt="" />
-    <button class="lightbox-nav lightbox-next" type="button" aria-label={t.home.lightboxNext}>›</button>
-  </div>
 </BaseLayout>
 
 <style>
-  img.zoomable { cursor: zoom-in; }
-
   .hero-videos {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
     inline-size: 100%;
     margin-block-start: 2.5rem;
     background: #101820;
@@ -422,7 +307,6 @@ const featureDemos = [
     scroll-margin-block-start: 16rem;
   }
   .hero-video h2 {
-    min-block-size: 2.4em;
     margin-block-end: 1rem;
     font-size: 1.4rem;
     line-height: 1.2;
@@ -437,13 +321,10 @@ const featureDemos = [
     box-shadow: 0 12px 36px rgba(0,0,0,0.45);
     background: #000;
   }
-  .promo-video figcaption {
-    margin-block-start: 1rem;
-    line-height: 1.65;
-    color: #d9e6eb;
-  }
-  .hero-video p { font-size: 1rem; }
+  .hero-video p { font-size: 1rem; margin-inline: auto; }
   .promo-transcript {
+    max-inline-size: 72ch;
+    margin-inline: auto;
     margin-block-start: 1.25rem;
     text-align: start;
   }
@@ -453,20 +334,14 @@ const featureDemos = [
   }
   .promo-transcript p { white-space: pre-line; }
   .vpn-links { justify-content: center; }
-  @media (max-width: 800px) {
-    .hero-videos { grid-template-columns: minmax(0, 1fr); }
-    .hero-video h2 { min-block-size: 0; }
-  }
 
-  /* Two platform columns (Android / iOS) for the gallery and the demo videos. */
-  .gallery-duo,
+  /* Two platform columns (Android / iOS) for the demo videos. */
   .video-duo {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 480px));
     gap: 2.5rem 3rem;
     justify-content: center;
   }
-  .gallery-col { min-width: 0; }
   .video-col {
     margin: 0;
     min-width: 0;
@@ -538,12 +413,6 @@ const featureDemos = [
   }
   .qr-badge:hover { box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55); }
 
-  .hero-copy .hero-shot {
-    order: 0;
-    margin-top: 2.5rem;
-  }
-  @media (max-width: 600px) {
-  }
   /* Amber "heads-up" note under the install buttons: opening the Play link in
      the Google Play app can hide the closed test, so steer users to a browser.
      Amber (not the green beta accent) marks it as an advisory, not an invite. */
@@ -558,252 +427,7 @@ const featureDemos = [
     text-underline-offset: 2px;
   }
   .beta-link a:hover { opacity: 0.9; }
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4vh 4vw;
-    background: rgba(0, 0, 0, 0.88);
-    cursor: zoom-out;
-  }
-  .lightbox[hidden] { display: none; }
-  .lightbox-img {
-    max-width: 100%;
-    max-height: 92vh;
-    border-radius: 12px;
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.55);
-  }
-  .lightbox-close {
-    position: absolute;
-    top: 0.75rem;
-    right: 1.25rem;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 2.4rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-  .lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4);
-    border: none;
-    color: #fff;
-    font-size: 3rem;
-    line-height: 1;
-    width: 3.25rem;
-    height: 3.25rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-  }
-  .lightbox-nav:hover { background: rgba(0, 0, 0, 0.7); }
-  .lightbox-prev { left: 1.25rem; }
-  .lightbox-next { right: 1.25rem; }
-  @media (max-width: 600px) {
-    .lightbox-nav { font-size: 2.2rem; width: 2.5rem; height: 2.5rem; }
-    .lightbox-prev { left: 0.4rem; }
-    .lightbox-next { right: 0.4rem; }
-  }
-
-  /* Inline screenshot carousel — single image, same width/height as video */
-  .carousel {
-    --per-view: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-  .carousel-viewport {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    border-radius: 20px;
-  }
-  .carousel-track {
-    display: flex;
-    transition: transform 0.35s ease;
-    will-change: transform;
-  }
-  .carousel-slide {
-    flex: 0 0 100%;
-    min-width: 0;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-  }
-  .carousel-slide .phone-shot {
-    max-width: 480px;
-    width: 100%;
-  }
-  /* Arrows overlay the image */
-  .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.35);
-    border: none;
-    color: #fff;
-    font-size: 2.4rem;
-    line-height: 1;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-  }
-  .carousel-arrow:hover { background: rgba(0, 0, 0, 0.6); }
-  .carousel-prev { left: 0.5rem; }
-  .carousel-next { right: 0.5rem; }
-  .carousel-dots {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
-  }
-  .carousel-dot {
-    width: 0.6rem;
-    height: 0.6rem;
-    border-radius: 50%;
-    border: none;
-    padding: 0;
-    background: rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-  }
-  .carousel-dot[aria-current="true"] { background: #2196f3; }
-  @media (max-width: 600px) {
-    .carousel-arrow { font-size: 1.8rem; width: 2.2rem; height: 2.2rem; }
-  }
 </style>
-
-<script is:inline>
-  (() => {
-    const box = document.getElementById("lightbox");
-    if (!box) return;
-    const img = box.querySelector(".lightbox-img");
-    const btnPrev = box.querySelector(".lightbox-prev");
-    const btnNext = box.querySelector(".lightbox-next");
-    const btnClose = box.querySelector(".lightbox-close");
-    const items = Array.from(document.querySelectorAll("img.zoomable"));
-    let index = 0;
-
-    const show = (i) => {
-      index = (i + items.length) % items.length;
-      const el = items[index];
-      img.src = el.currentSrc || el.src;
-      img.alt = el.alt || "";
-    };
-    const open = (i) => {
-      show(i);
-      box.hidden = false;
-      document.body.style.overflow = "hidden";
-    };
-    const close = () => {
-      box.hidden = true;
-      img.src = "";
-      document.body.style.overflow = "";
-    };
-    const prev = () => show(index - 1);
-    const next = () => show(index + 1);
-
-    items.forEach((el, i) => {
-      el.addEventListener("click", () => open(i));
-    });
-    // Clicking the backdrop closes; clicks on the image or controls do not.
-    box.addEventListener("click", close);
-    img.addEventListener("click", (e) => e.stopPropagation());
-    btnPrev.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
-    btnNext.addEventListener("click", (e) => { e.stopPropagation(); next(); });
-    btnClose.addEventListener("click", (e) => { e.stopPropagation(); close(); });
-    document.addEventListener("keydown", (e) => {
-      if (box.hidden) return;
-      if (e.key === "Escape") close();
-      else if (e.key === "ArrowLeft") prev();
-      else if (e.key === "ArrowRight") next();
-    });
-  })();
-</script>
-
-<script is:inline>
-  document.querySelectorAll(".carousel").forEach((root) => {
-    const track = root.querySelector(".carousel-track");
-    const dotsBox = root.querySelector(".carousel-dots");
-    const slides = Array.from(root.querySelectorAll(".carousel-slide"));
-    const n = slides.length;
-    let perView = 1;
-    let i = 0; // index of the left-most visible slide
-
-    const getPerView = () =>
-      Math.max(1, parseInt(getComputedStyle(root).getPropertyValue("--per-view"), 10) || 1);
-    const maxIndex = () => Math.max(0, n - perView);
-
-    const dotLabelTpl = root.getAttribute("data-dot-label") || "Go to position {n}";
-    const buildDots = () => {
-      dotsBox.textContent = "";
-      for (let p = 0; p <= maxIndex(); p++) {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "carousel-dot";
-        b.setAttribute("aria-label", dotLabelTpl.replace("{n}", String(p + 1)));
-        b.addEventListener("click", () => go(p));
-        dotsBox.appendChild(b);
-      }
-    };
-    const render = () => {
-      i = Math.min(Math.max(i, 0), maxIndex());
-      track.style.transform = `translateX(${-i * (100 / perView)}%)`;
-      Array.from(dotsBox.children).forEach((d, p) =>
-        d.setAttribute("aria-current", p === i ? "true" : "false"));
-    };
-    const go = (p) => {
-      const m = maxIndex();
-      i = p < 0 ? m : p > m ? 0 : p; // wrap at the ends
-      render();
-    };
-
-    root.querySelector(".carousel-prev").addEventListener("click", () => go(i - 1));
-    root.querySelector(".carousel-next").addEventListener("click", () => go(i + 1));
-
-    // Swipe on touch devices.
-    let startX = null;
-    const vp = root.querySelector(".carousel-viewport");
-    vp.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
-    vp.addEventListener("touchend", (e) => {
-      if (startX === null) return;
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) go(dx < 0 ? i + 1 : i - 1);
-      startX = null;
-    });
-
-    const sync = () => {
-      const pv = getPerView();
-      if (pv !== perView) { perView = pv; buildDots(); }
-      render();
-    };
-    let raf;
-    window.addEventListener("resize", () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(sync);
-    });
-    perView = getPerView();
-    buildDots();
-    render();
-  });
-</script>
 
 <script is:inline>
   document.querySelectorAll(".feat-video").forEach((v) => {

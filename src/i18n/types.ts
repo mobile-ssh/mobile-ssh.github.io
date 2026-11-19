@@ -124,14 +124,12 @@ export interface Dict {
     vpnHead: string;
     vpnBody: string;
     vpnAlt: string;
-    vpnCaption: string;
     vpnTranscriptLabel: string;
     vpnTranscript: string;
     vpnCtaGuide: string;
     vpnCtaProviders: string;
     carHead: string;
     carAlt: string;
-    carCaption: string;
     carTranscript: string;
     // The per-multiplexer demos. `muxItems` is indexed positionally against a
     // fixed list of video files in Home.astro, so its length is asserted in

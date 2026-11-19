@@ -102,9 +102,9 @@ describe("locale dicts – structure", () => {
 
     it(`${locale}: homepage videos include localized context, accessible copy and guide links`, () => {
       const t = getDict(locale);
-      for (const key of ["vpnHead", "vpnBody", "vpnAlt", "vpnCaption",
+      for (const key of ["vpnHead", "vpnBody", "vpnAlt",
         "vpnTranscriptLabel", "vpnTranscript", "vpnCtaGuide", "vpnCtaProviders",
-        "carHead", "carAlt", "carCaption", "carTranscript"] as const) {
+        "carHead", "carAlt", "carTranscript"] as const) {
         expect(t.home[key].trim(), key).not.toBe("");
         if (locale !== "pcm") expect(t.home[key], key).not.toBe(en.home[key]);
       }

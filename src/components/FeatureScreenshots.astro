@@ -1,0 +1,446 @@
+---
+import { defaultLocale, localeMap, localizedHref } from "../i18n/locales";
+import type { LocaleCode } from "../i18n/locales";
+import { getDict } from "../i18n";
+
+const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
+const t = getDict(locale);
+const isRtl = localeMap[locale].dir === "rtl";
+
+const galleryShots = [
+  "/assets/screenshots/phone-01-main.png",
+  "/assets/screenshots/phone-02-addserver.png",
+  "/assets/screenshots/phone-03-terminal.png",
+  "/assets/screenshots/phone-multi-01-2panes.png",
+  "/assets/screenshots/phone-04-multipane.png",
+  "/assets/screenshots/phone-05-transfer.png",
+  "/assets/screenshots/phone-06-about.png",
+  "/assets/screenshots/phone-07-keygen.png",
+  "/assets/screenshots/phone-08-pubkey.png",
+  "/assets/screenshots/phone-09-groups.png",
+  "/assets/screenshots/phone-10-links.png",
+  "/assets/screenshots/phone-11-zellij.png",
+  "/assets/screenshots/phone-12-tmux.png",
+  "/assets/screenshots/phone-13-plugins.png",
+  "/assets/screenshots/phone-14-aichat.png",
+  "/assets/screenshots/phone-15-eternal.png"
+];
+
+const galleryIosShots = [
+  "/assets/screenshots/ios-01-connect.png",
+  "/assets/screenshots/ios-02-servers.png",
+  "/assets/screenshots/ios-03-terminal.png",
+  "/assets/screenshots/ios-04-multiplex.png",
+  "/assets/screenshots/ios-05-sftp.png",
+  "/assets/screenshots/ios-06-keygen.png",
+  "/assets/screenshots/ios-07-tmux.png",
+  "/assets/screenshots/ios-08-code.png",
+  "/assets/screenshots/ios-09-plugins.png",
+  "/assets/screenshots/ios-10-eternal.png",
+  "/assets/screenshots/ios-11-agent-alerts.png",
+  "/assets/screenshots/ios-12-home.png"
+];
+
+const galleries = [
+  { label: "android", shots: galleryShots },
+  { label: "ios", shots: galleryIosShots }
+];
+---
+
+<div data-feature-screenshots>
+  <section class="section" id="screenshots" aria-labelledby="screenshots-heading">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2 id="screenshots-heading">{t.home.galleryHead}</h2>
+        <p>{t.home.galleryIntro}</p>
+      </div>
+      <div class="gallery-duo">
+        {galleries.map((g) => (
+          <div class="gallery-col">
+            <h3 class="platform-label">{g.label === "android" ? t.home.platformAndroid : t.home.platformIos}</h3>
+            <div class="carousel" data-dot-label={t.home.carouselDot}>
+              <div class="carousel-viewport">
+                <button class="carousel-arrow carousel-prev" type="button" aria-label={t.home.carouselPrev}>
+                  <span aria-hidden="true">{isRtl ? "›" : "‹"}</span>
+                </button>
+                <div class="carousel-track">
+                  {g.shots.map((src, i) => (
+                    <figure class="carousel-slide">
+                      <div class="device-shot phone-shot">
+                        <button class="screenshot-trigger" type="button" aria-haspopup="dialog">
+                          <img class="zoomable" src={src} alt={(g.label === "android" ? t.home.galleryAlts : t.home.galleryIosAlts)[i]} loading="lazy" draggable="false" />
+                        </button>
+                      </div>
+                    </figure>
+                  ))}
+                </div>
+                <button class="carousel-arrow carousel-next" type="button" aria-label={t.home.carouselNext}>
+                  <span aria-hidden="true">{isRtl ? "‹" : "›"}</span>
+                </button>
+              </div>
+              <div class="carousel-dots"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="section-inner mockup-band">
+      <div>
+        <h2>{t.home.multiHead}</h2>
+        <p>{t.home.multiP1}</p>
+        <p>{t.home.multiP2}</p>
+      </div>
+      <div class="device-shot phone-shot">
+        <button class="screenshot-trigger" type="button" aria-haspopup="dialog">
+          <img class="zoomable" src="/assets/screenshots/phone-multi-01-2panes.png" alt={t.home.multiAlt} loading="lazy" draggable="false" />
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner mockup-band">
+      <div class="device-shot phone-shot">
+        <button class="screenshot-trigger" type="button" aria-haspopup="dialog">
+          <img class="zoomable" src="/assets/screenshots/phone-05-transfer.png" alt={t.home.sftpAlt} loading="lazy" draggable="false" />
+        </button>
+      </div>
+      <div>
+        <h2>{t.home.sftpHead}</h2>
+        <p>{t.home.sftpBody}</p>
+        <div class="cta-row">
+          <a class="button" href={localizedHref(locale, "/docs/file-transfer/")}>{t.home.sftpCtaGuide}</a>
+          <a class="button secondary" href="#feature-list">{t.home.sftpCtaAll}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label={t.home.galleryHead} hidden>
+    <button class="lightbox-close" type="button" aria-label={t.home.lightboxClose}>×</button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label={t.home.lightboxPrev}>
+      <span aria-hidden="true">{isRtl ? "›" : "‹"}</span>
+    </button>
+    <img class="lightbox-img" alt="" />
+    <button class="lightbox-nav lightbox-next" type="button" aria-label={t.home.lightboxNext}>
+      <span aria-hidden="true">{isRtl ? "‹" : "›"}</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  #screenshots { scroll-margin-block-start: 16rem; }
+  .screenshot-trigger {
+    display: block;
+    inline-size: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 28px;
+    background: none;
+    cursor: zoom-in;
+  }
+  .screenshot-trigger:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: -3px;
+  }
+  .gallery-duo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 480px));
+    gap: 2.5rem 3rem;
+    justify-content: center;
+  }
+  .gallery-col { min-inline-size: 0; }
+  .platform-label {
+    margin-block: 0 0.9rem;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    opacity: 0.85;
+  }
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 4vh;
+    padding-inline: 4vw;
+    background: rgba(0, 0, 0, 0.88);
+    cursor: zoom-out;
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox-img {
+    max-inline-size: 100%;
+    max-block-size: 92vh;
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.55);
+  }
+  .lightbox-close {
+    position: absolute;
+    inset-block-start: 0.75rem;
+    inset-inline-end: 1.25rem;
+    min-inline-size: 44px;
+    min-block-size: 44px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .lightbox-nav {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    line-height: 1;
+    inline-size: 3.25rem;
+    block-size: 3.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  .lightbox-nav:hover { background: rgba(0, 0, 0, 0.7); }
+  .lightbox-prev { inset-inline-start: 1.25rem; }
+  .lightbox-next { inset-inline-end: 1.25rem; }
+
+  .carousel {
+    --per-view: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-inline-size: 480px;
+    margin-inline: auto;
+  }
+  .carousel-viewport {
+    position: relative;
+    overflow: hidden;
+    inline-size: 100%;
+    border-radius: 20px;
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.35s ease;
+    will-change: transform;
+  }
+  .carousel-slide {
+    flex: 0 0 calc(100% / var(--per-view));
+    min-inline-size: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+  .carousel-slide .phone-shot {
+    max-inline-size: 480px;
+    inline-size: 100%;
+  }
+  .carousel-arrow {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.35);
+    border: none;
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 1;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  .carousel-arrow:hover { background: rgba(0, 0, 0, 0.6); }
+  .carousel-prev { inset-inline-start: 0.5rem; }
+  .carousel-next { inset-inline-end: 0.5rem; }
+  .carousel-dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-block-start: 0.75rem;
+  }
+  /* Dots are created by the inline script and have no Astro scope attribute. */
+  .carousel-dots :global(.carousel-dot) {
+    inline-size: 0.6rem;
+    block-size: 0.6rem;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+  }
+  .carousel-dots :global(.carousel-dot[aria-current="true"]) { background: #2196f3; }
+  @media (max-width: 600px) {
+    .lightbox-nav { font-size: 2.2rem; inline-size: 2.75rem; block-size: 2.75rem; }
+    .lightbox-prev { inset-inline-start: 0.4rem; }
+    .lightbox-next { inset-inline-end: 0.4rem; }
+    .carousel-arrow { font-size: 1.8rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track { transition: none; }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-feature-screenshots]");
+    if (!root) return;
+    const box = root.querySelector(".lightbox");
+    const img = box.querySelector(".lightbox-img");
+    const btnPrev = box.querySelector(".lightbox-prev");
+    const btnNext = box.querySelector(".lightbox-next");
+    const btnClose = box.querySelector(".lightbox-close");
+    const items = Array.from(root.querySelectorAll(".screenshot-trigger"));
+    const controls = [btnClose, btnPrev, btnNext];
+    let index = 0;
+    let lastFocus = null;
+    let previousOverflow = "";
+
+    const show = (i) => {
+      index = (i + items.length) % items.length;
+      const el = items[index].querySelector("img");
+      img.src = el.currentSrc || el.src;
+      img.alt = el.alt || "";
+    };
+    const open = (i) => {
+      lastFocus = document.activeElement;
+      previousOverflow = document.body.style.overflow;
+      show(i);
+      box.hidden = false;
+      document.body.style.overflow = "hidden";
+      btnClose.focus();
+    };
+    const close = () => {
+      box.hidden = true;
+      img.removeAttribute("src");
+      document.body.style.overflow = previousOverflow;
+      if (lastFocus && lastFocus.isConnected) lastFocus.focus();
+    };
+    const prev = () => show(index - 1);
+    const next = () => show(index + 1);
+
+    items.forEach((el, i) => el.addEventListener("click", () => open(i)));
+    box.addEventListener("click", (e) => { if (e.target === box) close(); });
+    btnPrev.addEventListener("click", prev);
+    btnNext.addEventListener("click", next);
+    btnClose.addEventListener("click", close);
+    document.addEventListener("keydown", (e) => {
+      if (box.hidden) return;
+      const rtl = getComputedStyle(box).direction === "rtl";
+      if (e.key === "Escape") { e.preventDefault(); close(); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); rtl ? next() : prev(); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); rtl ? prev() : next(); }
+      else if (e.key === "Tab") {
+        const current = controls.indexOf(document.activeElement);
+        if (current === -1 || (e.shiftKey && current === 0) || (!e.shiftKey && current === controls.length - 1)) {
+          e.preventDefault();
+          controls[e.shiftKey ? controls.length - 1 : 0].focus();
+        }
+      }
+    });
+  })();
+</script>
+
+<script is:inline>
+  document.querySelectorAll("[data-feature-screenshots] .carousel").forEach((root) => {
+    const track = root.querySelector(".carousel-track");
+    const dotsBox = root.querySelector(".carousel-dots");
+    const slides = Array.from(root.querySelectorAll(".carousel-slide"));
+    const n = slides.length;
+    let perView = 1;
+    let i = 0; // First visible slide in the document's reading direction.
+    const direction = () => getComputedStyle(root).direction === "rtl" ? 1 : -1;
+    const getPerView = () =>
+      Math.max(1, parseInt(getComputedStyle(root).getPropertyValue("--per-view"), 10) || 1);
+    const maxIndex = () => Math.max(0, n - perView);
+
+    const dotLabelTpl = root.getAttribute("data-dot-label");
+    const buildDots = () => {
+      dotsBox.textContent = "";
+      for (let p = 0; p <= maxIndex(); p++) {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "carousel-dot";
+        b.setAttribute("aria-label", dotLabelTpl.replace("{n}", String(p + 1)));
+        b.addEventListener("click", () => go(p));
+        dotsBox.appendChild(b);
+      }
+    };
+    const render = () => {
+      i = Math.min(Math.max(i, 0), maxIndex());
+      track.style.transform = `translateX(${direction() * i * (100 / perView)}%)`;
+      Array.from(dotsBox.children).forEach((d, p) =>
+        d.setAttribute("aria-current", p === i ? "true" : "false"));
+      slides.forEach((slide, p) => {
+        const visible = p >= i && p < i + perView;
+        slide.setAttribute("aria-hidden", visible ? "false" : "true");
+        slide.querySelector(".screenshot-trigger").tabIndex = visible ? 0 : -1;
+      });
+    };
+    const go = (p) => {
+      const m = maxIndex();
+      i = p < 0 ? m : p > m ? 0 : p;
+      render();
+    };
+
+    root.querySelector(".carousel-prev").addEventListener("click", () => go(i - 1));
+    root.querySelector(".carousel-next").addEventListener("click", () => go(i + 1));
+    root.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      e.preventDefault();
+      const focusScreenshot = e.target.closest(".screenshot-trigger") !== null;
+      const nextKey = direction() === 1 ? "ArrowLeft" : "ArrowRight";
+      go(e.key === nextKey ? i + 1 : i - 1);
+      if (focusScreenshot) slides[i].querySelector(".screenshot-trigger").focus({ preventScroll: true });
+    });
+
+    let startX = null;
+    let startY = null;
+    const vp = root.querySelector(".carousel-viewport");
+    vp.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    vp.addEventListener("touchend", (e) => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        go(dx * direction() > 0 ? i + 1 : i - 1);
+        e.preventDefault();
+      }
+      startX = null;
+      startY = null;
+    });
+    vp.addEventListener("touchcancel", () => { startX = null; startY = null; });
+
+    const sync = () => {
+      const pv = getPerView();
+      if (pv !== perView) { perView = pv; buildDots(); }
+      render();
+    };
+    let raf;
+    window.addEventListener("resize", () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(sync);
+    });
+    perView = getPerView();
+    buildDots();
+    render();
+  });
+</script>

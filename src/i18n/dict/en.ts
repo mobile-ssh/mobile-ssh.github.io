@@ -208,14 +208,12 @@ export const en: Dict = {
     vpnHead: "A VPN in your own cloud account",
     vpnBody: "On a compatible Android build, the VPN Setup plugin can create a cloud server, install wg-easy and import a WireGuard client, or use an existing public server. Review each change on your phone. Your cloud account owns the resources and their running costs.",
     vpnAlt: "Mobile SSH VPN promotional video with demo screens for cloud setup and client management, followed by network illustrations and an encrypted-DNS caveat",
-    vpnCaption: "A one-minute promo combining demo UI and network illustrations, with English on-screen text. It is not a recording of a live deployment.",
     vpnTranscriptLabel: "Read the scene description",
     vpnTranscript: "The video shows choosing a cloud provider, including Hetzner, managing WireGuard clients, connecting a phone VPN profile and opening saved hosts. Network illustrations show WireGuard carrying traffic and SSH reaching private devices. The DNS scene notes that encrypted DNS needs separate setup and that a resolver can see queries. These are illustrated examples, not a guarantee that creating a VPN automatically connects every private network. The closing message is: your cloud, your VPN.",
     vpnCtaGuide: "Set up your VPN",
     vpnCtaProviders: "Choose a cloud provider",
     carHead: "Your devbox, from the passenger seat",
     carAlt: "Animated car passenger accessing a home development computer through a VPN gateway, with Gemma running on the phone",
-    carCaption: "A 24-second animation with English on-screen text. Passenger view; the home computer is already on the VPN.",
     carTranscript: "A car moves between mobile towers, with a phone linked through a VPN gateway to a home development computer. An installed Gemma 4 model is shown on the phone. When the signal drops, the animation illustrates local inference while the VPN reconnects; remote access returns with the connection. The IP addresses are examples. This is an illustration, not a live VPN or model test."
   },
   features: {

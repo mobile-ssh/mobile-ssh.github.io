@@ -210,14 +210,12 @@ export const fr: Dict = {
     vpnHead: "Un VPN dans votre propre compte cloud",
     vpnBody: "Sur une version Android compatible, l'extension VPN Setup peut créer un serveur cloud, installer wg-easy et importer un client WireGuard, ou utiliser un serveur public existant. Examinez chaque modification sur votre téléphone. Votre compte cloud détient les ressources et prend en charge leur coût de fonctionnement.",
     vpnAlt: "Vidéo promotionnelle du VPN Mobile SSH avec des écrans de démonstration de la configuration cloud et de la gestion des clients, suivis d'illustrations de réseau et d'une précision sur le DNS chiffré",
-    vpnCaption: "Une présentation d'une minute mêlant interface de démonstration et illustrations de réseau, avec du texte à l'écran en anglais. Ce n'est pas l'enregistrement d'un déploiement réel.",
     vpnTranscriptLabel: "Lire la description des scènes",
     vpnTranscript: "La vidéo montre le choix d'un fournisseur cloud, dont Hetzner, la gestion des clients WireGuard, la connexion d'un profil VPN sur téléphone et l'ouverture d'hôtes enregistrés. Les illustrations montrent WireGuard transportant le trafic et SSH accédant à des appareils privés. La scène DNS précise que le DNS chiffré nécessite une configuration séparée et qu'un résolveur peut voir les requêtes. Ce sont des exemples illustrés, sans garantie que la création d'un VPN relie automatiquement tous les réseaux privés. Le message final est : votre cloud, votre VPN.",
     vpnCtaGuide: "Configurez votre VPN",
     vpnCtaProviders: "Choisissez un fournisseur cloud",
     carHead: "Votre machine de développement, depuis le siège passager",
     carAlt: "Animation d’un passager de voiture accédant à un ordinateur de développement à domicile via une passerelle VPN, avec Gemma fonctionnant sur le téléphone",
-    carCaption: "Une animation de 24 secondes avec du texte à l’écran en anglais. Vue depuis le siège passager ; l’ordinateur à domicile est déjà connecté au VPN.",
     carTranscript: "Une voiture se déplace entre des antennes mobiles, avec un téléphone relié à un ordinateur de développement à domicile via une passerelle VPN. Un modèle Gemma 4 installé est représenté sur le téléphone. Quand le signal disparaît, l’animation illustre l’inférence locale pendant que le VPN se reconnecte ; l’accès distant revient avec la connexion. Les adresses IP sont des exemples. Il s’agit d’une illustration, pas d’un test réel du VPN ou du modèle."
   },
   features: {

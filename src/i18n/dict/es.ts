@@ -210,14 +210,12 @@ export const es: Dict = {
     vpnHead: "Una VPN en tu propia cuenta en la nube",
     vpnBody: "En una compilación compatible de Android, el complemento VPN Setup puede crear un servidor en la nube, instalar wg-easy e importar un cliente WireGuard, o usar un servidor público existente. Revisa cada cambio en tu teléfono. Los recursos y sus costes de funcionamiento pertenecen a tu cuenta en la nube.",
     vpnAlt: "Vídeo promocional de VPN de Mobile SSH con pantallas de demostración de configuración en la nube y gestión de clientes, seguido de ilustraciones de redes y una aclaración sobre DNS cifrado",
-    vpnCaption: "Una promoción de un minuto que combina una interfaz de demostración e ilustraciones de redes, con texto en pantalla en inglés. No es una grabación de un despliegue real.",
     vpnTranscriptLabel: "Leer la descripción de las escenas",
     vpnTranscript: "El vídeo muestra cómo elegir un proveedor de nube, incluido Hetzner, gestionar clientes WireGuard, conectar un perfil VPN del teléfono y abrir servidores guardados. Las ilustraciones de redes muestran WireGuard transportando tráfico y SSH accediendo a dispositivos privados. La escena de DNS señala que el DNS cifrado requiere una configuración aparte y que un resolvedor puede ver las consultas. Son ejemplos ilustrados, no una garantía de que crear una VPN conecte automáticamente todas las redes privadas. El mensaje final es: tu nube, tu VPN.",
     vpnCtaGuide: "Configura tu VPN",
     vpnCtaProviders: "Elige un proveedor de nube",
     carHead: "Tu equipo de desarrollo, desde el asiento del acompañante",
     carAlt: "Animación de un pasajero de coche que accede a un equipo de desarrollo en casa mediante una pasarela VPN, con Gemma funcionando en el teléfono",
-    carCaption: "Una animación de 24 segundos con texto en pantalla en inglés. Vista desde el asiento del acompañante; el equipo de casa ya está conectado a la VPN.",
     carTranscript: "Un coche se desplaza entre antenas de telefonía móvil, con un teléfono conectado mediante una pasarela VPN a un equipo de desarrollo en casa. En el teléfono se muestra un modelo Gemma 4 instalado. Cuando se pierde la señal, la animación ilustra la inferencia local mientras la VPN se reconecta; el acceso remoto vuelve con la conexión. Las direcciones IP son ejemplos. Es una ilustración, no una prueba real de la VPN ni del modelo."
   },
   features: {

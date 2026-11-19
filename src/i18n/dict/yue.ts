@@ -210,14 +210,12 @@ export const yue: Dict = {
     vpnHead: "喺自己嘅雲端帳戶運行 VPN",
     vpnBody: "喺兼容嘅 Android 版本，VPN Setup 外掛可以建立雲端伺服器、安裝 wg-easy 同匯入 WireGuard 用戶端，亦可以用現有公網伺服器。每項變更都喺手機檢視。資源屬於你嘅雲端帳戶，運行費用亦由你負責。",
     vpnAlt: "Mobile SSH VPN 宣傳片，先展示雲端設定同用戶端管理示範畫面，再展示網絡示意圖同加密 DNS 嘅注意事項",
-    vpnCaption: "一分鐘宣傳片，結合示範介面同網絡示意圖，畫面文字係英文。呢段唔係實際部署過程嘅錄影。",
     vpnTranscriptLabel: "閱讀場景說明",
     vpnTranscript: "影片展示選擇包括 Hetzner 在內嘅雲端供應商、管理 WireGuard 用戶端、連接手機 VPN 設定檔同開啟已儲存主機。網絡示意圖展示 WireGuard 傳送流量同 SSH 連接私人裝置。DNS 場景指出加密 DNS 要另外設定，而解析器睇得到查詢。呢啲係示意例子，唔代表建立 VPN 就一定會自動連通所有私人網絡。片尾訊息係：你嘅雲端，你嘅 VPN。",
     vpnCtaGuide: "設定你嘅 VPN",
     vpnCtaProviders: "選擇雲端供應商",
     carHead: "坐喺乘客位，都連到你嘅開發機",
     carAlt: "動畫中嘅汽車乘客經 VPN 閘道存取屋企嘅開發電腦，手機上運行緊 Gemma",
-    carCaption: "24 秒動畫，畫面文字係英文。乘客視角；屋企電腦已經連上 VPN。",
     carTranscript: "架車喺流動通訊基站之間行駛，手機經 VPN 閘道連到屋企嘅開發電腦。畫面展示手機已安裝嘅 Gemma 4 模型。訊號中斷時，動畫示意 VPN 重新連線期間嘅本機推理；連線恢復後，遠端存取亦會恢復。IP 地址只係例子。呢段係示意動畫，唔係實際 VPN 或模型測試。"
   },
   features: {

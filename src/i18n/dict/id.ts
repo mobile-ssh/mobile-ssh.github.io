@@ -210,14 +210,12 @@ export const id: Dict = {
     vpnHead: "VPN di akun cloud Anda sendiri",
     vpnBody: "Pada build Android yang kompatibel, plugin VPN Setup dapat membuat server cloud, memasang wg-easy, dan mengimpor klien WireGuard, atau menggunakan server publik yang sudah ada. Tinjau setiap perubahan di ponsel Anda. Sumber daya beserta biaya operasionalnya berada di akun cloud Anda.",
     vpnAlt: "Video promosi VPN Mobile SSH dengan layar demo penyiapan cloud dan pengelolaan klien, diikuti ilustrasi jaringan serta penjelasan batasan DNS terenkripsi",
-    vpnCaption: "Promo satu menit yang memadukan antarmuka demo dan ilustrasi jaringan, dengan teks layar berbahasa Inggris. Ini bukan rekaman penerapan langsung yang sebenarnya.",
     vpnTranscriptLabel: "Baca deskripsi adegan",
     vpnTranscript: "Video menampilkan pemilihan penyedia cloud, termasuk Hetzner, pengelolaan klien WireGuard, penyambungan profil VPN ponsel, dan pembukaan host tersimpan. Ilustrasi jaringan menunjukkan WireGuard membawa lalu lintas dan SSH menjangkau perangkat privat. Adegan DNS menjelaskan bahwa DNS terenkripsi perlu disiapkan secara terpisah dan resolver dapat melihat kueri. Semua ini merupakan contoh ilustrasi, bukan jaminan bahwa membuat VPN otomatis menghubungkan setiap jaringan privat. Pesan penutupnya: cloud Anda, VPN Anda.",
     vpnCtaGuide: "Siapkan VPN Anda",
     vpnCtaProviders: "Pilih penyedia cloud",
     carHead: "Komputer pengembangan Anda, dari kursi penumpang",
     carAlt: "Animasi penumpang mobil yang mengakses komputer pengembangan di rumah melalui gateway VPN, dengan Gemma berjalan di ponsel",
-    carCaption: "Animasi 24 detik dengan teks layar berbahasa Inggris. Tampilan dari kursi penumpang; komputer rumah sudah terhubung ke VPN.",
     carTranscript: "Mobil bergerak di antara menara seluler, dengan ponsel terhubung melalui gateway VPN ke komputer pengembangan di rumah. Model Gemma 4 yang sudah terpasang ditampilkan di ponsel. Saat sinyal hilang, animasi menggambarkan inferensi lokal sementara VPN menyambung kembali; akses jarak jauh pulih bersama koneksi. Alamat IP hanyalah contoh. Ini merupakan ilustrasi, bukan pengujian langsung VPN atau model."
   },
   features: {

@@ -210,14 +210,12 @@ export const zh: Dict = {
     vpnHead: "在自己的云账户中运行 VPN",
     vpnBody: "在兼容的 Android 版本上，VPN Setup 插件可创建云服务器、安装 wg-easy 并导入 WireGuard 客户端，也可使用现有公网服务器。每项变更都在手机上审查。资源归你的云账户所有，运行费用也由你承担。",
     vpnAlt: "Mobile SSH VPN 宣传视频，先演示云端设置和客户端管理界面，再展示网络示意图及加密 DNS 的注意事项",
-    vpnCaption: "一分钟宣传片，结合演示界面和网络示意图，画面文字为英文。这不是实际部署过程的录像。",
     vpnTranscriptLabel: "阅读场景说明",
     vpnTranscript: "视频展示选择包括 Hetzner 在内的云服务商、管理 WireGuard 客户端、连接手机上的 VPN 配置以及打开保存的主机。网络示意图展示 WireGuard 传输流量和 SSH 访问私有设备。DNS 场景指出，加密 DNS 需要单独配置，解析器能够看到查询。这些仅为示意，并不保证创建 VPN 就会自动接通所有私有网络。结尾信息是：你的云，你的 VPN。",
     vpnCtaGuide: "设置你的 VPN",
     vpnCtaProviders: "选择云服务商",
     carHead: "坐在副驾驶，也能访问开发机",
     carAlt: "动画中的汽车乘客通过 VPN 网关访问家中开发电脑，手机上运行着 Gemma",
-    carCaption: "24 秒动画，画面文字为英文。视角来自乘客座位；家中电脑已接入 VPN。",
     carTranscript: "汽车在移动通信基站之间行驶，手机通过 VPN 网关连接家中的开发电脑。画面展示手机上已安装的 Gemma 4 模型。信号中断时，动画演示 VPN 重连期间的本地推理；连接恢复后，远程访问随之恢复。IP 地址仅为示例。这是示意动画，并非实际 VPN 或模型测试。"
   },
   features: {
