@@ -215,7 +215,11 @@ export const de: Dict = {
     vpnTranscriptLabel: "Szenenbeschreibung lesen",
     vpnTranscript: "Das Video zeigt die Auswahl eines Cloud-Anbieters, darunter Hetzner, die Verwaltung von WireGuard-Clients, das Verbinden eines VPN-Profils auf dem Smartphone und das Öffnen gespeicherter Hosts. Netzwerkillustrationen zeigen, wie WireGuard Daten überträgt und SSH private Geräte erreicht. Die DNS-Szene weist darauf hin, dass verschlüsseltes DNS separat eingerichtet werden muss und ein Resolver die Abfragen sehen kann. Dies sind illustrierte Beispiele, keine Garantie dafür, dass die Einrichtung eines VPN automatisch jedes private Netzwerk verbindet. Die Schlussbotschaft lautet: deine Cloud, dein VPN.",
     vpnCtaGuide: "Dein VPN einrichten",
-    vpnCtaProviders: "Cloud-Anbieter auswählen"
+    vpnCtaProviders: "Cloud-Anbieter auswählen",
+    carHead: "Dein Entwicklungsrechner, vom Beifahrersitz aus",
+    carAlt: "Animation eines Beifahrers, der über ein VPN-Gateway auf einen Entwicklungsrechner zu Hause zugreift, während Gemma auf dem Smartphone läuft",
+    carCaption: "Eine 24-sekündige Animation mit englischem Bildschirmtext. Perspektive vom Beifahrersitz; der Rechner zu Hause ist bereits mit dem VPN verbunden.",
+    carTranscript: "Ein Auto fährt zwischen Mobilfunkmasten, während ein Smartphone über ein VPN-Gateway mit einem Entwicklungsrechner zu Hause verbunden ist. Auf dem Smartphone ist ein installiertes Gemma 4-Modell dargestellt. Wenn das Signal ausfällt, veranschaulicht die Animation lokale Inferenz, während das VPN die Verbindung wiederherstellt; mit der Verbindung kehrt der Fernzugriff zurück. Die IP-Adressen sind Beispiele. Dies ist eine Illustration, kein Live-Test des VPN oder des Modells."
   },
   features: {
     metaTitle: "Funktionen | Mobile SSH",

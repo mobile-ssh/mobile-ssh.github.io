@@ -214,7 +214,11 @@ export const tr: Dict = {
     vpnTranscriptLabel: "Sahne açıklamasını okuyun",
     vpnTranscript: "Video, Hetzner dahil bir bulut sağlayıcısının seçilmesini, WireGuard istemcilerinin yönetilmesini, telefondaki bir VPN profiline bağlanılmasını ve kaydedilmiş sunucuların açılmasını gösterir. Ağ çizimleri, WireGuard'ın trafiği taşımasını ve SSH'nin özel cihazlara ulaşmasını gösterir. DNS sahnesi, şifreli DNS'nin ayrı kurulum gerektirdiğini ve bir çözümleyicinin sorguları görebildiğini belirtir. Bunlar açıklayıcı örneklerdir; VPN oluşturmanın her özel ağı otomatik olarak bağlayacağına dair bir garanti değildir. Kapanış mesajı: sizin bulutunuz, sizin VPN'iniz.",
     vpnCtaGuide: "VPN'inizi kurun",
-    vpnCtaProviders: "Bir bulut sağlayıcısı seçin"
+    vpnCtaProviders: "Bir bulut sağlayıcısı seçin",
+    carHead: "Geliştirme bilgisayarınız, yolcu koltuğundan",
+    carAlt: "Telefonda Gemma çalışırken bir yolcunun VPN ağ geçidi üzerinden evdeki geliştirme bilgisayarına eriştiğini gösteren animasyon",
+    carCaption: "Ekran metinleri İngilizce olan 24 saniyelik animasyon. Yolcu koltuğundan görünüm; evdeki bilgisayar zaten VPN’e bağlı.",
+    carTranscript: "Bir araç baz istasyonları arasında ilerlerken telefon, VPN ağ geçidi üzerinden evdeki geliştirme bilgisayarına bağlanır. Telefonda yüklü bir Gemma 4 modeli gösterilir. Sinyal kesildiğinde animasyon, VPN yeniden bağlanırken yerel çıkarımı gösterir; bağlantıyla birlikte uzaktan erişim de geri gelir. IP adresleri örnektir. Bu bir canlandırmadır; canlı VPN veya model testi değildir."
   },
   features: {
     metaTitle: "Özellikler | Mobile SSH",

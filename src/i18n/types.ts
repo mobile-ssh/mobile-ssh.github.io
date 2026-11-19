@@ -129,6 +129,10 @@ export interface Dict {
     vpnTranscript: string;
     vpnCtaGuide: string;
     vpnCtaProviders: string;
+    carHead: string;
+    carAlt: string;
+    carCaption: string;
+    carTranscript: string;
     // The per-multiplexer demos. `muxItems` is indexed positionally against a
     // fixed list of video files in Home.astro, so its length is asserted in
     // translations.test.ts — it must stay at three (tmux, herdr, Zellij).

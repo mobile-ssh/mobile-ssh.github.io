@@ -100,10 +100,11 @@ describe("locale dicts – structure", () => {
       expect(t.home.graphicsAlt.trim()).not.toBe("");
     });
 
-    it(`${locale}: VPN video includes localized context, accessible copy and guide links`, () => {
+    it(`${locale}: homepage videos include localized context, accessible copy and guide links`, () => {
       const t = getDict(locale);
       for (const key of ["vpnHead", "vpnBody", "vpnAlt", "vpnCaption",
-        "vpnTranscriptLabel", "vpnTranscript", "vpnCtaGuide", "vpnCtaProviders"] as const) {
+        "vpnTranscriptLabel", "vpnTranscript", "vpnCtaGuide", "vpnCtaProviders",
+        "carHead", "carAlt", "carCaption", "carTranscript"] as const) {
         expect(t.home[key].trim(), key).not.toBe("");
         if (locale !== "pcm") expect(t.home[key], key).not.toBe(en.home[key]);
       }

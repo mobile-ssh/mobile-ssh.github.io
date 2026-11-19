@@ -214,7 +214,11 @@ export const pcm: Dict = {
     vpnTranscriptLabel: "Read wetin the scenes show",
     vpnTranscript: "The video show how person choose cloud provider, including Hetzner, manage WireGuard clients, connect phone VPN profile and open saved hosts. Network illustrations show WireGuard carrying traffic and SSH reaching private devices. The DNS scene talk say encrypted DNS need separate setup, and resolver fit see queries. Na illustrations be these; dem no guarantee say creating VPN go automatically connect every private network. Last message na: your cloud, your VPN.",
     vpnCtaGuide: "Set up your VPN",
-    vpnCtaProviders: "Choose cloud provider"
+    vpnCtaProviders: "Choose cloud provider",
+    carHead: "Your devbox, from passenger seat",
+    carAlt: "Animation of car passenger wey dey access home development computer through VPN gateway, with Gemma running for phone",
+    carCaption: "24-second animation with English text for screen. Na passenger view; home computer don already connect to VPN.",
+    carTranscript: "Car dey move between mobile towers, with phone connected through VPN gateway to home development computer. Di phone show Gemma 4 model wey don install. When signal drop, di animation show local inference while VPN dey reconnect; remote access return when connection come back. Di IP addresses na examples. Na illustration be this, no be live VPN or model test."
   },
   features: {
     metaTitle: "Features | Mobile SSH",

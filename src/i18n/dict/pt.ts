@@ -215,7 +215,11 @@ export const pt: Dict = {
     vpnTranscriptLabel: "Ler a descrição das cenas",
     vpnTranscript: "O vídeo mostra a escolha de um fornecedor de nuvem, incluindo a Hetzner, a gestão de clientes WireGuard, a ligação de um perfil VPN no telemóvel e a abertura de hosts guardados. As ilustrações mostram o WireGuard a transportar tráfego e o SSH a aceder a dispositivos privados. A cena de DNS indica que o DNS cifrado exige configuração separada e que um resolvedor pode ver as consultas. São exemplos ilustrados, não uma garantia de que criar uma VPN liga automaticamente todas as redes privadas. A mensagem final é: a sua nuvem, a sua VPN.",
     vpnCtaGuide: "Configure a sua VPN",
-    vpnCtaProviders: "Escolha um fornecedor de nuvem"
+    vpnCtaProviders: "Escolha um fornecedor de nuvem",
+    carHead: "O seu computador de desenvolvimento, a partir do banco do passageiro",
+    carAlt: "Animação de um passageiro de automóvel a aceder a um computador de desenvolvimento em casa através de um gateway VPN, com o Gemma a funcionar no telemóvel",
+    carCaption: "Uma animação de 24 segundos com texto no ecrã em inglês. Vista do banco do passageiro; o computador de casa já está ligado à VPN.",
+    carTranscript: "Um automóvel desloca-se entre antenas de rede móvel, com um telemóvel ligado a um computador de desenvolvimento em casa através de um gateway VPN. É mostrado um modelo Gemma 4 instalado no telemóvel. Quando o sinal se perde, a animação ilustra a inferência local enquanto a VPN volta a ligar; o acesso remoto regressa com a ligação. Os endereços IP são exemplos. Trata-se de uma ilustração, não de um teste real da VPN ou do modelo."
   },
   features: {
     metaTitle: "Recursos | Mobile SSH",
