@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import FeatureScreenshots from "../FeatureScreenshots.astro";
+import FeatureVideos from "../FeatureVideos.astro";
 import { defaultLocale } from "../../i18n/locales";
 import type { LocaleCode } from "../../i18n/locales";
 import { getDict } from "../../i18n";
@@ -17,6 +18,7 @@ const t = getDict(locale);
       <p>{t.features.intro}</p>
     </header>
     <FeatureScreenshots locale={locale} />
+    <FeatureVideos locale={locale} />
     <section class="content-page" id="feature-list">
       <div class="feature-grid">
         {t.features.groups.map((group) => (

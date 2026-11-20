@@ -111,7 +111,7 @@ export interface Dict {
     galleryIntro: string;
     galleryAlts: string[];
     // Alt text for the iOS screenshot carousel (same order as the iOS shots
-    // in Home.astro).
+    // in FeatureScreenshots.astro).
     galleryIosAlts: string[];
     carouselPrev: string;
     carouselNext: string;
@@ -132,14 +132,14 @@ export interface Dict {
     carAlt: string;
     carTranscript: string;
     // The per-multiplexer demos. `muxItems` is indexed positionally against a
-    // fixed list of video files in Home.astro, so its length is asserted in
+    // fixed list of video files in FeatureVideos.astro, so its length is asserted in
     // translations.test.ts — it must stay at three (tmux, herdr, Zellij).
     muxHead: string;
     muxIntro: string;
     muxItems: MuxDemo[];
     // The Kitty-graphics demo, which is one Android take rather than a pair.
     // The single-platform feature demos. Like `muxItems`, `demoItems` is
-    // indexed positionally against a fixed list of video files in Home.astro,
+    // indexed positionally against a fixed list of video files in FeatureVideos.astro,
     // so its length is asserted in translations.test.ts.
     demoHead: string;
     demoIntro: string;

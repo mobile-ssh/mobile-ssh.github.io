@@ -11,42 +11,6 @@ const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
 const versionLine = renderVersionLine(t.home.versionLine, locale);
 
-// The long-form manager demos, one row per multiplexer. `name` is the program's
-// own name and is never translated (see AGENTS.md); everything a reader has to
-// understand comes from t.home.muxItems, which is indexed positionally against
-// this list, so the two must stay the same length and order.
-const muxDemos = [
-  {
-    name: "tmux",
-    android: "/assets/videos/tmux.mp4",
-    androidPoster: "/assets/posters/tmux-android.png",
-    ios: "/assets/videos/ios-tmux.mp4",
-    iosPoster: "/assets/posters/tmux-ios.png"
-  },
-  {
-    name: "herdr",
-    android: "/assets/videos/herdr.mp4",
-    androidPoster: "/assets/posters/herdr-android.png",
-    ios: "/assets/videos/ios-herdr.mp4",
-    iosPoster: "/assets/posters/herdr-ios.png"
-  },
-  {
-    name: "Zellij",
-    android: "/assets/videos/zellij.mp4",
-    androidPoster: "/assets/posters/zellij-android.png",
-    ios: "/assets/videos/ios-zellij.mp4",
-    iosPoster: "/assets/posters/zellij-ios.png"
-  }
-];
-
-// The single-platform feature demos. Android-only: no iOS take exists yet.
-// `t.home.demoItems` is indexed positionally against this list, so the two must
-// stay the same length and order, exactly as muxDemos above.
-const featureDemos = [
-  { video: "/assets/videos/fgs.mp4",           poster: "/assets/posters/fgs-android.png" },
-  { video: "/assets/videos/keygen.mp4",        poster: "/assets/posters/keygen-android.png" },
-  { video: "/assets/videos/links-folders.mp4", poster: "/assets/posters/links-folders-android.png" }
-];
 ---
 
 <BaseLayout title={t.home.metaTitle} description={t.home.metaDescription} locale={locale} pathKey="home">
@@ -149,128 +113,6 @@ const featureDemos = [
       </div>
     </section>
 
-    <section class="section alt">
-      <div class="section-inner">
-        <div class="section-head">
-          <h2>{t.home.videoHead}</h2>
-          <p>{t.home.videoIntro}</p>
-        </div>
-        <div class="video-duo">
-          <figure class="video-col">
-            <figcaption class="platform-label">{t.home.platformAndroid}</figcaption>
-            <video
-              class="feat-video"
-              src="/assets/videos/features.mp4"
-              poster="/assets/posters/features-android.png"
-              controls
-              preload="none"
-              aria-label={t.home.videoAlt}
-            ></video>
-          </figure>
-          <figure class="video-col">
-            <figcaption class="platform-label">{t.home.platformIos}</figcaption>
-            <video
-              class="feat-video"
-              src="/assets/videos/ios-features.mp4"
-              poster="/assets/posters/features-ios.png"
-              controls
-              preload="none"
-              aria-label={t.home.videoIosAlt}
-            ></video>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner">
-        <div class="section-head">
-          <h2>{t.home.muxHead}</h2>
-          <p>{t.home.muxIntro}</p>
-        </div>
-        {muxDemos.map((d, i) => (
-          <div class="mux-demo">
-            <h3 class="mux-name">{d.name}</h3>
-            <p class="mux-text">{t.home.muxItems[i].text}</p>
-            <div class="video-duo">
-              <figure class="video-col">
-                <figcaption class="platform-label">{t.home.platformAndroid}</figcaption>
-                <video
-                  class="feat-video"
-                  src={d.android}
-                  poster={d.androidPoster}
-                  controls
-                  preload="none"
-                  aria-label={t.home.muxItems[i].androidAlt}
-                ></video>
-              </figure>
-              <figure class="video-col">
-                <figcaption class="platform-label">{t.home.platformIos}</figcaption>
-                <video
-                  class="feat-video"
-                  src={d.ios}
-                  poster={d.iosPoster}
-                  controls
-                  preload="none"
-                  aria-label={t.home.muxItems[i].iosAlt}
-                ></video>
-              </figure>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner">
-        <div class="section-head">
-          <h2>{t.home.demoHead}</h2>
-          <p>{t.home.demoIntro}</p>
-        </div>
-        {featureDemos.map((d, i) => (
-          <div class="mux-demo">
-            <h3 class="mux-name">{t.home.demoItems[i].title}</h3>
-            <p class="mux-text">{t.home.demoItems[i].text}</p>
-            <div class="video-solo">
-              <figure class="video-col">
-                <figcaption class="platform-label">{t.home.platformAndroid}</figcaption>
-                <video
-                  class="feat-video"
-                  src={d.video}
-                  poster={d.poster}
-                  controls
-                  preload="none"
-                  aria-label={t.home.demoItems[i].androidAlt}
-                ></video>
-              </figure>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="section-inner">
-        <div class="section-head">
-          <h2>{t.home.graphicsHead}</h2>
-          <p>{t.home.graphicsBody}</p>
-        </div>
-        <div class="video-solo">
-          <figure class="video-col">
-            <figcaption class="platform-label">{t.home.platformAndroid}</figcaption>
-            <video
-              class="feat-video"
-              src="/assets/videos/graphics.mp4"
-              poster="/assets/posters/graphics-android.png"
-              controls
-              preload="none"
-              aria-label={t.home.graphicsAlt}
-            ></video>
-          </figure>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
       <div class="section-inner">
         <div class="section-head">
@@ -335,53 +177,6 @@ const featureDemos = [
   .promo-transcript p { white-space: pre-line; }
   .vpn-links { justify-content: center; }
 
-  /* Two platform columns (Android / iOS) for the demo videos. */
-  .video-duo {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 480px));
-    gap: 2.5rem 3rem;
-    justify-content: center;
-  }
-  .video-col {
-    margin: 0;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .platform-label {
-    margin: 0 0 0.9rem;
-    text-align: center;
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    opacity: 0.85;
-  }
-  .video-col video {
-    width: 100%;
-    max-width: 480px;
-    border-radius: 20px;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.45);
-    background: #000;
-  }
-
-  /* One manager per block: its name, what the take shows, then the pair of
-     platform videos. The single-video variant reuses .video-col so the Kitty
-     demo is the same width as one column of a pair rather than page-wide. */
-  .mux-demo + .mux-demo { margin-top: 3.5rem; }
-  .mux-name {
-    margin: 0 0 0.4rem;
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  .mux-text {
-    margin: 0 auto 1.6rem;
-    max-width: 62ch;
-    text-align: center;
-  }
-  .video-solo { display: flex; justify-content: center; }
-  .video-solo .video-col { max-width: 480px; }
-
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
@@ -428,13 +223,3 @@ const featureDemos = [
   }
   .beta-link a:hover { opacity: 0.9; }
 </style>
-
-<script is:inline>
-  document.querySelectorAll(".feat-video").forEach((v) => {
-    // Clicking anywhere on the poster/content starts playback inline.
-    // Fullscreen is left to the browser's native fullscreen button.
-    v.addEventListener("click", () => {
-      if (v.paused) v.play().catch(() => {});
-    });
-  });
-</script>

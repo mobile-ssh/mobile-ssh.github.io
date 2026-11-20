@@ -62,7 +62,7 @@ describe("locale dicts – structure", () => {
 
     it(`${locale}: muxItems has ${en.home.muxItems.length} items, all fields set`, () => {
       const t = getDict(locale);
-      // Home.astro pairs these positionally with a fixed list of video files
+      // FeatureVideos.astro pairs these positionally with a fixed list of video files
       // (tmux, herdr, Zellij) — a short or reordered array renders the wrong
       // caption against the wrong take, and an empty alt is a silent a11y hole.
       expect(t.home.muxItems).toHaveLength(en.home.muxItems.length);
@@ -75,7 +75,7 @@ describe("locale dicts – structure", () => {
 
     it(`${locale}: demoItems has ${en.home.demoItems.length} items, all fields set`, () => {
       const t = getDict(locale);
-      // Home.astro pairs these positionally with a fixed list of Android-only
+      // FeatureVideos.astro pairs these positionally with a fixed list of Android-only
       // video files, so a short or reordered array captions the wrong take and
       // an empty androidAlt is a silent a11y hole — the same contract muxItems
       // has, and the same failure it had before it was asserted.

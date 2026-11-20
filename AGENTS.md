@@ -46,7 +46,7 @@ The test suite asserts element counts against English for `home.advantages`,
 `items`**, `privacy.sections`, `privacy.permissions`, and `docsIndex.cards`.
 
 `home.muxItems` and `home.demoItems` are indexed **positionally** against fixed
-lists of video files in `Home.astro` (`muxDemos` and `featureDemos`). A short or
+lists of video files in `FeatureVideos.astro` (`muxDemos` and `featureDemos`). A short or
 reordered array does not fail to compile — it captions the wrong video.
 
 Add one bullet to an English feature group and you have broken 19 locales. Add
