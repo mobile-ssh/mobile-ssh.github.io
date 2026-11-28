@@ -104,7 +104,9 @@ describe("locale dicts – structure", () => {
       const t = getDict(locale);
       for (const key of ["vpnHead", "vpnBody", "vpnAlt",
         "vpnTranscriptLabel", "vpnTranscript", "vpnCtaGuide", "vpnCtaProviders",
-        "carHead", "carAlt", "carTranscript"] as const) {
+        "carHead", "carAlt", "carTranscript",
+        "featuresPromoHead", "featuresPromoAlt", "featuresPromoTranscript",
+        "everydayHead", "everydayAlt", "everydayTranscript"] as const) {
         expect(t.home[key].trim(), key).not.toBe("");
         if (locale !== "pcm") expect(t.home[key], key).not.toBe(en.home[key]);
       }

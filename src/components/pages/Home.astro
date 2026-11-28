@@ -6,6 +6,7 @@ import { getDict } from "../../i18n";
 import { renderVersionLine, PLAY_STORE_URL, TESTFLIGHT_URL } from "../../i18n/version";
 import GooglePlayIcon from "../GooglePlayIcon.astro";
 import TestFlightIcon from "../TestFlightIcon.astro";
+import ResponsivePromoVideo from "../ResponsivePromoVideo.astro";
 
 const { locale = defaultLocale } = Astro.props as { locale?: LocaleCode };
 const t = getDict(locale);
@@ -33,18 +34,7 @@ const versionLine = renderVersionLine(t.home.versionLine, locale);
           <div class="hero-videos">
             <section class="hero-video" id="vpn-setup" aria-labelledby="vpn-heading">
               <h2 id="vpn-heading">{t.home.vpnHead}</h2>
-              <figure class="promo-video">
-                <video
-                  src="/assets/videos/mobile-ssh-vpn-minimal-1080p.mp4"
-                  poster="/assets/posters/mobile-ssh-vpn-minimal-1080p.jpg"
-                  width="1920"
-                  height="1080"
-                  controls
-                  preload="none"
-                  playsinline
-                  aria-label={t.home.vpnAlt}
-                ></video>
-              </figure>
+              <ResponsivePromoVideo name="vpn-workflow" label={t.home.vpnAlt} />
               <p class="promo-body">{t.home.vpnBody}</p>
               <details class="promo-transcript">
                 <summary>{t.home.vpnTranscriptLabel}</summary>
@@ -57,21 +47,26 @@ const versionLine = renderVersionLine(t.home.versionLine, locale);
             </section>
             <section class="hero-video" id="car-cloud" aria-labelledby="car-heading">
               <h2 id="car-heading">{t.home.carHead}</h2>
-              <figure class="promo-video">
-                <video
-                  src="/assets/videos/mobile-ssh-car-cloud-1080p.mp4"
-                  poster="/assets/posters/mobile-ssh-car-cloud-1080p.jpg"
-                  width="1920"
-                  height="1080"
-                  controls
-                  preload="none"
-                  playsinline
-                  aria-label={t.home.carAlt}
-                ></video>
-              </figure>
+              <ResponsivePromoVideo name="car" label={t.home.carAlt} />
               <details class="promo-transcript">
                 <summary>{t.home.vpnTranscriptLabel}</summary>
                 <p>{t.home.carTranscript}</p>
+              </details>
+            </section>
+            <section class="hero-video" id="app-features" aria-labelledby="app-features-heading">
+              <h2 id="app-features-heading">{t.home.featuresPromoHead}</h2>
+              <ResponsivePromoVideo name="features" label={t.home.featuresPromoAlt} />
+              <details class="promo-transcript">
+                <summary>{t.home.vpnTranscriptLabel}</summary>
+                <p>{t.home.featuresPromoTranscript}</p>
+              </details>
+            </section>
+            <section class="hero-video" id="everyday" aria-labelledby="everyday-heading">
+              <h2 id="everyday-heading">{t.home.everydayHead}</h2>
+              <ResponsivePromoVideo name="everyday" label={t.home.everydayAlt} />
+              <details class="promo-transcript">
+                <summary>{t.home.vpnTranscriptLabel}</summary>
+                <p>{t.home.everydayTranscript}</p>
               </details>
             </section>
           </div>
@@ -152,16 +147,6 @@ const versionLine = renderVersionLine(t.home.versionLine, locale);
     margin-block-end: 1rem;
     font-size: 1.4rem;
     line-height: 1.2;
-  }
-  .promo-video { margin: 0; }
-  .promo-video video {
-    display: block;
-    inline-size: 100%;
-    block-size: auto;
-    aspect-ratio: 16 / 9;
-    border-radius: 20px;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.45);
-    background: #000;
   }
   .hero-video p { font-size: 1rem; margin-inline: auto; }
   .promo-transcript {

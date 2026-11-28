@@ -211,12 +211,18 @@ export const id: Dict = {
     vpnBody: "Pada build Android yang kompatibel, plugin VPN Setup dapat membuat server cloud, memasang wg-easy, dan mengimpor klien WireGuard, atau menggunakan server publik yang sudah ada. Tinjau setiap perubahan di ponsel Anda. Sumber daya beserta biaya operasionalnya berada di akun cloud Anda.",
     vpnAlt: "Video promosi VPN Mobile SSH dengan layar demo penyiapan cloud dan pengelolaan klien, diikuti ilustrasi jaringan serta penjelasan batasan DNS terenkripsi",
     vpnTranscriptLabel: "Baca deskripsi adegan",
-    vpnTranscript: "Video menampilkan pemilihan penyedia cloud, termasuk Hetzner, pengelolaan klien WireGuard, penyambungan profil VPN ponsel, dan pembukaan host tersimpan. Ilustrasi jaringan menunjukkan WireGuard membawa lalu lintas dan SSH menjangkau perangkat privat. Adegan DNS menjelaskan bahwa DNS terenkripsi perlu disiapkan secara terpisah dan resolver dapat melihat kueri. Semua ini merupakan contoh ilustrasi, bukan jaminan bahwa membuat VPN otomatis menghubungkan setiap jaringan privat. Pesan penutupnya: cloud Anda, VPN Anda.",
+    vpnTranscript: "Video menampilkan pemilihan penyedia cloud, peninjauan deployment Hetzner, pengelolaan profil WireGuard, dan pembukaan host tersimpan. Ilustrasi jaringan menunjukkan gateway VPN yang menghubungkan perangkat, tunnel WireGuard, dan koneksi SSH. Adegan DNS menjelaskan bahwa DNS terenkripsi perlu disiapkan secara terpisah dan resolver dapat melihat kueri. Semua ini merupakan contoh ilustrasi, bukan jaminan bahwa membuat VPN otomatis menghubungkan setiap jaringan privat. Pesan penutupnya: cloud Anda, VPN Anda.",
     vpnCtaGuide: "Siapkan VPN Anda",
     vpnCtaProviders: "Pilih penyedia cloud",
     carHead: "Komputer pengembangan Anda, dari kursi penumpang",
     carAlt: "Animasi penumpang mobil yang mengakses komputer pengembangan di rumah melalui gateway VPN, dengan Gemma berjalan di ponsel",
-    carTranscript: "Mobil bergerak di antara menara seluler, dengan ponsel terhubung melalui gateway VPN ke komputer pengembangan di rumah. Model Gemma 4 yang sudah terpasang ditampilkan di ponsel. Saat sinyal hilang, animasi menggambarkan inferensi lokal sementara VPN menyambung kembali; akses jarak jauh pulih bersama koneksi. Alamat IP hanyalah contoh. Ini merupakan ilustrasi, bukan pengujian langsung VPN atau model."
+    carTranscript: "Mobil bergerak di antara menara seluler, dengan ponsel terhubung melalui gateway VPN ke komputer pengembangan di rumah. Model Gemma 4 yang sudah terpasang ditampilkan di ponsel. Saat sinyal hilang, animasi menggambarkan inferensi lokal sementara VPN menyambung kembali; akses jarak jauh pulih bersama koneksi. Alamat IP hanyalah contoh. Ini merupakan ilustrasi, bukan pengujian langsung VPN atau model.",
+    featuresPromoHead: "Alat Anda, dalam satu aplikasi",
+    featuresPromoAlt: "Mobile SSH di Android yang menampilkan kisi terminal, Chat agen pemrograman, SFTP, perbedaan Git, pengelola sesi, dan server tersimpan",
+    featuresPromoTranscript: "Layar Android menampilkan beberapa terminal SSH, Chat agen pemrograman, file lokal dan jarak jauh di SFTP, perbedaan Git, pengelola sesi, serta server yang disimpan dalam folder. Layar penutup menautkan ke situs web Mobile SSH.",
+    everydayHead: "Alat Anda, di mana pun Anda berada",
+    everydayAlt: "Animasi keseharian dengan Mobile SSH di pesawat, di bus, saat bepergian, dalam rapat, dan saat mengantre",
+    everydayTranscript: "Adegan ilustrasi menunjukkan Gemma berjalan secara lokal di ponsel selama penerbangan, kemudian akses Wi-Fi dan VPN ke komputer di rumah. Adegan lain memasangkan perjalanan bus dengan sesi terminal, berhenti sejenak saat bepergian dengan pengelola tmux, rapat dengan perbedaan Git, dan mengantre dengan server tersimpan. Ini adalah ilustrasi alur kerja, bukan pengujian langsung koneksi atau model."
   },
   features: {
     metaTitle: "Fitur | Mobile SSH",

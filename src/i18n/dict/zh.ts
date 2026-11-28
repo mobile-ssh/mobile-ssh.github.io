@@ -211,12 +211,18 @@ export const zh: Dict = {
     vpnBody: "在兼容的 Android 版本上，VPN Setup 插件可创建云服务器、安装 wg-easy 并导入 WireGuard 客户端，也可使用现有公网服务器。每项变更都在手机上审查。资源归你的云账户所有，运行费用也由你承担。",
     vpnAlt: "Mobile SSH VPN 宣传视频，先演示云端设置和客户端管理界面，再展示网络示意图及加密 DNS 的注意事项",
     vpnTranscriptLabel: "阅读场景说明",
-    vpnTranscript: "视频展示选择包括 Hetzner 在内的云服务商、管理 WireGuard 客户端、连接手机上的 VPN 配置以及打开保存的主机。网络示意图展示 WireGuard 传输流量和 SSH 访问私有设备。DNS 场景指出，加密 DNS 需要单独配置，解析器能够看到查询。这些仅为示意，并不保证创建 VPN 就会自动接通所有私有网络。结尾信息是：你的云，你的 VPN。",
+    vpnTranscript: "视频展示选择云服务商、查看 Hetzner 部署、管理 WireGuard 配置文件和打开已保存的主机。网络示意图展示连接各台设备的 VPN 网关、WireGuard 隧道和 SSH 连接。DNS 场景说明，加密 DNS 需要单独设置，且解析器可以看到查询。这些是示意示例，并不保证创建 VPN 就能自动连通所有私有网络。结尾的信息是：你的云，你的 VPN。",
     vpnCtaGuide: "设置你的 VPN",
     vpnCtaProviders: "选择云服务商",
     carHead: "坐在副驾驶，也能访问开发机",
     carAlt: "动画中的汽车乘客通过 VPN 网关访问家中开发电脑，手机上运行着 Gemma",
-    carTranscript: "汽车在移动通信基站之间行驶，手机通过 VPN 网关连接家中的开发电脑。画面展示手机上已安装的 Gemma 4 模型。信号中断时，动画演示 VPN 重连期间的本地推理；连接恢复后，远程访问随之恢复。IP 地址仅为示例。这是示意动画，并非实际 VPN 或模型测试。"
+    carTranscript: "汽车在移动通信基站之间行驶，手机通过 VPN 网关连接家中的开发电脑。画面展示手机上已安装的 Gemma 4 模型。信号中断时，动画演示 VPN 重连期间的本地推理；连接恢复后，远程访问随之恢复。IP 地址仅为示例。这是示意动画，并非实际 VPN 或模型测试。",
+    featuresPromoHead: "你的工具，尽在一个应用",
+    featuresPromoAlt: "Android 上的 Mobile SSH，展示终端网格、编程代理 Chat、SFTP、Git 差异、会话管理器和已保存的服务器",
+    featuresPromoTranscript: "Android 屏幕展示多个 SSH 终端、编程代理 Chat、SFTP 中的本地和远程文件、Git 差异、会话管理器，以及按文件夹保存的服务器。结尾画面提供 Mobile SSH 网站链接。",
+    everydayHead: "你的工具，随你到任何地方",
+    everydayAlt: "日常生活动画场景，展示在飞机上、公交车上、外出途中、开会时和排队等候时使用 Mobile SSH",
+    everydayTranscript: "示意场景先展示飞行途中在手机本地运行 Gemma，随后展示通过 Wi-Fi 和 VPN 访问家中的电脑。其他场景将乘公交车与终端会话、外出途中停留与 tmux 管理器、开会与 Git 差异，以及排队等候与已保存的服务器对应起来。这些是工作流程示意，并非实际连接或模型测试。"
   },
   features: {
     metaTitle: "功能 | Mobile SSH",

@@ -120,7 +120,7 @@ export interface Dict {
     videoIntro: string;
     videoAlt: string;
     videoIosAlt: string;
-    // The landscape VPN promo combines demo UI with network illustrations.
+    // Responsive homepage promos combine demo UI with network illustrations.
     vpnHead: string;
     vpnBody: string;
     vpnAlt: string;
@@ -131,6 +131,12 @@ export interface Dict {
     carHead: string;
     carAlt: string;
     carTranscript: string;
+    featuresPromoHead: string;
+    featuresPromoAlt: string;
+    featuresPromoTranscript: string;
+    everydayHead: string;
+    everydayAlt: string;
+    everydayTranscript: string;
     // The per-multiplexer demos. `muxItems` is indexed positionally against a
     // fixed list of video files in FeatureVideos.astro, so its length is asserted in
     // translations.test.ts — it must stay at three (tmux, herdr, Zellij).

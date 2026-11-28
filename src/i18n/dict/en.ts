@@ -209,12 +209,18 @@ export const en: Dict = {
     vpnBody: "On a compatible Android build, the VPN Setup plugin can create a cloud server, install wg-easy and import a WireGuard client, or use an existing public server. Review each change on your phone. Your cloud account owns the resources and their running costs.",
     vpnAlt: "Mobile SSH VPN promotional video with demo screens for cloud setup and client management, followed by network illustrations and an encrypted-DNS caveat",
     vpnTranscriptLabel: "Read the scene description",
-    vpnTranscript: "The video shows choosing a cloud provider, including Hetzner, managing WireGuard clients, connecting a phone VPN profile and opening saved hosts. Network illustrations show WireGuard carrying traffic and SSH reaching private devices. The DNS scene notes that encrypted DNS needs separate setup and that a resolver can see queries. These are illustrated examples, not a guarantee that creating a VPN automatically connects every private network. The closing message is: your cloud, your VPN.",
+    vpnTranscript: "The video shows choosing a cloud provider, reviewing a Hetzner deployment, managing WireGuard profiles and opening saved hosts. Network illustrations show a VPN gateway joining devices, WireGuard tunnels and SSH connections. The DNS scene notes that encrypted DNS needs separate setup and that a resolver can see queries. These are illustrated examples, not a guarantee that creating a VPN automatically connects every private network. The closing message is: your cloud, your VPN.",
     vpnCtaGuide: "Set up your VPN",
     vpnCtaProviders: "Choose a cloud provider",
     carHead: "Your devbox, from the passenger seat",
     carAlt: "Animated car passenger accessing a home development computer through a VPN gateway, with Gemma running on the phone",
-    carTranscript: "A car moves between mobile towers, with a phone linked through a VPN gateway to a home development computer. An installed Gemma 4 model is shown on the phone. When the signal drops, the animation illustrates local inference while the VPN reconnects; remote access returns with the connection. The IP addresses are examples. This is an illustration, not a live VPN or model test."
+    carTranscript: "A car moves between mobile towers, with a phone linked through a VPN gateway to a home development computer. An installed Gemma 4 model is shown on the phone. When the signal drops, the animation illustrates local inference while the VPN reconnects; remote access returns with the connection. The IP addresses are examples. This is an illustration, not a live VPN or model test.",
+    featuresPromoHead: "Your tools, in one app",
+    featuresPromoAlt: "Mobile SSH on Android showing terminal grids, coding-agent Chat, SFTP, Git diffs, session managers and saved servers",
+    featuresPromoTranscript: "Android screens show multiple SSH terminals, coding-agent Chat, local and remote files in SFTP, a Git diff, session managers and saved servers in folders. The closing screen links to the Mobile SSH website.",
+    everydayHead: "Your tools, wherever you are",
+    everydayAlt: "Animated everyday scenes with Mobile SSH on a plane, on a bus, on the go, in a meeting and while waiting in line",
+    everydayTranscript: "Illustrated scenes show Gemma running locally on a phone during a flight, followed by Wi-Fi and VPN access to a home computer. Other scenes pair a bus ride with terminal sessions, a stop on the go with the tmux manager, a meeting with a Git diff, and waiting in line with saved servers. These are illustrated workflows, not live connection or model tests."
   },
   features: {
     metaTitle: "Features | Mobile SSH",

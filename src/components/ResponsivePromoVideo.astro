@@ -1,0 +1,74 @@
+---
+interface Props {
+  name: "vpn-workflow" | "car" | "features" | "everyday";
+  label: string;
+}
+
+const { name, label } = Astro.props;
+const basename = `mobile-ssh-${name}`;
+---
+
+<figure class="promo-video">
+  <video data-responsive-promo controls preload="none" playsinline width="1920" height="1080" aria-label={label}>
+    <source
+      src={`/assets/videos/${basename}-vertical-1080p.mp4`}
+      type="video/mp4"
+      media="(max-width: 767px)"
+      data-orientation="vertical"
+      data-poster={`/assets/posters/${basename}-vertical-1080p.jpg`}
+    />
+    <source
+      src={`/assets/videos/${basename}-landscape-1080p.mp4`}
+      type="video/mp4"
+      data-orientation="landscape"
+      data-poster={`/assets/posters/${basename}-landscape-1080p.jpg`}
+    />
+  </video>
+</figure>
+
+<style>
+  .promo-video { margin: 0; }
+  video {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    margin-inline: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    background: #000;
+  }
+  @media (max-width: 767px) {
+    video { aspect-ratio: 9 / 16; max-inline-size: 480px; }
+  }
+  video[data-orientation="vertical"] { aspect-ratio: 9 / 16; max-inline-size: 480px; }
+  video[data-orientation="landscape"] { aspect-ratio: 16 / 9; max-inline-size: none; }
+</style>
+
+<script>
+  const mobile = window.matchMedia("(max-width: 767px)");
+  document.querySelectorAll<HTMLVideoElement>("video[data-responsive-promo]").forEach((video) => {
+    let started = false;
+    video.addEventListener("play", () => { started = true; }, { once: true });
+
+    const selectVariant = () => {
+      // The edits can differ in length. Keep a started clip intact when the
+      // viewport changes, including while the viewer has paused it.
+      if (started) return;
+      const orientation = mobile.matches ? "vertical" : "landscape";
+      if (video.dataset.orientation === orientation) return;
+      const source = video.querySelector<HTMLSourceElement>(`source[data-orientation="${orientation}"]`);
+      if (!source) return;
+      video.dataset.orientation = orientation;
+      video.poster = source.dataset.poster ?? "";
+      video.width = mobile.matches ? 1080 : 1920;
+      video.height = mobile.matches ? 1920 : 1080;
+      // Explicit selection also supports browsers that ignore source.media.
+      // Native sources remain a usable fallback when JavaScript is disabled.
+      video.src = source.src;
+    };
+
+    selectVariant();
+    mobile.addEventListener("change", selectVariant);
+  });
+</script>

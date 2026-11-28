@@ -211,12 +211,18 @@ export const tr: Dict = {
     vpnBody: "Uyumlu bir Android derlemesinde VPN Setup eklentisi bir bulut sunucusu oluşturabilir, wg-easy kurabilir ve bir WireGuard istemcisini içe aktarabilir ya da mevcut bir genel sunucuyu kullanabilir. Her değişikliği telefonunuzda inceleyin. Kaynaklar ve işletim maliyetleri kendi bulut hesabınıza aittir.",
     vpnAlt: "Bulut kurulumu ve istemci yönetimi demo ekranlarını, ardından ağ çizimlerini ve şifreli DNS hakkında bir açıklamayı gösteren Mobile SSH VPN tanıtım videosu",
     vpnTranscriptLabel: "Sahne açıklamasını okuyun",
-    vpnTranscript: "Video, Hetzner dahil bir bulut sağlayıcısının seçilmesini, WireGuard istemcilerinin yönetilmesini, telefondaki bir VPN profiline bağlanılmasını ve kaydedilmiş sunucuların açılmasını gösterir. Ağ çizimleri, WireGuard'ın trafiği taşımasını ve SSH'nin özel cihazlara ulaşmasını gösterir. DNS sahnesi, şifreli DNS'nin ayrı kurulum gerektirdiğini ve bir çözümleyicinin sorguları görebildiğini belirtir. Bunlar açıklayıcı örneklerdir; VPN oluşturmanın her özel ağı otomatik olarak bağlayacağına dair bir garanti değildir. Kapanış mesajı: sizin bulutunuz, sizin VPN'iniz.",
+    vpnTranscript: "Video, bulut sağlayıcısı seçimini, bir Hetzner dağıtımının incelenmesini, WireGuard profillerinin yönetimini ve kayıtlı sunucuların açılmasını gösterir. Ağ çizimleri, cihazları birleştiren bir VPN ağ geçidini, WireGuard tünellerini ve SSH bağlantılarını gösterir. DNS sahnesi, şifreli DNS’nin ayrı kurulum gerektirdiğini ve bir çözümleyicinin sorguları görebildiğini belirtir. Bunlar açıklayıcı örneklerdir; VPN oluşturmanın her özel ağı otomatik olarak bağlayacağına dair bir garanti değildir. Kapanış mesajı: sizin bulutunuz, sizin VPN’iniz.",
     vpnCtaGuide: "VPN'inizi kurun",
     vpnCtaProviders: "Bir bulut sağlayıcısı seçin",
     carHead: "Geliştirme bilgisayarınız, yolcu koltuğundan",
     carAlt: "Telefonda Gemma çalışırken bir yolcunun VPN ağ geçidi üzerinden evdeki geliştirme bilgisayarına eriştiğini gösteren animasyon",
-    carTranscript: "Bir araç baz istasyonları arasında ilerlerken telefon, VPN ağ geçidi üzerinden evdeki geliştirme bilgisayarına bağlanır. Telefonda yüklü bir Gemma 4 modeli gösterilir. Sinyal kesildiğinde animasyon, VPN yeniden bağlanırken yerel çıkarımı gösterir; bağlantıyla birlikte uzaktan erişim de geri gelir. IP adresleri örnektir. Bu bir canlandırmadır; canlı VPN veya model testi değildir."
+    carTranscript: "Bir araç baz istasyonları arasında ilerlerken telefon, VPN ağ geçidi üzerinden evdeki geliştirme bilgisayarına bağlanır. Telefonda yüklü bir Gemma 4 modeli gösterilir. Sinyal kesildiğinde animasyon, VPN yeniden bağlanırken yerel çıkarımı gösterir; bağlantıyla birlikte uzaktan erişim de geri gelir. IP adresleri örnektir. Bu bir canlandırmadır; canlı VPN veya model testi değildir.",
+    featuresPromoHead: "Araçlarınız, tek uygulamada",
+    featuresPromoAlt: "Android’de Mobile SSH: terminal ızgaraları, kodlama ajanı Sohbeti, SFTP, Git farkları, oturum yöneticileri ve kayıtlı sunucular",
+    featuresPromoTranscript: "Android ekranları birden çok SSH terminalini, kodlama ajanı Sohbetini, SFTP’de yerel ve uzak dosyaları, bir Git farkını, oturum yöneticilerini ve klasörlerde kayıtlı sunucuları gösterir. Kapanış ekranı Mobile SSH web sitesine bağlantı verir.",
+    everydayHead: "Araçlarınız, nerede olursanız olun",
+    everydayAlt: "Uçakta, otobüste, hareket hâlindeyken, toplantıda ve sırada beklerken Mobile SSH kullanımını gösteren günlük yaşam animasyonları",
+    everydayTranscript: "Canlandırılan sahnelerde uçuş sırasında telefonda yerel olarak çalışan Gemma, ardından Wi-Fi ve VPN üzerinden evdeki bilgisayara erişim gösterilir. Diğer sahneler otobüs yolculuğunu terminal oturumlarıyla, yol üzerindeki bir molayı tmux yöneticisiyle, toplantıyı bir Git farkıyla ve sırada beklemeyi kayıtlı sunucularla eşleştirir. Bunlar canlandırılmış iş akışlarıdır; canlı bağlantı veya model testleri değildir."
   },
   features: {
     metaTitle: "Özellikler | Mobile SSH",
